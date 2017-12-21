@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="numpy," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="技术和生活分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宁静的夜">
-<meta property="og:url" content="http://crazygit.wiseturtles.com/index.html">
+<meta name="description" content="参考:https://docs.scipy.org/doc/numpy-dev/user/quickstart.html 准备安装numpy $ pip install numpy 基础 In NumPy dimensions are called axes. The number of axes is rank.  Numpy中，维度被称作axes, 维度数被称作rank。 Numpy的数组类是">
+<meta name="keywords" content="numpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NumPy快速入门指南.md">
+<meta property="og:url" content="http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/index.html">
 <meta property="og:site_name" content="宁静的夜">
-<meta property="og:description" content="技术和生活分享">
+<meta property="og:description" content="参考:https://docs.scipy.org/doc/numpy-dev/user/quickstart.html 准备安装numpy $ pip install numpy 基础 In NumPy dimensions are called axes. The number of axes is rank.  Numpy中，维度被称作axes, 维度数被称作rank。 Numpy的数组类是">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-21T14:21:14.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宁静的夜">
-<meta name="twitter:description" content="技术和生活分享">
+<meta name="twitter:title" content="NumPy快速入门指南.md">
+<meta name="twitter:description" content="参考:https://docs.scipy.org/doc/numpy-dev/user/quickstart.html 准备安装numpy $ pip install numpy 基础 In NumPy dimensions are called axes. The number of axes is rank.  Numpy中，维度被称作axes, 维度数被称作rank。 Numpy的数组类是">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://crazygit.wiseturtles.com/"/>
+  <link rel="canonical" href="http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/"/>
 
 
 
 
 
-  <title>宁静的夜</title>
+  <title>NumPy快速入门指南.md | 宁静的夜</title>
   
 
 
@@ -145,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,1217 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crazygit">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/1240997">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宁静的夜">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/20/10-minutes-to-pandas/" itemprop="url">10分钟入门Pandas</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T22:21:46+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/" itemprop="url" rel="index">
-                    <span itemprop="name">数据分析</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考:</p>
-<p><a href="http://pandas.pydata.org/pandas-docs/stable/10min.html" target="_blank" rel="noopener">10 Minutes to pandas</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>支持的python版本: 2.7, 3.5, 3.6</p>
-<pre><code>$ pip install pandas
-</code></pre><p>检查本地的pandas运行环境是否完整，可以运行pandas的单元测试用例</p>
-<pre><code>$ pip install pytest
-
-&gt;&gt;&gt; import pandas as pd
-&gt;&gt;&gt; pd.test()
-</code></pre><p>获取当前使用pandas的版本信息</p>
-<pre><code>&gt;&gt;&gt; import pandas as pd
-&gt;&gt;&gt; pd.__version__
-&apos;0.21.1&apos;
-</code></pre><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>pandas的基本数据结构:</p>
-<ul>
-<li><code>Series</code>: 一维数据</li>
-<li><code>DataFrame</code>: 二维数据</li>
-<li><code>Panel</code>: 三维数据(从0.20.0版本开始，已经<a href="http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dsintro-deprecate-panel" target="_blank" rel="noopener">不再推荐使用</a>)</li>
-<li><code>Panel4D</code>, <code>PanelND</code>(不再推荐使用)</li>
-</ul>
-<p><code>DataFrame</code>是由<code>Series</code>构成的</p>
-<h2 id="创建Series"><a href="#创建Series" class="headerlink" title="创建Series"></a>创建Series</h2><p>创建<code>Series</code>最简单的方法</p>
-<pre><code>&gt;&gt;&gt; s = pd.Series(data, index=index)
-</code></pre><p><code>data</code>可以是不同的类型:</p>
-<ul>
-<li>python字典</li>
-<li>ndarray</li>
-<li>标量(比如: 5)</li>
-</ul>
-<h3 id="使用ndarray创建-From-ndarray"><a href="#使用ndarray创建-From-ndarray" class="headerlink" title="使用ndarray创建(From ndarray)"></a>使用<code>ndarray</code>创建(From ndarray)</h3><p>如果<code>data</code>是<code>ndarray</code>,那么<code>index</code>的长度必须和<code>data</code>的长度相同，当没有明确<code>index</code>参数时，默认使用<code>[0, ... len(data) - 1]</code>作为<code>index</code>。</p>
-<pre><code>&gt;&gt;&gt; import pandas as pd
-
-&gt;&gt;&gt; import numpy as np
-
-&gt;&gt;&gt; s = pd.Series(np.random.randn(5), index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;])
-
-&gt;&gt;&gt; s
-a    0.654385
-b    0.055691
-c    0.856054
-d    0.621810
-e    1.802872
-dtype: float64
-
-&gt;&gt;&gt; s.index
-Index([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;], dtype=&apos;object&apos;)
-
-&gt;&gt;&gt; pd.Series(np.random.randn(5))
-0   -0.467183
-1   -1.333323
-2   -0.493813
-3   -0.067705
-4   -1.310332
-dtype: float64
-</code></pre><p>需要注意的是: <code>pandas</code>里的索引并不要求唯一性，如果一个操作不支持重复的索引，会自动抛出异常。这么做的原因是很多操作不会用到索引，比如<code>GroupBy</code>。</p>
-<pre><code>&gt;&gt;&gt; s = pd.Series(np.random.randn(5), index=[&apos;a&apos;, &apos;a&apos;, &apos;a&apos;, &apos;a&apos;, &apos;a&apos;])
-
-&gt;&gt;&gt; s
-a    0.847331
-a   -2.138021
-a   -0.364763
-a   -0.603172
-a    0.363691
-dtype: float64
-</code></pre><h3 id="使用dict创建-From-dict"><a href="#使用dict创建-From-dict" class="headerlink" title="使用dict创建(From dict)"></a>使用<code>dict</code>创建(From dict)</h3><p>当<code>data</code>是<code>dict</code>类型时，如果指定了<code>index</code>参数，那么就使用<code>index</code>参数作为索引。否者，就使用排序后的<code>data</code>的<code>key</code>作为<code>index</code>。</p>
-<pre><code>&gt;&gt;&gt; d = {&apos;b&apos;: 0., &apos;a&apos;: 1., &apos;c&apos;: 2.}
-
-# 索引的值是排序后的
-&gt;&gt;&gt; pd.Series(d)
-a    1.0
-b    0.0
-c    2.0
-dtype: float64
-
-# 字典中不存在的key, 直接赋值为NaN(Not a number)
-&gt;&gt;&gt; pd.Series(d, index=[&apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;a&apos;])
-b    0.0
-c    2.0
-d    NaN
-a    1.0
-dtype: float64
-</code></pre><h3 id="使用标量创建-From-scalar-value"><a href="#使用标量创建-From-scalar-value" class="headerlink" title="使用标量创建(From scalar value)"></a>使用标量创建(From scalar value)</h3><p>当<code>data</code>是标量时，必须提供<code>index</code>, 值会被重复到<code>index</code>的长度</p>
-<pre><code>&gt;&gt;&gt; pd.Series(5., index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;])
-a    5.0
-b    5.0
-c    5.0
-d    5.0
-e    5.0
-dtype: float64
-</code></pre><h2 id="创建DataFrame"><a href="#创建DataFrame" class="headerlink" title="创建DataFrame"></a>创建DataFrame</h2><p>DataFrame是一个二维的数据结构，可以看做是一个excel表格或一张SQL表，或者值为Series的字典。 跟Series一样，DataFrame也可以通过多种类型的数据结构来创建</p>
-<ul>
-<li>字典(包含一维ndarray数组，列表，字典或Series)</li>
-<li>二维的ndarray数组</li>
-<li>结构化的ndarray</li>
-<li>Series</li>
-<li>另一个DataFrame</li>
-</ul>
-<p>除了<code>data</code>之外，还接受<code>index</code>和<code>columns</code>参数来分布指定行和列的标签</p>
-<h3 id="从Series字典或嵌套的字典创建-From-dict-of-Series-or-dicts"><a href="#从Series字典或嵌套的字典创建-From-dict-of-Series-or-dicts" class="headerlink" title="从Series字典或嵌套的字典创建(From dict of Series or dicts)"></a>从Series字典或嵌套的字典创建(From dict of Series or dicts)</h3><p>结果的索引是多个Series索引的合集，如果没有指定<code>columns</code>，就用排序后的字典的<code>key</code>作为列标签。</p>
-<pre><code>&gt;&gt;&gt; d = {&apos;one&apos;: pd.Series([1,2,3], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]),
-...      &apos;two&apos;: pd.Series([1,2,3,4], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])}
-...
-
-&gt;&gt;&gt; df = pd.DataFrame(d)
-
-&gt;&gt;&gt; df
-   one  two
-a  1.0    1
-b  2.0    2
-c  3.0    3
-d  NaN    4
-
-&gt;&gt;&gt; pd.DataFrame(d, index=[&apos;d&apos;, &apos;b&apos;, &apos;a&apos;])
-   one  two
-d  NaN    4
-b  2.0    2
-a  1.0    1
-
-&gt;&gt;&gt; pd.DataFrame(d, index=[&apos;d&apos;, &apos;b&apos;, &apos;a&apos;], columns=[&apos;two&apos;, &apos;three&apos;])
-   two three
-d    4   NaN
-b    2   NaN
-a    1   NaN
-
-&gt;&gt;&gt; df.index
-Index([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], dtype=&apos;object&apos;)
-
-&gt;&gt;&gt; df.columns
-Index([&apos;one&apos;, &apos;two&apos;], dtype=&apos;object&apos;)
-</code></pre><h3 id="从ndarray类型-列表类型的字典-From-dict-of-ndarrays-lists"><a href="#从ndarray类型-列表类型的字典-From-dict-of-ndarrays-lists" class="headerlink" title="从ndarray类型/列表类型的字典(From dict of ndarrays / lists)"></a>从ndarray类型/列表类型的字典(From dict of ndarrays / lists)</h3><pre><code>&gt;&gt;&gt; d = {&apos;one&apos;: [1,2,3,4], &apos;two&apos;: [4,3,2,1]}
-
-&gt;&gt;&gt; pd.DataFrame(d)
-   one  two
-0    1    4
-1    2    3
-2    3    2
-3    4    1
-
-&gt;&gt;&gt; pd.DataFrame(d, index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])
-   one  two
-a    1    4
-b    2    3
-c    3    2
-d    4    1
-</code></pre><h3 id="从结构化ndarray创建-From-structured-or-record-array"><a href="#从结构化ndarray创建-From-structured-or-record-array" class="headerlink" title="从结构化ndarray创建(From structured or record array)"></a>从结构化ndarray创建(From structured or record array)</h3><pre><code>&gt;&gt;&gt; data = np.zeros((2, ), dtype=[(&apos;A&apos;, &apos;i4&apos;), (&apos;B&apos;, &apos;f4&apos;), (&apos;C&apos;, &apos;a10&apos;)])
-
-&gt;&gt;&gt; data
-array([(0,  0., b&apos;&apos;), (0,  0., b&apos;&apos;)],
-      dtype=[(&apos;A&apos;, &apos;&lt;i4&apos;), (&apos;B&apos;, &apos;&lt;f4&apos;), (&apos;C&apos;, &apos;S10&apos;)])
-
-&gt;&gt;&gt; data[:] = [(1, 2., &apos;Hello&apos;), (2, 3., &apos;World&apos;)]
-
-&gt;&gt;&gt; pd.DataFrame(data)
-   A    B         C
-0  1  2.0  b&apos;Hello&apos;
-1  2  3.0  b&apos;World&apos;
-
-&gt;&gt;&gt; pd.DataFrame(data, index=[&apos;first&apos;, &apos;second&apos;])
-    A    B         C
-first   1  2.0  b&apos;Hello&apos;
-second  2  3.0  b&apos;World&apos;
-
-&gt;&gt;&gt; pd.DataFrame(data, index=[&apos;first&apos;, &apos;second&apos;], columns=[&apos;C&apos;, &apos;A&apos;, &apos;B&apos;])
-               C  A    B
-first   b&apos;Hello&apos;  1  2.0
-second  b&apos;World&apos;  2  3.0
-</code></pre><h3 id="从字典列表里创建-a-list-of-dicts"><a href="#从字典列表里创建-a-list-of-dicts" class="headerlink" title="从字典列表里创建(a list of dicts)"></a>从字典列表里创建(a list of dicts)</h3><pre><code>&gt;&gt;&gt; data2 = [{&quot;a&quot;: 1, &quot;b&quot;: 2}, {&quot;a&quot;: 5, &quot;b&quot;: 10, &quot;c&quot;: 20}]
-
-&gt;&gt;&gt; pd.DataFrame(data2)
-   a   b     c
-0  1   2   NaN
-1  5  10  20.0
-
-&gt;&gt;&gt; pd.DataFrame(data2, index=[&quot;first&quot;, &quot;second&quot;])
-        a   b     c
-first   1   2   NaN
-second  5  10  20.0
-
-&gt;&gt;&gt; pd.DataFrame(data2, columns=[&quot;a&quot;, &quot;b&quot;])
-   a   b
-0  1   2
-1  5  10
-</code></pre><h3 id="从元祖字典创建（From-a-dict-of-tuples）"><a href="#从元祖字典创建（From-a-dict-of-tuples）" class="headerlink" title="从元祖字典创建（From a dict of tuples）"></a>从元祖字典创建（From a dict of tuples）</h3><p>通过元祖字典，可以创建多索引的DataFrame</p>
-<pre><code>&gt;&gt;&gt; pd.DataFrame({(&apos;a&apos;, &apos;b&apos;): {(&apos;A&apos;, &apos;B&apos;): 1, (&apos;A&apos;, &apos;C&apos;): 2},
-...               (&apos;a&apos;, &apos;a&apos;): {(&apos;A&apos;, &apos;C&apos;): 3, (&apos;A&apos;, &apos;B&apos;): 4},
-...               (&apos;a&apos;, &apos;c&apos;): {(&apos;A&apos;, &apos;B&apos;): 5, (&apos;A&apos;, &apos;C&apos;): 6},
-...               (&apos;b&apos;, &apos;a&apos;): {(&apos;A&apos;, &apos;C&apos;): 7, (&apos;A&apos;, &apos;B&apos;): 8},
-...               (&apos;b&apos;, &apos;b&apos;): {(&apos;A&apos;, &apos;D&apos;): 9, (&apos;A&apos;, &apos;B&apos;): 10}})
-...
-       a              b
-       a    b    c    a     b
-A B  4.0  1.0  5.0  8.0  10.0
-  C  3.0  2.0  6.0  7.0   NaN
-  D  NaN  NaN  NaN  NaN   9.0
-</code></pre><h3 id="通过Series创建-From-a-Series"><a href="#通过Series创建-From-a-Series" class="headerlink" title="通过Series创建(From a Series)"></a>通过Series创建(From a Series)</h3><pre><code>&gt;&gt;&gt; pd.DataFrame(pd.Series([1,2,3]))
-   0
-0  1
-1  2
-2  3
-</code></pre><h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><pre><code>&gt;&gt;&gt; dates = pd.date_range(&apos;20130101&apos;, periods=6)
-
-&gt;&gt;&gt; dates
-DatetimeIndex([&apos;2013-01-01&apos;, &apos;2013-01-02&apos;, &apos;2013-01-03&apos;, &apos;2013-01-04&apos;,
-               &apos;2013-01-05&apos;, &apos;2013-01-06&apos;],
-              dtype=&apos;datetime64[ns]&apos;, freq=&apos;D&apos;)
-
-&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(6,4),index=dates,columns=list(&apos;ABCD&apos;))
-
-&gt;&gt;&gt; df
-                   A         B         C         D
-2013-01-01  1.231897 -0.169839  1.333295  0.367142
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-2013-01-06 -1.831020  0.813526  0.403101 -1.251946
-
-# 获取前几行(默认前5行)
-&gt;&gt;&gt; df.head()
-                   A         B         C         D
-2013-01-01  1.231897 -0.169839  1.333295  0.367142
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-
-# 获取后3行
-&gt;&gt;&gt; df.tail(3)
-                   A         B         C         D
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-2013-01-06 -1.831020  0.813526  0.403101 -1.251946
-
-# 获取索引
-&gt;&gt;&gt; df.index
-DatetimeIndex([&apos;2013-01-01&apos;, &apos;2013-01-02&apos;, &apos;2013-01-03&apos;, &apos;2013-01-04&apos;,
-               &apos;2013-01-05&apos;, &apos;2013-01-06&apos;],
-              dtype=&apos;datetime64[ns]&apos;, freq=&apos;D&apos;)
-
-# 获取列信息
-&gt;&gt;&gt; df.columns
-Index([&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;], dtype=&apos;object&apos;)
-
-# 获取数据信息
-&gt;&gt;&gt; df.values
-array([[ 1.23189704, -0.16983942,  1.3332949 ,  0.36714191],
-       [-0.12744988, -1.71667129,  0.91034961,  0.15118638],
-       [-0.24165226, -0.98464711,  0.78865554, -0.20363944],
-       [ 0.04498958, -0.25515787, -1.21384804,  1.07671506],
-       [ 0.41821265,  0.10740007,  0.61944799,  1.49408712],
-       [-1.8310196 ,  0.81352564,  0.40310115, -1.25194611]])
-
-# 获取简单的统计信息
-&gt;&gt;&gt;  df.describe()
-              A         B         C         D
-count  6.000000  6.000000  6.000000  6.000000
-mean  -0.084170 -0.367565  0.473500  0.272257
-std    1.007895  0.880134  0.883494  0.970912
-min   -1.831020 -1.716671 -1.213848 -1.251946
-25%   -0.213102 -0.802275  0.457188 -0.114933
-50%   -0.041230 -0.212499  0.704052  0.259164
-75%    0.324907  0.038090  0.879926  0.899322
-max    1.231897  0.813526  1.333295  1.494087
-
-# 转置矩阵
-&gt;&gt;&gt; df.T
-   2013-01-01  2013-01-02  2013-01-03  2013-01-04  2013-01-05  2013-01-06
-A    1.231897   -0.127450   -0.241652    0.044990    0.418213   -1.831020
-B   -0.169839   -1.716671   -0.984647   -0.255158    0.107400    0.813526
-C    1.333295    0.910350    0.788656   -1.213848    0.619448    0.403101
-D    0.367142    0.151186   -0.203639    1.076715    1.494087   -1.251946
-
-# 按照列排序
-&gt;&gt;&gt; df.sort_values(by=&apos;B&apos;)
-                  A         B         C         D
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-2013-01-01  1.231897 -0.169839  1.333295  0.367142
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-2013-01-06 -1.831020  0.813526  0.403101 -1.251946
-</code></pre><h2 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h2><h3 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h3><p>选择列， 返回的是Series</p>
-<pre><code>&gt;&gt;&gt; df[&apos;A&apos;]
-2013-01-01    1.231897
-2013-01-02   -0.127450
-2013-01-03   -0.241652
-2013-01-04    0.044990
-2013-01-05    0.418213
-2013-01-06   -1.831020
-Freq: D, Name: A, dtype: float64
-
-&gt;&gt;&gt; df.A
-2013-01-01    1.231897
-2013-01-02   -0.127450
-2013-01-03   -0.241652
-2013-01-04    0.044990
-2013-01-05    0.418213
-2013-01-06   -1.831020
-Freq: D, Name: A, dtype: float64
-</code></pre><p>选择行</p>
-<pre><code>&gt;&gt;&gt; df[0:3]
-                   A         B         C         D
-2013-01-01  1.231897 -0.169839  1.333295  0.367142
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-
-&gt;&gt;&gt; df[&quot;20130102&quot;:&quot;20130104&quot;]
-                   A         B         C         D
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-</code></pre><h3 id="通过Label选择"><a href="#通过Label选择" class="headerlink" title="通过Label选择"></a>通过Label选择</h3><pre><code># 返回的Series
-&gt;&gt;&gt; df.loc[dates[0]]
-A    1.231897
-B   -0.169839
-C    1.333295
-D    0.367142
-Name: 2013-01-01 00:00:00, dtype: float64
-
-# 返回的DateFrame
-&gt;&gt;&gt; df.loc[:, [&apos;A&apos;, &apos;B&apos;]]
-                  A         B
-2013-01-01  1.231897 -0.169839
-2013-01-02 -0.127450 -1.716671
-2013-01-03 -0.241652 -0.984647
-2013-01-04  0.044990 -0.255158
-2013-01-05  0.418213  0.107400
-2013-01-06 -1.831020  0.813526
-
-&gt;&gt;&gt; df.loc[&apos;20130102&apos;:&apos;20130104&apos;,[&apos;A&apos;,&apos;B&apos;]]
-                   A         B
-2013-01-02 -0.127450 -1.716671
-2013-01-03 -0.241652 -0.984647
-2013-01-04  0.044990 -0.255158
-
-# 降维返回
-&gt;&gt;&gt; df.loc[&apos;20130102&apos;,[&apos;A&apos;,&apos;B&apos;]]
-A   -0.127450
-B   -1.716671
-Name: 2013-01-02 00:00:00, dtype: float64
-</code></pre><h3 id="通过Position选择"><a href="#通过Position选择" class="headerlink" title="通过Position选择"></a>通过Position选择</h3><pre><code># 返回第4行
-&gt;&gt;&gt; df.iloc[3]
-A    0.044990
-B   -0.255158
-C   -1.213848
-D    1.076715
-Name: 2013-01-04 00:00:00, dtype: float64
-
-
-&gt;&gt;&gt; df.iloc[3:5,0:2]
-                   A         B
-2013-01-04  0.044990 -0.255158
-2013-01-05  0.418213  0.107400
-
-&gt;&gt;&gt; df.iloc[1:3, :]
-                   A         B         C         D
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639
-
-# 获得指定位置的元素
-&gt;&gt;&gt; df.iloc[1,1]
--1.7166712884342545
-
-&gt;&gt;&gt; df.iat[1,1]
--1.7166712884342545
-</code></pre><h3 id="布尔索引"><a href="#布尔索引" class="headerlink" title="布尔索引"></a>布尔索引</h3><pre><code>&gt;&gt;&gt; df[df.A &gt; 0]
-                   A         B         C         D
-2013-01-01  1.231897 -0.169839  1.333295  0.367142
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-
-
-&gt;&gt;&gt; df[df &gt; 0]
-                   A         B         C         D
-2013-01-01  1.231897       NaN  1.333295  0.367142
-2013-01-02       NaN       NaN  0.910350  0.151186
-2013-01-03       NaN       NaN  0.788656       NaN
-2013-01-04  0.044990       NaN       NaN  1.076715
-2013-01-05  0.418213  0.107400  0.619448  1.494087
-2013-01-06       NaN  0.813526  0.403101       NaN
-
-
-&gt;&gt;&gt; df2=df.copy()
-
-&gt;&gt;&gt; df2[&apos;E&apos;] = [&apos;one&apos;,&apos;one&apos;,&apos;two&apos;,&apos;three&apos;,&apos;four&apos;,&apos;three&apos;]
-
-&gt;&gt;&gt; df2
-                   A         B         C         D      E
-2013-01-01  1.231897 -0.169839  1.333295  0.367142    one
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186    one
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639    two
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715  three
-2013-01-05  0.418213  0.107400  0.619448  1.494087   four
-2013-01-06 -1.831020  0.813526  0.403101 -1.251946  three
-
-# 使用isin()来过滤
-&gt;&gt;&gt; df2[df2[&apos;E&apos;].isin([&apos;two&apos;, &apos;four&apos;])]
-                   A         B         C         D     E
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639   two
-2013-01-05  0.418213  0.107400  0.619448  1.494087  four
-</code></pre><h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>根据日期新增加一列</p>
-<pre><code>&gt;&gt;&gt; s1
-2013-01-02    1
-2013-01-03    2
-2013-01-04    3
-2013-01-05    4
-2013-01-06    5
-2013-01-07    6
-Freq: D, dtype: int64
-
-&gt;&gt;&gt; df[&apos;F&apos;] = s1
-
-&gt;&gt;&gt; df
-                   A         B         C         D    F
-2013-01-01  1.231897 -0.169839  1.333295  0.367142  NaN
-2013-01-02 -0.127450 -1.716671  0.910350  0.151186  1.0
-2013-01-03 -0.241652 -0.984647  0.788656 -0.203639  2.0
-2013-01-04  0.044990 -0.255158 -1.213848  1.076715  3.0
-2013-01-05  0.418213  0.107400  0.619448  1.494087  4.0
-2013-01-06 -1.831020  0.813526  0.403101 -1.251946  5.0
-
-# 通过label赋值
-&gt;&gt;&gt; df.at[dates[0], &apos;A&apos;] = 0
-
-# 通过position赋值
-&gt;&gt;&gt; df.iat[0,1] = 0
-
-# 通过ndarray赋值
-&gt;&gt;&gt; df.loc[:, &apos;D&apos;] = np.array([5] * len(df))
-
-&gt;&gt;&gt; df
-                   A         B         C  D    F
-2013-01-01  0.000000  0.000000  1.333295  5  NaN
-2013-01-02 -0.127450 -1.716671  0.910350  5  1.0
-2013-01-03 -0.241652 -0.984647  0.788656  5  2.0
-2013-01-04  0.044990 -0.255158 -1.213848  5  3.0
-2013-01-05  0.418213  0.107400  0.619448  5  4.0
-2013-01-06 -1.831020  0.813526  0.403101  5  5.0
-
-# 通过where操作
-&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(6,4),index=dates,columns=list(&apos;ABCD&apos;))
-
-&gt;&gt;&gt; df
-                   A         B         C         D
-2013-01-01 -1.231777 -0.068987 -0.105402  1.512076
-2013-01-02 -1.120426 -0.240417  0.223964 -0.559793
-2013-01-03  0.697097  0.758780 -1.191408 -0.793882
-2013-01-04  0.332519  0.784564  0.805932 -1.169186
-2013-01-05  0.010235  0.156115  0.419567 -2.279214
-2013-01-06  0.294819 -0.691370  0.294119 -0.208475
-
-&gt;&gt;&gt; df2 = df.copy()
-
-&gt;&gt;&gt; df2[df &gt; 0] = -df2
-
-&gt;&gt;&gt; df2
-                   A         B         C         D
-2013-01-01 -1.231777 -0.068987 -0.105402 -1.512076
-2013-01-02 -1.120426 -0.240417 -0.223964 -0.559793
-2013-01-03 -0.697097 -0.758780 -1.191408 -0.793882
-2013-01-04 -0.332519 -0.784564 -0.805932 -1.169186
-2013-01-05 -0.010235 -0.156115 -0.419567 -2.279214
-2013-01-06 -0.294819 -0.691370 -0.294119 -0.208475
-</code></pre><h2 id="数据缺失"><a href="#数据缺失" class="headerlink" title="数据缺失"></a>数据缺失</h2><p>pandas使用<code>np.nan</code>来表示缺失的数据，它默认不参与任何运算</p>
-<pre><code>&gt;&gt;&gt; df1 = df.reindex(index=dates[0:4], columns=list(df.columns) + [&apos;E&apos;])
-
-&gt;&gt;&gt; df1
-                   A         B         C  D    F   E
-2013-01-01  0.000000  0.000000  1.333295  5  NaN NaN
-2013-01-02 -0.127450 -1.716671  0.910350  5  1.0 NaN
-2013-01-03 -0.241652 -0.984647  0.788656  5  2.0 NaN
-2013-01-04  0.044990 -0.255158 -1.213848  5  3.0 NaN
-
-&gt;&gt;&gt; df1.loc[dates[0]:dates[1], &apos;E&apos;] = 1
-
-&gt;&gt;&gt; df1
-                   A         B         C  D    F    E
-2013-01-01  0.000000  0.000000  1.333295  5  NaN  1.0
-2013-01-02 -0.127450 -1.716671  0.910350  5  1.0  1.0
-2013-01-03 -0.241652 -0.984647  0.788656  5  2.0  NaN
-2013-01-04  0.044990 -0.255158 -1.213848  5  3.0  NaN
-
-# 丢弃所有包含NaN的行
-&gt;&gt;&gt; df1.dropna(how=&apos;any&apos;)
-                  A         B        C  D    F    E
-2013-01-02 -0.12745 -1.716671  0.91035  5  1.0  1.0
-
-# 填充所有包含NaN的元素
-&gt;&gt;&gt; df1.fillna(value=5)
-                   A         B         C  D    F    E
-2013-01-01  0.000000  0.000000  1.333295  5  5.0  1.0
-2013-01-02 -0.127450 -1.716671  0.910350  5  1.0  1.0
-2013-01-03 -0.241652 -0.984647  0.788656  5  2.0  5.0
-2013-01-04  0.044990 -0.255158 -1.213848  5  3.0  5.0
-
-# 获取元素值为nan的布尔掩码
-&gt;&gt;&gt; pd.isna(df1)
-                A      B      C      D      F      E
-2013-01-01  False  False  False  False   True  False
-2013-01-02  False  False  False  False  False  False
-2013-01-03  False  False  False  False  False   True
-2013-01-04  False  False  False  False  False   True
-</code></pre><h2 id="运算操作"><a href="#运算操作" class="headerlink" title="运算操作"></a>运算操作</h2><h3 id="Stats统计"><a href="#Stats统计" class="headerlink" title="Stats统计"></a>Stats统计</h3><p>运算操作都会排除<code>NaN</code>元素</p>
-<pre><code>&gt;&gt;&gt; dates = pd.date_range(&apos;20130101&apos;, periods=6)
-
-&gt;&gt;&gt; df = pd.DataFrame(np.arange(24).reshape(6,4),index=dates,columns=list(&apos;ABCD&apos;))
-
-&gt;&gt;&gt; df
-             A   B   C   D
-2013-01-01   0   1   2   3
-2013-01-02   4   5   6   7
-2013-01-03   8   9  10  11
-2013-01-04  12  13  14  15
-2013-01-05  16  17  18  19
-2013-01-06  20  21  22  23
-
-# 计算列的平均值
-&gt;&gt;&gt; df.mean()
-A    10.0
-B    11.0
-C    12.0
-D    13.0
-dtype: float64
-
-计算行的平均值
-&gt;&gt;&gt; df.mean(1)
-2013-01-01     1.5
-2013-01-02     5.5
-2013-01-03     9.5
-2013-01-04    13.5
-2013-01-05    17.5
-2013-01-06    21.5
-Freq: D, dtype: float64
-
-# shift(n),按照列的方向，从上往下移动n个位置
-&gt;&gt;&gt; s = pd.Series([1,3,5,np.nan,6,8], index=dates).shift(2)
-
-&gt;&gt;&gt; s
-2013-01-01    NaN
-2013-01-02    NaN
-2013-01-03    1.0
-2013-01-04    3.0
-2013-01-05    5.0
-2013-01-06    NaN
-Freq: D, dtype: float64
-
-# sub函数,DataFrame相减操作, 等于 df-s
-&gt;&gt;&gt; df.sub(s, axis=&apos;index&apos;)
-               A     B     C     D
-2013-01-01   NaN   NaN   NaN   NaN
-2013-01-02   NaN   NaN   NaN   NaN
-2013-01-03   7.0   8.0   9.0  10.0
-2013-01-04   9.0  10.0  11.0  12.0
-2013-01-05  11.0  12.0  13.0  14.0
-2013-01-06   NaN   NaN   NaN   NaN
-</code></pre><h3 id="Apply"><a href="#Apply" class="headerlink" title="Apply"></a>Apply</h3><pre><code>&gt;&gt;&gt; df
-             A   B   C   D
-2013-01-01   0   1   2   3
-2013-01-02   4   5   6   7
-2013-01-03   8   9  10  11
-2013-01-04  12  13  14  15
-2013-01-05  16  17  18  19
-2013-01-06  20  21  22  23
-
-# 在列方向累加
-&gt;&gt;&gt; df.apply(np.cumsum)
-             A   B   C   D
-2013-01-01   0   1   2   3
-2013-01-02   4   6   8  10
-2013-01-03  12  15  18  21
-2013-01-04  24  28  32  36
-2013-01-05  40  45  50  55
-2013-01-06  60  66  72  78
-
-# 列方向的最大值-最小值， 得到的是一个Series
-&gt;&gt;&gt; df.apply(lambda x: x.max() - x.min())
-A    20
-B    20
-C    20
-D    20
-dtype: int64
-</code></pre><h3 id="直方图-Histogramming"><a href="#直方图-Histogramming" class="headerlink" title="直方图 Histogramming"></a>直方图 Histogramming</h3><pre><code>&gt;&gt;&gt; s = pd.Series(np.random.randint(0, 7, size=10))
-
-&gt;&gt;&gt; s
-0    6
-1    5
-2    0
-3    2
-4    5
-5    1
-6    3
-7    3
-8    3
-9    1
-dtype: int64
-
-# 索引是出现的数字，值是次数
-&gt;&gt;&gt; s.value_counts()
-3    3
-5    2
-1    2
-6    1
-2    1
-0    1
-dtype: int64
-</code></pre><h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><pre><code>&gt;&gt;&gt; s = pd.Series([&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;Aaba&apos;, &apos;Baca&apos;, np.nan, &apos;CABA&apos;, &apos;dog&apos;, &apos;cat&apos;])
-
-&gt;&gt;&gt; s.str.lower()
-0       a
-1       b
-2       c
-3    aaba
-4    baca
-5     NaN
-6    caba
-7     dog
-8     cat
-dtype: object
-</code></pre><h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><h3 id="Concat"><a href="#Concat" class="headerlink" title="Concat"></a><a href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging" target="_blank" rel="noopener">Concat</a></h3><pre><code>&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(10, 4))
-
-&gt;&gt;&gt; df
-          0         1         2         3
-0 -1.710767 -2.107488  1.441790  0.959924
-1  0.509422  0.099733  0.845039  0.232462
-2 -0.609247  0.533162 -0.387640  0.668803
-3  0.946219 -0.326805  1.245303  1.336090
-4 -1.069114  0.755313 -1.003991 -0.327009
-5  1.169418 -1.225637 -2.137500  1.766341
-6 -1.751095  0.279439  0.018053  1.800435
-7 -0.328828 -1.513893  1.879333  0.945217
-8  2.440123 -0.260918 -0.232951 -1.337775
-9 -0.876878 -1.153583 -1.487573 -1.509871
-
-# 分成小块
-&gt;&gt;&gt; pieces = [df[:3], df[3:7], df[7:]]
-
-# 合并
-&gt;&gt;&gt; pd.concat(pieces)
-          0         1         2         3
-0 -1.710767 -2.107488  1.441790  0.959924
-1  0.509422  0.099733  0.845039  0.232462
-2 -0.609247  0.533162 -0.387640  0.668803
-3  0.946219 -0.326805  1.245303  1.336090
-4 -1.069114  0.755313 -1.003991 -0.327009
-5  1.169418 -1.225637 -2.137500  1.766341
-6 -1.751095  0.279439  0.018053  1.800435
-7 -0.328828 -1.513893  1.879333  0.945217
-8  2.440123 -0.260918 -0.232951 -1.337775
-9 -0.876878 -1.153583 -1.487573 -1.509871
-</code></pre><h3 id="Join"><a href="#Join" class="headerlink" title="Join"></a><a href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging-join" target="_blank" rel="noopener">Join</a></h3><p>跟数据库的Join操作一样</p>
-<pre><code>&gt;&gt;&gt; left = pd.DataFrame({&apos;key&apos;: [&apos;foo&apos;, &apos;foo&apos;], &apos;lval&apos;: [1, 2]})
-
-&gt;&gt;&gt; left
-   key  lval
-0  foo     1
-1  foo     2
-
-&gt;&gt;&gt; right = pd.DataFrame({&apos;key&apos;: [&apos;foo&apos;, &apos;foo&apos;], &apos;rval&apos;: [4, 5]})
-
-&gt;&gt;&gt; right
-   key  rval
-0  foo     4
-1  foo     5
-
-&gt;&gt;&gt; pd.merge(left, right, on=&apos;key&apos;)
-   key  lval  rval
-0  foo     1     4
-1  foo     1     5
-2  foo     2     4
-3  foo     2     5
-</code></pre><p>另一个例子</p>
-<pre><code>&gt;&gt;&gt; left = pd.DataFrame({&apos;key&apos;: [&apos;foo&apos;, &apos;bar&apos;], &apos;lval&apos;: [1, 2]})
-
-&gt;&gt;&gt; left
-   key  lval
-0  foo     1
-1  bar     2
-
-&gt;&gt;&gt; right = pd.DataFrame({&apos;key&apos;: [&apos;foo&apos;, &apos;bar&apos;], &apos;rval&apos;: [4, 5]})
-
-&gt;&gt;&gt; right
-   key  rval
-0  foo     4
-1  bar     5
-
-&gt;&gt;&gt; pd.merge(left, right, on=&apos;key&apos;)
-   key  lval  rval
-0  foo     1     4
-1  bar     2     5
-</code></pre><h3 id="Append"><a href="#Append" class="headerlink" title="Append"></a><a href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging-concatenation" target="_blank" rel="noopener">Append</a></h3><pre><code>&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(8, 4), columns=[&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;D&apos;])
-
-&gt;&gt;&gt; df
-          A         B         C         D
-0 -1.521762 -0.850721  1.322354 -0.226562
-1 -2.773304 -0.663303  0.895075 -0.171524
-2  0.322975 -0.796484  0.379920  0.028333
-3 -0.350795  1.839747 -0.359241 -0.027921
-4 -0.945340  1.062598 -2.208670  0.769027
-5 -0.329458 -0.145658  1.580258 -1.414820
-6 -0.261757 -1.435025 -0.512306 -0.222287
-7 -0.994207 -1.219057  0.781283 -1.795741
-
-&gt;&gt;&gt; s = df.iloc[3]
-
-&gt;&gt;&gt; df.append(s, ignore_index=True)
-          A         B         C         D
-0 -1.521762 -0.850721  1.322354 -0.226562
-1 -2.773304 -0.663303  0.895075 -0.171524
-2  0.322975 -0.796484  0.379920  0.028333
-3 -0.350795  1.839747 -0.359241 -0.027921
-4 -0.945340  1.062598 -2.208670  0.769027
-5 -0.329458 -0.145658  1.580258 -1.414820
-6 -0.261757 -1.435025 -0.512306 -0.222287
-7 -0.994207 -1.219057  0.781283 -1.795741
-8 -0.350795  1.839747 -0.359241 -0.027921
-</code></pre><h2 id="Grouping"><a href="#Grouping" class="headerlink" title="Grouping"></a><a href="http://pandas.pydata.org/pandas-docs/stable/groupby.html#groupby" target="_blank" rel="noopener">Grouping</a></h2><p><code>group by</code>的操作需要经过以下1个或多个步骤</p>
-<ul>
-<li>根据条件分组数据(<strong>Spliting</strong>)</li>
-<li>在各个分组上执行函数(<strong>Applying</strong>)</li>
-<li><p>合并结果(<strong>Combining</strong>)</p>
-<pre><code>&gt;&gt;&gt; df = pd.DataFrame({&apos;A&apos; : [&apos;foo&apos;, &apos;bar&apos;, &apos;foo&apos;, &apos;bar&apos;,
-...                           &apos;foo&apos;, &apos;bar&apos;, &apos;foo&apos;, &apos;foo&apos;],
-...                    &apos;B&apos; : [&apos;one&apos;, &apos;one&apos;, &apos;two&apos;, &apos;three&apos;,
-...                           &apos;two&apos;, &apos;two&apos;, &apos;one&apos;, &apos;three&apos;],
-...                    &apos;C&apos; : np.arange(1, 9),
-...                    &apos;D&apos; : np.arange(2, 10)})
-...
-...
-
-&gt;&gt;&gt; df
-     A      B  C  D
-0  foo    one  1  2
-1  bar    one  2  3
-2  foo    two  3  4
-3  bar  three  4  5
-4  foo    two  5  6
-5  bar    two  6  7
-6  foo    one  7  8
-7  foo  three  8  9
-
-# 分组求和
-&gt;&gt;&gt; df.groupby(&apos;A&apos;).sum()
-      C   D
-A
-bar  12  15
-foo  24  29
-
-# 多列分组
-&gt;&gt;&gt; df.groupby([&apos;A&apos;,&apos;B&apos;]).sum()
-           C   D
-A   B
-bar one    2   3
-    three  4   5
-    two    6   7
-foo one    8  10
-    three  8   9
-    two    8  10
-
-&gt;&gt;&gt; b = df.groupby([&apos;A&apos;,&apos;B&apos;]).sum()
-
-# 多索引
-&gt;&gt;&gt; b.index
-MultiIndex(levels=[[&apos;bar&apos;, &apos;foo&apos;], [&apos;one&apos;, &apos;three&apos;, &apos;two&apos;]],
-           labels=[[0, 0, 0, 1, 1, 1], [0, 1, 2, 0, 1, 2]],
-           names=[&apos;A&apos;, &apos;B&apos;])
-
-&gt;&gt;&gt; b.columns
-</code></pre><p>  Index([‘C’, ‘D’], dtype=’object’)</p>
-</li>
-</ul>
-<h2 id="Reshaping"><a href="#Reshaping" class="headerlink" title="Reshaping"></a><a href="http://pandas.pydata.org/pandas-docs/stable/reshaping.html#reshaping-stacking" target="_blank" rel="noopener">Reshaping</a></h2><h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><pre><code>&gt;&gt;&gt; tuples = list(zip(*[[&apos;bar&apos;, &apos;bar&apos;, &apos;baz&apos;, &apos;baz&apos;,
-...                      &apos;foo&apos;, &apos;foo&apos;, &apos;qux&apos;, &apos;qux&apos;],
-...                     [&apos;one&apos;, &apos;two&apos;, &apos;one&apos;, &apos;two&apos;,
-...                      &apos;one&apos;, &apos;two&apos;, &apos;one&apos;, &apos;two&apos;]]))
-...
-
-&gt;&gt;&gt; tuples
-[(&apos;bar&apos;, &apos;one&apos;),
- (&apos;bar&apos;, &apos;two&apos;),
- (&apos;baz&apos;, &apos;one&apos;),
- (&apos;baz&apos;, &apos;two&apos;),
- (&apos;foo&apos;, &apos;one&apos;),
- (&apos;foo&apos;, &apos;two&apos;),
- (&apos;qux&apos;, &apos;one&apos;),
- (&apos;qux&apos;, &apos;two&apos;)]
-
-&gt;&gt;&gt; index = pd.MultiIndex.from_tuples(tuples, names=[&apos;first&apos;, &apos;second&apos;])
-
-&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(8, 2), index=index, columns=[&apos;A&apos;, &apos;B&apos;])
-
-&gt;&gt;&gt; df
-                     A         B
-first second
-bar   one     0.096893  0.479194
-      two    -0.771606  0.331693
-baz   one    -0.022540  0.531284
-      two    -0.039843  1.876942
-foo   one     0.250473  1.163931
-      two    -1.127163  1.447566
-qux   one    -0.410361 -0.734333
-      two    -0.461247  0.018531
-
-&gt;&gt;&gt; df2 = df[:4]
-
-&gt;&gt;&gt; df2
-                     A         B
-first second
-bar   one     0.096893  0.479194
-      two    -0.771606  0.331693
-baz   one    -0.022540  0.531284
-      two    -0.039843  1.876942
-
-&gt;&gt;&gt; stacked = df2.stack()
-
-&gt;&gt;&gt; stacked
-first  second
-bar    one     A    0.096893
-               B    0.479194
-       two     A   -0.771606
-               B    0.331693
-baz    one     A   -0.022540
-               B    0.531284
-       two     A   -0.039843
-               B    1.876942
-dtype: float64
-
-&gt;&gt;&gt; type(stacked)
-pandas.core.series.Series
-
-&gt;&gt;&gt; stacked.index
-MultiIndex(levels=[[&apos;bar&apos;, &apos;baz&apos;, &apos;foo&apos;, &apos;qux&apos;], [&apos;one&apos;, &apos;two&apos;], [&apos;A&apos;, &apos;B&apos;]],
-           labels=[[0, 0, 0, 0, 1, 1, 1, 1], [0, 0, 1, 1, 0, 0, 1, 1], [0, 1, 0, 1, 0, 1, 0, 1]],
-           names=[&apos;first&apos;, &apos;second&apos;, None])
-
-&gt;&gt;&gt; stacked.values
-array([ 0.09689327,  0.47919417, -0.77160574,  0.3316934 , -0.02253955,
-        0.53128436, -0.03984337,  1.8769416 ])
-
-
-&gt;&gt;&gt; stacked.unstack()
-                     A         B
-first second
-bar   one     0.096893  0.479194
-      two    -0.771606  0.331693
-baz   one    -0.022540  0.531284
-      two    -0.039843  1.876942
-
-&gt;&gt;&gt; stacked.unstack(1)
-second        one       two
-first
-bar   A  0.096893 -0.771606
-      B  0.479194  0.331693
-baz   A -0.022540 -0.039843
-      B  0.531284  1.876942
-
-&gt;&gt;&gt; stacked.unstack(0)
-first          bar       baz
-second
-one    A  0.096893 -0.022540
-       B  0.479194  0.531284
-two    A -0.771606 -0.039843
-       B  0.331693  1.876942
-</code></pre><h3 id="数据透视表-Pivot-Tables"><a href="#数据透视表-Pivot-Tables" class="headerlink" title="数据透视表(Pivot Tables)"></a><a href="http://pandas.pydata.org/pandas-docs/stable/reshaping.html#reshaping-pivot" target="_blank" rel="noopener">数据透视表(Pivot Tables)</a></h3><h2 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a><a href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#timeseries" target="_blank" rel="noopener">时间序列</a></h2><p>pandas在时间序列上，提供了很方便的按照频率重新采样的功能，在财务分析上非常有用</p>
-<pre><code># 把每秒的数据按5分钟聚合
-&gt;&gt;&gt; rng = pd.date_range(&apos;1/1/2012&apos;, periods=100, freq=&apos;S&apos;)
-&gt;&gt;&gt; ts = pd.Series(np.random.randint(0, 500, len(rng)), index=rng)
-&gt;&gt;&gt; ts.resample(&apos;5Min&apos;).sum()
-2012-01-01    22073
-Freq: 5T, dtype: int64
-</code></pre><p>加上时区信息</p>
-<pre><code>&gt;&gt;&gt; rng = pd.date_range(&apos;3/6/2012 00:00&apos;, periods=5, freq=&apos;D&apos;)
-
-&gt;&gt;&gt; ts = pd.Series(np.random.randn(len(rng)), rng)
-
-&gt;&gt;&gt; ts
-2012-03-06   -0.386974
-2012-03-07    0.657785
-2012-03-08    1.390234
-2012-03-09    0.412904
-2012-03-10   -1.189340
-Freq: D, dtype: float64
-
-&gt;&gt;&gt; ts_utc = ts.tz_localize(&apos;UTC&apos;)
-
-&gt;&gt;&gt; ts_utc
-2012-03-06 00:00:00+00:00   -0.386974
-2012-03-07 00:00:00+00:00    0.657785
-2012-03-08 00:00:00+00:00    1.390234
-2012-03-09 00:00:00+00:00    0.412904
-2012-03-10 00:00:00+00:00   -1.189340
-Freq: D, dtype: float64
-</code></pre><p>转换成另一个时区</p>
-<pre><code>&gt;&gt;&gt; ts_utc.tz_convert(&apos;Asia/Shanghai&apos;)
-2012-03-06 08:00:00+08:00   -0.386974
-2012-03-07 08:00:00+08:00    0.657785
-2012-03-08 08:00:00+08:00    1.390234
-2012-03-09 08:00:00+08:00    0.412904
-2012-03-10 08:00:00+08:00   -1.189340
-Freq: D, dtype: float64
-</code></pre><p>时间跨度转换</p>
-<pre><code>&gt;&gt;&gt; rng = pd.date_range(&apos;1/1/2012&apos;, periods=5, freq=&apos;M&apos;)
-&gt;&gt;&gt; ts = pd.Series(np.random.randn(len(rng)), index=rng)
-
-&gt;&gt;&gt; ts
-2012-01-31    0.825174
-2012-02-29   -2.190258
-2012-03-31   -0.073171
-2012-04-30   -0.404208
-2012-05-31    0.245025
-Freq: M, dtype: float64
-
-&gt;&gt;&gt; ps = ts.to_period()
-
-&gt;&gt;&gt; ps
-2012-01    0.825174
-2012-02   -2.190258
-2012-03   -0.073171
-2012-04   -0.404208
-2012-05    0.245025
-Freq: M, dtype: float64
-
-&gt;&gt;&gt; ps.to_timestamp()
-2012-01-01    0.825174
-2012-02-01   -2.190258
-2012-03-01   -0.073171
-2012-04-01   -0.404208
-2012-05-01    0.245025
-Freq: MS, dtype: float64
-</code></pre><p>转换季度时间</p>
-<pre><code>&gt;&gt;&gt; prng = pd.period_range(&apos;1990Q1&apos;, &apos;2000Q4&apos;, freq=&apos;Q-NOV&apos;)
-
-&gt;&gt;&gt; ts = pd.Series(np.random.randn(len(prng)), prng)
-
-&gt;&gt;&gt; ts.head()
-1990Q1   -0.590040
-1990Q2   -0.750392
-1990Q3   -0.385517
-1990Q4   -0.380806
-1991Q1   -1.252727
-Freq: Q-NOV, dtype: float64
-
-&gt;&gt;&gt;  ts.index = (prng.asfreq(&apos;M&apos;, &apos;e&apos;) + 1).asfreq(&apos;H&apos;, &apos;s&apos;) + 9
-
-&gt;&gt;&gt; ts.head()
-1990-03-01 09:00   -0.590040
-1990-06-01 09:00   -0.750392
-1990-09-01 09:00   -0.385517
-1990-12-01 09:00   -0.380806
-1991-03-01 09:00   -1.252727
-Freq: H, dtype: float64
-</code></pre><h2 id="Categoricals分类"><a href="#Categoricals分类" class="headerlink" title="Categoricals分类"></a><a href="http://pandas.pydata.org/pandas-docs/stable/categorical.html#categorical" target="_blank" rel="noopener">Categoricals分类</a></h2><pre><code>&gt;&gt;&gt; df = pd.DataFrame({&quot;id&quot;:[1,2,3,4,5,6], &quot;raw_grade&quot;:[&apos;a&apos;, &apos;b&apos;, &apos;b&apos;, &apos;a&apos;, &apos;a&apos;, &apos;e&apos;]})
-
-&gt;&gt;&gt; df
-   id raw_grade
-0   1         a
-1   2         b
-2   3         b
-3   4         a
-4   5         a
-5   6         e
-</code></pre><p>转换原始类别为分类数据类型</p>
-<pre><code>&gt;&gt;&gt; df[&quot;grade&quot;] = df[&quot;raw_grade&quot;].astype(&quot;category&quot;)
-
-&gt;&gt;&gt; df
-   id raw_grade grade
-0   1         a     a
-1   2         b     b
-2   3         b     b
-3   4         a     a
-4   5         a     a
-5   6         e     e
-
-&gt;&gt;&gt; df[&quot;grade&quot;]
-0    a
-1    b
-2    b
-3    a
-4    a
-5    e
-Name: grade, dtype: category
-Categories (3, object): [a, b, e]
-</code></pre><p>重命名分类为更有意义的名称</p>
-<pre><code>&gt;&gt;&gt; df[&quot;grade&quot;].cat.categories = [&quot;very good&quot;, &quot;good&quot;, &quot;very bad&quot;]
-
-&gt;&gt;&gt; df
-   id raw_grade      grade
-0   1         a  very good
-1   2         b       good
-2   3         b       good
-3   4         a  very good
-4   5         a  very good
-5   6         e   very bad
-</code></pre><p>重新安排顺分类,同时添加缺少的分类(序列 .cat方法下返回新默认序列)</p>
-<pre><code>&gt;&gt;&gt; df[&quot;grade&quot;] = df[&quot;grade&quot;].cat.set_categories([&quot;very bad&quot;, &quot;bad&quot;, &quot;medium&quot;, &quot;good&quot;, &quot;very good&quot;])
-
-&gt;&gt;&gt; df
-   id raw_grade      grade
-0   1         a  very good
-1   2         b       good
-2   3         b       good
-3   4         a  very good
-4   5         a  very good
-5   6         e   very bad
-
-&gt;&gt;&gt; df[&quot;grade&quot;]
-0    very good
-1         good
-2         good
-3    very good
-4    very good
-5     very bad
-Name: grade, dtype: category
-Categories (5, object): [very bad, bad, medium, good, very good]
-</code></pre><p>按照分类排序</p>
-<pre><code>&gt;&gt;&gt; df.sort_values(by=&quot;grade&quot;)
-   id raw_grade      grade
-5   6         e   very bad
-1   2         b       good
-2   3         b       good
-0   1         a  very good
-3   4         a  very good
-4   5         a  very good
-</code></pre><p>按照分类分组，同时也会显示空的分类</p>
-<pre><code>&gt;&gt;&gt; df.groupby(&quot;grade&quot;).size()
-grade
-very bad     1
-bad          0
-medium       0
-good         2
-very good    3
-dtype: int64
-</code></pre><h2 id="Plotting"><a href="#Plotting" class="headerlink" title="Plotting"></a><a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html#visualization" target="_blank" rel="noopener">Plotting</a></h2><pre><code>&gt;&gt;&gt; import matplotlib.pyplot as plt
-&gt;&gt;&gt; ts = pd.Series(np.random.randn(1000), index=pd.date_range(&apos;1/1/2000&apos;, periods=1000))
-&gt;&gt;&gt; ts = ts.cumsum()
-
-&gt;&gt;&gt; ts.plot()
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x108594668&gt;
-
-&gt;&gt;&gt; plt.show()
-</code></pre><p><img src="http://images.wiseturtles.com/2017-12-21-plot.png" alt="曲线图"></p>
-<p>画图带图例的图</p>
-<pre><code>&gt;&gt;&gt; df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index, columns=[&apos;A&apos;,&apos;B&apos;
-... ,&apos;C&apos;, &apos;D&apos;])
-
-&gt;&gt;&gt; df.cumsum()
-
-&gt;&gt;&gt; plt.figure();df.plot();plt.legend(loc=&apos;best&apos;)
-&lt;matplotlib.legend.Legend at 0x111793f98&gt;
-
-&gt;&gt;&gt; plt.show()
-</code></pre><p><img src="http://images.wiseturtles.com/2017-12-21-plot-lines.png" alt="带图例的曲线图"></p>
-<h2 id="数据In-Out"><a href="#数据In-Out" class="headerlink" title="数据In/Out"></a>数据In/Out</h2><h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a><a href="http://pandas.pydata.org/pandas-docs/stable/io.html#csv-text-files" target="_blank" rel="noopener">CSV</a></h3><p>保存到csv文件</p>
-<pre><code>&gt;&gt;&gt; df.to_csv(&apos;foo.csv&apos;)
-</code></pre><p>从csv文件读取数据</p>
-<pre><code>&gt;&gt;&gt; pd.read_csv(&apos;foo.csv&apos;)
-</code></pre><h3 id="HDF5"><a href="#HDF5" class="headerlink" title="HDF5"></a><a href="http://pandas.pydata.org/pandas-docs/stable/io.html#hdf5-pytables" target="_blank" rel="noopener">HDF5</a></h3><p>保存到HDF5仓库</p>
-<pre><code>&gt;&gt;&gt; df.to_hdf(&apos;foo.h5&apos;,&apos;df&apos;)
-</code></pre><p>从仓库读取</p>
-<pre><code>&gt;&gt;&gt; pd.read_hdf(&apos;foo.h5&apos;,&apos;df&apos;)
-</code></pre><h3 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a><a href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-excel" target="_blank" rel="noopener">Excel</a></h3><p>保存到excel</p>
-<pre><code>&gt;&gt;&gt; df.to_excel(&apos;foo.xlsx&apos;, sheet_name=&apos;Sheet1&apos;)
-</code></pre><p>从excel文件读取</p>
-<pre><code>&gt;&gt;&gt; pd.read_excel(&apos;foo.xlsx&apos;, &apos;Sheet1&apos;, index_col=None, na_values=[&apos;NA&apos;])
-</code></pre><p>##</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html" target="_blank" rel="noopener">pandas指南</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -1489,9 +282,7 @@ dtype: int64
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/numpy-qucikstart/" itemprop="url">NumPy快速入门指南.md</a></h1>
+          <h1 class="post-title" itemprop="name headline">NumPy快速入门指南.md</h1>
         
 
         <div class="post-meta">
@@ -1563,9 +354,7 @@ dtype: int64
       
 
       
-        
-          
-            <p>参考:<br><a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html" target="_blank" rel="noopener">https://docs.scipy.org/doc/numpy-dev/user/quickstart.html</a></p>
+        <p>参考:<br><a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html" target="_blank" rel="noopener">https://docs.scipy.org/doc/numpy-dev/user/quickstart.html</a></p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装numpy</p>
 <pre><code>$ pip install numpy
 </code></pre><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><blockquote>
@@ -2650,8 +1439,6 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
 <li><a href="http://www.labri.fr/perso/nrougier/from-python-to-numpy/" target="_blank" rel="noopener">From Python to Numpy</a></li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -2661,19 +1448,65 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果您觉得我的文章对你有帮助，您可以帮我的早饭加个蛋!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://images.wiseturtles.com/wechatpay.jpg" alt="crazygit 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/numpy/" rel="tag"># numpy</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/20/10-minutes-to-pandas/" rel="prev" title="10分钟入门Pandas">
+                10分钟入门Pandas <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -2683,10 +1516,11 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -2694,6 +1528,8 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
 
 
           
+  
+
 
         </div>
         
@@ -2714,8 +1550,17 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2816,6 +1661,22 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组例子"><span class="nav-number">2.1.</span> <span class="nav-text">数组例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数组"><span class="nav-number">2.2.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印数组"><span class="nav-number">2.3.</span> <span class="nav-text">打印数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">2.4.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用函数"><span class="nav-number">2.5.</span> <span class="nav-text">通用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引，切片和迭代"><span class="nav-number">2.6.</span> <span class="nav-text">索引，切片和迭代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shape操作"><span class="nav-number">3.</span> <span class="nav-text">shape操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变数组的shape"><span class="nav-number">3.1.</span> <span class="nav-text">改变数组的shape</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组合并"><span class="nav-number">3.2.</span> <span class="nav-text">数组合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组切割"><span class="nav-number">3.3.</span> <span class="nav-text">数组切割</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制和视图-Views"><span class="nav-number">4.</span> <span class="nav-text">复制和视图(Views)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一点也不复制"><span class="nav-number">4.1.</span> <span class="nav-text">一点也不复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图-View-和浅复制-Shallow-Copy"><span class="nav-number">4.2.</span> <span class="nav-text">视图(View)和浅复制(Shallow Copy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度复制-Deep-Copy"><span class="nav-number">4.3.</span> <span class="nav-text">深度复制(Deep Copy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和方法概览"><span class="nav-number">4.4.</span> <span class="nav-text">函数和方法概览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-Basic"><span class="nav-number">5.</span> <span class="nav-text">Less Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#广播机制"><span class="nav-number">5.1.</span> <span class="nav-text">广播机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">5.2.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组索引"><span class="nav-number">5.3.</span> <span class="nav-text">数组索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔数组索引"><span class="nav-number">5.4.</span> <span class="nav-text">布尔数组索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ix-函数-（作用待定）"><span class="nav-number">5.5.</span> <span class="nav-text">ix_()函数 （作用待定）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串索引"><span class="nav-number">5.6.</span> <span class="nav-text">字符串索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">6.</span> <span class="nav-text">更多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">7.</span> <span class="nav-text">扩展阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2942,6 +1803,10 @@ array([b&apos;Hello&apos;, b&apos;World&apos;],
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

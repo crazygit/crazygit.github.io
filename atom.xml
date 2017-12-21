@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>宁静的夜</title>
+  
+  <subtitle>心中一片静谧</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://crazygit.wiseturtles.com/"/>
+  <updated>2017-12-21T14:29:26.005Z</updated>
+  <id>http://crazygit.wiseturtles.com/</id>
+  
+  <author>
+    <name>crazygit</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10分钟入门Pandas</title>
+    <link href="http://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/"/>
+    <id>http://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</id>
+    <published>2017-12-20T14:21:46.000Z</published>
+    <updated>2017-12-21T14:29:26.005Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;参考:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://pandas.pydata.org/pandas-docs/stable/10min.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;10 Minutes to
+        
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="http://crazygit.wiseturtles.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="pandas" scheme="http://crazygit.wiseturtles.com/tags/pandas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NumPy快速入门指南.md</title>
+    <link href="http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/"/>
+    <id>http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</id>
+    <published>2017-12-19T14:08:10.000Z</published>
+    <updated>2017-12-21T14:21:14.357Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;参考:&lt;br&gt;&lt;a href=&quot;https://docs.scipy.org/doc/numpy-dev/user/quickstart.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="http://crazygit.wiseturtles.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="numpy" scheme="http://crazygit.wiseturtles.com/tags/numpy/"/>
+    
+  </entry>
+  
+</feed>
