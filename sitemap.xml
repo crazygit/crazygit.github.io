@@ -2,23 +2,170 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</loc>
+    <loc>http://crazygit.wiseturtles.com/2018/02/13/a-programmers-guid-to-data-mining-note-two/</loc>
     
-    <lastmod>2017-12-22T03:27:59.809Z</lastmod>
+    <lastmod>2018-04-12T03:17:09.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</loc>
+    
+    <lastmod>2018-04-12T03:16:44.527Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</loc>
+    
+    <lastmod>2018-04-12T03:15:48.776Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/</loc>
+    
+    <lastmod>2018-04-11T16:10:13.663Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/03/09/icbcasia/</loc>
+    
+    <lastmod>2018-04-11T10:29:17.855Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/02/12/docker-commands/</loc>
+    
+    <lastmod>2018-02-23T08:29:08.647Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</loc>
     
-    <lastmod>2017-12-22T03:27:50.299Z</lastmod>
+    <lastmod>2018-02-23T07:34:07.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</loc>
+    
+    <lastmod>2018-02-23T07:07:35.017Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2017/12/28/python-for-data-analysis-2nd-edition-note-two/</loc>
+    
+    <lastmod>2018-02-23T06:19:02.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/04/python-for-data-analysis-2nd-edition-note-two/</loc>
+    
+    <lastmod>2018-02-23T06:18:17.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/09/python-for-data-analysis-2nd-edition-note-four/</loc>
+    
+    <lastmod>2018-02-23T06:17:16.370Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/10/python-for-data-analysis-2nd-edition-note-five/</loc>
+    
+    <lastmod>2018-02-23T06:10:34.845Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/02/12/docker-get-started/</loc>
+    
+    <lastmod>2018-02-12T13:17:12.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</loc>
+    
+    <lastmod>2018-01-26T03:37:38.828Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/books/index.html</loc>
+    
+    <lastmod>2018-01-26T03:33:28.652Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</loc>
+    
+    <lastmod>2018-01-26T03:31:51.841Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</loc>
+    
+    <lastmod>2018-01-26T03:31:27.088Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</loc>
+    
+    <lastmod>2018-01-26T03:31:04.656Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</loc>
+    
+    <lastmod>2018-01-26T03:30:35.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/</loc>
+    
+    <lastmod>2018-01-26T03:11:07.884Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/26/smarter-faster-better/</loc>
+    
+    <lastmod>2018-01-26T03:02:33.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</loc>
+    
+    <lastmod>2018-01-19T14:33:29.973Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/</loc>
+    
+    <lastmod>2017-12-28T08:47:23.437Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://crazygit.wiseturtles.com/about/index.html</loc>
     
-    <lastmod>2017-12-21T14:24:32.336Z</lastmod>
+    <lastmod>2017-12-26T04:24:28.797Z</lastmod>
     
   </url>
   
