@@ -1,75 +1,50 @@
 <!DOCTYPE html>
-
-
-
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记一 - Soul Mate</title>
   
 
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
 
 
-
-
-
-
-
-
-
-
-
-
+<meta name="applicable-device" content="pc,mobile">
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="crazygit" /><meta name="description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
+" />
+
+  <meta name="keywords" content="Hugo, crazygit, blog" />
 
 
-  <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
+<meta name="baidu-site-verification" content="mEI3NT6pyx" />
+<meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
+<meta name="generator" content="Hugo 0.48" />
 
 
-
-
-
-
-  <meta name="baidu-site-verification" content="mEI3NT6pyx" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
+<link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/" />
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.png?v=6.1.0" color="#222">
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 
 
@@ -77,1458 +52,1030 @@
 
 
 
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '6.1.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
+
+<link rel="stylesheet" href="/css/douban.css">
+
+<link rel="stylesheet" href="/css/monokai-syntax.css">
+
+
+<meta property="og:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一" />
+<meta property="og:description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/" /><meta property="article:published_time" content="2018-01-11T18:48:27&#43;08:00"/>
+<meta property="article:modified_time" content="2018-01-11T18:48:27&#43;08:00"/>
+<meta itemprop="name" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
+<meta itemprop="description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
+">
+
+
+<meta itemprop="datePublished" content="2018-01-11T18:48:27&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-11T18:48:27&#43;08:00" />
+<meta itemprop="wordCount" content="2696">
+
+
+
+<meta itemprop="keywords" content="spark," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一"/>
+<meta name="twitter:description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112251188-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-  
-
-
-
-
-  <meta name="description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象">
-<meta name="keywords" content="spark">
-<meta property="og:type" content="article">
-<meta property="og:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
-<meta property="og:url" content="http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/index.html">
-<meta property="og:site_name" content="Soul Mate">
-<meta property="og:description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
-<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
-<meta property="og:updated_time" content="2018-01-26T03:30:35.462Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
-<meta name="twitter:description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象">
-<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Soul Mate" type="application/atom+xml" />
-
-
-
-
-  <link rel="canonical" href="http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记一 | Soul Mate</title>
-  
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112251188-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112251188-1');
-</script>
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Soul Mate</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">宁静的夜, 心中一片静谧</p>
-      
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Soul Mate</a>
   </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-books">
-    <a href="/books/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />读书</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-</li>
-
-      
-
-      
-        <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="popup-trigger">
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
+        
+      </li>
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </ul>
 </nav>
 
 
   
+    
 
 
 
- </div>
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Soul Mate
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-11 </span>
+        <div class="post-category">
+            <a href="https://crazygit.wiseturtles.com/categories/spark/"> spark </a>
+            
+          </div>
+        <span class="more-meta"> 约 2696 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+          <span id="/2018/01/11/fast-data-processing-with-spark2-note-one/" class="leancloud_visitors" data-flag-title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
+            <span class="post-meta-item-text"> | 阅读 </span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+      </div>
     </header>
 
     
-  
-  
-  
     
-      
-    
-    <a href="https://github.com/crazygit" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
-    
-      </a>
-    
-
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crazygit">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/1240997">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Soul Mate">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T18:48:27+08:00">2018-01-11</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/11/fast-data-processing-with-spark2-note-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/11/fast-data-processing-with-spark2-note-one/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/01/11/fast-data-processing-with-spark2-note-one/" class="leancloud_visitors" data-flag-title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             Views： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-              <div class="post-description">快速了解Spark的安装，Spark Shell使用和SparkSession对象
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#spark概览">Spark概览</a></li>
+<li><a href="#安装">安装</a>
+<ul>
+<li><a href="#部署环境需求">部署环境需求</a></li>
+<li><a href="#解压安装">解压安装</a></li>
+</ul></li>
+<li><a href="#快速开始">快速开始</a>
+<ul>
+<li><a href="#运行例子和交互式shell">运行例子和交互式shell</a></li>
+<li><a href="#使用spark-shell做交互式分析">使用Spark shell做交互式分析</a></li>
+<li><a href="#创建一个简单的应用">创建一个简单的应用</a></li>
+</ul></li>
+<li><a href="#创建-sparksession-对象">创建<code>SparkSession</code>对象</a>
+<ul>
+<li><a href="#sparksession-vs-sparkcontext"><code>SparkSession</code> vs <code>SparkContext</code></a></li>
+<li><a href="#创建一个-sparksession-对象">创建一个<code>SparkSession</code>对象</a></li>
+<li><a href="#sparkcontext-元数据"><code>sparkContext</code>元数据</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
 </div>
-          
-
-        </div>
-      </header>
-    
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-content">
+      <p>本书其它笔记<a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目</a></p>
 
-      
-      
-
-      
-        <p>本书其它笔记<a href="/2018/01/26/fast-data-processing-with-spark2-note-index/" title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记目录">《Fast Data Processing with Spark 2（Third Edition)》读书笔记目录</a></p>
 <h2 id="spark概览">Spark概览</h2>
+
 <blockquote>
 <p>Apache Spark is a fast and general-purpose cluster computing system</p>
 </blockquote>
+
 <p>本文基于目前最新的spark版本<code>2.2.1</code>整理，以<code>Python3.6</code>为例，在Mac单机情况下使用。</p>
+
 <h2 id="安装">安装</h2>
+
 <h3 id="部署环境需求">部署环境需求</h3>
+
 <ul>
 <li>Window, Linux, Mac均可</li>
 <li>Java8+(需要设置<code>JAVA_HOME</code>环境变量)</li>
 </ul>
+
 <p>下面三个根据自己习惯使用的语言选择安装</p>
+
 <ul>
 <li>Python2.7+/3.4+</li>
 <li>R 3.1+</li>
 <li>为了使用Scala API, 需要安装完整的Scala 2.11.x版本</li>
 </ul>
+
+<p></p>
+
 <h3 id="解压安装">解压安装</h3>
-<p>从<a href="https://spark.apache.org/downloads.html" target="_blank" rel="noopener">Spark官网</a>选择合适的版本下载。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://www.apache.org/dyn/closer.lua/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz</span><br><span class="line"></span><br><span class="line">$ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
+
+<p>从<a href="https://spark.apache.org/downloads.html">Spark官网</a>选择合适的版本下载。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ wget https://www.apache.org/dyn/closer.lua/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+
+$ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
+</div>
+</div>
 <p>解压后即可使用, 不过在使用之前，让我们先配置几个常用的环境变量:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SPARK_HOME根据本机实际情况修改路径</span></span><br><span class="line"><span class="built_in">export</span> SPARK_HOME=<span class="string">"/path/to/spark-2.2.1-bin-hadoop2.7"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当用pyspark时默认使用ipyton</span></span><br><span class="line"><span class="built_in">export</span> PYSPARK_DRIVER_PYTHON=<span class="string">"ipython"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果习惯使用Jupyter, 可以添加下面的配置，那么在用pyspark时，默认会调用Jupyter notebook，否则为默认的ipython console</span></span><br><span class="line"><span class="built_in">export</span> PYSPARK_DRIVER_PYTHON_OPTS=<span class="string">"notebook"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到PATH，方便随时调用pyspark命令</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># SPARK_HOME根据本机实际情况修改路径
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&#34;/path/to/spark-2.2.1-bin-hadoop2.7&#34;</span>
+
+<span class="c1"># 当用pyspark时默认使用ipyton
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&#34;ipython&#34;</span>
+
+<span class="c1"># 如果习惯使用Jupyter, 可以添加下面的配置，那么在用pyspark时，默认会调用Jupyter notebook，否则为默认的ipython console
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s2">&#34;notebook&#34;</span>
+
+<span class="c1"># 添加到PATH，方便随时调用pyspark命令
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$SPARK_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>关于Spark集群的搭建，练习阶段暂时不会使用到，等以后需要再补充。</p>
+
 <h2 id="快速开始">快速开始</h2>
+
 <h3 id="运行例子和交互式shell">运行例子和交互式shell</h3>
+
 <p>Spark内置了一些Scala, Java列子，同时也有一些Python和R语言的例子在<code>example/src/main</code>目录里。</p>
+
 <p>为了运行Scala, Java 例子，在<code>$SPARK_HOME</code>目录下, 用<code>bin/run-example &lt;class&gt; [params]</code>形式运行。如</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/run-example SparkPi 10</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/run-example SparkPi <span class="m">10</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>也可以启动一个Scala语言的交互式的Shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-shell --master <span class="built_in">local</span>[4]</span><br></pre></td></tr></table></figure>
-<p><code>--master</code>选项设置在本地以两个线程运行。 <code>local[N]</code>中的<code>N</code>一般设置为本机的CPU核数。更多关于<code>--master</code>的选项可以参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls" target="_blank" rel="noopener">Master URLs</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-shell --master local<span class="o">[</span><span class="m">4</span><span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>--master</code>选项设置在本地以两个线程运行。 <code>local[N]</code>中的<code>N</code>一般设置为本机的CPU核数。更多关于<code>--master</code>的选项可以参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls">Master URLs</a></p>
+
 <p>启动Python语言的交互式Shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/pyspark --master <span class="built_in">local</span>[4]</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/pyspark --master local<span class="o">[</span><span class="m">4</span><span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>运行Python例子</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-submit examples/src/main/python/pi.py 10</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-submit examples/src/main/python/pi.py <span class="m">10</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>启动R语言的交互式Shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/sparkR --master local[4]</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./bin/sparkR --master local[4]</pre></td></tr></table>
+</div>
+</div>
 <p>R语言的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-submit examples/src/main/r/dataframe.R</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./bin/spark-submit examples/src/main/r/dataframe.R</pre></td></tr></table>
+</div>
+</div>
 <h3 id="使用spark-shell做交互式分析">使用Spark shell做交互式分析</h3>
+
 <p>进入到<code>$SPARK_HOME</code>目录下, 启动<code>pyspark</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/pyspark</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载README.md文件</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile = spark.read.text(<span class="string">"README.md"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计文件行数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile.count()</span><br><span class="line"><span class="number">103</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取第一行</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile.first()</span><br><span class="line">Row(value=<span class="string">'# Apache Spark'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过滤出包含"Spark"的行</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>linesWithSpark = textFile.filter(textFile.value.contains(<span class="string">"Spark"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计包含"Spark"的行的行数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile.filter(textFile.value.contains(<span class="string">"Spark"</span>)).count()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取包含单词最多行的单词个数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>textFile.select(size(split(textFile.value, <span class="string">"\s+"</span>)).name(<span class="string">"numWords"</span>)).agg(max</span><br><span class="line"><span class="meta">... </span>(col(<span class="string">"numWords"</span>))).collect()</span><br><span class="line">[Row(max(numWords)=<span class="number">22</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计单词出现的频次</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wordCounts = textFile.select(explode(split(textFile.value, <span class="string">"\s+"</span>)).name(<span class="string">"wor</span></span><br><span class="line"><span class="string">... d"</span>)).groupBy(<span class="string">"word"</span>).count()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wordCounts.collect()</span><br><span class="line">[Row(word=<span class="string">'online'</span>, count=<span class="number">1</span>),</span><br><span class="line"> Row(word=<span class="string">'graphs'</span>, count=<span class="number">1</span>),</span><br><span class="line"> ...</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 缓存</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>linesWithSpark.cache()</span><br><span class="line">DataFrame[value: string]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>linesWithSpark.count()</span><br><span class="line"><span class="number">20</span></span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/pyspark</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 加载README.md文件</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&#34;README.md&#34;</span><span class="p">)</span>
+
+<span class="c1"># 统计文件行数</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="mi">103</span>
+
+<span class="c1"># 获取第一行</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">Row</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;# Apache Spark&#39;</span><span class="p">)</span>
+
+<span class="c1"># 过滤出包含&#34;Spark&#34;的行</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&#34;Spark&#34;</span><span class="p">))</span>
+
+<span class="c1"># 统计包含&#34;Spark&#34;的行的行数</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&#34;Spark&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># 获取包含单词最多行的单词个数</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&#34;\s+&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s2">&#34;numWords&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">max</span>
+<span class="o">...</span> <span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;numWords&#34;</span><span class="p">)))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numWords</span><span class="p">)</span><span class="o">=</span><span class="mi">22</span><span class="p">)]</span>
+
+<span class="c1"># 统计单词出现的频次</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">explode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&#34;\s+&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s2">&#34;wor</span><span class="err">
+</span><span class="err"></span><span class="s2">... d&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordCounts</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+ <span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+ <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="c1"># 缓存</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="n">DataFrame</span><span class="p">[</span><span class="n">value</span><span class="p">:</span> <span class="n">string</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="mi">20</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>在使用Spark Shell时，也会开启一个Spark monitor UI，默认在本地4040端口运行。</p>
-<figure>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="http://images.wiseturtles.com/2018-01-11-SparkMonitorUI.png" alt="Spark Monitor UI"><figcaption>Spark Monitor UI</figcaption>
-</figure>
+
+<p><img src="http://images.wiseturtles.com/2018-01-11-SparkMonitorUI.png" alt="Spark Monitor UI" /></p>
+
 <h3 id="创建一个简单的应用">创建一个简单的应用</h3>
-<p>一个简单的应用统计文件中包含字符“a”和“b”的行数的脚本<code>SimpleApp.py</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat SimpleApp.py</span><br><span class="line"><span class="string">""</span><span class="string">"SimpleApp.py"</span><span class="string">""</span></span><br><span class="line">from pyspark.sql import SparkSession</span><br><span class="line"></span><br><span class="line">appName=<span class="string">'Simple Application'</span></span><br><span class="line">logFile = <span class="string">"README.md"</span>  <span class="comment"># Should be some file on your system</span></span><br><span class="line">spark = SparkSession.builder.appName(appName).getOrCreate()</span><br><span class="line">logData = spark.read.text(logFile).cache()</span><br><span class="line"></span><br><span class="line">numAs = logData.filter(logData.value.contains(<span class="string">'a'</span>)).count()</span><br><span class="line">numBs = logData.filter(logData.value.contains(<span class="string">'b'</span>)).count()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Lines with a: %i, lines with b: %i"</span> % (numAs, numBs))</span><br><span class="line"></span><br><span class="line">spark.stop()</span><br></pre></td></tr></table></figure>
+
+<p>一个简单的应用统计文件中包含字符&rdquo;a&rdquo;和&rdquo;b&rdquo;的行数的脚本<code>SimpleApp.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat SimpleApp.py
+<span class="s2">&#34;&#34;&#34;SimpleApp.py&#34;&#34;&#34;</span>
+from pyspark.sql import SparkSession
+
+<span class="nv">appName</span><span class="o">=</span><span class="s1">&#39;Simple Application&#39;</span>
+<span class="nv">logFile</span> <span class="o">=</span> <span class="s2">&#34;README.md&#34;</span>  <span class="c1"># Should be some file on your system
+</span><span class="c1"></span><span class="nv">spark</span> <span class="o">=</span> SparkSession.builder.appName<span class="o">(</span>appName<span class="o">)</span>.getOrCreate<span class="o">()</span>
+<span class="nv">logData</span> <span class="o">=</span> spark.read.text<span class="o">(</span>logFile<span class="o">)</span>.cache<span class="o">()</span>
+
+<span class="nv">numAs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">))</span>.count<span class="o">()</span>
+<span class="nv">numBs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">))</span>.count<span class="o">()</span>
+
+print<span class="o">(</span><span class="s2">&#34;Lines with a: %i, lines with b: %i&#34;</span> % <span class="o">(</span>numAs, numBs<span class="o">))</span>
+
+spark.stop<span class="o">()</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>运行应用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/spark-submit --master <span class="string">"local[4]"</span> SimpleApp.py</span><br></pre></td></tr></table></figure>
-<h2 id="创建sparksession对象">创建<code>SparkSession</code>对象</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/spark-submit --master <span class="s2">&#34;local[4]&#34;</span> SimpleApp.py</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="创建-sparksession-对象">创建<code>SparkSession</code>对象</h2>
+
 <p>一个<code>SparkSession</code>对象表示与本地(或远程)的Spark集群连接，是与Spark交互的主要入口。</p>
+
 <p>为了建立到Spark的连接，<code>SparkSession</code>需要配置如下信息:</p>
+
 <ul>
-<li><strong>Master URL</strong>: spark服务器的连接地址, 具体可参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls" target="_blank" rel="noopener">Master URLs</a></li>
+<li><strong>Master URL</strong>: spark服务器的连接地址, 具体可参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls">Master URLs</a></li>
 <li><strong>Application Name</strong>: 便于识别的应用名</li>
 <li><strong>Spark Home</strong>: spark的安装路径</li>
 <li><strong>JARs</strong>: 任务依赖的JAR包路径</li>
 </ul>
+
 <h3 id="sparksession-vs-sparkcontext"><code>SparkSession</code> vs <code>SparkContext</code></h3>
-<p><code>SparkSession</code>和<code>SparkContext</code>两者之间有什么关系呢？ 让我们回顾一下spark的发展历史，看能不能找到一点线索:</p>
+
+<p><code>SparkSession</code>和<code>SparkContext</code>两者之间有什么关系呢？
+让我们回顾一下spark的发展历史，看能不能找到一点线索:</p>
+
 <p>在Spark 2.0.0 之前。主要有三个连接对象:</p>
+
 <ul>
 <li><code>SparkContext</code>: 主要连接Spark执行环境和完成进行创建<code>RDDs</code>等其它功能</li>
 <li><code>SqlContext</code>: 和SparkSQL一起在<code>SparkContext</code>背后工作</li>
 <li><code>HiveContext</code>: 和<code>Hive</code>仓库交互</li>
 </ul>
+
 <p>Saprk 2.0.0之后，引入了<code>Datasets/DataFrames</code>作为主要的分数式数据抽象接口。<code>SparkSession</code>对象成为了Spark操作的主要入口。有几点需要注意:</p>
-<ol type="1">
+
+<ol>
 <li><p>在Scala和Java中<code>Datasets</code>是主要的数据抽象类型。而在R和Python语言中，<code>DataFrame</code>是主要的抽象类型。它们在API操作上基本没有区别(可以认为是一个东西，只是在不同语言里叫法不一样)</p></li>
+
 <li><p>尽管在2.0.0之后，<code>Datasets/DataFrames</code>作为新的接口形式，但是<code>RDDs</code>依然在被使用，所以当操作<code>RDDs</code>，主要使用<code>SparkContext</code>。</p></li>
+
 <li><p><code>SparkSession</code>对象包含了<code>SparkContext</code>对象。在Spark 2.0.0版本之后，<code>SparkContext</code>仍然是作为连接Spark集群的管道，因此<code>SparkContext</code>主要执行环境操作，比如: 累加器(accumulators)，<code>addFile</code>, <code>addJars</code>等。而<code>SparkSession</code>则用于读取和创建<code>Datasets/DataFrames</code>等操作。</p></li>
 </ol>
-<h3 id="创建一个sparksession对象">创建一个<code>SparkSession</code>对象</h3>
+
+<h3 id="创建一个-sparksession-对象">创建一个<code>SparkSession</code>对象</h3>
+
 <p>我们可以使用下面的语句创建一个<code>SparkSession</code>对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sparkSession = SparkSession.builder.appName(<span class="string">'app name'</span>).\</span><br><span class="line">                        master(<span class="string">'local'</span>).getOrCreate()</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sparkSession</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s1">&#39;app name&#39;</span><span class="p">)</span><span class="o">.</span>\
+                        <span class="n">master</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>其实当我们运行<code>pyspark</code>时，其实就已经自动创建了一个<code>SparkSession</code>并且分配给了<code>spark</code>变量。</p>
+
 <p>在<code>pyspark</code>脚本里面，我们可以看到下面一句话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONSTARTUP=<span class="string">"<span class="variable">$&#123;SPARK_HOME&#125;</span>/python/pyspark/shell.py"</span></span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PYTHONSTARTUP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span><span class="s2">/python/pyspark/shell.py&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>它设置了环境变量<code>PYTHONSTARTUP</code>, 那么在我们运行<code>pyspark</code>时，会先自动运行脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;SPARK_HOME&#125;</span>/python/pyspark/shell.py</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/python/pyspark/shell.py</code></pre></td></tr></table>
+</div>
+</div>
 <p>我们再来看看这个脚本里有些什么，下图是脚本的部分截图:</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="http://images.wiseturtles.com/2018-01-11-spark_shell.png"></p>
+
+<p><img src="http://images.wiseturtles.com/2018-01-11-spark_shell.png" alt="" /></p>
+
 <p>从红色框里的代码，我们可以看到创建了<code>SparkSession</code>对象并赋值给<code>spark</code>，<code>SparkSession</code>包含了<code>SparkContext</code>(<code>spark.sparkContext</code>), 并且使用<code>sc</code>指向<code>SparkContext</code>。</p>
+
 <p>简要的说，我们一般采用如下规则:</p>
+
 <ul>
 <li>创建一个<code>SparkSession</code>对象</li>
 <li>使用<code>SparkSession</code>读取，创建SQL语句的视图，创建<code>Datasets/DataFrames</code></li>
 <li>从<code>SparkSession</code>得到<code>sparkContext</code>, 用于完成累加器(accumulators)，分发缓存文件和<code>RDDs</code>的相关操作。</li>
 </ul>
-<h3 id="sparkcontext元数据"><code>sparkContext</code>元数据</h3>
-<p><code>sparkContext</code>包含了一些实用的元数据信息。</p>
-<p>获取spark版本信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>spark.version</span><br><span class="line"><span class="string">u'2.2.1'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc.version</span><br><span class="line"><span class="string">u'2.2.1'</span></span><br></pre></td></tr></table></figure>
-<p>获取部署的应用名</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc.appName</span><br><span class="line"><span class="string">u'PySparkShell'</span></span><br></pre></td></tr></table></figure>
-<p>获取内存信息(<strong>Python中暂时没有实现</strong>)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc.getExecutorMemoryStatus</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-4</span><span class="number">-755</span>a4391f6a7&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 sc.getExecutorMemoryStatus</span><br><span class="line"></span><br><span class="line">AttributeError: <span class="string">'SparkContext'</span> object has no attribute <span class="string">'getExecutorMemoryStatus'</span></span><br></pre></td></tr></table></figure>
-<p>但是Scala语言中有</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; sc.getExecutorMemoryStatus</span><br><span class="line">res0: scala.collection.<span class="type">Map</span>[<span class="type">String</span>,(<span class="type">Long</span>, <span class="type">Long</span>)] = <span class="type">Map</span>(<span class="number">169.254</span><span class="number">.93</span><span class="number">.254</span>:<span class="number">55267</span> -&gt; (<span class="number">384093388</span>,<span class="number">384093388</span>))</span><br></pre></td></tr></table></figure>
-<p><code>169.254.93.254:55267</code>代办主机信息。 <code>(384093388,384093388)</code>分别代表当前分配的最大内存和剩余内存</p>
-<p>获取主机信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc.master</span><br><span class="line"><span class="string">u'local[*]'</span></span><br></pre></td></tr></table></figure>
-<p>获取配置信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc.getConf().toDebugString().split(<span class="string">'\n'</span>)</span><br><span class="line">[<span class="string">u'spark.app.id=local-1515662568196'</span>,</span><br><span class="line"> <span class="string">u'spark.app.name=PySparkShell'</span>,</span><br><span class="line"> <span class="string">u'spark.driver.host=169.254.93.254'</span>,</span><br><span class="line"> <span class="string">u'spark.driver.port=55105'</span>,</span><br><span class="line"> <span class="string">u'spark.executor.id=driver'</span>,</span><br><span class="line"> <span class="string">u'spark.master=local[*]'</span>,</span><br><span class="line"> <span class="string">u'spark.rdd.compress=True'</span>,</span><br><span class="line"> <span class="string">u'spark.serializer.objectStreamReset=100'</span>,</span><br><span class="line"> <span class="string">u'spark.sql.catalogImplementation=hive'</span>,</span><br><span class="line"> <span class="string">u'spark.submit.deployMode=client'</span>]</span><br></pre></td></tr></table></figure>
 
-      
+<h3 id="sparkcontext-元数据"><code>sparkContext</code>元数据</h3>
+
+<p><code>sparkContext</code>包含了一些实用的元数据信息。</p>
+
+<p>获取spark版本信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">spark</span><span class="o">.</span><span class="n">version</span>
+<span class="sa">u</span><span class="s1">&#39;2.2.1&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">version</span>
+<span class="sa">u</span><span class="s1">&#39;2.2.1&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>获取部署的应用名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">appName</span>
+<span class="sa">u</span><span class="s1">&#39;PySparkShell&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>获取内存信息(<strong>Python中暂时没有实现</strong>)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">755</span><span class="n">a4391f6a7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
+
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;SparkContext&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;getExecutorMemoryStatus&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>但是Scala语言中有</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scala</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">scala.collection.Map</span><span class="o">[</span><span class="kt">String</span>,<span class="o">(</span><span class="kt">Long</span>, <span class="kt">Long</span><span class="o">)]</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="mf">169.254</span><span class="o">.</span><span class="mf">93.254</span><span class="k">:</span><span class="err">55267</span> <span class="kt">-&gt;</span> <span class="o">(</span><span class="err">384093388</span><span class="o">,</span><span class="err">384093388</span><span class="o">))</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>169.254.93.254:55267</code>代办主机信息。
+<code>(384093388,384093388)</code>分别代表当前分配的最大内存和剩余内存</p>
+
+<p>获取主机信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">master</span>
+<span class="sa">u</span><span class="s1">&#39;local[*]&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>获取配置信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getConf</span><span class="p">()</span><span class="o">.</span><span class="n">toDebugString</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="sa">u</span><span class="s1">&#39;spark.app.id=local-1515662568196&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.app.name=PySparkShell&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.driver.host=169.254.93.254&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.driver.port=55105&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.executor.id=driver&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.master=local[*]&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.rdd.compress=True&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.serializer.objectStreamReset=100&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.sql.catalogImplementation=hive&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;spark.submit.deployMode=client&#39;</span><span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
-      
-
-
     
-
-    
-    
-    
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>如果您觉得我的文章对你有帮助，您可以帮我的早饭加个蛋!</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">crazygit</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-01-11</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
 
     
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://images.wiseturtles.com/wechatpay.jpg" alt="crazygit 微信支付"/>
-        <p>微信支付</p>
-      </div>
     
-
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
     
-
     
-
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="http://images.wiseturtles.com/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
   </div>
 </div>
 
-      </div>
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>crazygit</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/" title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
-</ul>
-
-      </div>
-    
-
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/spark/" rel="tag"># spark</a>
+      <div class="post-tags">
+          <a href="https://crazygit.wiseturtles.com/tags/spark/">spark</a>
           
         </div>
-      
 
       
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/01/10/python-for-data-analysis-2nd-edition-note-five/" rel="next" title="《利用Python进行数据分析第二版》读书笔记五">
-                <i class="fa fa-chevron-left"></i> 《利用Python进行数据分析第二版》读书笔记五
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/15/fast-data-processing-with-spark2-note-two/" rel="prev" title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二">
-                《Fast Data Processing with Spark 2（Third Edition)》读书笔记二 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/2018/01/15/fast-data-processing-with-spark2-note-two/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">《Fast Data Processing with Spark 2（Third Edition)》读书笔记二</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/">
+            <span class="next-text nav-default">《利用Python进行数据分析第二版》读书笔记四</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
     </footer>
-  </div>
-  
-  
-  
   </article>
 
+  
+  
 
+  
+  
 
-    <div class="post-spread">
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    function load_disqus() {
       
-    </div>
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'lianglin999';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
   </div>
 
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="https://avatars1.githubusercontent.com/u/1240997"
-                alt="crazygit" />
-            
-              <p class="site-author-name" itemprop="name">crazygit</p>
-              <p class="site-description motion-element" itemprop="description">技术和生活分享</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/crazygit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/crazygit" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://travis-ci.org/" title="Travis CI" target="_blank">Travis CI</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://ox0spy.github.io/" title="ox0spy blog" target="_blank">ox0spy blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://blog.wiseturtles.com/" title="Wise Turtles" target="_blank">Wise Turtles</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spark概览"><span class="nav-number">1.</span> <span class="nav-text">Spark概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署环境需求"><span class="nav-number">2.1.</span> <span class="nav-text">部署环境需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压安装"><span class="nav-number">2.2.</span> <span class="nav-text">解压安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开始"><span class="nav-number">3.</span> <span class="nav-text">快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行例子和交互式shell"><span class="nav-number">3.1.</span> <span class="nav-text">运行例子和交互式shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用spark-shell做交互式分析"><span class="nav-number">3.2.</span> <span class="nav-text">使用Spark shell做交互式分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个简单的应用"><span class="nav-number">3.3.</span> <span class="nav-text">创建一个简单的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建sparksession对象"><span class="nav-number">4.</span> <span class="nav-text">创建SparkSession对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sparksession-vs-sparkcontext"><span class="nav-number">4.1.</span> <span class="nav-text">SparkSession vs SparkContext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个sparksession对象"><span class="nav-number">4.2.</span> <span class="nav-text">创建一个SparkSession对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sparkcontext元数据"><span class="nav-number">4.3.</span> <span class="nav-text">sparkContext元数据</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
       </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate"> 
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">crazygit</span>
-
-  
-
-  
-</div>
-
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.1.0</div>
-
-
-
-  <div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="ttps://pages.github.com"><b>GitHub Pages</b></a></div>
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="Total Visitors">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="Total Views">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
-
-    
-
+      <div class="social-links">
+      <a href="mailto:crazygit@foxmail.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+      <a href="https://twitter.com/lianglin999" rel="me noopener" class="iconfont icon-twitter"
+        title="twitter" target="_blank">
+      </a>
+      <a href="https://github.com/crazygit" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+      <a href="https://www.weibo.com/crazygit/profile" rel="me noopener" class="iconfont icon-weibo"
+        title="weibo" target="_blank">
+      </a>
+  <a href="https://crazygit.wiseturtles.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
   </div>
 
-  
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">
+        crazygit
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script><script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
 </script>
 
 
 
-
-
-
-
-
-
-
-
-
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
 
 
 
 
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://lianglin999.disqus.com/count.js" async></script>
-  
-
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/';
-        this.page.identifier = '2018/01/11/fast-data-processing-with-spark2-note-one/';
-        this.page.title = '《Fast Data Processing with Spark 2（Third Edition)》读书笔记一';
-      };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://lianglin999.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
-  
-
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+    AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");
   </script>
 
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");</script>
   <script>
-    function showTime(Counter) {
+    function showHitCount(Counter) {
       var query = new AV.Query(Counter);
       var entries = [];
       var $visitors = $(".leancloud_visitors");
 
       $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
+        entries.push($(this).attr("id").trim());
       });
 
       query.containedIn('url', entries);
@@ -1544,16 +1091,16 @@
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
             var url = item.get('url');
-            var time = item.get('time');
+            var hits = item.get('hits');
             var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
+            $(element).find(COUNT_CONTAINER_REF).text(hits);
           }
-          for(var i = 0; i < entries.length; i++) {
+          for (var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
+            if (countSpan.text() == '') {
               countSpan.text(0);
             }
           }
@@ -1571,107 +1118,65 @@
 
       query.equalTo("url", url);
       query.find({
-        success: function(results) {
+        success: function (results) {
           if (results.length > 0) {
             var counter = results[0];
             counter.fetchWhenSave(true);
-            counter.increment("time");
-            
+            counter.increment("hits");
             counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
+              success: function (counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
               },
-              error: function(counter, error) {
+              error: function (counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
+            var newcounter = new Counter();
+             
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+             
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("hits", 1);
+            newcounter.save(null, {
+              success: function (newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
+              },
+              error: function (newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
           }
         },
-        error: function(error) {
+        error: function (error) {
           console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
 
-    $(function() {
+    $(function () {
       var Counter = AV.Object.extend("Counter");
       if ($('.leancloud_visitors').length == 1) {
+        
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
+      } else if ($('.post-link').length > 1) {
+        
+        showHitCount(Counter);
       }
     });
   </script>
 
 
 
-  
 
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+  <script src="/js/douban.js"></script>
 
 
-  
-  
-
-  
-  
-
-  
-
-
-  
-  
-
-  
-
-  
-  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.1.0"></script>
-  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-  
-
-  
-
-<script>!function(t){var n=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function e(n){var e=n.getBoundingClientRect();return e.top>=0&&e.left>=0&&e.top<=(t.innerHeight||document.documentElement.clientHeight)}function i(t,n){var e=new Image,i=t.getAttribute("data-original");e.onload=function(){t.src=i,n&&n()},e.src=i}function o(){for(var t=0;t<n.length;t++)e(n[t])&&i(n[t],function(){n.splice(t,t)})}o(),t.addEventListener("scroll",o)}(this);</script></body>
+</body>
 </html>

@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Soul Mate</title>
+    <link>https://crazygit.wiseturtles.com/post/</link>
+    <description>Recent content in Posts on Soul Mate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 11 Apr 2018 18:15:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://crazygit.wiseturtles.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elasticsearch快速入门</title>
+      <link>https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/</link>
+      <pubDate>Wed, 11 Apr 2018 18:15:39 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/</guid>
+      <description>&lt;h1 id=&#34;elasticsearch快速入门-https-www-elastic-co-guide-en-elasticsearch-reference-current-getting-started-html&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html&#34;&gt;Elasticsearch快速入门&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;当前使用版本: 6.2&lt;/p&gt;
+
+&lt;h2 id=&#34;基本概念-https-www-elastic-co-guide-en-elasticsearch-reference-current-basic-concepts-html&#34;&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html&#34;&gt;基本概念&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Near Realtime (NRT)&lt;/p&gt;
+
+&lt;p&gt;及时搜索，创建文档的索引后无需等待，立刻就可以开始搜索&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cluster&lt;/p&gt;
+
+&lt;p&gt;集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>工银亚洲开户攻略</title>
+      <link>https://crazygit.wiseturtles.com/2018/03/09/icbcasia/</link>
+      <pubDate>Fri, 09 Mar 2018 22:21:02 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/03/09/icbcasia/</guid>
+      <description>&lt;h2 id=&#34;开户必读&#34;&gt;开户必读&lt;/h2&gt;
+
+&lt;p&gt;申请之前，建议阅读&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.icbc.com.cn/ICBC/%E4%B8%AA%E4%BA%BA%E9%87%91%E8%9E%8D/%E4%B8%AA%E4%BA%BA%E6%9C%8D%E5%8A%A1/%E8%B7%A8%E5%A2%83%E9%87%91%E8%9E%8D/%E5%A2%83%E5%A4%96%E9%87%91%E8%9E%8D%E6%9C%8D%E5%8A%A1/%E5%B7%A5%E9%93%B6%E4%BA%9A%E6%B4%B2/&#34;&gt;见证开立工银亚洲账户常见问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.icbcasia.com/ICBC/%E6%B5%B7%E5%A4%96%E5%88%86%E8%A1%8C/%E5%B7%A5%E9%93%B6%E4%BA%9A%E6%B4%B2/CN/%E4%B8%AA%E4%BA%BA%E9%87%91%E8%9E%8D/%E4%BA%BA%E6%B0%91%E5%B8%81%E5%8F%8A%E8%B7%A8%E5%A2%83%E7%90%86%E8%B4%A2/%E5%86%85%E5%9C%B0%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1%E4%B8%93%E5%8C%BA/retailfaq.htm&#34;&gt;开立工银亚洲账户常见问题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;工银亚洲账户分综合账户和理财账户的两种，它们之间的区别，以及支持的币种，费用等问题，里面都有答案了。&lt;/p&gt;
+
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
+
+&lt;p&gt;下面内容摘录自上面的文件&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>docker常用命令</title>
+      <link>https://crazygit.wiseturtles.com/2018/02/12/docker-commands/</link>
+      <pubDate>Mon, 12 Feb 2018 22:21:02 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/02/12/docker-commands/</guid>
+      <description>&lt;h3 id=&#34;install-docker-on-mac&#34;&gt;Install docker on mac&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ brew cask install docker&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;get-docker-info&#34;&gt;Get docker info&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ docker --version
+Docker version &lt;span class=&#34;m&#34;&gt;17&lt;/span&gt;.12.0-ce, build c97c6d6&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ docker-compose --version
+docker-compose version &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;.18.0, build 8dd22a9&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>docker简单入门</title>
+      <link>https://crazygit.wiseturtles.com/2018/02/12/docker-get-started/</link>
+      <pubDate>Mon, 12 Feb 2018 21:15:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/02/12/docker-get-started/</guid>
+      <description>&lt;h2 id=&#34;docker安装&#34;&gt;Docker安装&lt;/h2&gt;
+
+&lt;p&gt;根据自己的操作系统，参考&lt;a href=&#34;https://docs.docker.com/install/&#34;&gt;官方文档&lt;/a&gt;完成安装&lt;/p&gt;
+
+&lt;h2 id=&#34;测试是否安装成功-运行第一个容器&#34;&gt;测试是否安装成功，运行第一个容器&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ docker run hello-world
+Unable to find image &lt;span class=&#34;s1&#34;&gt;&amp;#39;hello-world:latest&amp;#39;&lt;/span&gt; locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:66ef312bbac49c39a89aa9bcc3cb4f3c9e7de3788c944158df3ee0176d32b751
+Status: Downloaded newer image &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; hello-world:latest
+
+Hello from Docker!
+...&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记目录</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</link>
+      <pubDate>Fri, 26 Jan 2018 11:14:35 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</guid>
+      <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/&#34;&gt;《FastDataProcessingwithSpark2读书笔记一》&lt;/a&gt;
+快速了解Spark的安装，Spark Shell使用和SparkSession对象&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/&#34;&gt;《FastDataProcessingwithSpark2读书笔记二》&lt;/a&gt;
+Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/&#34;&gt;《FastDataProcessingwithSpark2读书笔记三》&lt;/a&gt;
+DataSets/DataFrame的常用接口和函数&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/&#34;&gt;《FastDataProcessingwithSpark2读书笔记四》&lt;/a&gt;
+机器学习相关和GraphX（&lt;strong&gt;待完善&lt;/strong&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《高效的秘密》读书文摘</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/26/smarter-faster-better/</link>
+      <pubDate>Fri, 26 Jan 2018 09:01:52 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/26/smarter-faster-better/</guid>
+      <description>&lt;h2 id=&#34;激发动力&#34;&gt;激发动力&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;和周围环境的人打好基础，他们会在合适的时机给予帮助，适当地运用小聪明。
+&amp;gt; 罗伯特总爱说，为了做生意，他跑遍了墨西哥湾沿岸，任何一条小路和陋巷都留下过他的车辙。公司逐渐发展起来，罗伯特的豪爽也出了名，他总是邀请新奥尔良、亚特兰大等大城市的客户到各色酒吧，尽兴方归。到了次日早晨，罗伯特会趁那些人还处于宿醉状态，让他们心甘情愿地签下几百万美元的订单。酒吧里，调酒师总是不失默契地往罗伯特的杯子里倒苏打水，而给他的大客户们奉上鸡尾酒。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;生活没有动力时，还是要学会给自己灌鸡汤。
+&amp;gt; 懂得自我激励的人比同辈人的收入更高，幸福感更强，对自己的家庭、工作和生活的满意度也更高。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《A Programmer&#39;s Guide to Data Mining》读书笔记一</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</link>
+      <pubDate>Mon, 22 Jan 2018 17:34:52 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</guid>
+      <description>&lt;p&gt;参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://guidetodatamining.com/&#34;&gt;A Programmer&amp;rsquo;s Guide to Data Mining&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
+假如你喜欢看电影A和B， 另外一个和你&lt;strong&gt;相似的用户&lt;/strong&gt;也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/?title=Collaborative_filtering&#34;&gt;如图所示&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-19-Collaborative_filtering.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>皮尔逊相关系数(Pearson Correlation Coefficient)</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</link>
+      <pubDate>Fri, 19 Jan 2018 17:48:36 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</guid>
+      <description>&lt;p&gt;在介绍皮尔逊相关系数前，先来回顾一些统计相关的术语，便于我们更好的理解后面的计算公式。&lt;/p&gt;
+
+&lt;h2 id=&#34;方差-variance&#34;&gt;方差（Variance）&lt;/h2&gt;
+
+&lt;p&gt;参考&lt;a href=&#34;https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE&#34;&gt;百度百科&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;方差在统计描述和概率分布中各有不同的定义，并有不同的公式。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下面主要介绍在统计描述中的方差&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记四</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</link>
+      <pubDate>Wed, 17 Jan 2018 10:11:35 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</guid>
+      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;机器学习和spark-ml-pipelines&#34;&gt;机器学习和Spark ML Pipelines&lt;/h2&gt;
+
+&lt;h3 id=&#34;spark机器学习算法表&#34;&gt;Spark机器学习算法表&lt;/h3&gt;
+
+&lt;p&gt;机器学习的相关算法: &lt;code&gt;pyspark.ml&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;机器学习算法表&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记三</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</link>
+      <pubDate>Tue, 16 Jan 2018 22:55:11 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</guid>
+      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;数据分析的主力datasets-dataframes&#34;&gt;数据分析的主力Datasets/DataFrames&lt;/h2&gt;
+
+&lt;h3 id=&#34;datasets概述&#34;&gt;DataSets概述&lt;/h3&gt;
+
+&lt;p&gt;Spark中，Dataset就是一组各式各样的列，类似一张excel表格或关系型数据库中的表。可以用于类型检查和语义化查询。&lt;/p&gt;
+
+&lt;p&gt;在R和Python语言中，使用的依然是DataFrame类，但是包含了所有的DataSet APIs。因此可以这样认为，DataSet在Python和R语言中就叫做DataFrame。&lt;/p&gt;
+
+&lt;p&gt;在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记二</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</link>
+      <pubDate>Mon, 15 Jan 2018 17:45:35 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</guid>
+      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;在spark中加载和保存数据&#34;&gt;在Spark中加载和保存数据&lt;/h2&gt;
+
+&lt;p&gt;在我们开始操作数据之前，让我们先看一些Spark的概念以及了解一下不同的数据形态&lt;/p&gt;
+
+&lt;h3 id=&#34;spark抽象概念&#34;&gt;Spark抽象概念&lt;/h3&gt;
+
+&lt;p&gt;Saprk的主要特点就是分布式的数据描述(representation)和计算，因此拥有大规模的数据操作。&lt;em&gt;Spark主要的数据描述单元就是&lt;code&gt;RDD&lt;/code&gt;&lt;/em&gt;(原句是: Spark&amp;rsquo;s primary unit for representation of data is RDD)， 可以很方便的允许并行的数据计算。在Saprk 2.0.0版本之前，都是基于&lt;code&gt;RDDs&lt;/code&gt;工作的。然而，它们都是低级别的原始结构，在执行和扩展上有很大的优化空间。因此才有了&lt;code&gt;Datasets/DataFrames&lt;/code&gt;。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;是API级别的抽象，也是编程的主要接口，它提供了大量操作&lt;code&gt;RDD&lt;/code&gt;, 但是通过优化查询计划在&lt;code&gt;RDDs&lt;/code&gt;上封装了一层。因此，底层仍然是&lt;code&gt;RDD&lt;/code&gt;, 只是通过&lt;code&gt;Datasets/DataFrames&lt;/code&gt;的API来访问。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;RDDs can be viewed as arrays of arrays with primitive data types, such as integers, floats, and strings.&lt;/p&gt;
+
+&lt;p&gt;Datasets/DataFrames, on the other hand, are similar to a table or a spreadsheet with column headings-such as name, title, order number, order date, and movie rating-and the associated data types.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;RDDs&lt;/code&gt;可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</link>
+      <pubDate>Thu, 11 Jan 2018 18:48:27 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</guid>
+      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;spark概览&#34;&gt;Spark概览&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Apache Spark is a fast and general-purpose cluster computing system&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;本文基于目前最新的spark版本&lt;code&gt;2.2.1&lt;/code&gt;整理，以&lt;code&gt;Python3.6&lt;/code&gt;为例，在Mac单机情况下使用。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;h3 id=&#34;部署环境需求&#34;&gt;部署环境需求&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Window, Linux, Mac均可&lt;/li&gt;
+&lt;li&gt;Java8+(需要设置&lt;code&gt;JAVA_HOME&lt;/code&gt;环境变量)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面三个根据自己习惯使用的语言选择安装&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Python2.7+/3.4+&lt;/li&gt;
+&lt;li&gt;R 3.1+&lt;/li&gt;
+&lt;li&gt;为了使用Scala API, 需要安装完整的Scala 2.11.x版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《利用Python进行数据分析第二版》读书笔记四</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/09/python-for-data-analysis-2nd-edition-note-four/</link>
+      <pubDate>Tue, 09 Jan 2018 09:50:48 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/09/python-for-data-analysis-2nd-edition-note-four/</guid>
+      <description>&lt;h1 id=&#34;绘图和可视化&#34;&gt;绘图和可视化&lt;/h1&gt;
+
+&lt;p&gt;绘图时，在&lt;code&gt;ipython&lt;/code&gt;里运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matplotlib&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;matplotlib&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TkAgg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;可以直接绘制图形，不然每次绘制图形最后必须调用&lt;code&gt;plt.show()&lt;/code&gt;才能看到图形。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;本文里使用的CSV测试数据可以从这里&lt;a href=&#34;https://github.com/wesm/pydata-book&#34;&gt;下载&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;matplotlib简单入门&#34;&gt;matplotlib简单入门&lt;/h2&gt;
+
+&lt;p&gt;关于&lt;code&gt;matplotlib&lt;/code&gt;的使用入门，可以参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/&#34;&gt;matplotlib教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pipenv使用指南</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</link>
+      <pubDate>Mon, 08 Jan 2018 14:16:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pypa/pipenv&#34;&gt;&lt;code&gt;pipenv&lt;/code&gt;&lt;/a&gt;是&lt;a href=&#34;https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies&#34;&gt;Python官方推荐&lt;/a&gt;的包管理工具。可以说，它集成了&lt;code&gt;virtualenv&lt;/code&gt;, &lt;code&gt;pip&lt;/code&gt;和&lt;code&gt;pyenv&lt;/code&gt;三者的功能。其目的旨在集合了所有的包管理工具的长处，如: &lt;code&gt;npm&lt;/code&gt;, &lt;code&gt;yarn&lt;/code&gt;, &lt;code&gt;composer&lt;/code&gt;等的优点。&lt;/p&gt;
+
+&lt;p&gt;它能够自动为项目创建和管理虚拟环境，从&lt;code&gt;Pipfile&lt;/code&gt;文件添加或删除安装的包，同时生成&lt;code&gt;Pipfile.lock&lt;/code&gt;来锁定安装包的版本和依赖信息，避免构建错误。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;pipenv&lt;/code&gt;主要解决了如下问题:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不用再单独使用&lt;code&gt;pip&lt;/code&gt;和&lt;code&gt;virtualenv&lt;/code&gt;, 现在它们合并在一起了&lt;/li&gt;
+&lt;li&gt;不用再维护&lt;code&gt;requirements.txt&lt;/code&gt;, 使用&lt;code&gt;Pipfile&lt;/code&gt;和&lt;code&gt;Pipfile.lock&lt;/code&gt;来代替&lt;/li&gt;
+&lt;li&gt;可以使用多个python版本(&lt;code&gt;python2&lt;/code&gt;和&lt;code&gt;python3&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;在安装了&lt;code&gt;pyenv&lt;/code&gt;的条件下，可以自动安装需要的Python版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;为了方便使用, 建议&lt;strong&gt;全局&lt;/strong&gt;安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pipenv&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《利用Python进行数据分析第二版》读书笔记三</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/04/python-for-data-analysis-2nd-edition-note-two/</link>
+      <pubDate>Thu, 04 Jan 2018 21:33:14 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/04/python-for-data-analysis-2nd-edition-note-two/</guid>
+      <description>&lt;h1 id=&#34;数据合并-拼接和变型&#34;&gt;数据合并，拼接和变型&lt;/h1&gt;
+
+&lt;h2 id=&#34;分层索引&#34;&gt;分层索引&lt;/h2&gt;
+
+&lt;p&gt;分层索引是&lt;code&gt;Pandas&lt;/code&gt;的一个重要特性，能够让我们在一个轴上拥有多层索引。简单来说，它提供了一个在降纬模式下处理多维数据的能力。&lt;/p&gt;
+
+&lt;p&gt;如下是一个多层索引的例子&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Series&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;                  &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.007189&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.296221&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.274992&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.228913&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.352917&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.886429&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.001637&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.371843&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.669025&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;float64&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;MultiIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;levels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]],&lt;/span&gt;
+           &lt;span class=&#34;n&#34;&gt;labels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 访问外层索引&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.228913&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.352917&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;float64&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.228913&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.352917&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;0.886429&lt;/span&gt;
+   &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.001637&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 访问内层索引&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[:,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.296221&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.001637&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.371843&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;float64&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《利用Python进行数据分析第二版》读书笔记二</title>
+      <link>https://crazygit.wiseturtles.com/2017/12/28/python-for-data-analysis-2nd-edition-note-two/</link>
+      <pubDate>Thu, 28 Dec 2017 15:57:31 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2017/12/28/python-for-data-analysis-2nd-edition-note-two/</guid>
+      <description>&lt;h2 id=&#34;数据清洗和预处理&#34;&gt;数据清洗和预处理&lt;/h2&gt;
+
+&lt;h3 id=&#34;过滤出缺失的数据&#34;&gt;过滤出缺失的数据&lt;/h3&gt;
+
+&lt;p&gt;Series&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nan&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NA&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Series&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dropna&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;3.5&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;7.0&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;float64&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 等价于上面的dropna&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;notnull&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()]&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;3.5&lt;/span&gt;
+&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;mf&#34;&gt;7.0&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;float64&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>《利用Python进行数据分析第二版》读书笔记一</title>
+      <link>https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/</link>
+      <pubDate>Tue, 26 Dec 2017 18:21:46 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/</guid>
+      <description>&lt;h2 id=&#34;numpy基础&#34;&gt;Numpy基础&lt;/h2&gt;
+
+&lt;p&gt;更多关于NumPy的使用, 可以参考&lt;a href=&#34;https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/&#34;&gt;NumPy快速入门指南&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;numpy数据类型&#34;&gt;Numpy数据类型&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2017-12-26-Numpy_data_types.png&#34; alt=&#34;Numpy DataTypes&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;np-where&#34;&gt;np.where&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;np.where&lt;/code&gt;是一个向量版本的三元表达式&lt;code&gt;x if c else y&lt;/code&gt;。假如我们有三个数组&lt;code&gt;xarr&lt;/code&gt;, &lt;code&gt;yarr&lt;/code&gt;, &lt;code&gt;cond&lt;/code&gt;。
+当&lt;code&gt;cond&lt;/code&gt;为真时，取&lt;code&gt;xarr&lt;/code&gt;的值，否则取&lt;code&gt;yarr&lt;/code&gt;的值。我们可以这样做:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xarr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;yarr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cond&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xarr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;yarr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cond&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.1000000000000001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.2000000000000002&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.3999999999999999&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>matplotlib教程</title>
+      <link>https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/</link>
+      <pubDate>Mon, 25 Dec 2017 11:14:51 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/</guid>
+      <description>&lt;p&gt;本文参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://morvanzhou.github.io/tutorials/data-manipulation/plt/&#34;&gt;Matplotlib 画图教程系列 | 莫烦Python&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install matplotlib&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;
+
+&lt;h3 id=&#34;画一个基本的线条&#34;&gt;画一个基本的线条&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;plt&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# x,y 的值是一一对应的&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 让图片显示&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2017-12-25-line.png&#34; alt=&#34;效果图&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>10分钟入门Pandas</title>
+      <link>https://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</link>
+      <pubDate>Wed, 20 Dec 2017 22:21:46 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</guid>
+      <description>&lt;p&gt;参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pandas.pydata.org/pandas-docs/stable/10min.html&#34;&gt;10 Minutes to pandas&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;支持的python版本: 2.7, 3.5, 3.6&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pandas&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;检查本地的pandas运行环境是否完整，可以运行pandas的单元测试用例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pytest&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pandas&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pd&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;获取当前使用pandas的版本信息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pandas&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pd&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;0.21.1&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NumPy快速入门指南</title>
+      <link>https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</link>
+      <pubDate>Tue, 19 Dec 2017 22:08:10 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</guid>
+      <description>&lt;p&gt;参考:
+&lt;a href=&#34;https://docs.scipy.org/doc/numpy-dev/user/quickstart.html&#34;&gt;https://docs.scipy.org/doc/numpy-dev/user/quickstart.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
+
+&lt;p&gt;安装numpy&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$ pip install numpy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In NumPy dimensions are called axes. The number of axes is rank.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Numpy中，维度被称作&lt;code&gt;axes&lt;/code&gt;, 维度数被称作&lt;code&gt;rank&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;Numpy的数组类是&lt;code&gt;ndarray&lt;/code&gt;, 与标准python库的数组不太一样，它包含的元素必须是&lt;strong&gt;相同类型&lt;/strong&gt;的。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ndarray&lt;/code&gt;的常见属性如下:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ndarray.ndim&lt;/code&gt;数组的轴数(即&lt;code&gt;rank&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ndarray.shape&lt;/code&gt;数组的维度，返回的是一个元组，元组的长度值刚好是&lt;code&gt;ndim&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ndarray.size&lt;/code&gt;数组元素的个数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ndarray.dtype&lt;/code&gt;数组元素的类型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ndarray.itemsize&lt;/code&gt;数组元素的字节大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ndarray.data&lt;/code&gt;数组包含的实际数据(一般情况下不会用到这个属性，都是通过索引来访问元素)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

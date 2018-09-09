@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Soul Mate</title>
+    <link>https://crazygit.wiseturtles.com/pages/</link>
+    <description>Recent content in Pages on Soul Mate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 24 Dec 2017 09:02:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://crazygit.wiseturtles.com/pages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018年阅读清单</title>
+      <link>https://crazygit.wiseturtles.com/books/</link>
+      <pubDate>Sun, 24 Dec 2017 09:02:05 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/books/</guid>
+      <description>开卷有益, 多读书，读好书! 技术类 Python for Data Analysis, 2nd Edition(中文翻译) Fast Data Processing with spark2(Third Edition) 机器学习(周志华) 机器学习实战 推荐系统实践 Scipy Lecture Notes 非技术类 高效</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>https://crazygit.wiseturtles.com/about/</link>
+      <pubDate>Thu, 21 Dec 2017 18:34:54 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/about/</guid>
+      <description>写作是与自己心灵的交流！ View this post on Instagram A post shared by Crazygit (@crazygit945) on Jun 27, 2017 at 9:12am PDT</description>
+    </item>
+    
+  </channel>
+</rss>

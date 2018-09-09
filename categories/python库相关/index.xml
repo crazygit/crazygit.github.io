@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python库相关 on Soul Mate</title>
+    <link>https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/</link>
+    <description>Recent content in Python库相关 on Soul Mate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 08 Jan 2018 14:16:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>pipenv使用指南</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</link>
+      <pubDate>Mon, 08 Jan 2018 14:16:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pypa/pipenv&#34;&gt;&lt;code&gt;pipenv&lt;/code&gt;&lt;/a&gt;是&lt;a href=&#34;https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies&#34;&gt;Python官方推荐&lt;/a&gt;的包管理工具。可以说，它集成了&lt;code&gt;virtualenv&lt;/code&gt;, &lt;code&gt;pip&lt;/code&gt;和&lt;code&gt;pyenv&lt;/code&gt;三者的功能。其目的旨在集合了所有的包管理工具的长处，如: &lt;code&gt;npm&lt;/code&gt;, &lt;code&gt;yarn&lt;/code&gt;, &lt;code&gt;composer&lt;/code&gt;等的优点。&lt;/p&gt;
+
+&lt;p&gt;它能够自动为项目创建和管理虚拟环境，从&lt;code&gt;Pipfile&lt;/code&gt;文件添加或删除安装的包，同时生成&lt;code&gt;Pipfile.lock&lt;/code&gt;来锁定安装包的版本和依赖信息，避免构建错误。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;pipenv&lt;/code&gt;主要解决了如下问题:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不用再单独使用&lt;code&gt;pip&lt;/code&gt;和&lt;code&gt;virtualenv&lt;/code&gt;, 现在它们合并在一起了&lt;/li&gt;
+&lt;li&gt;不用再维护&lt;code&gt;requirements.txt&lt;/code&gt;, 使用&lt;code&gt;Pipfile&lt;/code&gt;和&lt;code&gt;Pipfile.lock&lt;/code&gt;来代替&lt;/li&gt;
+&lt;li&gt;可以使用多个python版本(&lt;code&gt;python2&lt;/code&gt;和&lt;code&gt;python3&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;在安装了&lt;code&gt;pyenv&lt;/code&gt;的条件下，可以自动安装需要的Python版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;为了方便使用, 建议&lt;strong&gt;全局&lt;/strong&gt;安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pipenv&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

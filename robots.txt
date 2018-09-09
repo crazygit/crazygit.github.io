@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://crazygit.wiseturtles.com/sitemap.xml

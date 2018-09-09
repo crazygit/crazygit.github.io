@@ -1,75 +1,50 @@
 <!DOCTYPE html>
-
-
-
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>pipenv使用指南 - Soul Mate</title>
   
 
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
 
 
-
-
-
-
-
-
-
-
-
-
+<meta name="applicable-device" content="pc,mobile">
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="crazygit" /><meta name="description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
+" />
+
+  <meta name="keywords" content="Hugo, crazygit, blog" />
 
 
-  <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
+<meta name="baidu-site-verification" content="mEI3NT6pyx" />
+<meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
+<meta name="generator" content="Hugo 0.48" />
 
 
-
-
-
-
-  <meta name="baidu-site-verification" content="mEI3NT6pyx" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
+<link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/" />
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.png?v=6.1.0" color="#222">
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 
 
@@ -77,1434 +52,1203 @@
 
 
 
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '6.1.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
+
+<link rel="stylesheet" href="/css/douban.css">
+
+<link rel="stylesheet" href="/css/monokai-syntax.css">
+
+
+<meta property="og:title" content="pipenv使用指南" />
+<meta property="og:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/" /><meta property="article:published_time" content="2018-01-08T14:16:29&#43;08:00"/>
+<meta property="article:modified_time" content="2018-01-08T14:16:29&#43;08:00"/>
+<meta itemprop="name" content="pipenv使用指南">
+<meta itemprop="description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
+">
+
+
+<meta itemprop="datePublished" content="2018-01-08T14:16:29&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-08T14:16:29&#43;08:00" />
+<meta itemprop="wordCount" content="3427">
+
+
+
+<meta itemprop="keywords" content="pipenv," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pipenv使用指南"/>
+<meta name="twitter:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112251188-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-  
-
-
-
-
-  <meta name="description" content="本文主要介绍了python包管理工具: pipenv的使用方法。">
-<meta name="keywords" content="pipenv">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pipenv使用指南">
-<meta property="og:url" content="http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/index.html">
-<meta property="og:site_name" content="Soul Mate">
-<meta property="og:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T14:33:29.973Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pipenv使用指南">
-<meta name="twitter:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Soul Mate" type="application/atom+xml" />
-
-
-
-
-  <link rel="canonical" href="http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>pipenv使用指南 | Soul Mate</title>
-  
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112251188-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112251188-1');
-</script>
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Soul Mate</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">宁静的夜, 心中一片静谧</p>
-      
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Soul Mate</a>
   </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-books">
-    <a href="/books/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />读书</a>
-</li>
-
-      
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
         
+      </li><li class="mobile-menu-item">
         
           
-  <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-</li>
-
-      
-
-      
-        <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="popup-trigger">
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
+        
+      </li>
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </ul>
 </nav>
 
 
   
+    
 
 
 
- </div>
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Soul Mate
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">pipenv使用指南</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-08 </span>
+        <div class="post-category">
+            <a href="https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/"> python库相关 </a>
+            
+          </div>
+        <span class="more-meta"> 约 3427 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+          <span id="/2018/01/08/pipenv-tour/" class="leancloud_visitors" data-flag-title="pipenv使用指南">
+            <span class="post-meta-item-text"> | 阅读 </span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+      </div>
     </header>
 
     
-  
-  
-  
     
-      
-    
-    <a href="https://github.com/crazygit" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
-    
-      </a>
-    
-
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crazygit">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/1240997">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Soul Mate">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">pipenv使用指南</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T14:16:29+08:00">2018-01-08</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python库相关/" itemprop="url" rel="index"><span itemprop="name">python库相关</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/08/pipenv-tour/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/08/pipenv-tour/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/01/08/pipenv-tour/" class="leancloud_visitors" data-flag-title="pipenv使用指南">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             Views： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-              <div class="post-description">本文主要介绍了python包管理工具: pipenv的使用方法。
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#基本概念">基本概念</a></li>
+<li><a href="#添加shell补齐">添加shell补齐</a></li>
+<li><a href="#pipenv命令">pipenv命令</a></li>
+<li><a href="#常用命令介绍">常用命令介绍</a></li>
+<li><a href="#高级技巧">高级技巧</a>
+<ul>
+<li><a href="#导入-requirements-txt">导入<code>requirements.txt</code></a></li>
+<li><a href="#指定安装包的版本信息">指定安装包的版本信息</a></li>
+<li><a href="#指定python的版本信息">指定Python的版本信息</a></li>
+<li><a href="#指定安装包的源">指定安装包的源</a></li>
+<li><a href="#生成requirements-txt文件">生成requirements.txt文件</a></li>
+<li><a href="#检查安全隐患">检查安全隐患</a></li>
+<li><a href="#编码风格检查">编码风格检查</a></li>
+<li><a href="#浏览模块代码">浏览模块代码</a></li>
+<li><a href="#自动加载环境变量-env">自动加载环境变量.env</a></li>
+<li><a href="#自定义虚拟环境的路径">自定义虚拟环境的路径</a></li>
+<li><a href="#自动激活虚拟环境">自动激活虚拟环境</a></li>
+<li><a href="#通过环境变量配置pipenv">通过环境变量配置pipenv</a></li>
+</ul></li>
+<li><a href="#常见问题">常见问题</a>
+<ul>
+<li><a href="#pipenv-install-时报错-pip-exceptions-installationerror-command-python-setup-py-egg-info-failed-with-error-code-1"><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command &quot;python setup.py egg_info&quot; failed with error code 1</code></a></li>
+<li><a href="#在项目目录里运行-pipenv-时报错-attributeerror-module-enum-has-no-attribute-intflag">在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
 </div>
-          
-
-        </div>
-      </header>
-    
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-content">
+      <p><a href="https://github.com/pypa/pipenv"><code>pipenv</code></a>是<a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies">Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p>
 
-      
-      
-
-      
-        <p><a href="https://github.com/pypa/pipenv" target="_blank" rel="noopener"><code>pipenv</code></a>是<a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies" target="_blank" rel="noopener">Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p>
 <p>它能够自动为项目创建和管理虚拟环境，从<code>Pipfile</code>文件添加或删除安装的包，同时生成<code>Pipfile.lock</code>来锁定安装包的版本和依赖信息，避免构建错误。</p>
+
 <p><code>pipenv</code>主要解决了如下问题:</p>
+
 <ul>
 <li>不用再单独使用<code>pip</code>和<code>virtualenv</code>, 现在它们合并在一起了</li>
 <li>不用再维护<code>requirements.txt</code>, 使用<code>Pipfile</code>和<code>Pipfile.lock</code>来代替</li>
 <li>可以使用多个python版本(<code>python2</code>和<code>python3</code>)</li>
 <li>在安装了<code>pyenv</code>的条件下，可以自动安装需要的Python版本</li>
 </ul>
+
 <h2 id="安装">安装</h2>
+
 <p>为了方便使用, 建议<strong>全局</strong>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pipenv</span><br></pre></td></tr></table></figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pipenv</code></pre></td></tr></table>
+</div>
+</div>
+<p></p>
+
 <h2 id="基本概念">基本概念</h2>
+
 <ul>
 <li>虚拟环境如果不存在的话，会自动创建</li>
 <li>当<code>install</code>命令没有传递参数指定安装包时，所有<code>[packages]</code>里指定的包都会被安装</li>
 <li><code>pipenv --three</code>可以初始化一个<code>python3</code>版本的虚拟环境</li>
 <li><code>pipenv --two</code>可以初始化一个<code>python2</code>版本的虚拟环境</li>
 </ul>
-<h2 id="添加shell补齐">添加shell补齐</h2>
-<p>如果使用的是<code>bash</code>, 可添加下面语句到<code>.bashrc</code>或<code>.bash_profile</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(pipenv --completion)</span>"</span></span><br></pre></td></tr></table></figure>
-<h2 id="pipenv命令">pipenv命令</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv</span><br><span class="line">Usage: pipenv [OPTIONS] COMMAND [ARGS]...</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --update         Update Pipenv &amp; pip to latest.     <span class="comment"># 更新pipenv和pip到最新版本</span></span><br><span class="line">  --<span class="built_in">where</span>          Output project home information.   <span class="comment"># 获取项目路径</span></span><br><span class="line">  --venv           Output virtualenv information.     <span class="comment"># 获取虚拟环境的路径</span></span><br><span class="line">  --py             Output Python interpreter information. <span class="comment"># 获取python解释器的路径</span></span><br><span class="line">  --envs           Output Environment Variable options. <span class="comment"># 输出当前的环境变量</span></span><br><span class="line">  --rm             Remove the virtualenv.   <span class="comment"># 删除虚拟环境</span></span><br><span class="line">  --bare           Minimal output.</span><br><span class="line">  --completion     Output completion (to be <span class="built_in">eval</span><span class="string">'d).</span></span><br><span class="line"><span class="string">  --man            Display manpage.</span></span><br><span class="line"><span class="string">  --three / --two  Use Python 3/2 when creating virtualenv. # 使用python3/2创建虚拟环境</span></span><br><span class="line"><span class="string">  --python TEXT    Specify which version of Python virtualenv should use. # 指定python的版本信息</span></span><br><span class="line"><span class="string">  --site-packages  Enable site-packages for the virtualenv.</span></span><br><span class="line"><span class="string">  --jumbotron      An easter egg, effectively.</span></span><br><span class="line"><span class="string">  --version        Show the version and exit.</span></span><br><span class="line"><span class="string">  -h, --help       Show this message and exit.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Usage Examples:</span></span><br><span class="line"><span class="string">   Create a new project using Python 3.6, specifically:</span></span><br><span class="line"><span class="string">   $ pipenv --python 3.6</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Install all dependencies for a project (including dev):</span></span><br><span class="line"><span class="string">   $ pipenv install --dev</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Create a lockfile containing pre-releases:</span></span><br><span class="line"><span class="string">   $ pipenv lock --pre</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Show a graph of your installed dependencies:</span></span><br><span class="line"><span class="string">   $ pipenv graph</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Check your installed dependencies for security vulnerabilities:</span></span><br><span class="line"><span class="string">   $ pipenv check</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Install a local setup.py into your virtual environment/Pipfile:</span></span><br><span class="line"><span class="string">   $ pipenv install -e .</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  check      Checks for security vulnerabilities and against PEP 508 markers</span></span><br><span class="line"><span class="string">             provided in Pipfile.</span></span><br><span class="line"><span class="string">  graph      Displays currently–installed dependency graph information.</span></span><br><span class="line"><span class="string">  install    Installs provided packages and adds them to Pipfile, or (if none</span></span><br><span class="line"><span class="string">             is given), installs all packages.</span></span><br><span class="line"><span class="string">  lock       Generates Pipfile.lock.</span></span><br><span class="line"><span class="string">  open       View a given module in your editor.</span></span><br><span class="line"><span class="string">  run        Spawns a command installed into the virtualenv.</span></span><br><span class="line"><span class="string">  shell      Spawns a shell within the virtualenv.</span></span><br><span class="line"><span class="string">  uninstall  Un-installs a provided package and removes it from Pipfile.</span></span><br><span class="line"><span class="string">  update     Uninstalls all packages, and re-installs package(s) in [packages]</span></span><br><span class="line"><span class="string">             to latest compatible versions.</span></span><br></pre></td></tr></table></figure>
-<h2 id="常用命令介绍">常用命令介绍</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">$ pipenv install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活当前项目的虚拟环境</span></span><br><span class="line">$ pipenv shell</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装开发依赖包</span></span><br><span class="line">$ pipenv install pytest --dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 图形显示包依赖关系</span></span><br><span class="line">$ pipenv graph</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成lockfile</span></span><br><span class="line">$ pipenv lock</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有的安装包</span></span><br><span class="line">$ pipenv uninstall --all</span><br></pre></td></tr></table></figure>
-<h2 id="高级技巧">高级技巧</h2>
-<h3 id="导入requirements.txt">导入<code>requirements.txt</code></h3>
-<p>当在执行<code>pipenv install</code>命令的时候，如果有一个<code>requirements.txt</code>文件，那么会自动从<code>requirements.txt</code>文件导入安装包信息并创建一个<code>Pipfile</code>文件。</p>
-<p>同样可以使用<code>$ pipenv install -r path/to/requirements.txt</code>来导入<code>requirements.txt</code>文件</p>
-<p><strong>注意</strong>:</p>
-<p>默认情况下，我们都是在<code>requirements.txt</code>文件里指定了安装包的版本信息的，在导入<code>requirements.txt</code>文件时，版本信息也会被自动写<code>Pipfile</code>文件里， 但是这个信息我们一般不需要保存在<code>Pipfile</code>文件里，需要手动更新<code>Pipfile</code>来删除版本信息</p>
-<h3 id="指定安装包的版本信息">指定安装包的版本信息</h3>
-<p>为了安装指定版本的包信息，可以使用:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv install requests==2.13.0</span><br></pre></td></tr></table></figure>
-<p>这个命令也会自动更新<code>Pipfile</code>文件</p>
-<h3 id="指定python的版本信息">指定Python的版本信息</h3>
-<p>在创建虚拟环境的时候，我们可以指定使用的python版本信息，类似<code>pyenv</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv --python 3</span><br><span class="line">$ pipenv --python 3.6</span><br><span class="line">$ pipenv --python 2.7.14</span><br></pre></td></tr></table></figure>
-<p><code>pipenv</code>会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了<code>pyenv</code>, 它会自动调用<code>pyenv</code>下载对应的版本的python</p>
-<h3 id="指定安装包的源">指定安装包的源</h3>
-<p>如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[[source]]</span><br><span class="line">url = &quot;https://pypi.python.org/simple&quot;</span><br><span class="line">verify_ssl = true</span><br><span class="line">name = &quot;pypi&quot;</span><br><span class="line"></span><br><span class="line">[[source]]</span><br><span class="line">url = &quot;http://pypi.home.kennethreitz.org/simple&quot;</span><br><span class="line">verify_ssl = false</span><br><span class="line">name = &quot;home&quot;</span><br><span class="line"></span><br><span class="line">[dev-packages]</span><br><span class="line"></span><br><span class="line">[packages]</span><br><span class="line">requests = &#123;version=&quot;*&quot;, index=&quot;home&quot;&#125;</span><br><span class="line">maya = &#123;version=&quot;*&quot;, index=&quot;pypi&quot;&#125;</span><br><span class="line">records = &quot;*&quot;</span><br></pre></td></tr></table></figure>
-<p>如上设置了两个源：</p>
-<ul>
-<li><code>pypi</code>(https://pypi.python.org/simple)</li>
-<li><code>home</code>(http://pypi.home.kennethreitz.org/simple)</li>
-</ul>
-<p>同时指定<code>requests</code>包从<code>home</code>源下载，<code>maya</code>包从<code>pypi</code>源下载</p>
-<h3 id="生成requirements.txt文件">生成requirements.txt文件</h3>
-<p>我们也可以从<code>Pipfile</code>和<code>Pipfile.lock</code>文件来生成<code>requirements.txt</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 生成requirements.txt文件</span><br><span class="line">$ pipenv lock -r</span><br><span class="line"></span><br><span class="line"># 生成dev-packages的requirements.txt文件</span><br><span class="line"># pipenv lock -r -d</span><br></pre></td></tr></table></figure>
-<h3 id="检查安全隐患">检查安全隐患</h3>
-<p><code>pipenv</code>包含了<code>safety</code>模块，可以让我们坚持安装包是否存在安全隐患。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$ cat Pipfile</span><br><span class="line">[packages]</span><br><span class="line">django = <span class="string">"==1.10.1"</span></span><br><span class="line"></span><br><span class="line">$ pipenv check</span><br><span class="line">Checking PEP 508 requirements…</span><br><span class="line">Passed!</span><br><span class="line">Checking installed package safety…</span><br><span class="line"></span><br><span class="line">33075: django &gt;=1.10,&lt;1.10.3 resolved (1.10.1 installed)!</span><br><span class="line">Django before 1.8.x before 1.8.16, 1.9.x before 1.9.11, and 1.10.x before 1.10.3, when settings.DEBUG is True, allow remote attackers to conduct DNS rebinding attacks by leveraging failure to validate the HTTP Host header against settings.ALLOWED_HOSTS.</span><br><span class="line"></span><br><span class="line">33076: django &gt;=1.10,&lt;1.10.3 resolved (1.10.1 installed)!</span><br><span class="line">Django 1.8.x before 1.8.16, 1.9.x before 1.9.11, and 1.10.x before 1.10.3 use a hardcoded password <span class="keyword">for</span> a temporary database user created when running tests with an Oracle database, <span class="built_in">which</span> makes it easier <span class="keyword">for</span> remote attackers to obtain access to the database server by leveraging failure to manually specify a password <span class="keyword">in</span> the database settings TEST dictionary.</span><br><span class="line"></span><br><span class="line">33300: django &gt;=1.10,&lt;1.10.7 resolved (1.10.1 installed)!</span><br><span class="line">CVE-2017-7233: Open redirect and possible XSS attack via user-supplied numeric redirect URLs</span><br><span class="line">============================================================================================</span><br><span class="line"></span><br><span class="line">Django relies on user input <span class="keyword">in</span> some cases  (e.g.</span><br><span class="line">:func:`django.contrib.auth.views.login` and :doc:`i18n &lt;/topics/i18n/index&gt;`)</span><br><span class="line">to redirect the user to an <span class="string">"on success"</span> URL. The security check <span class="keyword">for</span> these</span><br><span class="line">redirects (namely ``django.utils.http.is_safe_url()``) considered some numeric</span><br><span class="line">URLs (e.g. ``http:999999999``) <span class="string">"safe"</span> when they shouldn<span class="string">'t be.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Also, if a developer relies on ``is_safe_url()`` to provide safe redirect</span></span><br><span class="line"><span class="string">targets and puts such a URL into a link, they could suffer from an XSS attack.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CVE-2017-7234: Open redirect vulnerability in ``django.views.static.serve()``</span></span><br><span class="line"><span class="string">=============================================================================</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">A maliciously crafted URL to a Django site using the</span></span><br><span class="line"><span class="string">:func:`~django.views.static.serve` view could redirect to any other domain. The</span></span><br><span class="line"><span class="string">view no longer does any redirects as they don'</span>t provide any known, useful</span><br><span class="line">functionality.</span><br><span class="line"></span><br><span class="line">Note, however, that this view has always carried a warning that it is not</span><br><span class="line">hardened <span class="keyword">for</span> production use and should be used only as a development aid.</span><br></pre></td></tr></table></figure>
-<h3 id="编码风格检查">编码风格检查</h3>
-<p><code>pipenv</code>默认集成了<code>flake8</code>, 可以用来检测编码风格</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat t.py</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">$ pipenv check --style t.py</span><br><span class="line">t.py:1:1: F401 <span class="string">'requests'</span> imported but unused</span><br><span class="line">t.py:1:16: W292 no newline at end of file</span><br></pre></td></tr></table></figure>
-<h3 id="浏览模块代码">浏览模块代码</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用编辑器打开requests模块</span></span><br><span class="line">$ pipenv open requests</span><br></pre></td></tr></table></figure>
-<h3 id="自动加载环境变量.env">自动加载环境变量.env</h3>
-<p>如果项目根目录下有<code>.env</code>文件，<code>$ pipenv shell</code>和<code>$ pipenv run</code>会自动加载它。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ cat .env</span><br><span class="line">HELLO=WORLD</span><br><span class="line"></span><br><span class="line">$ pipenv run python</span><br><span class="line">Loading .env environment variables…</span><br><span class="line">Python 2.7.13 (default, Jul 18 2017, 09:17:00)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)] on darwin</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; os.environ[&apos;HELLO&apos;]</span><br><span class="line">&apos;WORLD&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="自定义虚拟环境的路径">自定义虚拟环境的路径</h3>
-<p>默认情况下,<code>pipenv</code>使用<a href="https://github.com/berdario/pew" target="_blank" rel="noopener"><code>pew</code></a>来管理虚拟环境的路径，我们可以自定义<code>WORKON_HOME</code>环境变量来设置虚拟环境的路径。比如:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> WORKON_HOME=~/.venvs</span><br></pre></td></tr></table></figure>
-<p>我们也可以通过社会环境变量<code>PIPENV_VENV_IN_PROJECT</code>使虚拟环境在每个项目的根目录下<code>project/.venv</code>。</p>
-<h3 id="自动激活虚拟环境">自动激活虚拟环境</h3>
-<p>配合<a href="https://github.com/RobertDeRose/virtualenv-autodetect" target="_blank" rel="noopener">virtualenv-autodetect</a>和设置<code>PIPENV_VENV_IN_PROJECT</code>环境变量可以自动激活虚拟环境。</p>
-<p>在<code>.bashrc</code>或<code>.bash_profile</code>中配置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PIPENV_VENV_IN_PROJECT=1</span><br><span class="line">source /path/to/virtualenv-autodetect.sh</span><br></pre></td></tr></table></figure>
-<p>如果使用了<code>oh-my-zsh</code>, 可以直接使用它的插件形式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装插件</span><br><span class="line">$ git@github.com:RobertDeRose/virtualenv-autodetect.git ~/.oh-my-zsh/custom/plugins</span><br></pre></td></tr></table></figure>
-<p>再修改<code>.zshrc</code>文件启动插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 找到启动plugins的行添加启用插件</span><br><span class="line">plugins=(... virtualenv-autodetect)</span><br></pre></td></tr></table></figure>
-<h3 id="通过环境变量配置pipenv">通过环境变量配置pipenv</h3>
-<p>pipenv内置了很多环境变量，可以通过设置这些环境变量来配置<code>pipenv</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv --envs</span><br><span class="line">The following environment variables can be <span class="built_in">set</span>, to <span class="keyword">do</span> various things:</span><br><span class="line"></span><br><span class="line">  - PIPENV_MAX_DEPTH</span><br><span class="line">  - PIPENV_SHELL</span><br><span class="line">  - PIPENV_DOTENV_LOCATION</span><br><span class="line">  - PIPENV_HIDE_EMOJIS</span><br><span class="line">  - PIPENV_CACHE_DIR</span><br><span class="line">  - PIPENV_VIRTUALENV</span><br><span class="line">  - PIPENV_MAX_SUBPROCESS</span><br><span class="line">  - PIPENV_COLORBLIND</span><br><span class="line">  - PIPENV_VENV_IN_PROJECT <span class="comment"># 在项目根路径下创建虚拟环境</span></span><br><span class="line">  - PIPENV_MAX_ROUNDS</span><br><span class="line">  - PIPENV_USE_SYSTEM</span><br><span class="line">  - PIPENV_SHELL_COMPAT</span><br><span class="line">  - PIPENV_USE_HASHES</span><br><span class="line">  - PIPENV_NOSPIN</span><br><span class="line">  - PIPENV_PIPFILE</span><br><span class="line">  - PIPENV_INSTALL_TIMEOUT</span><br><span class="line">  - PIPENV_YES</span><br><span class="line">  - PIPENV_SHELL_FANCY</span><br><span class="line">  - PIPENV_DONT_USE_PYENV</span><br><span class="line">  - PIPENV_DONT_LOAD_ENV</span><br><span class="line">  - PIPENV_DEFAULT_PYTHON_VERSION <span class="comment"># 设置创建虚拟环境时默认的python版本信息，如: 3.6</span></span><br><span class="line">  - PIPENV_SKIP_VALIDATION</span><br><span class="line">  - PIPENV_TIMEOUT</span><br></pre></td></tr></table></figure>
-<p>需要修改某个默认配置时，只需要把它添加到<code>.bashrc</code>或<code>.bash_profile</code>文件里即可。</p>
-<h2 id="常见问题">常见问题</h2>
-<h3 id="pipenv-install时报错pip.exceptions.installationerror-command-python-setup.py-egg_info-failed-with-error-code-1"><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command &quot;python setup.py egg_info&quot; failed with error code 1</code></h3>
-<p>错误原因是<code>pipenv</code>是用python2安装的，解决办法是使用pip3重新安装pipenv</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip unintall pipenv</span><br><span class="line">$ pip3 install pipenv</span><br></pre></td></tr></table></figure>
-<h3 id="在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag">在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv</span><br><span class="line">Failed to import the site module</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py"</span>, line 544, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main()</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py"</span>, line 530, <span class="keyword">in</span> main</span><br><span class="line">    known_paths = addusersitepackages(known_paths)</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py"</span>, line 282, <span class="keyword">in</span> addusersitepackages</span><br><span class="line">    user_site = getusersitepackages()</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py"</span>, line 258, <span class="keyword">in</span> getusersitepackages</span><br><span class="line">    user_base = getuserbase() <span class="comment"># this will also set USER_BASE</span></span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py"</span>, line 248, <span class="keyword">in</span> getuserbase</span><br><span class="line">    USER_BASE = get_config_var(<span class="string">'userbase'</span>)</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py"</span>, line 601, <span class="keyword">in</span> get_config_var</span><br><span class="line">    <span class="built_in">return</span> get_config_vars().get(name)</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py"</span>, line 580, <span class="keyword">in</span> get_config_vars</span><br><span class="line">    import _osx_support</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_osx_support.py"</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import re</span><br><span class="line">  File <span class="string">"/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/re.py"</span>, line 142, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    class RegexFlag(enum.IntFlag):</span><br><span class="line">AttributeError: module <span class="string">'enum'</span> has no attribute <span class="string">'IntFlag'</span></span><br></pre></td></tr></table></figure>
-<p>是因为在项目目录里运行<code>pipenv</code>命令时，项目虚拟环境的python版本低于<code>3.6.4</code>, 由于<code>IntFlag</code>是从<code>python3.6.4</code>才开始集成到python内置模块的。当激活了项目的虚拟环境之后, 环境变量<code>PYTHONPATH</code>会被设置为当前虚拟环境的<code>site-packages</code>目录，因此<code>pipenv</code>依赖的<code>IntFlag</code>无法找到。 解决办法是在运行<code>pipenv</code>时设置环境变量<code>PYTHONPATH</code>为空</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ PYTHONPATH= pipenv</span><br></pre></td></tr></table></figure>
 
-      
+<h2 id="添加shell补齐">添加shell补齐</h2>
+
+<p>如果使用的是<code>bash</code>, 可添加下面语句到<code>.bashrc</code>或<code>.bash_profile</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pipenv --completion<span class="k">)</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="pipenv命令">pipenv命令</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pipenv
+Usage: pipenv <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+
+Options:
+  --update         Update Pipenv <span class="p">&amp;</span> pip to latest.     <span class="c1"># 更新pipenv和pip到最新版本
+</span><span class="c1"></span>  --where          Output project home information.   <span class="c1"># 获取项目路径
+</span><span class="c1"></span>  --venv           Output virtualenv information.     <span class="c1"># 获取虚拟环境的路径
+</span><span class="c1"></span>  --py             Output Python interpreter information. <span class="c1"># 获取python解释器的路径
+</span><span class="c1"></span>  --envs           Output Environment Variable options. <span class="c1"># 输出当前的环境变量
+</span><span class="c1"></span>  --rm             Remove the virtualenv.   <span class="c1"># 删除虚拟环境
+</span><span class="c1"></span>  --bare           Minimal output.
+  --completion     Output completion <span class="o">(</span>to be eval<span class="err">&#39;</span>d<span class="o">)</span>.
+  --man            Display manpage.
+  --three / --two  Use Python <span class="m">3</span>/2 when creating virtualenv. <span class="c1"># 使用python3/2创建虚拟环境
+</span><span class="c1"></span>  --python TEXT    Specify which version of Python virtualenv should use. <span class="c1"># 指定python的版本信息
+</span><span class="c1"></span>  --site-packages  Enable site-packages <span class="k">for</span> the virtualenv.
+  --jumbotron      An easter egg, effectively.
+  --version        Show the version and exit.
+  -h, --help       Show this message and exit.
+
+Usage Examples:
+   Create a new project using Python <span class="m">3</span>.6, specifically:
+   $ pipenv --python <span class="m">3</span>.6
+
+   Install all dependencies <span class="k">for</span> a project <span class="o">(</span>including dev<span class="o">)</span>:
+   $ pipenv install --dev
+
+   Create a lockfile containing pre-releases:
+   $ pipenv lock --pre
+
+   Show a graph of your installed dependencies:
+   $ pipenv graph
+
+   Check your installed dependencies <span class="k">for</span> security vulnerabilities:
+   $ pipenv check
+
+   Install a <span class="nb">local</span> setup.py into your virtual environment/Pipfile:
+   $ pipenv install -e .
+
+Commands:
+  check      Checks <span class="k">for</span> security vulnerabilities and against PEP <span class="m">508</span> markers
+             provided in Pipfile.
+  graph      Displays currently–installed dependency graph information.
+  install    Installs provided packages and adds them to Pipfile, or <span class="o">(</span><span class="k">if</span> none
+             is given<span class="o">)</span>, installs all packages.
+  lock       Generates Pipfile.lock.
+  open       View a given module in your editor.
+  run        Spawns a <span class="nb">command</span> installed into the virtualenv.
+  shell      Spawns a shell within the virtualenv.
+  uninstall  Un-installs a provided package and removes it from Pipfile.
+  update     Uninstalls all packages, and re-installs package<span class="o">(</span>s<span class="o">)</span> in <span class="o">[</span>packages<span class="o">]</span>
+             to latest compatible versions.</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="常用命令介绍">常用命令介绍</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装包
+</span><span class="c1"></span>$ pipenv install
+
+<span class="c1"># 激活当前项目的虚拟环境
+</span><span class="c1"></span>$ pipenv shell
+
+<span class="c1"># 安装开发依赖包
+</span><span class="c1"></span>$ pipenv install pytest --dev
+
+<span class="c1"># 图形显示包依赖关系
+</span><span class="c1"></span>$ pipenv graph
+
+<span class="c1"># 生成lockfile
+</span><span class="c1"></span>$ pipenv lock
+
+<span class="c1"># 删除所有的安装包
+</span><span class="c1"></span>$ pipenv uninstall --all</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="高级技巧">高级技巧</h2>
+
+<h3 id="导入-requirements-txt">导入<code>requirements.txt</code></h3>
+
+<p>当在执行<code>pipenv install</code>命令的时候，如果有一个<code>requirements.txt</code>文件，那么会自动从<code>requirements.txt</code>文件导入安装包信息并创建一个<code>Pipfile</code>文件。</p>
+
+<p>同样可以使用<code>$ pipenv install -r path/to/requirements.txt</code>来导入<code>requirements.txt</code>文件</p>
+
+<p><strong>注意</strong>:</p>
+
+<p>默认情况下，我们都是在<code>requirements.txt</code>文件里指定了安装包的版本信息的，在导入<code>requirements.txt</code>文件时，版本信息也会被自动写<code>Pipfile</code>文件里， 但是这个信息我们一般不需要保存在<code>Pipfile</code>文件里，需要手动更新<code>Pipfile</code>来删除版本信息</p>
+
+<h3 id="指定安装包的版本信息">指定安装包的版本信息</h3>
+
+<p>为了安装指定版本的包信息，可以使用:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pipenv install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.13.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>这个命令也会自动更新<code>Pipfile</code>文件</p>
+
+<h3 id="指定python的版本信息">指定Python的版本信息</h3>
+
+<p>在创建虚拟环境的时候，我们可以指定使用的python版本信息，类似<code>pyenv</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ pipenv --python 3
+$ pipenv --python 3.6
+$ pipenv --python 2.7.14</pre></td></tr></table>
+</div>
+</div>
+<p><code>pipenv</code>会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了<code>pyenv</code>, 它会自动调用<code>pyenv</code>下载对应的版本的python</p>
+
+<h3 id="指定安装包的源">指定安装包的源</h3>
+
+<p>如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[[source]]
+url = &#34;https://pypi.python.org/simple&#34;
+verify_ssl = true
+name = &#34;pypi&#34;
+
+[[source]]
+url = &#34;http://pypi.home.kennethreitz.org/simple&#34;
+verify_ssl = false
+name = &#34;home&#34;
+
+[dev-packages]
+
+[packages]
+requests = {version=&#34;*&#34;, index=&#34;home&#34;}
+maya = {version=&#34;*&#34;, index=&#34;pypi&#34;}
+records = &#34;*&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>如上设置了两个源：</p>
+
+<ul>
+<li><code>pypi</code>(<a href="https://pypi.python.org/simple">https://pypi.python.org/simple</a>)</li>
+<li><code>home</code>(<a href="http://pypi.home.kennethreitz.org/simple">http://pypi.home.kennethreitz.org/simple</a>)</li>
+</ul>
+
+<p>同时指定<code>requests</code>包从<code>home</code>源下载，<code>maya</code>包从<code>pypi</code>源下载</p>
+
+<h3 id="生成requirements-txt文件">生成requirements.txt文件</h3>
+
+<p>我们也可以从<code>Pipfile</code>和<code>Pipfile.lock</code>文件来生成<code>requirements.txt</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 生成requirements.txt文件
+$ pipenv lock -r
+
+# 生成dev-packages的requirements.txt文件
+# pipenv lock -r -d</pre></td></tr></table>
+</div>
+</div>
+<h3 id="检查安全隐患">检查安全隐患</h3>
+
+<p><code>pipenv</code>包含了<code>safety</code>模块，可以让我们坚持安装包是否存在安全隐患。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat Pipfile
+<span class="o">[</span>packages<span class="o">]</span>
+<span class="nv">django</span> <span class="o">=</span> <span class="s2">&#34;==1.10.1&#34;</span>
+
+$ pipenv check
+Checking PEP <span class="m">508</span> requirements…
+Passed!
+Checking installed package safety…
+
+<span class="m">33075</span>: django &gt;<span class="o">=</span><span class="m">1</span>.10,&lt;<span class="m">1</span>.10.3 resolved <span class="o">(</span><span class="m">1</span>.10.1 installed<span class="o">)</span>!
+Django before <span class="m">1</span>.8.x before <span class="m">1</span>.8.16, <span class="m">1</span>.9.x before <span class="m">1</span>.9.11, and <span class="m">1</span>.10.x before <span class="m">1</span>.10.3, when settings.DEBUG is True, allow remote attackers to conduct DNS rebinding attacks by leveraging failure to validate the HTTP Host header against settings.ALLOWED_HOSTS.
+
+<span class="m">33076</span>: django &gt;<span class="o">=</span><span class="m">1</span>.10,&lt;<span class="m">1</span>.10.3 resolved <span class="o">(</span><span class="m">1</span>.10.1 installed<span class="o">)</span>!
+Django <span class="m">1</span>.8.x before <span class="m">1</span>.8.16, <span class="m">1</span>.9.x before <span class="m">1</span>.9.11, and <span class="m">1</span>.10.x before <span class="m">1</span>.10.3 use a hardcoded password <span class="k">for</span> a temporary database user created when running tests with an Oracle database, which makes it easier <span class="k">for</span> remote attackers to obtain access to the database server by leveraging failure to manually specify a password in the database settings TEST dictionary.
+
+<span class="m">33300</span>: django &gt;<span class="o">=</span><span class="m">1</span>.10,&lt;<span class="m">1</span>.10.7 resolved <span class="o">(</span><span class="m">1</span>.10.1 installed<span class="o">)</span>!
+CVE-2017-7233: Open redirect and possible XSS attack via user-supplied numeric redirect <span class="nv">URLs</span>
+<span class="o">============================================================================================</span>
+
+Django relies on user input in some cases  <span class="o">(</span>e.g.
+:func:<span class="sb">`</span>django.contrib.auth.views.login<span class="sb">`</span> and :doc:<span class="sb">`</span>i18n &lt;/topics/i18n/index&gt;<span class="sb">`</span><span class="o">)</span>
+to redirect the user to an <span class="s2">&#34;on success&#34;</span> URL. The security check <span class="k">for</span> these
+redirects <span class="o">(</span>namely <span class="sb">``</span>django.utils.http.is_safe_url<span class="o">()</span><span class="sb">``</span><span class="o">)</span> considered some numeric
+URLs <span class="o">(</span>e.g. <span class="sb">``</span>http:999999999<span class="sb">``</span><span class="o">)</span> <span class="s2">&#34;safe&#34;</span> when they shouldn<span class="s1">&#39;t be.
+</span><span class="s1">
+</span><span class="s1">Also, if a developer relies on ``is_safe_url()`` to provide safe redirect
+</span><span class="s1">targets and puts such a URL into a link, they could suffer from an XSS attack.
+</span><span class="s1">
+</span><span class="s1">CVE-2017-7234: Open redirect vulnerability in ``django.views.static.serve()``
+</span><span class="s1">=============================================================================
+</span><span class="s1">
+</span><span class="s1">A maliciously crafted URL to a Django site using the
+</span><span class="s1">:func:`~django.views.static.serve` view could redirect to any other domain. The
+</span><span class="s1">view no longer does any redirects as they don&#39;</span>t provide any known, useful
+functionality.
+
+Note, however, that this view has always carried a warning that it is not
+hardened <span class="k">for</span> production use and should be used only as a development aid.</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="编码风格检查">编码风格检查</h3>
+
+<p><code>pipenv</code>默认集成了<code>flake8</code>, 可以用来检测编码风格</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat t.py
+import requests
+
+$ pipenv check --style t.py
+t.py:1:1: F401 <span class="s1">&#39;requests&#39;</span> imported but unused
+t.py:1:16: W292 no newline at end of file</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="浏览模块代码">浏览模块代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 用编辑器打开requests模块
+</span><span class="c1"></span>$ pipenv open requests</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="自动加载环境变量-env">自动加载环境变量.env</h3>
+
+<p>如果项目根目录下有<code>.env</code>文件，<code>$ pipenv shell</code>和<code>$ pipenv run</code>会自动加载它。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ cat .env
+HELLO=WORLD
+
+$ pipenv run python
+Loading .env environment variables…
+Python 2.7.13 (default, Jul 18 2017, 09:17:00)
+[GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)] on darwin
+Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.environ[&#39;HELLO&#39;]
+&#39;WORLD&#39;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="自定义虚拟环境的路径">自定义虚拟环境的路径</h3>
+
+<p>默认情况下,<code>pipenv</code>使用<a href="https://github.com/berdario/pew"><code>pew</code></a>来管理虚拟环境的路径，我们可以自定义<code>WORKON_HOME</code>环境变量来设置虚拟环境的路径。比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span>~/.venvs</code></pre></td></tr></table>
+</div>
+</div>
+<p>我们也可以通过设置环境变量<code>PIPENV_VENV_IN_PROJECT</code>使虚拟环境在每个项目的根目录下<code>project/.venv</code>。</p>
+
+<h3 id="自动激活虚拟环境">自动激活虚拟环境</h3>
+
+<p>配合<a href="https://github.com/RobertDeRose/virtualenv-autodetect">virtualenv-autodetect</a>和设置<code>PIPENV_VENV_IN_PROJECT</code>环境变量可以自动激活虚拟环境。</p>
+
+<p>在<code>.bashrc</code>或<code>.bash_profile</code>中配置如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">export PIPENV_VENV_IN_PROJECT=1
+source /path/to/virtualenv-autodetect.sh</pre></td></tr></table>
+</div>
+</div>
+<p>如果使用了<code>oh-my-zsh</code>, 可以直接使用它的插件形式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 安装插件
+$ git@github.com:RobertDeRose/virtualenv-autodetect.git ~/.oh-my-zsh/custom/plugins</pre></td></tr></table>
+</div>
+</div>
+<p>再修改<code>.zshrc</code>文件启动插件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 找到启动plugins的行添加启用插件
+plugins=(... virtualenv-autodetect)</pre></td></tr></table>
+</div>
+</div>
+<h3 id="通过环境变量配置pipenv">通过环境变量配置pipenv</h3>
+
+<p>pipenv内置了很多环境变量，可以通过设置这些环境变量来配置<code>pipenv</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pipenv --envs
+The following environment variables can be set, to <span class="k">do</span> various things:
+
+  - PIPENV_MAX_DEPTH
+  - PIPENV_SHELL
+  - PIPENV_DOTENV_LOCATION
+  - PIPENV_HIDE_EMOJIS
+  - PIPENV_CACHE_DIR
+  - PIPENV_VIRTUALENV
+  - PIPENV_MAX_SUBPROCESS
+  - PIPENV_COLORBLIND
+  - PIPENV_VENV_IN_PROJECT <span class="c1"># 在项目根路径下创建虚拟环境
+</span><span class="c1"></span>  - PIPENV_MAX_ROUNDS
+  - PIPENV_USE_SYSTEM
+  - PIPENV_SHELL_COMPAT
+  - PIPENV_USE_HASHES
+  - PIPENV_NOSPIN
+  - PIPENV_PIPFILE
+  - PIPENV_INSTALL_TIMEOUT
+  - PIPENV_YES
+  - PIPENV_SHELL_FANCY
+  - PIPENV_DONT_USE_PYENV
+  - PIPENV_DONT_LOAD_ENV
+  - PIPENV_DEFAULT_PYTHON_VERSION <span class="c1"># 设置创建虚拟环境时默认的python版本信息，如: 3.6
+</span><span class="c1"></span>  - PIPENV_SKIP_VALIDATION
+  - PIPENV_TIMEOUT</code></pre></td></tr></table>
+</div>
+</div>
+<p>需要修改某个默认配置时，只需要把它添加到<code>.bashrc</code>或<code>.bash_profile</code>文件里即可。</p>
+
+<h2 id="常见问题">常见问题</h2>
+
+<h3 id="pipenv-install-时报错-pip-exceptions-installationerror-command-python-setup-py-egg-info-failed-with-error-code-1"><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command &quot;python setup.py egg_info&quot; failed with error code 1</code></h3>
+
+<p>错误原因是<code>pipenv</code>是用python2安装的，解决办法是使用pip3重新安装pipenv</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip unintall pipenv
+$ pip3 install pipenv</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="在项目目录里运行-pipenv-时报错-attributeerror-module-enum-has-no-attribute-intflag">在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pipenv
+Failed to import the site module
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">544</span>, in &lt;module&gt;
+    main<span class="o">()</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">530</span>, in main
+    <span class="nv">known_paths</span> <span class="o">=</span> addusersitepackages<span class="o">(</span>known_paths<span class="o">)</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">282</span>, in addusersitepackages
+    <span class="nv">user_site</span> <span class="o">=</span> getusersitepackages<span class="o">()</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">258</span>, in getusersitepackages
+    <span class="nv">user_base</span> <span class="o">=</span> getuserbase<span class="o">()</span> <span class="c1"># this will also set USER_BASE
+</span><span class="c1"></span>  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">248</span>, in getuserbase
+    <span class="nv">USER_BASE</span> <span class="o">=</span> get_config_var<span class="o">(</span><span class="s1">&#39;userbase&#39;</span><span class="o">)</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line <span class="m">601</span>, in get_config_var
+    <span class="k">return</span> get_config_vars<span class="o">()</span>.get<span class="o">(</span>name<span class="o">)</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line <span class="m">580</span>, in get_config_vars
+    import _osx_support
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_osx_support.py&#34;</span>, line <span class="m">4</span>, in &lt;module&gt;
+    import re
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/re.py&#34;</span>, line <span class="m">142</span>, in &lt;module&gt;
+    class RegexFlag<span class="o">(</span>enum.IntFlag<span class="o">)</span>:
+AttributeError: module <span class="s1">&#39;enum&#39;</span> has no attribute <span class="s1">&#39;IntFlag&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>是因为在项目目录里运行<code>pipenv</code>命令时，项目虚拟环境的python版本低于<code>3.6.4</code>, 由于<code>IntFlag</code>是从<code>python3.6.4</code>才开始集成到python内置模块的。当激活了项目的虚拟环境之后, 环境变量<code>PYTHONPATH</code>会被设置为当前虚拟环境的<code>site-packages</code>目录，因此<code>pipenv</code>依赖的<code>IntFlag</code>无法找到。 解决办法是在运行<code>pipenv</code>时设置环境变量<code>PYTHONPATH</code>为空</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">PYTHONPATH</span><span class="o">=</span> pipenv</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
-      
-
-
     
-
-    
-    
-    
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>如果您觉得我的文章对你有帮助，您可以帮我的早饭加个蛋!</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">crazygit</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-01-08</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
 
     
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://images.wiseturtles.com/wechatpay.jpg" alt="crazygit 微信支付"/>
-        <p>微信支付</p>
-      </div>
     
-
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
     
-
     
-
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="http://images.wiseturtles.com/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
   </div>
 </div>
 
-      </div>
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>crazygit</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/" title="pipenv使用指南">http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
-</ul>
-
-      </div>
-    
-
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/pipenv/" rel="tag"># pipenv</a>
+      <div class="post-tags">
+          <a href="https://crazygit.wiseturtles.com/tags/pipenv/">pipenv</a>
           
         </div>
-      
 
       
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/01/04/python-for-data-analysis-2nd-edition-note-two/" rel="next" title="《利用Python进行数据分析第二版》读书笔记三">
-                <i class="fa fa-chevron-left"></i> 《利用Python进行数据分析第二版》读书笔记三
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/" rel="prev" title="《利用Python进行数据分析第二版》读书笔记四">
-                《利用Python进行数据分析第二版》读书笔记四 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">《利用Python进行数据分析第二版》读书笔记四</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/2018/01/04/python-for-data-analysis-2nd-edition-note-two/">
+            <span class="next-text nav-default">《利用Python进行数据分析第二版》读书笔记三</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
     </footer>
-  </div>
-  
-  
-  
   </article>
 
+  
+  
 
+  
+  
 
-    <div class="post-spread">
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    function load_disqus() {
       
-    </div>
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'lianglin999';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
   </div>
 
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="https://avatars1.githubusercontent.com/u/1240997"
-                alt="crazygit" />
-            
-              <p class="site-author-name" itemprop="name">crazygit</p>
-              <p class="site-description motion-element" itemprop="description">技术和生活分享</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/crazygit" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/crazygit" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://travis-ci.org/" title="Travis CI" target="_blank">Travis CI</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://ox0spy.github.io/" title="ox0spy blog" target="_blank">ox0spy blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://blog.wiseturtles.com/" title="Wise Turtles" target="_blank">Wise Turtles</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加shell补齐"><span class="nav-number">3.</span> <span class="nav-text">添加shell补齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipenv命令"><span class="nav-number">4.</span> <span class="nav-text">pipenv命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令介绍"><span class="nav-number">5.</span> <span class="nav-text">常用命令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级技巧"><span class="nav-number">6.</span> <span class="nav-text">高级技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入requirements.txt"><span class="nav-number">6.1.</span> <span class="nav-text">导入requirements.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定安装包的版本信息"><span class="nav-number">6.2.</span> <span class="nav-text">指定安装包的版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定python的版本信息"><span class="nav-number">6.3.</span> <span class="nav-text">指定Python的版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定安装包的源"><span class="nav-number">6.4.</span> <span class="nav-text">指定安装包的源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成requirements.txt文件"><span class="nav-number">6.5.</span> <span class="nav-text">生成requirements.txt文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查安全隐患"><span class="nav-number">6.6.</span> <span class="nav-text">检查安全隐患</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码风格检查"><span class="nav-number">6.7.</span> <span class="nav-text">编码风格检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览模块代码"><span class="nav-number">6.8.</span> <span class="nav-text">浏览模块代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动加载环境变量.env"><span class="nav-number">6.9.</span> <span class="nav-text">自动加载环境变量.env</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义虚拟环境的路径"><span class="nav-number">6.10.</span> <span class="nav-text">自定义虚拟环境的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动激活虚拟环境"><span class="nav-number">6.11.</span> <span class="nav-text">自动激活虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过环境变量配置pipenv"><span class="nav-number">6.12.</span> <span class="nav-text">通过环境变量配置pipenv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">7.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pipenv-install时报错pip.exceptions.installationerror-command-python-setup.py-egg_info-failed-with-error-code-1"><span class="nav-number">7.1.</span> <span class="nav-text">pipenv install时报错pip.exceptions.InstallationError: Command &quot;python setup.py egg_info&quot; failed with error code 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag"><span class="nav-number">7.2.</span> <span class="nav-text">在项目目录里运行pipenv时报错AttributeError: module &#39;enum&#39; has no attribute &#39;IntFlag&#39;</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
       </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate"> 
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">crazygit</span>
-
-  
-
-  
-</div>
-
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.1.0</div>
-
-
-
-  <div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="ttps://pages.github.com"><b>GitHub Pages</b></a></div>
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="Total Visitors">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="Total Views">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
-
-    
-
+      <div class="social-links">
+      <a href="mailto:crazygit@foxmail.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+      <a href="https://twitter.com/lianglin999" rel="me noopener" class="iconfont icon-twitter"
+        title="twitter" target="_blank">
+      </a>
+      <a href="https://github.com/crazygit" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+      <a href="https://www.weibo.com/crazygit/profile" rel="me noopener" class="iconfont icon-weibo"
+        title="weibo" target="_blank">
+      </a>
+  <a href="https://crazygit.wiseturtles.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
   </div>
 
-  
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">
+        crazygit
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script><script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
 </script>
 
 
 
-
-
-
-
-
-
-
-
-
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
 
 
 
 
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://lianglin999.disqus.com/count.js" async></script>
-  
-
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/';
-        this.page.identifier = '2018/01/08/pipenv-tour/';
-        this.page.title = 'pipenv使用指南';
-      };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://lianglin999.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
-  
-
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+    AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");
   </script>
 
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");</script>
   <script>
-    function showTime(Counter) {
+    function showHitCount(Counter) {
       var query = new AV.Query(Counter);
       var entries = [];
       var $visitors = $(".leancloud_visitors");
 
       $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
+        entries.push($(this).attr("id").trim());
       });
 
       query.containedIn('url', entries);
@@ -1520,16 +1264,16 @@
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
             var url = item.get('url');
-            var time = item.get('time');
+            var hits = item.get('hits');
             var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
+            $(element).find(COUNT_CONTAINER_REF).text(hits);
           }
-          for(var i = 0; i < entries.length; i++) {
+          for (var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
+            if (countSpan.text() == '') {
               countSpan.text(0);
             }
           }
@@ -1547,107 +1291,65 @@
 
       query.equalTo("url", url);
       query.find({
-        success: function(results) {
+        success: function (results) {
           if (results.length > 0) {
             var counter = results[0];
             counter.fetchWhenSave(true);
-            counter.increment("time");
-            
+            counter.increment("hits");
             counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
+              success: function (counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
               },
-              error: function(counter, error) {
+              error: function (counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
+            var newcounter = new Counter();
+             
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+             
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("hits", 1);
+            newcounter.save(null, {
+              success: function (newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
+              },
+              error: function (newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
           }
         },
-        error: function(error) {
+        error: function (error) {
           console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
 
-    $(function() {
+    $(function () {
       var Counter = AV.Object.extend("Counter");
       if ($('.leancloud_visitors').length == 1) {
+        
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
+      } else if ($('.post-link').length > 1) {
+        
+        showHitCount(Counter);
       }
     });
   </script>
 
 
 
-  
 
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+  <script src="/js/douban.js"></script>
 
 
-  
-  
-
-  
-  
-
-  
-
-
-  
-  
-
-  
-
-  
-  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.1.0"></script>
-  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-  
-
-  
-
-<script>!function(t){var n=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function e(n){var e=n.getBoundingClientRect();return e.top>=0&&e.left>=0&&e.top<=(t.innerHeight||document.documentElement.clientHeight)}function i(t,n){var e=new Image,i=t.getAttribute("data-original");e.onload=function(){t.src=i,n&&n()},e.src=i}function o(){for(var t=0;t<n.length;t++)e(n[t])&&i(n[t],function(){n.splice(t,t)})}o(),t.addEventListener("scroll",o)}(this);</script></body>
+</body>
 </html>

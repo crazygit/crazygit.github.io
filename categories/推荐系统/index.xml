@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>推荐系统 on Soul Mate</title>
+    <link>https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 推荐系统 on Soul Mate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jan 2018 17:34:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《A Programmer&#39;s Guide to Data Mining》读书笔记一</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</link>
+      <pubDate>Mon, 22 Jan 2018 17:34:52 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</guid>
+      <description>&lt;p&gt;参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://guidetodatamining.com/&#34;&gt;A Programmer&amp;rsquo;s Guide to Data Mining&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
+假如你喜欢看电影A和B， 另外一个和你&lt;strong&gt;相似的用户&lt;/strong&gt;也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/?title=Collaborative_filtering&#34;&gt;如图所示&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-19-Collaborative_filtering.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>皮尔逊相关系数(Pearson Correlation Coefficient)</title>
+      <link>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</link>
+      <pubDate>Fri, 19 Jan 2018 17:48:36 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</guid>
+      <description>&lt;p&gt;在介绍皮尔逊相关系数前，先来回顾一些统计相关的术语，便于我们更好的理解后面的计算公式。&lt;/p&gt;
+
+&lt;h2 id=&#34;方差-variance&#34;&gt;方差（Variance）&lt;/h2&gt;
+
+&lt;p&gt;参考&lt;a href=&#34;https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE&#34;&gt;百度百科&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;方差在统计描述和概率分布中各有不同的定义，并有不同的公式。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下面主要介绍在统计描述中的方差&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
