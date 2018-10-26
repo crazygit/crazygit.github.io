@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Apr 2018 18:15:39 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Oct 2018 23:13:46 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOS学习目标制定及开发环境搭建</title>
+      <link>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</link>
+      <pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid>
+      <description>本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢</description>
+    </item>
     
     <item>
       <title>Elasticsearch快速入门</title>
@@ -692,50 +701,6 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 &lt;span class=&#34;s1&#34;&gt;&amp;#39;0.21.1&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>NumPy快速入门指南</title>
-      <link>https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</link>
-      <pubDate>Tue, 19 Dec 2017 22:08:10 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/</guid>
-      <description>&lt;p&gt;参考:
-&lt;a href=&#34;https://docs.scipy.org/doc/numpy-dev/user/quickstart.html&#34;&gt;https://docs.scipy.org/doc/numpy-dev/user/quickstart.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
-
-&lt;p&gt;安装numpy&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;$ pip install numpy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;In NumPy dimensions are called axes. The number of axes is rank.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Numpy中，维度被称作&lt;code&gt;axes&lt;/code&gt;, 维度数被称作&lt;code&gt;rank&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;Numpy的数组类是&lt;code&gt;ndarray&lt;/code&gt;, 与标准python库的数组不太一样，它包含的元素必须是&lt;strong&gt;相同类型&lt;/strong&gt;的。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;ndarray&lt;/code&gt;的常见属性如下:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ndarray.ndim&lt;/code&gt;数组的轴数(即&lt;code&gt;rank&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ndarray.shape&lt;/code&gt;数组的维度，返回的是一个元组，元组的长度值刚好是&lt;code&gt;ndim&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ndarray.size&lt;/code&gt;数组元素的个数&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ndarray.dtype&lt;/code&gt;数组元素的类型&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ndarray.itemsize&lt;/code&gt;数组元素的字节大小&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ndarray.data&lt;/code&gt;数组包含的实际数据(一般情况下不会用到这个属性，都是通过索引来访问元素)&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     

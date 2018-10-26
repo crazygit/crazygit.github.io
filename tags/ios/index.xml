@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on Soul Mate</title>
+    <link>https://crazygit.wiseturtles.com/tags/ios/</link>
+    <description>Recent content in Ios on Soul Mate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 26 Oct 2018 23:13:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://crazygit.wiseturtles.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iOS学习目标制定及开发环境搭建</title>
+      <link>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</link>
+      <pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid>
+      <description>本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢</description>
+    </item>
+    
+  </channel>
+</rss>

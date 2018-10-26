@@ -6,10 +6,115 @@
     <description>Recent content on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Apr 2018 18:15:39 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Oct 2018 23:13:46 +0800</lastBuildDate>
     
         <atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOS学习目标制定及开发环境搭建</title>
+      <link>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</link>
+      <pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid>
+      
+        <description>
+
+&lt;p&gt;本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢迎指出。&lt;/p&gt;
+
+&lt;h2 id=&#34;学习目标&#34;&gt;学习目标&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;经过学习，能开发出第一个让自己认可的APP并发布到App Store&lt;/li&gt;
+&lt;li&gt;习惯养成: 保证每天投入至少1个小时学习新知识&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;学习资源&#34;&gt;学习资源&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://swift.org&#34;&gt;官网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/swift/resources/&#34;&gt;Swift学习官方学习资源(含文档，视频，示例代码等)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/numbbbbb/the-swift-programming-language-in-chinese&#34;&gt;Swift官方文档中文版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ipader/SwiftGuide&#34;&gt;GitHub上别人整理的Swift语言主流学习资源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackingwithswift.com/&#34;&gt;Hacking With Swift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.imooc.com/learn/635&#34;&gt;慕课网视频教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;建议学习顺序&#34;&gt;建议学习顺序&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;阅读文档&lt;a href=&#34;https://docs.swift.org/swift-book/index.html&#34;&gt;the swift programming language&lt;/a&gt;，了解Swift语法&lt;/li&gt;
+&lt;li&gt;斯坦福大学视频教程: Developing iOS 10 Apps with Swift &lt;a href=&#34;http://www.swift51.com/video/1057.html&#34;&gt;中文字幕版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.v2ex.com/t/457681&#34;&gt;Developing iOS 11 Apps with Swift&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;swift安装&#34;&gt;Swift安装&lt;/h2&gt;
+
+&lt;p&gt;要学习iOS开发，前提就是要学习&lt;code&gt;Swift&lt;/code&gt;或&lt;code&gt;Object-C&lt;/code&gt;语言。就像如果要学习Android开发的话，必须先掌握Java语言一样。&lt;/p&gt;
+
+&lt;p&gt;由于现在苹果公司主推&lt;code&gt;Swift&lt;/code&gt;语言，所以我也选择了&lt;code&gt;Swift&lt;/code&gt;语言下手。&lt;code&gt;Object-C&lt;/code&gt;有需要的话，以后再学习了。&lt;/p&gt;
+
+&lt;p&gt;Swift语言被开源后，单独放了一个&lt;a href=&#34;https://swift.org/&#34;&gt;网站&lt;/a&gt;上面，现在Swift不仅可以在Mac系统上运行，也可以在Linux上运行。&lt;/p&gt;
+
+&lt;p&gt;根据自己的操作系统，在&lt;a href=&#34;https://swift.org/download/#releases&#34;&gt;下载页面&lt;/a&gt;选择合适的安装包安装即可。&lt;/p&gt;
+
+&lt;p&gt;以&lt;code&gt;macOS 10.14&lt;/code&gt;为例，只需要在App Store商店里安装Xcode即可。&lt;/p&gt;
+
+&lt;h3 id=&#34;检查是否安装成功&#34;&gt;检查是否安装成功&lt;/h3&gt;
+
+&lt;p&gt;安装好以后，在终端下执行如下命令即可检查是否安装成功。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ swift -version
+Apple Swift version &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;.2 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;swiftlang-1000.11.37.1 clang-1000.11.45.1&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+Target: x86_64-apple-darwin18.0.0&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;当前学习是Swift 4.1版本，后面所有的例子也会基于这个版本。&lt;/p&gt;
+
+&lt;h3 id=&#34;交互模式&#34;&gt;交互模式&lt;/h3&gt;
+
+&lt;p&gt;在终端直接输入&lt;code&gt;swift&lt;/code&gt;，即可进入交互模式，类似在终端输入&lt;code&gt;python&lt;/code&gt;一样&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;err&#34;&gt;$&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;swift&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Welcome&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Apple&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Swift&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4.2&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swiftlang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1000.11&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;37.1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1000.11&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;45.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;Type&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;help&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;assistance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+  &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Hello&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;World&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;swift代码格式化工具&#34;&gt;Swift代码格式化工具&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Jintin/Swimat&#34;&gt;Swimat&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装并设置好了，可以在Xcode里绑定快捷键，方便使用:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Xcode -&amp;gt; Preference -&amp;gt; Key Bindings -&amp;gt; 搜索“swimat” 设置快捷键为&amp;#34;Option + F&amp;#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;设置快捷键时注意当前设置框最下面的文字提示信息，如果存在快捷键冲突，它会有提示&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-10-24-Swimat-shortcut.png&#34; alt=&#34;Swimat-shortcut&#34; /&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Elasticsearch快速入门</title>
@@ -14560,54 +14665,6 @@ iframe &lt;a href=&#34;http://images.wiseturtles.com/basic_animation.mp4&#34;&gt
 &lt;/div&gt;
 &lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://crazygit.wiseturtles.com/about/</link>
-      <pubDate>Thu, 21 Dec 2017 18:34:54 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/about/</guid>
-      
-        <description>
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-&lt;blockquote&gt;
-  &lt;p&gt;写作是与自己心灵的交流！&lt;/p&gt;
-  &lt;footer&gt;
-    &lt;strong&gt;&lt;/strong&gt;
-    
-      
-        
-      
-    
-  &lt;/footer&gt;
-&lt;/blockquote&gt;
-
-
-
-
-&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-permalink=&#34;https://www.instagram.com/p/BV2WqHGh0sE/?utm_source=ig_embed_loading&#34; data-instgrm-version=&#34;12&#34;style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:16px;&#34;&gt; &lt;a href=&#34;https://www.instagram.com/p/BV2WqHGh0sE/?utm_source=ig_embed_loading&#34; style=&#34; background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;&#34; target=&#34;_blank&#34;&gt; &lt;div style=&#34; display: flex; flex-direction: row; align-items: center;&#34;&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: column; flex-grow: 1; justify-content: center;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 19% 0;&#34;&gt;&lt;/div&gt;&lt;div style=&#34;display:block; height:50px; margin:0 auto 12px; width:50px;&#34;&gt;&lt;svg width=&#34;50px&#34; height=&#34;50px&#34; viewBox=&#34;0 0 60 60&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34;&gt;&lt;g stroke=&#34;none&#34; stroke-width=&#34;1&#34; fill=&#34;none&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;g transform=&#34;translate(-511.000000, -20.000000)&#34; fill=&#34;#000000&#34;&gt;&lt;g&gt;&lt;path d=&#34;M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631&#34;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style=&#34;padding-top: 8px;&#34;&gt; &lt;div style=&#34; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;&#34;&gt; View this post on Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 12.5% 0;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;&#34;&gt;&lt;div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: 8px;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: auto;&#34;&gt; &lt;div style=&#34; width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BV2WqHGh0sE/?utm_source=ig_embed_loading&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;A post shared by Crazygit (@crazygit945)&lt;/a&gt; on &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2017-06-27T16:12:30+00:00&#34;&gt;Jun 27, 2017 at 9:12am PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//www.instagram.com/embed.js&#34;&gt;&lt;/script&gt;
 </description>
       
     </item>
