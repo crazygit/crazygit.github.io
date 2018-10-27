@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Oct 2018 23:13:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Oct 2018 09:34:03 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Swift入门指南一</title>
+      <link>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/</link>
+      <pubDate>Sat, 27 Oct 2018 09:34:03 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/</guid>
+      <description>&lt;h2 id=&#34;hello-world&#34;&gt;Hello World&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;bp&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;“Hello world”的写法与&lt;code&gt;python&lt;/code&gt;的语法, 不需要分号结尾&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>iOS学习目标制定及开发环境搭建</title>
@@ -17,7 +37,27 @@
       <pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid>
-      <description>本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢</description>
+      <description>&lt;p&gt;本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢迎指出。&lt;/p&gt;
+
+&lt;h2 id=&#34;学习目标&#34;&gt;学习目标&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;经过学习，能开发出第一个让自己认可的APP并发布到App Store&lt;/li&gt;
+&lt;li&gt;习惯养成: 保证每天投入至少1个小时学习新知识&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;学习资源&#34;&gt;学习资源&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://swift.org&#34;&gt;官网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/swift/resources/&#34;&gt;Swift学习官方学习资源(含文档，视频，示例代码等)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/numbbbbb/the-swift-programming-language-in-chinese&#34;&gt;Swift官方文档中文版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ipader/SwiftGuide&#34;&gt;GitHub上别人整理的Swift语言主流学习资源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackingwithswift.com/&#34;&gt;Hacking With Swift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.imooc.com/learn/635&#34;&gt;慕课网视频教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -646,61 +686,6 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2017-12-25-line.png&#34; alt=&#34;效果图&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>10分钟入门Pandas</title>
-      <link>https://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</link>
-      <pubDate>Wed, 20 Dec 2017 22:21:46 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/</guid>
-      <description>&lt;p&gt;参考:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://pandas.pydata.org/pandas-docs/stable/10min.html&#34;&gt;10 Minutes to pandas&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;p&gt;支持的python版本: 2.7, 3.5, 3.6&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pandas&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;检查本地的pandas运行环境是否完整，可以运行pandas的单元测试用例&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pip install pytest&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pandas&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pd&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;获取当前使用pandas的版本信息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pandas&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pd&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;
-&lt;span class=&#34;s1&#34;&gt;&amp;#39;0.21.1&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     

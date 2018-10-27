@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/</loc>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</loc>
     <lastmod>2018-10-26T23:13:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -199,14 +206,14 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/tags/ios/</loc>
-    <lastmod>2018-10-26T23:13:46+08:00</lastmod>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2018-10-26T23:13:46+08:00</lastmod>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -262,7 +269,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/post/</loc>
-    <lastmod>2018-10-26T23:13:46+08:00</lastmod>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -290,7 +297,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/</loc>
-    <lastmod>2018-10-26T23:13:46+08:00</lastmod>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -326,6 +333,13 @@
   <url>
     <loc>https://crazygit.wiseturtles.com/tags/statistics/</loc>
     <lastmod>2018-01-19T17:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://crazygit.wiseturtles.com/tags/swift/</loc>
+    <lastmod>2018-10-27T09:34:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
