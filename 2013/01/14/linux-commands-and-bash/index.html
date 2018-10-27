@@ -1,0 +1,4263 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux命令行与shell脚本编程大全第二版学习笔记 - Soul Mate</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="crazygit" /><meta name="description" content="Linux命令行与shell脚本编程大全第二版学习笔记" />
+
+  <meta name="keywords" content="Hugo, crazygit, blog" />
+
+
+<meta name="baidu-site-verification" content="mEI3NT6pyx" />
+<meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
+
+
+<meta name="generator" content="Hugo 0.49.2" />
+
+
+<link rel="canonical" href="https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/douban.css">
+
+<link rel="stylesheet" href="/css/monokai-syntax.css">
+
+
+<meta property="og:title" content="Linux命令行与shell脚本编程大全第二版学习笔记" />
+<meta property="og:description" content="Linux命令行与shell脚本编程大全第二版学习笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/" /><meta property="article:published_time" content="2013-01-14T09:48:29&#43;08:00"/>
+<meta property="article:modified_time" content="2013-01-14T09:48:29&#43;08:00"/>
+
+<meta itemprop="name" content="Linux命令行与shell脚本编程大全第二版学习笔记">
+<meta itemprop="description" content="Linux命令行与shell脚本编程大全第二版学习笔记">
+
+
+<meta itemprop="datePublished" content="2013-01-14T09:48:29&#43;08:00" />
+<meta itemprop="dateModified" content="2013-01-14T09:48:29&#43;08:00" />
+<meta itemprop="wordCount" content="13016">
+
+
+
+<meta itemprop="keywords" content="linux,bash," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux命令行与shell脚本编程大全第二版学习笔记"/>
+<meta name="twitter:description" content="Linux命令行与shell脚本编程大全第二版学习笔记"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112251188-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Soul Mate</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Soul Mate
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux命令行与shell脚本编程大全第二版学习笔记</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2013-01-14 </span>
+        <div class="post-category">
+            <a href="https://crazygit.wiseturtles.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+            
+          </div>
+        <span class="more-meta"> 约 13016 字 </span>
+          <span class="more-meta"> 预计阅读 26 分钟 </span>
+
+        
+        
+
+        
+        
+          <span id="/2013/01/14/linux-commands-and-bash/" class="leancloud_visitors" data-flag-title="Linux命令行与shell脚本编程大全第二版学习笔记">
+            <span class="post-meta-item-text"> | 阅读 </span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#linux系统可以划分为4个部分">Linux系统可以划分为4个部分</a></li>
+<li><a href="#常用命令">常用命令</a>
+<ul>
+<li><a href="#ls">ls</a></li>
+<li><a href="#touch">touch</a></li>
+<li><a href="#cp">cp</a></li>
+<li><a href="#rmdir">rmdir</a></li>
+<li><a href="#stat">stat</a></li>
+<li><a href="#file">file</a></li>
+<li><a href="#cat">cat</a></li>
+<li><a href="#ps">ps</a></li>
+<li><a href="#sort">sort</a></li>
+<li><a href="#bzip2">bzip2</a></li>
+<li><a href="#bzcat">bzcat</a></li>
+<li><a href="#bunzip2">bunzip2</a></li>
+<li><a href="#printenv">printenv</a></li>
+<li><a href="#set">set</a></li>
+<li><a href="#uset">uset</a></li>
+<li><a href="#alias">alias</a></li>
+<li><a href="#usermod">usermod</a></li>
+<li><a href="#passwd">passwd</a></li>
+<li><a href="#chsh">chsh</a></li>
+<li><a href="#groupadd">groupadd</a></li>
+<li><a href="#usermod-1">usermod</a></li>
+<li><a href="#groupmod">groupmod</a></li>
+<li><a href="#umask">umask</a></li>
+<li><a href="#bash进行数学运算">bash进行数学运算</a></li>
+<li><a href="#ifs-内部字段分割符-internal-filed-separator"><code>IFS</code>内部字段分割符(internal filed separator)</a></li>
+<li><a href="#break">break</a></li>
+<li><a href="#bash参数">bash参数</a></li>
+<li><a href="#shift-命令"><code>shift</code>命令</a></li>
+<li><a href="#getopt">getopt</a></li>
+<li><a href="#getopts">getopts</a></li>
+<li><a href="#read命令">read命令</a></li>
+<li><a href="#错误重定向">错误重定向</a></li>
+<li><a href="#trap">trap</a></li>
+<li><a href="#nice命令">nice命令</a></li>
+<li><a href="#at命令">at命令</a></li>
+<li><a href="#bash-函数">bash 函数</a></li>
+<li><a href="#shell-脚本菜单">shell 脚本菜单</a></li>
+<li><a href="#bash-窗口">bash 窗口</a></li>
+<li><a href="#sed-命令">sed 命令</a></li>
+<li><a href="#正则表达式">正则表达式</a></li>
+<li><a href="#mysql命令行参数">mysql命令行参数</a></li>
+<li><a href="#使用web终端上网">使用Web终端上网</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="linux系统可以划分为4个部分">Linux系统可以划分为4个部分</h2>
+
+<ul>
+<li>Linux内核</li>
+<li>GUN工具组件</li>
+<li>图形化桌面环境</li>
+<li>应用软件</li>
+</ul>
+
+<h2 id="常用命令">常用命令</h2>
+
+<h3 id="ls">ls</h3>
+
+<ul>
+<li>-F 在目录名后面添加/ ,方便和普通文件区分</li>
+<li>-R 递归显示当前目录</li>
+<li>-A 效果与-a一样，只是不输出(.)和（..)</li>
+</ul>
+
+<h3 id="touch">touch</h3>
+
+<ul>
+<li>-t 修改已有文件的时间戳</li>
+</ul>
+
+<h3 id="cp">cp</h3>
+
+<ul>
+<li>-b 复制文件时，如果目的地有一份同名文件，就将该文件备份然后再复制，而不是直接覆盖</li>
+<li>-p 保留拷贝文件的文件属性，如修改时间等</li>
+<li>-l 与 -s 参数可以使cp命令与ln命令一样，创建链接-l（硬链接),-s(软链接）</li>
+</ul>
+
+<h3 id="rmdir">rmdir</h3>
+
+<ul>
+<li>删除一个空目录</li>
+</ul>
+
+<p></p>
+
+<h3 id="stat">stat</h3>
+
+<ul>
+<li>查看一个文件的详细信息</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ stat a
+  File: <span class="s1">&#39;a&#39;</span>
+    Size: <span class="m">5</span>             Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
+    Device: 807h/2055dInode: <span class="m">1048658</span>     Links: <span class="m">1</span>
+    Access: <span class="o">(</span><span class="m">0644</span>/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span> <span class="m">1000</span>/linliang<span class="o">)</span>   Gid: <span class="o">(</span> <span class="m">1000</span>/linliang<span class="o">)</span>
+    Access: <span class="m">2013</span>-01-14 <span class="m">10</span>:55:27.643013669 +0800
+    Modify: <span class="m">2013</span>-01-14 <span class="m">10</span>:55:18.443014365 +0800
+    Change: <span class="m">2013</span>-01-14 <span class="m">10</span>:55:23.733014890 +0800</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="file">file</h3>
+
+<ul>
+<li>查看文件类型</li>
+</ul>
+
+<h3 id="cat">cat</h3>
+
+<ul>
+<li>-n 显示行号</li>
+<li>-b 指给有文本的行加上行号，空白行不会显示行号</li>
+<li>-s 将多个空白行压缩到单个空白行</li>
+<li>-T 不显示制表符</li>
+</ul>
+
+<h3 id="ps">ps</h3>
+
+<p>Linux系统中使用的<code>ps</code>命令支持3种不同类型的命令行参数</p>
+
+<ul>
+<li>Unix风格的参数，前面加单破折线</li>
+<li>BSD风格的参数， 前面不加破折线</li>
+<li>GNU风格的长参数，前面加双破折线</li>
+</ul>
+
+<h3 id="sort">sort</h3>
+
+<ul>
+<li>-t 指定分隔符号</li>
+<li>-k 指定排序的位置,初始值是1</li>
+</ul>
+
+<p>如按user id排序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sort -t <span class="s1">&#39;:&#39;</span> -k <span class="m">3</span> -n /etc/passwd</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="bzip2">bzip2</h3>
+
+<ul>
+<li>压缩文件（不是目录），多用于压缩大型的二进制文件
+<code>bzip2 filename</code></li>
+</ul>
+
+<h3 id="bzcat">bzcat</h3>
+
+<ul>
+<li>用来显示上面命令压缩文本的内容</li>
+</ul>
+
+<h3 id="bunzip2">bunzip2</h3>
+
+<ul>
+<li>用来解压压缩文件</li>
+</ul>
+
+<p>同样，<code>gzip ,gzcat, gunzip</code>命令与上面用法一样</p>
+
+<h3 id="printenv">printenv</h3>
+
+<ul>
+<li>打印当前系统的全局变量</li>
+</ul>
+
+<h3 id="set">set</h3>
+
+<ul>
+<li>显示为某个特定进行设置的所有环境变量（包括全局变量和局部变量）</li>
+</ul>
+
+<h3 id="uset">uset</h3>
+
+<ul>
+<li>删除一个环境变量, 但是如果在一个子进程中删除了一个全局变量，它只对子进程有效，该变量在父进程中依然有效</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">a</span><span class="o">=</span><span class="nb">test</span>
+$ <span class="nb">export</span> a
+$ <span class="nb">echo</span> <span class="nv">$a</span>
+
+$ bash
+$ <span class="nb">echo</span> <span class="nv">$a</span>
+
+$ <span class="nb">unset</span> a
+$ <span class="nb">echo</span> <span class="nv">$a</span>
+
+$ <span class="nb">exit</span>
+
+$ <span class="nb">echo</span> <span class="nv">$a</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="alias">alias</h3>
+
+<ul>
+<li>-p 查看当前设置了哪些别名</li>
+</ul>
+
+<h3 id="usermod">usermod</h3>
+
+<p>修改账户信息</p>
+
+<ul>
+<li>-l 修改用户的登录名</li>
+<li>-L 锁定账户，让账户无法登录</li>
+<li>-U 解除锁定，让账户可以登录</li>
+</ul>
+
+<h3 id="passwd">passwd</h3>
+
+<p>修改用户密码</p>
+
+<ul>
+<li>-e 选项能强制用户下次登录时修改密码</li>
+</ul>
+
+<h3 id="chsh">chsh</h3>
+
+<ul>
+<li>快速修改默认的用户登录shell</li>
+</ul>
+
+<h3 id="groupadd">groupadd</h3>
+
+<ul>
+<li>添加一个组，但是没有将用户添加到组的选项</li>
+</ul>
+
+<h3 id="usermod-1">usermod</h3>
+
+<p>将一个用户添加到某一个组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">usermod -G groupname username</pre></td></tr></table>
+</div>
+</div>
+<h3 id="groupmod">groupmod</h3>
+
+<ul>
+<li>修改组信息</li>
+</ul>
+
+<h3 id="umask">umask</h3>
+
+<p>用来设置用户创建文件和目录的默认权限
+umask的值只是一个掩码，它会屏蔽掉不想授予该安全级别的权限。
+umask值会从对象的全权值中减掉，对文件来说，全权值的666（所有用户都有读写权限)
+对于目录来说，全权值是777（所有用户都有读写和执行的权限)
+umask的代表了一项特别的安全特性，叫做粘着位.
+umask 0022
+那么创建的文件权限就是(666-022=644)</p>
+
+<p>umask的值通常保存在/etc/profile文件中</p>
+
+<h3 id="bash进行数学运算">bash进行数学运算</h3>
+
+<p>使用expr命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ expr <span class="m">1</span> + <span class="m">5</span>
+$ expr <span class="m">2</span> <span class="se">\*</span> <span class="m">5</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用方括号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> $<span class="o">[</span><span class="m">1</span>+5<span class="o">]</span>
+$ <span class="nb">echo</span> $<span class="o">[</span><span class="m">2</span>*5<span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>上面两种方法在做除法的时候都只支持整数运算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> $<span class="o">[</span><span class="m">6</span>/4<span class="o">]</span>
+$ <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>为了解决这种问题，可以使用bash内建的计算器bc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ bc -q （-q不打印欢迎信息）</pre></td></tr></table>
+</div>
+</div>
+<p>通过内建变量scale可以控制想得到小数点的位数, scale的默认值是0</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ bc -q
+<span class="m">6</span>/4
+<span class="m">1</span>
+<span class="nv">scale</span><span class="o">=</span><span class="m">2</span>
+<span class="m">6</span>/4
+<span class="m">1</span>.50</code></pre></td></tr></table>
+</div>
+</div>
+<p>在脚本中使用bc的方法：
+当表达式比较短时:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;scale=1;6/4&#34;</span> <span class="p">|</span>bc</code></pre></td></tr></table>
+</div>
+</div>
+<p>表达式比较长的时候，可以使用内联的输入重定向</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="sb">`</span>bc <span class="s">&lt;&lt;EOF
+</span><span class="s">b=3+2
+</span><span class="s">scale=1
+</span><span class="s">c=6/4
+</span><span class="s">b+c
+</span><span class="s">EOF</span>
+<span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$a</span>
+
+$ bash a.sh
+<span class="m">6</span>.5</code></pre></td></tr></table>
+</div>
+</div>
+<p>在使用<code>-n</code>或<code>-z</code>判断一个字符串是否为空时，记得要给字符串加引号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="c1"># 字符串不加引号
+</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> -n <span class="nv">$a</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;not empty&#34;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&#34;null&#34;</span>
+<span class="k">fi</span>
+$ bash -x a.sh
++ <span class="nv">a</span><span class="o">=</span>
++ <span class="s1">&#39;[&#39;</span> -n <span class="s1">&#39;]&#39;</span>
++ <span class="nb">echo</span> <span class="s1">&#39;not empty&#39;</span>
+not empty
+
+
+$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+
+<span class="c1"># 字符串加了引号
+</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;not empty&#34;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&#34;null&#34;</span>
+<span class="k">fi</span>
+$ bash -x a.sh
++ <span class="nv">a</span><span class="o">=</span>
++ <span class="s1">&#39;[&#39;</span> -n <span class="s1">&#39;&#39;</span> <span class="s1">&#39;]&#39;</span>
++ <span class="nb">echo</span> null
+null</code></pre></td></tr></table>
+</div>
+</div>
+<p>没有加引号时, 相当于执行了如下命令，所以结果一直是错误的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">test</span> -n
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>if 语句可以接双尖括号，双方括号
+双尖括号命令允许你将高级的数学表达式放入比较之中
+双方括号命令提供了针对字符串比较高的特性，如模式匹配</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;take&#34;</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$a</span> <span class="o">==</span> t* <span class="o">]]</span><span class="p">;</span><span class="k">then</span>
+    <span class="nb">echo</span> <span class="nv">$a</span>
+    <span class="k">fi</span>
+$ bash a.sh
+take</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ifs-内部字段分割符-internal-filed-separator"><code>IFS</code>内部字段分割符(internal filed separator)</h3>
+
+<p>IFS环境变量定义了bash shell中用作字段分隔符的一些列字符。默认情况下, bash shell
+会将下列字符当做分隔符</p>
+
+<ul>
+<li>空格</li>
+<li>制表符</li>
+<li>换行符</li>
+</ul>
+
+<p>如果bash shell在数据中看到了这些字符中的任意一个，它会假定你在列表中开始了一个新的数据段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cal &gt; a
+$ <span class="k">for</span> i in <span class="sb">`</span>cat a<span class="sb">`</span><span class="p">;</span><span class="k">do</span> <span class="nb">echo</span> <span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
+January
+<span class="m">2013</span>
+Su
+Mo
+Tu
+We
+Th
+Fr
+Sa
+......
+现在指定以换行符作为分隔符,注意<span class="s1">&#39;\n&#39;</span>前面有个‘$’符号
+$ <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span><span class="p">;</span><span class="k">for</span> i in <span class="sb">`</span>cat a<span class="sb">`</span><span class="p">;</span><span class="k">do</span> <span class="nb">echo</span> <span class="nv">$i</span><span class="p">;</span><span class="k">done</span>
+    January <span class="m">2013</span>
+Su Mo Tu We Th Fr Sa
+       <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>
+ <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span>
+<span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span>
+<span class="m">20</span> <span class="m">21</span> <span class="m">22</span> <span class="m">23</span> <span class="m">24</span> <span class="m">25</span> <span class="m">26</span>
+<span class="m">27</span> <span class="m">28</span> <span class="m">29</span> <span class="m">30</span> <span class="m">31</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>通常，在一个地方修改了换行符之后，最好是在使用完之后将它改回去</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">IFS_OLD</span><span class="o">=</span><span class="nv">$IFS</span>
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
+&lt;use the new IFS value in code&gt;
+<span class="nv">IFS</span><span class="o">=</span><span class="nv">$IFS_OLD</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果要指定多个IFS字符，只要将他们在赋值行连起来就可以</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n:;&#34;&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用换行符，冒号，分号和双引号作为分隔符号</p>
+
+<h3 id="break">break</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">break</span> n</code></pre></td></tr></table>
+</div>
+</div>
+<p>其中<code>n</code>说明了要跳出的循环级别。默认情况下，<code>n</code>为1,表示当前的循环级别。如果你将n设置为<code>2</code>, break命令将会停止下一级别的外部命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">for</span> <span class="o">((</span> <span class="nv">a</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> a&lt;<span class="m">4</span><span class="p">;</span> a++<span class="o">))</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Outer loop: </span><span class="nv">$a</span><span class="s2">&#34;</span>
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">b</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> b&lt;<span class="m">100</span><span class="p">;</span> b++ <span class="o">))</span>
+    <span class="k">do</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$b</span> -gt <span class="m">4</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+            <span class="nb">break</span> <span class="m">2</span>
+        <span class="k">fi</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Inner loop: </span><span class="nv">$b</span><span class="s2">&#34;</span>
+    <span class="k">done</span>
+<span class="k">done</span>
+
+$ bash a.sh
+Outer loop: <span class="m">1</span>
+Inner loop: <span class="m">1</span>
+Inner loop: <span class="m">2</span>
+Inner loop: <span class="m">3</span>
+Inner loop: <span class="m">4</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>和<code>break n</code>一样，<code>continue</code>也有类似效果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /tmp/a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">for</span> <span class="o">((</span> <span class="nv">a</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> a&lt;<span class="o">=</span><span class="m">5</span><span class="p">;</span> a++<span class="o">))</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Outer loop: </span><span class="nv">$a</span><span class="s2">&#34;</span>
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">b</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> b&lt;<span class="m">3</span><span class="p">;</span> b++ <span class="o">))</span>
+    <span class="k">do</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$a</span> -gt <span class="m">2</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$a</span> -lt <span class="m">5</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+            <span class="k">continue</span> <span class="m">2</span>
+        <span class="k">fi</span>
+        <span class="nb">echo</span> -e <span class="s2">&#34;\tInner loop: </span><span class="nv">$b</span><span class="s2">&#34;</span>
+    <span class="k">done</span>
+<span class="k">done</span>
+$ bash /tmp/a.sh
+Outer loop: <span class="m">1</span>
+    Inner loop: <span class="m">1</span>
+    Inner loop: <span class="m">2</span>
+Outer loop: <span class="m">2</span>
+    Inner loop: <span class="m">1</span>
+    Inner loop: <span class="m">2</span>
+Outer loop: <span class="m">3</span>
+Outer loop: <span class="m">4</span>
+Outer loop: <span class="m">5</span>
+    Inner loop: <span class="m">1</span>
+    Inner loop: <span class="m">2</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="bash参数">bash参数</h3>
+
+<p>bash 中<code>$0</code>参数可以获取shell在命令行启动的程序名字，但是当传给<code>$0</code>变量的真实字符串是整个脚本的路径时
+程序中就会适用整个路径，而不仅仅是脚本名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="nv">$0</span>
+
+$ ./a.sh
+./a.sh
+
+$ /tmp/a.sh
+/tmp/a.sh</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><code>$#</code>参数个数</li>
+<li><code>${!#}</code>最后一个参数。注意不是<code>${$#}</code>, 使用<code>${$#}</code>会产生错误结果,它表明不能在花括号内使用美元符号，你必须将美元符号换成感叹符号</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="nv">$#</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">$#</span><span class="si">}</span>
+
+$ bash a.sh a b c
+<span class="m">3</span>
+<span class="m">23070</span>
+
+$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="nv">$#</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="p">!#</span><span class="si">}</span>
+
+$ bash a.sh a b c
+<span class="m">3</span>
+c</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>$*</code>和<code>$@</code>变量都提供了对所有参数的快速访问
+区别是：
+<code>$*</code>变量会将命令行上的提供的所有参数都当做是单个单词保存，每个词是指命令行上出现
+的每个值，基本上，<code>$*</code>会将这些都当做一个参数，而不是多个对象</p>
+
+<p><code>$@</code>会将命令行上提供的所有参数都当做同一个字符串中的多个独立单词。它允许你遍历所有的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">for</span> par in <span class="nv">$@</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$par</span>
+    <span class="k">done</span>
+
+<span class="k">for</span> par in <span class="nv">$*</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$par</span>
+<span class="k">done</span>
+
+$ bash a.sh a b c
+a
+b
+c
+a
+b
+c
+
+$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">for</span> par in <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$par</span>
+<span class="k">done</span>
+
+<span class="k">for</span> par in <span class="s2">&#34;</span><span class="nv">$*</span><span class="s2">&#34;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$par</span>
+<span class="k">done</span>
+$ bash a.sh
+
+$ bash a.sh a b c
+a
+b
+c
+a b c</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="shift-命令"><code>shift</code>命令</h3>
+
+<p>移动参数位置，默认情况下将每个参数变量减1（<code>$0</code>的值不会改变，被移出的参数会被删除，且无法恢复）</p>
+
+<p><code>shift n</code></p>
+
+<p>一次移动n个参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="k">while</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$1</span>
+    <span class="nb">shift</span>
+<span class="k">done</span>
+$ bash a.sh a b c
+a
+b
+c</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="getopt">getopt</h3>
+
+<p>bash 中，选项是根在单破折线后面的单个字母
+双破折线表示选项结束，剩下的都是参数，而不是选项
+使用<code>getopt</code>命令解析参数的时候,格式如下:
+每个需要参数值的选项字母后面加个冒号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># getopt options optstring parameters
+</span><span class="c1"></span>$ getopt ab:cd -a -b bvalue -cd var1 var2
+ -a -b bvalue -c -d -- var1 var2</code></pre></td></tr></table>
+</div>
+</div>
+<p>可以看出它会自动在参数前面加上双破折号(<code>--</code>)</p>
+
+<p>使用了不存在的选项时会提示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ getopt ab:cd -a -b bvalue -cde var1 var2
+getopt: invalid option -- <span class="s1">&#39;e&#39;</span>
+ -a -b bvalue -c -d -- var1 var2</code></pre></td></tr></table>
+</div>
+</div>
+<p>加上<code>-q</code>可以忽略错误信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ getopt -q ab:cd -a -b bvalue -cde var1 var2
+ -a -b <span class="s1">&#39;bvalue&#39;</span> -c -d -- <span class="s1">&#39;var1&#39;</span> <span class="s1">&#39;var2&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在脚本中使用<code>getopt</code>, 可以使用<code>set --</code> 命令：
+<code>set --</code> 命令的作用就是将命令行参数替换成<code>set</code>命令的命令行的值</p>
+
+<p>即<code>set --</code> 命令可以修改传递给一个脚本的参数值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat b.sh
+<span class="cp">#!/bin/bash -
+</span><span class="cp"></span><span class="nb">echo</span> <span class="nv">$@</span>
+<span class="nb">set</span> -- <span class="s1">&#39;-a -b -c&#39;</span>
+<span class="nb">echo</span> <span class="nv">$@</span>
+$ bash b.sh -a
+-a
+-a -b -c</code></pre></td></tr></table>
+</div>
+</div>
+<p>上面可以看出虽然调用脚本时只传递了<code>-a</code>参数，但是通过<code>set --</code>命令之后，相当于执行的是
+<code>bash  b.sh -a -b -c</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /tmp/a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="nv">$@</span>
+<span class="nb">set</span> -- <span class="sb">`</span>getopt -q ab:c <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$@</span>
+<span class="k">while</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span>
+<span class="k">do</span>
+    <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> in
+    -a<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -a option&#34;</span><span class="p">;;</span>
+    -b<span class="o">)</span> <span class="nv">param</span><span class="o">=</span><span class="nv">$2</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Found the -b option, with value </span><span class="nv">$param</span><span class="s2">&#34;</span>
+        <span class="nb">shift</span> <span class="p">;;</span>
+    -c<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -c option&#34;</span><span class="p">;;</span>
+    --<span class="o">)</span> <span class="nb">shift</span>
+        <span class="nb">break</span> <span class="p">;;</span>
+    *<span class="o">)</span>  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2"> is not an option&#34;</span><span class="p">;;</span>
+    <span class="k">esac</span>
+    <span class="nb">shift</span>
+<span class="k">done</span>
+
+<span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<span class="k">for</span> param in <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Parameter #</span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$param</span><span class="s2">&#34;</span>
+    <span class="nv">count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
+<span class="k">done</span>
+
+$ bash /tmp/a.sh -a -b jk -c -k value1 value2
+-a -b jk -c -k value1 value2
+-a -b <span class="s1">&#39;jk&#39;</span> -c -- <span class="s1">&#39;value1&#39;</span> <span class="s1">&#39;value2&#39;</span>
+Found the -a option
+Found the -b option, with value <span class="s1">&#39;jk&#39;</span>
+Found the -c option
+Parameter <span class="c1">#1: &#39;value1&#39;
+</span><span class="c1"></span>Parameter #2: <span class="s1">&#39;value2&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="getopts">getopts</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">getopts optstring variable</pre></td></tr></table>
+</div>
+</div>
+<p>optstring类似于<code>getopt</code>命令中的那个，有效的字母都会列在optstring中，如果选项字母要求
+有个参数值，就加一个冒号。要去掉错误信息的话，可以在optstring之前加一个冒号。
+optstring命令将当前所有的参数保存在命令行中定义的variable中</p>
+
+<p><code>getopts</code>命令会用到两个环境变量。
+如果选项需要跟一个参数值，OPTARG环境变量就会保存这个值
+OPTIND环境变量保存了参数列表中<code>getopts</code>正在处理的参数位置。这样你就能在处理完选项之后
+继续处理其他命令行参数了</p>
+
+<p><code>getopts</code>命令解析命令选项时，它会移出开头的单破折线，所以在case语句中不用再加单破折线
+<code>getopts</code>能将命令行上找到的所有未定义的选项同一输出成问号。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat c.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">while</span> <span class="nb">getopts</span> 🆎c opt
+<span class="k">do</span>
+    <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$opt</span><span class="s2">&#34;</span> in
+    a<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -a option&#34;</span><span class="p">;;</span>
+    b<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -b option, with value </span><span class="nv">$OPTARG</span><span class="s2">&#34;</span><span class="p">;;</span>
+    c<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -c option&#34;</span><span class="p">;;</span>
+    *<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Unkown option </span><span class="nv">$opt</span><span class="s2">&#34;</span><span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="c1"># 未知选项-f时显示的是?,而不是-f
+</span><span class="c1"></span>$ bash c.sh -f
+Unkown option ?</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>getopts</code>命令知道何时停止处理选项，并将参数留给你处理。在<code>getopts</code>处理每个选项时，它会将
+<code>OPTIND</code>环境变量值增一。 在<code>getopts</code>处理完成时，你可以将<code>OPTIND</code>值和<code>shift</code>命令一起使用来移动参数。</p>
+
+<p>一个能在所有的shell脚本中使用的全攻能命令行选项和参数处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat c.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">while</span> <span class="nb">getopts</span> 🆎cd opt
+<span class="k">do</span>
+    <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$opt</span><span class="s2">&#34;</span> in
+    a<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -a option&#34;</span><span class="p">;;</span>
+    b<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -b option, with value </span><span class="nv">$OPTARG</span><span class="s2">&#34;</span><span class="p">;;</span>
+    c<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -c option&#34;</span><span class="p">;;</span>
+    d<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&#34;Found the -d option&#34;</span><span class="p">;;</span>
+    *<span class="o">)</span>  <span class="nb">echo</span> <span class="s2">&#34;Unkown option </span><span class="nv">$opt</span><span class="s2">&#34;</span><span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">shift</span> $<span class="o">[</span> <span class="nv">$OPTIND</span> -1 <span class="o">]</span>
+<span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<span class="k">for</span> param in <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Parameter </span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$param</span><span class="s2">&#34;</span>
+    <span class="nv">count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
+<span class="k">done</span>
+
+<span class="c1"># &#34;value3 value4&#34; 为一个参数，只是包含空格
+</span><span class="c1"></span>$ bash c.sh -a -b bvalue -c value1 value2 <span class="s2">&#34;value3 value4&#34;</span>
+Found the -a option
+Found the -b option, with value bvalue
+Found the -c option
+Parameter <span class="m">1</span>: value1
+Parameter <span class="m">2</span>: value2
+Parameter <span class="m">3</span>: value3 value4</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="read命令">read命令</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">linliang@sky:/tmp$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> -n <span class="s2">&#34;Enter your name: &#34;</span>
+<span class="nb">read</span> name
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$name</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>-p</code>选项可以直接在read命令行指定提示符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">read</span> -p <span class="s2">&#34;Enter your name: &#34;</span> name
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$name</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>read 命令后面也可以保存多个变量。输入的每个参数值都会分配给表中的下一个变量。如果变量表在数据之前就用完了，
+剩下的数据就会分配给最后一个变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">read</span> -p <span class="s2">&#34;Enter your name: &#34;</span> firstname lastname
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$lastname</span><span class="s2">.</span><span class="nv">$firstname</span><span class="s2">&#34;</span>
+
+$ bash a.sh
+Enter your name: Jack Cheng
+Hello Cheng.Jack</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果在<code>read</code>命令行中不指定变量。read命令会将它收到的任何数据都放进特殊的环境变量<code>REPLY</code>中</p>
+
+<p><code>-t</code>选型可以设定一个计数器，指定等待的秒数。当计时器过期后，会返回一个非零退出状态码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="nb">read</span> -t <span class="m">3</span> -p <span class="s2">&#34;Enter your name: &#34;</span> firstname lastname<span class="p">;</span><span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$lastname</span><span class="s2">.</span><span class="nv">$firstname</span><span class="s2">&#34;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&#34;time out&#34;</span>
+<span class="k">fi</span>
+
+$ bash a.sh
+Enter your name: <span class="nb">time</span> out</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>read</code>命令还可以对输入的字符计数，当输入的字符达到预设的字符数时，它会自动退出，将输入的数据赋给变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /tmp/a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">read</span> -n1 -p <span class="s2">&#34;Do you want to continue[Y/N]?&#34;</span> answer
+<span class="k">case</span> <span class="nv">$answer</span> in
+    Y<span class="p">|</span>y<span class="o">)</span>
+        <span class="nb">echo</span>
+        <span class="nb">echo</span> <span class="s2">&#34;fine, continue on ...&#34;</span><span class="p">;;</span>
+    N<span class="p">|</span>n<span class="o">)</span>
+        <span class="nb">echo</span>
+        <span class="nb">echo</span> <span class="s2">&#34;OK, goodbye&#34;</span><span class="p">;;</span>
+    *<span class="o">)</span>
+        <span class="nb">echo</span>
+        <span class="nb">echo</span> <span class="s2">&#34;unkown answer&#34;</span><span class="p">;;</span>
+<span class="k">esac</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>-n1</code>表示<code>read</code>命令接受单个字符</p>
+
+<p><code>read -s</code>选型可以阻止传给read命令的数据显示在显示器上(实际上，数据被完全显示，只是read命令会将文本颜色设置成跟背景颜色一模一样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">read</span> -s -p <span class="s2">&#34;Enter your password&#34;</span> pass</code></pre></td></tr></table>
+</div>
+</div>
+<p>从文件读取</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /tmp/a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+cat /etc/passwd <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Line </span><span class="nv">$count</span><span class="s2">: </span><span class="nv">$line</span><span class="s2">&#34;</span>
+    <span class="nv">count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
+<span class="k">done</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>while</code>循环会通过<code>read</code>命令处理文件中的行，知道<code>read</code>命令以非零退出状态码退出</p>
+
+<h3 id="错误重定向">错误重定向</h3>
+
+<p><code>&amp;&gt; filename</code></p>
+
+<p>将<code>STDERR</code>和<code>STDOUT</code>输出重定向到一个文件，即: <code>2&gt;&amp;1 &gt;filename</code></p>
+
+<p>文件描述符
+linux用文件描述符来标示每个文件对象，文件描述符是一个非负整数，可以唯一地标识会话中打开的文件
+。每个过程一次最多可以有9个文件描述符。</p>
+
+<ul>
+<li>临时重定向</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="c1">#自己将错误重定向到错误输入
+</span><span class="c1"></span><span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span>
+
+<span class="c1">#由于默认情况下，linux将STDERR定向到STDOUT,所以上面的脚本执行效果如下
+</span><span class="c1"></span>$ bash a.sh
+This is an error
+This is an normal output
+
+<span class="c1"># 改变错误重定向的输出
+</span><span class="c1"></span>$ bash a.sh <span class="m">2</span>&gt;a.txt
+This is an normal output
+
+$ cat a.txt
+This is an error</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>永久重定向</li>
+</ul>
+
+<p>使用<code>exec</code>命令会启动一个新的shell并将STDOUT文件描述符重定向到文件。脚本中发给STDOUT的所有输出都会被重定向到文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt
+</span><span class="c1"></span><span class="nb">exec</span> <span class="p">&amp;</span>&gt;a.txt
+<span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>除了0, 1, 2之外，我们还可以使用3~8其他6中文件描述符，使用方法一样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt
+</span><span class="c1"></span><span class="nb">exec</span> <span class="m">3</span>&gt;a.txt
+<span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span>
+
+恢复文件重定向描述符
+<span class="c1"># 原理就是设置一个中间变量来保存重定向前的状态
+</span><span class="c1"></span>$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">exec</span> <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="nb">exec</span> <span class="m">1</span>&gt;a.txt
+<span class="nb">echo</span> <span class="s2">&#34;This is a normal output to a.txt&#34;</span>
+
+<span class="nb">exec</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&#34;This is a normal output on screen&#34;</span>
+$ bash a.sh
+This is a normal output on screen
+$ cat a.txt
+This is a normal output to a.txt</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="trap">trap</h3>
+
+<ul>
+<li>Ctrl-C终止进程</li>
+<li>Ctrl-Z停止进程</li>
+</ul>
+
+<p>捕捉信号:
+在脚本中使用<code>trap</code>可以捕捉信号
+格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">trap commands signals</pre></td></tr></table>
+</div>
+</div>
+<p>commands 捕捉到信号后要执行的命令</p>
+
+<p>signals 想要捕捉的信号，用数值或linux信号名来指定信号，多个用空格分开</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">信号 值       描述
+1    SIGUP    挂起进程
+2    SIINT    终止进程
+3    SIGQUIT  停止进程
+9    SIGKILL  无条件终止进程
+15   SIGTERM  可能的话终止进程
+17   SIGSTOP  无条件停止进程,但不是终止进程
+18   SIGSTP   停止或暂停进程,但不终止进程
+19   SIGCONT  继续运行停止的进程</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">trap</span> <span class="s2">&#34;echo &#39;I have trapped Ctrl-C&#39;&#34;</span> SIGINT SIGTERM
+<span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">$while</span> <span class="o">[</span> <span class="nv">$count</span> -le <span class="m">10</span> <span class="o">]</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;loop #</span><span class="nv">$count</span><span class="s2">&#34;</span>
+    sleep <span class="m">5</span>
+    <span class="nv">$count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&#34;end&#34;</span>
+
+
+$ bash a.sh
+loop <span class="c1">#1
+</span><span class="c1"></span>loop <span class="c1">#2
+</span><span class="c1"></span>^CI have trapped Ctrl-C
+loop <span class="c1">#3
+</span><span class="c1"></span>^CI have trapped Ctrl-C
+loop <span class="c1">#4
+</span><span class="c1"></span>loop <span class="c1">#5
+</span><span class="c1"></span>loop <span class="c1">#6
+</span><span class="c1"></span>loop <span class="c1">#7
+</span><span class="c1"></span>loop <span class="c1">#8
+</span><span class="c1"></span>loop <span class="c1">#9
+</span><span class="c1"></span>loop <span class="c1">#10
+</span><span class="c1"></span>^CI have trapped Ctrl-C
+end</code></pre></td></tr></table>
+</div>
+</div>
+<p>每次使用Ctrl-C组合键，脚本都会执行trap命令中指定的echo语句，而不是忽略此信号并允许脚本停止</p>
+
+<p>捕捉脚本的退出，只需要在trap命令后加上EXIT信号就行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">trap</span> <span class="s2">&#34;echo goodbye&#34;</span> EXIT
+<span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$count</span> -le <span class="m">5</span> <span class="o">]</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;loop #</span><span class="nv">$count</span><span class="s2">&#34;</span>
+    sleep <span class="m">1</span>
+    <span class="nv">count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&#34;end&#34;</span>
+
+$ bash a.sh
+loop <span class="c1">#1
+</span><span class="c1"></span>loop <span class="c1">#2
+</span><span class="c1"></span>loop <span class="c1">#3
+</span><span class="c1"></span>loop <span class="c1">#4
+</span><span class="c1"></span>loop <span class="c1">#5
+</span><span class="c1"></span>end
+goodbye
+
+$ bash a.sh
+loop <span class="c1">#1
+</span><span class="c1"></span>loop <span class="c1">#2
+</span><span class="c1"></span>^Cgoodbye</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="nice命令">nice命令</h3>
+
+<p>nice命令允许你在启动时调整一个命令的调度优先级</p>
+
+<p>renice命令，改变已经运行命令的优先级</p>
+
+<h3 id="at命令">at命令</h3>
+
+<p>计划执行作业</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">at -f filename time</pre></td></tr></table>
+</div>
+</div>
+<p><code>crontab</code>中的命令如果在系统关闭又重启的情况下，不会执行那些在指定在系统关闭时间内执行的作业。
+anacron可以实现这一点</p>
+
+<p>在新shell中启动
+当新shell是登录生成的话，它每次会运行<code>.bash_profile</code>或<code>.profile</code>文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ head -n1 .profile
+<span class="c1"># ~/.profile: executed by the command interpreter for login shells.
+</span><span class="c1"></span>当新shell,包括有新的登录情况时，bash shell都会运行.bashrc文件
+
+$ head -n1 .bashrc
+# ~/.bashrc: executed by bash<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="k">for</span> non-login shells.</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="bash-函数">bash 函数</h3>
+
+<p>默认情况下，函数的退出状态码是最后一条命令返回的退出状态码。在函数执行结束后，你可以用<code>$?</code>变量来决定函数的退出状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
+    ls abc
+<span class="o">}</span>
+
+foo
+$ bash a.sh
+Hello world
+ls: cannot access abc: No such file or directory
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">2</span>
+
+<span class="c1"># 从下面的例子可以看出，ls命令没有成功执行，但是最后一条echo命令执行成功，因此返回值仍然是0
+</span><span class="c1"></span>
+$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
+    ls abc
+    <span class="nb">echo</span> <span class="s2">&#34;ok&#34;</span>
+<span class="o">}</span>
+
+foo
+$ bash a.sh
+Hello world
+ls: cannot access abc: No such file or directory
+ok
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>因此使用函数的默认返回值来决定一个函数是否执行功能是不可取的
+解决方法是使用return来返回特定的退出状态
+使用return时需要注意一下两个方面：
+1.函数一执行完就取返回值，不然执行了其他命令之后，<code>$?</code>的值就改变了
+2.return的状态码必须在0~255之间</p>
+
+<p>令一个取得返回值的方法就是使用echo语句</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
+    ls abc
+    <span class="nb">echo</span> <span class="s2">&#34;ok&#34;</span>
+<span class="o">}</span>
+
+<span class="nv">result</span><span class="o">=</span><span class="k">$(</span>foo<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$result</span>
+$ bash a.sh
+ls: cannot access abc: No such file or directory
+Hello world ok</code></pre></td></tr></table>
+</div>
+</div>
+<p>使用echo语句取得函数返回值需要注意，它取得的返回值并不只是最后一个echo语句的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;ok&#34;</span>
+<span class="o">}</span>
+
+<span class="nv">result</span><span class="o">=</span><span class="k">$(</span>foo<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$result</span>
+$ bash a.sh
+Hello world ok</code></pre></td></tr></table>
+</div>
+</div>
+<p>默认情况下，bash脚本中定义的任何变量都是全局变量，
+想在函数内声明一个局部变量，在前面加上local即可,local关键字保证了变量只局限在该函数中，如果脚本中在函数外有同样名字的变量
+那么shell脚本将会保持这两个变量的值是分离的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;hello&#34;</span>
+<span class="nb">echo</span> <span class="nv">$a</span>
+foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">local</span> <span class="nv">a</span><span class="o">=</span><span class="s2">&#34;world&#34;</span>
+    <span class="nb">echo</span> <span class="nv">$a</span>
+<span class="o">}</span>
+foo
+<span class="nb">echo</span> <span class="nv">$a</span>
+
+$ bash a.sh
+hello
+world
+hello</code></pre></td></tr></table>
+</div>
+</div>
+<p>当向一个函数传递数组的时候，函数只会接受数组的第一个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">function</span> foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The parameters are: </span><span class="nv">$@</span><span class="s2">&#34;</span>
+    <span class="nv">thisarray</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The receive is </span><span class="si">${</span><span class="nv">thisarray</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">}</span>
+
+<span class="nv">myarray</span><span class="o">=(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">)</span>
+<span class="nb">echo</span> <span class="s2">&#34;The original array is </span><span class="si">${</span><span class="nv">myarray</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&#34;</span>
+foo <span class="nv">$myarray</span>
+$ bash a.sh
+The original array is <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+The parameters are: <span class="m">1</span>
+The receive is <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>因此必须要将数组变量的值分解成单个值然后将这些值作为参数使用。在函数内部，再将所有的参数重组到新的变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">function</span> foo<span class="o">()</span>
+<span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The parameters are: </span><span class="nv">$@</span><span class="s2">&#34;</span>
+    <span class="nv">thisarray</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$@</span><span class="sb">`</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The new array is </span><span class="si">${</span><span class="nv">thisarray</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">}</span>
+
+<span class="nv">myarray</span><span class="o">=(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">)</span>
+<span class="nb">echo</span> <span class="s2">&#34;The original array is </span><span class="si">${</span><span class="nv">myarray</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&#34;</span>
+foo <span class="si">${</span><span class="nv">myarray</span><span class="p">[*]</span><span class="si">}</span>
+$ bash a.sh
+The original array is <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+The parameters are: <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+The new array is <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="shell-脚本菜单">shell 脚本菜单</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">function</span> diskspace<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    df -k
+<span class="o">}</span>
+
+<span class="k">function</span> whoseon<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    who
+<span class="o">}</span>
+
+<span class="k">function</span> memusage<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    cat /proc/meminfo
+<span class="o">}</span>
+
+<span class="k">function</span> menu<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> -e <span class="s2">&#34;\t\t\tSys Admin Menu\n&#34;</span>
+    <span class="nb">echo</span> -e <span class="s2">&#34;\t1.Display disk space&#34;</span>
+    <span class="nb">echo</span> -e <span class="s2">&#34;\t2.Display logged on users&#34;</span>
+    <span class="nb">echo</span> -e <span class="s2">&#34;\t3.Display memory usage&#34;</span>
+    <span class="nb">echo</span> -e <span class="s2">&#34;\t0.Exit Progame&#34;</span>
+    <span class="nb">echo</span> -en <span class="s2">&#34;\tEnter option:&#34;</span>
+    <span class="nb">read</span> -n1 option
+<span class="o">}</span>
+
+<span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span>
+<span class="k">do</span>
+    menu
+    <span class="k">case</span> <span class="nv">$option</span> in
+        <span class="m">0</span><span class="o">)</span>
+            break<span class="p">;;</span>
+        <span class="m">1</span><span class="o">)</span>
+            diskspace<span class="p">;;</span>
+        <span class="m">2</span><span class="o">)</span>
+            whoseon<span class="p">;;</span>
+        <span class="m">3</span><span class="o">)</span>
+            memusage<span class="p">;;</span>
+        *<span class="o">)</span>
+            clear
+            <span class="nb">echo</span> <span class="s2">&#34;Sorry, Wrong selection&#34;</span>
+    <span class="k">esac</span>
+    <span class="nb">echo</span> -en <span class="s2">&#34;\n\n\t\tHit any key to continue.&#34;</span>
+    <span class="c1">#让显示的结果暂停，不然就继续调用menu函数，看不到选择的结果
+</span><span class="c1"></span>    <span class="nb">read</span> -n1 line
+<span class="k">done</span>
+clear</code></pre></td></tr></table>
+</div>
+</div>
+<p>使用select命令，可以替换上面的case语句
+select 命令允许从单个命令行创建菜单，然后提取输入的答案自动处理。
+select 命令的格式如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">select</span> variable in list
+<span class="k">do</span>
+    commands
+<span class="k">done</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>list 参数是由构成菜单的空格哥分割的文本选项。select命令会在列表中将每个选项作为一个编好号的选项显示，然后为选项显示一个特殊的
+由PS3环境变量定义的提示符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">function</span> diskspace<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    df -k
+<span class="o">}</span>
+
+<span class="k">function</span> whoseon<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    who
+<span class="o">}</span>
+
+<span class="k">function</span> memusage<span class="o">()</span>
+<span class="o">{</span>
+    clear
+    cat /proc/meminfo
+<span class="o">}</span>
+
+
+<span class="nv">PS3</span><span class="o">=</span><span class="s2">&#34;Enter option: &#34;</span>
+<span class="k">select</span> option in <span class="s2">&#34;Display disk space&#34;</span> <span class="s2">&#34;Display logged on users&#34;</span> <span class="s2">&#34;Display memory usage&#34;</span> <span class="s2">&#34;Exit Progame&#34;</span>
+<span class="k">do</span>
+    <span class="k">case</span> <span class="nv">$option</span> in
+        <span class="s2">&#34;Exit Progame&#34;</span><span class="o">)</span>
+            break<span class="p">;;</span>
+        <span class="s2">&#34;Display disk space&#34;</span><span class="o">)</span>
+            diskspace<span class="p">;;</span>
+        <span class="s2">&#34;Display logged on users&#34;</span><span class="o">)</span>
+            whoseon<span class="p">;;</span>
+        <span class="s2">&#34;Display memory usage&#34;</span><span class="o">)</span>
+            memusage<span class="p">;;</span>
+        *<span class="o">)</span>
+            clear
+            <span class="nb">echo</span> <span class="s2">&#34;Sorry, Wrong selection&#34;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+clear
+
+$ bash a.sh
+<span class="m">1</span><span class="o">)</span> Display disk space       <span class="m">3</span><span class="o">)</span> Display memory usage
+<span class="m">2</span><span class="o">)</span> Display logged on users  <span class="m">4</span><span class="o">)</span> Exit Progame
+Enter option:</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="bash-窗口">bash 窗口</h3>
+
+<p>使用dialog包</p>
+
+<p>格式如下：</p>
+
+<p><code>dialog --widget parametes</code></p>
+
+<ul>
+<li>widget 是控件的名字</li>
+<li>parameters 定义了部件窗口的大些以及部件需要的文本</li>
+</ul>
+
+<p>每个dialog部件都提供了两种格式的输出：</p>
+
+<ol>
+<li>使用STDERR</li>
+<li>使用退出状态码</li>
+</ol>
+
+<p>dialog命令的退出状态决定于用户选择的按钮，如果选了Yes或OK键，dialog命令会返回退出状态码0.如果选择了Cancel或No按钮，dialog命令会返回退出
+状态码为1.
+如果部件返回了任何数据，比如菜单选择，那么dialog命令会将数据发送到STDERR</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">dialog --inputbox &#34;Enter your age:&#34; 10 20 2&gt;age.txt</pre></td></tr></table>
+</div>
+</div>
+<p>上面的10,20指定了窗口的大小，age.txt里面保存了用户的输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">dialog --title Testing --msgbox &#34;This is a test&#34; 10 20
+dialog --title &#34;Please answer: &#34; --yesno &#34;Is this thing on&#34; 10 20
+dialog --textbox /etc/passwd 15 45
+dialog --menu &#34;Sys Admin menu&#34; 20 30 10 1 &#34;Display disk space&#34; 2  &#34;Display users&#34; 3 &#34;Display memeory usage&#34; 4 &#34;Exit Progame&#34; 2&gt;test.txt
+dialog --title &#34;Select a file&#34; --fselect $HOME/ 10 20 2&gt;file.txt</pre></td></tr></table>
+</div>
+</div>
+<p>使用dialog的一个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">temp</span><span class="o">=</span><span class="sb">`</span>mktemp -t test1.XXXXXX<span class="sb">`</span>
+<span class="nv">temp2</span><span class="o">=</span><span class="sb">`</span>mktemp -t test2.XXXXXX<span class="sb">`</span>
+
+<span class="k">function</span> diskspace<span class="o">()</span>
+<span class="o">{</span>
+    df -k &gt; <span class="nv">$temp</span>
+    dialog --textbox <span class="nv">$temp</span> <span class="m">20</span> <span class="m">60</span>
+<span class="o">}</span>
+
+<span class="k">function</span> whoseon<span class="o">()</span>
+<span class="o">{</span>
+    who &gt; <span class="nv">$temp</span>
+    dialog --textbox <span class="nv">$temp</span> <span class="m">20</span> <span class="m">50</span>
+<span class="o">}</span>
+
+<span class="k">function</span> memusage<span class="o">()</span>
+<span class="o">{</span>
+    cat /proc/meminfo &gt; <span class="nv">$temp</span>
+    dialog --textbox <span class="nv">$temp</span> <span class="m">20</span> <span class="m">50</span>
+<span class="o">}</span>
+
+<span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span>
+<span class="k">do</span>
+    dialog --menu <span class="s2">&#34;Sys Admin menu&#34;</span> <span class="m">20</span> <span class="m">30</span> <span class="m">10</span> <span class="m">1</span> <span class="s2">&#34;Display disk space&#34;</span> <span class="m">2</span> <span class="s2">&#34;Display users&#34;</span> <span class="m">3</span> <span class="s2">&#34;Display memeory usage&#34;</span> <span class="m">0</span> <span class="s2">&#34;Exit Progame&#34;</span> <span class="m">2</span>&gt;<span class="nv">$temp2</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">1</span> <span class="o">]</span>
+    <span class="k">then</span>
+        <span class="nb">break</span>
+    <span class="k">fi</span>
+    <span class="nv">selection</span><span class="o">=</span><span class="sb">`</span>cat <span class="nv">$temp2</span><span class="sb">`</span>
+    <span class="k">case</span> <span class="nv">$selection</span> in
+        <span class="m">0</span><span class="o">)</span>
+            break<span class="p">;;</span>
+        <span class="m">1</span><span class="o">)</span>
+            diskspace<span class="p">;;</span>
+        <span class="m">2</span><span class="o">)</span>
+            whoseon<span class="p">;;</span>
+        <span class="m">3</span><span class="o">)</span>
+            memusage<span class="p">;;</span>
+        *<span class="o">)</span>
+            dialog --msgbox <span class="s2">&#34;Sorry, invalid selection&#34;</span> <span class="m">10</span> <span class="m">30</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+rm -rf <span class="nv">$temp</span> <span class="m">2</span>&gt;/dev/null
+rm -rf <span class="nv">$temp2</span> <span class="m">2</span>&gt;/dev/null</code></pre></td></tr></table>
+</div>
+</div>
+<p>类似的
+KDE包含了kdialog包
+GNOME包含了gdialog, zenity</p>
+
+<h3 id="sed-命令">sed 命令</h3>
+
+<p>SED单行脚本快速参考</p>
+
+<p><a href="http://sed.sourceforge.net/sed1line_zh-CN.html">http://sed.sourceforge.net/sed1line_zh-CN.html</a></p>
+
+<p>替换标记</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">s/pattern/replacement/flags</pre></td></tr></table>
+</div>
+</div>
+<p>有四种可用的替换标记</p>
+
+<ul>
+<li>数字，表明新文本将替换第几处模式匹配的地方</li>
+<li><code>g</code>, 表明新文本将替换所有已有文本出现的地方</li>
+<li><code>p</code>, 表明原来行的内容要打印出来,通常和<code>-n</code>选项一起使用，<code>-n</code>选项将禁止sed编辑器输出。
+但<code>-p</code>选项会输出修改过的行。两者配合显示只修改过的行</li>
+<li><code>w</code> file, 将替换的结果写到文件中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed <span class="s2">&#34;s/a/c/2&#34;</span>
+a b c c g a
+
+$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed <span class="s2">&#34;s/a/c/g&#34;</span>
+c b c c g c
+
+$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;s/a/c/p&#34;</span>
+c b c a g a
+
+$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;s/a/c/gp&#34;</span>
+c b c c g c
+
+$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;s/a/c/2p&#34;</span>
+a b c c g a
+
+$ <span class="nb">echo</span> <span class="s2">&#34;a b c a g a&#34;</span> <span class="p">|</span>sed  <span class="s2">&#34;s/a/c/w a&#34;</span>
+c b c a g a
+$ cat a
+c b c a g a</code></pre></td></tr></table>
+</div>
+</div>
+<p>使用地址</p>
+
+<p>sed编起起中的两种形式的行寻址</p>
+
+<ul>
+<li>行的数字范围</li>
+<li>用文本模式过滤行</li>
+</ul>
+
+<p>格式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>address<span class="o">]</span><span class="nb">command</span>
+或
+address <span class="o">{</span>
+    command1
+    command2
+    command3
+<span class="o">}</span>
+
+<span class="c1">#将data文件中第2行的dog 替换成cat
+</span><span class="c1"></span>sed <span class="s1">&#39;2s/dog/cat/&#39;</span>
+
+<span class="c1">#将data文件中第2,3行的dog 替换成cat
+</span><span class="c1"></span>sed <span class="s1">&#39;2,3s/dog/cat/&#39;</span>
+
+<span class="c1">#将data文件中第2行到行末的dog 替换成cat
+</span><span class="c1"></span>sed <span class="s1">&#39;2,$s/dog/cat/&#39;</span>
+
+<span class="c1">#将data文件中包含hello字符行的dog 替换成cat
+</span><span class="c1"></span>sed <span class="s1">&#39;/hello/s/dog/cat&#39;</span>
+
+<span class="c1"># 组合命令
+</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2{s/fox/elepant/; s/dog/cat/}&#39;</span>
+hello
+elepant cat</code></pre></td></tr></table>
+</div>
+</div>
+<p>删除行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 删除第一行
+</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;1d&#39;</span>
+<span class="c1"># 删除第二行到第三行
+</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;line 1\nline 2\nline 3&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2,3d&#39;</span>
+line <span class="m">1</span>
+
+$ <span class="nb">echo</span> -e <span class="s2">&#34;line 1\nline 2\nline 3&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;/line 1/d&#39;</span>
+line <span class="m">2</span>
+line <span class="m">3</span>
+
+<span class="c1"># 可以删除用两个文本模式来删除某个范围内文本的行，但这么做的时候要小心，指定的第一个模式
+</span><span class="c1"># 会&#34;打开&#34;行删除功能，第二个模式会&#34;关闭&#34;行删除功能。sed编辑器会删除这两个行之间的所有行(包括指定的行)
+</span><span class="c1"></span>$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;/2/,/3/d&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+<span class="c1"># 除此之外，使用时要小心，因为只要sed在数据流中匹配到了开始模式，删除功能就会打开。这可能会导致意外结果
+</span><span class="c1"># 下面第二个数字1再次触发了删除命令，删除了数据流中剩余的行，因为停止模式没有再找到。当然，如果你指定了一个
+</span><span class="c1"># 不存在的文本停止模式，会导致开始模式后面的整个数据流都被删除
+</span><span class="c1"></span>$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is line number <span class="m">1</span> again
+This is text you want to keep
+This is the last line in the file
+
+$ sed <span class="s1">&#39;/1/,/3/d&#39;</span> a
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>插入和附和文本</p>
+
+<p>插入(insert)命令i会在指定行前增加一行</p>
+
+<p>追加(append)命令a会在指定行后增加一行</p>
+
+<p>格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## sed &#39;[address]command \ newline&#39;
+</span><span class="c1"></span>
+$ <span class="nb">echo</span> <span class="s2">&#34;Test line 2&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;i\Test line 1&#39;</span>
+Test line <span class="m">1</span>
+Test line <span class="m">2</span>
+
+$ <span class="nb">echo</span> <span class="s2">&#34;Test line 2&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;a\Test line 1&#39;</span>
+Test line <span class="m">2</span>
+Test line <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>上面可以给数据刘中的文本前面或后面添加文本，但是如何添加到数据流里面呢？
+要给数据流中出入或附加数据，必须用寻址来告诉sed你想让数据出现在什么位置。
+你可以在用这些命令时执行一个行地址。可以匹配一个数字行号或文本模式，但不能用地址区间，
+这不符合逻辑，因为你只能将文本插入或附件到单个行的前面或后面，而不能是行区间的前面或后面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;3i\This is a inserted line&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is a inserted line
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;3a\This is a append line&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is a append line
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;$a\This is a append line&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is a append line
+
+<span class="c1">#插入多行，每一行要使用反斜线
+</span><span class="c1"></span>$ sed <span class="s1">&#39;2a\This is inserted line 1.\
+</span><span class="s1">&gt; This is inserted line 2.&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is inserted line <span class="m">1</span>.
+This is inserted line <span class="m">2</span>.
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>修改行
+修改命令允许修改数据流中整行文本的内容,跟插入和附加命令的工作机制是一样的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;3c\This is a changed line&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is a changed line
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ sed <span class="s1">&#39;/number 3/c\This is a changed line&#39;</span> a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is a changed line
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+
+$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is line number <span class="m">1</span> again
+This is line number <span class="m">2</span> again
+
+<span class="c1">#文本模式会修改它匹配的任意行
+</span><span class="c1"></span>$ sed <span class="s1">&#39;/number 1/c\This is a changed line&#39;</span> a
+This is a changed line
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is a changed line
+This is line number <span class="m">2</span> again
+
+<span class="c1">#注意在使用地址区间时，并不是逐一替换那两行文本，而是用一行文本在替换地址区间的所有文本
+</span><span class="c1"></span>$ sed <span class="s1">&#39;2,3c\This is a changed line&#39;</span> a
+This is line number <span class="m">1</span>
+This is a changed line
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is line number <span class="m">1</span> again
+This is line number <span class="m">2</span> again
+
+<span class="c1"># 可以看出来c命令与d命令使用文本模式区间时一样，都是开始匹配的打开，结束匹配的关闭命令的操作，
+</span><span class="c1"># 第二个number 1没有结束匹配，所以到文件末的都被修改了
+</span><span class="c1"></span>$ sed <span class="s1">&#39;/number 1/,/number 3/c\This is a changed line&#39;</span> a
+This is a changed line
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>转换命令
+转换y命令是唯一可以处理单个字符的sed命令，格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[address]y/inchars/outchars/</pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>转换命令会进行inchars和outchars值的一对一映射。</li>
+<li>inchars中的第一个字符会被转换为outchars中的第一个字符，</li>
+<li>inchars中的第二个字符会被转换为outchars中的第二个字符，</li>
+<li>如果inchars和outchars的长度不同，则会报错</li>
+<li>inchars中指定的字符都会被转换，你无法限定只转换出现在某个地方的地址,（相当与sed s命令后面添加了g）
+*</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;a b c d A c a f&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;y/abc/jkl/&#39;</span>
+j k l d A l j f
+$ <span class="nb">echo</span> -e <span class="s2">&#34;a b c d A c a f\na b c d&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;y/abc/jkl/&#39;</span>
+j k l d A l j f
+j k l d
+$ <span class="nb">echo</span> -e <span class="s2">&#34;a b c d A c a f\na b c d&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;1y/abc/jkl/&#39;</span>
+j k l d A l j f
+a b c d
+$ <span class="nb">echo</span> -e <span class="s2">&#34;a b c d A c a f\na b c d&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;1y/abc/jk/&#39;</span>
+sed: -e expression #1, char <span class="m">10</span>: strings <span class="k">for</span> <span class="sb">`</span>y<span class="err">&#39;</span> <span class="nb">command</span> are different lengths</code></pre></td></tr></table>
+</div>
+</div>
+<p>打印
+小写p命令用来打印文本行
+等号(=)用来打印行号
+l(L的小写)用来列出行,会打印出不可打印的ACSII字符,如\t，换行符等</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;hello&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;p&#39;</span>
+hello
+hello
+
+$ <span class="nb">echo</span> <span class="s2">&#34;hello&#34;</span> <span class="p">|</span> sed -n <span class="s1">&#39;p&#39;</span>
+hello
+
+$ sed <span class="s1">&#39;=&#39;</span> a
+<span class="m">1</span>
+This is line number <span class="m">1</span>
+<span class="m">2</span>
+This is line number <span class="m">2</span>
+<span class="m">3</span>
+This is line number <span class="m">3</span>
+<span class="m">4</span>
+This is line number <span class="m">4</span>
+<span class="m">5</span>
+This is line number <span class="m">5</span>
+<span class="m">6</span>
+This is line number <span class="m">6</span>
+<span class="m">7</span>
+This is line number <span class="m">1</span> again
+<span class="m">8</span>
+This is line number <span class="m">2</span> again
+
+$ cat b
+    hello world
+    ni hao
+$ sed -n <span class="s1">&#39;l&#39;</span> b
+<span class="se">\t</span>hello world$
+<span class="se">\t</span>ni hao$</code></pre></td></tr></table>
+</div>
+</div>
+<p>用sed与文件一起工作
+1.向文件写入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将a文件的2,3行写入test文件
+</span><span class="c1"></span>$ cat a
+This is line number <span class="m">1</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span>
+This is line number <span class="m">4</span>
+This is line number <span class="m">5</span>
+This is line number <span class="m">6</span>
+This is line number <span class="m">1</span> again
+This is line number <span class="m">2</span> again
+
+$ sed -n <span class="s1">&#39;2,3w test&#39;</span> a
+$ cat <span class="nb">test</span>
+This is line number <span class="m">2</span>
+This is line number <span class="m">3</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>1.从文件读取数据
+读取命令&reg;允许你将一个独立的文件中的数据流插入(i)到数据流中
+格式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[address]r filename
+地址只能是单独一个行号或文本模式，不能是地址区间</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a
+This is an added line.
+This is the second added line.
+$ cat b
+This is line number <span class="m">1</span>.
+This is line number <span class="m">2</span>.
+This is line number <span class="m">3</span>.
+This is line number <span class="m">4</span>.
+This is line number <span class="m">5</span>.
+$ sed <span class="s1">&#39;2r a&#39;</span> b
+This is line number <span class="m">1</span>.
+This is line number <span class="m">2</span>.
+This is an added line.
+This is the second added line.
+This is line number <span class="m">3</span>.
+This is line number <span class="m">4</span>.
+This is line number <span class="m">5</span>.</code></pre></td></tr></table>
+</div>
+</div>
+<p>多行命令</p>
+
+<p>小写的n命令会告诉sed编辑器移动到数据流中的下一行文本, 而不用重新回到命令的最开始再执行一遍。如只删除包含header行的下一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a
+This is an header line.
+
+This is the second line.
+
+This is the bottom line.
+
+$ sed <span class="s1">&#39;/header/{n;d}&#39;</span> a
+This is an header line.
+This is the second line.
+
+This is the bottom line.</code></pre></td></tr></table>
+</div>
+</div>
+<p>大写的N会将下一行文本添加到已经在模式空间的文本上，这样的作用是将数据流中的两个文本合并到同一个模式空间。文本行仍然用换行分割符
+，但sed编辑器现在会将两行文本当成一行来处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ cat a
+This is the header line
+This is the second line
+This is the third line
+This is the last line
+
+$ sed &#39;/second/{N;s/\n/ /}&#39; a
+This is the header line
+This is the second line This is the third line
+This is the last line</pre></td></tr></table>
+</div>
+</div>
+<p>如果你要替换的文本在两行，这个命令会很好用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ cat a
+The first meeting of Linux System
+Administrator&#39;s group will be held on Tuesday.
+All System Administrators should attend this meeting.
+Thank you for your attendance.
+
+$ sed &#39;s/System Administrator/Desktop User/&#39; a
+The first meeting of Linux System
+Administrator&#39;s group will be held on Tuesday.
+All Desktop Users should attend this meeting.
+Thank you for your attendance.
+
+# 注意在System.Administrator之间使用了通配符.来匹配空格和换行符两种情况
+$ sed &#39;N; s/System.Administrator/Desktop User/&#39; a
+The first meeting of Linux Desktop User&#39;s group will be held on Tuesday.
+All Desktop Users should attend this meeting.
+Thank you for your attendance.
+
+# 上面的情况会将两行合并成一行，并不是我们想要的，可以用匹配多行来处理
+$ sed &#39;N; s/System\nAdministrator/Desktop\nUser/; s/System Administrator/Desktop User/&#39; a
+The first meeting of Linux Desktop
+User&#39;s group will be held on Tuesday.
+All Desktop Users should attend this meeting.
+Thank you for your attendance.
+
+# 上面的情况也有个小问题，它会每次在执行的时候都先读下一行到模式空间，当到了最后一行的时候，没有可读的了，sed命令停止了
+, 最后一行的数据不会被处理。 为了解决这个问题，可以将单行命令方在N命令前，并将多行命令放在N后面
+
+$ cat a
+The first meeting of Linux System
+Administrator&#39;s group will be held on Tuesday.
+All System Administrators should attend this meeting.
+
+$ sed &#39;s/System Administrator/Desktop User/;N;s/System\nAdministrator/Desktop\nUser/&#39; a
+The first meeting of Linux Desktop
+User&#39;s group will be held on Tuesday.
+All Desktop Users should attend this meeting.</pre></td></tr></table>
+</div>
+</div>
+<p>多行删除命令
+d和N命令一起使用时，删除命令会在不同行查找满足匹配模式的行并删除匹配的两行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a
+The first meeting of Linux System
+Administrator<span class="s1">&#39;s group will be held on Tuesday.
+</span><span class="s1">All System Administrators should attend this meeting.
+</span><span class="s1">
+</span><span class="s1">$ sed &#39;</span>N<span class="p">;</span>/System<span class="se">\n</span>Administrator/d<span class="s1">&#39; a
+</span><span class="s1">All System Administrators should attend this meeting.
+</span><span class="s1">
+</span><span class="s1"># 使用D，它只会删除模式空间中的第一行
+</span><span class="s1">$ sed &#39;</span>N<span class="p">;</span>/System<span class="se">\n</span>Administrator/D<span class="s1">&#39; a
+</span><span class="s1">Administrator&#39;</span>s group will be held on Tuesday.
+All System Administrators should attend this meeting.
+
+# D命令多于删除满足指定条件行的前一行。</code></pre></td></tr></table>
+</div>
+</div>
+<p>保持空间</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">h  将模式空间复制到保持空间
+H  将模式空间附加到保持空间
+g  将保持空间复制到模式空间
+G  将保持空间附加到模式空间
+x  交换模式空间和保持空间的内容</pre></td></tr></table>
+</div>
+</div>
+<p>通常，在使用h或H命令将字符串移到保持空间后，最终你要用g,G或x命令来将保存的字符串移回到模式空间</p>
+
+<p>排除命令</p>
+
+<p>感叹号(!) 让原来起作用的行不起作用。</p>
+
+<p>反转一个文本(可以使用tac命令)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ sed -n &#39;1!G;h;$p&#39; a
+All System Administrators should attend this meeting.
+Administrator&#39;s group will be held on Tuesday.
+The first meeting of Linux System</pre></td></tr></table>
+</div>
+</div>
+<p>跳转</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[address]b [label]</pre></td></tr></table>
+</div>
+</div>
+<p>address 参数决定了哪行或哪些行的数据会触发跳转命令，label参数定义了要跳转到的位置。如果没有参数label，
+跳转命令会跳转到脚本的结束。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat b
+This is the header line.
+This is the first data line.
+This is the second data line.
+This is the last line.
+
+<span class="c1"># 第2,3行跳过了替换命令
+</span><span class="c1"></span>$ sed <span class="s1">&#39;{2,3b; s/This is/Is This/}&#39;</span> b
+Is This the header line.
+This is the first data line.
+This is the second data line.
+Is This the last line.
+
+<span class="c1"># 第2, 3行跳转到标签处, 执行标签后面的命令
+</span><span class="c1"></span>$ sed <span class="s1">&#39;{2,3b junmp1; s/This is/Is This/; :junmp1 s/line/line-line/}&#39;</span> b
+Is This the header line-line.
+This is the first data line-line.
+This is the second data line-line.
+Is This the last line-line.
+
+<span class="c1">#标签还可以放在前面，行成一个循环,一次去掉逗号
+</span><span class="c1"># 注意b前面指定了地址模式，不然这个循环会是无限循环
+</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;This, is, a, test, to, remove, commas.&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;{:start s/,//1p; /,/b start}&#34;</span>
+This is, a, test, to, remove, commas.
+This is a, test, to, remove, commas.
+This is a test, to, remove, commas.
+This is a <span class="nb">test</span> to, remove, commas.
+This is a <span class="nb">test</span> to remove, commas.
+This is a <span class="nb">test</span> to remove commas.</code></pre></td></tr></table>
+</div>
+</div>
+<p>类似于跳转命令，测试(test)命令也用来改变sed编辑器脚本的流，测试命令会基于替换命令的输出跳转到一个标签，而不是基于地址跳转到
+一个标签。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[address]t [label]</pre></td></tr></table>
+</div>
+</div>
+<p>跟跳转命令一样，在没有指定标签的情况下，如果测试成功，sed跳转到脚本的末尾</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sed <span class="s1">&#39;{s/first/matched/;t;s/This is the/No match on/}&#39;</span> b
+No match on header line.
+This is the matched data line.
+No match on second data line.
+No match on last line.
+
+
+$ <span class="nb">echo</span> <span class="s2">&#34;This, is, a, test, to, remove, commas.&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;{:start s/,//1p; t start}&#34;</span>
+This is, a, test, to, remove, commas.
+This is a, test, to, remove, commas.
+This is a test, to, remove, commas.
+This is a <span class="nb">test</span> to, remove, commas.
+This is a <span class="nb">test</span> to remove, commas.
+This is a <span class="nb">test</span> to remove commas.</code></pre></td></tr></table>
+</div>
+</div>
+<p>模式替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;s/cat/&#34;cat&#34;/&#39;</span>
+The <span class="s2">&#34;cat&#34;</span> sleep in his hat
+
+$ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;s/.at/&#34;.at&#34;/g&#39;</span>
+The <span class="s2">&#34;.at&#34;</span> sleep in his <span class="s2">&#34;.at&#34;</span>
+
+<span class="c1">#使用and符号(&amp;)可以用来替换命令中的匹配模式
+</span><span class="c1">#如上面的例子
+</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/.at/&#34;&amp;&#34;/g&#39;</span>
+The <span class="s2">&#34;cat&#34;</span> sleep in his <span class="s2">&#34;hat&#34;</span>
+
+<span class="c1"># sed 用圆括号来替换模式的子串，然后用特殊字符来引用
+</span><span class="c1"># 用\1 引用System
+</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;The System Administrator manual&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\(System\) Administrator/\1 User/&#39;</span>
+The System User manual
+
+$ <span class="nb">echo</span> <span class="m">1234567890</span> <span class="p">|</span> sed -n <span class="s1">&#39;{:start s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/p; t start}&#39;</span>
+<span class="m">1234567</span>,890
+<span class="m">1234</span>,567,890
+<span class="m">1</span>,234,567,890</code></pre></td></tr></table>
+</div>
+</div>
+<p>一些长用的sed命令技巧
+每行后面添加一空白行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sed G filename</pre></td></tr></table>
+</div>
+</div>
+<p>每行后面添加两空白行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sed &#39;G;G&#39; filename</pre></td></tr></table>
+</div>
+</div>
+<p>显示行号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sed <span class="s1">&#39;=&#39;</span> b <span class="p">|</span>sed <span class="s1">&#39;N; s/\n/ /&#39;</span>
+<span class="m">1</span> This is the header line.
+<span class="m">2</span> This is the first data line.
+<span class="m">3</span> This is the second data line.
+<span class="m">4</span> This is the last line.</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="正则表达式">正则表达式</h3>
+
+<p>正则表达式是基于正则表达式引擎实现的</p>
+
+<p>Linux中流行的两种正则表达式引擎</p>
+
+<ul>
+<li>POSIX基本的正则表达式引擎(BRE)引擎</li>
+<li>POSIX扩展的正则表达式引擎(ERE)引擎</li>
+</ul>
+
+<h3 id="mysql命令行参数">mysql命令行参数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">-A 禁止自动重新生成hash表
+-e 执行语句并退出
+-E 竖直方向显示查询结果，每行一个数据字段
+-H 用HTML代码显示查询输出
+-X 用XHTML代码显示查询输出</pre></td></tr></table>
+</div>
+</div>
+<p>mysql中的命令分两种:</p>
+
+<ul>
+<li>特殊的mysql命令</li>
+<li>标准的SQL语句</li>
+</ul>
+
+<p>mysql的内置命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">List of all MySQL commands:
+Note that all text commands must be first on line and end with &#39;;&#39;
+?         (\?) Synonym for &#39;help&#39;.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+edit      (\e) Edit command with $EDITOR.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+nopager   (\n) Disable pager, print to stdout.
+notee     (\t) Don&#39;t write into outfile.
+pager     (\P) Set PAGER [to_pager]. Print the query results via PAGER.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don&#39;t show warnings after every statement.
+
+For server side help, type &#39;help contents&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>简单谈谈上面不错的一些命令:</p>
+
+<ul>
+<li>? 查看帮助信息</li>
+<li>delimiter 设置sql语句的分割符</li>
+<li>edit 使用命令行编辑器编辑命令，输入edit之后，变会打开vim编辑器，可以在里面输入要执行的sql语句，报错之后再按分号(;)执行刚刚输入的命令</li>
+<li>pager more当一次查询内容太多，一屏无法显示时，可以试试，类似linux下more命令</li>
+<li>tee 将所有输出定向到指定文件</li>
+<li>notee 结束将所有输出定向到执行文件</li>
+</ul>
+
+<p>在脚本中使用mysql
+发送命令并退出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mysql -u root -ppasswd -e <span class="s2">&#34;show databases;&#34;</span>
++--------------------+
+<span class="p">|</span> Database           <span class="p">|</span>
++--------------------+
+<span class="p">|</span> information_schema <span class="p">|</span>
+<span class="p">|</span> mysql              <span class="p">|</span>
+<span class="p">|</span> reviewdb           <span class="p">|</span>
+<span class="p">|</span> test_db            <span class="p">|</span>
++--------------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>但是返回的结果包含标题或者制表符，不利于提取数据
+可以加上-Bs参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mysql -Bs -u root -plinliang -e <span class="s2">&#34;show databases;&#34;</span>
+information_schema
+mysql
+reviewdb
+test_db</code></pre></td></tr></table>
+</div>
+</div>
+<p>想传递多个命令的时候可以使用EOF重定向</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mysql -u root -plinliang <span class="s">&lt;&lt;EOF
+</span><span class="s">show databases;
+</span><span class="s">use reviewdb;
+</span><span class="s">show tables;
+</span><span class="s">EOF</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="使用web终端上网">使用Web终端上网</h3>
+
+<ul>
+<li>lynx</li>
+<li>w3m</li>
+</ul>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">crazygit</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2013-01-14</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="http://images.wiseturtles.com/wechatpay.jpg">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://crazygit.wiseturtles.com/tags/linux/">linux</a>
+          <a href="https://crazygit.wiseturtles.com/tags/bash/">bash</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/2017/12/19/numpy-qucikstart/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">NumPy快速入门指南</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "crazygit/hugo-blog-comments"
+            issue-term="pathname"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:crazygit@foxmail.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+      <a href="https://twitter.com/lianglin999" rel="me noopener" class="iconfont icon-twitter"
+        title="twitter" target="_blank">
+      </a>
+      <a href="https://github.com/crazygit" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+      <a href="https://www.weibo.com/crazygit/profile" rel="me noopener" class="iconfont icon-weibo"
+        title="weibo" target="_blank">
+      </a>
+  <a href="https://crazygit.wiseturtles.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+  </div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">
+        crazygit
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script><script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script type="text/javascript">
+    AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");
+  </script>
+
+  <script>
+    function showHitCount(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push($(this).attr("id").trim());
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var hits = item.get('hits');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(hits);
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if (countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function (results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("hits");
+            counter.save(null, {
+              success: function (counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
+              },
+              error: function (counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+             
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+             
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("hits", 1);
+            newcounter.save(null, {
+              success: function (newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
+              },
+              error: function (newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function (error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function () {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        
+        addCount(Counter);
+      } else if ($('.post-link').length > 1) {
+        
+        showHitCount(Counter);
+      }
+    });
+  </script>
+
+
+
+
+  <script src="/js/douban.js"></script>
+
+
+</body>
+</html>

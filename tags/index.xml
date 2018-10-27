@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 12 Feb 2018 22:21:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jan 2013 09:48:29 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bash</title>
+      <link>https://crazygit.wiseturtles.com/tags/bash/</link>
+      <pubDate>Mon, 14 Jan 2013 09:48:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/tags/bash/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Docker</title>
@@ -32,9 +41,18 @@
     <item>
       <title>Ios</title>
       <link>https://crazygit.wiseturtles.com/tags/ios/</link>
-      <pubDate>Sat, 27 Oct 2018 09:34:03 +0800</pubDate>
+      <pubDate>Sat, 27 Oct 2018 22:55:22 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://crazygit.wiseturtles.com/tags/linux/</link>
+      <pubDate>Mon, 14 Jan 2013 09:48:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -170,24 +188,6 @@
       <pubDate>Mon, 22 Jan 2018 17:34:52 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>相似度计算</title>
-      <link>https://crazygit.wiseturtles.com/tags/%E7%9B%B8%E4%BC%BC%E5%BA%A6%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Mon, 22 Jan 2018 17:34:52 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/tags/%E7%9B%B8%E4%BC%BC%E5%BA%A6%E8%AE%A1%E7%AE%97/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>高效</title>
-      <link>https://crazygit.wiseturtles.com/tags/%E9%AB%98%E6%95%88/</link>
-      <pubDate>Fri, 26 Jan 2018 09:01:52 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/tags/%E9%AB%98%E6%95%88/</guid>
       <description></description>
     </item>
     
