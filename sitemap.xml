@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://crazygit.wiseturtles.com/2018/10/29/developing_ios11_apps_with_swift/</loc>
+    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/</loc>
     <lastmod>2018-10-27T22:55:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -212,13 +219,6 @@
   </url>
   
   <url>
-    <loc>https://crazygit.wiseturtles.com/categories/elasticsearch/</loc>
-    <lastmod>2018-04-11T18:15:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://crazygit.wiseturtles.com/tags/elasticsearch/</loc>
     <lastmod>2018-04-11T18:15:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -226,15 +226,22 @@
   </url>
   
   <url>
+    <loc>https://crazygit.wiseturtles.com/categories/elasticsearch/</loc>
+    <lastmod>2018-04-11T18:15:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://crazygit.wiseturtles.com/tags/ios/</loc>
-    <lastmod>2018-10-27T22:55:22+08:00</lastmod>
+    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2018-10-27T22:55:22+08:00</lastmod>
+    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -297,7 +304,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/post/</loc>
-    <lastmod>2018-10-27T22:55:22+08:00</lastmod>
+    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -325,20 +332,20 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/</loc>
-    <lastmod>2018-10-27T22:55:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://crazygit.wiseturtles.com/categories/spark/</loc>
-    <lastmod>2018-01-26T11:14:35+08:00</lastmod>
+    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://crazygit.wiseturtles.com/tags/spark/</loc>
+    <lastmod>2018-01-26T11:14:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://crazygit.wiseturtles.com/categories/spark/</loc>
     <lastmod>2018-01-26T11:14:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -401,14 +408,14 @@
   </url>
   
   <url>
-    <loc>https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://crazygit.wiseturtles.com/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2018-01-22T17:34:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://crazygit.wiseturtles.com/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2018-01-22T17:34:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
