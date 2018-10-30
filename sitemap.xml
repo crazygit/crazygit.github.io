@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/</loc>
+    <lastmod>2018-10-30T11:58:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://crazygit.wiseturtles.com/2018/10/29/developing_ios11_apps_with_swift/</loc>
     <lastmod>2018-10-29T16:15:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -234,14 +241,14 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/tags/ios/</loc>
-    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
+    <lastmod>2018-10-30T11:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
+    <lastmod>2018-10-30T11:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -304,7 +311,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/post/</loc>
-    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
+    <lastmod>2018-10-30T11:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -332,7 +339,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/</loc>
-    <lastmod>2018-10-29T16:15:15+08:00</lastmod>
+    <lastmod>2018-10-30T11:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
