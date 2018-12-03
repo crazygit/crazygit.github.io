@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/" />
@@ -403,8 +403,6 @@ if (!doNotTrack) {
 </blockquote>
 
 <p><code>RDDs</code>可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。<code>Datasets/DataFrames</code>在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。</p>
-
-<p></p>
 
 <p>无论在什么情况下。当使用<code>Datasets/DataFrames</code>,通过用<code>SparkSession</code>操作。然而，当需要进行一些低级别的操作来实复杂的计算或累加时，就是用<code>RDDs</code>,通过<code>SparkContext</code>来操作。</p>
 

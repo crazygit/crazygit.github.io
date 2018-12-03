@@ -33,7 +33,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/" />
@@ -445,8 +445,6 @@ if (!doNotTrack) {
 <li>删除一个空目录</li>
 </ul>
 
-<p></p>
-
 <h3 id="stat">stat</h3>
 
 <ul>
@@ -795,8 +793,8 @@ $ bash a.sh
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
 <span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="c1"># 字符串不加引号
-</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> -n <span class="nv">$a</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<span class="c1"># 字符串不加引号</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="nv">$a</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
     <span class="nb">echo</span> <span class="s2">&#34;not empty&#34;</span>
 <span class="k">else</span>
     <span class="nb">echo</span> <span class="s2">&#34;null&#34;</span>
@@ -812,8 +810,8 @@ $ cat a.sh
 <span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nv">a</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
 
-<span class="c1"># 字符串加了引号
-</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<span class="c1"># 字符串加了引号</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
     <span class="nb">echo</span> <span class="s2">&#34;not empty&#34;</span>
 <span class="k">else</span>
     <span class="nb">echo</span> <span class="s2">&#34;null&#34;</span>
@@ -1274,8 +1272,8 @@ c</code></pre></td></tr></table>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># getopt options optstring parameters
-</span><span class="c1"></span>$ getopt ab:cd -a -b bvalue -cd var1 var2
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># getopt options optstring parameters</span>
+$ getopt ab:cd -a -b bvalue -cd var1 var2
  -a -b bvalue -c -d -- var1 var2</code></pre></td></tr></table>
 </div>
 </div>
@@ -1405,8 +1403,8 @@ $ bash /tmp/a.sh -a -b jk -c -k value1 value2
 Found the -a option
 Found the -b option, with value <span class="s1">&#39;jk&#39;</span>
 Found the -c option
-Parameter <span class="c1">#1: &#39;value1&#39;
-</span><span class="c1"></span>Parameter #2: <span class="s1">&#39;value2&#39;</span></code></pre></td></tr></table>
+Parameter <span class="c1">#1: &#39;value1&#39;</span>
+Parameter <span class="c1">#2: &#39;value2&#39;</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="getopts">getopts</h3>
@@ -1460,8 +1458,8 @@ OPTIND环境变量保存了参数列表中<code>getopts</code>正在处理的参
     <span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="c1"># 未知选项-f时显示的是?,而不是-f
-</span><span class="c1"></span>$ bash c.sh -f
+<span class="c1"># 未知选项-f时显示的是?,而不是-f</span>
+$ bash c.sh -f
 Unkown option ?</code></pre></td></tr></table>
 </div>
 </div>
@@ -1523,8 +1521,8 @@ Unkown option ?</code></pre></td></tr></table>
     <span class="nv">count</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$count</span> + <span class="m">1</span> <span class="o">]</span>
 <span class="k">done</span>
 
-<span class="c1"># &#34;value3 value4&#34; 为一个参数，只是包含空格
-</span><span class="c1"></span>$ bash c.sh -a -b bvalue -c value1 value2 <span class="s2">&#34;value3 value4&#34;</span>
+<span class="c1"># &#34;value3 value4&#34; 为一个参数，只是包含空格</span>
+$ bash c.sh -a -b bvalue -c value1 value2 <span class="s2">&#34;value3 value4&#34;</span>
 Found the -a option
 Found the -b option, with value bvalue
 Found the -c option
@@ -1724,16 +1722,16 @@ linux用文件描述符来标示每个文件对象，文件描述符是一个非
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
 <span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="c1">#自己将错误重定向到错误输入
-</span><span class="c1"></span><span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span>
+</span><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="c1">#自己将错误重定向到错误输入</span>
+<span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span>
 
-<span class="c1">#由于默认情况下，linux将STDERR定向到STDOUT,所以上面的脚本执行效果如下
-</span><span class="c1"></span>$ bash a.sh
+<span class="c1">#由于默认情况下，linux将STDERR定向到STDOUT,所以上面的脚本执行效果如下</span>
+$ bash a.sh
 This is an error
 This is an normal output
 
-<span class="c1"># 改变错误重定向的输出
-</span><span class="c1"></span>$ bash a.sh <span class="m">2</span>&gt;a.txt
+<span class="c1"># 改变错误重定向的输出</span>
+$ bash a.sh <span class="m">2</span>&gt;a.txt
 This is an normal output
 
 $ cat a.txt
@@ -1757,8 +1755,8 @@ This is an error</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
 <span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt
-</span><span class="c1"></span><span class="nb">exec</span> <span class="p">&amp;</span>&gt;a.txt
+</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt</span>
+<span class="nb">exec</span> <span class="p">&amp;</span>&gt;a.txt
 <span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span></code></pre></td></tr></table>
 </div>
@@ -1791,14 +1789,14 @@ This is an error</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ cat a.sh
 <span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt
-</span><span class="c1"></span><span class="nb">exec</span> <span class="m">3</span>&gt;a.txt
+</span><span class="cp"></span><span class="c1"># 将改脚本的所有输出重定向到a.txt</span>
+<span class="nb">exec</span> <span class="m">3</span>&gt;a.txt
 <span class="nb">echo</span> <span class="s2">&#34;This is an error&#34;</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
 <span class="nb">echo</span> <span class="s2">&#34;This is an normal output&#34;</span>
 
 恢复文件重定向描述符
-<span class="c1"># 原理就是设置一个中间变量来保存重定向前的状态
-</span><span class="c1"></span>$ cat a.sh
+<span class="c1"># 原理就是设置一个中间变量来保存重定向前的状态</span>
+$ cat a.sh
 <span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nb">exec</span> <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 <span class="nb">exec</span> <span class="m">1</span>&gt;a.txt
@@ -1902,19 +1900,19 @@ This is a normal output to a.txt</code></pre></td></tr></table>
 
 
 $ bash a.sh
-loop <span class="c1">#1
-</span><span class="c1"></span>loop <span class="c1">#2
-</span><span class="c1"></span>^CI have trapped Ctrl-C
-loop <span class="c1">#3
-</span><span class="c1"></span>^CI have trapped Ctrl-C
-loop <span class="c1">#4
-</span><span class="c1"></span>loop <span class="c1">#5
-</span><span class="c1"></span>loop <span class="c1">#6
-</span><span class="c1"></span>loop <span class="c1">#7
-</span><span class="c1"></span>loop <span class="c1">#8
-</span><span class="c1"></span>loop <span class="c1">#9
-</span><span class="c1"></span>loop <span class="c1">#10
-</span><span class="c1"></span>^CI have trapped Ctrl-C
+loop <span class="c1">#1</span>
+loop <span class="c1">#2</span>
+^CI have trapped Ctrl-C
+loop <span class="c1">#3</span>
+^CI have trapped Ctrl-C
+loop <span class="c1">#4</span>
+loop <span class="c1">#5</span>
+loop <span class="c1">#6</span>
+loop <span class="c1">#7</span>
+loop <span class="c1">#8</span>
+loop <span class="c1">#9</span>
+loop <span class="c1">#10</span>
+^CI have trapped Ctrl-C
 end</code></pre></td></tr></table>
 </div>
 </div>
@@ -1963,18 +1961,18 @@ end</code></pre></td></tr></table>
 <span class="nb">echo</span> <span class="s2">&#34;end&#34;</span>
 
 $ bash a.sh
-loop <span class="c1">#1
-</span><span class="c1"></span>loop <span class="c1">#2
-</span><span class="c1"></span>loop <span class="c1">#3
-</span><span class="c1"></span>loop <span class="c1">#4
-</span><span class="c1"></span>loop <span class="c1">#5
-</span><span class="c1"></span>end
+loop <span class="c1">#1</span>
+loop <span class="c1">#2</span>
+loop <span class="c1">#3</span>
+loop <span class="c1">#4</span>
+loop <span class="c1">#5</span>
+end
 goodbye
 
 $ bash a.sh
-loop <span class="c1">#1
-</span><span class="c1"></span>loop <span class="c1">#2
-</span><span class="c1"></span>^Cgoodbye</code></pre></td></tr></table>
+loop <span class="c1">#1</span>
+loop <span class="c1">#2</span>
+^Cgoodbye</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="nice命令">nice命令</h3>
@@ -2010,11 +2008,11 @@ anacron可以实现这一点</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ head -n1 .profile
-<span class="c1"># ~/.profile: executed by the command interpreter for login shells.
-</span><span class="c1"></span>当新shell,包括有新的登录情况时，bash shell都会运行.bashrc文件
+<span class="c1"># ~/.profile: executed by the command interpreter for login shells.</span>
+当新shell,包括有新的登录情况时，bash shell都会运行.bashrc文件
 
 $ head -n1 .bashrc
-# ~/.bashrc: executed by bash<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="k">for</span> non-login shells.</code></pre></td></tr></table>
+<span class="c1"># ~/.bashrc: executed by bash(1) for non-login shells.</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="bash-函数">bash 函数</h3>
@@ -2075,8 +2073,8 @@ ls: cannot access abc: No such file or directory
 $ <span class="nb">echo</span> <span class="nv">$?</span>
 <span class="m">2</span>
 
-<span class="c1"># 从下面的例子可以看出，ls命令没有成功执行，但是最后一条echo命令执行成功，因此返回值仍然是0
-</span><span class="c1"></span>
+<span class="c1"># 从下面的例子可以看出，ls命令没有成功执行，但是最后一条echo命令执行成功，因此返回值仍然是0</span>
+
 $ cat a.sh
 <span class="cp">#!/bin/bash
 </span><span class="cp"></span>
@@ -2400,8 +2398,8 @@ The new array is <span class="m">1</span> <span class="m">2</span> <span class="
             <span class="nb">echo</span> <span class="s2">&#34;Sorry, Wrong selection&#34;</span>
     <span class="k">esac</span>
     <span class="nb">echo</span> -en <span class="s2">&#34;\n\n\t\tHit any key to continue.&#34;</span>
-    <span class="c1">#让显示的结果暂停，不然就继续调用menu函数，看不到选择的结果
-</span><span class="c1"></span>    <span class="nb">read</span> -n1 line
+    <span class="c1">#让显示的结果暂停，不然就继续调用menu函数，看不到选择的结果</span>
+    <span class="nb">read</span> -n1 line
 <span class="k">done</span>
 clear</code></pre></td></tr></table>
 </div>
@@ -2784,20 +2782,20 @@ address <span class="o">{</span>
     command3
 <span class="o">}</span>
 
-<span class="c1">#将data文件中第2行的dog 替换成cat
-</span><span class="c1"></span>sed <span class="s1">&#39;2s/dog/cat/&#39;</span>
+<span class="c1">#将data文件中第2行的dog 替换成cat</span>
+sed <span class="s1">&#39;2s/dog/cat/&#39;</span>
 
-<span class="c1">#将data文件中第2,3行的dog 替换成cat
-</span><span class="c1"></span>sed <span class="s1">&#39;2,3s/dog/cat/&#39;</span>
+<span class="c1">#将data文件中第2,3行的dog 替换成cat</span>
+sed <span class="s1">&#39;2,3s/dog/cat/&#39;</span>
 
-<span class="c1">#将data文件中第2行到行末的dog 替换成cat
-</span><span class="c1"></span>sed <span class="s1">&#39;2,$s/dog/cat/&#39;</span>
+<span class="c1">#将data文件中第2行到行末的dog 替换成cat</span>
+sed <span class="s1">&#39;2,$s/dog/cat/&#39;</span>
 
-<span class="c1">#将data文件中包含hello字符行的dog 替换成cat
-</span><span class="c1"></span>sed <span class="s1">&#39;/hello/s/dog/cat&#39;</span>
+<span class="c1">#将data文件中包含hello字符行的dog 替换成cat</span>
+sed <span class="s1">&#39;/hello/s/dog/cat&#39;</span>
 
-<span class="c1"># 组合命令
-</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2{s/fox/elepant/; s/dog/cat/}&#39;</span>
+<span class="c1"># 组合命令</span>
+$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2{s/fox/elepant/; s/dog/cat/}&#39;</span>
 hello
 elepant cat</code></pre></td></tr></table>
 </div>
@@ -2851,19 +2849,19 @@ elepant cat</code></pre></td></tr></table>
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 删除第一行
-</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;1d&#39;</span>
-<span class="c1"># 删除第二行到第三行
-</span><span class="c1"></span>$ <span class="nb">echo</span> -e <span class="s2">&#34;line 1\nline 2\nline 3&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2,3d&#39;</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 删除第一行</span>
+$ <span class="nb">echo</span> -e <span class="s2">&#34;hello\nfox dog&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;1d&#39;</span>
+<span class="c1"># 删除第二行到第三行</span>
+$ <span class="nb">echo</span> -e <span class="s2">&#34;line 1\nline 2\nline 3&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;2,3d&#39;</span>
 line <span class="m">1</span>
 
 $ <span class="nb">echo</span> -e <span class="s2">&#34;line 1\nline 2\nline 3&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;/line 1/d&#39;</span>
 line <span class="m">2</span>
 line <span class="m">3</span>
 
-<span class="c1"># 可以删除用两个文本模式来删除某个范围内文本的行，但这么做的时候要小心，指定的第一个模式
-</span><span class="c1"># 会&#34;打开&#34;行删除功能，第二个模式会&#34;关闭&#34;行删除功能。sed编辑器会删除这两个行之间的所有行(包括指定的行)
-</span><span class="c1"></span>$ cat a
+<span class="c1"># 可以删除用两个文本模式来删除某个范围内文本的行，但这么做的时候要小心，指定的第一个模式</span>
+<span class="c1"># 会&#34;打开&#34;行删除功能，第二个模式会&#34;关闭&#34;行删除功能。sed编辑器会删除这两个行之间的所有行(包括指定的行)</span>
+$ cat a
 This is line number <span class="m">1</span>
 This is line number <span class="m">2</span>
 This is line number <span class="m">3</span>
@@ -2877,10 +2875,10 @@ This is line number <span class="m">4</span>
 This is line number <span class="m">5</span>
 This is line number <span class="m">6</span>
 
-<span class="c1"># 除此之外，使用时要小心，因为只要sed在数据流中匹配到了开始模式，删除功能就会打开。这可能会导致意外结果
-</span><span class="c1"># 下面第二个数字1再次触发了删除命令，删除了数据流中剩余的行，因为停止模式没有再找到。当然，如果你指定了一个
-</span><span class="c1"># 不存在的文本停止模式，会导致开始模式后面的整个数据流都被删除
-</span><span class="c1"></span>$ cat a
+<span class="c1"># 除此之外，使用时要小心，因为只要sed在数据流中匹配到了开始模式，删除功能就会打开。这可能会导致意外结果</span>
+<span class="c1"># 下面第二个数字1再次触发了删除命令，删除了数据流中剩余的行，因为停止模式没有再找到。当然，如果你指定了一个</span>
+<span class="c1"># 不存在的文本停止模式，会导致开始模式后面的整个数据流都被删除</span>
+$ cat a
 This is line number <span class="m">1</span>
 This is line number <span class="m">2</span>
 This is line number <span class="m">3</span>
@@ -2917,8 +2915,8 @@ This is line number <span class="m">6</span></code></pre></td></tr></table>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## sed &#39;[address]command \ newline&#39;
-</span><span class="c1"></span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## sed &#39;[address]command \ newline&#39;</span>
+
 $ <span class="nb">echo</span> <span class="s2">&#34;Test line 2&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;i\Test line 1&#39;</span>
 Test line <span class="m">1</span>
 Test line <span class="m">2</span>
@@ -3017,8 +3015,8 @@ This is line number <span class="m">5</span>
 This is line number <span class="m">6</span>
 This is a append line
 
-<span class="c1">#插入多行，每一行要使用反斜线
-</span><span class="c1"></span>$ sed <span class="s1">&#39;2a\This is inserted line 1.\
+<span class="c1">#插入多行，每一行要使用反斜线</span>
+$ sed <span class="s1">&#39;2a\This is inserted line 1.\
 </span><span class="s1">&gt; This is inserted line 2.&#39;</span> a
 This is line number <span class="m">1</span>
 This is line number <span class="m">2</span>
@@ -3132,8 +3130,8 @@ This is line number <span class="m">6</span>
 This is line number <span class="m">1</span> again
 This is line number <span class="m">2</span> again
 
-<span class="c1">#文本模式会修改它匹配的任意行
-</span><span class="c1"></span>$ sed <span class="s1">&#39;/number 1/c\This is a changed line&#39;</span> a
+<span class="c1">#文本模式会修改它匹配的任意行</span>
+$ sed <span class="s1">&#39;/number 1/c\This is a changed line&#39;</span> a
 This is a changed line
 This is line number <span class="m">2</span>
 This is line number <span class="m">3</span>
@@ -3143,8 +3141,8 @@ This is line number <span class="m">6</span>
 This is a changed line
 This is line number <span class="m">2</span> again
 
-<span class="c1">#注意在使用地址区间时，并不是逐一替换那两行文本，而是用一行文本在替换地址区间的所有文本
-</span><span class="c1"></span>$ sed <span class="s1">&#39;2,3c\This is a changed line&#39;</span> a
+<span class="c1">#注意在使用地址区间时，并不是逐一替换那两行文本，而是用一行文本在替换地址区间的所有文本</span>
+$ sed <span class="s1">&#39;2,3c\This is a changed line&#39;</span> a
 This is line number <span class="m">1</span>
 This is a changed line
 This is line number <span class="m">4</span>
@@ -3153,9 +3151,9 @@ This is line number <span class="m">6</span>
 This is line number <span class="m">1</span> again
 This is line number <span class="m">2</span> again
 
-<span class="c1"># 可以看出来c命令与d命令使用文本模式区间时一样，都是开始匹配的打开，结束匹配的关闭命令的操作，
-</span><span class="c1"># 第二个number 1没有结束匹配，所以到文件末的都被修改了
-</span><span class="c1"></span>$ sed <span class="s1">&#39;/number 1/,/number 3/c\This is a changed line&#39;</span> a
+<span class="c1"># 可以看出来c命令与d命令使用文本模式区间时一样，都是开始匹配的打开，结束匹配的关闭命令的操作，</span>
+<span class="c1"># 第二个number 1没有结束匹配，所以到文件末的都被修改了</span>
+$ sed <span class="s1">&#39;/number 1/,/number 3/c\This is a changed line&#39;</span> a
 This is a changed line
 This is line number <span class="m">4</span>
 This is line number <span class="m">5</span>
@@ -3203,7 +3201,7 @@ $ <span class="nb">echo</span> -e <span class="s2">&#34;a b c d A c a f\na b c d
 j k l d A l j f
 a b c d
 $ <span class="nb">echo</span> -e <span class="s2">&#34;a b c d A c a f\na b c d&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;1y/abc/jk/&#39;</span>
-sed: -e expression #1, char <span class="m">10</span>: strings <span class="k">for</span> <span class="sb">`</span>y<span class="err">&#39;</span> <span class="nb">command</span> are different lengths</code></pre></td></tr></table>
+sed: -e expression <span class="c1">#1, char 10: strings for `y&#39; command are different lengths</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>打印
@@ -3299,8 +3297,8 @@ $ sed -n <span class="s1">&#39;l&#39;</span> b
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将a文件的2,3行写入test文件
-</span><span class="c1"></span>$ cat a
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将a文件的2,3行写入test文件</span>
+$ cat a
 This is line number <span class="m">1</span>
 This is line number <span class="m">2</span>
 This is line number <span class="m">3</span>
@@ -3543,7 +3541,7 @@ Administrator<span class="s1">&#39;s group will be held on Tuesday.
 </span><span class="s1">Administrator&#39;</span>s group will be held on Tuesday.
 All System Administrators should attend this meeting.
 
-# D命令多于删除满足指定条件行的前一行。</code></pre></td></tr></table>
+<span class="c1"># D命令多于删除满足指定条件行的前一行。</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>保持空间</p>
@@ -3634,23 +3632,23 @@ This is the first data line.
 This is the second data line.
 This is the last line.
 
-<span class="c1"># 第2,3行跳过了替换命令
-</span><span class="c1"></span>$ sed <span class="s1">&#39;{2,3b; s/This is/Is This/}&#39;</span> b
+<span class="c1"># 第2,3行跳过了替换命令</span>
+$ sed <span class="s1">&#39;{2,3b; s/This is/Is This/}&#39;</span> b
 Is This the header line.
 This is the first data line.
 This is the second data line.
 Is This the last line.
 
-<span class="c1"># 第2, 3行跳转到标签处, 执行标签后面的命令
-</span><span class="c1"></span>$ sed <span class="s1">&#39;{2,3b junmp1; s/This is/Is This/; :junmp1 s/line/line-line/}&#39;</span> b
+<span class="c1"># 第2, 3行跳转到标签处, 执行标签后面的命令</span>
+$ sed <span class="s1">&#39;{2,3b junmp1; s/This is/Is This/; :junmp1 s/line/line-line/}&#39;</span> b
 Is This the header line-line.
 This is the first data line-line.
 This is the second data line-line.
 Is This the last line-line.
 
-<span class="c1">#标签还可以放在前面，行成一个循环,一次去掉逗号
-</span><span class="c1"># 注意b前面指定了地址模式，不然这个循环会是无限循环
-</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;This, is, a, test, to, remove, commas.&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;{:start s/,//1p; /,/b start}&#34;</span>
+<span class="c1">#标签还可以放在前面，行成一个循环,一次去掉逗号</span>
+<span class="c1"># 注意b前面指定了地址模式，不然这个循环会是无限循环</span>
+$ <span class="nb">echo</span> <span class="s2">&#34;This, is, a, test, to, remove, commas.&#34;</span> <span class="p">|</span>sed -n <span class="s2">&#34;{:start s/,//1p; /,/b start}&#34;</span>
 This is, a, test, to, remove, commas.
 This is a, test, to, remove, commas.
 This is a test, to, remove, commas.
@@ -3735,14 +3733,14 @@ The <span class="s2">&#34;cat&#34;</span> sleep in his hat
 $ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span>sed <span class="s1">&#39;s/.at/&#34;.at&#34;/g&#39;</span>
 The <span class="s2">&#34;.at&#34;</span> sleep in his <span class="s2">&#34;.at&#34;</span>
 
-<span class="c1">#使用and符号(&amp;)可以用来替换命令中的匹配模式
-</span><span class="c1">#如上面的例子
-</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/.at/&#34;&amp;&#34;/g&#39;</span>
+<span class="c1">#使用and符号(&amp;)可以用来替换命令中的匹配模式</span>
+<span class="c1">#如上面的例子</span>
+$ <span class="nb">echo</span> <span class="s2">&#34;The cat sleep in his hat&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/.at/&#34;&amp;&#34;/g&#39;</span>
 The <span class="s2">&#34;cat&#34;</span> sleep in his <span class="s2">&#34;hat&#34;</span>
 
-<span class="c1"># sed 用圆括号来替换模式的子串，然后用特殊字符来引用
-</span><span class="c1"># 用\1 引用System
-</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;The System Administrator manual&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\(System\) Administrator/\1 User/&#39;</span>
+<span class="c1"># sed 用圆括号来替换模式的子串，然后用特殊字符来引用</span>
+<span class="c1"># 用\1 引用System</span>
+$ <span class="nb">echo</span> <span class="s2">&#34;The System Administrator manual&#34;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\(System\) Administrator/\1 User/&#39;</span>
 The System User manual
 
 $ <span class="nb">echo</span> <span class="m">1234567890</span> <span class="p">|</span> sed -n <span class="s1">&#39;{:start s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/p; t start}&#39;</span>

@@ -28,9 +28,7 @@ Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询&lt;/
 DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/&#34;&gt;《FastDataProcessingwithSpark2读书笔记四》&lt;/a&gt;
 机器学习相关和GraphX（&lt;strong&gt;待完善&lt;/strong&gt;）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -51,9 +49,7 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -72,9 +68,7 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 
 &lt;p&gt;在R和Python语言中，使用的依然是DataFrame类，但是包含了所有的DataSet APIs。因此可以这样认为，DataSet在Python和R语言中就叫做DataFrame。&lt;/p&gt;
 
-&lt;p&gt;在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -99,9 +93,7 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 &lt;p&gt;Datasets/DataFrames, on the other hand, are similar to a table or a spreadsheet with column headings-such as name, title, order number, order date, and movie rating-and the associated data types.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code&gt;RDDs&lt;/code&gt;可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;code&gt;RDDs&lt;/code&gt;可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -135,9 +127,7 @@ DataSets/DataFrame的常用接口和函数&lt;/li&gt;
 &lt;li&gt;Python2.7+/3.4+&lt;/li&gt;
 &lt;li&gt;R 3.1+&lt;/li&gt;
 &lt;li&gt;为了使用Scala API, 需要安装完整的Scala 2.11.x版本&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

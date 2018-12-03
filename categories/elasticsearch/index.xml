@@ -26,7 +26,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Near Realtime (NRT)&lt;/p&gt;
 
-&lt;p&gt;及时搜索，创建文档的索引后无需等待，立刻就可以开始搜索&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Cluster&lt;/p&gt;
 

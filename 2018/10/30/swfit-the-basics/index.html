@@ -33,7 +33,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/" />
@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2018-10-30T11:58:55&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-30T11:58:55&#43;08:00" />
-<meta itemprop="wordCount" content="1497">
+<meta itemprop="wordCount" content="1699">
 
 
 
@@ -326,8 +326,8 @@ if (!doNotTrack) {
         <div class="post-category">
             
           </div>
-        <span class="more-meta"> 约 1497 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span class="more-meta"> 约 1699 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
         
@@ -389,8 +389,6 @@ if (!doNotTrack) {
 <span class="kd">var</span> <span class="nv">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">:</span> <span class="nb">Double</span></code></pre></td></tr></table>
 </div>
 </div>
-<p></p>
-
 <h3 id="变量名">变量名</h3>
 
 <p>Swift的变量名<strong>可以是</strong>任何的Unicode字符, 如: 中文, Emoji表情等都可以是变量名。</p>
@@ -768,6 +766,20 @@ if (!doNotTrack) {
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="o">-</span><span class="mi">3</span>
@@ -784,9 +796,26 @@ if (!doNotTrack) {
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
     <span class="bp">assertionFailure</span><span class="p">(</span><span class="s">&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nv">index</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="bp">precondition</span><span class="p">(</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Index must greater than zero.&#34;</span><span class="p">)</span>
+
+<span class="c1">//使用preconditionFailure直接抛出异常</span>
+<span class="kd">var</span> <span class="nv">age</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;You can ride the rollercoaster or the ferris wheel.&#34;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;You can ride the ferris wheel.&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="bp">preconditionFailure</span><span class="p">(</span><span class="s">&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
+<p><strong>PS</strong>:</p>
+
+<p>当在编译的时候用的是<code>unchecked mode</code>(<code>-Ounckecked</code>), precondition是不会被执行的，默认它们的条件都是成立的，返回<code>true</code>。但是，使<code>fatalError(_:file:line:)</code>是会生效的，无论编译参数是什么。</p>
     </div>
 
     
@@ -832,6 +861,11 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/2018/12/03/basic-operators/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Swift基本运算符</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
           <a class="next" href="/2018/10/29/developing_ios11_apps_with_swift/">
             <span class="next-text nav-default">Developing iOS 11 Apps with Swift视频下载</span>

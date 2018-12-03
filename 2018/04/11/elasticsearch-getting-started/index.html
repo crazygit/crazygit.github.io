@@ -33,7 +33,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/" />
@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2018-04-11T18:15:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-11T18:15:39&#43;08:00" />
-<meta itemprop="wordCount" content="3468">
+<meta itemprop="wordCount" content="3464">
 
 
 
@@ -327,7 +327,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/elasticsearch/"> Elasticsearch </a>
             
           </div>
-        <span class="more-meta"> 约 3468 字 </span>
+        <span class="more-meta"> 约 3464 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
 
         
@@ -403,24 +403,18 @@ if (!doNotTrack) {
 <ul>
 <li><p>Near Realtime (NRT)</p>
 
-<p>及时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p></li>
+<p>实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p></li>
 
 <li><p>Cluster</p>
 
 <p>集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。</p></li>
 </ul>
 
-<p>
-* Node</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</pre></td></tr></table>
-</div>
-</div>
 <ul>
+<li><p>Node</p>
+
+<p>节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</p></li>
+
 <li><p>Index</p>
 
 <p>索引(Index)是一系列文档(Document)的集合, 索引名全部必须小写，一个集群里可以有任意多个索引。类似关系型数据库中的DB。</p></li>
@@ -438,7 +432,7 @@ if (!doNotTrack) {
 
 <h2 id="安装">安装</h2>
 
-<p>这里主要介绍使用docker的安装的方式，主要有三种格式的镜像</p>
+<p>本文主要介绍使用docker的安装的方式，主要有三种格式的镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -449,15 +443,15 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 基本版本(默认版本)，包含X-pack的基本特性和免费证书
-</span><span class="c1"></span>$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.3
-<span class="c1"># platinum版本，包含X-pack的全部特性和30天试用证书
-</span><span class="c1"></span>$ docker pull docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.3
-<span class="c1"># oss版本，不包含X-pack，只有开源的Elasticsearch
-</span><span class="c1"></span>$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 基本版本(默认版本)，包含X-pack的基本特性和免费证书</span>
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.3
+<span class="c1"># platinum版本，包含X-pack的全部特性和30天试用证书</span>
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.3
+<span class="c1"># oss版本，不包含X-pack，只有开源的Elasticsearch</span>
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</code></pre></td></tr></table>
 </div>
 </div>
-<p>这里主要使用oss版本</p>
+<p>选择使用oss版本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -485,14 +479,14 @@ if (!doNotTrack) {
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装
-</span><span class="c1"></span>$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装</span>
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
-<span class="c1"># 启动服务
-</span><span class="c1"></span>$ docker run -p <span class="m">9200</span>:9200 -p <span class="m">9300</span>:9300 -e <span class="s2">&#34;cluster.name=mycluster&#34;</span> -e <span class="s2">&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
+<span class="c1"># 启动服务</span>
+$ docker run -p <span class="m">9200</span>:9200 -p <span class="m">9300</span>:9300 -e <span class="s2">&#34;cluster.name=mycluster&#34;</span> -e <span class="s2">&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
-<span class="c1"># 检查启动的服务
-</span><span class="c1"></span>$ curl localhost:9200
+<span class="c1"># 检查启动的服务</span>
+$ curl localhost:9200
 <span class="o">{</span>
   <span class="s2">&#34;name&#34;</span> : <span class="s2">&#34;my_node&#34;</span>,
   <span class="s2">&#34;cluster_name&#34;</span> : <span class="s2">&#34;mycluster&#34;</span>,
@@ -640,8 +634,8 @@ yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
-<span class="c1"># 查看创建的结果
-</span><span class="c1"></span>$ curl <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
+<span class="c1"># 查看创建的结果</span>
+$ curl <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
 <span class="o">{</span>
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
@@ -739,8 +733,8 @@ yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span
 </span><span class="lnt">65
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 创建一个文档
-</span><span class="c1"></span>$ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 创建一个文档</span>
+$ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
 </span><span class="s1">{
 </span><span class="s1">  &#34;name&#34;: &#34;John Doe&#34;
 </span><span class="s1">}
@@ -761,8 +755,8 @@ yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
-<span class="c1"># 修改文档
-</span><span class="c1"></span>$ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
+<span class="c1"># 修改文档</span>
+$ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
 </span><span class="s1">{
 </span><span class="s1">  &#34;name&#34;: &#34;xxxxx&#34;
 </span><span class="s1">}
@@ -783,8 +777,8 @@ yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
-<span class="c1">## 通过POST方法，在创建文档时可以不用指定文档的id， elasticsearch会自动生成一个
-</span><span class="c1"></span>$ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
+<span class="c1">## 通过POST方法，在创建文档时可以不用指定文档的id， elasticsearch会自动生成一个</span>
+$ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d<span class="s1">&#39;
 </span><span class="s1">{
 </span><span class="s1">  &#34;name&#34;: &#34;Jane Doe&#34;
 </span><span class="s1">}
@@ -1716,8 +1710,9 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 <p>关于集成更多elastic stack服务，可以参考:
 <a href="https://github.com/elastic/stack-docker/blob/master/docker-compose.yml">https://github.com/elastic/stack-docker/blob/master/docker-compose.yml</a></p>
 
-<p>kibana Console运行效果如下：
-<img src="http://images.wiseturtles.com/2018-04-12-kibana-devtool.png" alt="kibana console" /></p>
+<p>kibana Console运行效果如下：</p>
+
+<p><img src="http://images.wiseturtles.com/2018-04-12-kibana-devtool.png" alt="kibana console" /></p>
     </div>
 
     

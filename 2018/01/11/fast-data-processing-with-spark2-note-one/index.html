@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/" />
@@ -409,8 +409,6 @@ if (!doNotTrack) {
 <li>为了使用Scala API, 需要安装完整的Scala 2.11.x版本</li>
 </ul>
 
-<p></p>
-
 <h3 id="解压安装">解压安装</h3>
 
 <p>从<a href="https://spark.apache.org/downloads.html">Spark官网</a>选择合适的版本下载。</p>
@@ -442,17 +440,17 @@ $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># SPARK_HOME根据本机实际情况修改路径
-</span><span class="c1"></span><span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&#34;/path/to/spark-2.2.1-bin-hadoop2.7&#34;</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># SPARK_HOME根据本机实际情况修改路径</span>
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&#34;/path/to/spark-2.2.1-bin-hadoop2.7&#34;</span>
 
-<span class="c1"># 当用pyspark时默认使用ipyton
-</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&#34;ipython&#34;</span>
+<span class="c1"># 当用pyspark时默认使用ipyton</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&#34;ipython&#34;</span>
 
-<span class="c1"># 如果习惯使用Jupyter, 可以添加下面的配置，那么在用pyspark时，默认会调用Jupyter notebook，否则为默认的ipython console
-</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s2">&#34;notebook&#34;</span>
+<span class="c1"># 如果习惯使用Jupyter, 可以添加下面的配置，那么在用pyspark时，默认会调用Jupyter notebook，否则为默认的ipython console</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s2">&#34;notebook&#34;</span>
 
-<span class="c1"># 添加到PATH，方便随时调用pyspark命令
-</span><span class="c1"></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$SPARK_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+<span class="c1"># 添加到PATH，方便随时调用pyspark命令</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$SPARK_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>关于Spark集群的搭建，练习阶段暂时不会使用到，等以后需要再补充。</p>
@@ -646,8 +644,8 @@ $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
 from pyspark.sql import SparkSession
 
 <span class="nv">appName</span><span class="o">=</span><span class="s1">&#39;Simple Application&#39;</span>
-<span class="nv">logFile</span> <span class="o">=</span> <span class="s2">&#34;README.md&#34;</span>  <span class="c1"># Should be some file on your system
-</span><span class="c1"></span><span class="nv">spark</span> <span class="o">=</span> SparkSession.builder.appName<span class="o">(</span>appName<span class="o">)</span>.getOrCreate<span class="o">()</span>
+<span class="nv">logFile</span> <span class="o">=</span> <span class="s2">&#34;README.md&#34;</span>  <span class="c1"># Should be some file on your system</span>
+<span class="nv">spark</span> <span class="o">=</span> SparkSession.builder.appName<span class="o">(</span>appName<span class="o">)</span>.getOrCreate<span class="o">()</span>
 <span class="nv">logData</span> <span class="o">=</span> spark.read.text<span class="o">(</span>logFile<span class="o">)</span>.cache<span class="o">()</span>
 
 <span class="nv">numAs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">))</span>.count<span class="o">()</span>

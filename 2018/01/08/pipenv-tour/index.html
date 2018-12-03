@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/" />
@@ -413,8 +413,6 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pipenv</code></pre></td></tr></table>
 </div>
 </div>
-<p></p>
-
 <h2 id="基本概念">基本概念</h2>
 
 <ul>
@@ -496,18 +494,18 @@ if (!doNotTrack) {
 Usage: pipenv <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
 
 Options:
-  --update         Update Pipenv <span class="p">&amp;</span> pip to latest.     <span class="c1"># 更新pipenv和pip到最新版本
-</span><span class="c1"></span>  --where          Output project home information.   <span class="c1"># 获取项目路径
-</span><span class="c1"></span>  --venv           Output virtualenv information.     <span class="c1"># 获取虚拟环境的路径
-</span><span class="c1"></span>  --py             Output Python interpreter information. <span class="c1"># 获取python解释器的路径
-</span><span class="c1"></span>  --envs           Output Environment Variable options. <span class="c1"># 输出当前的环境变量
-</span><span class="c1"></span>  --rm             Remove the virtualenv.   <span class="c1"># 删除虚拟环境
-</span><span class="c1"></span>  --bare           Minimal output.
+  --update         Update Pipenv <span class="p">&amp;</span> pip to latest.     <span class="c1"># 更新pipenv和pip到最新版本</span>
+  --where          Output project home information.   <span class="c1"># 获取项目路径</span>
+  --venv           Output virtualenv information.     <span class="c1"># 获取虚拟环境的路径</span>
+  --py             Output Python interpreter information. <span class="c1"># 获取python解释器的路径</span>
+  --envs           Output Environment Variable options. <span class="c1"># 输出当前的环境变量</span>
+  --rm             Remove the virtualenv.   <span class="c1"># 删除虚拟环境</span>
+  --bare           Minimal output.
   --completion     Output completion <span class="o">(</span>to be eval<span class="err">&#39;</span>d<span class="o">)</span>.
   --man            Display manpage.
-  --three / --two  Use Python <span class="m">3</span>/2 when creating virtualenv. <span class="c1"># 使用python3/2创建虚拟环境
-</span><span class="c1"></span>  --python TEXT    Specify which version of Python virtualenv should use. <span class="c1"># 指定python的版本信息
-</span><span class="c1"></span>  --site-packages  Enable site-packages <span class="k">for</span> the virtualenv.
+  --three / --two  Use Python <span class="m">3</span>/2 when creating virtualenv. <span class="c1"># 使用python3/2创建虚拟环境</span>
+  --python TEXT    Specify which version of Python virtualenv should use. <span class="c1"># 指定python的版本信息</span>
+  --site-packages  Enable site-packages <span class="k">for</span> the virtualenv.
   --jumbotron      An easter egg, effectively.
   --version        Show the version and exit.
   -h, --help       Show this message and exit.
@@ -568,23 +566,23 @@ Commands:
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装包
-</span><span class="c1"></span>$ pipenv install
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装包</span>
+$ pipenv install
 
-<span class="c1"># 激活当前项目的虚拟环境
-</span><span class="c1"></span>$ pipenv shell
+<span class="c1"># 激活当前项目的虚拟环境</span>
+$ pipenv shell
 
-<span class="c1"># 安装开发依赖包
-</span><span class="c1"></span>$ pipenv install pytest --dev
+<span class="c1"># 安装开发依赖包</span>
+$ pipenv install pytest --dev
 
-<span class="c1"># 图形显示包依赖关系
-</span><span class="c1"></span>$ pipenv graph
+<span class="c1"># 图形显示包依赖关系</span>
+$ pipenv graph
 
-<span class="c1"># 生成lockfile
-</span><span class="c1"></span>$ pipenv lock
+<span class="c1"># 生成lockfile</span>
+$ pipenv lock
 
-<span class="c1"># 删除所有的安装包
-</span><span class="c1"></span>$ pipenv uninstall --all</code></pre></td></tr></table>
+<span class="c1"># 删除所有的安装包</span>
+$ pipenv uninstall --all</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="高级技巧">高级技巧</h2>
@@ -811,8 +809,8 @@ t.py:1:16: W292 no newline at end of file</code></pre></td></tr></table>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 用编辑器打开requests模块
-</span><span class="c1"></span>$ pipenv open requests</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 用编辑器打开requests模块</span>
+$ pipenv open requests</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="自动加载环境变量-env">自动加载环境变量.env</h3>
@@ -940,8 +938,8 @@ The following environment variables can be set, to <span class="k">do</span> var
   - PIPENV_VIRTUALENV
   - PIPENV_MAX_SUBPROCESS
   - PIPENV_COLORBLIND
-  - PIPENV_VENV_IN_PROJECT <span class="c1"># 在项目根路径下创建虚拟环境
-</span><span class="c1"></span>  - PIPENV_MAX_ROUNDS
+  - PIPENV_VENV_IN_PROJECT <span class="c1"># 在项目根路径下创建虚拟环境</span>
+  - PIPENV_MAX_ROUNDS
   - PIPENV_USE_SYSTEM
   - PIPENV_SHELL_COMPAT
   - PIPENV_USE_HASHES
@@ -952,8 +950,8 @@ The following environment variables can be set, to <span class="k">do</span> var
   - PIPENV_SHELL_FANCY
   - PIPENV_DONT_USE_PYENV
   - PIPENV_DONT_LOAD_ENV
-  - PIPENV_DEFAULT_PYTHON_VERSION <span class="c1"># 设置创建虚拟环境时默认的python版本信息，如: 3.6
-</span><span class="c1"></span>  - PIPENV_SKIP_VALIDATION
+  - PIPENV_DEFAULT_PYTHON_VERSION <span class="c1"># 设置创建虚拟环境时默认的python版本信息，如: 3.6</span>
+  - PIPENV_SKIP_VALIDATION
   - PIPENV_TIMEOUT</code></pre></td></tr></table>
 </div>
 </div>
@@ -1011,8 +1009,8 @@ Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">282</span>, in addusersitepackages
     <span class="nv">user_site</span> <span class="o">=</span> getusersitepackages<span class="o">()</span>
   File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">258</span>, in getusersitepackages
-    <span class="nv">user_base</span> <span class="o">=</span> getuserbase<span class="o">()</span> <span class="c1"># this will also set USER_BASE
-</span><span class="c1"></span>  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">248</span>, in getuserbase
+    <span class="nv">user_base</span> <span class="o">=</span> getuserbase<span class="o">()</span> <span class="c1"># this will also set USER_BASE</span>
+  File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line <span class="m">248</span>, in getuserbase
     <span class="nv">USER_BASE</span> <span class="o">=</span> get_config_var<span class="o">(</span><span class="s1">&#39;userbase&#39;</span><span class="o">)</span>
   File <span class="s2">&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line <span class="m">601</span>, in get_config_var
     <span class="k">return</span> get_config_vars<span class="o">()</span>.get<span class="o">(</span>name<span class="o">)</span>
