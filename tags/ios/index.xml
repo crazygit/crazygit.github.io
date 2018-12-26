@@ -6,10 +6,25 @@
     <description>Recent content in Ios on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 03 Dec 2018 12:01:55 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Dec 2018 23:11:51 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>集合类型</title>
+      <link>https://crazygit.wiseturtles.com/2018/12/26/collection-types/</link>
+      <pubDate>Wed, 26 Dec 2018 23:11:51 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2018/12/26/collection-types/</guid>
+      <description>&lt;p&gt;Swift有三种主要的集合类型，分别是:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Arrays&lt;/li&gt;
+&lt;li&gt;Sets&lt;/li&gt;
+&lt;li&gt;dictionaries&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>Swift基本运算符</title>

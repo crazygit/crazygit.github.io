@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://crazygit.wiseturtles.com/2018/12/26/collection-types/</loc>
+    <lastmod>2018-12-26T23:11:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://crazygit.wiseturtles.com/2018/12/03/basic-operators/</loc>
     <lastmod>2018-12-03T12:01:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -248,14 +255,14 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/tags/ios/</loc>
-    <lastmod>2018-12-03T12:01:55+08:00</lastmod>
+    <lastmod>2018-12-26T23:11:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2018-12-03T12:01:55+08:00</lastmod>
+    <lastmod>2018-12-26T23:11:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -318,7 +325,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/post/</loc>
-    <lastmod>2018-12-03T12:01:55+08:00</lastmod>
+    <lastmod>2018-12-26T23:11:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -346,7 +353,7 @@
   
   <url>
     <loc>https://crazygit.wiseturtles.com/</loc>
-    <lastmod>2018-12-03T12:01:55+08:00</lastmod>
+    <lastmod>2018-12-26T23:11:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

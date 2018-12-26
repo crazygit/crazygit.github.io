@@ -33,7 +33,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.52" />
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/" />
@@ -65,7 +65,7 @@
 <meta property="og:description" content="宁静的夜，心中一片静谧!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/" />
-<meta property="og:updated_time" content="2018-01-26T11:14:35&#43;08:00"/>
+<meta property="og:updated_time" content="2018-02-12T21:15:29&#43;08:00"/>
 
 <meta itemprop="name" content="Soul Mate">
 <meta itemprop="description" content="宁静的夜，心中一片静谧!">
@@ -313,6 +313,69 @@ if (!doNotTrack) {
   <section id="posts" class="posts">
     
     
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/02/12/docker-get-started/">docker简单入门</a></h1>
+    
+    <div class="post-meta">
+      <span class="post-time"> 2018-02-12 </span>
+      <div class="post-category">
+          <a href="https://crazygit.wiseturtles.com/categories/docker%E5%AE%B9%E5%99%A8/"> docker容器 </a>
+          
+        </div>
+      <span class="more-meta"> 约 598 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      
+      
+        <span id="/2018/02/12/docker-get-started/" class="leancloud_visitors" data-flag-title="docker简单入门">
+          <span class="post-meta-item-text"> | 阅读 </span>
+          <span class="leancloud-visitors-count"></span>
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <h2 id="docker安装">Docker安装</h2>
+
+<p>根据自己的操作系统，参考<a href="https://docs.docker.com/install/">官方文档</a>完成安装</p>
+
+<h2 id="测试是否安装成功-运行第一个容器">测试是否安装成功，运行第一个容器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker run hello-world
+Unable to find image <span class="s1">&#39;hello-world:latest&#39;</span> locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull <span class="nb">complete</span>
+Digest: sha256:66ef312bbac49c39a89aa9bcc3cb4f3c9e7de3788c944158df3ee0176d32b751
+Status: Downloaded newer image <span class="k">for</span> hello-world:latest
+
+Hello from Docker!
+...</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/2018/02/12/docker-get-started/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
     
       <article class="post bg-white">
   <header class="post-header">
@@ -751,64 +814,6 @@ DataSets/DataFrame的常用接口和函数</li>
     </div>
     <div class="read-more">
       <a href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/01/08/pipenv-tour/">pipenv使用指南</a></h1>
-    
-    <div class="post-meta">
-      <span class="post-time"> 2018-01-08 </span>
-      <div class="post-category">
-          <a href="https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/"> python库相关 </a>
-          
-        </div>
-      <span class="more-meta"> 约 3427 字 </span>
-      <span class="more-meta"> 预计阅读 7 分钟 </span>
-      
-      
-        <span id="/2018/01/08/pipenv-tour/" class="leancloud_visitors" data-flag-title="pipenv使用指南">
-          <span class="post-meta-item-text"> | 阅读 </span>
-          <span class="leancloud-visitors-count"></span>
-        </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p><a href="https://github.com/pypa/pipenv"><code>pipenv</code></a>是<a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies">Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p>
-
-<p>它能够自动为项目创建和管理虚拟环境，从<code>Pipfile</code>文件添加或删除安装的包，同时生成<code>Pipfile.lock</code>来锁定安装包的版本和依赖信息，避免构建错误。</p>
-
-<p><code>pipenv</code>主要解决了如下问题:</p>
-
-<ul>
-<li>不用再单独使用<code>pip</code>和<code>virtualenv</code>, 现在它们合并在一起了</li>
-<li>不用再维护<code>requirements.txt</code>, 使用<code>Pipfile</code>和<code>Pipfile.lock</code>来代替</li>
-<li>可以使用多个python版本(<code>python2</code>和<code>python3</code>)</li>
-<li>在安装了<code>pyenv</code>的条件下，可以自动安装需要的Python版本</li>
-</ul>
-
-<h2 id="安装">安装</h2>
-
-<p>为了方便使用, 建议<strong>全局</strong>安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pipenv</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/2018/01/08/pipenv-tour/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
