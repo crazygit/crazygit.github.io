@@ -6,10 +6,31 @@
     <description>Recent content in Ios on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Dec 2018 23:11:51 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jan 2019 15:19:54 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>流程控制和函数</title>
+      <link>https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/</link>
+      <pubDate>Mon, 07 Jan 2019 15:19:54 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/</guid>
+      <description>&lt;h2 id=&#34;流程控制&#34;&gt;流程控制&lt;/h2&gt;
+
+&lt;p&gt;流程控制的关键字&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;while&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;if&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;guard&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for-in&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;continue&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;break&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>集合类型</title>

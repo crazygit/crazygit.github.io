@@ -65,7 +65,7 @@
 <meta property="og:description" content="宁静的夜，心中一片静谧!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/" />
-<meta property="og:updated_time" content="2018-02-12T21:15:29&#43;08:00"/>
+<meta property="og:updated_time" content="2018-02-12T22:21:02&#43;08:00"/>
 
 <meta itemprop="name" content="Soul Mate">
 <meta itemprop="description" content="宁静的夜，心中一片静谧!">
@@ -313,6 +313,69 @@ if (!doNotTrack) {
   <section id="posts" class="posts">
     
     
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/02/12/docker-commands/">docker常用命令</a></h1>
+    
+    <div class="post-meta">
+      <span class="post-time"> 2018-02-12 </span>
+      <div class="post-category">
+          <a href="https://crazygit.wiseturtles.com/categories/docker%E5%AE%B9%E5%99%A8/"> docker容器 </a>
+          
+        </div>
+      <span class="more-meta"> 约 890 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      
+      
+        <span id="/2018/02/12/docker-commands/" class="leancloud_visitors" data-flag-title="docker常用命令">
+          <span class="post-meta-item-text"> | 阅读 </span>
+          <span class="leancloud-visitors-count"></span>
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <h3 id="install-docker-on-mac">Install docker on mac</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ brew cask install docker</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="get-docker-info">Get docker info</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker --version
+Docker version <span class="m">17</span>.12.0-ce, build c97c6d6</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose --version
+docker-compose version <span class="m">1</span>.18.0, build 8dd22a9</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/2018/02/12/docker-commands/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
     
       <article class="post bg-white">
   <header class="post-header">
@@ -764,62 +827,6 @@ DataSets/DataFrame的常用接口和函数</li>
 </article>
 
     
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/">《利用Python进行数据分析第二版》读书笔记四</a></h1>
-    
-    <div class="post-meta">
-      <span class="post-time"> 2018-01-09 </span>
-      <div class="post-category">
-          <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
-          
-        </div>
-      <span class="more-meta"> 约 2801 字 </span>
-      <span class="more-meta"> 预计阅读 6 分钟 </span>
-      
-      
-        <span id="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/" class="leancloud_visitors" data-flag-title="《利用Python进行数据分析第二版》读书笔记四">
-          <span class="post-meta-item-text"> | 阅读 </span>
-          <span class="leancloud-visitors-count"></span>
-        </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <h1 id="绘图和可视化">绘图和可视化</h1>
-
-<p>绘图时，在<code>ipython</code>里运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="o">%</span><span class="n">matplotlib</span>
-<span class="n">Using</span> <span class="n">matplotlib</span> <span class="n">backend</span><span class="p">:</span> <span class="n">TkAgg</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>可以直接绘制图形，不然每次绘制图形最后必须调用<code>plt.show()</code>才能看到图形。</p>
-
-<p><em>本文里使用的CSV测试数据可以从这里<a href="https://github.com/wesm/pydata-book">下载</a></em></p>
-
-<h2 id="matplotlib简单入门">matplotlib简单入门</h2>
-
-<p>关于<code>matplotlib</code>的使用入门，可以参考:</p>
-
-<p><a href="https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/">matplotlib教程</a></p>
-    </div>
-    <div class="read-more">
-      <a href="/2018/01/09/python-for-data-analysis-2nd-edition-note-four/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
   </section>
 
   
@@ -903,7 +910,7 @@ DataSets/DataFrame的常用接口和函数</li>
     &copy;
     
       2017 -
-    2018
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span><span class="author">

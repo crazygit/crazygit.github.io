@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2018-12-26T23:11:51&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-26T23:11:51&#43;08:00" />
-<meta itemprop="wordCount" content="1817">
+<meta itemprop="wordCount" content="1816">
 
 
 
@@ -326,7 +326,7 @@ if (!doNotTrack) {
         <div class="post-category">
             
           </div>
-        <span class="more-meta"> 约 1817 字 </span>
+        <span class="more-meta"> 约 1816 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -473,9 +473,9 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Eggs&#34;</span><span class="p">,</span> <span class="s">&#34;Milk&#34;</span><span class="p">]</span>
-    
+
 <span class="n">shoppingList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#34;Flour&#34;</span><span class="p">)</span>
-    
+
 <span class="n">shoppingList</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&#34;Baking&#34;</span><span class="p">,</span> <span class="s">&#34;Powder&#34;</span><span class="p">]</span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -490,7 +490,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Six Eggs&#34;</span>
-    
+
 <span class="c1">// 下标指定的元素个数和赋值的元素个数不一定要相同</span>
 <span class="n">shoppingList</span><span class="p">[</span><span class="mf">1.</span><span class="p">..</span><span class="mi">4</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Bananas&#34;</span><span class="p">,</span> <span class="s">&#34;Apples&#34;</span><span class="p">]</span></code></pre></td></tr></table>
 </div>
@@ -512,7 +512,7 @@ if (!doNotTrack) {
 
 <span class="c1">// 删除指定位置的元素</span>
 <span class="n">shoppingList</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-    
+
 <span class="c1">// 删除最后一个元素</span>
 <span class="n">shoppingList</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span></code></pre></td></tr></table>
 </div>
@@ -589,9 +589,9 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">fruits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Apple&#34;</span><span class="p">,</span> <span class="s">&#34;Pear&#34;</span><span class="p">,</span> <span class="s">&#34;Orange&#34;</span><span class="p">]</span>
 <span class="n">fruits</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&#34;Banana&#34;</span><span class="p">)</span>
 <span class="n">fruits</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#34;Apple&#34;</span><span class="p">)</span>
-    
+
 <span class="n">fruits</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="s">&#34;Pear&#34;</span><span class="p">)</span>
-    
+
 <span class="c1">// 遍及集合</span>
 <span class="k">for</span> <span class="n">fruit</span> <span class="k">in</span> <span class="n">fruits</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
@@ -735,14 +735,12 @@ if (!doNotTrack) {
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;Name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;John&#34;</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">updateValue</span><span class="p">(</span><span class="s">&#34;Crazygit&#34;</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&#34;Name&#34;</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="c1">// print &#34;John&#34;</span>
-<span class="p">}</span>
-    </code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -820,12 +818,12 @@ if (!doNotTrack) {
 <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">airports</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s"> =&gt; </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
 <span class="p">}</span>
-    
+
 <span class="c1">// 遍历键</span>
 <span class="k">for</span> <span class="n">key</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">keys</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="p">}</span>
-    
+
 <span class="c1">// 遍历值</span>
 <span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">values</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -878,6 +876,11 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/2019/01/07/control-flow-and-functions/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">流程控制和函数</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
           <a class="next" href="/2018/12/03/basic-operators/">
             <span class="next-text nav-default">Swift基本运算符</span>
@@ -945,7 +948,7 @@ if (!doNotTrack) {
     &copy;
     
       2017 -
-    2018
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span><span class="author">
