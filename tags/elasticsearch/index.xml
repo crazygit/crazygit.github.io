@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Elasticsearch on Soul Mate</title>
+    <title>elasticsearch on Soul Mate</title>
     <link>https://crazygit.wiseturtles.com/tags/elasticsearch/</link>
-    <description>Recent content in Elasticsearch on Soul Mate</description>
+    <description>Recent content in elasticsearch on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 11 Apr 2018 18:15:39 +0800</lastBuildDate>

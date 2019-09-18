@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.58.2" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/" />
@@ -66,9 +66,8 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/" />
-<meta property="article:published_time" content="2017-12-26T18:21:46&#43;08:00"/>
-<meta property="article:modified_time" content="2017-12-26T18:21:46&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-12-26T18:21:46+08:00" />
+<meta property="article:modified_time" content="2017-12-26T18:21:46+08:00" />
 <meta itemprop="name" content="《利用Python进行数据分析第二版》读书笔记一">
 <meta itemprop="description" content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
 ">
@@ -526,11 +525,11 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># 统计大于0的元素个数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="mi">48</span>
 
 <span class="c1"># 统计小于0的元素个数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="mi">52</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -548,10 +547,10 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">bools</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bools</span><span class="o">.</span><span class="nb">any</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bools</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
 <span class="bp">True</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bools</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bools</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="bp">False</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -1314,24 +1313,24 @@ if (!doNotTrack) {
 <span class="n">Texas</span>   <span class="mf">2.264081</span>  <span class="mf">0.169154</span> <span class="o">-</span><span class="mf">0.512539</span>
 <span class="n">Oregon</span> <span class="o">-</span><span class="mf">0.795480</span>  <span class="mf">0.630302</span>  <span class="mf">1.127120</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
                <span class="n">b</span>         <span class="n">d</span>         <span class="n">e</span>
 <span class="n">Utah</span>    <span class="mf">0.282987</span>  <span class="mf">0.941163</span>  <span class="mf">1.212623</span>
 <span class="n">Ohio</span>    <span class="mf">1.072346</span>  <span class="mf">0.245222</span>  <span class="mf">0.731497</span>
 <span class="n">Texas</span>   <span class="mf">2.264081</span>  <span class="mf">0.169154</span>  <span class="mf">0.512539</span>
 <span class="n">Oregon</span>  <span class="mf">0.795480</span>  <span class="mf">0.630302</span>  <span class="mf">1.127120</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 
 <span class="c1"># 默认作用于每列</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">b</span>    <span class="mf">3.336427</span>
 <span class="n">d</span>    <span class="mf">1.571465</span>
 <span class="n">e</span>    <span class="mf">2.339742</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 指定作用于每行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 <span class="n">Utah</span>      <span class="mf">1.495609</span>
 <span class="n">Ohio</span>      <span class="mf">0.827124</span>
 <span class="n">Texas</span>     <span class="mf">2.776620</span>
@@ -1348,7 +1347,7 @@ if (!doNotTrack) {
 <span class="n">Texas</span>    <span class="mf">2.26</span>   <span class="mf">0.17</span>  <span class="o">-</span><span class="mf">0.51</span>
 <span class="n">Oregon</span>  <span class="o">-</span><span class="mf">0.80</span>   <span class="mf">0.63</span>   <span class="mf">1.13</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">format</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">format</span><span class="p">)</span>
 <span class="n">Utah</span>      <span class="o">-</span><span class="mf">1.21</span>
 <span class="n">Ohio</span>      <span class="o">-</span><span class="mf">0.73</span>
 <span class="n">Texas</span>     <span class="o">-</span><span class="mf">0.51</span>

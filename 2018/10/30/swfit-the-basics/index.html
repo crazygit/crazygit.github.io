@@ -33,7 +33,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.58.2" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/" />
@@ -64,9 +64,8 @@
 <meta property="og:description" content="Swift基本语法" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/" />
-<meta property="article:published_time" content="2018-10-30T11:58:55&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-30T11:58:55&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-30T11:58:55+08:00" />
+<meta property="article:modified_time" content="2018-10-30T11:58:55+08:00" />
 <meta itemprop="name" content="Swift基本语法">
 <meta itemprop="description" content="Swift基本语法">
 
@@ -325,6 +324,7 @@ if (!doNotTrack) {
       <div class="post-meta">
         <span class="post-time"> 2018-10-30 </span>
         <div class="post-category">
+            <a href="https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/"> iOS开发入门 </a>
             
           </div>
         <span class="more-meta"> 约 1699 字 </span>
@@ -608,8 +608,8 @@ if (!doNotTrack) {
 <ul>
 <li>将多个不同的值集合成一个数据</li>
 <li>可以有任意多个值</li>
-<li>不同的值可以是不同的类型</li>
-</ul>
+
+<li><p>不同的值可以是不同的类型</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
@@ -679,7 +679,9 @@ if (!doNotTrack) {
 <span class="kd">let</span> <span class="p">(</span><span class="n">isLoginSuccess</span><span class="p">,</span> <span class="kc">_</span><span class="p">)</span> <span class="p">=</span> <span class="n">logingResult</span>
 <span class="n">isLoginSuccess</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h3 id="可选值">可选值</h3>
 
 <p>当可以确定一个可选值包含有值时，可以使用<code>!</code>来强制使用值</p>
@@ -705,7 +707,7 @@ if (!doNotTrack) {
 <span class="p">}</span>
 
 <span class="k">if</span> <span class="n">convertedNumber</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;convertedNumber has an integer value of </span><span class="si">\(</span><span class="n">convertedNumber</span><span class="o">!</span><span class="si">)</span><span class="s">.&#34;</span><span class="p">)</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;convertedNumber has an integer value of </span><span class="si">\(</span><span class="n">convertedNumber</span><span class="p">!</span><span class="si">)</span><span class="s">.&#34;</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>

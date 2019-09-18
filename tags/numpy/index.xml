@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Numpy on Soul Mate</title>
+    <title>numpy on Soul Mate</title>
     <link>https://crazygit.wiseturtles.com/tags/numpy/</link>
-    <description>Recent content in Numpy on Soul Mate</description>
+    <description>Recent content in numpy on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 28 Dec 2017 15:57:31 +0800</lastBuildDate>

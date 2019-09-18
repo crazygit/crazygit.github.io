@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.58.2" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/" />
@@ -66,9 +66,8 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/" />
-<meta property="article:published_time" content="2018-01-16T22:55:11&#43;08:00"/>
-<meta property="article:modified_time" content="2018-01-16T22:55:11&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-01-16T22:55:11+08:00" />
+<meta property="article:modified_time" content="2018-01-16T22:55:11+08:00" />
 <meta itemprop="name" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记三">
 <meta itemprop="description" content="本文主要介绍DataSets/DataFrame的常用接口和函数
 ">
@@ -1100,7 +1099,7 @@ data/cars-out-pqt
 
 <span class="c1"># 有两种方式将rdd转换为dataframe</span>
 <span class="c1"># 方法一:</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">rdd</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
 
 <span class="c1"># 方法二</span>
 <span class="c1"># &gt;&gt;&gt; df = rdd.map(row).toDF()</span>
@@ -1588,7 +1587,7 @@ data/cars-out-pqt
 <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># 设置DataFrame orderTot的别名为OrderTotal</span>
-<span class="n">orderTot</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;OrderID&#39;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="s1">&#39;OrderPrice&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;OrderTotal&#39;</span><span class="p">)</span>
+<span class="n">orderTot</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;OrderID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;OrderPrice&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;OrderTotal&#39;</span><span class="p">)</span>
 <span class="n">orderTot</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&#34;OrderID&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">orders_df</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">orderTot</span><span class="p">,</span> <span class="n">orders</span><span class="p">[</span><span class="s2">&#34;OrderID&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="n">orderTot</span><span class="p">[</span><span class="s2">&#34;OrderID&#34;</span><span class="p">],</span> <span class="s2">&#34;inner&#34;</span><span class="p">)</span> \
@@ -1601,7 +1600,7 @@ data/cars-out-pqt
 <span class="n">orders_df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&#34;CustomerID&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># 过滤出空行</span>
-<span class="n">orders_df</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">orders_df</span><span class="p">[</span><span class="s2">&#34;Total&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">isNull</span><span class="p">())</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">orders_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">orders_df</span><span class="p">[</span><span class="s2">&#34;Total&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">isNull</span><span class="p">())</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># 添加Date列</span>
 <span class="n">orders_df2</span> <span class="o">=</span> <span class="n">orders_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">to_date</span><span class="p">(</span><span class="n">orders_df</span><span class="p">[</span><span class="s1">&#39;OrderDate&#39;</span><span class="p">]))</span>
@@ -1615,11 +1614,11 @@ data/cars-out-pqt
 <span class="n">orders_df3</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
 
 <span class="c1"># 问题3</span>
-<span class="n">ordersByYM</span> <span class="o">=</span> <span class="n">orders_df3</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&#34;Year&#34;</span><span class="p">,</span> <span class="s2">&#34;Month&#34;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span>
+<span class="n">ordersByYM</span> <span class="o">=</span> <span class="n">orders_df3</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&#34;Year&#34;</span><span class="p">,</span> <span class="s2">&#34;Month&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span>
 <span class="n">ordersByYM</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ordersByYM</span><span class="p">[</span><span class="s2">&#34;Year&#34;</span><span class="p">],</span> <span class="n">ordersByYM</span><span class="p">[</span><span class="s2">&#34;Month&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># 问题4</span>
-<span class="n">ordersByCY</span> <span class="o">=</span> <span class="n">orders_df3</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&#34;CustomerID&#34;</span><span class="p">,</span> <span class="s2">&#34;Year&#34;</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span>
+<span class="n">ordersByCY</span> <span class="o">=</span> <span class="n">orders_df3</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&#34;CustomerID&#34;</span><span class="p">,</span> <span class="s2">&#34;Year&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&#34;Total&#34;</span><span class="p">)</span>
 <span class="n">ordersByCY</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ordersByCY</span><span class="p">[</span><span class="s2">&#34;CustomerID&#34;</span><span class="p">],</span> <span class="n">ordersByCY</span><span class="p">[</span><span class="s2">&#34;Year&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># 问题5</span>

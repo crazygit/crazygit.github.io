@@ -34,7 +34,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.58.2" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/04/python-for-data-analysis-2nd-edition-note-two/" />
@@ -66,9 +66,8 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/04/python-for-data-analysis-2nd-edition-note-two/" />
-<meta property="article:published_time" content="2018-01-04T21:33:14&#43;08:00"/>
-<meta property="article:modified_time" content="2018-01-04T21:33:14&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-01-04T21:33:14+08:00" />
+<meta property="article:modified_time" content="2018-01-04T21:33:14+08:00" />
 <meta itemprop="name" content="《利用Python进行数据分析第二版》读书笔记三">
 <meta itemprop="description" content="本文主要介绍使用Pandas进行数据合并，拼接和变型
 ">
@@ -729,14 +728,14 @@ if (!doNotTrack) {
 <span class="n">b</span>    <span class="mi">1</span>        <span class="mi">6</span>   <span class="mi">7</span>        <span class="mi">8</span>
      <span class="mi">2</span>        <span class="mi">9</span>  <span class="mi">10</span>       <span class="mi">11</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key2&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key2&#39;</span><span class="p">)</span>
 <span class="n">state</span>  <span class="n">Ohio</span>     <span class="n">Colorado</span>
 <span class="n">color</span> <span class="n">Green</span> <span class="n">Red</span>    <span class="n">Green</span>
 <span class="n">key2</span>
 <span class="mi">1</span>         <span class="mi">6</span>   <span class="mi">8</span>       <span class="mi">10</span>
 <span class="mi">2</span>        <span class="mi">12</span>  <span class="mi">14</span>       <span class="mi">16</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">frame</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">color</span>      <span class="n">Green</span>  <span class="n">Red</span>
 <span class="n">key1</span> <span class="n">key2</span>
 <span class="n">a</span>    <span class="mi">1</span>         <span class="mi">2</span>    <span class="mi">1</span>
@@ -2225,8 +2224,8 @@ if (!doNotTrack) {
 
 <ul>
 <li><code>stack</code>: 把列转换为行</li>
-<li><code>unstack</code>: 把行转换为列</li>
-</ul>
+
+<li><p><code>unstack</code>: 把行转换为列</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -2278,11 +2277,11 @@ if (!doNotTrack) {
 <span class="o">&gt;&gt;&gt;</span> <span class="n">result</span>
 <span class="n">state</span>     <span class="n">number</span>
 <span class="n">Ohio</span>      <span class="n">one</span>       <span class="mi">0</span>
-          <span class="n">two</span>       <span class="mi">1</span>
-          <span class="n">three</span>     <span class="mi">2</span>
+      <span class="n">two</span>       <span class="mi">1</span>
+      <span class="n">three</span>     <span class="mi">2</span>
 <span class="n">Colorado</span>  <span class="n">one</span>       <span class="mi">3</span>
-          <span class="n">two</span>       <span class="mi">4</span>
-          <span class="n">three</span>     <span class="mi">5</span>
+      <span class="n">two</span>       <span class="mi">4</span>
+      <span class="n">three</span>     <span class="mi">5</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 
 <span class="c1"># 把行转换为列</span>
@@ -2292,7 +2291,9 @@ if (!doNotTrack) {
 <span class="n">Ohio</span>        <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>
 <span class="n">Colorado</span>    <span class="mi">3</span>    <span class="mi">4</span>      <span class="mi">5</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>默认情况下<code>unstack</code>是从最里层的列被转换为行(<code>stack</code>函数也类似)。也可以通过层的索引和名字来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
