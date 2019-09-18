@@ -75,7 +75,7 @@
 
 <meta itemprop="datePublished" content="2019-09-18T10:44:29&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-18T10:44:29&#43;08:00" />
-<meta itemprop="wordCount" content="2972">
+<meta itemprop="wordCount" content="2949">
 
 
 
@@ -342,7 +342,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/java-libraries/"> java-libraries </a>
             
           </div>
-        <span class="more-meta"> 约 2972 字 </span>
+        <span class="more-meta"> 约 2949 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -374,6 +374,17 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#命令行中使用">命令行中使用</a></li>
 <li><a href="#intellij中使用-https-github-com-mplushnikov-lombok-intellij-plugin"><a href="https://github.com/mplushnikov/lombok-intellij-plugin">IntelliJ中使用</a></a></li>
+</ul></li>
+<li><a href="#常用注解介绍">常用注解介绍</a>
+<ul>
+<li><a href="#val"><code>val</code></a></li>
+<li><a href="#var"><code>var</code></a></li>
+<li><a href="#nonnull"><code>@NonNull</code></a></li>
+<li><a href="#cleanup"><code>@Cleanup</code></a></li>
+<li><a href="#getter-setter"><code>@Getter @Setter</code></a></li>
+<li><a href="#tostring"><code>@ToString</code></a></li>
+<li><a href="#data"><code>@Data</code></a></li>
+<li><a href="#log"><code>@Log</code></a></li>
 <li><a href="#value"><code>@Value</code></a></li>
 <li><a href="#builder"><code>@Builder</code></a></li>
 <li><a href="#synchronized"><code>@Synchronized</code></a></li>
@@ -497,11 +508,9 @@ if (!doNotTrack) {
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">Data</span><span class="p">;</span>
-
 
 <span class="nd">@Data</span>
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">PersonWithLombok</span> <span class="p">{</span>
@@ -632,50 +641,81 @@ if (!doNotTrack) {
 <li><p>如果使用的是<code>Gradle</code>, 在<code>build.gradle</code>中添加如下内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></code></pre></td>
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="c1">// &#39;compile&#39; can be changed to &#39;compileOnly&#39; for Gradle 2.12+
-</span><span class="c1">// or &#39;provided&#39; if using &#39;propdeps&#39; plugin from SpringSource
-</span><span class="c1"></span><span class="n">compile</span> <span class="s2">&#34;org.projectlombok:lombok:1.18.8&#34;</span></code></pre></td></tr></table>
+<pre class="chroma">```groovy
+// &#39;compile&#39; can be changed to &#39;compileOnly&#39; for Gradle 2.12+
+// or &#39;provided&#39; if using &#39;propdeps&#39; plugin from SpringSource
+compile &#34;org.projectlombok:lombok:1.18.8&#34;
+```</pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>如果使用的是<code>Maven</code>，直接在<code>pom.xml</code>中添加如下内容,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-<span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
-<span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;version&gt;</span>1.18.8<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;/dependencies&gt;</span></code></pre></td></tr></table>
+<pre class="chroma">```xml
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.18.8&lt;/version&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+```</pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-</ol>
 
-<p>	* 如果使用的是<code>Ivy</code>, 在<code>ivy.xml</code>中添加如下内容</p>
-
-<p>	```xml
-<dependency org="org.projectlombok" name="lombok" rev="1.18.8" conf="build" /></p>
+<li><p>如果使用的是<code>Ivy</code>, 在<code>ivy.xml</code>中添加如下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">```xml
+    &lt;dependency org=&#34;org.projectlombok&#34; name=&#34;lombok&#34; rev=&#34;1.18.8&#34; conf=&#34;build&#34; /&gt;
+```</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>如果没有使用任何构建工具，那需要手动下载<a href="https://projectlombok.org/downloads/lombok.jar">lombock.jar</a>, 然后在<code>项目结构</code>中，把下载的<code>lombok.jar</code>添加到项目依赖的<code>Libraries</code>中</p>
+
+<p><img src="http://images.wiseturtles.com/1568771143.png" alt="添加lombok.jar到项目的classpath中" /></p></li>
+</ul></li>
+
+<li><p>创建一个类<code>PersonWithLombok.java</code>，测试效果,如下图，从类结构中可以看到，IDE已经自动识别出使用<code>Lombok</code>后生成的代码</p>
+
+<p><img src="http://images.wiseturtles.com/1568771270.png" alt="效果图" /></p></li>
+</ol>
+
+<h3 id="常用注解介绍">常用注解介绍</h3>
+
+<h4 id="val"><code>val</code></h4>
+
+<p>作用在局部变量，用于定义一个局部变量，并将它声明为<code>final</code>, 不用声明变量类型，它会根据初始赋值自动推动变量类型。<strong>只能用于局部变量或loop循环中，不能用于类的属性</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -689,196 +729,42 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    * 如果没有使用任何构建工具，那需要手动下载[lombock.jar](https://projectlombok.org/downloads/lombok.jar), 然后在`项目结构`中，把下载的`lombok.jar`添加到项目依赖的`Libraries`中
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
 
-    ![添加lombok.jar到项目的classpath中](http://images.wiseturtles.com/1568771143.png)
-
-4. 创建一个类`PersonWithLombok.java`，测试效果,如下图，从类结构中可以看到，IDE已经自动识别出使用`Lombok`后生成的代码
-
-    ![效果图](http://images.wiseturtles.com/1568771270.png)
-
-
-### 常用注解介绍
-
-#### `val` 
-
-作用在局部变量，用于定义一个局部变量，并将它声明为`final`, 不用声明变量类型，它会根据初始赋值自动推动变量类型。**只能用于局部变量或loop循环中，不能用于类的属性**。</pre></td></tr></table>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">ValExample</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="nf">String</span> <span class="n">example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">val</span> <span class="nf">example</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">example</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">);</span>
+    <span class="n">val</span> <span class="nf">foo</span> <span class="o">=</span> <span class="n">example</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="kd">public</span> <span class="nf">void</span> <span class="n">example2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">val</span> <span class="nf">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="s">&#34;zero&#34;</span><span class="p">);</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="s">&#34;five&#34;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">val</span> <span class="nf">entry</span> <span class="o">:</span> <span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%d: %s\n&#34;</span><span class="p">,</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">(),</span> <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-import java.util.ArrayList;
-import java.util.HashMap;
-import lombok.val;</p>
-
-<p>public class ValExample {
-  public String example() {
-    val example = new ArrayList<String>();
-    example.add(&ldquo;Hello, World!&rdquo;);
-    val foo = example.get(0);
-    return foo.toLowerCase();
-  }</p>
-
-<p>public void example2() {
-    val map = new HashMap<Integer, String>();
-    map.put(0, &ldquo;zero&rdquo;);
-    map.put(5, &ldquo;five&rdquo;);
-    for (val entry : map.entrySet()) {
-      System.out.printf(&ldquo;%d: %s\n&rdquo;, entry.getKey(), entry.getValue());
-    }
-  }
-}</p>
+<p>等效于</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">等效于</pre></td></tr></table>
-</div>
-</div>
-<p>java
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;</p>
-
-<p>public class ValExample {
-  public String example() {
-    final ArrayList<String> example = new ArrayList<String>();
-    example.add(&ldquo;Hello, World!&rdquo;);
-    final String foo = example.get(0);
-    return foo.toLowerCase();
-  }</p>
-
-<p>public void example2() {
-    final HashMap<Integer, String> map = new HashMap<Integer, String>();
-    map.put(0, &ldquo;zero&rdquo;);
-    map.put(5, &ldquo;five&rdquo;);
-    for (final Map.Entry<Integer, String> entry : map.entrySet()) {
-      System.out.printf(&ldquo;%d: %s\n&rdquo;, entry.getKey(), entry.getValue());
-    }
-  }
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#### `var`
-
-与`val`功能类似，除了变量不会标记为`final`
-
-#### `@NonNull`
-
-非空检查</pre></td></tr></table>
-</div>
-</div>
-<p>java
-import lombok.NonNull;</p>
-
-<p>public class NonNullExample extends Something {
-  private String name;</p>
-
-<p>public NonNullExample(@NonNull Person person) {
-    super(&ldquo;Hello&rdquo;);
-    this.name = person.getName();
-  }
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">等效于</pre></td></tr></table>
-</div>
-</div>
-<p>java</p>
-
-<p>import lombok.NonNull;</p>
-
-<p>public class NonNullExample extends Something {
-  private String name;</p>
-
-<p>public NonNullExample(@NonNull Person person) {
-    super(&ldquo;Hello&rdquo;);
-    if (person == null) {
-      throw new NullPointerException(&ldquo;person is marked @NonNull but is null&rdquo;);
-    }
-    this.name = person.getName();
-  }
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#### `@Cleanup`
-
-资源管理，自动调用`close()`方法</pre></td></tr></table>
-</div>
-</div>
-<p>java
-import lombok.Cleanup;
-import java.io.*;</p>
-
-<p>public class CleanupExample {
-  public static void main(String[] args) throws IOException {
-    @Cleanup InputStream in = new FileInputStream(args[0]);
-    @Cleanup OutputStream out = new FileOutputStream(args[1]);
-    byte[] b = new byte[10000];
-    while (true) {
-      int r = in.read(b);
-      if (r == -1) break;
-      out.write(b, 0, r);
-    }
-  }
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">等价于</pre></td></tr></table>
-</div>
-</div>
-<p>java
-import java.io.*;</p>
-
-<p>public class CleanupExample {
-  public static void main(String[] args) throws IOException {
-    InputStream in = new FileInputStream(args[0]);
-    try {
-      OutputStream out = new FileOutputStream(args[1]);
-      try {
-        byte[] b = new byte[10000];
-        while (true) {
-          int r = in.read(b);
-          if (r == -1) break;
-          out.write(b, 0, r);
-        }
-      } finally {
-        if (out != null) {
-          out.close();
-        }
-      }
-    } finally {
-      if (in != null) {
-        in.close();
-      }
-    }
-  }
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -888,282 +774,611 @@ import java.io.*;</p>
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#### `@Getter @Setter`
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="p">;</span>
 
-自动生成`Getter`和`Setter`代码
-
-
-* 默认情况下，生成的getter/setter方法被标记为`public`,除非指定了`AccessLevel`
-
-* 同样可以加`@Getter`和`@Setter`注解作用到类上， 那样类中所有的非静态属性都会自动生成getter/setter代码
-
-* 如果不想给某个属性自动生成getter/setter代码，可以标记类属性为`AccessLevel.NONE`。这样可以覆盖给类添加`@Getter`, `@Setter` `@Data`产生的行为。</pre></td></tr></table>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">ValExample</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="nf">String</span> <span class="n">example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="nf">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">example</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">example</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">);</span>
+    <span class="kd">final</span> <span class="nf">String</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">example</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="kd">public</span> <span class="nf">void</span> <span class="n">example2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="nf">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="s">&#34;zero&#34;</span><span class="p">);</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="s">&#34;five&#34;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">final</span> <span class="nf">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">entry</span> <span class="o">:</span> <span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%d: %s\n&#34;</span><span class="p">,</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">(),</span> <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;</p>
+<h4 id="var"><code>var</code></h4>
 
-<p>public class GetterSetterExample {
-  /**
-   * Age of the person. Water is wet.
-   *
-   * @param age New value for this person&rsquo;s age. Sky is blue.
-   * @return The current value of this person&rsquo;s age. Circles are round.
-   */
-  @Getter @Setter private int age = 10;</p>
+<p>与<code>val</code>功能类似，除了变量不会标记为<code>final</code></p>
 
-<p>/**
-   * Name of the person.
-   * &ndash; SETTER &ndash;
-   * Changes the name of this person.
-   *
-   * @param name The new value.
-   */
-  @Setter(AccessLevel.PROTECTED) private String name;</p>
+<h4 id="nonnull"><code>@NonNull</code></h4>
 
-<p>@Override public String toString() {
-    return String.format(&ldquo;%s (age: %d)&ldquo;, name, age);
-  }
-}</p>
+<p>非空检查</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">等价于</pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">NonNull</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">NonNullExample</span> <span class="nf">extends</span> <span class="n">Something</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  
+  <span class="kd">public</span> <span class="nf">NonNullExample</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">Person</span> <span class="nf">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-public class GetterSetterExample {
-  /**
-   * Age of the person. Water is wet.
-   */
-  private int age = 10;</p>
-
-<p>/**
-   * Name of the person.
-   */
-  private String name;</p>
-
-<p>@Override public String toString() {
-    return String.format(&ldquo;%s (age: %d)&ldquo;, name, age);
-  }</p>
-
-<p>/**
-   * Age of the person. Water is wet.
-   *
-   * @return The current value of this person&rsquo;s age. Circles are round.
-   */
-  public int getAge() {
-    return age;
-  }</p>
-
-<p>/**
-   * Age of the person. Water is wet.
-   *
-   * @param age New value for this person&rsquo;s age. Sky is blue.
-   */
-  public void setAge(int age) {
-    this.age = age;
-  }</p>
-
-<p>/**
-   * Changes the name of this person.
-   *
-   * @param name The new value.
-   */
-  protected void setName(String name) {
-    this.name = name;
-  }
-}</p>
+<p>等效于</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#### `@ToString`
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">NonNull</span><span class="p">;</span>
 
-自动添加`toSting()`方法，默认使用类名 + 所有的非静态属性值。
-
-可以通过`@ToString.Exclude`来排除一些不想添加到toString()中的属性</pre></td></tr></table>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">NonNullExample</span> <span class="nf">extends</span> <span class="n">Something</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  
+  <span class="kd">public</span> <span class="nf">NonNullExample</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">Person</span> <span class="nf">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">person</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&#34;person is marked @NonNull but is null&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-import lombok.ToString;</p>
+<h4 id="cleanup"><code>@Cleanup</code></h4>
 
-<p>@ToString
-public class ToStringExample {
-  private static final int STATIC_VAR = 10;
-  private String name;
-  private Shape shape = new Square(5, 10);
-  private String[] tags;
-  @ToString.Exclude private int id;</p>
-
-<p>public String getName() {
-    return this.name;
-  }</p>
-
-<p>@ToString(callSuper=true, includeFieldNames=true)
-  public static class Square extends Shape {
-    private final int width, height;</p>
+<p>资源管理，自动调用<code>close()</code>方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">public Square(int width, int height) {
-  this.width = width;
-  this.height = height;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">Cleanup</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">CleanupExample</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="nf">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="nf">IOException</span> <span class="p">{</span>
+    <span class="nd">@Cleanup</span> <span class="n">InputStream</span> <span class="nf">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">0</span><span class="p">]);</span>
+    <span class="nd">@Cleanup</span> <span class="n">OutputStream</span> <span class="nf">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">1</span><span class="p">]);</span>
+    <span class="kt">byte</span><span class="p">[]</span> <span class="nf">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">10000</span><span class="p">];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="nf">r</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="o">-</span><span class="n">1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+      <span class="n">out</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>}
-}</p>
+<p>等价于</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">等价于</pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">CleanupExample</span> <span class="p">{</span>
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="nf">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="nf">IOException</span> <span class="p">{</span>
+    <span class="n">InputStream</span> <span class="nf">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">0</span><span class="p">]);</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">OutputStream</span> <span class="nf">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">1</span><span class="p">]);</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kt">byte</span><span class="p">[]</span> <span class="nf">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">10000</span><span class="p">];</span>
+        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kt">int</span> <span class="nf">r</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="o">-</span><span class="n">1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+          <span class="n">out</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">in</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-import java.util.Arrays;</p>
+<h4 id="getter-setter"><code>@Getter @Setter</code></h4>
 
-<p>public class ToStringExample {
-  private static final int STATIC_VAR = 10;
-  private String name;
-  private Shape shape = new Square(5, 10);
-  private String[] tags;
-  private int id;</p>
+<p>自动生成<code>Getter</code>和<code>Setter</code>代码</p>
 
-<p>public String getName() {
-    return this.getName();
-  }</p>
+<ul>
+<li><p>默认情况下，生成的getter/setter方法被标记为<code>public</code>,除非指定了<code>AccessLevel</code></p></li>
 
-<p>public static class Square extends Shape {
-    private final int width, height;</p>
+<li><p>同样可以加<code>@Getter</code>和<code>@Setter</code>注解作用到类上， 那样类中所有的非静态属性都会自动生成getter/setter代码</p></li>
+
+<li><p>如果不想给某个属性自动生成getter/setter代码，可以标记类属性为<code>AccessLevel.NONE</code>。这样可以覆盖给类添加<code>@Getter</code>, <code>@Setter</code> <code>@Data</code>产生的行为。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">public Square(int width, int height) {
-  this.width = width;
-  this.height = height;
-}
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">AccessLevel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">Getter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">Setter</span><span class="p">;</span>
 
-@Override public String toString() {
-  return &#34;Square(super=&#34; + super.toString() + &#34;, width=&#34; + this.width + &#34;, height=&#34; + this.height + &#34;)&#34;;
-}</pre></td></tr></table>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">GetterSetterExample</span> <span class="p">{</span>
+<span class="cm">/**
+</span><span class="cm">* Age of the person. Water is wet.
+</span><span class="cm">* 
+</span><span class="cm">* @param age New value for this person&#39;s age. Sky is blue.
+</span><span class="cm">* @return The current value of this person&#39;s age. Circles are round.
+</span><span class="cm">*/</span>
+<span class="nd">@Getter</span> <span class="nd">@Setter</span> <span class="kd">private</span> <span class="nf">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">10</span><span class="p">;</span>
+  
+<span class="cm">/**
+</span><span class="cm">* Name of the person.
+</span><span class="cm">* -- SETTER --
+</span><span class="cm">* Changes the name of this person.
+</span><span class="cm">* 
+</span><span class="cm">* @param name The new value.
+</span><span class="cm">*/</span>
+<span class="nd">@Setter</span><span class="p">(</span><span class="n">AccessLevel</span><span class="p">.</span><span class="na">PROTECTED</span><span class="p">)</span> <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  
+<span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;%s (age: %d)&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>}</p>
+</div></li>
+</ul>
 
-<p>@Override public String toString() {
-    return &ldquo;ToStringExample(&rdquo; + this.getName() + &ldquo;, &rdquo; + this.shape + &ldquo;, &rdquo; + Arrays.deepToString(this.tags) + &ldquo;)&rdquo;;
-  }
-}</p>
+<p>等价于</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#### `@Data`
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">GetterSetterExample</span> <span class="p">{</span>
+  <span class="cm">/**
+</span><span class="cm">   * Age of the person. Water is wet.
+</span><span class="cm">   */</span>
+  <span class="kd">private</span> <span class="nf">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">10</span><span class="p">;</span>
 
-相当于`@ToString`, `@EqualsAndHashCode`, `@Getter`,`@Setter`,`@RequiredArgsConstructor`的组合
-
-#### `@Log`
-
-自动为类添加`log`属性，方便直接使用log</pre></td></tr></table>
+  <span class="cm">/**
+</span><span class="cm">   * Name of the person.
+</span><span class="cm">   */</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;%s (age: %d)&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="cm">/**
+</span><span class="cm">   * Age of the person. Water is wet.
+</span><span class="cm">   *
+</span><span class="cm">   * @return The current value of this person&#39;s age. Circles are round.
+</span><span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">int</span> <span class="n">getAge</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">age</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="cm">/**
+</span><span class="cm">   * Age of the person. Water is wet.
+</span><span class="cm">   *
+</span><span class="cm">   * @param age New value for this person&#39;s age. Sky is blue.
+</span><span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">void</span> <span class="n">setAge</span><span class="p">(</span><span class="kt">int</span> <span class="nf">age</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="cm">/**
+</span><span class="cm">   * Changes the name of this person.
+</span><span class="cm">   *
+</span><span class="cm">   * @param name The new value.
+</span><span class="cm">   */</span>
+  <span class="kd">protected</span> <span class="nf">void</span> <span class="n">setName</span><span class="p">(</span><span class="n">String</span> <span class="nf">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;</p>
+<h4 id="tostring"><code>@ToString</code></h4>
 
-<p>@Log
-public class LogExample {</p>
+<p>自动添加<code>toSting()</code>方法，默认使用类名 + 所有的非静态属性值。</p>
 
-<p>public static void main(String&hellip; args) {
-    log.severe(&ldquo;Something&rsquo;s wrong here&rdquo;);
-  }
-}</p>
-
-<p>@Slf4j
-public class LogExampleOther {</p>
-
-<p>public static void main(String&hellip; args) {
-    log.error(&ldquo;Something else is wrong here&rdquo;);
-  }
-}</p>
-
-<p>@CommonsLog(topic=&ldquo;CounterLog&rdquo;)
-public class LogExampleCategory {</p>
-
-<p>public static void main(String&hellip; args) {
-    log.error(&ldquo;Calling the &lsquo;CounterLog&rsquo; with a message&rdquo;);
-  }
-}</p>
+<p>可以通过<code>@ToString.Exclude</code>来排除一些不想添加到toString()中的属性</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">等价于</pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">ToString</span><span class="p">;</span>
+
+<span class="nd">@ToString</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">ToStringExample</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">int</span> <span class="n">STATIC_VAR</span> <span class="o">=</span> <span class="n">10</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="nf">Shape</span> <span class="n">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Square</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">10</span><span class="p">);</span>
+  <span class="kd">private</span> <span class="nf">String</span><span class="p">[]</span> <span class="n">tags</span><span class="p">;</span>
+  <span class="nd">@ToString.Exclude</span> <span class="kd">private</span> <span class="nf">int</span> <span class="n">id</span><span class="p">;</span>
+  
+  <span class="kd">public</span> <span class="nf">String</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nd">@ToString</span><span class="p">(</span><span class="n">callSuper</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span> <span class="n">includeFieldNames</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kd">class</span> <span class="nf">Square</span> <span class="kd">extends</span> <span class="nf">Shape</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="nf">final</span> <span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="kt">int</span> <span class="nf">height</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>java
-public class LogExample {
-  private static final java.util.logging.Logger log = java.util.logging.Logger.getLogger(LogExample.class.getName());</p>
+<p>等价于</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Arrays</span><span class="p">;</span>
 
-<p>public static void main(String&hellip; args) {
-    log.severe(&ldquo;Something&rsquo;s wrong here&rdquo;);
-  }
-}</p>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">ToStringExample</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">int</span> <span class="n">STATIC_VAR</span> <span class="o">=</span> <span class="n">10</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="nf">Shape</span> <span class="n">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Square</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">10</span><span class="p">);</span>
+  <span class="kd">private</span> <span class="nf">String</span><span class="p">[]</span> <span class="n">tags</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="nf">int</span> <span class="n">id</span><span class="p">;</span>
+  
+  <span class="kd">public</span> <span class="nf">String</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kd">class</span> <span class="nf">Square</span> <span class="kd">extends</span> <span class="nf">Shape</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="nf">final</span> <span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="kt">int</span> <span class="nf">height</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="s">&#34;Square(super=&#34;</span> <span class="o">+</span> <span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;, width=&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="s">&#34;, height=&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">+</span> <span class="s">&#34;)&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&#34;ToStringExample(&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;, &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">shape</span> <span class="o">+</span> <span class="s">&#34;, &#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">deepToString</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tags</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;)&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="data"><code>@Data</code></h4>
 
-<p>public class LogExampleOther {
-  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LogExampleOther.class);</p>
+<p>相当于<code>@ToString</code>, <code>@EqualsAndHashCode</code>, <code>@Getter</code>,<code>@Setter</code>,<code>@RequiredArgsConstructor</code>的组合</p>
 
-<p>public static void main(String&hellip; args) {
-    log.error(&ldquo;Something else is wrong here&rdquo;);
-  }
-}</p>
+<h4 id="log"><code>@Log</code></h4>
 
-<p>public class LogExampleCategory {
-  private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(&ldquo;CounterLog&rdquo;);</p>
+<p>自动为类添加<code>log</code>属性，方便直接使用log</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">extern</span><span class="p">.</span><span class="na">java</span><span class="p">.</span><span class="na">Log</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">extern</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">Slf4j</span><span class="p">;</span>
 
-<p>public static void main(String&hellip; args) {
-    log.error(&ldquo;Calling the &lsquo;CounterLog&rsquo; with a message&rdquo;);
-  }
-}</p>
+<span class="nd">@Log</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExample</span> <span class="p">{</span>
+  
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">severe</span><span class="p">(</span><span class="s">&#34;Something&#39;s wrong here&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<p>```</p>
+<span class="nd">@Slf4j</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleOther</span> <span class="p">{</span>
+  
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Something else is wrong here&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
+<span class="nd">@CommonsLog</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="s">&#34;CounterLog&#34;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleCategory</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Calling the &#39;CounterLog&#39; with a message&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>等价于</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExample</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">LogExample</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+  
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">severe</span><span class="p">(</span><span class="s">&#34;Something&#39;s wrong here&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleOther</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">LogExampleOther</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+  
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Something else is wrong here&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleCategory</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">commons</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">Log</span> <span class="n">log</span> <span class="o">=</span> <span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">commons</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">LogFactory</span><span class="p">.</span><span class="na">getLog</span><span class="p">(</span><span class="s">&#34;CounterLog&#34;</span><span class="p">);</span>
+
+  <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Calling the &#39;CounterLog&#39; with a message&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>下面注解的使用，可以<a href="https://projectlombok.org/features/all">参考官方文档</a></p>
 
 <h4 id="value"><code>@Value</code></h4>
