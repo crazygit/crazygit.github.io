@@ -75,7 +75,7 @@
 
 <meta itemprop="datePublished" content="2019-09-18T10:44:29&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-18T10:44:29&#43;08:00" />
-<meta itemprop="wordCount" content="2949">
+<meta itemprop="wordCount" content="2938">
 
 
 
@@ -342,7 +342,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/java-libraries/"> java-libraries </a>
             
           </div>
-        <span class="more-meta"> 约 2949 字 </span>
+        <span class="more-meta"> 约 2938 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -541,9 +541,14 @@ if (!doNotTrack) {
 <li>下载最新版本的<a href="https://projectlombok.org/downloads/lombok.jar">lombock.jar</a></li>
 
 <li><p>创建<code>PersonWithLombok.java</code>类文件</p>
-
-<p><code>$ cat PersonWithLombok.java</code></p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat PersonWithLombok.java</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
 </span><span class="lnt">2
@@ -556,8 +561,8 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">lombok</span><span class="p">.</span><span class="na">Data</span><span class="p">;</span>
-    
-    
+
+
 <span class="nd">@Data</span>
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">PersonWithLombok</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
@@ -576,7 +581,7 @@ if (!doNotTrack) {
 </div>
 </div></li>
 
-<li><p>查看生产的<code>class</code>文件</p>
+<li><p>查看生成的<code>class</code>文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -613,10 +618,9 @@ if (!doNotTrack) {
   <span class="kd">public</span> <span class="nf">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">toString</span><span class="p">();</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div></li>
+</div>
+<p>可以看到自动生成了相关代码</p></li>
 </ol>
-
-<p>可以看到自动生成了相关代码</p>
 
 <h4 id="intellij中使用-https-github-com-mplushnikov-lombok-intellij-plugin"><a href="https://github.com/mplushnikov/lombok-intellij-plugin">IntelliJ中使用</a></h4>
 
@@ -641,60 +645,48 @@ if (!doNotTrack) {
 <li><p>如果使用的是<code>Gradle</code>, 在<code>build.gradle</code>中添加如下内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">```groovy
-// &#39;compile&#39; can be changed to &#39;compileOnly&#39; for Gradle 2.12+
-// or &#39;provided&#39; if using &#39;propdeps&#39; plugin from SpringSource
-compile &#34;org.projectlombok:lombok:1.18.8&#34;
-```</pre></td></tr></table>
+<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="c1">// &#39;compile&#39; can be changed to &#39;compileOnly&#39; for Gradle 2.12+
+</span><span class="c1">// or &#39;provided&#39; if using &#39;propdeps&#39; plugin from SpringSource
+</span><span class="c1"></span><span class="n">compile</span> <span class="s2">&#34;org.projectlombok:lombok:1.18.8&#34;</span></code></pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>如果使用的是<code>Maven</code>，直接在<code>pom.xml</code>中添加如下内容,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></pre></td>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">```xml
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
-        &lt;version&gt;1.18.8&lt;/version&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-```</pre></td></tr></table>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.18.8<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span></code></pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>如果使用的是<code>Ivy</code>, 在<code>ivy.xml</code>中添加如下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">```xml
-    &lt;dependency org=&#34;org.projectlombok&#34; name=&#34;lombok&#34; rev=&#34;1.18.8&#34; conf=&#34;build&#34; /&gt;
-```</pre></td></tr></table>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&#34;org.projectlombok&#34;</span> <span class="na">name=</span><span class="s">&#34;lombok&#34;</span> <span class="na">rev=</span><span class="s">&#34;1.18.8&#34;</span> <span class="na">conf=</span><span class="s">&#34;build&#34;</span> <span class="nt">/&gt;</span></code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -749,7 +741,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
     <span class="n">val</span> <span class="nf">foo</span> <span class="o">=</span> <span class="n">example</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">();</span>
   <span class="p">}</span>
-  
+
   <span class="kd">public</span> <span class="nf">void</span> <span class="n">example2</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">val</span> <span class="nf">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
     <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="s">&#34;zero&#34;</span><span class="p">);</span>
@@ -798,7 +790,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
     <span class="kd">final</span> <span class="nf">String</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">example</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">();</span>
   <span class="p">}</span>
-  
+
   <span class="kd">public</span> <span class="nf">void</span> <span class="n">example2</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">final</span> <span class="nf">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
     <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="s">&#34;zero&#34;</span><span class="p">);</span>
@@ -835,7 +827,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">NonNullExample</span> <span class="nf">extends</span> <span class="n">Something</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
-  
+
   <span class="kd">public</span> <span class="nf">NonNullExample</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">Person</span> <span class="nf">person</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">super</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
@@ -865,7 +857,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">NonNullExample</span> <span class="nf">extends</span> <span class="n">Something</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
-  
+
   <span class="kd">public</span> <span class="nf">NonNullExample</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">Person</span> <span class="nf">person</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">super</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">person</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
@@ -1021,21 +1013,21 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">GetterSetterExample</span> <span class="p">{</span>
 <span class="cm">/**
 </span><span class="cm">* Age of the person. Water is wet.
-</span><span class="cm">* 
+</span><span class="cm">*
 </span><span class="cm">* @param age New value for this person&#39;s age. Sky is blue.
 </span><span class="cm">* @return The current value of this person&#39;s age. Circles are round.
 </span><span class="cm">*/</span>
 <span class="nd">@Getter</span> <span class="nd">@Setter</span> <span class="kd">private</span> <span class="nf">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">10</span><span class="p">;</span>
-  
+
 <span class="cm">/**
 </span><span class="cm">* Name of the person.
 </span><span class="cm">* -- SETTER --
 </span><span class="cm">* Changes the name of this person.
-</span><span class="cm">* 
+</span><span class="cm">*
 </span><span class="cm">* @param name The new value.
 </span><span class="cm">*/</span>
 <span class="nd">@Setter</span><span class="p">(</span><span class="n">AccessLevel</span><span class="p">.</span><span class="na">PROTECTED</span><span class="p">)</span> <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
-  
+
 <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
 <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;%s (age: %d)&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1101,11 +1093,11 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 </span><span class="cm">   * Name of the person.
 </span><span class="cm">   */</span>
   <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
-  
+
   <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;%s (age: %d)&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
   <span class="p">}</span>
-  
+
   <span class="cm">/**
 </span><span class="cm">   * Age of the person. Water is wet.
 </span><span class="cm">   *
@@ -1114,7 +1106,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
   <span class="kd">public</span> <span class="nf">int</span> <span class="n">getAge</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">age</span><span class="p">;</span>
   <span class="p">}</span>
-  
+
   <span class="cm">/**
 </span><span class="cm">   * Age of the person. Water is wet.
 </span><span class="cm">   *
@@ -1123,7 +1115,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
   <span class="kd">public</span> <span class="nf">void</span> <span class="n">setAge</span><span class="p">(</span><span class="kt">int</span> <span class="nf">age</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
   <span class="p">}</span>
-  
+
   <span class="cm">/**
 </span><span class="cm">   * Changes the name of this person.
 </span><span class="cm">   *
@@ -1177,15 +1169,15 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
   <span class="kd">private</span> <span class="nf">Shape</span> <span class="n">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Square</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">10</span><span class="p">);</span>
   <span class="kd">private</span> <span class="nf">String</span><span class="p">[]</span> <span class="n">tags</span><span class="p">;</span>
   <span class="nd">@ToString.Exclude</span> <span class="kd">private</span> <span class="nf">int</span> <span class="n">id</span><span class="p">;</span>
-  
+
   <span class="kd">public</span> <span class="nf">String</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span>
   <span class="p">}</span>
-  
+
   <span class="nd">@ToString</span><span class="p">(</span><span class="n">callSuper</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span> <span class="n">includeFieldNames</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
   <span class="kd">public</span> <span class="nf">static</span> <span class="kd">class</span> <span class="nf">Square</span> <span class="kd">extends</span> <span class="nf">Shape</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="nf">final</span> <span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-    
+
     <span class="kd">public</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="kt">int</span> <span class="nf">height</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
       <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
@@ -1237,24 +1229,24 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
   <span class="kd">private</span> <span class="nf">Shape</span> <span class="n">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Square</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">10</span><span class="p">);</span>
   <span class="kd">private</span> <span class="nf">String</span><span class="p">[]</span> <span class="n">tags</span><span class="p">;</span>
   <span class="kd">private</span> <span class="nf">int</span> <span class="n">id</span><span class="p">;</span>
-  
+
   <span class="kd">public</span> <span class="nf">String</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
   <span class="p">}</span>
-  
+
   <span class="kd">public</span> <span class="nf">static</span> <span class="kd">class</span> <span class="nf">Square</span> <span class="kd">extends</span> <span class="nf">Shape</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="nf">final</span> <span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-    
+
     <span class="kd">public</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="nf">width</span><span class="p">,</span> <span class="kt">int</span> <span class="nf">height</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
       <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
     <span class="p">}</span>
-    
+
     <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="s">&#34;Square(super=&#34;</span> <span class="o">+</span> <span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;, width=&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="s">&#34;, height=&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">+</span> <span class="s">&#34;)&#34;</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  
+
   <span class="nd">@Override</span> <span class="kd">public</span> <span class="nf">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s">&#34;ToStringExample(&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;, &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">shape</span> <span class="o">+</span> <span class="s">&#34;, &#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">deepToString</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tags</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;)&#34;</span><span class="p">;</span>
   <span class="p">}</span>
@@ -1303,7 +1295,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 
 <span class="nd">@Log</span>
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExample</span> <span class="p">{</span>
-  
+
   <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">log</span><span class="p">.</span><span class="na">severe</span><span class="p">(</span><span class="s">&#34;Something&#39;s wrong here&#34;</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1311,7 +1303,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 
 <span class="nd">@Slf4j</span>
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleOther</span> <span class="p">{</span>
-  
+
   <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Something else is wrong here&#34;</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1356,7 +1348,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExample</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">LogExample</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
-  
+
   <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">log</span><span class="p">.</span><span class="na">severe</span><span class="p">(</span><span class="s">&#34;Something&#39;s wrong here&#34;</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1364,7 +1356,7 @@ compile &#34;org.projectlombok:lombok:1.18.8&#34;
 
 <span class="kd">public</span> <span class="nf">class</span> <span class="n">LogExampleOther</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">LogExampleOther</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-  
+
   <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Something else is wrong here&#34;</span><span class="p">);</span>
   <span class="p">}</span>
