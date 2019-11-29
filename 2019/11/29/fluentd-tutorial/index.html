@@ -73,7 +73,7 @@
 ">
 <meta itemprop="datePublished" content="2019-11-29T15:29:29&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-29T15:29:29&#43;08:00" />
-<meta itemprop="wordCount" content="7326">
+<meta itemprop="wordCount" content="7378">
 
 
 
@@ -339,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/devops/"> DevOps </a>
             
           </div>
-        <span class="more-meta"> 约 7326 字 </span>
+        <span class="more-meta"> 约 7378 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
 
         
@@ -1794,6 +1794,23 @@ $ curl http://127.0.0.1:5000
 </span><span class="lnt">68
 </span><span class="lnt">69
 </span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">&lt;source&gt;
@@ -1840,10 +1857,10 @@ $ curl http://127.0.0.1:5000
         &lt;buffer tag, time&gt;
             @type file
             chunk_limit_size 1M
-            <span class="c1"># 每隔30秒写一次日志</span>
-            flush_interval 30s
-            <span class="c1"># flush_at_shutdown true</span>
-           flush_mode interval
+            <span class="c1"># 每隔1分钟写一次日志</span>
+            flush_interval 1m
+            flush_at_shutdown <span class="nb">true</span>
+            flush_mode interval
         &lt;/buffer&gt;
     &lt;/store&gt;
 
@@ -1858,13 +1875,30 @@ $ curl http://127.0.0.1:5000
        include_tag_key <span class="nb">true</span>
        type_name access_log
        tag_key @log_name
-       flush_interval 1s
     &lt;/store&gt;
 &lt;/match&gt;
 
 <span class="c1"># 其它日志处理</span>
 &lt;match **&gt;
-    @type stdout
+    @type copy
+
+    &lt;store&gt;
+        @type stdout
+    &lt;/store&gt;
+
+    <span class="c1"># 输出到others目录</span>
+    &lt;store&gt;
+        @type file
+        path /fluentd/log/others/<span class="si">${</span><span class="nv">tag</span><span class="si">}</span>/%Y%m%d
+        append <span class="nb">true</span>
+        &lt;buffer tag, time&gt;
+            @type file
+            chunk_limit_size 1M
+            flush_interval 1m
+            flush_at_shutdown <span class="nb">true</span>
+            flush_mode interval
+        &lt;/buffer&gt;
+    &lt;/store&gt;
 &lt;/match&gt;
 </code></pre></td></tr></table>
 </div>
