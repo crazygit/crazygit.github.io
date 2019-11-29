@@ -73,7 +73,7 @@
 ">
 <meta itemprop="datePublished" content="2019-11-29T15:29:29&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-29T15:29:29&#43;08:00" />
-<meta itemprop="wordCount" content="7324">
+<meta itemprop="wordCount" content="7326">
 
 
 
@@ -339,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/devops/"> DevOps </a>
             
           </div>
-        <span class="more-meta"> 约 7324 字 </span>
+        <span class="more-meta"> 约 7326 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
 
         
@@ -2057,7 +2057,7 @@ $ curl http://127.0.0.1:5000
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose up
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose up --build
 </code></pre></td></tr></table>
 </div>
 </div><p>实际使用中发现，采用上面的方式启动服务后，有时间fluentd没法收集到httpd服务的日志，最后发现原因是如果在fluentd服务还没准备就绪的情况下就启动httpd服务，就会产生这种现象。因此，建议的做法是先启动fluentd, 再启动httpd</p>
@@ -2068,7 +2068,7 @@ $ curl http://127.0.0.1:5000
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose up fluentd
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose up --build fluentd
 <span class="c1"># 等fluentd服务就绪后，再启动httpd服务</span>
 $ docker-compose up httpd
 </code></pre></td></tr></table>
