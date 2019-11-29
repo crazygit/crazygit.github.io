@@ -73,7 +73,7 @@
 ">
 <meta itemprop="datePublished" content="2019-11-29T15:29:29&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-29T15:29:29&#43;08:00" />
-<meta itemprop="wordCount" content="7333">
+<meta itemprop="wordCount" content="7324">
 
 
 
@@ -339,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/devops/"> DevOps </a>
             
           </div>
-        <span class="more-meta"> 约 7333 字 </span>
+        <span class="more-meta"> 约 7324 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
 
         
@@ -369,7 +369,7 @@ if (!doNotTrack) {
         <li><a href="#heading3">测试</a></li>
       </ul>
     </li>
-    <li><a href="#fluentd1">Fluentd事件的生命周期</a>
+    <li><a href="#fluentd">Fluentd事件的生命周期</a>
       <ul>
         <li><a href="#event">什么是事件(Event)</a></li>
         <li><a href="#heading4">事件结构</a></li>
@@ -402,8 +402,7 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      <h1 id="fluentd">fluentd教程(含实例)</h1>
-<p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。</p>
+      <p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。</p>
 <p><img src="http://images.wiseturtles.com/1574818088.png" alt="fluentd日志架构"></p>
 <h2 id="heading">安装</h2>
 <p>不同操作系统的安装方式不同，具体可以参考:</p>
@@ -574,7 +573,7 @@ Content-Length: <span class="m">0</span>
 </div>
 </div><p>在<code>fluentd</code>的容器里能看到如下输出</p>
 <pre><code>2019-11-27 02:05:16.583154500 +0000 test.cycle: {&quot;action&quot;:&quot;login&quot;,&quot;user&quot;:2}
-</code></pre><h2 id="fluentd1">Fluentd事件的生命周期</h2>
+</code></pre><h2 id="fluentd">Fluentd事件的生命周期</h2>
 <h3 id="event">什么是事件(Event)</h3>
 <p>正如开篇提到过，Fluentd是一个日志收集系统，那么一条日志消息，在Fluentd里就认为是一个事件(<code>Event</code>)。</p>
 <h3 id="heading4">事件结构</h3>
@@ -1869,7 +1868,7 @@ $ curl http://127.0.0.1:5000
 &lt;/match&gt;
 </code></pre></td></tr></table>
 </div>
-</div><p>由于使用到了elasticserach输出插件，而默认的fluentd中并没有安装这个插件，因此，我们需要自己定义<code>Dockfile</code>来安装elasticserch插件</p>
+</div><p>由于使用到了elasticsearch输出插件，而默认的fluentd中并没有安装这个插件，因此，我们需要自己定义<code>Dockfile</code>来安装elasticsearch插件</p>
 <pre><code>$ cat fluentd/Dockerfile
 </code></pre><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2061,7 +2060,7 @@ $ curl http://127.0.0.1:5000
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose up
 </code></pre></td></tr></table>
 </div>
-</div><p>实际使用中发现，采用上面的方式启动服务后，有时间fluentd没法收集到httpd服务的日志，排除发现是如果在fluentd服务还没准备就绪的情况下就启动httpd服务，就会产生这种现象。因此，建议的做法是先启动fluentd,再启动httpd</p>
+</div><p>实际使用中发现，采用上面的方式启动服务后，有时间fluentd没法收集到httpd服务的日志，最后发现原因是如果在fluentd服务还没准备就绪的情况下就启动httpd服务，就会产生这种现象。因此，建议的做法是先启动fluentd, 再启动httpd</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2087,14 +2086,13 @@ $ docker-compose up httpd
 $ curl http://127.0.0.1/5000
 </code></pre></td></tr></table>
 </div>
-</div><p>可以分别在fluentd的容器的终端，log目录，以及elasticsearch中看到保存的访问记录信息了。如下是通过Kibana面板看到的请求情况</p>
+</div><p>最后可以分别在fluentd的容器的终端，log目录，以及elasticsearch中看到保存的访问记录信息了。如下是通过Kibana面板看到的请求情况</p>
 <p><img src="http://images.wiseturtles.com/1575000628.png" alt="Kibana面板"></p>
 <h2 id="heading15">更多</h2>
 <p>更多关于Fluentd的使用方式可以参考官方文档</p>
 <ul>
 <li><a href="https://docs.fluentd.org/how-to-guides">各种使用fluentd收集日志的场景</a></li>
 </ul>
-
     </div>
 
     

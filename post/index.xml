@@ -17,7 +17,8 @@
       <pubDate>Fri, 29 Nov 2019 15:29:29 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/</guid>
-      <description>fluentd教程(含实例) fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。 安装 不</description>
+      <description>&lt;p&gt;fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/1574818088.png&#34; alt=&#34;fluentd日志架构&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
