@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/09/python-for-data-analysis-2nd-edition-note-four/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="《利用Python进行数据分析第二版》读书笔记四">
 <meta itemprop="description" content="使用matplotlib, pandas, seaborn进行数据可视化展示
 ">
-
-
 <meta itemprop="datePublished" content="2018-01-09T09:50:48&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-09T09:50:48&#43;08:00" />
-<meta itemprop="wordCount" content="2801">
+<meta itemprop="wordCount" content="2777">
 
 
 
-<meta itemprop="keywords" content="matplotlib,pandas,seaborn," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="matplotlib,pandas,seaborn," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《利用Python进行数据分析第二版》读书笔记四"/>
 <meta name="twitter:description" content="使用matplotlib, pandas, seaborn进行数据可视化展示
 "/>
@@ -342,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
             
           </div>
-        <span class="more-meta"> 约 2801 字 </span>
+        <span class="more-meta"> 约 2777 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -364,64 +361,51 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#绘图和可视化">绘图和可视化</a>
-<ul>
-<li><a href="#matplotlib简单入门">matplotlib简单入门</a></li>
-<li><a href="#使用pandas和seaborn绘图">使用pandas和seaborn绘图</a>
-<ul>
-<li><a href="#线性图">线性图</a></li>
-<li><a href="#条形图-bar-plots">条形图(Bar Plots)</a></li>
-<li><a href="#柱状图和密度图-histograms-and-density-plots">柱状图和密度图(Histograms and Density Plots)</a></li>
-<li><a href="#散点图或点图-scatter-or-point-plots">散点图或点图(Scatter or Point Plots)</a></li>
-<li><a href="#多面网格和类别数据-facet-grids-and-categorical-data">多面网格和类别数据(Facet Grids and Categorical Data)</a></li>
-</ul></li>
-<li><a href="#其它的python可视化工具">其它的python可视化工具</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#matplotlib">matplotlib简单入门</a></li>
+    <li><a href="#pandasseaborn">使用pandas和seaborn绘图</a>
+      <ul>
+        <li><a href="#heading1">线性图</a></li>
+        <li><a href="#bar-plots">条形图(Bar Plots)</a></li>
+        <li><a href="#histograms-and-density-plots">柱状图和密度图(Histograms and Density Plots)</a></li>
+        <li><a href="#scatter-or-point-plots">散点图或点图(Scatter or Point Plots)</a></li>
+        <li><a href="#facet-grids-and-categorical-data">多面网格和类别数据(Facet Grids and Categorical Data)</a></li>
+      </ul>
+    </li>
+    <li><a href="#python">其它的python可视化工具</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h1 id="绘图和可视化">绘图和可视化</h1>
-
+      <h1 id="heading">绘图和可视化</h1>
 <p>绘图时，在<code>ipython</code>里运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="o">%</span><span class="n">matplotlib</span>
-<span class="n">Using</span> <span class="n">matplotlib</span> <span class="n">backend</span><span class="p">:</span> <span class="n">TkAgg</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="o">%</span><span class="n">matplotlib</span>
+<span class="n">Using</span> <span class="n">matplotlib</span> <span class="n">backend</span><span class="p">:</span> <span class="n">TkAgg</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以直接绘制图形，不然每次绘制图形最后必须调用<code>plt.show()</code>才能看到图形。</p>
-
+</div><p>可以直接绘制图形，不然每次绘制图形最后必须调用<code>plt.show()</code>才能看到图形。</p>
 <p><em>本文里使用的CSV测试数据可以从这里<a href="https://github.com/wesm/pydata-book">下载</a></em></p>
-
-<h2 id="matplotlib简单入门">matplotlib简单入门</h2>
-
+<h2 id="matplotlib">matplotlib简单入门</h2>
 <p>关于<code>matplotlib</code>的使用入门，可以参考:</p>
-
 <p><a href="https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/">matplotlib教程</a></p>
-
-<h2 id="使用pandas和seaborn绘图">使用pandas和seaborn绘图</h2>
-
+<h2 id="pandasseaborn">使用pandas和seaborn绘图</h2>
 <p>数据可视化方面, <code>matplotlib</code>算是比较底层的工具了。 <code>pandas</code>也简单内置了一些常用的画图方法。<code>seaborn</code>则是另一个专门用于数据统计的可视化库。</p>
-
 <p><strong>注意</strong></p>
-
 <p>在代码中引入<code>searborn</code>会修改<code>matplotlib</code>默认的画图颜色和样式，即便不使用<code>searborn</code>画图，也可以引入它来提高画图的美化效果。</p>
-
-<h3 id="线性图">线性图</h3>
-
+<h3 id="heading1">线性图</h3>
 <p><code>Series</code>和<code>DataFrame</code>都有<code>plot</code>方法来绘制一些基本图形，默认调用<code>plot</code>方法会绘制线性图</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -439,9 +423,9 @@ if (!doNotTrack) {
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">s</span>
 <span class="mi">0</span>     <span class="mf">0.471154</span>
 <span class="mi">10</span>    <span class="mf">0.037093</span>
 <span class="mi">20</span>   <span class="o">-</span><span class="mf">0.130165</span>
@@ -454,19 +438,16 @@ if (!doNotTrack) {
 <span class="mi">90</span>    <span class="mf">2.041607</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-series_plot.png" alt="SeriesPlot" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-series_plot.png" alt="SeriesPlot"></p>
 <p>默认使用<code>Series</code>的<code>index</code>作为<code>x</code>轴。也可以通过参数<code>use_index=False</code>来设置不用<code>Series</code>的<code>index</code>作为<code>x</code>轴。其它可以定制的参数如下:</p>
-
-<p><img src="http://images.wiseturtles.com/2018-01-09-series_plot_method_args.png" alt="Series Plot Method" /></p>
-
+<p><img src="http://images.wiseturtles.com/2018-01-09-series_plot_method_args.png" alt="Series Plot Method"></p>
 <p><code>DataFrame</code>的<code>plot</code>方法会把每一列绘制成一条线，并且自动绘制图例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -474,54 +455,51 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-<span class="o">...</span>                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
-<span class="o">...</span>                    <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="o">...</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">A</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">B</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">C</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">D</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                    <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot.png" alt="DataFrame plot" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot.png" alt="DataFrame plot"></p>
 <p><code>DataFrame</code>的<code>plot</code>方法常用的参数如下：
-<img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_method_args.png" alt="DataFrame plot method" /></p>
-
-<h3 id="条形图-bar-plots">条形图(Bar Plots)</h3>
-
+<img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_method_args.png" alt="DataFrame plot method"></p>
+<h3 id="bar-plots">条形图(Bar Plots)</h3>
 <p><code>plot.bar()</code>和<code>plot.barh()</code>可以用来绘垂直和水平的制柱状图。</p>
-
 <p>大多数pandas的<code>plot</code>方法都可以接受<code>ax</code>参数（一个matplotlib subplot对象），让我们更方便在表格样式中绘制子图。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcdefghijklmnop&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">abcdefghijklmnop</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 <span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x1076809e8</span><span class="o">&gt;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x10be498d0</span><span class="o">&gt;</span></code></pre></td></tr></table>
-</div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-Series_plot_bar.png" alt="Series plot bar" /></p>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x10be498d0</span><span class="o">&gt;</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-Series_plot_bar.png" alt="Series plot bar"></p>
 <p><code>DataFrame</code>在做柱状图时会自动按照列分组</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -538,12 +516,12 @@ if (!doNotTrack) {
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="o">...</span>                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;five&#39;</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">],</span>
-<span class="o">...</span>                   <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Genus&#39;</span><span class="p">))</span>
-<span class="o">...</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">one</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">two</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">three</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">four</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">five</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">six</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                   <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">A</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">B</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">C</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">D</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Genus</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
 <span class="n">Genus</span>         <span class="n">A</span>         <span class="n">B</span>         <span class="n">C</span>         <span class="n">D</span>
 <span class="n">one</span>    <span class="mf">0.682972</span>  <span class="mf">0.387897</span>  <span class="mf">0.052612</span>  <span class="mf">0.249418</span>
 <span class="n">two</span>    <span class="mf">0.628619</span>  <span class="mf">0.415778</span>  <span class="mf">0.412352</span>  <span class="mf">0.455799</span>
@@ -552,55 +530,23 @@ if (!doNotTrack) {
 <span class="n">five</span>   <span class="mf">0.390196</span>  <span class="mf">0.354316</span>  <span class="mf">0.566566</span>  <span class="mf">0.592186</span>
 <span class="n">six</span>    <span class="mf">0.556651</span>  <span class="mf">0.721578</span>  <span class="mf">0.857398</span>  <span class="mf">0.939181</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_bar_vertical.png" alt="DataFrame plot bar" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_bar_vertical.png" alt="DataFrame plot bar"></p>
 <p>我们可以可以通过参数<code>stacked=True</code>来创建堆叠的柱状图</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_barh.png" alt="DataFrame plot barh" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-DataFrame_plot_barh.png" alt="DataFrame plot barh"></p>
 <p><strong>小贴士</strong>:</p>
-
 <p>一个比较常见的关于<code>Series</code>绘制柱状图就是使用<code>value_counts</code>, 可以很直观的看到统计的数据</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&gt;&gt;&gt; s = pd.Series(np.random.randint(0, 10, 20))
+<pre><code>&gt;&gt;&gt; s = pd.Series(np.random.randint(0, 10, 20))
 
 &gt;&gt;&gt; s
 0     4
@@ -624,15 +570,12 @@ if (!doNotTrack) {
 18    7
 19    6
 
-&gt;&gt;&gt; s.value_counts().plot.bar()</pre></td></tr></table>
-</div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-Series_plot_bar_value_counts.png" alt="" /></p>
-
+&gt;&gt;&gt; s.value_counts().plot.bar()
+</code></pre><p><img src="http://images.wiseturtles.com/2018-01-09-Series_plot_bar_value_counts.png" alt=""></p>
 <p>让我们来看一个统计聚会人数多少和星期几的关系,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -700,11 +643,11 @@ if (!doNotTrack) {
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/tips.csv&#39;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">examples/tips.csv</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># size: 聚会人数</span>
 <span class="c1"># day: 星期几</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="p">)</span>
    <span class="n">total_bill</span>   <span class="n">tip</span> <span class="n">smoker</span>  <span class="n">day</span>    <span class="n">time</span>  <span class="n">size</span>
 <span class="mi">0</span>       <span class="mf">16.99</span>  <span class="mf">1.01</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">2</span>
 <span class="mi">1</span>       <span class="mf">10.34</span>  <span class="mf">1.66</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">3</span>
@@ -713,10 +656,10 @@ if (!doNotTrack) {
 <span class="mi">4</span>       <span class="mf">24.59</span>  <span class="mf">3.61</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">4</span>
 
 <span class="c1"># 可以得知聚会人数介于1-6之间</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">size</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">size</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
      <span class="n">total_bill</span>   <span class="n">tip</span> <span class="n">smoker</span>   <span class="n">day</span>    <span class="n">time</span>  <span class="n">size</span>
 <span class="mi">67</span>         <span class="mf">3.07</span>  <span class="mf">1.00</span>    <span class="n">Yes</span>   <span class="n">Sat</span>  <span class="n">Dinner</span>     <span class="mi">1</span>
 <span class="mi">82</span>        <span class="mf">10.07</span>  <span class="mf">1.83</span>     <span class="n">No</span>  <span class="n">Thur</span>   <span class="n">Lunch</span>     <span class="mi">1</span>
@@ -724,9 +667,9 @@ if (!doNotTrack) {
 <span class="mi">222</span>        <span class="mf">8.58</span>  <span class="mf">1.92</span>    <span class="n">Yes</span>   <span class="n">Fri</span>   <span class="n">Lunch</span>     <span class="mi">1</span>
 
 <span class="c1"># 以星期为index, size为列统计数据</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">size</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_counts</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_counts</span>
 <span class="n">size</span>  <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>
 <span class="n">day</span>
 <span class="n">Fri</span>   <span class="mi">1</span>  <span class="mi">16</span>   <span class="mi">1</span>   <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>
@@ -735,9 +678,9 @@ if (!doNotTrack) {
 <span class="n">Thur</span>  <span class="mi">1</span>  <span class="mi">48</span>   <span class="mi">4</span>   <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">3</span>
 
 <span class="c1"># 排除1个人的情况</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_counts</span> <span class="o">=</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_counts</span> <span class="o">=</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_counts</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_counts</span>
 <span class="n">size</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>  <span class="mi">5</span>
 <span class="n">day</span>
 <span class="n">Fri</span>   <span class="mi">16</span>   <span class="mi">1</span>   <span class="mi">1</span>  <span class="mi">0</span>
@@ -746,7 +689,7 @@ if (!doNotTrack) {
 <span class="n">Thur</span>  <span class="mi">48</span>   <span class="mi">4</span>   <span class="mi">5</span>  <span class="mi">1</span>
 
 <span class="c1"># 计算星期的总人数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">day</span>
 <span class="n">Fri</span>     <span class="mi">18</span>
 <span class="n">Sat</span>     <span class="mi">85</span>
@@ -755,9 +698,9 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 
 <span class="c1"># 计算size占星期的百分比</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_pcts</span> <span class="o">=</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">party_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_pcts</span> <span class="o">=</span> <span class="n">party_counts</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">party_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">party_pcts</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">party_pcts</span>
 <span class="n">size</span>         <span class="mi">2</span>         <span class="mi">3</span>         <span class="mi">4</span>         <span class="mi">5</span>
 <span class="n">day</span>
 <span class="n">Fri</span>   <span class="mf">0.888889</span>  <span class="mf">0.055556</span>  <span class="mf">0.055556</span>  <span class="mf">0.000000</span>
@@ -765,17 +708,15 @@ if (!doNotTrack) {
 <span class="n">Sun</span>   <span class="mf">0.520000</span>  <span class="mf">0.200000</span>  <span class="mf">0.240000</span>  <span class="mf">0.040000</span>
 <span class="n">Thur</span>  <span class="mf">0.827586</span>  <span class="mf">0.068966</span>  <span class="mf">0.086207</span>  <span class="mf">0.017241</span>
 
-<span class="n">party_pcts</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">party_pcts</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-tips_figure.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-tips_figure.png" alt=""></p>
 <p>从上图可以看出，周末的时候，聚会人数(size)多的是在周末。</p>
-
 <p>当数据需要聚合和汇总时，使用<code>seaborn</code>更方便一点。让我们来计算每天的小费情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -790,11 +731,11 @@ if (!doNotTrack) {
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">total_bill</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="p">)</span>
    <span class="n">total_bill</span>   <span class="n">tip</span> <span class="n">smoker</span>  <span class="n">day</span>    <span class="n">time</span>  <span class="n">size</span>   <span class="n">tip_pct</span>
 <span class="mi">0</span>       <span class="mf">16.99</span>  <span class="mf">1.01</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">2</span>  <span class="mf">0.063204</span>
 <span class="mi">1</span>       <span class="mf">10.34</span>  <span class="mf">1.66</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">3</span>  <span class="mf">0.191244</span>
@@ -802,39 +743,35 @@ if (!doNotTrack) {
 <span class="mi">3</span>       <span class="mf">23.68</span>  <span class="mf">3.31</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">2</span>  <span class="mf">0.162494</span>
 <span class="mi">4</span>       <span class="mf">24.59</span>  <span class="mf">3.61</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">4</span>  <span class="mf">0.172069</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">h</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_barplot.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_barplot.png" alt=""></p>
 <p>我们还可以通过<code>hue</code>参数来让它来添加额外的分类</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">h</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_bar_plot_hue.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_bar_plot_hue.png" alt=""></p>
 <p>我们还可以改变<code>searborn</code>的绘图样式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&#34;whitegrid&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">whitegrid</span><span class="s2">&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="柱状图和密度图-histograms-and-density-plots">柱状图和密度图(Histograms and Density Plots)</h3>
-
+</div><h3 id="histograms-and-density-plots">柱状图和密度图(Histograms and Density Plots)</h3>
 <p>使用<code>Series</code>和<code>DataFrame</code>的<code>plot</code>函数</p>
-
 <p>首先我们看一下小费百分比的分布区间</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -955,7 +892,7 @@ if (!doNotTrack) {
 </span><span class="lnt">119
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">],</span> <span class="mi">50</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="mi">0</span>      <span class="p">(</span><span class="mf">0.0345</span><span class="p">,</span> <span class="mf">0.0853</span><span class="p">]</span>
 <span class="mi">1</span>         <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>
 <span class="mi">2</span>         <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>
@@ -986,7 +923,7 @@ if (!doNotTrack) {
 <span class="mi">27</span>        <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>
 <span class="mi">28</span>        <span class="p">(</span><span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.278</span><span class="p">]</span>
 <span class="mi">29</span>       <span class="p">(</span><span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.182</span><span class="p">]</span>
-             <span class="o">...</span>
+             <span class="o">.</span><span class="o">.</span><span class="o">.</span>
 <span class="mi">214</span>      <span class="p">(</span><span class="mf">0.278</span><span class="p">,</span> <span class="mf">0.327</span><span class="p">]</span>
 <span class="mi">215</span>     <span class="p">(</span><span class="mf">0.0853</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">]</span>
 <span class="mi">216</span>     <span class="p">(</span><span class="mf">0.0853</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">]</span>
@@ -1018,11 +955,11 @@ if (!doNotTrack) {
 <span class="mi">242</span>     <span class="p">(</span><span class="mf">0.0853</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">]</span>
 <span class="mi">243</span>       <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">tip_pct</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">244</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">category</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="mf">0.0345</span><span class="p">,</span> <span class="mf">0.0853</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0853</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.182</span><span class="p">]</span> <span class="o">&lt;</span>
-                                     <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span> <span class="o">...</span> <span class="p">(</span><span class="mf">2.259</span><span class="p">,</span> <span class="mf">2.307</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">2.307</span><span class="p">,</span> <span class="mf">2.356</span><span class="p">]</span> <span class="o">&lt;</span>
-                                     <span class="p">(</span><span class="mf">2.356</span><span class="p">,</span> <span class="mf">2.404</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">2.404</span><span class="p">,</span> <span class="mf">2.452</span><span class="p">]]</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">(</span><span class="mf">0.0345</span><span class="p">,</span> <span class="mf">0.0853</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0853</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.182</span><span class="p">]</span> <span class="o">&lt;</span>
+                                     <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="p">(</span><span class="mf">2.259</span><span class="p">,</span> <span class="mf">2.307</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">2.307</span><span class="p">,</span> <span class="mf">2.356</span><span class="p">]</span> <span class="o">&lt;</span>
+                                     <span class="p">(</span><span class="mf">2.356</span><span class="p">,</span> <span class="mf">2.404</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">2.404</span><span class="p">,</span> <span class="mf">2.452</span><span class="p">]</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
 <span class="p">(</span><span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.182</span><span class="p">]</span>      <span class="mi">76</span>
 <span class="p">(</span><span class="mf">0.182</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">]</span>       <span class="mi">57</span>
 <span class="p">(</span><span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.278</span><span class="p">]</span>       <span class="mi">41</span>
@@ -1073,37 +1010,36 @@ if (!doNotTrack) {
 <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.148</span><span class="p">]</span>         <span class="mi">0</span>
 <span class="p">(</span><span class="mf">1.051</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]</span>         <span class="mi">0</span>
 <span class="p">(</span><span class="mf">1.196</span><span class="p">,</span> <span class="mf">1.245</span><span class="p">]</span>       <span class="mi">0</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">tip_pct</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></td></tr></table>
+<span class="n">Name</span><span class="p">:</span> <span class="n">tip_pct</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>从上面可以看出，小费百分比在(0.134, 0.182]里的最多，下面的图形也能反应这一点</p>
+</div><p>从上面可以看出，小费百分比在(0.134, 0.182]里的最多，下面的图形也能反应这一点</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x12607ce10</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x12607ce10</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_plot_hist.png" alt="" /></p>
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_plot_hist.png" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">()</span>
-<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x12607ce10</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x12607ce10</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_plot_density.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_plot_density.png" alt=""></p>
 <p>使用<code>searborn</code>的<code>distplot</code>方法更简便，可以同时在一个图里绘制柱状图和密度曲线</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1113,24 +1049,22 @@ if (!doNotTrack) {
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">comp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">comp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">comp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">comp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">comp1</span><span class="p">,</span> <span class="n">comp2</span><span class="p">]))</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="p">[</span><span class="n">comp1</span><span class="p">,</span> <span class="n">comp2</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x120e1c588</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x120e1c588</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-searborn_distplot.png" alt="" /></p>
-
-<h3 id="散点图或点图-scatter-or-point-plots">散点图或点图(Scatter or Point Plots)</h3>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-searborn_distplot.png" alt=""></p>
+<h3 id="scatter-or-point-plots">散点图或点图(Scatter or Point Plots)</h3>
 <p>使用<code>seaborn</code>的<code>regplot</code>函数，不仅可以画散点图，还可以绘制一个线性回归线</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1151,12 +1085,12 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">macro</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/macrodata.csv&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">macro</span><span class="p">[[</span><span class="s1">&#39;cpi&#39;</span><span class="p">,</span> <span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="s1">&#39;tbilrate&#39;</span><span class="p">,</span> <span class="s1">&#39;unemp&#39;</span><span class="p">]]</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">macro</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">examples/macrodata.csv</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">macro</span><span class="p">[</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">cpi</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">m1</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">tbilrate</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">unemp</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">trans_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">trans_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">trans_data</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">trans_data</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="p">]</span>
           <span class="n">cpi</span>        <span class="n">m1</span>  <span class="n">tbilrate</span>     <span class="n">unemp</span>
 <span class="mi">198</span> <span class="o">-</span><span class="mf">0.007904</span>  <span class="mf">0.045361</span> <span class="o">-</span><span class="mf">0.396881</span>  <span class="mf">0.105361</span>
 <span class="mi">199</span> <span class="o">-</span><span class="mf">0.021979</span>  <span class="mf">0.066753</span> <span class="o">-</span><span class="mf">2.277267</span>  <span class="mf">0.139762</span>
@@ -1165,36 +1099,32 @@ if (!doNotTrack) {
 <span class="mi">202</span>  <span class="mf">0.008894</span>  <span class="mf">0.012202</span> <span class="o">-</span><span class="mf">0.405465</span>  <span class="mf">0.042560</span>
 
 <span class="c1"># 以m1为x轴，unemp为y轴</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="s1">&#39;unemp&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">trans_data</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">m1</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">unemp</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">trans_data</span><span class="p">)</span>
 <span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_subplots</span><span class="o">.</span><span class="n">AxesSubplot</span> <span class="n">at</span> <span class="mh">0x116c026d8</span><span class="o">&gt;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Changes in log </span><span class="si">%s</span><span class="s1"> versus log </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="s1">&#39;unemp&#39;</span><span class="p">))</span>
-<span class="n">Text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Changes in log m1 versus log unemp&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Changes in log </span><span class="si">%s</span><span class="s1"> versus log </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">m1</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">unemp</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
+<span class="n">Text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Changes in log m1 versus log unemp</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_regplot.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_regplot.png" alt=""></p>
 <p>使用<code>pairplot</code>函数可以绘制散点图矩阵</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">trans_data</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">plot_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">})</span>
-<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">PairGrid</span> <span class="n">at</span> <span class="mh">0x12760e0b8</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">trans_data</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">kde</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">plot_kws</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">alpha</span><span class="s1">&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">PairGrid</span> <span class="n">at</span> <span class="mh">0x12760e0b8</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_pairplot.png" alt="" /></p>
-
-<h3 id="多面网格和类别数据-facet-grids-and-categorical-data">多面网格和类别数据(Facet Grids and Categorical Data)</h3>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_pairplot.png" alt=""></p>
+<h3 id="facet-grids-and-categorical-data">多面网格和类别数据(Facet Grids and Categorical Data)</h3>
 <p>如果遇到数据集需要额外的分组维度，可以利用多面网格。seaborn有一个有用的内建函数<code>factorplot</code></p>
-
 <p>从<code>day/time/smoker</code>来展示小费的百分比</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1202,52 +1132,46 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/tips.csv&#39;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">examples/tips.csv</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">total_bill</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">tips</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">])</span>
-<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x12724b390</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">smoker</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">bar</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x12724b390</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot.png" alt=""></p>
 <p>除了按照<code>time</code>作为bar分组之外，我们还可以通过添加参数<code>row=time</code>添加额外的面</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">])</span>
-<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x1261bc6d8</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">smoker</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">bar</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x1261bc6d8</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot_rows.png" alt="" /></p>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot_rows.png" alt=""></p>
 <p><code>factorplot</code>还支持一些其它的绘图参数, 如绘制box图</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x127caeac8</span><span class="o">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">tip_pct</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">day</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">box</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="n">tips</span><span class="o">.</span><span class="n">tip_pct</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">]</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">seaborn</span><span class="o">.</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">FacetGrid</span> <span class="n">at</span> <span class="mh">0x127caeac8</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot_kind.png" alt="" /></p>
-
-<h2 id="其它的python可视化工具">其它的python可视化工具</h2>
-
+</div><p><img src="http://images.wiseturtles.com/2018-01-09-seaborn_factorplot_kind.png" alt=""></p>
+<h2 id="python">其它的python可视化工具</h2>
 <p>除了上面提到的之外，还有许多开源的可视化工具值得我们去探索</p>
-
 <ul>
 <li><a href="https://bokeh.pydata.org/en/latest/">Bokeh</a></li>
 <li><a href="https://plot.ly/python/">Plotly</a></li>
 <li><a href="https://gephi.org/">Graph</a></li>
 </ul>
-
 <p>对于制作用于打印或网页的静态图形，作者推荐使用matplotlib以及pandas和seaborn这样的工具。对于其他的数据可视化需求，去学一个有用的工具可能会有帮助。</p>
     </div>
 

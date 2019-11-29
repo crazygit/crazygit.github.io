@@ -31,7 +31,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/12/26/collection-types/" />
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2018-12-26T23:11:51+08:00" />
 <meta itemprop="name" content="集合类型">
 <meta itemprop="description" content="集合类型">
-
-
 <meta itemprop="datePublished" content="2018-12-26T23:11:51&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-26T23:11:51&#43;08:00" />
-<meta itemprop="wordCount" content="1816">
+<meta itemprop="wordCount" content="1800">
 
 
 
-<meta itemprop="keywords" content="iOS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="集合类型"/>
 <meta name="twitter:description" content="集合类型"/>
 
@@ -338,7 +335,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/"> iOS开发入门 </a>
             
           </div>
-        <span class="more-meta"> 约 1816 字 </span>
+        <span class="more-meta"> 约 1800 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -360,33 +357,33 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#数组-arrays">数组（Arrays）</a>
-<ul>
-<li><a href="#创建一个空数组">创建一个空数组</a></li>
-<li><a href="#创建有值的数组">创建有值的数组</a></li>
-<li><a href="#创建含有默认值的数组">创建含有默认值的数组</a></li>
-<li><a href="#通过相加数组创建新的数组">通过相加数组创建新的数组</a></li>
-<li><a href="#数组常用的属性和方法">数组常用的属性和方法</a></li>
-</ul></li>
-<li><a href="#集合-sets">集合(Sets)</a>
-<ul>
-<li><a href="#集合的中的数据类型必须是-hashble">集合的中的数据类型必须是<code>hashble</code></a></li>
-<li><a href="#创建集合">创建集合</a></li>
-<li><a href="#集合常用的属性和方法">集合常用的属性和方法</a></li>
-<li><a href="#集合操作">集合操作</a></li>
-<li><a href="#集合关系">集合关系</a></li>
-</ul></li>
-<li><a href="#字典-dictionaries">字典(Dictionaries)</a>
-<ul>
-<li><a href="#创建一个空字典">创建一个空字典</a></li>
-<li><a href="#使用字典语法创建字典">使用字典语法创建字典</a></li>
-<li><a href="#数组常用的属性和方法-1">数组常用的属性和方法</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#arrays">数组（Arrays）</a>
+      <ul>
+        <li><a href="#heading">创建一个空数组</a></li>
+        <li><a href="#heading1">创建有值的数组</a></li>
+        <li><a href="#heading2">创建含有默认值的数组</a></li>
+        <li><a href="#heading3">通过相加数组创建新的数组</a></li>
+        <li><a href="#heading4">数组常用的属性和方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#sets">集合(Sets)</a>
+      <ul>
+        <li><a href="#hashble">集合的中的数据类型必须是hashble</a></li>
+        <li><a href="#heading5">创建集合</a></li>
+        <li><a href="#heading6">集合常用的属性和方法</a></li>
+        <li><a href="#heading7">集合操作</a></li>
+        <li><a href="#heading8">集合关系</a></li>
+      </ul>
+    </li>
+    <li><a href="#dictionaries">字典(Dictionaries)</a>
+      <ul>
+        <li><a href="#heading9">创建一个空字典</a></li>
+        <li><a href="#heading10">使用字典语法创建字典</a></li>
+        <li><a href="#heading11">数组常用的属性和方法</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -394,21 +391,17 @@ if (!doNotTrack) {
     
     <div class="post-content">
       <p>Swift有三种主要的集合类型，分别是:</p>
-
 <ul>
 <li>Arrays</li>
 <li>Sets</li>
 <li>dictionaries</li>
 </ul>
-
-<h2 id="数组-arrays">数组（Arrays）</h2>
-
+<h2 id="arrays">数组（Arrays）</h2>
 <p>数组是包含<strong>相同数据类型</strong>的<strong>有序</strong>数据集合，<strong>允许相同的数据</strong>出现在不同的位置。</p>
-
-<h3 id="创建一个空数组">创建一个空数组</h3>
+<h3 id="heading">创建一个空数组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -416,40 +409,39 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 两种不同的写法</span>
-<span class="kd">var</span> <span class="nv">someInts</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
-<span class="kd">var</span> <span class="nv">anotherInts</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">两</span><span class="c1">种</span><span class="c1">不</span><span class="c1">同</span><span class="c1">的</span><span class="c1">写</span><span class="c1">法</span>
+<span class="kd">var</span> <span class="nv">someInts</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="p">(</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nv">anotherInts</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="p">]</span>
 
-<span class="bp">print</span><span class="p">(</span><span class="n">someInts</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span> <span class="c1">// 0</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">anotherInts</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span> <span class="c1">// 0</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">someInts</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">0</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">anotherInts</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">0</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<!--more-->
-
-<h3 id="创建有值的数组">创建有值的数组</h3>
+</div><!-- raw HTML omitted -->
+<h3 id="heading1">创建有值的数组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Eggs&#34;</span><span class="p">,</span> <span class="s">&#34;Milk&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Eggs</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Milk</span><span class="s">&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="创建含有默认值的数组">创建含有默认值的数组</h3>
+</div><h3 id="heading2">创建含有默认值的数组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">threeDoubles</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">threeDoubles</span><span class="p">)</span> <span class="c1">// [0.0, 0.0, 0.0]</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">threeDoubles</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="通过相加数组创建新的数组">通过相加数组创建新的数组</h3>
+</div><h3 id="heading3">通过相加数组创建新的数组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -464,54 +456,58 @@ if (!doNotTrack) {
 <span class="kd">var</span> <span class="nv">anotherTrheeDoubles</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nv">sixDoubles</span> <span class="p">=</span> <span class="n">threeDoubles</span> <span class="o">+</span> <span class="n">anotherTrheeDoubles</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">sixDoubles</span><span class="p">)</span> <span class="c1">// [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">sixDoubles</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">0</span><span class="c1">.</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">2</span><span class="c1">.</span><span class="c1">5</span><span class="c1">,</span><span class="c1"> </span><span class="c1">2</span><span class="c1">.</span><span class="c1">5</span><span class="c1">,</span><span class="c1"> </span><span class="c1">2</span><span class="c1">.</span><span class="c1">5</span><span class="c1">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="数组常用的属性和方法">数组常用的属性和方法</h3>
-
+</div><h3 id="heading4">数组常用的属性和方法</h3>
 <ul>
-<li><p>跟字符串类型类似，使用<code>count</code>属性获取数组元素的个数， 使用<code>isEmpty</code>属性可以检查数组是否为空。</p></li>
-
-<li><p>使用<code>append</code>方法可以添加一个元素到数组</p></li>
-
-<li><p>使用<code>+=</code>可以添加一个数组到另一个数组</p>
+<li>
+<p>跟字符串类型类似，使用<code>count</code>属性获取数组元素的个数， 使用<code>isEmpty</code>属性可以检查数组是否为空。</p>
+</li>
+<li>
+<p>使用<code>append</code>方法可以添加一个元素到数组</p>
+</li>
+<li>
+<p>使用<code>+=</code>可以添加一个数组到另一个数组</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Eggs&#34;</span><span class="p">,</span> <span class="s">&#34;Milk&#34;</span><span class="p">]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Eggs</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Milk</span><span class="s">&#34;</span><span class="p">]</span>
 
-<span class="n">shoppingList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#34;Flour&#34;</span><span class="p">)</span>
+<span class="n">shoppingList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Flour</span><span class="s">&#34;</span><span class="p">)</span>
 
-<span class="n">shoppingList</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&#34;Baking&#34;</span><span class="p">,</span> <span class="s">&#34;Powder&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="n">shoppingList</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Baking</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Powder</span><span class="s">&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>使用下标可以修改数组元素</p>
+<li>
+<p>使用下标可以修改数组元素</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Six Eggs&#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">shoppingList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Six Eggs</span><span class="s">&#34;</span>
 
-<span class="c1">// 下标指定的元素个数和赋值的元素个数不一定要相同</span>
-<span class="n">shoppingList</span><span class="p">[</span><span class="mf">1.</span><span class="p">..</span><span class="mi">4</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Bananas&#34;</span><span class="p">,</span> <span class="s">&#34;Apples&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">下</span><span class="c1">标</span><span class="c1">指</span><span class="c1">定</span><span class="c1">的</span><span class="c1">元</span><span class="c1">素</span><span class="c1">个</span><span class="c1">数</span><span class="c1">和</span><span class="c1">赋</span><span class="c1">值</span><span class="c1">的</span><span class="c1">元</span><span class="c1">素</span><span class="c1">个</span><span class="c1">数</span><span class="c1">不</span><span class="c1">一</span><span class="c1">定</span><span class="c1">要</span><span class="c1">相</span><span class="c1">同</span>
+<span class="n">shoppingList</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="p">.</span><span class="mi">4</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Bananas</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Apples</span><span class="s">&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>插入/删除一个元素</p>
+<li>
+<p>插入/删除一个元素</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -520,45 +516,41 @@ if (!doNotTrack) {
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">shoppingList</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&#34;Maple Syrup&#34;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">shoppingList</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Maple Syrup</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="c1">// 删除指定位置的元素</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">删</span><span class="c1">除</span><span class="c1">指</span><span class="c1">定</span><span class="c1">位</span><span class="c1">置</span><span class="c1">的</span><span class="c1">元</span><span class="c1">素</span>
 <span class="n">shoppingList</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="c1">// 删除最后一个元素</span>
-<span class="n">shoppingList</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">删</span><span class="c1">除</span><span class="c1">最</span><span class="c1">后</span><span class="c1">一</span><span class="c1">个</span><span class="c1">元</span><span class="c1">素</span>
+<span class="n">shoppingList</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>遍历数组</p>
+<li>
+<p>遍历数组</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">shoppingList</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
-<h2 id="集合-sets">集合(Sets)</h2>
-
+<h2 id="sets">集合(Sets)</h2>
 <p>集合就是<strong>无序</strong>， <strong>唯一</strong>， <strong>相同数据类型</strong>的集合</p>
-
-<h3 id="集合的中的数据类型必须是-hashble">集合的中的数据类型必须是<code>hashble</code></h3>
-
+<h3 id="hashble">集合的中的数据类型必须是<code>hashble</code></h3>
 <p>为了实现唯一性，集合中的元素必须是<code>hashble</code>的，比较两个元素是否相同时，比较的其实就是hash值，比如<code>a</code> == <code>b</code> 就是比较<code>a.hashValue</code> == <code>b.hashValue</code>。</p>
-
 <p>所有的Swift基础类型(<code>String</code>, <code>Int</code>, <code>Double</code>和<code>Bool</code>)默认都是<code>hashble</code>的。当自定义类型需要加入到Sets时，需要自己实现<code>Hashable</code>协议。</p>
-
-<h3 id="创建集合">创建集合</h3>
+<h3 id="heading5">创建集合</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -568,25 +560,26 @@ if (!doNotTrack) {
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 创建一个空集合</span>
-<span class="kd">var</span> <span class="nv">letters</span> <span class="p">=</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">Character</span><span class="p">&gt;()</span>
-<span class="kd">var</span> <span class="nv">anohterletters</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">Character</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">一</span><span class="c1">个</span><span class="c1">空</span><span class="c1">集</span><span class="c1">合</span>
+<span class="kd">var</span> <span class="nv">letters</span> <span class="p">=</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">Character</span><span class="p">&gt;</span><span class="p">(</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nv">anohterletters</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">Character</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="p">]</span>
 
-<span class="c1">// 创建初始有值的集合</span>
-<span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Rock&#34;</span><span class="p">,</span> <span class="s">&#34;Classical&#34;</span><span class="p">,</span> <span class="s">&#34;Hip hop&#34;</span><span class="p">]</span>
-<span class="c1">// 简写形式</span>
-<span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Rock&#34;</span><span class="p">,</span> <span class="s">&#34;Classical&#34;</span><span class="p">,</span> <span class="s">&#34;Hip hop&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">初</span><span class="c1">始</span><span class="c1">有</span><span class="c1">值</span><span class="c1">的</span><span class="c1">集</span><span class="c1">合</span>
+<span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Rock</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Classical</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Hip hop</span><span class="s">&#34;</span><span class="p">]</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">简</span><span class="c1">写</span><span class="c1">形</span><span class="c1">式</span>
+<span class="kd">var</span> <span class="nv">favoriteGenres</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Rock</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Classical</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Hip hop</span><span class="s">&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="集合常用的属性和方法">集合常用的属性和方法</h3>
-
+</div><h3 id="heading6">集合常用的属性和方法</h3>
 <ul>
-<li><p>跟字符串类型类似，使用<code>count</code>属性获取集合元素的个数， 使用<code>isEmpty</code>属性可以检查集合是否为空。</p></li>
-
-<li><p>往集合添加元素可以使用<code>insert(_:)</code>方法， 删除元素使用<code>remove(_:)</code> 方法, 检查是否包含某个元素可以使用<code>contains(_:)</code>方法</p>
+<li>
+<p>跟字符串类型类似，使用<code>count</code>属性获取集合元素的个数， 使用<code>isEmpty</code>属性可以检查集合是否为空。</p>
+</li>
+<li>
+<p>往集合添加元素可以使用<code>insert(_:)</code>方法， 删除元素使用<code>remove(_:)</code> 方法, 检查是否包含某个元素可以使用<code>contains(_:)</code>方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -598,26 +591,25 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">fruits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;Apple&#34;</span><span class="p">,</span> <span class="s">&#34;Pear&#34;</span><span class="p">,</span> <span class="s">&#34;Orange&#34;</span><span class="p">]</span>
-<span class="n">fruits</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&#34;Banana&#34;</span><span class="p">)</span>
-<span class="n">fruits</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#34;Apple&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">fruits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">Apple</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Pear</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">Orange</span><span class="s">&#34;</span><span class="p">]</span>
+<span class="n">fruits</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Banana</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Apple</span><span class="s">&#34;</span><span class="p">)</span>
 
-<span class="n">fruits</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="s">&#34;Pear&#34;</span><span class="p">)</span>
+<span class="n">fruits</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Pear</span><span class="s">&#34;</span><span class="p">)</span>
 
-<span class="c1">// 遍及集合</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">遍</span><span class="c1">及</span><span class="c1">集</span><span class="c1">合</span>
 <span class="k">for</span> <span class="n">fruit</span> <span class="k">in</span> <span class="n">fruits</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
-<h3 id="集合操作">集合操作</h3>
-
-<p><img src="http://images.wiseturtles.com/2018-12-03-swift_set_operations.png" alt="Set Opearations" /></p>
+<h3 id="heading7">集合操作</h3>
+<p><img src="http://images.wiseturtles.com/2018-12-03-swift_set_operations.png" alt="Set Opearations"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -635,30 +627,27 @@ if (!doNotTrack) {
 <span class="kd">let</span> <span class="nv">evenDigits</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
 <span class="kd">let</span> <span class="nv">singleDigitPrimerNumbers</span><span class="p">:</span><span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
 
-<span class="c1">// 两个集合的交集</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">).</span><span class="bp">sorted</span><span class="p">())</span> <span class="c1">// []</span>
-<span class="c1">// 两个集合交集以外的集合</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">symmetricDifference</span><span class="p">(</span><span class="n">singleDigitPrimerNumbers</span><span class="p">).</span><span class="bp">sorted</span><span class="p">())</span> <span class="c1">// [1, 2, 9]</span>
-<span class="c1">// 两个集合的并集</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">union</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">).</span><span class="bp">sorted</span><span class="p">())</span> <span class="c1">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
-<span class="c1">// 属于集合a, 但是不属于集合b</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">subtracting</span><span class="p">(</span><span class="n">singleDigitPrimerNumbers</span><span class="p">).</span><span class="bp">sorted</span><span class="p">())</span> <span class="c1">// [1, 9]</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">的</span><span class="c1">交</span><span class="c1">集</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">)</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">]</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">交</span><span class="c1">集</span><span class="c1">以</span><span class="c1">外</span><span class="c1">的</span><span class="c1">集</span><span class="c1">合</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">symmetricDifference</span><span class="p">(</span><span class="n">singleDigitPrimerNumbers</span><span class="p">)</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">1</span><span class="c1">,</span><span class="c1"> </span><span class="c1">2</span><span class="c1">,</span><span class="c1"> </span><span class="c1">9</span><span class="c1">]</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">的</span><span class="c1">并</span><span class="c1">集</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">union</span><span class="p">(</span><span class="n">evenDigits</span><span class="p">)</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">0</span><span class="c1">,</span><span class="c1"> </span><span class="c1">1</span><span class="c1">,</span><span class="c1"> </span><span class="c1">2</span><span class="c1">,</span><span class="c1"> </span><span class="c1">3</span><span class="c1">,</span><span class="c1"> </span><span class="c1">4</span><span class="c1">,</span><span class="c1"> </span><span class="c1">5</span><span class="c1">,</span><span class="c1"> </span><span class="c1">6</span><span class="c1">,</span><span class="c1"> </span><span class="c1">7</span><span class="c1">,</span><span class="c1"> </span><span class="c1">8</span><span class="c1">,</span><span class="c1"> </span><span class="c1">9</span><span class="c1">]</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">属</span><span class="c1">于</span><span class="c1">集</span><span class="c1">合</span><span class="c1">a</span><span class="c1">,</span><span class="c1"> </span><span class="c1">但</span><span class="c1">是</span><span class="c1">不</span><span class="c1">属</span><span class="c1">于</span><span class="c1">集</span><span class="c1">合</span><span class="c1">b</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">oddDigits</span><span class="p">.</span><span class="n">subtracting</span><span class="p">(</span><span class="n">singleDigitPrimerNumbers</span><span class="p">)</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">[</span><span class="c1">1</span><span class="c1">,</span><span class="c1"> </span><span class="c1">9</span><span class="c1">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="集合关系">集合关系</h3>
-
+</div><h3 id="heading8">集合关系</h3>
 <p>假如有三个集合<code>a</code>, <code>b</code>, <code>c</code>的关系如下图所示:</p>
-
 <ul>
 <li><code>a</code>是<code>b</code>的父集，<code>a</code>包含所有<code>b</code>中的元素</li>
 <li><code>b</code>是<code>a</code>的自己，<code>b</code>中的元素<code>a</code>中都有</li>
 <li><code>b</code>和<code>c</code>没有相交，它们之间没有相同的元素</li>
 </ul>
-
-<p><img src="http://images.wiseturtles.com/2018-12-03-swift_set_membership.png" alt="set membership" /></p>
+<p><img src="http://images.wiseturtles.com/2018-12-03-swift_set_membership.png" alt="set membership"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -679,87 +668,92 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">houseAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;🐶&#34;</span><span class="p">,</span> <span class="s">&#34;🐱&#34;</span><span class="p">]</span>
-<span class="kd">let</span> <span class="nv">farmAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;🐮&#34;</span><span class="p">,</span> <span class="s">&#34;🐔&#34;</span><span class="p">,</span> <span class="s">&#34;🐑&#34;</span><span class="p">,</span> <span class="s">&#34;🐶&#34;</span><span class="p">,</span> <span class="s">&#34;🐱&#34;</span><span class="p">]</span>
-<span class="kd">let</span> <span class="nv">cityAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;🐦&#34;</span><span class="p">,</span> <span class="s">&#34;🐭&#34;</span><span class="p">]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">houseAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">🐶</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐱</span><span class="s">&#34;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">farmAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">🐮</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐔</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐑</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐶</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐱</span><span class="s">&#34;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">cityAnimals</span><span class="p">:</span> <span class="n">Set</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">🐦</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">🐭</span><span class="s">&#34;</span><span class="p">]</span>
 
-<span class="c1">// 用&#34;==&#34;判断两个集合是否相同</span>
-<span class="n">houseAnimals</span> <span class="p">==</span> <span class="n">cityAnimals</span> <span class="c1">// false</span>
-<span class="c1">// 是否是子集(两个集合可能相等)</span>
-<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">farmAnimals</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="c1">// 是否是父集</span>
-<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isSuperset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="c1">// 是否不相交</span>
-<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isDisjoint</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">cityAnimals</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">用</span><span class="c1">&#34;</span><span class="c1">=</span><span class="c1">=</span><span class="c1">&#34;</span><span class="c1">判</span><span class="c1">断</span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">是</span><span class="c1">否</span><span class="c1">相</span><span class="c1">同</span>
+<span class="n">houseAnimals</span> <span class="p">=</span><span class="p">=</span> <span class="n">cityAnimals</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">f</span><span class="c1">a</span><span class="c1">l</span><span class="c1">s</span><span class="c1">e</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">是</span><span class="c1">否</span><span class="c1">是</span><span class="c1">子</span><span class="c1">集</span><span class="c1">(</span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">可</span><span class="c1">能</span><span class="c1">相</span><span class="c1">等</span><span class="c1">)</span>
+<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">farmAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">是</span><span class="c1">否</span><span class="c1">是</span><span class="c1">父</span><span class="c1">集</span>
+<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isSuperset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">是</span><span class="c1">否</span><span class="c1">不</span><span class="c1">相</span><span class="c1">交</span>
+<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isDisjoint</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">cityAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
 
-<span class="c1">// 判断是否是子集或父集(两个集合不相等)</span>
-<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isStrictSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">farmAnimals</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isStrictSuperset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">判</span><span class="c1">断</span><span class="c1">是</span><span class="c1">否</span><span class="c1">是</span><span class="c1">子</span><span class="c1">集</span><span class="c1">或</span><span class="c1">父</span><span class="c1">集</span><span class="c1">(</span><span class="c1">两</span><span class="c1">个</span><span class="c1">集</span><span class="c1">合</span><span class="c1">不</span><span class="c1">相</span><span class="c1">等</span><span class="c1">)</span>
+<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isStrictSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">farmAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
+<span class="n">farmAnimals</span><span class="p">.</span><span class="n">isStrictSuperset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
 
-<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span>  <span class="c1">// true</span>
-<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isStrictSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">// false</span></code></pre></td></tr></table>
+<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span>  <span class="c1">//</span><span class="c1"> </span><span class="c1">t</span><span class="c1">r</span><span class="c1">u</span><span class="c1">e</span>
+<span class="n">houseAnimals</span><span class="p">.</span><span class="n">isStrictSubset</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">houseAnimals</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">f</span><span class="c1">a</span><span class="c1">l</span><span class="c1">s</span><span class="c1">e</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="字典-dictionaries">字典(Dictionaries)</h2>
-
+</div><h2 id="dictionaries">字典(Dictionaries)</h2>
 <p>字典就是键值对的集合，跟Set类型一样，字典的键也必须是<code>hashble</code>的，字段中的元素都是无序的</p>
-
-<h3 id="创建一个空字典">创建一个空字典</h3>
+<h3 id="heading9">创建一个空字典</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">namesOfIntegers</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">:</span> <span class="nb">String</span><span class="p">]()</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">namesOfIntegers</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">:</span> <span class="nb">String</span><span class="p">]</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="使用字典语法创建字典">使用字典语法创建字典</h3>
+</div><h3 id="heading10">使用字典语法创建字典</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">airports</span><span class="p">:[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;XYZ&#34;</span><span class="p">:</span> <span class="s">&#34;Toronto Pearson&#34;</span><span class="p">,</span> <span class="s">&#34;DUB&#34;</span><span class="p">:</span> <span class="s">&#34;Dublin&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">airports</span><span class="p">:</span><span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">XYZ</span><span class="s">&#34;</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Toronto Pearson</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">DUB</span><span class="s">&#34;</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Dublin</span><span class="s">&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="数组常用的属性和方法-1">数组常用的属性和方法</h3>
-
+</div><h3 id="heading11">数组常用的属性和方法</h3>
 <ul>
-<li>跟数组一样，可以使用*只读*属性<code>count</code>获取字典中的元素个数</li>
-<li>使用<code>isEmpty</code>属性检查字典元素格式是否为0</li>
-
-<li><p>可以直接使用下标访问字典</p>
+<li>
+<p>跟数组一样，可以使用<em>只读</em>属性<code>count</code>获取字典中的元素个数</p>
+</li>
+<li>
+<p>使用<code>isEmpty</code>属性检查字典元素格式是否为0</p>
+</li>
+<li>
+<p>可以直接使用下标访问字典</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;LHR&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;London&#34;</span>
-<span class="n">airports</span><span class="p">[</span><span class="s">&#34;LHR&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;London Heathrow&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;</span><span class="s">LHR</span><span class="s">&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">London</span><span class="s">&#34;</span>
+<span class="n">airports</span><span class="p">[</span><span class="s">&#34;</span><span class="s">LHR</span><span class="s">&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">London Heathrow</span><span class="s">&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>除了上面通过下标的方式修改元素的值之外，也可以使用<code>updateValue(_:forKey:)</code>来修改元素的值，与使用下标方式不同的值，如果指定的key存在的话，它除了改变key的值之外，还会返回key之前的值</p>
+<li>
+<p>除了上面通过下标的方式修改元素的值之外，也可以使用<code>updateValue(_:forKey:)</code>来修改元素的值，与使用下标方式不同的值，如果指定的key存在的话，它除了改变key的值之外，还会返回key之前的值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;Name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;John&#34;</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">updateValue</span><span class="p">(</span><span class="s">&#34;Crazygit&#34;</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&#34;Name&#34;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="c1">// print &#34;John&#34;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;</span><span class="s">Name</span><span class="s">&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">John</span><span class="s">&#34;</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">updateValue</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Crazygit</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Name</span><span class="s">&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">oldValue</span><span class="p">)</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">p</span><span class="c1">r</span><span class="c1">i</span><span class="c1">n</span><span class="c1">t</span><span class="c1"> </span><span class="c1">&#34;</span><span class="c1">J</span><span class="c1">o</span><span class="c1">h</span><span class="c1">n</span><span class="c1">&#34;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>通过下标访问字段的时候，返回的值也是可选值类型, 当key不存在时，直接返回<code>nil</code></p>
+<li>
+<p>通过下标访问字段的时候，返回的值也是可选值类型, 当key不存在时，直接返回<code>nil</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -767,30 +761,31 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">airports</span><span class="p">[</span><span class="s">&#34;Name&#34;</span><span class="p">]</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">airports</span><span class="p">[</span><span class="s">&#34;</span><span class="s">Name</span><span class="s">&#34;</span><span class="p">]</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;No Name&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">No Name</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>删除元素有两种方式，一种是使用下标的方式，将元素赋值为<code>nil</code></p>
+<li>
+<p>删除元素有两种方式，一种是使用下标的方式，将元素赋值为<code>nil</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;Name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="kc">nil</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">airports</span><span class="p">)</span>  <span class="c1">// Name键已经从字典中移除</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">airports</span><span class="p">[</span><span class="s">&#34;</span><span class="s">Name</span><span class="s">&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">airports</span><span class="p">)</span>  <span class="c1">//</span><span class="c1"> </span><span class="c1">N</span><span class="c1">a</span><span class="c1">m</span><span class="c1">e</span><span class="c1">键</span><span class="c1">已</span><span class="c1">经</span><span class="c1">从</span><span class="c1">字</span><span class="c1">典</span><span class="c1">中</span><span class="c1">移</span><span class="c1">除</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>另一种方式是使用<code>removeValue(forkey:)</code>方法，与通过下标访问的不同的是，它会返回被移除的值</p>
+</div><p>另一种方式是使用<code>removeValue(forkey:)</code>方法，与通过下标访问的不同的是，它会返回被移除的值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -798,19 +793,20 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">removedValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">removeValue</span><span class="p">(</span><span class="n">forKey</span><span class="p">:</span> <span class="s">&#34;DUB&#34;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Remove key DUB from airports dict&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">removedValue</span> <span class="p">=</span> <span class="n">airports</span><span class="p">.</span><span class="n">removeValue</span><span class="p">(</span><span class="n">forKey</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">DUB</span><span class="s">&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Remove key DUB from airports dict</span><span class="s">&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="k">else</span><span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;airport dict dose not contain a value for DUB&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">airport dict dose not contain a value for DUB</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>遍历字典</p>
+<li>
+<p>遍历字典</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -824,22 +820,25 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 遍历键和值</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">遍</span><span class="c1">历</span><span class="c1">键</span><span class="c1">和</span><span class="c1">值</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">airports</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s"> =&gt; </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c1">// 遍历键</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">遍</span><span class="c1">历</span><span class="c1">键</span>
 <span class="k">for</span> <span class="n">key</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">keys</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c1">// 遍历值</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">遍</span><span class="c1">历</span><span class="c1">值</span>
 <span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="n">airports</span><span class="p">.</span><span class="n">values</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>

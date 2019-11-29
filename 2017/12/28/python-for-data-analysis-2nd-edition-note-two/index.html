@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2017/12/28/python-for-data-analysis-2nd-edition-note-two/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="《利用Python进行数据分析第二版》读书笔记二">
 <meta itemprop="description" content="本文主要介绍使用Pandas进行数据清洗和预处理相关操作
 ">
-
-
 <meta itemprop="datePublished" content="2017-12-28T15:57:31&#43;08:00" />
 <meta itemprop="dateModified" content="2017-12-28T15:57:31&#43;08:00" />
 <meta itemprop="wordCount" content="3322">
 
 
 
-<meta itemprop="keywords" content="numpy,pandas,matplotlib," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="numpy,pandas,matplotlib," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《利用Python进行数据分析第二版》读书笔记二"/>
 <meta name="twitter:description" content="本文主要介绍使用Pandas进行数据清洗和预处理相关操作
 "/>
@@ -364,37 +361,33 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#数据清洗和预处理">数据清洗和预处理</a>
-<ul>
-<li><a href="#过滤出缺失的数据">过滤出缺失的数据</a></li>
-<li><a href="#填充缺失的数据">填充缺失的数据</a></li>
-<li><a href="#去掉重复的行">去掉重复的行</a></li>
-<li><a href="#替换值-replace">替换值(Replace)</a></li>
-<li><a href="#重命名轴的索引-renaming-axis-indexes">重命名轴的索引(Renaming Axis Indexes)</a></li>
-<li><a href="#离散和装箱">离散和装箱</a></li>
-<li><a href="#检查和过滤异常值">检查和过滤异常值</a></li>
-<li><a href="#随机排序和随机取样">随机排序和随机取样</a></li>
-<li><a href="#计算指标-虚拟变量-computing-indicator-dummy-variables">计算指标/虚拟变量(Computing Indicator/Dummy Variables)</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">数据清洗和预处理</a>
+      <ul>
+        <li><a href="#heading1">过滤出缺失的数据</a></li>
+        <li><a href="#heading2">填充缺失的数据</a></li>
+        <li><a href="#heading3">去掉重复的行</a></li>
+        <li><a href="#replace">替换值(Replace)</a></li>
+        <li><a href="#renaming-axis-indexes">重命名轴的索引(Renaming Axis Indexes)</a></li>
+        <li><a href="#heading4">离散和装箱</a></li>
+        <li><a href="#heading5">检查和过滤异常值</a></li>
+        <li><a href="#heading6">随机排序和随机取样</a></li>
+        <li><a href="#computing-indicatordummy-variables">计算指标/虚拟变量(Computing Indicator/Dummy Variables)</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="数据清洗和预处理">数据清洗和预处理</h2>
-
-<h3 id="过滤出缺失的数据">过滤出缺失的数据</h3>
-
+      <h2 id="heading">数据清洗和预处理</h2>
+<h3 id="heading1">过滤出缺失的数据</h3>
 <p>Series</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -412,28 +405,28 @@ if (!doNotTrack) {
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">nan</span> <span class="k">as</span> <span class="n">NA</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">nan</span> <span class="k">as</span> <span class="n">NA</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">2</span>    <span class="mf">3.5</span>
 <span class="mi">4</span>    <span class="mf">7.0</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 等价于上面的dropna</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">2</span>    <span class="mf">3.5</span>
 <span class="mi">4</span>    <span class="mf">7.0</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>DataFrame</p>
+</div><p>DataFrame</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -449,26 +442,26 @@ if (!doNotTrack) {
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">],</span> <span class="p">[</span><span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">],</span> <span class="p">[</span><span class="n">NA</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="p">[</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">NA</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cleaned</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cleaned</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
      <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">1.0</span>  <span class="mf">6.5</span>  <span class="mf">3.0</span>
 <span class="mi">1</span>  <span class="mf">1.0</span>  <span class="n">NaN</span>  <span class="n">NaN</span>
 <span class="mi">2</span>  <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>
 <span class="mi">3</span>  <span class="n">NaN</span>  <span class="mf">6.5</span>  <span class="mf">3.0</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cleaned</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cleaned</span>
      <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>
-<span class="mi">0</span>  <span class="mf">1.0</span>  <span class="mf">6.5</span>  <span class="mf">3.0</span></code></pre></td></tr></table>
+<span class="mi">0</span>  <span class="mf">1.0</span>  <span class="mf">6.5</span>  <span class="mf">3.0</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>过滤至少包含几个值的数据</p>
+</div><p>过滤至少包含几个值的数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -500,13 +493,13 @@ if (!doNotTrack) {
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">0.006690</span>       <span class="n">NaN</span>       <span class="n">NaN</span>
 <span class="mi">1</span>  <span class="mf">0.850493</span>       <span class="n">NaN</span>       <span class="n">NaN</span>
@@ -516,28 +509,27 @@ if (!doNotTrack) {
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
 <span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="p">)</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">4</span> <span class="o">-</span><span class="mf">0.440714</span> <span class="o">-</span><span class="mf">0.700860</span> <span class="o">-</span><span class="mf">1.266824</span>
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
 <span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
 
 <span class="c1"># 保留至少有2个为非NaN值的的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">2</span> <span class="o">-</span><span class="mf">0.601578</span>       <span class="n">NaN</span> <span class="o">-</span><span class="mf">0.453566</span>
 <span class="mi">3</span> <span class="o">-</span><span class="mf">0.819006</span>       <span class="n">NaN</span> <span class="o">-</span><span class="mf">0.176161</span>
 <span class="mi">4</span> <span class="o">-</span><span class="mf">0.440714</span> <span class="o">-</span><span class="mf">0.700860</span> <span class="o">-</span><span class="mf">1.266824</span>
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
-<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span></code></pre></td></tr></table>
+<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="填充缺失的数据">填充缺失的数据</h3>
-
+</div><h3 id="heading2">填充缺失的数据</h3>
 <p>补充缺失的值为0</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -558,7 +550,7 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">0.006690</span>       <span class="n">NaN</span>       <span class="n">NaN</span>
 <span class="mi">1</span>  <span class="mf">0.850493</span>       <span class="n">NaN</span>       <span class="n">NaN</span>
@@ -568,7 +560,7 @@ if (!doNotTrack) {
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
 <span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">0.006690</span>  <span class="mf">0.000000</span>  <span class="mf">0.000000</span>
 <span class="mi">1</span>  <span class="mf">0.850493</span>  <span class="mf">0.000000</span>  <span class="mf">0.000000</span>
@@ -576,13 +568,13 @@ if (!doNotTrack) {
 <span class="mi">3</span> <span class="o">-</span><span class="mf">0.819006</span>  <span class="mf">0.000000</span> <span class="o">-</span><span class="mf">0.176161</span>
 <span class="mi">4</span> <span class="o">-</span><span class="mf">0.440714</span> <span class="o">-</span><span class="mf">0.700860</span> <span class="o">-</span><span class="mf">1.266824</span>
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
-<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span></code></pre></td></tr></table>
+<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>按照指定的列填充缺失的值。第1列为NaN的填充为0.5，第2列为NaN的填充为0</p>
+</div><p>按照指定的列填充缺失的值。第1列为NaN的填充为0.5，第2列为NaN的填充为0</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -593,7 +585,7 @@ if (!doNotTrack) {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span><span class="p">)</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">0.006690</span>  <span class="mf">0.500000</span>  <span class="mf">0.000000</span>
 <span class="mi">1</span>  <span class="mf">0.850493</span>  <span class="mf">0.500000</span>  <span class="mf">0.000000</span>
@@ -601,13 +593,13 @@ if (!doNotTrack) {
 <span class="mi">3</span> <span class="o">-</span><span class="mf">0.819006</span>  <span class="mf">0.500000</span> <span class="o">-</span><span class="mf">0.176161</span>
 <span class="mi">4</span> <span class="o">-</span><span class="mf">0.440714</span> <span class="o">-</span><span class="mf">0.700860</span> <span class="o">-</span><span class="mf">1.266824</span>
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
-<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span></code></pre></td></tr></table>
+<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>默认情况下，fillna都是返回一个新的对象，使用<code>inplace</code>参数可以直接修改原来的DataFame</p>
+</div><p>默认情况下，fillna都是返回一个新的对象，使用<code>inplace</code>参数可以直接修改原来的DataFame</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -620,9 +612,9 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">_</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">_</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
           <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>
 <span class="mi">0</span>  <span class="mf">0.006690</span>  <span class="mf">0.000000</span>  <span class="mf">0.000000</span>
 <span class="mi">1</span>  <span class="mf">0.850493</span>  <span class="mf">0.000000</span>  <span class="mf">0.000000</span>
@@ -630,13 +622,13 @@ if (!doNotTrack) {
 <span class="mi">3</span> <span class="o">-</span><span class="mf">0.819006</span>  <span class="mf">0.000000</span> <span class="o">-</span><span class="mf">0.176161</span>
 <span class="mi">4</span> <span class="o">-</span><span class="mf">0.440714</span> <span class="o">-</span><span class="mf">0.700860</span> <span class="o">-</span><span class="mf">1.266824</span>
 <span class="mi">5</span> <span class="o">-</span><span class="mf">1.347181</span>  <span class="mf">1.561944</span> <span class="o">-</span><span class="mf">0.203258</span>
-<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span></code></pre></td></tr></table>
+<span class="mi">6</span>  <span class="mf">3.195225</span>  <span class="mf">1.604114</span> <span class="o">-</span><span class="mf">1.243471</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="去掉重复的行">去掉重复的行</h3>
+</div><h3 id="heading3">去掉重复的行</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -700,11 +692,11 @@ if (!doNotTrack) {
 </span><span class="lnt">62
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">],</span>
-<span class="o">...</span>                      <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="o">...</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k1</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">one</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">two</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">two</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                      <span class="sa"></span><span class="s1">&#39;</span><span class="s1">k2</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span><span class="p">}</span><span class="p">)</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
     <span class="n">k1</span>  <span class="n">k2</span>
 <span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>
 <span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>
@@ -715,7 +707,7 @@ if (!doNotTrack) {
 <span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>
 
 <span class="c1"># 重复的行返回为True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="bp">False</span>
 <span class="mi">1</span>    <span class="bp">False</span>
 <span class="mi">2</span>    <span class="bp">False</span>
@@ -726,7 +718,7 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="nb">bool</span>
 
 <span class="c1"># 去掉重复的行(即data.duplicated()为True的行)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="p">)</span>
     <span class="n">k1</span>  <span class="n">k2</span>
 <span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>
 <span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>
@@ -735,9 +727,9 @@ if (!doNotTrack) {
 <span class="mi">4</span>  <span class="n">one</span>   <span class="mi">3</span>
 <span class="mi">5</span>  <span class="n">two</span>   <span class="mi">4</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">v1</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
     <span class="n">k1</span>  <span class="n">k2</span>  <span class="n">v1</span>
 <span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">0</span>
 <span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>   <span class="mi">1</span>
@@ -748,26 +740,26 @@ if (!doNotTrack) {
 <span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>   <span class="mi">6</span>
 
 <span class="c1"># 去掉k1列重复的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k1</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
     <span class="n">k1</span>  <span class="n">k2</span>  <span class="n">v1</span>
 <span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">0</span>
 <span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>   <span class="mi">1</span>
 
 <span class="c1"># 默认情况下，遇到重复的值时，只会保留第一个出现的，可以通过keep参数保留最后一次出现的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">k1</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">k2</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">last</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">k1</span>  <span class="n">k2</span>  <span class="n">v1</span>
 <span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">0</span>
 <span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>   <span class="mi">1</span>
 <span class="mi">2</span>  <span class="n">one</span>   <span class="mi">2</span>   <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">two</span>   <span class="mi">3</span>   <span class="mi">3</span>
 <span class="mi">4</span>  <span class="n">one</span>   <span class="mi">3</span>   <span class="mi">4</span>
-<span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>   <span class="mi">6</span></code></pre></td></tr></table>
+<span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>   <span class="mi">6</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="替换值-replace">替换值(Replace)</h3>
+</div><h3 id="replace">替换值(Replace)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -819,9 +811,9 @@ if (!doNotTrack) {
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
 <span class="mi">0</span>       <span class="mf">1.0</span>
 <span class="mi">1</span>    <span class="o">-</span><span class="mf">999.0</span>
 <span class="mi">2</span>       <span class="mf">2.0</span>
@@ -831,7 +823,7 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 将-999替换成nan</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 <span class="mi">0</span>       <span class="mf">1.0</span>
 <span class="mi">1</span>       <span class="n">NaN</span>
 <span class="mi">2</span>       <span class="mf">2.0</span>
@@ -841,7 +833,7 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 将多个值-999和-1000替换成nan</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="p">[</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">]</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">1</span>    <span class="n">NaN</span>
 <span class="mi">2</span>    <span class="mf">2.0</span>
@@ -851,7 +843,7 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1">#  将-999替换成nan， -1000替换成0</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="p">[</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">1</span>    <span class="n">NaN</span>
 <span class="mi">2</span>    <span class="mf">2.0</span>
@@ -861,20 +853,20 @@ if (!doNotTrack) {
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 效果同上</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="o">-</span><span class="mi">999</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="p">{</span><span class="o">-</span><span class="mi">999</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">1</span>    <span class="n">NaN</span>
 <span class="mi">2</span>    <span class="mf">2.0</span>
 <span class="mi">3</span>    <span class="n">NaN</span>
 <span class="mi">4</span>    <span class="mf">0.0</span>
 <span class="mi">5</span>    <span class="mf">3.0</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="重命名轴的索引-renaming-axis-indexes">重命名轴的索引(Renaming Axis Indexes)</h3>
+</div><h3 id="renaming-axis-indexes">重命名轴的索引(Renaming Axis Indexes)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -915,54 +907,53 @@ if (!doNotTrack) {
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
-<span class="o">...</span>                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
-<span class="o">...</span>                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
-<span class="o">...</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">)</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Ohio</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Colorado</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">New York</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">one</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">two</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">three</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">four</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">transform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">transform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="p">)</span>
 
 <span class="c1"># map方法返回一个新的Index类型，不会修改原来的值</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
-<span class="n">Index</span><span class="p">([</span><span class="s1">&#39;OHIO&#39;</span><span class="p">,</span> <span class="s1">&#39;COLO&#39;</span><span class="p">,</span> <span class="s1">&#39;NEW &#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">Index</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">OHIO</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">COLO</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">NEW </span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">object</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
           <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
 <span class="n">Ohio</span>        <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
 <span class="n">Colorado</span>    <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
 <span class="n">New</span> <span class="n">York</span>    <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
 
 <span class="c1"># 可以重新赋值index达到replace的效果</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
       <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
 <span class="n">OHIO</span>    <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
 <span class="n">COLO</span>    <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
 <span class="n">NEW</span>     <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
 
 <span class="c1"># rename方法也可以接受函数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
       <span class="n">ONE</span>  <span class="n">TWO</span>  <span class="n">THREE</span>  <span class="n">FOUR</span>
 <span class="n">Ohio</span>    <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
 <span class="n">Colo</span>    <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
 <span class="n">New</span>     <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
 
 <span class="c1"># 同样rename方法可以接受字典</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;OHIO&#39;</span><span class="p">:</span> <span class="s1">&#39;INDIANA&#39;</span><span class="p">},</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;peekaboo&#39;</span><span class="p">})</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">OHIO</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">INDIANA</span><span class="s1">&#39;</span><span class="p">}</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">three</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">peekaboo</span><span class="s1">&#39;</span><span class="p">}</span><span class="p">)</span>
          <span class="n">one</span>  <span class="n">two</span>  <span class="n">peekaboo</span>  <span class="n">four</span>
 <span class="n">INDIANA</span>    <span class="mi">0</span>    <span class="mi">1</span>         <span class="mi">2</span>     <span class="mi">3</span>
 <span class="n">COLO</span>       <span class="mi">4</span>    <span class="mi">5</span>         <span class="mi">6</span>     <span class="mi">7</span>
-<span class="n">NEW</span>        <span class="mi">8</span>    <span class="mi">9</span>        <span class="mi">10</span>    <span class="mi">11</span></code></pre></td></tr></table>
+<span class="n">NEW</span>        <span class="mi">8</span>    <span class="mi">9</span>        <span class="mi">10</span>    <span class="mi">11</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="离散和装箱">离散和装箱</h3>
-
+</div><h3 id="heading4">离散和装箱</h3>
 <p>考虑这样一个场景，我们有一些关于人的年龄的数据，现在需要根据年龄大小来分组，如:
 18-25岁，26岁到35岁， 36岁到60岁，61岁以上来分组，可以这样实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -992,55 +983,55 @@ if (!doNotTrack) {
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 
 <span class="c1"># 使用cut方法装箱</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span>
-<span class="p">[(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span>
+<span class="p">[</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]):</span> <span class="p">[(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span><span class="p">]</span>
 
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span><span class="o">.</span><span class="n">codes</span>
-<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int8</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span><span class="o">.</span><span class="n">codes</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int8</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span><span class="o">.</span><span class="n">categories</span>
-<span class="n">IntervalIndex</span><span class="p">([(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
-              <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
-              <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;interval[int64]&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span><span class="o">.</span><span class="n">categories</span>
+<span class="n">IntervalIndex</span><span class="p">(</span><span class="p">[</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span><span class="p">]</span>
+              <span class="n">closed</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">right</span><span class="s1">&#39;</span><span class="p">,</span>
+              <span class="n">dtype</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">interval[int64]</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># 统计每个年龄段的人数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>     <span class="mi">5</span>
 <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>     <span class="mi">3</span>
 <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>     <span class="mi">3</span>
 <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>    <span class="mi">1</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>默认情况下括号(18, 25]左开右闭，表示&gt;18 并且 &lt;=25，可以指定括号的开闭情况</p>
+</div><p>默认情况下括号(18, 25]左开右闭，表示&gt;18 并且 &lt;=25，可以指定括号的开闭情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="p">[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)]</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">[</span><span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]):</span> <span class="p">[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span></code></pre></td></tr></table>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们也可以指定每个箱子的名字</p>
+</div><p>我们也可以指定每个箱子的名字</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1048,18 +1039,18 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Youth&#39;</span><span class="p">,</span> <span class="s1">&#39;YoungAdult&#39;</span><span class="p">,</span> <span class="s1">&#39;MiddleAged&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">]</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Youth</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">YoungAdult</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">MiddleAged</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Senior</span><span class="s1">&#39;</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Senior</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Senior</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span> <span class="p">[</span><span class="n">Youth</span> <span class="o">&lt;</span> <span class="n">YoungAdult</span> <span class="o">&lt;</span> <span class="n">MiddleAged</span> <span class="o">&lt;</span> <span class="n">Senior</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="n">Youth</span> <span class="o">&lt;</span> <span class="n">YoungAdult</span> <span class="o">&lt;</span> <span class="n">MiddleAged</span> <span class="o">&lt;</span> <span class="n">Senior</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在调用cut函数，指定<code>bins</code>参数时，如果传递是一个数字n而不是一个区间，那么默认会将Searies按照从小到到的顺序自动分成n个区间。</p>
+</div><p>在调用cut函数，指定<code>bins</code>参数时，如果传递是一个数字n而不是一个区间，那么默认会将Searies按照从小到到的顺序自动分成n个区间。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1074,25 +1065,25 @@ if (!doNotTrack) {
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.18918431</span><span class="p">,</span>  <span class="mf">0.84853486</span><span class="p">,</span>  <span class="mf">0.03490019</span><span class="p">,</span>  <span class="mf">0.99371555</span><span class="p">,</span>  <span class="mf">0.72304736</span><span class="p">,</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.18918431</span><span class="p">,</span>  <span class="mf">0.84853486</span><span class="p">,</span>  <span class="mf">0.03490019</span><span class="p">,</span>  <span class="mf">0.99371555</span><span class="p">,</span>  <span class="mf">0.72304736</span><span class="p">,</span>
         <span class="mf">0.3356213</span> <span class="p">,</span>  <span class="mf">0.40800301</span><span class="p">,</span>  <span class="mf">0.71508546</span><span class="p">,</span>  <span class="mf">0.45061796</span><span class="p">,</span>  <span class="mf">0.28337607</span><span class="p">,</span>
         <span class="mf">0.31318716</span><span class="p">,</span>  <span class="mf">0.86330303</span><span class="p">,</span>  <span class="mf">0.88466783</span><span class="p">,</span>  <span class="mf">0.22120597</span><span class="p">,</span>  <span class="mf">0.25290735</span><span class="p">,</span>
-        <span class="mf">0.82730126</span><span class="p">,</span>  <span class="mf">0.14255095</span><span class="p">,</span>  <span class="mf">0.36400834</span><span class="p">,</span>  <span class="mf">0.75004135</span><span class="p">,</span>  <span class="mf">0.1090306</span> <span class="p">])</span>
+        <span class="mf">0.82730126</span><span class="p">,</span>  <span class="mf">0.14255095</span><span class="p">,</span>  <span class="mf">0.36400834</span><span class="p">,</span>  <span class="mf">0.75004135</span><span class="p">,</span>  <span class="mf">0.1090306</span> <span class="p">]</span><span class="p">)</span>
 
 <span class="c1">#precision表示小数展示的位数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">[(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">[</span><span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">20</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]]</span></code></pre></td></tr></table>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">(</span><span class="mf">0.034</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>一个跟<code>cut</code>类似的办法是<code>qcut</code>,使用cut方法，通常无法保证每个装箱的元素个数是相同的，使用<code>qcut</code>可以按照百分比来分配元素</p>
+</div><p>一个跟<code>cut</code>类似的办法是<code>qcut</code>,使用cut方法，通常无法保证每个装箱的元素个数是相同的，使用<code>qcut</code>可以按照百分比来分配元素</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1111,29 +1102,29 @@ if (!doNotTrack) {
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span>
-<span class="p">[(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.632</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span>
+<span class="p">[</span><span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.632</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">1000</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.632</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span> <span class="o">&lt;</span>
-                                    <span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]]</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.632</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span> <span class="o">&lt;</span>
+                                    <span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span><span class="p">]</span>
 
 <span class="c1"># 可以看到每个装箱的元素个数是一致的</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
 <span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span>       <span class="mi">250</span>
 <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">]</span>      <span class="mi">250</span>
 <span class="p">(</span><span class="o">-</span><span class="mf">0.632</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span>    <span class="mi">250</span>
 <span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.632</span><span class="p">]</span>    <span class="mi">250</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>同样，我们可以指定每个装箱的百分比</p>
+</div><p>同样，我们可以指定每个装箱的百分比</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1151,26 +1142,26 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 累进的百分比10%, 40%, 40%, 10%</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cats</span>
-<span class="p">[(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cats</span>
+<span class="p">[</span><span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span><span class="p">]</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">1000</span>
-<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.215</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span> <span class="o">&lt;</span>
-                                    <span class="p">(</span><span class="mf">1.271</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]]</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]</span><span class="p">)</span><span class="p">:</span> <span class="p">[</span><span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.215</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span> <span class="o">&lt;</span>
+                                    <span class="p">(</span><span class="mf">1.271</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
 <span class="p">(</span><span class="mf">0.0365</span><span class="p">,</span> <span class="mf">1.271</span><span class="p">]</span>     <span class="mi">400</span>
 <span class="p">(</span><span class="o">-</span><span class="mf">1.215</span><span class="p">,</span> <span class="mf">0.0365</span><span class="p">]</span>    <span class="mi">400</span>
 <span class="p">(</span><span class="mf">1.271</span><span class="p">,</span> <span class="mf">3.328</span><span class="p">]</span>      <span class="mi">100</span>
 <span class="p">(</span><span class="o">-</span><span class="mf">3.237</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.215</span><span class="p">]</span>    <span class="mi">100</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="检查和过滤异常值">检查和过滤异常值</h3>
+</div><h3 id="heading5">检查和过滤异常值</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1212,9 +1203,9 @@ if (!doNotTrack) {
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="p">)</span>
                  <span class="mi">0</span>            <span class="mi">1</span>            <span class="mi">2</span>            <span class="mi">3</span>
 <span class="n">count</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>
 <span class="n">mean</span>      <span class="mf">0.034294</span>    <span class="o">-</span><span class="mf">0.023318</span>     <span class="mf">0.009570</span>     <span class="mf">0.067062</span>
@@ -1226,15 +1217,15 @@ if (!doNotTrack) {
 <span class="nb">max</span>       <span class="mf">3.736384</span>     <span class="mf">3.272939</span>     <span class="mf">3.114762</span>     <span class="mf">3.311736</span>
 
 <span class="c1"># 找出第3列绝对值大于3的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">col</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">col</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">col</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">col</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
 <span class="mi">219</span>   <span class="o">-</span><span class="mf">3.195441</span>
 <span class="mi">980</span>    <span class="mf">3.114762</span>
 <span class="n">Name</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 找出所有包含绝对值大于3的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">]</span>
             <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>
 <span class="mi">21</span>   <span class="mf">1.082695</span>  <span class="mf">1.455599</span>  <span class="mf">0.740997</span>  <span class="mf">3.053146</span>
 <span class="mi">205</span>  <span class="mf">3.736384</span> <span class="o">-</span><span class="mf">0.109024</span>  <span class="mf">0.252715</span>  <span class="mf">1.640695</span>
@@ -1245,21 +1236,20 @@ if (!doNotTrack) {
 <span class="c1"># 等于0 返回 0</span>
 <span class="c1"># 大于0 返回1</span>
 <span class="c1"># NaN 返回 NaN</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="p">)</span>
      <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
 <span class="mi">0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>
 <span class="mi">1</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>
 <span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span>
 <span class="mi">3</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>
-<span class="mi">4</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span></code></pre></td></tr></table>
+<span class="mi">4</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="随机排序和随机取样">随机排序和随机取样</h3>
-
+</div><h3 id="heading6">随机排序和随机取样</h3>
 <p>使用<code>numpy.random.permutation</code>函数，很容易实现对Series和DataFrame的随机排序</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1288,10 +1278,10 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 初始化一个DataFrame</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
 
 <span class="c1"># df的索引时0至4按顺序排列的</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
     <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
 <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
 <span class="mi">1</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>
@@ -1300,25 +1290,25 @@ if (!doNotTrack) {
 <span class="mi">4</span>  <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
 
 <span class="c1"># 生成一个随机的索引序列</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sampler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sampler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sampler</span>
-<span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sampler</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="p">)</span>
 
 <span class="c1"># 使用新的索引序列</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
     <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
 <span class="mi">2</span>   <span class="mi">8</span>   <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
 <span class="mi">4</span>  <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
 <span class="mi">3</span>  <span class="mi">12</span>  <span class="mi">13</span>  <span class="mi">14</span>  <span class="mi">15</span>
 <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
-<span class="mi">1</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span></code></pre></td></tr></table>
+<span class="mi">1</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>随机返回一些行的数据</p>
+</div><p>随机返回一些行的数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1327,17 +1317,17 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 随机返回3行数据</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
 <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
 <span class="mi">2</span>   <span class="mi">8</span>   <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
-<span class="mi">4</span>  <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span></code></pre></td></tr></table>
+<span class="mi">4</span>  <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用<code>replace</code>参数可以允许重复取样</p>
+</div><p>使用<code>replace</code>参数可以允许重复取样</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1356,12 +1346,12 @@ if (!doNotTrack) {
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">choices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">choices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span><span class="p">)</span>
 
 <span class="c1"># 随机从Series中取10个元素，允许重复使用</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">draws</span> <span class="o">=</span> <span class="n">choices</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">draws</span> <span class="o">=</span> <span class="n">choices</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">draws</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">draws</span>
 <span class="mi">4</span>    <span class="mi">4</span>
 <span class="mi">4</span>    <span class="mi">4</span>
 <span class="mi">0</span>    <span class="mi">5</span>
@@ -1372,20 +1362,17 @@ if (!doNotTrack) {
 <span class="mi">4</span>    <span class="mi">4</span>
 <span class="mi">1</span>    <span class="mi">7</span>
 <span class="mi">0</span>    <span class="mi">5</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="计算指标-虚拟变量-computing-indicator-dummy-variables">计算指标/虚拟变量(Computing Indicator/Dummy Variables)</h3>
-
+</div><h3 id="computing-indicatordummy-variables">计算指标/虚拟变量(Computing Indicator/Dummy Variables)</h3>
 <p>定义参考:</p>
-
 <p><a href="http://wiki.mbalib.com/wiki/%E8%99%9A%E6%8B%9F%E5%8F%98%E9%87%8F">http://wiki.mbalib.com/wiki/%E8%99%9A%E6%8B%9F%E5%8F%98%E9%87%8F</a></p>
-
 <p>一种常用于统计建模或机器学习的转换方式是: 将分类变量转换为“哑变量矩阵”或“指标矩阵”。如果 DataFrame 的某一列中含有 k 个
 不同的值，则可以派生出一个 k 列矩阵或 DataFrame（其值全为1和0）。pandas 有一个 get_dummies 函数可以实现该功能。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1408,10 +1395,10 @@ if (!doNotTrack) {
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)}</span>
-<span class="o">...</span> <span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">key</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">c</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">data1</span><span class="s1">&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="p">}</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">df</span>
    <span class="n">data1</span> <span class="n">key</span>
 <span class="mi">0</span>      <span class="mi">0</span>   <span class="n">b</span>
 <span class="mi">1</span>      <span class="mi">1</span>   <span class="n">b</span>
@@ -1421,20 +1408,20 @@ if (!doNotTrack) {
 <span class="mi">5</span>      <span class="mi">5</span>   <span class="n">b</span>
 
 <span class="c1"># 指定列元素值根据是否出现，分别赋值为0和1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">key</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
    <span class="n">a</span>  <span class="n">b</span>  <span class="n">c</span>
 <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
 <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
 <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>
 <span class="mi">3</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>
 <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>
-<span class="mi">5</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span></code></pre></td></tr></table>
+<span class="mi">5</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也可以指定一个前缀</p>
+</div><p>也可以指定一个前缀</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1446,22 +1433,22 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">key</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">key</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dummies</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">dummies</span>
    <span class="n">key_a</span>  <span class="n">key_b</span>  <span class="n">key_c</span>
 <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
 <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
 <span class="mi">2</span>      <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">0</span>
 <span class="mi">3</span>      <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">1</span>
 <span class="mi">4</span>      <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">0</span>
-<span class="mi">5</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span></code></pre></td></tr></table>
+<span class="mi">5</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>另外一种常用的方法是和离散函数<code>cut</code>结合</p>
+</div><p>另外一种常用的方法是和离散函数<code>cut</code>结合</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1487,19 +1474,19 @@ if (!doNotTrack) {
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">values</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.92961609</span><span class="p">,</span>  <span class="mf">0.31637555</span><span class="p">,</span>  <span class="mf">0.18391881</span><span class="p">,</span>  <span class="mf">0.20456028</span><span class="p">,</span>  <span class="mf">0.56772503</span><span class="p">,</span>
-        <span class="mf">0.5955447</span> <span class="p">,</span>  <span class="mf">0.96451452</span><span class="p">,</span>  <span class="mf">0.6531771</span> <span class="p">,</span>  <span class="mf">0.74890664</span><span class="p">,</span>  <span class="mf">0.65356987</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">values</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.92961609</span><span class="p">,</span>  <span class="mf">0.31637555</span><span class="p">,</span>  <span class="mf">0.18391881</span><span class="p">,</span>  <span class="mf">0.20456028</span><span class="p">,</span>  <span class="mf">0.56772503</span><span class="p">,</span>
+        <span class="mf">0.5955447</span> <span class="p">,</span>  <span class="mf">0.96451452</span><span class="p">,</span>  <span class="mf">0.6531771</span> <span class="p">,</span>  <span class="mf">0.74890664</span><span class="p">,</span>  <span class="mf">0.65356987</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># 统计了每个索引值在哪个区间</span>
 <span class="c1"># 索引为0的0.92961609，出现在区间(0.8, 1.0]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span><span class="p">)</span>
    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>
 <span class="mi">1</span>           <span class="mi">0</span>           <span class="mi">1</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>
@@ -1510,7 +1497,8 @@ if (!doNotTrack) {
 <span class="mi">6</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>
 <span class="mi">7</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>           <span class="mi">0</span>
 <span class="mi">8</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>           <span class="mi">0</span>
-<span class="mi">9</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>           <span class="mi">0</span></code></pre></td></tr></table>
+<span class="mi">9</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">0</span>           <span class="mi">1</span>           <span class="mi">0</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="皮尔逊相关系数(Pearson Correlation Coefficient)">
 <meta itemprop="description" content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
 ">
-
-
 <meta itemprop="datePublished" content="2018-01-19T17:48:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-19T17:48:36&#43;08:00" />
-<meta itemprop="wordCount" content="2328">
+<meta itemprop="wordCount" content="2324">
 
 
 
-<meta itemprop="keywords" content="math,statistics,variance,standard deviation,standard score,Pearson Correlation Coefficient," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="math,statistics,variance,standard deviation,standard score,Pearson Correlation Coefficient," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="皮尔逊相关系数(Pearson Correlation Coefficient)"/>
 <meta name="twitter:description" content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
 "/>
@@ -342,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"> 推荐系统 </a>
             
           </div>
-        <span class="more-meta"> 约 2328 字 </span>
+        <span class="more-meta"> 约 2324 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -364,26 +361,26 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#方差-variance">方差（Variance）</a>
-<ul>
-<li><a href="#使用python模块计算">使用python模块计算</a></li>
-<li><a href="#扩展阅读">扩展阅读</a></li>
-</ul></li>
-<li><a href="#标准差-standard-deviation">标准差(Standard Deviation)</a></li>
-<li><a href="#标准分数-standard-score">标准分数(Standard Score)</a>
-<ul>
-<li><a href="#使用场景">使用场景</a></li>
-<li><a href="#使用python模块计算-1">使用python模块计算</a></li>
-</ul></li>
-<li><a href="#皮尔逊相关系数-pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</a>
-<ul>
-<li><a href="#相关系数的特性">相关系数的特性</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#variance">方差（Variance）</a>
+      <ul>
+        <li><a href="#python">使用python模块计算</a></li>
+        <li><a href="#heading">扩展阅读</a></li>
+      </ul>
+    </li>
+    <li><a href="#standard-deviation">标准差(Standard Deviation)</a></li>
+    <li><a href="#standard-score">标准分数(Standard Score)</a>
+      <ul>
+        <li><a href="#heading1">使用场景</a></li>
+        <li><a href="#python1">使用python模块计算</a></li>
+      </ul>
+    </li>
+    <li><a href="#pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</a>
+      <ul>
+        <li><a href="#heading2">相关系数的特性</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -391,88 +388,60 @@ if (!doNotTrack) {
     
     <div class="post-content">
       <p>在介绍皮尔逊相关系数前，先来回顾一些统计相关的术语，便于我们更好的理解后面的计算公式。</p>
-
-<h2 id="方差-variance">方差（Variance）</h2>
-
+<h2 id="variance">方差（Variance）</h2>
 <p>参考<a href="https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE">百度百科</a></p>
-
 <p><strong>注意</strong>:</p>
-
 <blockquote>
 <p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。</p>
 </blockquote>
-
 <p>下面主要介绍在统计描述中的方差</p>
-
 <blockquote>
 <p>在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。</p>
 </blockquote>
-
 <p><strong>总体方差</strong>计算公式为:</p>
-
 <p>$$
 \sigma^2 = \frac{\sum(X-\mu)^2}{N}
 $$</p>
-
 <p>$\sigma^2$为总体方差，$X$为变量，$\mu$为总体均值，$N$为总体例数。</p>
-
 <p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，</p>
-
 <p><strong>样本方差</strong>计算公式：</p>
-
 <p>$$
 S^2 = \frac{\sum(X-\bar{X}) ^2}{(n-1)}
 $$</p>
-
 <p>$S^2$为样本方差，$X$为变量，$\bar{X}$为样本均值，$n$为样本例数。</p>
-
 <p>例如:</p>
-
 <p>两个人X, Y 5次考试测验的分数分别是:</p>
-
 <ul>
 <li>X: 50, 100, 100, 60, 50</li>
 <li>Y: 73, 70, 75, 72, 70</li>
 </ul>
-
 <p>X, Y的平均值分别为:</p>
-
 <p>$$
 \mu_x = \bar{X} = \frac{(50+100+100+60+50)}{5} = 72
 $$</p>
-
 <p>$$
 \mu_y = \bar{Y} = \frac{(73+70+75+72+70)}{5} = 72
 $$</p>
-
 <p>总体方差为:</p>
-
 <p>$$
 \sigma^2_x = \frac{(50-72)^2+(100-72)^2+(100-72)^2+(60-72)^2+(50-72)^2}{5}= \frac{2680}{5}=536
 $$</p>
-
 <p>$$
 \sigma^2_y = \frac{(73-72)^2+(70-72)^2+(75-72)^2+(72-72)^2+(70-72)^2}{5}=\frac{18}{4}=3.6
 $$</p>
-
 <p>样本方差为:</p>
-
 <p>$$
 S^2_x = \frac{(50-72)^2+(100-72)^2+(100-72)^2+(60-72)^2+(50-72)^2}{5-1} = \frac{2680}{4} = 670
 $$</p>
-
 <p>$$
 S^2_y = \frac{(73-72)^2+(70-72)^2+(75-72)^2+(72-72)^2+(70-72)^2}{5-1}=\frac{18}{4}=4.5
 $$</p>
-
-<h3 id="使用python模块计算">使用python模块计算</h3>
-
+<h3 id="python">使用python模块计算</h3>
 <p><code>statistic</code>和<code>numpy</code>包含了计算方差的方式</p>
-
 <p><code>statistics.variance</code>计算<strong>样本方差</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -481,174 +450,144 @@ $$</p>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">statistics</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">statistics</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">)</span>
 <span class="mi">670</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
-<span class="mf">4.5</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">)</span>
+<span class="mf">4.5</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>numpy</code>可以通过设置参数<code>ddof</code>参数来选择计算方式。默认是计算<strong>全局方差</strong></p>
-
+</div><p><code>numpy</code>可以通过设置参数<code>ddof</code>参数来选择计算方式。默认是计算<strong>全局方差</strong></p>
 <p>计算全局方差(<code>ddof=0</code>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">)</span>
 <span class="mf">536.0</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
-<span class="mf">3.6</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">)</span>
+<span class="mf">3.6</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>计算样本方差(<code>ddof=1</code>)</p>
+</div><p>计算样本方差(<code>ddof=1</code>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="mf">670.0</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="mf">4.5</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="mf">4.5</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="扩展阅读">扩展阅读</h3>
-
+</div><h3 id="heading">扩展阅读</h3>
 <ul>
 <li><a href="http://mortada.net/computing-sample-variance-why-divide-by-n-1.html">Computing Sample Variance: Why Divide by N - 1?</a></li>
 <li><a href="https://www.youtube.com/watch?v=xslIhnquFoE">Variance: The Mystery of n-1 (Part 1: The problem with using n)</a></li>
 </ul>
-
-<h2 id="标准差-standard-deviation">标准差(Standard Deviation)</h2>
-
+<h2 id="standard-deviation">标准差(Standard Deviation)</h2>
 <p>参考<a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE%E5%85%AC%E5%BC%8F">百度百科</a></p>
-
 <blockquote>
 <p>标准差（Standard Deviation）, 中文环境中又常称均方差，用σ表示。标准差是方差的算术平方根。标准差能反映一个数据集的离散程度。平均数相同的两组数据，标准差未必相同。</p>
 </blockquote>
-
 <p>标准差的计算公式为:</p>
-
 <p>$$
 \sigma = \sqrt{方差} = \sqrt{\frac{(X-\mu)^2}{N}}
 $$</p>
-
 <p>同计算方差类似，计算标准差如下:</p>
-
 <p>样本的标准差</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">)</span>
 <span class="mf">25.88435821108957</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
-<span class="mf">2.1213203435596424</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">)</span>
+<span class="mf">2.1213203435596424</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>总体的样本差</p>
+</div><p>总体的样本差</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">)</span>
 <span class="mf">23.15167380558045</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
-<span class="mf">1.8973665961010275</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">)</span>
+<span class="mf">1.8973665961010275</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>样本的标准差</p>
+</div><p>样本的标准差</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="mf">25.88435821108957</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="mf">2.1213203435596424</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="mf">2.1213203435596424</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>由标准差可以看出，虽然学生X, Y的平均分数相同(都是72分)</p>
-
+</div><p>由标准差可以看出，虽然学生X, Y的平均分数相同(都是72分)</p>
 <ul>
 <li>X: 50, 100, 100, 60, 50</li>
 <li>Y: 73, 70, 75, 72, 70</li>
 </ul>
-
 <p>但是,Y的标准差小于X的标准差。Y的考试成绩更稳定。</p>
-
-<h2 id="标准分数-standard-score">标准分数(Standard Score)</h2>
-
+<h2 id="standard-score">标准分数(Standard Score)</h2>
 <p>参考<a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%88%86%E6%95%B0">百度百科</a></p>
-
 <blockquote>
 <p>标准分数也叫z分数(z-score)，是一种具有相等单位的量数。它是将原始分数与团体的平均数之差除以标准差所得的商数，是以标准差为单位度量原始分数离开其平均数的分数之上多少个标准差，或是在平均数之下多少个标准差。它是一个抽象值，不受原始测量单位的影响，并可接受进一步的统计处理</p>
 </blockquote>
-
 <p>计算公式为:</p>
-
 <p>$$
 z = \frac{x - \mu}{\sigma}
 $$</p>
-
 <p>$x$为某一具体分数，$\mu$为平均数，$\sigma$为标准差。</p>
-
-<h3 id="使用场景">使用场景</h3>
-
+<h3 id="heading1">使用场景</h3>
 <p>某中学高一班期末考试，已知语文期末考试的全班平均分为73分，标准差为7分，甲得了78分；数学期末考试的全班平均分为80分，标准差为6.5分，甲得了83分。甲哪一门考试成绩比较好？</p>
-
 <p>因为两科期末考试的标准差不同，因此不能用原始分数直接比较。需要将原始分数转换成标准分数，然后进行比较。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Z(语文)=(78-73)/7=0.71
-Z(数学)=(83-80)/6.5=0.46</pre></td></tr></table>
-</div>
-</div>
-<p>甲的语文成绩在其整体分布中位于平均分之上0.71个标准差的地位，他的数学成绩在其整体分布中位于平均分之上0.46个标准差的地位。</p>
-
+<pre><code>Z(语文)=(78-73)/7=0.71
+Z(数学)=(83-80)/6.5=0.46
+</code></pre><p>甲的语文成绩在其整体分布中位于平均分之上0.71个标准差的地位，他的数学成绩在其整体分布中位于平均分之上0.46个标准差的地位。</p>
 <p>由此可见，甲的语文期末考试成绩优于数学期末考试成绩。
 由于标准分数不仅能表明原始分数在分布中的地位，它还是以标准差为单位的等距量表，故经过把原始分数转化为标准分数，可以在不同分布的各原始分数之间进行比较。</p>
-
-<h3 id="使用python模块计算-1">使用python模块计算</h3>
+<h3 id="python1">使用python模块计算</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -663,65 +602,53 @@ Z(数学)=(83-80)/6.5=0.46</pre></td></tr></table>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
-<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.95025527</span><span class="p">,</span>  <span class="mf">1.2094158</span> <span class="p">,</span>  <span class="mf">1.2094158</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.51832106</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95025527</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="o">-</span><span class="mf">0.95025527</span><span class="p">,</span>  <span class="mf">1.2094158</span> <span class="p">,</span>  <span class="mf">1.2094158</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.51832106</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95025527</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.52704628</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.05409255</span><span class="p">,</span>  <span class="mf">1.58113883</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">1.05409255</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.52704628</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.05409255</span><span class="p">,</span>  <span class="mf">1.58113883</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">1.05409255</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.84993415</span><span class="p">,</span>  <span class="mf">1.08173437</span><span class="p">,</span>  <span class="mf">1.08173437</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.46360045</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.84993415</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="o">-</span><span class="mf">0.84993415</span><span class="p">,</span>  <span class="mf">1.08173437</span><span class="p">,</span>  <span class="mf">1.08173437</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.46360045</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.84993415</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.47140452</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.94280904</span><span class="p">,</span>  <span class="mf">1.41421356</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">0.94280904</span><span class="p">])</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.47140452</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.94280904</span><span class="p">,</span>  <span class="mf">1.41421356</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">0.94280904</span><span class="p">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="皮尔逊相关系数-pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</h2>
-
-<p>参考<a href="https://baike.baidu.com/item/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0">百度百科</a>
-&gt; 相关系数是最早由统计学家卡尔·皮尔逊设计的统计指标，是研究变量之间线性相关程度的量，一般用字母 r 表示。由于研究对象的不同，相关系数有多种定义方式，较为常用的是皮尔逊相关系数。</p>
-
+</div><h2 id="pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</h2>
+<p>参考<a href="https://baike.baidu.com/item/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0">百度百科</a></p>
+<blockquote>
+<p>相关系数是最早由统计学家卡尔·皮尔逊设计的统计指标，是研究变量之间线性相关程度的量，一般用字母 r 表示。由于研究对象的不同，相关系数有多种定义方式，较为常用的是皮尔逊相关系数。</p>
+</blockquote>
 <p><em>需要说明的是，皮尔逊相关系数并不是唯一的相关系数，但是最常见的相关系数</em></p>
-
 <p>定义1</p>
-
 <blockquote>
 <p>两个变量之间的皮尔逊相关系数定义为两个变量之间的协方差和标准差的商</p>
 </blockquote>
-
 <p>计算公式如下:</p>
-
 <p>$$
 P_{xy}=\frac{cov(X, Y)}{\sigma_x\sigma_y}
 $$</p>
-
-<p>定义2
-&gt; 相关系数r亦可由$(X_i,Y_i)$样本点的标准分数均值估计</p>
-
+<p>定义2</p>
+<blockquote>
+<p>相关系数r亦可由$(X_i,Y_i)$样本点的标准分数均值估计</p>
+</blockquote>
 <p>计算公式如下:</p>
-
 <p>{% math %}</p>
-
-<p>r<em>{xy} = \frac{1}{n}\sum\limits</em>{i=1}^n(Z_x)_i(Z_y)<em>i \<br />
-       = \frac{1}{n}\sum\limits</em>{i=1}^n\cdot\frac{x-\bar{x}}{\sqrt{\frac{1}{n}\sum\limits<em>{i=1}^n(x-\bar{x})^2}}\cdot\frac{y-\bar{y}}{\sqrt{\frac{1}{n}\sum\limits</em>{i=1}^n(y-\bar{y})^2}} \<br />
-       = \frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y<em>i-\bar{y})}{\sqrt{\sum\limits</em>{i=1}^n(x-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y-\bar{y})^2}}</p>
-
+<p>r_{xy} = \frac{1}{n}\sum\limits_{i=1}^n(Z_x)_i(Z_y)_i \\<br>
+= \frac{1}{n}\sum\limits_{i=1}^n\cdot\frac{x-\bar{x}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(x-\bar{x})^2}}\cdot\frac{y-\bar{y}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(y-\bar{y})^2}} \\<br>
+= \frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y-\bar{y})^2}}</p>
 <p>{% endmath %}</p>
-
 <p>其中$Z_x$为$x$的标准分数，其中$Z_y$为$y$的标准分数。$\bar{x}$为x的平均数，$\bar{y}$为y的平均数。</p>
-
 <p>举个例子(来自李政轩老师的视频教程<a href="https://www.youtube.com/watch?v=nF-ixjPfaK0">皮尔逊相关系数</a>):</p>
-
 <p>有学生A, B, C&hellip;G的数学成绩和自然成绩分别如下, 现在需要分析学生的数学成绩和自然成绩之间是否存在关系。比如学生数学成绩好的自然成绩也好？</p>
-
-<p><img src="http://images.wiseturtles.com/2018-01-22-zscore.png" alt="相关系数" /></p>
-
+<p><img src="http://images.wiseturtles.com/2018-01-22-zscore.png" alt="相关系数"></p>
 <p>标准化成绩的计算方式如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -747,36 +674,36 @@ $$</p>
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="c1"># 设置打印3位小数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># 标准化数学成绩</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">zscore_math</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">zscore_math</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">zscore_math</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.667</span><span class="p">,</span>  <span class="mf">0.959</span><span class="p">,</span>  <span class="mf">1.105</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.938</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.938</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.23</span> <span class="p">,</span>  <span class="mf">0.375</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">zscore_math</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.667</span><span class="p">,</span>  <span class="mf">0.959</span><span class="p">,</span>  <span class="mf">1.105</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.938</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.938</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.23</span> <span class="p">,</span>  <span class="mf">0.375</span><span class="p">]</span><span class="p">)</span>
 
 <span class="c1"># 标准化自然成绩</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">zscore_sciense</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">([</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">zscore_sciense</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">zscore_sciense</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.92</span> <span class="p">,</span>  <span class="mf">0.725</span><span class="p">,</span>  <span class="mf">1.116</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.032</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.837</span><span class="p">,</span>  <span class="mf">0.335</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.227</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">zscore_sciense</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.92</span> <span class="p">,</span>  <span class="mf">0.725</span><span class="p">,</span>  <span class="mf">1.116</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.032</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.837</span><span class="p">,</span>  <span class="mf">0.335</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.227</span><span class="p">]</span><span class="p">)</span>
 
 <span class="c1"># 两个标准化成绩相乘</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dot_math_sciense</span> <span class="o">=</span> <span class="n">zscore_math</span> <span class="o">*</span> <span class="n">zscore_sciense</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">dot_math_sciense</span> <span class="o">=</span> <span class="n">zscore_math</span> <span class="o">*</span> <span class="n">zscore_sciense</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dot_math_sciense</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">0.614</span><span class="p">,</span>  <span class="mf">0.695</span><span class="p">,</span>  <span class="mf">1.233</span><span class="p">,</span>  <span class="mf">0.968</span><span class="p">,</span>  <span class="mf">0.785</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.412</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.461</span><span class="p">])</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">dot_math_sciense</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span> <span class="mf">0.614</span><span class="p">,</span>  <span class="mf">0.695</span><span class="p">,</span>  <span class="mf">1.233</span><span class="p">,</span>  <span class="mf">0.968</span><span class="p">,</span>  <span class="mf">0.785</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.412</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.461</span><span class="p">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>相关系数</p>
+</div><p>相关系数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -784,17 +711,17 @@ $$</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 下面除以(n-1)是因为前面一直用样本方差来计算的</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dot_math_sciense</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dot_math_sciense</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
-<span class="mf">0.5704948696393594</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">r</span>
+<span class="mf">0.5704948696393594</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>相关系数为<code>0.570</code>, 说明数学成绩和自然成绩之间没有什么关系
+</div><p>相关系数为<code>0.570</code>, 说明数学成绩和自然成绩之间没有什么关系
 利用现成的库计算</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -804,20 +731,18 @@ $$</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 返回的元组第一个数就是相关系数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">([</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">],</span> <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="p">[</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span><span class="p">)</span>
 <span class="p">(</span><span class="mf">0.5704948696393595</span><span class="p">,</span> <span class="mf">0.18107908965203987</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">([</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">],</span> <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">])</span>
-<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span>  <span class="p">,</span> <span class="mf">0.57</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">0.57</span><span class="p">,</span> <span class="mf">1.</span>  <span class="p">]])</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="p">[</span><span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">72</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span><span class="p">)</span>
+<span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="p">[</span><span class="mf">1.</span>  <span class="p">,</span> <span class="mf">0.57</span><span class="p">]</span><span class="p">,</span>
+       <span class="p">[</span><span class="mf">0.57</span><span class="p">,</span> <span class="mf">1.</span>  <span class="p">]</span><span class="p">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="相关系数的特性">相关系数的特性</h3>
-
+</div><h3 id="heading2">相关系数的特性</h3>
 <p>$$
 -1 \leq r_{xy}  \leq 1
 $$</p>
-
 <p>1表示完全正相关，-1表示完全负相关</p>
     </div>
 

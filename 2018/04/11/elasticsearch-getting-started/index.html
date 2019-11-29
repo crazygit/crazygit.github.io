@@ -31,7 +31,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/" />
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2018-04-11T18:15:39+08:00" />
 <meta itemprop="name" content="Elasticsearch快速入门">
 <meta itemprop="description" content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作">
-
-
 <meta itemprop="datePublished" content="2018-04-11T18:15:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-11T18:15:39&#43;08:00" />
 <meta itemprop="wordCount" content="3464">
 
 
 
-<meta itemprop="keywords" content="elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elasticsearch快速入门"/>
 <meta name="twitter:description" content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"/>
 
@@ -360,93 +357,81 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#elasticsearch快速入门-https-www-elastic-co-guide-en-elasticsearch-reference-current-getting-started-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html">Elasticsearch快速入门</a></a>
-<ul>
-<li><a href="#基本概念-https-www-elastic-co-guide-en-elasticsearch-reference-current-basic-concepts-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html">基本概念</a></a></li>
-<li><a href="#安装">安装</a></li>
-<li><a href="#探索集群">探索集群</a>
-<ul>
-<li><a href="#列出所有索引信息">列出所有索引信息</a></li>
-<li><a href="#创建索引">创建索引</a></li>
-<li><a href="#创建文档">创建文档</a></li>
-<li><a href="#删除索引">删除索引</a></li>
-</ul></li>
-<li><a href="#修改数据">修改数据</a>
-<ul>
-<li><a href="#更新文档">更新文档</a></li>
-<li><a href="#删除文档">删除文档</a></li>
-<li><a href="#批量处理">批量处理</a></li>
-</ul></li>
-<li><a href="#探索数据">探索数据</a>
-<ul>
-<li><a href="#查询数据">查询数据</a></li>
-<li><a href="#查询语法">查询语法</a></li>
-<li><a href="#执行查询">执行查询</a>
-<ul>
-<li><a href="#match-all">match_all</a></li>
-<li><a href="#match">match</a></li>
-<li><a href="#match-phrase">match_phrase</a></li>
-<li><a href="#bool-must">bool must</a></li>
-<li><a href="#bool-should">bool should</a></li>
-<li><a href="#bool-must-not">bool must_not</a></li>
-<li><a href="#组合">组合</a></li>
-</ul></li>
-<li><a href="#过滤-filter">过滤(Filter)</a></li>
-<li><a href="#聚合-aggregations">聚合(Aggregations)</a></li>
-</ul></li>
-<li><a href="#eleasticsearch安装及配置-https-www-elastic-co-guide-en-elasticsearch-reference-current-setup-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">Eleasticsearch安装及配置</a></a></li>
-<li><a href="#docker-compose-yml">docker-compose.yml</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#httpswwwelasticcoguideenelasticsearchreferencecurrentbasicconceptshtml">基本概念</a></li>
+    <li><a href="#heading">安装</a></li>
+    <li><a href="#heading1">探索集群</a>
+      <ul>
+        <li><a href="#heading2">列出所有索引信息</a></li>
+        <li><a href="#heading3">创建索引</a></li>
+        <li><a href="#heading4">创建文档</a></li>
+        <li><a href="#heading5">删除索引</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading6">修改数据</a>
+      <ul>
+        <li><a href="#heading7">更新文档</a></li>
+        <li><a href="#heading8">删除文档</a></li>
+        <li><a href="#heading9">批量处理</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading10">探索数据</a>
+      <ul>
+        <li><a href="#heading11">查询数据</a></li>
+        <li><a href="#heading12">查询语法</a></li>
+        <li><a href="#heading13">执行查询</a></li>
+        <li><a href="#filter">过滤(Filter)</a></li>
+        <li><a href="#aggregations">聚合(Aggregations)</a></li>
+      </ul>
+    </li>
+    <li><a href="#eleasticsearchhttpswwwelasticcoguideenelasticsearchreferencecurrentsetuphtml">Eleasticsearch安装及配置</a></li>
+    <li><a href="#dockercomposeyml">docker-compose.yml</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h1 id="elasticsearch快速入门-https-www-elastic-co-guide-en-elasticsearch-reference-current-getting-started-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html">Elasticsearch快速入门</a></h1>
-
+      <h1 id="elasticsearchhttpswwwelasticcoguideenelasticsearchreferencecurrentgettingstartedhtml"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html">Elasticsearch快速入门</a></h1>
 <p>当前使用版本: 6.2</p>
-
-<h2 id="基本概念-https-www-elastic-co-guide-en-elasticsearch-reference-current-basic-concepts-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html">基本概念</a></h2>
-
+<h2 id="httpswwwelasticcoguideenelasticsearchreferencecurrentbasicconceptshtml"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html">基本概念</a></h2>
 <ul>
-<li><p>Near Realtime (NRT)</p>
-
-<p>实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p></li>
-
-<li><p>Cluster</p>
-
-<p>集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。</p></li>
+<li>
+<p>Near Realtime (NRT)</p>
+<p>实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p>
+</li>
+<li>
+<p>Cluster</p>
+<p>集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。</p>
+</li>
 </ul>
-
 <ul>
-<li><p>Node</p>
-
-<p>节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</p></li>
-
-<li><p>Index</p>
-
-<p>索引(Index)是一系列文档(Document)的集合, 索引名全部必须小写，一个集群里可以有任意多个索引。类似关系型数据库中的DB。</p></li>
-
-<li><p>Type</p>
-
-<p>类似关系型数据库中的Table， 从Elasticsearch 6.0.0, 一个Index里只允许创建一个Type。</p></li>
-
-<li><p>Document</p>
-
-<p>文档，存储的最小单元,类似关系型数据库中的Row。</p></li>
-
-<li><p>Shards &amp; Replicas</p></li>
+<li>
+<p>Node</p>
+<p>节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</p>
+</li>
+<li>
+<p>Index</p>
+<p>索引(Index)是一系列文档(Document)的集合, 索引名全部必须小写，一个集群里可以有任意多个索引。类似关系型数据库中的DB。</p>
+</li>
+<li>
+<p>Type</p>
+<p>类似关系型数据库中的Table， 从Elasticsearch 6.0.0, 一个Index里只允许创建一个Type。</p>
+</li>
+<li>
+<p>Document</p>
+<p>文档，存储的最小单元,类似关系型数据库中的Row。</p>
+</li>
+<li>
+<p>Shards &amp; Replicas</p>
+</li>
 </ul>
-
-<h2 id="安装">安装</h2>
-
+<h2 id="heading">安装</h2>
 <p>本文主要介绍使用docker的安装的方式，主要有三种格式的镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -459,13 +444,13 @@ $ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.3
 <span class="c1"># platinum版本，包含X-pack的全部特性和30天试用证书</span>
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.3
 <span class="c1"># oss版本，不包含X-pack，只有开源的Elasticsearch</span>
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</code></pre></td></tr></table>
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>选择使用oss版本</p>
+</div><p>选择使用oss版本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -494,7 +479,7 @@ $ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</code></pr
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
 <span class="c1"># 启动服务</span>
-$ docker run -p <span class="m">9200</span>:9200 -p <span class="m">9300</span>:9300 -e <span class="s2">&#34;cluster.name=mycluster&#34;</span> -e <span class="s2">&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
+$ docker run -p 9200:9200 -p 9300:9300 -e <span class="s2">&#34;cluster.name=mycluster&#34;</span> -e <span class="s2">&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
 <span class="c1"># 检查启动的服务</span>
 $ curl localhost:9200
@@ -512,54 +497,52 @@ $ curl localhost:9200
     <span class="s2">&#34;minimum_index_compatibility_version&#34;</span> : <span class="s2">&#34;5.0.0&#34;</span>
   <span class="o">}</span>,
   <span class="s2">&#34;tagline&#34;</span> : <span class="s2">&#34;You Know, for Search&#34;</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="探索集群">探索集群</h2>
-
+</div><h2 id="heading1">探索集群</h2>
 <p>集群健康状态检查</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s2">&#34;localhost:9200/_cat/health?v&#34;</span>
 epoch      timestamp cluster   status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
-<span class="m">1523427762</span> <span class="m">06</span>:22:42  mycluster green           <span class="m">1</span>         <span class="m">1</span>      <span class="m">0</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>        <span class="m">0</span>             <span class="m">0</span>                  -                <span class="m">100</span>.0%</code></pre></td></tr></table>
+<span class="m">1523427762</span> 06:22:42  mycluster green           <span class="m">1</span>         <span class="m">1</span>      <span class="m">0</span>   <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>        <span class="m">0</span>             <span class="m">0</span>                  -                100.0%
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>节点信息检查</p>
+</div><p>节点信息检查</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s2">&#34;localhost:9200/_cat/nodes?v&#34;</span>
 ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
-<span class="m">172</span>.17.0.2           <span class="m">11</span>          <span class="m">91</span>   <span class="m">2</span>    <span class="m">0</span>.00    <span class="m">0</span>.03     <span class="m">0</span>.04 mdi       *      my_node</code></pre></td></tr></table>
+172.17.0.2           <span class="m">11</span>          <span class="m">91</span>   <span class="m">2</span>    0.00    0.03     0.04 mdi       *      my_node
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="列出所有索引信息">列出所有索引信息</h3>
+</div><h3 id="heading2">列出所有索引信息</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s2">&#34;localhost:9200/_cat/indices?v&#34;</span>
-health status index uuid pri rep docs.count docs.deleted store.size pri.store.size</code></pre></td></tr></table>
+health status index uuid pri rep docs.count docs.deleted store.size pri.store.size
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="创建索引">创建索引</h3>
-
+</div><h3 id="heading3">创建索引</h3>
 <p>创建名为<code>customer</code>的索引</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -580,16 +563,15 @@ health status index uuid pri rep docs.count docs.deleted store.size pri.store.si
 
 $ curl <span class="s2">&#34;localhost:9200/_cat/indices?v&#34;</span>
 health status index    uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span class="m">1</span>          <span class="m">0</span>            <span class="m">0</span>      <span class="m">1</span>.1kb          <span class="m">1</span>.1kb</code></pre></td></tr></table>
+yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span class="m">1</span>          <span class="m">0</span>            <span class="m">0</span>      1.1kb          1.1kb
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="创建文档">创建文档</h3>
-
+</div><h3 id="heading4">创建文档</h3>
 <p>在<code>customer</code>索引里，创建ID为1的文档。
 注意: 加入索引不存在，elasticearch会自动创建索引。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -634,14 +616,14 @@ yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class="m">5</span>   <span
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">1</span>,
+  <span class="s2">&#34;_version&#34;</span> : 1,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;created&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">0</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 0,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
@@ -651,18 +633,18 @@ $ curl <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">2</span>,
+  <span class="s2">&#34;_version&#34;</span> : 2,
   <span class="s2">&#34;found&#34;</span> : true,
   <span class="s2">&#34;_source&#34;</span> : <span class="o">{</span>
     <span class="s2">&#34;name&#34;</span> : <span class="s2">&#34;John Doe&#34;</span>
   <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="删除索引">删除索引</h3>
+</div><h3 id="heading5">删除索引</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -671,13 +653,13 @@ $ curl <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ curl -X DELETE <span class="s1">&#39;localhost:9200/customer?pretty&#39;</span>
 <span class="o">{</span>
   <span class="s2">&#34;acknowledged&#34;</span> : <span class="nb">true</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="修改数据">修改数据</h2>
+</div><h2 id="heading6">修改数据</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -755,14 +737,14 @@ $ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</s
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">1</span>,
+  <span class="s2">&#34;_version&#34;</span> : 1,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;created&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">0</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 0,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
@@ -777,14 +759,14 @@ $ curl -XPUT <span class="s1">&#39;localhost:9200/customer/_doc/1?pretty&#39;</s
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">2</span>,
+  <span class="s2">&#34;_version&#34;</span> : 2,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;updated&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">1</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 1,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
 <span class="o">}</span>
 
@@ -799,22 +781,22 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;Umx0s2IBV3QZ-G3Zdj0c&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">1</span>,
+  <span class="s2">&#34;_version&#34;</span> : 1,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;created&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">0</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 0,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="更新文档">更新文档</h3>
+</div><h3 id="heading7">更新文档</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -846,22 +828,22 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">3</span>,
+  <span class="s2">&#34;_version&#34;</span> : 3,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;updated&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">2</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 2,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="删除文档">删除文档</h3>
+</div><h3 id="heading8">删除文档</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -885,24 +867,23 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
   <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
   <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
   <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;2&#34;</span>,
-  <span class="s2">&#34;_version&#34;</span> : <span class="m">1</span>,
+  <span class="s2">&#34;_version&#34;</span> : 1,
   <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;not_found&#34;</span>,
   <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-    <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-    <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+    <span class="s2">&#34;total&#34;</span> : 2,
+    <span class="s2">&#34;successful&#34;</span> : 1,
     <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
   <span class="o">}</span>,
-  <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">0</span>,
+  <span class="s2">&#34;_seq_no&#34;</span> : 0,
   <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="批量处理">批量处理</h3>
-
+</div><h3 id="heading9">批量处理</h3>
 <p>同时创建两个文档</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -959,7 +940,7 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
 </span><span class="s1">&#39;</span>
 
 <span class="o">{</span>
-  <span class="s2">&#34;took&#34;</span> : <span class="m">14</span>,
+  <span class="s2">&#34;took&#34;</span> : 14,
   <span class="s2">&#34;errors&#34;</span> : false,
   <span class="s2">&#34;items&#34;</span> : <span class="o">[</span>
     <span class="o">{</span>
@@ -967,15 +948,15 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
         <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
         <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
         <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-        <span class="s2">&#34;_version&#34;</span> : <span class="m">4</span>,
+        <span class="s2">&#34;_version&#34;</span> : 4,
         <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;updated&#34;</span>,
         <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-          <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-          <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+          <span class="s2">&#34;total&#34;</span> : 2,
+          <span class="s2">&#34;successful&#34;</span> : 1,
           <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
         <span class="o">}</span>,
-        <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">3</span>,
-        <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>,
+        <span class="s2">&#34;_seq_no&#34;</span> : 3,
+        <span class="s2">&#34;_primary_term&#34;</span> : 1,
         <span class="s2">&#34;status&#34;</span> : <span class="m">200</span>
       <span class="o">}</span>
     <span class="o">}</span>,
@@ -984,26 +965,26 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
         <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
         <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
         <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;2&#34;</span>,
-        <span class="s2">&#34;_version&#34;</span> : <span class="m">1</span>,
+        <span class="s2">&#34;_version&#34;</span> : 1,
         <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;created&#34;</span>,
         <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-          <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-          <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+          <span class="s2">&#34;total&#34;</span> : 2,
+          <span class="s2">&#34;successful&#34;</span> : 1,
           <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
         <span class="o">}</span>,
-        <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">1</span>,
-        <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>,
+        <span class="s2">&#34;_seq_no&#34;</span> : 1,
+        <span class="s2">&#34;_primary_term&#34;</span> : 1,
         <span class="s2">&#34;status&#34;</span> : <span class="m">201</span>
       <span class="o">}</span>
     <span class="o">}</span>
   <span class="o">]</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>更新和删除文档</p>
+</div><p>更新和删除文档</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1058,7 +1039,7 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
 </span><span class="s1">&#39;</span>
 
 <span class="o">{</span>
-  <span class="s2">&#34;took&#34;</span> : <span class="m">20</span>,
+  <span class="s2">&#34;took&#34;</span> : 20,
   <span class="s2">&#34;errors&#34;</span> : false,
   <span class="s2">&#34;items&#34;</span> : <span class="o">[</span>
     <span class="o">{</span>
@@ -1066,15 +1047,15 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
         <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
         <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
         <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;1&#34;</span>,
-        <span class="s2">&#34;_version&#34;</span> : <span class="m">5</span>,
+        <span class="s2">&#34;_version&#34;</span> : 5,
         <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;updated&#34;</span>,
         <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-          <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-          <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+          <span class="s2">&#34;total&#34;</span> : 2,
+          <span class="s2">&#34;successful&#34;</span> : 1,
           <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
         <span class="o">}</span>,
-        <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">4</span>,
-        <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>,
+        <span class="s2">&#34;_seq_no&#34;</span> : 4,
+        <span class="s2">&#34;_primary_term&#34;</span> : 1,
         <span class="s2">&#34;status&#34;</span> : <span class="m">200</span>
       <span class="o">}</span>
     <span class="o">}</span>,
@@ -1083,41 +1064,38 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
         <span class="s2">&#34;_index&#34;</span> : <span class="s2">&#34;customer&#34;</span>,
         <span class="s2">&#34;_type&#34;</span> : <span class="s2">&#34;_doc&#34;</span>,
         <span class="s2">&#34;_id&#34;</span> : <span class="s2">&#34;2&#34;</span>,
-        <span class="s2">&#34;_version&#34;</span> : <span class="m">2</span>,
+        <span class="s2">&#34;_version&#34;</span> : 2,
         <span class="s2">&#34;result&#34;</span> : <span class="s2">&#34;deleted&#34;</span>,
         <span class="s2">&#34;_shards&#34;</span> : <span class="o">{</span>
-          <span class="s2">&#34;total&#34;</span> : <span class="m">2</span>,
-          <span class="s2">&#34;successful&#34;</span> : <span class="m">1</span>,
+          <span class="s2">&#34;total&#34;</span> : 2,
+          <span class="s2">&#34;successful&#34;</span> : 1,
           <span class="s2">&#34;failed&#34;</span> : <span class="m">0</span>
         <span class="o">}</span>,
-        <span class="s2">&#34;_seq_no&#34;</span> : <span class="m">2</span>,
-        <span class="s2">&#34;_primary_term&#34;</span> : <span class="m">1</span>,
+        <span class="s2">&#34;_seq_no&#34;</span> : 2,
+        <span class="s2">&#34;_primary_term&#34;</span> : 1,
         <span class="s2">&#34;status&#34;</span> : <span class="m">200</span>
       <span class="o">}</span>
     <span class="o">}</span>
   <span class="o">]</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当批量操作时，如果某个操作失败，后面的操作仍然会继续执行，并且根据执行顺序，依次返回每个操作的执行状态。</p>
-
-<h2 id="探索数据">探索数据</h2>
-
+</div><p>当批量操作时，如果某个操作失败，后面的操作仍然会继续执行，并且根据执行顺序，依次返回每个操作的执行状态。</p>
+<h2 id="heading10">探索数据</h2>
 <p>在了解了基本操作之后，让我们来多添加一些数据，做一些数据分析的工作。</p>
-
 <p>下载测试用的数据集</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ wget <span class="s2">&#34;https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json?raw=true&#34;</span> -O accounts.json</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ wget <span class="s2">&#34;https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json?raw=true&#34;</span> -O accounts.json
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>导入数据</p>
+</div><p>导入数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1128,35 +1106,30 @@ $ curl -XPOST <span class="s1">&#39;localhost:9200/customer/_doc?pretty&#39;</sp
 
 $ curl <span class="s2">&#34;localhost:9200/_cat/indices?v&#34;</span>
 health status index uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span class="m">1</span>       <span class="m">1000</span>            <span class="m">0</span>    <span class="m">474</span>.7kb        <span class="m">474</span>.7kb</code></pre></td></tr></table>
+yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span class="m">1</span>       <span class="m">1000</span>            <span class="m">0</span>    474.7kb        474.7kb
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="查询数据">查询数据</h3>
-
+</div><h3 id="heading11">查询数据</h3>
 <p>查询数据，主要有两种方式：</p>
-
 <ul>
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-uri-request.html">REST request URI</a></li>
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html">REST request body</a></li>
 </ul>
-
 <p>后者跟前者比，可以执行更复杂的操作，查询体也是json格式，便于阅读。前者主要是使用起来更加方便。</p>
-
 <p>比如:</p>
-
 <p>使用<code>request URI</code>的格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s2">&#34;http://localhost:9200/bank/_search?q=*&amp;sort=account_number:asc&amp;pretty&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s2">&#34;http://localhost:9200/bank/_search?q=*&amp;sort=account_number:asc&amp;pretty&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用<code>request body</code>的格式</p>
+</div><p>使用<code>request body</code>的格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1173,17 +1146,15 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    { &#34;account_number&#34;: &#34;asc&#34; }
 </span><span class="s1">  ]
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="查询语法">查询语法</h3>
-
+</div><h3 id="heading12">查询语法</h3>
 <p>Elasticsearch提供了一个类似json格式的查询语法，叫做<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl.html">Query DSL</a>。</p>
-
 <p>限定返回查询结果的个数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1196,13 +1167,13 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">  &#34;query&#34;: { &#34;match_all&#34;: {} },
 </span><span class="s1">  &#34;size&#34;: 1
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>分页效果</p>
+</div><p>分页效果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1217,13 +1188,13 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">  &#34;from&#34;: 10,
 </span><span class="s1">  &#34;size&#34;: 10
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>排序</p>
+</div><p>排序</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1236,17 +1207,15 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">  &#34;query&#34;: { &#34;match_all&#34;: {} },
 </span><span class="s1">  &#34;sort&#34;: { &#34;balance&#34;: { &#34;order&#34;: &#34;desc&#34; } }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="执行查询">执行查询</h3>
-
+</div><h3 id="heading13">执行查询</h3>
 <p>默认情况下，查询返回的<code>_source</code>会包含所有的字段，我们也可以限制返回某些我们关心的字段</p>
-
 <p>只返回<code>account_number</code>和<code>balance</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1259,15 +1228,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">  &#34;query&#34;: { &#34;match_all&#34;: {} },
 </span><span class="s1">  &#34;_source&#34;: [&#34;account_number&#34;, &#34;balance&#34;]
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="match-all">match_all</h4>
-
+</div><h4 id="matchall">match_all</h4>
 <p>返回所有结果，没有查询条件限制</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1278,15 +1246,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">{
 </span><span class="s1">  &#34;query&#34;: { &#34;match_all&#34;: {} },
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="match">match</h4>
-
+</div><h4 id="match">match</h4>
 <p>限定查询条件，返回<code>account_number</code>为20的结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1297,13 +1264,13 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">{
 </span><span class="s1">  &#34;query&#34;: { &#34;match&#34;: { &#34;account_number&#34;: 20 } }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>查询<code>address</code>里包含<code>mill</code>的结果（不区分大小写）</p>
+</div><p>查询<code>address</code>里包含<code>mill</code>的结果（不区分大小写）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1314,13 +1281,13 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">{
 </span><span class="s1">  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>查询<code>address</code>里包含<code>mill</code>或<code>lane</code>的记录（不区分大小写)</p>
+</div><p>查询<code>address</code>里包含<code>mill</code>或<code>lane</code>的记录（不区分大小写)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1331,15 +1298,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">{
 </span><span class="s1">  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="match-phrase">match_phrase</h4>
-
+</div><h4 id="matchphrase">match_phrase</h4>
 <p>查询<code>address</code>里包含<code>mill</code>和<code>lane</code>的记录（不区分大小写)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1350,15 +1316,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">{
 </span><span class="s1">  &#34;query&#34;: { &#34;match_phrase&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="bool-must">bool must</h4>
-
+</div><h4 id="bool-must">bool must</h4>
 <p>返回<code>address</code>包含<code>mill</code>和<code>lane</code>的结果，与上面的<code>match_phrase</code>效果一样</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1383,15 +1348,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="bool-should">bool should</h4>
-
+</div><h4 id="bool-should">bool should</h4>
 <p>返回<code>address</code>包含<code>mill</code>或<code>lane</code>的结果，与<code>{&quot;match&quot;: { &quot;address&quot;: &quot;mill lane&quot;}</code>效果一样</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1416,15 +1380,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="bool-must-not">bool must_not</h4>
-
+</div><h4 id="bool-mustnot">bool must_not</h4>
 <p>返回<code>address</code>包即不包含<code>mill</code>，也不包含<code>lane</code>的结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1449,17 +1412,15 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="组合">组合</h4>
-
+</div><h4 id="heading14">组合</h4>
 <p>bool的多个条件还可以相互组合</p>
-
 <p>返回<code>age=40</code>并且<code>state!=ID</code>的结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1488,15 +1449,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="过滤-filter">过滤(Filter)</h3>
-
+</div><h3 id="filter">过滤(Filter)</h3>
 <p>过滤出<code>20000&lt;balance&lt;30000</code>的结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1531,15 +1491,14 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="聚合-aggregations">聚合(Aggregations)</h3>
-
+</div><h3 id="aggregations">聚合(Aggregations)</h3>
 <p>设置<code>size=0</code>是因为我们只关心聚合后的结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1564,22 +1523,22 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上面的语句等价于</p>
+</div><p>上面的语句等价于</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">state</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">bank</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">state</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">DESC</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">state</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">bank</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">state</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">DESC</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>聚合嵌套</p>
+</div><p>聚合嵌套</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1618,21 +1577,18 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="s1">    }
 </span><span class="s1">  }
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="eleasticsearch安装及配置-https-www-elastic-co-guide-en-elasticsearch-reference-current-setup-html"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">Eleasticsearch安装及配置</a></h2>
-
+</div><h2 id="eleasticsearchhttpswwwelasticcoguideenelasticsearchreferencecurrentsetuphtml"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">Eleasticsearch安装及配置</a></h2>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">官方文档</a>详细介绍了各种安装Elasticsearch的方法，以及如何配置Elasticsearch。另外，
 还介绍了将Elasticsearch迁移到生产环境时，需要关注的配置项等。</p>
-
-<h2 id="docker-compose-yml">docker-compose.yml</h2>
-
+<h2 id="dockercomposeyml">docker-compose.yml</h2>
 <p>使用<code>docker compose</code>, 可以很方便的在本机创建一个关于elastic stack小集群， 对于开发和测试非常方便。
 使用下面的<code>docker-compose.yml</code>文件，通过<code>docker compose</code>命令，可以在本地直接运行<code>elasticsearch</code>和<code>kibana</code>服务，<code>kibana</code>里开发工具的<code>Console</code>可以很方便的和<code>elasticsearch</code>交互。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1678,7 +1634,7 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
 </span><span class="w"></span>services<span class="p">:</span><span class="w">
 </span><span class="w">  </span>elasticsearch<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>docker.elastic.co/elasticsearch/elasticsearch-oss<span class="p">:</span><span class="m">6.2.3</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>docker.elastic.co/elasticsearch/elasticsearch-oss<span class="p">:</span><span class="m">6.2</span><span class="m">.3</span><span class="w">
 </span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>elasticsearch<span class="w">
 </span><span class="w">    </span>ports<span class="p">:</span><span class="w">
 </span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;9200:9200&#34;</span><span class="w">
@@ -1686,8 +1642,8 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="w">    </span>environment<span class="p">:</span><span class="w">
 </span><span class="w">      </span>-<span class="w"> </span>cluster.name=docker-cluster<span class="w">
 </span><span class="w">      </span>-<span class="w"> </span>bootstrap.memory_lock=<span class="kc">true</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>http.host=<span class="m">0.0.0.0</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>transport.host=<span class="m">127.0.0.1</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>http.host=<span class="m">0.0</span><span class="m">.0</span><span class="m">.0</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>transport.host=<span class="m">127.0</span><span class="m">.0</span><span class="m">.1</span><span class="w">
 </span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span><span class="w">
 </span><span class="w">    </span>ulimits<span class="p">:</span><span class="w">
 </span><span class="w">      </span>memlock<span class="p">:</span><span class="w">
@@ -1699,7 +1655,7 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="w">      </span>-<span class="w"> </span>esnet<span class="w">
 </span><span class="w">
 </span><span class="w">  </span>kibana<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>docker.elastic.co/kibana/kibana-oss<span class="p">:</span><span class="m">6.2.3</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>docker.elastic.co/kibana/kibana-oss<span class="p">:</span><span class="m">6.2</span><span class="m">.3</span><span class="w">
 </span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>kibana<span class="w">
 </span><span class="w">    </span>environment<span class="p">:</span><span class="w">
 </span><span class="w">      </span>SERVER_NAME<span class="p">:</span><span class="w"> </span>kibana-server<span class="w">
@@ -1715,15 +1671,13 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class="m">5</span>   <span cl
 </span><span class="w">    </span>driver<span class="p">:</span><span class="w"> </span>local<span class="w">
 </span><span class="w">
 </span><span class="w"></span>networks<span class="p">:</span><span class="w">
-</span><span class="w">  </span>esnet<span class="p">:</span></code></pre></td></tr></table>
+</span><span class="w">  </span>esnet<span class="p">:</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>关于集成更多elastic stack服务，可以参考:
+</div><p>关于集成更多elastic stack服务，可以参考:
 <a href="https://github.com/elastic/stack-docker/blob/master/docker-compose.yml">https://github.com/elastic/stack-docker/blob/master/docker-compose.yml</a></p>
-
 <p>kibana Console运行效果如下：</p>
-
-<p><img src="http://images.wiseturtles.com/2018-04-12-kibana-devtool.png" alt="kibana console" /></p>
+<p><img src="http://images.wiseturtles.com/2018-04-12-kibana-devtool.png" alt="kibana console"></p>
     </div>
 
     

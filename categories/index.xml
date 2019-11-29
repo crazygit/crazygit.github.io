@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Soul Mate</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Sep 2019 10:44:29 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 15:29:29 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://crazygit.wiseturtles.com/categories/devops/</link>
+      <pubDate>Fri, 29 Nov 2019 15:29:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/categories/devops/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>java-libraries</title>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java-libraries on Soul Mate</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 18 Sep 2019 10:44:29 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/2019/09/18/java-libraries-lombok/</guid>
-      <description>&lt;p&gt;平时定义类时，难免会写很多&lt;code&gt;Getter&lt;/code&gt;, &lt;code&gt;Setter&lt;/code&gt;，&lt;code&gt;toString&lt;/code&gt;, &lt;code&gt;Constructor&lt;/code&gt;等方法。虽然可以用IDE自带的代码生成，但是生成的代码仍然很多，看起来特别臃肿。有了&lt;a href=&#34;https://projectlombok.org&#34;&gt;&lt;code&gt;Lombok&lt;/code&gt;&lt;/a&gt;这个库，用一个注解就能自动搞定这个问题。&lt;/p&gt;</description>
+      <description>&lt;p&gt;平时定义类时，难免会写很多&lt;code&gt;Getter&lt;/code&gt;, &lt;code&gt;Setter&lt;/code&gt;，&lt;code&gt;toString&lt;/code&gt;, &lt;code&gt;Constructor &lt;/code&gt;等方法。虽然可以用IDE自带的代码生成，但是生成的代码仍然很多，看起来特别臃肿。有了&lt;a href=&#34;https://projectlombok.org&#34;&gt;&lt;code&gt;Lombok&lt;/code&gt;&lt;/a&gt;这个库，用一个注解就能自动搞定这个问题。&lt;/p&gt;</description>
     </item>
     
   </channel>

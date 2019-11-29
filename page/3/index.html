@@ -31,7 +31,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/" />
@@ -65,12 +65,9 @@
 <meta property="og:description" content="宁静的夜，心中一片静谧!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://crazygit.wiseturtles.com/" />
-
-<meta property="og:updated_time" content="2019-09-18T10:44:29+08:00" />
+<meta property="og:updated_time" content="2019-11-29T15:29:29+08:00" />
 <meta itemprop="name" content="Soul Mate">
-<meta itemprop="description" content="宁静的夜，心中一片静谧!">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="宁静的夜，心中一片静谧!"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Soul Mate"/>
 <meta name="twitter:description" content="宁静的夜，心中一片静谧!"/>
 
@@ -330,6 +327,56 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/2018/01/15/fast-data-processing-with-spark2-note-two/">《Fast Data Processing with Spark 2（Third Edition)》读书笔记二</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-01-15" class="post-time">
+        2018-01-15
+      </time>
+      <div class="post-category">
+          <a href="https://crazygit.wiseturtles.com/categories/spark/"> spark </a>
+          
+        </div>
+      <span class="more-meta"> 约 4308 字 </span>
+      <span class="more-meta"> 预计阅读 9 分钟 </span>
+      
+      
+      
+        <span id="/2018/01/15/fast-data-processing-with-spark2-note-two/" class="leancloud_visitors" data-flag-title="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二">
+          <span class="post-meta-item-text"> | 阅读 </span>
+          <span class="leancloud-visitors-count"></span>
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p>本书其它笔记<a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目</a></p>
+<h2 id="spark">在Spark中加载和保存数据</h2>
+<p>在我们开始操作数据之前，让我们先看一些Spark的概念以及了解一下不同的数据形态</p>
+<h3 id="spark1">Spark抽象概念</h3>
+<p>Saprk的主要特点就是分布式的数据描述(representation)和计算，因此拥有大规模的数据操作。<em>Spark主要的数据描述单元就是<code>RDD</code></em>(原句是: Spark's primary unit for representation of data is RDD)， 可以很方便的允许并行的数据计算。在Saprk 2.0.0版本之前，都是基于<code>RDDs</code>工作的。然而，它们都是低级别的原始结构，在执行和扩展上有很大的优化空间。因此才有了<code>Datasets/DataFrames</code>。<code>Datasets/DataFrames</code>是API级别的抽象，也是编程的主要接口，它提供了大量操作<code>RDD</code>, 但是通过优化查询计划在<code>RDDs</code>上封装了一层。因此，底层仍然是<code>RDD</code>, 只是通过<code>Datasets/DataFrames</code>的API来访问。</p>
+<blockquote>
+<p>RDDs can be viewed as arrays of arrays with primitive data types, such as integers, floats, and strings.</p>
+<p>Datasets/DataFrames, on the other hand, are similar to a table or a spreadsheet with column headings-such as name, title, order number, order date, and movie rating-and the associated data types.</p>
+</blockquote>
+<p><code>RDDs</code>可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。<code>Datasets/DataFrames</code>在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/01/15/fast-data-processing-with-spark2-note-two/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/2018/01/11/fast-data-processing-with-spark2-note-one/">《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</a>
     </h1>
     
@@ -341,7 +388,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/spark/"> spark </a>
           
         </div>
-      <span class="more-meta"> 约 2697 字 </span>
+      <span class="more-meta"> 约 2693 字 </span>
       <span class="more-meta"> 预计阅读 6 分钟 </span>
       
       
@@ -358,26 +405,18 @@ if (!doNotTrack) {
     
     <div class="post-summary">
       <p>本书其它笔记<a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目</a></p>
-
-<h2 id="spark概览">Spark概览</h2>
-
+<h2 id="spark">Spark概览</h2>
 <blockquote>
 <p>Apache Spark is a fast and general-purpose cluster computing system</p>
 </blockquote>
-
 <p>本文基于目前最新的spark版本<code>2.2.1</code>整理，以<code>Python3.6</code>为例，在Mac单机情况下使用。</p>
-
-<h2 id="安装">安装</h2>
-
-<h3 id="部署环境需求">部署环境需求</h3>
-
+<h2 id="heading">安装</h2>
+<h3 id="heading1">部署环境需求</h3>
 <ul>
 <li>Window, Linux, Mac均可</li>
 <li>Java8+(需要设置<code>JAVA_HOME</code>环境变量)</li>
 </ul>
-
 <p>下面三个根据自己习惯使用的语言选择安装</p>
-
 <ul>
 <li>Python2.7+/3.4+</li>
 <li>R 3.1+</li>
@@ -407,7 +446,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
           
         </div>
-      <span class="more-meta"> 约 2801 字 </span>
+      <span class="more-meta"> 约 2777 字 </span>
       <span class="more-meta"> 预计阅读 6 分钟 </span>
       
       
@@ -423,27 +462,22 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="绘图和可视化">绘图和可视化</h1>
-
+      <h1 id="heading">绘图和可视化</h1>
 <p>绘图时，在<code>ipython</code>里运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="o">%</span><span class="n">matplotlib</span>
-<span class="n">Using</span> <span class="n">matplotlib</span> <span class="n">backend</span><span class="p">:</span> <span class="n">TkAgg</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="o">%</span><span class="n">matplotlib</span>
+<span class="n">Using</span> <span class="n">matplotlib</span> <span class="n">backend</span><span class="p">:</span> <span class="n">TkAgg</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以直接绘制图形，不然每次绘制图形最后必须调用<code>plt.show()</code>才能看到图形。</p>
-
+</div><p>可以直接绘制图形，不然每次绘制图形最后必须调用<code>plt.show()</code>才能看到图形。</p>
 <p><em>本文里使用的CSV测试数据可以从这里<a href="https://github.com/wesm/pydata-book">下载</a></em></p>
-
-<h2 id="matplotlib简单入门">matplotlib简单入门</h2>
-
+<h2 id="matplotlib">matplotlib简单入门</h2>
 <p>关于<code>matplotlib</code>的使用入门，可以参考:</p>
-
 <p><a href="https://crazygit.wiseturtles.com/2017/12/25/matplotlib-quickstart/">matplotlib教程</a></p>
     </div>
     <div class="read-more">
@@ -469,7 +503,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/"> python库相关 </a>
           
         </div>
-      <span class="more-meta"> 约 3427 字 </span>
+      <span class="more-meta"> 约 3387 字 </span>
       <span class="more-meta"> 预计阅读 7 分钟 </span>
       
       
@@ -486,27 +520,23 @@ if (!doNotTrack) {
     
     <div class="post-summary">
       <p><a href="https://github.com/pypa/pipenv"><code>pipenv</code></a>是<a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies">Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p>
-
 <p>它能够自动为项目创建和管理虚拟环境，从<code>Pipfile</code>文件添加或删除安装的包，同时生成<code>Pipfile.lock</code>来锁定安装包的版本和依赖信息，避免构建错误。</p>
-
 <p><code>pipenv</code>主要解决了如下问题:</p>
-
 <ul>
 <li>不用再单独使用<code>pip</code>和<code>virtualenv</code>, 现在它们合并在一起了</li>
 <li>不用再维护<code>requirements.txt</code>, 使用<code>Pipfile</code>和<code>Pipfile.lock</code>来代替</li>
 <li>可以使用多个python版本(<code>python2</code>和<code>python3</code>)</li>
 <li>在安装了<code>pyenv</code>的条件下，可以自动安装需要的Python版本</li>
 </ul>
-
-<h2 id="安装">安装</h2>
-
+<h2 id="heading">安装</h2>
 <p>为了方便使用, 建议<strong>全局</strong>安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pipenv</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pipenv
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -533,7 +563,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
           
         </div>
-      <span class="more-meta"> 约 6869 字 </span>
+      <span class="more-meta"> 约 6863 字 </span>
       <span class="more-meta"> 预计阅读 14 分钟 </span>
       
       
@@ -549,16 +579,13 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="数据合并-拼接和变型">数据合并，拼接和变型</h1>
-
-<h2 id="分层索引">分层索引</h2>
-
+      <h1 id="heading">数据合并，拼接和变型</h1>
+<h2 id="heading1">分层索引</h2>
 <p>分层索引是<code>Pandas</code>的一个重要特性，能够让我们在一个轴上拥有多层索引。简单来说，它提供了一个在降纬模式下处理多维数据的能力。</p>
-
 <p>如下是一个多层索引的例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -597,10 +624,10 @@ if (!doNotTrack) {
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span>
-<span class="o">...</span>                  <span class="n">index</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="p">,</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>                  <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">c</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">c</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">d</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span>
 <span class="n">a</span>  <span class="mi">1</span>    <span class="mf">1.007189</span>
    <span class="mi">2</span>   <span class="o">-</span><span class="mf">1.296221</span>
    <span class="mi">3</span>    <span class="mf">0.274992</span>
@@ -612,28 +639,29 @@ if (!doNotTrack) {
    <span class="mi">3</span>    <span class="mf">1.669025</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span>
-<span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
-           <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span>
+<span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">a</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">c</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">d</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="p">]</span><span class="p">,</span>
+           <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="p">]</span><span class="p">)</span>
 
 <span class="c1"># 访问外层索引</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">]</span>
 <span class="mi">1</span>    <span class="mf">0.228913</span>
 <span class="mi">3</span>    <span class="mf">1.352917</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">b</span><span class="s1">&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">c</span><span class="s1">&#39;</span><span class="p">]</span>
 <span class="n">b</span>  <span class="mi">1</span>    <span class="mf">0.228913</span>
    <span class="mi">3</span>    <span class="mf">1.352917</span>
 <span class="n">c</span>  <span class="mi">1</span>    <span class="mf">0.886429</span>
    <span class="mi">2</span>   <span class="o">-</span><span class="mf">2.001637</span>
 
 <span class="c1"># 访问内层索引</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">a</span>   <span class="o">-</span><span class="mf">1.296221</span>
 <span class="n">c</span>   <span class="o">-</span><span class="mf">2.001637</span>
 <span class="n">d</span>   <span class="o">-</span><span class="mf">0.371843</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -676,14 +704,12 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <h2 id="数据清洗和预处理">数据清洗和预处理</h2>
-
-<h3 id="过滤出缺失的数据">过滤出缺失的数据</h3>
-
+      <h2 id="heading">数据清洗和预处理</h2>
+<h3 id="heading1">过滤出缺失的数据</h3>
 <p>Series</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -701,22 +727,23 @@ if (!doNotTrack) {
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">nan</span> <span class="k">as</span> <span class="n">NA</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">nan</span> <span class="k">as</span> <span class="n">NA</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="p">)</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">2</span>    <span class="mf">3.5</span>
 <span class="mi">4</span>    <span class="mf">7.0</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="c1"># 等价于上面的dropna</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 <span class="mi">0</span>    <span class="mf">1.0</span>
 <span class="mi">2</span>    <span class="mf">3.5</span>
 <span class="mi">4</span>    <span class="mf">7.0</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span></code></pre></td></tr></table>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -743,7 +770,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
           
         </div>
-      <span class="more-meta"> 约 5072 字 </span>
+      <span class="more-meta"> 约 5071 字 </span>
       <span class="more-meta"> 预计阅读 11 分钟 </span>
       
       
@@ -759,21 +786,16 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <h2 id="numpy基础">Numpy基础</h2>
-
+      <h2 id="numpy">Numpy基础</h2>
 <p>更多关于NumPy的使用, 可以参考<a href="https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/">NumPy快速入门指南</a></p>
-
-<h3 id="numpy数据类型">Numpy数据类型</h3>
-
-<p><img src="http://images.wiseturtles.com/2017-12-26-Numpy_data_types.png" alt="Numpy DataTypes" /></p>
-
-<h3 id="np-where">np.where</h3>
-
+<h3 id="numpy1">Numpy数据类型</h3>
+<p><img src="http://images.wiseturtles.com/2017-12-26-Numpy_data_types.png" alt="Numpy DataTypes"></p>
+<h3 id="npwhere">np.where</h3>
 <p><code>np.where</code>是一个向量版本的三元表达式<code>x if c else y</code>。假如我们有三个数组<code>xarr</code>, <code>yarr</code>, <code>cond</code>。
 当<code>cond</code>为真时，取<code>xarr</code>的值，否则取<code>yarr</code>的值。我们可以这样做:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -785,16 +807,17 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">xarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">xarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">yarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">yarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">,</span> <span class="n">cond</span><span class="p">)]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="p">(</span><span class="n">x</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">result</span>
-<span class="p">[</span><span class="mf">1.1000000000000001</span><span class="p">,</span> <span class="mf">2.2000000000000002</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.3999999999999999</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">result</span>
+<span class="p">[</span><span class="mf">1.1000000000000001</span><span class="p">,</span> <span class="mf">2.2000000000000002</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.3999999999999999</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -821,7 +844,7 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
           
         </div>
-      <span class="more-meta"> 约 3880 字 </span>
+      <span class="more-meta"> 约 3868 字 </span>
       <span class="more-meta"> 预计阅读 8 分钟 </span>
       
       
@@ -838,24 +861,21 @@ if (!doNotTrack) {
     
     <div class="post-summary">
       <p>本文参考:</p>
-
 <p><a href="https://morvanzhou.github.io/tutorials/data-manipulation/plt/">Matplotlib 画图教程系列 | 莫烦Python</a></p>
-
-<h2 id="安装">安装</h2>
+<h2 id="heading">安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install matplotlib</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install matplotlib
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="基本用法">基本用法</h2>
-
-<h3 id="画一个基本的线条">画一个基本的线条</h3>
+</div><h2 id="heading1">基本用法</h2>
+<h3 id="heading2">画一个基本的线条</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -874,10 +894,10 @@ if (!doNotTrack) {
 <span class="c1"># x,y 的值是一一对应的</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="c1"># 让图片显示</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://images.wiseturtles.com/2017-12-25-line.png" alt="效果图" /></p>
+</div><p><img src="http://images.wiseturtles.com/2017-12-25-line.png" alt="效果图"></p>
     </div>
     <div class="read-more">
       <a href="/2017/12/25/matplotlib-quickstart/" class="read-more-link">阅读全文</a>
@@ -919,49 +939,48 @@ if (!doNotTrack) {
     
     <div class="post-summary">
       <p>参考:</p>
-
 <p><a href="http://pandas.pydata.org/pandas-docs/stable/10min.html">10 Minutes to pandas</a></p>
-
-<h2 id="安装">安装</h2>
-
+<h2 id="heading">安装</h2>
 <p>支持的python版本: 2.7, 3.5, 3.6</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pandas</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pandas
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>检查本地的pandas运行环境是否完整，可以运行pandas的单元测试用例</p>
+</div><p>检查本地的pandas运行环境是否完整，可以运行pandas的单元测试用例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pytest</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install pytest
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">test</span><span class="p">()</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>获取当前使用pandas的版本信息</p>
+</div><p>获取当前使用pandas的版本信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
-<span class="s1">&#39;0.21.1&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
+<span class="sa"></span><span class="s1">&#39;</span><span class="s1">0.21.1</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -988,8 +1007,8 @@ if (!doNotTrack) {
           <a href="https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"> python数据分析 </a>
           
         </div>
-      <span class="more-meta"> 约 7016 字 </span>
-      <span class="more-meta"> 预计阅读 15 分钟 </span>
+      <span class="more-meta"> 约 7014 字 </span>
+      <span class="more-meta"> 预计阅读 14 分钟 </span>
       
       
       
@@ -1006,30 +1025,17 @@ if (!doNotTrack) {
     <div class="post-summary">
       <p>参考:
 <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">https://docs.scipy.org/doc/numpy-dev/user/quickstart.html</a></p>
-
-<h2 id="准备">准备</h2>
-
+<h2 id="heading">准备</h2>
 <p>安装numpy</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ pip install numpy</pre></td></tr></table>
-</div>
-</div>
-<h2 id="基础">基础</h2>
-
+<pre><code>$ pip install numpy
+</code></pre>
+<h2 id="heading1">基础</h2>
 <blockquote>
 <p>In NumPy dimensions are called axes. The number of axes is rank.</p>
 </blockquote>
-
 <p>Numpy中，维度被称作<code>axes</code>, 维度数被称作<code>rank</code>。</p>
-
 <p>Numpy的数组类是<code>ndarray</code>, 与标准python库的数组不太一样，它包含的元素必须是<strong>相同类型</strong>的。</p>
-
 <p><code>ndarray</code>的常见属性如下:</p>
-
 <ul>
 <li><code>ndarray.ndim</code>数组的轴数(即<code>rank</code>)</li>
 <li><code>ndarray.shape</code>数组的维度，返回的是一个元组，元组的长度值刚好是<code>ndim</code></li>
@@ -1041,84 +1047,6 @@ if (!doNotTrack) {
     </div>
     <div class="read-more">
       <a href="/2017/12/19/numpy-qucikstart/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2013/01/14/linux-commands-and-bash/">Linux命令行与shell脚本编程大全第二版学习笔记</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2013-01-14" class="post-time">
-        2013-01-14
-      </time>
-      <div class="post-category">
-          <a href="https://crazygit.wiseturtles.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          
-        </div>
-      <span class="more-meta"> 约 13016 字 </span>
-      <span class="more-meta"> 预计阅读 26 分钟 </span>
-      
-      
-      
-        <span id="/2013/01/14/linux-commands-and-bash/" class="leancloud_visitors" data-flag-title="Linux命令行与shell脚本编程大全第二版学习笔记">
-          <span class="post-meta-item-text"> | 阅读 </span>
-          <span class="leancloud-visitors-count"></span>
-        </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <h2 id="linux系统可以划分为4个部分">Linux系统可以划分为4个部分</h2>
-
-<ul>
-<li>Linux内核</li>
-<li>GUN工具组件</li>
-<li>图形化桌面环境</li>
-<li>应用软件</li>
-</ul>
-
-<h2 id="常用命令">常用命令</h2>
-
-<h3 id="ls">ls</h3>
-
-<ul>
-<li>-F 在目录名后面添加/ ,方便和普通文件区分</li>
-<li>-R 递归显示当前目录</li>
-<li>-A 效果与-a一样，只是不输出(.)和（..)</li>
-</ul>
-
-<h3 id="touch">touch</h3>
-
-<ul>
-<li>-t 修改已有文件的时间戳</li>
-</ul>
-
-<h3 id="cp">cp</h3>
-
-<ul>
-<li>-b 复制文件时，如果目的地有一份同名文件，就将该文件备份然后再复制，而不是直接覆盖</li>
-<li>-p 保留拷贝文件的文件属性，如修改时间等</li>
-<li>-l 与 -s 参数可以使cp命令与ln命令一样，创建链接-l（硬链接),-s(软链接）</li>
-</ul>
-
-<h3 id="rmdir">rmdir</h3>
-
-<ul>
-<li>删除一个空目录</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/2013/01/14/linux-commands-and-bash/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -1160,6 +1088,10 @@ if (!doNotTrack) {
       
       <li  class="active" >
         <a href="/page/3/">3</a>
+      </li>
+      
+      <li >
+        <a href="/page/4/">4</a>
       </li>
       
     </ul>

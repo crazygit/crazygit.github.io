@@ -31,7 +31,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/" />
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2018-10-27T09:34:03+08:00" />
 <meta itemprop="name" content="Swift入门指南一">
 <meta itemprop="description" content="Swift入门指南一">
-
-
 <meta itemprop="datePublished" content="2018-10-27T09:34:03&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-27T09:34:03&#43;08:00" />
-<meta itemprop="wordCount" content="1988">
+<meta itemprop="wordCount" content="2033">
 
 
 
-<meta itemprop="keywords" content="iOS,swift," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="iOS,swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift入门指南一"/>
 <meta name="twitter:description" content="Swift入门指南一"/>
 
@@ -338,8 +335,8 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/"> iOS开发入门 </a>
             
           </div>
-        <span class="more-meta"> 约 1988 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span class="more-meta"> 约 2033 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
         
@@ -360,26 +357,25 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#hello-world">Hello World</a></li>
-<li><a href="#常量和变量">常量和变量</a>
-<ul>
-<li><a href="#字符串">字符串</a></li>
-</ul></li>
-<li><a href="#数组和字典">数组和字典</a></li>
-<li><a href="#流程控制">流程控制</a>
-<ul>
-<li><a href="#if-语句">if 语句</a></li>
-<li><a href="#switch">switch</a></li>
-<li><a href="#for-in">for-in</a></li>
-<li><a href="#while">while</a></li>
-<li><a href="#for-循环">for 循环</a></li>
-<li><a href="#函数和闭包">函数和闭包</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#hello-world">Hello World</a></li>
+    <li><a href="#heading">常量和变量</a>
+      <ul>
+        <li><a href="#heading1">字符串</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">数组和字典</a></li>
+    <li><a href="#heading3">流程控制</a>
+      <ul>
+        <li><a href="#if-">if 语句</a></li>
+        <li><a href="#switch">switch</a></li>
+        <li><a href="#forin">for-in</a></li>
+        <li><a href="#while">while</a></li>
+        <li><a href="#for-">for 循环</a></li>
+        <li><a href="#heading4">函数和闭包</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -389,20 +385,18 @@ if (!doNotTrack) {
       <h2 id="hello-world">Hello World</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">print</span><span class="p">(</span><span class="s">&#34;Hello, world!&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Hello, world!</span><span class="s">&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>“Hello world”的写法与<code>python</code>的语法, 不需要分号结尾</p>
-
-<h2 id="常量和变量">常量和变量</h2>
-
+</div><p>“Hello world”的写法与<code>python</code>的语法, 不需要分号结尾</p>
+<h2 id="heading">常量和变量</h2>
 <p>使用<code>let</code>声明常量，使用<code>var</code>声明变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -442,63 +436,61 @@ if (!doNotTrack) {
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 常量let</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">常</span><span class="c1">量</span><span class="c1">l</span><span class="c1">e</span><span class="c1">t</span>
 <span class="kd">let</span> <span class="nv">maxNum</span> <span class="p">=</span> <span class="mi">100</span>
 
-<span class="c1">// 变量var</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">变</span><span class="c1">量</span><span class="c1">v</span><span class="c1">a</span><span class="c1">r</span>
 <span class="kd">var</span> <span class="nv">index</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="kd">var</span> <span class="nv">str</span> <span class="p">=</span> <span class="s">&#34;Hello, playground&#34;</span>
+<span class="kd">var</span> <span class="nv">str</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Hello, playground</span><span class="s">&#34;</span>
 
-<span class="c1">// 一次定义多个变量</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">一</span><span class="c1">次</span><span class="c1">定</span><span class="c1">义</span><span class="c1">多</span><span class="c1">个</span><span class="c1">变</span><span class="c1">量</span>
 <span class="kd">var</span> <span class="nv">x</span><span class="p">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="p">=</span><span class="mi">3</span>
 
-<span class="c1">// 常量在编译的时候才确定它的值，但是只能赋值一次，不允许再修改</span>
-<span class="c1">// 如下面的常量c</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">常</span><span class="c1">量</span><span class="c1">在</span><span class="c1">编</span><span class="c1">译</span><span class="c1">的</span><span class="c1">时</span><span class="c1">候</span><span class="c1">才</span><span class="c1">确</span><span class="c1">定</span><span class="c1">它</span><span class="c1">的</span><span class="c1">值</span><span class="c1">，</span><span class="c1">但</span><span class="c1">是</span><span class="c1">只</span><span class="c1">能</span><span class="c1">赋</span><span class="c1">值</span><span class="c1">一</span><span class="c1">次</span><span class="c1">，</span><span class="c1">不</span><span class="c1">允</span><span class="c1">许</span><span class="c1">再</span><span class="c1">修</span><span class="c1">改</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">如</span><span class="c1">下</span><span class="c1">面</span><span class="c1">的</span><span class="c1">常</span><span class="c1">量</span><span class="c1">c</span>
 <span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="mi">1000</span>
 <span class="kd">let</span> <span class="nv">b</span> <span class="p">=</span> <span class="mi">50</span>
 <span class="kd">let</span> <span class="nv">c</span> <span class="p">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-<span class="c1">// 指定常量类型</span>
-<span class="kd">let</span> <span class="nv">b</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;xxx&#34;</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">指</span><span class="c1">定</span><span class="c1">常</span><span class="c1">量</span><span class="c1">类</span><span class="c1">型</span>
+<span class="kd">let</span> <span class="nv">b</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">xxx</span><span class="s">&#34;</span>
 
-<span class="c1">// 批量指定变量类型</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">批</span><span class="c1">量</span><span class="c1">指</span><span class="c1">定</span><span class="c1">变</span><span class="c1">量</span><span class="c1">类</span><span class="c1">型</span>
 <span class="kd">var</span> <span class="nv">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span> <span class="nb">Double</span>
 
-<span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
+<span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">The width is </span><span class="s">&#34;</span>
 <span class="kd">let</span> <span class="nv">width</span> <span class="p">=</span> <span class="mi">94</span>
-<span class="c1">// 类型转换</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">类</span><span class="c1">型</span><span class="c1">转</span><span class="c1">换</span>
 <span class="kd">let</span> <span class="nv">widthLabel</span> <span class="p">=</span> <span class="n">label</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
 
-<span class="c1">// 字符串格式化</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">字</span><span class="c1">符</span><span class="c1">串</span><span class="c1">格</span><span class="c1">式</span><span class="c1">化</span>
 <span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
 <span class="kd">let</span> <span class="nv">oranges</span> <span class="p">=</span> <span class="mi">5</span>
-<span class="kd">let</span> <span class="nv">appSumary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.&#34;</span>
-<span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit&#34;</span>
+<span class="kd">let</span> <span class="nv">appSumary</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.</span><span class="s">&#34;</span>
+<span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit</span><span class="s">&#34;</span>
 
-<span class="c1">// 使用三引号（&#34;&#34;&#34;）可以起到一次使用跨行声明变量</span>
-<span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="s">&#34;&#34;&#34;
+<span class="c1">//</span><span class="c1"> </span><span class="c1">使</span><span class="c1">用</span><span class="c1">三</span><span class="c1">引</span><span class="c1">号</span><span class="c1">（</span><span class="c1">&#34;</span><span class="c1">&#34;</span><span class="c1">&#34;</span><span class="c1">）</span><span class="c1">可</span><span class="c1">以</span><span class="c1">起</span><span class="c1">到</span><span class="c1">一</span><span class="c1">次</span><span class="c1">使</span><span class="c1">用</span><span class="c1">跨</span><span class="c1">行</span><span class="c1">声</span><span class="c1">明</span><span class="c1">变</span><span class="c1">量</span>
+<span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">&#34;</span><span class="s">&#34;</span><span class="s">
 </span><span class="s">line one
 </span><span class="s">line two
-</span><span class="s">&#34;&#34;&#34;</span></code></pre></td></tr></table>
+</span><span class="s"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="s">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="字符串">字符串</h3>
-
+</div><h3 id="heading1">字符串</h3>
 <p>Swift中字符串只能使用双引号</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">str</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;Hello world&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">str</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Hello world</span><span class="s">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="数组和字典">数组和字典</h2>
-
+</div><h2 id="heading2">数组和字典</h2>
 <p>与<code>python</code>不同，Swift数组和字典都是用方括号表示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -516,39 +508,38 @@ if (!doNotTrack) {
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 数组</span>
-<span class="kd">var</span> <span class="nv">a</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">数</span><span class="c1">组</span>
+<span class="kd">var</span> <span class="nv">a</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;</span><span class="s">a</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">b</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">c</span><span class="s">&#34;</span><span class="p">]</span>
 
-<span class="c1">// 字典</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">字</span><span class="c1">典</span>
 <span class="kd">var</span> <span class="nv">b</span> <span class="p">=</span> <span class="p">[</span>
-<span class="s">&#34;name&#34;</span><span class="p">:</span> <span class="s">&#34;crazygit&#34;</span><span class="p">,</span>
-<span class="s">&#34;age&#34;</span><span class="p">:</span> <span class="mi">28</span>
+<span class="s">&#34;</span><span class="s">name</span><span class="s">&#34;</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">crazygit</span><span class="s">&#34;</span><span class="p">,</span>
+<span class="s">&#34;</span><span class="s">age</span><span class="s">&#34;</span><span class="p">:</span> <span class="mi">28</span>
 <span class="p">]</span>
 
-<span class="c1">// 创建元素类型为String类型的空数组</span>
-<span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">]()</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">元</span><span class="c1">素</span><span class="c1">类</span><span class="c1">型</span><span class="c1">为</span><span class="c1">S</span><span class="c1">t</span><span class="c1">r</span><span class="c1">i</span><span class="c1">n</span><span class="c1">g</span><span class="c1">类</span><span class="c1">型</span><span class="c1">的</span><span class="c1">空</span><span class="c1">数</span><span class="c1">组</span>
+<span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span><span class="p">(</span><span class="p">)</span>
 
-<span class="c1">// 创建key为String，Value为Float类型的空字典</span>
-<span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Float</span><span class="p">]()</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">k</span><span class="c1">e</span><span class="c1">y</span><span class="c1">为</span><span class="c1">S</span><span class="c1">t</span><span class="c1">r</span><span class="c1">i</span><span class="c1">n</span><span class="c1">g</span><span class="c1">，</span><span class="c1">V</span><span class="c1">a</span><span class="c1">l</span><span class="c1">u</span><span class="c1">e</span><span class="c1">为</span><span class="c1">F</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">t</span><span class="c1">类</span><span class="c1">型</span><span class="c1">的</span><span class="c1">空</span><span class="c1">字</span><span class="c1">典</span>
+<span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Float</span><span class="p">]</span><span class="p">(</span><span class="p">)</span>
 
-<span class="c1">// 不明确类型的</span>
-<span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[]</span>
-<span class="n">occupations</span> <span class="p">=</span> <span class="p">[:]</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">不</span><span class="c1">明</span><span class="c1">确</span><span class="c1">类</span><span class="c1">型</span><span class="c1">的</span>
+<span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="p">]</span>
+<span class="n">occupations</span> <span class="p">=</span> <span class="p">[</span><span class="p">:</span><span class="p">]</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="流程控制">流程控制</h2>
-
+</div><h2 id="heading3">流程控制</h2>
 <p>关键字有:</p>
-
-<p><code>if</code>, <code>switch</code>, <code>for-in</code>,<code>while</code>, <code>repeat-while</code></p>
-
+<p><code>if</code>, <code>switch</code>, <code>for-in`,</code>while<code>, </code>repeat-while`</p>
 <p>判断条件和循环变量外层的圆括号是可选的。
 但是循环体外层的花括号是必须的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -569,28 +560,27 @@ if (!doNotTrack) {
         <span class="n">teamScore</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">teamScore</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">teamScore</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>if</code>语句后面必须是<code>Boolean</code>表达式, <code>if score {}</code> 会直接报语法错误，不是像<code>python</code>中暗含把<code>score</code>和<code>0</code>相比较。</p>
+</div><p><code>if</code>语句后面必须是<code>Boolean</code>表达式, <code>if score {}</code> 会直接报语法错误，不是像<code>python</code>中暗含把<code>score</code>和<code>0</code>相比较。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">a</span><span class="p">.</span><span class="n">swift</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="err">&#39;</span><span class="nb">Int</span><span class="err">&#39;</span> <span class="k">is</span> <span class="n">not</span> <span class="n">convertible</span> <span class="n">to</span> <span class="err">&#39;</span><span class="nb">Bool</span><span class="err">&#39;</span>
 <span class="k">if</span> <span class="n">score</span> <span class="p">{</span>
-   <span class="o">^~~~~</span></code></pre></td></tr></table>
+   <span class="o">^~~~~</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>变量类型后面如果有<code>?</code>号， 表示变量是个可选值</p>
-
-<h3 id="if-语句">if 语句</h3>
+</div><p>变量类型后面如果有<code>?</code>号， 表示变量是个可选值</p>
+<h3 id="if-">if 语句</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -614,38 +604,36 @@ if (!doNotTrack) {
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 可选值</span>
-<span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">可</span><span class="c1">选</span><span class="c1">值</span>
+<span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Hello</span><span class="s">&#34;</span>
 
-<span class="bp">print</span><span class="p">(</span><span class="n">optionalString</span> <span class="p">==</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">optionalString</span> <span class="p">=</span><span class="p">=</span> <span class="kc">nil</span><span class="p">)</span>
 
-<span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;xx&#34;</span>
-<span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span>
+<span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">xx</span><span class="s">&#34;</span>
+<span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">hello</span><span class="s">&#34;</span>
 
-<span class="c1">// 如果变量的可选值是nil，条件会判断为false，大括号中的代码会被跳过。</span>
-<span class="c1">// 如果不是nil，会将值赋给let后面的常量，这样代码块中就可以使用这个值了。</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">如</span><span class="c1">果</span><span class="c1">变</span><span class="c1">量</span><span class="c1">的</span><span class="c1">可</span><span class="c1">选</span><span class="c1">值</span><span class="c1">是</span><span class="c1">n</span><span class="c1">i</span><span class="c1">l</span><span class="c1">，</span><span class="c1">条</span><span class="c1">件</span><span class="c1">会</span><span class="c1">判</span><span class="c1">断</span><span class="c1">为</span><span class="c1">f</span><span class="c1">a</span><span class="c1">l</span><span class="c1">s</span><span class="c1">e</span><span class="c1">，</span><span class="c1">大</span><span class="c1">括</span><span class="c1">号</span><span class="c1">中</span><span class="c1">的</span><span class="c1">代</span><span class="c1">码</span><span class="c1">会</span><span class="c1">被</span><span class="c1">跳</span><span class="c1">过</span><span class="c1">。</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">如</span><span class="c1">果</span><span class="c1">不</span><span class="c1">是</span><span class="c1">n</span><span class="c1">i</span><span class="c1">l</span><span class="c1">，</span><span class="c1">会</span><span class="c1">将</span><span class="c1">值</span><span class="c1">赋</span><span class="c1">给</span><span class="c1">l</span><span class="c1">e</span><span class="c1">t</span><span class="c1">后</span><span class="c1">面</span><span class="c1">的</span><span class="c1">常</span><span class="c1">量</span><span class="c1">，</span><span class="c1">这</span><span class="c1">样</span><span class="c1">代</span><span class="c1">码</span><span class="c1">块</span><span class="c1">中</span><span class="c1">就</span><span class="c1">可</span><span class="c1">以</span><span class="c1">使</span><span class="c1">用</span><span class="c1">这</span><span class="c1">个</span><span class="c1">值</span><span class="c1">了</span><span class="c1">。</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">optionalName</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span>
+    <span class="n">greeting</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span>
 <span class="p">}</span>
 <span class="k">else</span><span class="p">{</span>
-     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;else&#34;</span><span class="p">)</span>
+     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">else</span><span class="s">&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c1">// 使用??可以提供一个默认值，当nickName为nil时，使用fullName</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">使</span><span class="c1">用</span><span class="c1">?</span><span class="c1">?</span><span class="c1">可</span><span class="c1">以</span><span class="c1">提</span><span class="c1">供</span><span class="c1">一</span><span class="c1">个</span><span class="c1">默</span><span class="c1">认</span><span class="c1">值</span><span class="c1">，</span><span class="c1">当</span><span class="c1">n</span><span class="c1">i</span><span class="c1">c</span><span class="c1">k</span><span class="c1">N</span><span class="c1">a</span><span class="c1">m</span><span class="c1">e</span><span class="c1">为</span><span class="c1">n</span><span class="c1">i</span><span class="c1">l</span><span class="c1">时</span><span class="c1">，</span><span class="c1">使</span><span class="c1">用</span><span class="c1">f</span><span class="c1">u</span><span class="c1">l</span><span class="c1">l</span><span class="c1">N</span><span class="c1">a</span><span class="c1">m</span><span class="c1">e</span>
 <span class="kd">let</span> <span class="nv">nickName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span>
-<span class="kd">let</span> <span class="nv">fullName</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;John Appleseed&#34;</span>
-<span class="kd">let</span> <span class="nv">informalGreeting</span> <span class="p">=</span> <span class="s">&#34;Hi </span><span class="si">\(</span><span class="n">nickName</span> <span class="p">??</span> <span class="n">fullName</span><span class="si">)</span><span class="s">&#34;</span></code></pre></td></tr></table>
+<span class="kd">let</span> <span class="nv">fullName</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">John Appleseed</span><span class="s">&#34;</span>
+<span class="kd">let</span> <span class="nv">informalGreeting</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">Hi </span><span class="si">\(</span><span class="n">nickName</span> <span class="p">?</span><span class="p">?</span> <span class="n">fullName</span><span class="si">)</span><span class="s">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="switch">switch</h3>
-
+</div><h3 id="switch">switch</h3>
 <p>switch支持<strong>任意类型</strong>的数据比较操作。</p>
-
 <p>运行switch中匹配到的子句之后，程序会退出switch语句，并不会继续向下运行，所以<strong>不需要</strong>在每个子句结尾写break。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -659,28 +647,26 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;</span><span class="s">red pepper</span><span class="s">&#34;</span>
 
 <span class="k">switch</span> <span class="n">vegetable</span> <span class="p">{</span>
-<span class="k">case</span> <span class="s">&#34;celery&#34;</span><span class="p">:</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Add som raisins and make ants on a log.&#34;</span><span class="p">)</span>
-<span class="k">case</span> <span class="s">&#34;cucumber&#34;</span><span class="p">,</span> <span class="s">&#34;watercress&#34;</span><span class="p">:</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;That would make a good tea sandwich.&#34;</span><span class="p">)</span>
-<span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;pepper&#34;</span><span class="p">):</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Is is a spicy </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">?&#34;</span><span class="p">)</span>
+<span class="k">case</span> <span class="s">&#34;</span><span class="s">celery</span><span class="s">&#34;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Add som raisins and make ants on a log.</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="k">case</span> <span class="s">&#34;</span><span class="s">cucumber</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">watercress</span><span class="s">&#34;</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">That would make a good tea sandwich.</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;</span><span class="s">pepper</span><span class="s">&#34;</span><span class="p">)</span><span class="p">:</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Is is a spicy </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">?</span><span class="s">&#34;</span><span class="p">)</span>
 <span class="k">default</span><span class="p">:</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Everything tastes good in soup.&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Everything tastes good in soup.</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>注意上面<code>let</code>的用法</p>
-
-<h3 id="for-in">for-in</h3>
-
+</div><p>注意上面<code>let</code>的用法</p>
+<h3 id="forin">for-in</h3>
 <p>在遍历字典字典数据时，遍历结果是无序的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -698,9 +684,9 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
-    <span class="s">&#34;Price&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
-    <span class="s">&#34;Fibonacci&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-    <span class="s">&#34;Square&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s">&#34;</span><span class="s">Price</span><span class="s">&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span><span class="p">,</span>
+    <span class="s">&#34;</span><span class="s">Fibonacci</span><span class="s">&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span><span class="p">,</span>
+    <span class="s">&#34;</span><span class="s">Square</span><span class="s">&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="kd">var</span> <span class="nv">largest</span> <span class="p">=</span> <span class="mi">0</span>
@@ -711,17 +697,15 @@ if (!doNotTrack) {
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">largest</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">largest</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>for (_, numbers)</code>的括号不能省略</p>
-
+</div><p><code>for (_, numbers) </code>的括号不能省略</p>
 <h3 id="while">while</h3>
-
 <p>两种写法，一种先判断条件再执行，一种先执行再判断条件(保证至少运行一次)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -736,29 +720,27 @@ if (!doNotTrack) {
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 先判断再执行（不一定会执行）</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">先</span><span class="c1">判</span><span class="c1">断</span><span class="c1">再</span><span class="c1">执</span><span class="c1">行</span><span class="c1">（</span><span class="c1">不</span><span class="c1">一</span><span class="c1">定</span><span class="c1">会</span><span class="c1">执</span><span class="c1">行</span><span class="c1">）</span>
 <span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
 <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
     <span class="n">n</span><span class="p">=</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="p">}</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="c1">// 先执行再判断（至少执行一次）</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">先</span><span class="c1">执</span><span class="c1">行</span><span class="c1">再</span><span class="c1">判</span><span class="c1">断</span><span class="c1">（</span><span class="c1">至</span><span class="c1">少</span><span class="c1">执</span><span class="c1">行</span><span class="c1">一</span><span class="c1">次</span><span class="c1">）</span>
 <span class="kd">var</span> <span class="nv">m</span> <span class="p">=</span> <span class="mi">2</span>
 <span class="k">repeat</span> <span class="p">{</span>
     <span class="n">m</span> <span class="p">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="p">}</span> <span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">100</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="for-循环">for 循环</h3>
-
+</div><h3 id="for-">for 循环</h3>
 <p><code>..&lt;</code>表示循环索引，不包含最大值</p>
-
 <p><code>...</code>表示循环索引，包含最大值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -771,29 +753,30 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="c1">// 等价于for i=0; i&lt;4; i++</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">4</span> <span class="p">{</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">等</span><span class="c1">价</span><span class="c1">于</span><span class="c1">f</span><span class="c1">o</span><span class="c1">r</span><span class="c1"> </span><span class="c1">i</span><span class="c1">=</span><span class="c1">0</span><span class="c1">;</span><span class="c1"> </span><span class="c1">i</span><span class="c1">&lt;</span><span class="c1">4</span><span class="c1">;</span><span class="c1"> </span><span class="c1">i</span><span class="c1">+</span><span class="c1">+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="p">&lt;</span><span class="mi">4</span> <span class="p">{</span>
     <span class="n">firstForLoop</span> <span class="o">+=</span> <span class="n">i</span>
 <span class="p">}</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">firstForLoop</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nv">secondForLoop</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="c1">// 等价于for i=0; i&lt;=4; i++</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">..</span><span class="mi">4</span> <span class="p">{</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">等</span><span class="c1">价</span><span class="c1">于</span><span class="c1">f</span><span class="c1">o</span><span class="c1">r</span><span class="c1"> </span><span class="c1">i</span><span class="c1">=</span><span class="c1">0</span><span class="c1">;</span><span class="c1"> </span><span class="c1">i</span><span class="c1">&lt;</span><span class="c1">=</span><span class="c1">4</span><span class="c1">;</span><span class="c1"> </span><span class="c1">i</span><span class="c1">+</span><span class="c1">+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="p">.</span><span class="mi">4</span> <span class="p">{</span>
     <span class="n">secondForLoop</span> <span class="o">+=</span> <span class="n">i</span>
 <span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">secondForLoop</span><span class="p">)</span></code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="函数和闭包">函数和闭包</h3>
+<span class="bp">print</span><span class="p">(</span><span class="n">secondForLoop</span><span class="p">)</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading4">函数和闭包</h3>
 <p>使用 <code>func</code> 来声明一个函数, 使用名字和参数来调用函数。使用 <code>-&gt;</code> 来指定函数返回值的类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -805,22 +788,22 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 定义一个函数</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">定</span><span class="c1">义</span><span class="c1">一</span><span class="c1">个</span><span class="c1">函</span><span class="c1">数</span>
 <span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>  <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">person</span><span class="si">)</span><span class="s">,  today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
+    <span class="k">return</span> <span class="s">&#34;</span><span class="s">Hello </span><span class="si">\(</span><span class="n">person</span><span class="si">)</span><span class="s">,  today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.</span><span class="s">&#34;</span>
 <span class="p">}</span>
 
-<span class="c1">//调用函数</span>
-<span class="n">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span>
+<span class="c1">//</span><span class="c1">调</span><span class="c1">用</span><span class="c1">函</span><span class="c1">数</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Bob</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Tuesday</span><span class="s">&#34;</span><span class="p">)</span>
 
-<span class="c1">// 传入第二个参数的day标签不能省略</span>
-<span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span><span class="s">&#34;Tuesday&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">传</span><span class="c1">入</span><span class="c1">第</span><span class="c1">二</span><span class="c1">个</span><span class="c1">参</span><span class="c1">数</span><span class="c1">的</span><span class="c1">d</span><span class="c1">a</span><span class="c1">y</span><span class="c1">标</span><span class="c1">签</span><span class="c1">不</span><span class="c1">能</span><span class="c1">省</span><span class="c1">略</span>
+<span class="n">greet</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Bob</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span><span class="s">&#34;</span><span class="s">Tuesday</span><span class="s">&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>默认情况下，函数使用参数名作为参数标签，可以在参数名前写个自定义的标签，或者使用<code>_</code>来表示没有标签</p>
+</div><p>默认情况下，函数使用参数名作为参数标签，可以在参数名前写个自定义的标签，或者使用<code>_</code>来表示没有标签</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -828,18 +811,17 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="kc">_</span> <span class="n">person</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>  <span class="n">on</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">person</span><span class="si">)</span><span class="s">,  today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
+    <span class="k">return</span> <span class="s">&#34;</span><span class="s">Hello </span><span class="si">\(</span><span class="n">person</span><span class="si">)</span><span class="s">,  today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.</span><span class="s">&#34;</span>
 <span class="p">}</span>
 
-<span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="n">on</span><span class="p">:</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">greet</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Bob</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">on</span><span class="p">:</span> <span class="s">&#34;</span><span class="s">Tuesday</span><span class="s">&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上面<code>person</code>参数没有设置参数标签， <code>day</code>的参数标签是<code>on</code></p>
-
+</div><p>上面<code>person</code>参数没有设置参数标签， <code>day</code>的参数标签是<code>on</code></p>
 <p>使用元祖可以返回多个值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -863,7 +845,7 @@ if (!doNotTrack) {
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">caculateStatistics</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="bp">min</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="bp">max</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">sum</span><span class="p">:</span> <span class="nb">Int</span><span class="p">){</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">caculateStatistics</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="bp">min</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="bp">max</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">sum</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span><span class="p">{</span>
     <span class="kd">var</span> <span class="nv">min</span> <span class="p">=</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="kd">var</span> <span class="nv">max</span> <span class="p">=</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
@@ -878,19 +860,19 @@ if (!doNotTrack) {
     <span class="k">return</span> <span class="p">(</span><span class="bp">min</span><span class="p">,</span> <span class="bp">max</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nv">statistics</span> <span class="p">=</span> <span class="n">caculateStatistics</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="kd">let</span> <span class="nv">statistics</span> <span class="p">=</span> <span class="n">caculateStatistics</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span><span class="p">)</span>
 
-<span class="c1">// 使用名称获取返回的sum</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">使</span><span class="c1">用</span><span class="c1">名</span><span class="c1">称</span><span class="c1">获</span><span class="c1">取</span><span class="c1">返</span><span class="c1">回</span><span class="c1">的</span><span class="c1">s</span><span class="c1">u</span><span class="c1">m</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="n">sum</span><span class="p">)</span>
 
-<span class="c1">// 使用下标获取返回的sum</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">使</span><span class="c1">用</span><span class="c1">下</span><span class="c1">标</span><span class="c1">获</span><span class="c1">取</span><span class="c1">返</span><span class="c1">回</span><span class="c1">的</span><span class="c1">s</span><span class="c1">u</span><span class="c1">m</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>函数可以嵌套，内部的函数可以访问外部函数定义的变量</p>
+</div><p>函数可以嵌套，内部的函数可以访问外部函数定义的变量</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -902,22 +884,22 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">(</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">{</span>
     <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">10</span>
-    <span class="kd">func</span> <span class="nf">add</span><span class="p">(){</span>
+    <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
         <span class="n">y</span> <span class="o">+=</span> <span class="mi">5</span>
     <span class="p">}</span>
-    <span class="n">add</span><span class="p">()</span>
+    <span class="n">add</span><span class="p">(</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span>
 <span class="p">}</span>
 
-<span class="n">returnFifteen</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">returnFifteen</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>函数的返回值也可以是一个函数</p>
+</div><p>函数的返回值也可以是一个函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -928,21 +910,21 @@ if (!doNotTrack) {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//返回值是函数，注意返回值的写法</span>
-<span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">((</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">){</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1">返</span><span class="c1">回</span><span class="c1">值</span><span class="c1">是</span><span class="c1">函</span><span class="c1">数</span><span class="c1">，</span><span class="c1">注</span><span class="c1">意</span><span class="c1">返</span><span class="c1">回</span><span class="c1">值</span><span class="c1">的</span><span class="c1">写</span><span class="c1">法</span>
+<span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">(</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span><span class="p">{</span>
     <span class="kd">func</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">number</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">addOne</span>
 <span class="p">}</span>
-<span class="kd">var</span> <span class="nv">increment</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">()</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">increment</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="kd">var</span> <span class="nv">increment</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">(</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">increment</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>函数的参数也可以是一个函数</p>
+</div><p>函数的参数也可以是一个函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -959,9 +941,9 @@ if (!doNotTrack) {
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">hasAnyMatch</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="n">condtion</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">hasAnyMatch</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="p">,</span> <span class="n">condtion</span><span class="p">:</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">condtion</span><span class="p">(</span><span class="n">item</span><span class="p">){</span>
+        <span class="k">if</span> <span class="n">condtion</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="p">{</span>
             <span class="k">return</span> <span class="kc">true</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -973,13 +955,13 @@ if (!doNotTrack) {
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nv">numbers</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">hasAnyMatch</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">condtion</span><span class="p">:</span> <span class="n">lessThanTen</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">hasAnyMatch</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">condtion</span><span class="p">:</span> <span class="n">lessThanTen</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>闭包的写法，闭包时可以省略掉函数名，用<code>{}</code>表示，在函数体内用<code>in</code>来区分参数，返回值和函数体</p>
+</div><p>闭包的写法，闭包时可以省略掉函数名，用<code>{}</code>表示，在函数体内用<code>in</code>来区分参数，返回值和函数体</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -989,20 +971,20 @@ if (!doNotTrack) {
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">(</span><span class="p">{</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
     <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span>
     <span class="k">return</span> <span class="n">result</span>
-<span class="p">})</span>
+<span class="p">}</span><span class="p">)</span>
 
-<span class="c1">// 省略参数类型，返回值类型的写法</span>
-<span class="kd">let</span> <span class="nv">mappedNumbers</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">mappedNumbers</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">省</span><span class="c1">略</span><span class="c1">参</span><span class="c1">数</span><span class="c1">类</span><span class="c1">型</span><span class="c1">，</span><span class="c1">返</span><span class="c1">回</span><span class="c1">值</span><span class="c1">类</span><span class="c1">型</span><span class="c1">的</span><span class="c1">写</span><span class="c1">法</span>
+<span class="kd">let</span> <span class="nv">mappedNumbers</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">(</span><span class="p">{</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">}</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">mappedNumbers</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可变参数<code>...</code></p>
+</div><p>可变参数<code>...</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1013,15 +995,16 @@ if (!doNotTrack) {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
         <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">sum</span>
 <span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">sumOf</span><span class="p">())</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">597</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="bp">print</span><span class="p">(</span><span class="n">sumOf</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">597</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

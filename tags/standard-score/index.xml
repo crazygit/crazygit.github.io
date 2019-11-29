@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>standard score on Soul Mate</title>
@@ -18,19 +18,13 @@
       
       <guid>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</guid>
       <description>&lt;p&gt;在介绍皮尔逊相关系数前，先来回顾一些统计相关的术语，便于我们更好的理解后面的计算公式。&lt;/p&gt;
-
-&lt;h2 id=&#34;方差-variance&#34;&gt;方差（Variance）&lt;/h2&gt;
-
+&lt;h2 id=&#34;variance&#34;&gt;方差（Variance）&lt;/h2&gt;
 &lt;p&gt;参考&lt;a href=&#34;https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE&#34;&gt;百度百科&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;:&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;方差在统计描述和概率分布中各有不同的定义，并有不同的公式。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;下面主要介绍在统计描述中的方差&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。&lt;/p&gt;
 &lt;/blockquote&gt;</description>

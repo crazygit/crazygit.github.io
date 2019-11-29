@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一">
 <meta itemprop="description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
 ">
-
-
 <meta itemprop="datePublished" content="2018-01-11T18:48:27&#43;08:00" />
 <meta itemprop="dateModified" content="2018-01-11T18:48:27&#43;08:00" />
-<meta itemprop="wordCount" content="2697">
+<meta itemprop="wordCount" content="2693">
 
 
 
-<meta itemprop="keywords" content="spark," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="spark," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记一"/>
 <meta name="twitter:description" content="快速了解Spark的安装，Spark Shell使用和SparkSession对象
 "/>
@@ -342,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/spark/"> spark </a>
             
           </div>
-        <span class="more-meta"> 约 2697 字 </span>
+        <span class="more-meta"> 约 2693 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
 
         
@@ -364,29 +361,29 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#spark概览">Spark概览</a></li>
-<li><a href="#安装">安装</a>
-<ul>
-<li><a href="#部署环境需求">部署环境需求</a></li>
-<li><a href="#解压安装">解压安装</a></li>
-</ul></li>
-<li><a href="#快速开始">快速开始</a>
-<ul>
-<li><a href="#运行例子和交互式shell">运行例子和交互式shell</a></li>
-<li><a href="#使用spark-shell做交互式分析">使用Spark shell做交互式分析</a></li>
-<li><a href="#创建一个简单的应用">创建一个简单的应用</a></li>
-</ul></li>
-<li><a href="#创建-sparksession-对象">创建<code>SparkSession</code>对象</a>
-<ul>
-<li><a href="#sparksession-vs-sparkcontext"><code>SparkSession</code> vs <code>SparkContext</code></a></li>
-<li><a href="#创建一个-sparksession-对象">创建一个<code>SparkSession</code>对象</a></li>
-<li><a href="#sparkcontext-元数据"><code>sparkContext</code>元数据</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#spark">Spark概览</a></li>
+    <li><a href="#heading">安装</a>
+      <ul>
+        <li><a href="#heading1">部署环境需求</a></li>
+        <li><a href="#heading2">解压安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading3">快速开始</a>
+      <ul>
+        <li><a href="#shell">运行例子和交互式shell</a></li>
+        <li><a href="#spark-shell">使用Spark shell做交互式分析</a></li>
+        <li><a href="#heading4">创建一个简单的应用</a></li>
+      </ul>
+    </li>
+    <li><a href="#sparksession">创建SparkSession对象</a>
+      <ul>
+        <li><a href="#sparksession-vs-sparkcontext">SparkSession vs SparkContext</a></li>
+        <li><a href="#sparksession1">创建一个SparkSession对象</a></li>
+        <li><a href="#sparkcontext">sparkContext元数据</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -394,51 +391,41 @@ if (!doNotTrack) {
     
     <div class="post-content">
       <p>本书其它笔记<a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目</a></p>
-
-<h2 id="spark概览">Spark概览</h2>
-
+<h2 id="spark">Spark概览</h2>
 <blockquote>
 <p>Apache Spark is a fast and general-purpose cluster computing system</p>
 </blockquote>
-
 <p>本文基于目前最新的spark版本<code>2.2.1</code>整理，以<code>Python3.6</code>为例，在Mac单机情况下使用。</p>
-
-<h2 id="安装">安装</h2>
-
-<h3 id="部署环境需求">部署环境需求</h3>
-
+<h2 id="heading">安装</h2>
+<h3 id="heading1">部署环境需求</h3>
 <ul>
 <li>Window, Linux, Mac均可</li>
 <li>Java8+(需要设置<code>JAVA_HOME</code>环境变量)</li>
 </ul>
-
 <p>下面三个根据自己习惯使用的语言选择安装</p>
-
 <ul>
 <li>Python2.7+/3.4+</li>
 <li>R 3.1+</li>
 <li>为了使用Scala API, 需要安装完整的Scala 2.11.x版本</li>
 </ul>
-
-<h3 id="解压安装">解压安装</h3>
-
+<h3 id="heading2">解压安装</h3>
 <p>从<a href="https://spark.apache.org/downloads.html">Spark官网</a>选择合适的版本下载。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ wget https://www.apache.org/dyn/closer.lua/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
 
-$ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
+$ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>解压后即可使用, 不过在使用之前，让我们先配置几个常用的环境变量:</p>
+</div><p>解压后即可使用, 不过在使用之前，让我们先配置几个常用的环境变量:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -461,86 +448,67 @@ $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
 <span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s2">&#34;notebook&#34;</span>
 
 <span class="c1"># 添加到PATH，方便随时调用pyspark命令</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$SPARK_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$SPARK_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>关于Spark集群的搭建，练习阶段暂时不会使用到，等以后需要再补充。</p>
-
-<h2 id="快速开始">快速开始</h2>
-
-<h3 id="运行例子和交互式shell">运行例子和交互式shell</h3>
-
+</div><p>关于Spark集群的搭建，练习阶段暂时不会使用到，等以后需要再补充。</p>
+<h2 id="heading3">快速开始</h2>
+<h3 id="shell">运行例子和交互式shell</h3>
 <p>Spark内置了一些Scala, Java列子，同时也有一些Python和R语言的例子在<code>example/src/main</code>目录里。</p>
-
 <p>为了运行Scala, Java 例子，在<code>$SPARK_HOME</code>目录下, 用<code>bin/run-example &lt;class&gt; [params]</code>形式运行。如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/run-example SparkPi <span class="m">10</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/run-example SparkPi <span class="m">10</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也可以启动一个Scala语言的交互式的Shell</p>
+</div><p>也可以启动一个Scala语言的交互式的Shell</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-shell --master local<span class="o">[</span><span class="m">4</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-shell --master local<span class="o">[</span>4<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>--master</code>选项设置在本地以两个线程运行。 <code>local[N]</code>中的<code>N</code>一般设置为本机的CPU核数。更多关于<code>--master</code>的选项可以参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls">Master URLs</a></p>
-
+</div><p><code>--master</code>选项设置在本地以两个线程运行。 <code>local[N]</code>中的<code>N</code>一般设置为本机的CPU核数。更多关于<code>--master</code>的选项可以参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls">Master URLs</a></p>
 <p>启动Python语言的交互式Shell</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/pyspark --master local<span class="o">[</span><span class="m">4</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/pyspark --master local<span class="o">[</span>4<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行Python例子</p>
+</div><p>运行Python例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-submit examples/src/main/python/pi.py <span class="m">10</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">./bin/spark-submit examples/src/main/python/pi.py <span class="m">10</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>启动R语言的交互式Shell</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./bin/sparkR --master local[4]</pre></td></tr></table>
-</div>
-</div>
-<p>R语言的例子</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./bin/spark-submit examples/src/main/r/dataframe.R</pre></td></tr></table>
-</div>
-</div>
-<h3 id="使用spark-shell做交互式分析">使用Spark shell做交互式分析</h3>
-
+</div><p>启动R语言的交互式Shell</p>
+<pre><code>./bin/sparkR --master local[4]
+</code></pre><p>R语言的例子</p>
+<pre><code>./bin/spark-submit examples/src/main/r/dataframe.R
+</code></pre><h3 id="spark-shell">使用Spark shell做交互式分析</h3>
 <p>进入到<code>$SPARK_HOME</code>目录下, 启动<code>pyspark</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/pyspark</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/pyspark
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -583,57 +551,54 @@ $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 加载README.md文件</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&#34;README.md&#34;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">textFile</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">README.md</span><span class="s2">&#34;</span><span class="p">)</span>
 
 <span class="c1"># 统计文件行数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="p">)</span>
 <span class="mi">103</span>
 
 <span class="c1"># 获取第一行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
-<span class="n">Row</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;# Apache Spark&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="p">)</span>
+<span class="n">Row</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1"># Apache Spark</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># 过滤出包含&#34;Spark&#34;的行</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&#34;Spark&#34;</span><span class="p">))</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">linesWithSpark</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Spark</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span>
 
 <span class="c1"># 统计包含&#34;Spark&#34;的行的行数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&#34;Spark&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Spark</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># 获取包含单词最多行的单词个数</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&#34;\s+&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s2">&#34;numWords&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">max</span>
-<span class="o">...</span> <span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;numWords&#34;</span><span class="p">)))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numWords</span><span class="p">)</span><span class="o">=</span><span class="mi">22</span><span class="p">)]</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">\</span><span class="s2">s+</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">numWords</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">max</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">numWords</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numWords</span><span class="p">)</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span><span class="p">]</span>
 
 <span class="c1"># 统计单词出现的频次</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">explode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&#34;\s+&#34;</span><span class="p">))</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s2">&#34;wor</span>
-<span class="o">...</span> <span class="n">d</span><span class="s2">&#34;)).groupBy(&#34;</span><span class="n">word</span><span class="s2">&#34;).count()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">explode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">textFile</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">\</span><span class="s2">s+</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">wor</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="n">d</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">)).groupBy(</span><span class="s2">&#34;</span><span class="n">word</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">).count()</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">wordCounts</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
- <span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
- <span class="o">...</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">wordCounts</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">online</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="p">,</span>
+ <span class="n">Row</span><span class="p">(</span><span class="n">word</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">graphs</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="p">,</span>
+ <span class="o">.</span><span class="o">.</span><span class="o">.</span>
 <span class="p">]</span>
 
 <span class="c1"># 缓存</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="p">)</span>
 <span class="n">DataFrame</span><span class="p">[</span><span class="n">value</span><span class="p">:</span> <span class="n">string</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="mi">20</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">linesWithSpark</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="p">)</span>
+<span class="mi">20</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在使用Spark Shell时，也会开启一个Spark monitor UI，默认在本地4040端口运行。</p>
-
-<p><img src="http://images.wiseturtles.com/2018-01-11-SparkMonitorUI.png" alt="Spark Monitor UI" /></p>
-
-<h3 id="创建一个简单的应用">创建一个简单的应用</h3>
-
-<p>一个简单的应用统计文件中包含字符&rdquo;a&rdquo;和&rdquo;b&rdquo;的行数的脚本<code>SimpleApp.py</code></p>
+</div><p>在使用Spark Shell时，也会开启一个Spark monitor UI，默认在本地4040端口运行。</p>
+<p><img src="http://images.wiseturtles.com/2018-01-11-SparkMonitorUI.png" alt="Spark Monitor UI"></p>
+<h3 id="heading4">创建一个简单的应用</h3>
+<p>一个简单的应用统计文件中包含字符&quot;a&quot;和&quot;b&quot;的行数的脚本<code>SimpleApp.py</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -651,154 +616,139 @@ $ tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ cat SimpleApp.py
-<span class="s2">&#34;&#34;&#34;SimpleApp.py&#34;&#34;&#34;</span>
+<span class="s2">&#34;&#34;</span><span class="s2">&#34;SimpleApp.py&#34;</span><span class="s2">&#34;&#34;</span>
 from pyspark.sql import SparkSession
 
 <span class="nv">appName</span><span class="o">=</span><span class="s1">&#39;Simple Application&#39;</span>
 <span class="nv">logFile</span> <span class="o">=</span> <span class="s2">&#34;README.md&#34;</span>  <span class="c1"># Should be some file on your system</span>
-<span class="nv">spark</span> <span class="o">=</span> SparkSession.builder.appName<span class="o">(</span>appName<span class="o">)</span>.getOrCreate<span class="o">()</span>
-<span class="nv">logData</span> <span class="o">=</span> spark.read.text<span class="o">(</span>logFile<span class="o">)</span>.cache<span class="o">()</span>
+<span class="nv">spark</span> <span class="o">=</span> SparkSession.builder.appName<span class="o">(</span>appName<span class="o">)</span>.getOrCreate<span class="o">(</span><span class="o">)</span>
+<span class="nv">logData</span> <span class="o">=</span> spark.read.text<span class="o">(</span>logFile<span class="o">)</span>.cache<span class="o">(</span><span class="o">)</span>
 
-<span class="nv">numAs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">))</span>.count<span class="o">()</span>
-<span class="nv">numBs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">))</span>.count<span class="o">()</span>
+<span class="nv">numAs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span><span class="o">)</span>.count<span class="o">(</span><span class="o">)</span>
+<span class="nv">numBs</span> <span class="o">=</span> logData.filter<span class="o">(</span>logData.value.contains<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span><span class="o">)</span>.count<span class="o">(</span><span class="o">)</span>
 
-print<span class="o">(</span><span class="s2">&#34;Lines with a: %i, lines with b: %i&#34;</span> % <span class="o">(</span>numAs, numBs<span class="o">))</span>
+print<span class="o">(</span><span class="s2">&#34;Lines with a: %i, lines with b: %i&#34;</span> % <span class="o">(</span>numAs, numBs<span class="o">)</span><span class="o">)</span>
 
-spark.stop<span class="o">()</span></code></pre></td></tr></table>
+spark.stop<span class="o">(</span><span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行应用</p>
+</div><p>运行应用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/spark-submit --master <span class="s2">&#34;local[4]&#34;</span> SimpleApp.py</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./bin/spark-submit --master <span class="s2">&#34;local[4]&#34;</span> SimpleApp.py
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="创建-sparksession-对象">创建<code>SparkSession</code>对象</h2>
-
+</div><h2 id="sparksession">创建<code>SparkSession</code>对象</h2>
 <p>一个<code>SparkSession</code>对象表示与本地(或远程)的Spark集群连接，是与Spark交互的主要入口。</p>
-
 <p>为了建立到Spark的连接，<code>SparkSession</code>需要配置如下信息:</p>
-
 <ul>
 <li><strong>Master URL</strong>: spark服务器的连接地址, 具体可参考<a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls">Master URLs</a></li>
 <li><strong>Application Name</strong>: 便于识别的应用名</li>
 <li><strong>Spark Home</strong>: spark的安装路径</li>
 <li><strong>JARs</strong>: 任务依赖的JAR包路径</li>
 </ul>
-
 <h3 id="sparksession-vs-sparkcontext"><code>SparkSession</code> vs <code>SparkContext</code></h3>
-
 <p><code>SparkSession</code>和<code>SparkContext</code>两者之间有什么关系呢？
 让我们回顾一下spark的发展历史，看能不能找到一点线索:</p>
-
 <p>在Spark 2.0.0 之前。主要有三个连接对象:</p>
-
 <ul>
 <li><code>SparkContext</code>: 主要连接Spark执行环境和完成进行创建<code>RDDs</code>等其它功能</li>
 <li><code>SqlContext</code>: 和SparkSQL一起在<code>SparkContext</code>背后工作</li>
 <li><code>HiveContext</code>: 和<code>Hive</code>仓库交互</li>
 </ul>
-
 <p>Saprk 2.0.0之后，引入了<code>Datasets/DataFrames</code>作为主要的分数式数据抽象接口。<code>SparkSession</code>对象成为了Spark操作的主要入口。有几点需要注意:</p>
-
 <ol>
-<li><p>在Scala和Java中<code>Datasets</code>是主要的数据抽象类型。而在R和Python语言中，<code>DataFrame</code>是主要的抽象类型。它们在API操作上基本没有区别(可以认为是一个东西，只是在不同语言里叫法不一样)</p></li>
-
-<li><p>尽管在2.0.0之后，<code>Datasets/DataFrames</code>作为新的接口形式，但是<code>RDDs</code>依然在被使用，所以当操作<code>RDDs</code>，主要使用<code>SparkContext</code>。</p></li>
-
-<li><p><code>SparkSession</code>对象包含了<code>SparkContext</code>对象。在Spark 2.0.0版本之后，<code>SparkContext</code>仍然是作为连接Spark集群的管道，因此<code>SparkContext</code>主要执行环境操作，比如: 累加器(accumulators)，<code>addFile</code>, <code>addJars</code>等。而<code>SparkSession</code>则用于读取和创建<code>Datasets/DataFrames</code>等操作。</p></li>
+<li>
+<p>在Scala和Java中<code>Datasets</code>是主要的数据抽象类型。而在R和Python语言中，<code>DataFrame</code>是主要的抽象类型。它们在API操作上基本没有区别(可以认为是一个东西，只是在不同语言里叫法不一样)</p>
+</li>
+<li>
+<p>尽管在2.0.0之后，<code>Datasets/DataFrames</code>作为新的接口形式，但是<code>RDDs</code>依然在被使用，所以当操作<code>RDDs</code>，主要使用<code>SparkContext</code>。</p>
+</li>
+<li>
+<p><code>SparkSession</code>对象包含了<code>SparkContext</code>对象。在Spark 2.0.0版本之后，<code>SparkContext</code>仍然是作为连接Spark集群的管道，因此<code>SparkContext</code>主要执行环境操作，比如: 累加器(accumulators)，<code>addFile</code>, <code>addJars</code>等。而<code>SparkSession</code>则用于读取和创建<code>Datasets/DataFrames</code>等操作。</p>
+</li>
 </ol>
-
-<h3 id="创建一个-sparksession-对象">创建一个<code>SparkSession</code>对象</h3>
-
+<h3 id="sparksession1">创建一个<code>SparkSession</code>对象</h3>
 <p>我们可以使用下面的语句创建一个<code>SparkSession</code>对象</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sparkSession</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s1">&#39;app name&#39;</span><span class="p">)</span><span class="o">.</span>\
-                        <span class="n">master</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sparkSession</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">app name</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span>\
+                        <span class="n">master</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">local</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其实当我们运行<code>pyspark</code>时，其实就已经自动创建了一个<code>SparkSession</code>并且分配给了<code>spark</code>变量。</p>
-
+</div><p>其实当我们运行<code>pyspark</code>时，其实就已经自动创建了一个<code>SparkSession</code>并且分配给了<code>spark</code>变量。</p>
 <p>在<code>pyspark</code>脚本里面，我们可以看到下面一句话。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PYTHONSTARTUP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span><span class="s2">/python/pyspark/shell.py&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PYTHONSTARTUP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span><span class="s2">/python/pyspark/shell.py</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>它设置了环境变量<code>PYTHONSTARTUP</code>, 那么在我们运行<code>pyspark</code>时，会先自动运行脚本</p>
+</div><p>它设置了环境变量<code>PYTHONSTARTUP</code>, 那么在我们运行<code>pyspark</code>时，会先自动运行脚本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/python/pyspark/shell.py</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/python/pyspark/shell.py
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们再来看看这个脚本里有些什么，下图是脚本的部分截图:</p>
-
-<p><img src="http://images.wiseturtles.com/2018-01-11-spark_shell.png" alt="" /></p>
-
-<p>从红色框里的代码，我们可以看到创建了<code>SparkSession</code>对象并赋值给<code>spark</code>，<code>SparkSession</code>包含了<code>SparkContext</code>(<code>spark.sparkContext</code>), 并且使用<code>sc</code>指向<code>SparkContext</code>。</p>
-
+</div><p>我们再来看看这个脚本里有些什么，下图是脚本的部分截图:</p>
+<p><img src="http://images.wiseturtles.com/2018-01-11-spark_shell.png" alt=""></p>
+<p>从红色框里的代码，我们可以看到创建了<code>SparkSession</code>对象并赋值给<code>spark</code>，<code>SparkSession</code>包含了<code>SparkContext`(</code>spark.sparkContext<code>), 并且使用</code>sc<code>指向</code>SparkContext`。</p>
 <p>简要的说，我们一般采用如下规则:</p>
-
 <ul>
 <li>创建一个<code>SparkSession</code>对象</li>
 <li>使用<code>SparkSession</code>读取，创建SQL语句的视图，创建<code>Datasets/DataFrames</code></li>
 <li>从<code>SparkSession</code>得到<code>sparkContext</code>, 用于完成累加器(accumulators)，分发缓存文件和<code>RDDs</code>的相关操作。</li>
 </ul>
-
-<h3 id="sparkcontext-元数据"><code>sparkContext</code>元数据</h3>
-
+<h3 id="sparkcontext"><code>sparkContext</code>元数据</h3>
 <p><code>sparkContext</code>包含了一些实用的元数据信息。</p>
-
 <p>获取spark版本信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">spark</span><span class="o">.</span><span class="n">version</span>
-<span class="sa">u</span><span class="s1">&#39;2.2.1&#39;</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">spark</span><span class="o">.</span><span class="n">version</span>
+<span class="sa">u</span><span class="s1">&#39;</span><span class="s1">2.2.1</span><span class="s1">&#39;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">version</span>
-<span class="sa">u</span><span class="s1">&#39;2.2.1&#39;</span></code></pre></td></tr></table>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">version</span>
+<span class="sa">u</span><span class="s1">&#39;</span><span class="s1">2.2.1</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>获取部署的应用名</p>
+</div><p>获取部署的应用名</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">appName</span>
-<span class="sa">u</span><span class="s1">&#39;PySparkShell&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">appName</span>
+<span class="sa">u</span><span class="s1">&#39;</span><span class="s1">PySparkShell</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>获取内存信息(<strong>Python中暂时没有实现</strong>)</p>
+</div><p>获取内存信息(<strong>Python中暂时没有实现</strong>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -807,44 +757,43 @@ spark.stop<span class="o">()</span></code></pre></td></tr></table>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
-<span class="o">---------------------------------------------------------------------------</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span>
 <span class="ne">AttributeError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">755</span><span class="n">a4391f6a7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">755</span><span class="n">a4391f6a7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">(</span><span class="p">)</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
 
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;SparkContext&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;getExecutorMemoryStatus&#39;</span></code></pre></td></tr></table>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">SparkContext</span><span class="s1">&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">getExecutorMemoryStatus</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>但是Scala语言中有</p>
+</div><p>但是Scala语言中有</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-scala" data-lang="scala"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scala</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getExecutorMemoryStatus</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">scala.collection.Map</span><span class="o">[</span><span class="kt">String</span>,<span class="o">(</span><span class="kt">Long</span>, <span class="kt">Long</span><span class="o">)]</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="mf">169.254</span><span class="o">.</span><span class="mf">93.254</span><span class="k">:</span><span class="err">55267</span> <span class="kt">-&gt;</span> <span class="o">(</span><span class="err">384093388</span><span class="o">,</span><span class="err">384093388</span><span class="o">))</span></code></pre></td></tr></table>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">scala.collection.Map</span><span class="o">[</span><span class="kt">String</span>,<span class="o">(</span><span class="kt">Long</span>, <span class="kt">Long</span><span class="o">)</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="mf">169.254</span><span class="o">.</span><span class="mf">93.254</span><span class="k">:</span><span class="err">5</span><span class="err">5</span><span class="err">2</span><span class="err">6</span><span class="err">7</span> <span class="kt">-&gt;</span> <span class="o">(</span><span class="err">3</span><span class="err">8</span><span class="err">4</span><span class="err">0</span><span class="err">9</span><span class="err">3</span><span class="err">3</span><span class="err">8</span><span class="err">8</span><span class="o">,</span><span class="err">3</span><span class="err">8</span><span class="err">4</span><span class="err">0</span><span class="err">9</span><span class="err">3</span><span class="err">3</span><span class="err">8</span><span class="err">8</span><span class="o">)</span><span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>169.254.93.254:55267</code>代办主机信息。
+</div><p><code>169.254.93.254:55267</code>代办主机信息。
 <code>(384093388,384093388)</code>分别代表当前分配的最大内存和剩余内存</p>
-
 <p>获取主机信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">master</span>
-<span class="sa">u</span><span class="s1">&#39;local[*]&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">master</span>
+<span class="sa">u</span><span class="s1">&#39;</span><span class="s1">local[*]</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>获取配置信息</p>
+</div><p>获取配置信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -857,17 +806,18 @@ spark.stop<span class="o">()</span></code></pre></td></tr></table>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getConf</span><span class="p">()</span><span class="o">.</span><span class="n">toDebugString</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="sa">u</span><span class="s1">&#39;spark.app.id=local-1515662568196&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.app.name=PySparkShell&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.driver.host=169.254.93.254&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.driver.port=55105&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.executor.id=driver&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.master=local[*]&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.rdd.compress=True&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.serializer.objectStreamReset=100&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.sql.catalogImplementation=hive&#39;</span><span class="p">,</span>
- <span class="sa">u</span><span class="s1">&#39;spark.submit.deployMode=client&#39;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">sc</span><span class="o">.</span><span class="n">getConf</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">toDebugString</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.app.id=local-1515662568196</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.app.name=PySparkShell</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.driver.host=169.254.93.254</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.driver.port=55105</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.executor.id=driver</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.master=local[*]</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.rdd.compress=True</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.serializer.objectStreamReset=100</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.sql.catalogImplementation=hive</span><span class="s1">&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;</span><span class="s1">spark.submit.deployMode=client</span><span class="s1">&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

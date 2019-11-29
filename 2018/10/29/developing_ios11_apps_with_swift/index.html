@@ -26,7 +26,7 @@
   <meta name="description" content="从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址， 其实就是一个xml文件
 iTunes podcasts 视频解析地址
 解析出所有的下载地址
-1 2 3 4 5  import xml.etree.ElementTree as ET import requests root = ET.fromstring(requests.get(&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;).text) for enclosure in root.findall(&amp;#39;.//enclosure&amp;#39;): print(enclosure.get(&amp;#39;url&amp;#39;))  " />
+1 2 3 4 5  import xml.etree.ElementTree as ET import requests root = ET.fromstring(requests.get(&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;).text) for enclosure in root.findall(&amp;#39;.//enclosure&amp;#39;): print(enclosure.get(&amp;#39;url&amp;#39;))   " />
 
   <meta name="keywords" content="Hugo, crazygit, blog" />
 
@@ -35,7 +35,7 @@ iTunes podcasts 视频解析地址
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/10/29/developing_ios11_apps_with_swift/" />
@@ -67,9 +67,7 @@ iTunes podcasts 视频解析地址
 <meta property="og:title" content="Developing iOS 11 Apps with Swift视频下载" />
 <meta property="og:description" content="从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址，
 其实就是一个xml文件
-
 iTunes podcasts 视频解析地址
-
 解析出所有的下载地址
 
 
@@ -85,6 +83,7 @@ import requests
 root = ET.fromstring(requests.get(&#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&#39;).text)
 for enclosure in root.findall(&#39;.//enclosure&#39;):
     print(enclosure.get(&#39;url&#39;))
+
 
 " />
 <meta property="og:type" content="article" />
@@ -94,9 +93,7 @@ for enclosure in root.findall(&#39;.//enclosure&#39;):
 <meta itemprop="name" content="Developing iOS 11 Apps with Swift视频下载">
 <meta itemprop="description" content="从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址，
 其实就是一个xml文件
-
 iTunes podcasts 视频解析地址
-
 解析出所有的下载地址
 
 
@@ -113,23 +110,19 @@ root = ET.fromstring(requests.get(&#39;http://podcasts.apple.com/stanford/develo
 for enclosure in root.findall(&#39;.//enclosure&#39;):
     print(enclosure.get(&#39;url&#39;))
 
+
 ">
-
-
 <meta itemprop="datePublished" content="2018-10-29T16:15:15&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-29T16:15:15&#43;08:00" />
 <meta itemprop="wordCount" content="209">
 
 
 
-<meta itemprop="keywords" content="iOS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Developing iOS 11 Apps with Swift视频下载"/>
 <meta name="twitter:description" content="从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址，
 其实就是一个xml文件
-
 iTunes podcasts 视频解析地址
-
 解析出所有的下载地址
 
 
@@ -145,6 +138,7 @@ import requests
 root = ET.fromstring(requests.get(&#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&#39;).text)
 for enclosure in root.findall(&#39;.//enclosure&#39;):
     print(enclosure.get(&#39;url&#39;))
+
 
 "/>
 
@@ -427,17 +421,15 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#解析结果">解析结果</a>
-<ul>
-<li><a href="#视频下载地址-视频里内置了英文字幕-要播放器支持才能看到-也可以用字幕提取工具-ccextractor-https-www-ccextractor-org-提取字幕">视频下载地址(视频里内置了英文字幕，要播放器支持才能看到。也可以用字幕提取工具<a href="https://www.ccextractor.org/">CCExtractor</a>提取字幕)</a></li>
-<li><a href="#pdf课件下载地址">PDF课件下载地址</a></li>
-</ul></li>
-<li><a href="#中文字幕">中文字幕</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">解析结果</a>
+      <ul>
+        <li><a href="#ccextractorhttpswwwccextractororg">视频下载地址(视频里内置了英文字幕，要播放器支持才能看到。也可以用字幕提取工具CCExtractor提取字幕)</a></li>
+        <li><a href="#pdf">PDF课件下载地址</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">中文字幕</a></li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -446,13 +438,11 @@ if (!doNotTrack) {
     <div class="post-content">
       <p>从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址，
 其实就是一个xml文件</p>
-
 <p><a href="http://podcasts.apple.com/stanford/developing_ios11_apps.xml">iTunes podcasts 视频解析地址</a></p>
-
 <p>解析出所有的下载地址</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -461,15 +451,13 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">ET</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">enclosure</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.//enclosure&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">enclosure</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">http://podcasts.apple.com/stanford/developing_ios11_apps.xml</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">enclosure</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">.//enclosure</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">enclosure</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">url</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="解析结果">解析结果</h2>
-
-<h3 id="视频下载地址-视频里内置了英文字幕-要播放器支持才能看到-也可以用字幕提取工具-ccextractor-https-www-ccextractor-org-提取字幕">视频下载地址(视频里内置了英文字幕，要播放器支持才能看到。也可以用字幕提取工具<a href="https://www.ccextractor.org/">CCExtractor</a>提取字幕)</h3>
-
+</div><h2 id="heading">解析结果</h2>
+<h3 id="ccextractorhttpswwwccextractororg">视频下载地址(视频里内置了英文字幕，要播放器支持才能看到。也可以用字幕提取工具<a href="https://www.ccextractor.org/">CCExtractor</a>提取字幕)</h3>
 <ul>
 <li><a href="http://podcasts.apple.com/stanford/media/1_Introduction_to_iOS_11_Xcode_9_and_Swift_4_311-6554896743492737986-01_9_25_17_1080p_CS193p_1080p_3mb_cc.m4v">http://podcasts.apple.com/stanford/media/1_Introduction_to_iOS_11_Xcode_9_and_Swift_4_311-6554896743492737986-01_9_25_17_1080p_CS193p_1080p_3mb_cc.m4v</a></li>
 <li><a href="http://podcasts.apple.com/stanford/media/2_MVC_309-2503760600607007728-02_9_27_17_CS193p_720p_3mb_cc.m4v">http://podcasts.apple.com/stanford/media/2_MVC_309-2503760600607007728-02_9_27_17_CS193p_720p_3mb_cc.m4v</a></li>
@@ -492,9 +480,7 @@ if (!doNotTrack) {
 <li><a href="http://podcasts.apple.com/stanford/media/511-8983128522622077657-16_11_15_17_prores_CS193p_1080p_3mb.m4v">http://podcasts.apple.com/stanford/media/511-8983128522622077657-16_11_15_17_prores_CS193p_1080p_3mb.m4v</a></li>
 <li><a href="http://podcasts.apple.com/stanford/media/506-4176003801724267012-17_11_29_17_WIP02_CS193p_1080p_3mb_cc.m4v">http://podcasts.apple.com/stanford/media/506-4176003801724267012-17_11_29_17_WIP02_CS193p_1080p_3mb_cc.m4v</a></li>
 </ul>
-
-<h3 id="pdf课件下载地址">PDF课件下载地址</h3>
-
+<h3 id="pdf">PDF课件下载地址</h3>
 <ul>
 <li><a href="http://podcasts.apple.com/stanford/media/Lecture_1_Slides.pdf">http://podcasts.apple.com/stanford/media/Lecture_1_Slides.pdf</a></li>
 <li><a href="http://podcasts.apple.com/stanford/media/Reading_1_Intro_to_Swift.pdf">http://podcasts.apple.com/stanford/media/Reading_1_Intro_to_Swift.pdf</a></li>
@@ -523,11 +509,8 @@ if (!doNotTrack) {
 <li><a href="http://podcasts.apple.com/stanford/media/512-802352814004650525-CS193P_F17_Lecture_16.pdf">http://podcasts.apple.com/stanford/media/512-802352814004650525-CS193P_F17_Lecture_16.pdf</a></li>
 <li><a href="http://podcasts.apple.com/stanford/media/520-5280642336803569160-CS193P_F17_Lecture_17_Slides.pdf">http://podcasts.apple.com/stanford/media/520-5280642336803569160-CS193P_F17_Lecture_17_Slides.pdf</a></li>
 </ul>
-
-<h2 id="中文字幕">中文字幕</h2>
-
+<h2 id="heading1">中文字幕</h2>
 <p>网上找到的中文字幕</p>
-
 <p><a href="https://github.com/ApolloZhu/Developing-iOS-11-Apps-with-Swift">https://github.com/ApolloZhu/Developing-iOS-11-Apps-with-Swift</a></p>
     </div>
 

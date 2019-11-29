@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/02/12/docker-commands/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="docker常用命令">
 <meta itemprop="description" content="docker常用命令集合
 ">
-
-
 <meta itemprop="datePublished" content="2018-02-12T22:21:02&#43;08:00" />
 <meta itemprop="dateModified" content="2018-02-12T22:21:02&#43;08:00" />
 <meta itemprop="wordCount" content="890">
 
 
 
-<meta itemprop="keywords" content="docker," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker常用命令"/>
 <meta name="twitter:description" content="docker常用命令集合
 "/>
@@ -364,29 +361,20 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#install-docker-on-mac">Install docker on mac</a></li>
-<li><a href="#get-docker-info">Get docker info</a></li>
-<li><a href="#basic-commands">Basic commands</a></li>
-<li><a href="#docker-image-and-container-command">Docker image and container command</a></li>
-<li><a href="#docker-stack-commands">Docker stack commands</a></li>
-<li><a href="#docker-machine-commands">Docker-machine commands</a></li>
-<li><a href="#清理命令">清理命令</a>
-<ul>
-<li><a href="#to-clear-containers">To clear containers:</a></li>
-<li><a href="#to-clear-images">To clear images:</a></li>
-<li><a href="#to-clear-dangling-images">To clear dangling images:</a></li>
-<li><a href="#to-clear-volumes">To clear volumes:</a></li>
-<li><a href="#to-clear-networks">To clear networks:</a></li>
-</ul></li>
-<li><a href="#查看启动失败的服务信息">查看启动失败的服务信息</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#install-docker-on-mac">Install docker on mac</a></li>
+        <li><a href="#get-docker-info">Get docker info</a></li>
+        <li><a href="#basic-commands">Basic commands</a></li>
+        <li><a href="#docker-image-and-container-command">Docker image and container command</a></li>
+        <li><a href="#docker-stack-commands">Docker stack commands</a></li>
+        <li><a href="#dockermachine-commands">Docker-machine commands</a></li>
+        <li><a href="#heading">清理命令</a></li>
+        <li><a href="#heading1">查看启动失败的服务信息</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -396,44 +384,46 @@ if (!doNotTrack) {
       <h3 id="install-docker-on-mac">Install docker on mac</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ brew cask install docker</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ brew cask install docker
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="get-docker-info">Get docker info</h3>
+</div><h3 id="get-docker-info">Get docker info</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ docker --version
-Docker version <span class="m">17</span>.12.0-ce, build c97c6d6</code></pre></td></tr></table>
+Docker version 17.12.0-ce, build c97c6d6
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-compose --version
-docker-compose version <span class="m">1</span>.18.0, build 8dd22a9</code></pre></td></tr></table>
+docker-compose version 1.18.0, build 8dd22a9
+</code></pre></td></tr></table>
 </div>
-</div>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ docker-machine --version
-docker-machine version <span class="m">0</span>.13.0, build 9ba6da9</code></pre></td></tr></table>
+docker-machine version 0.13.0, build 9ba6da9
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -455,28 +445,28 @@ docker-machine version <span class="m">0</span>.13.0, build 9ba6da9</code></pre>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ docker version
 Client:
- Version:	<span class="m">17</span>.12.0-ce
- API version:	<span class="m">1</span>.35
+ Version:	17.12.0-ce
+ API version:	1.35
  Go version:	go1.9.2
  Git commit:	c97c6d6
- Built:	Wed Dec <span class="m">27</span> <span class="m">20</span>:03:51 <span class="m">2017</span>
+ Built:	Wed Dec <span class="m">27</span> 20:03:51 <span class="m">2017</span>
  OS/Arch:	darwin/amd64
 
 Server:
  Engine:
-  Version:	<span class="m">17</span>.12.0-ce
-  API version:	<span class="m">1</span>.35 <span class="o">(</span>minimum version <span class="m">1</span>.12<span class="o">)</span>
+  Version:	17.12.0-ce
+  API version:	1.35 <span class="o">(</span>minimum version 1.12<span class="o">)</span>
   Go version:	go1.9.2
   Git commit:	c97c6d6
-  Built:	Wed Dec <span class="m">27</span> <span class="m">20</span>:12:29 <span class="m">2017</span>
+  Built:	Wed Dec <span class="m">27</span> 20:12:29 <span class="m">2017</span>
   OS/Arch:	linux/amd64
-  Experimental:	true</code></pre></td></tr></table>
+  Experimental:	<span class="nb">true</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="basic-commands">Basic commands</h3>
+</div><h3 id="basic-commands">Basic commands</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -515,13 +505,13 @@ docker image ls
 <span class="c1"># List Docker containers (running, all, all in quiet mode)</span>
 docker container ls
 docker container ls -all
-docker container ls -a -q</code></pre></td></tr></table>
+docker container ls -a -q
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="docker-image-and-container-command">Docker image and container command</h3>
+</div><h3 id="docker-image-and-container-command">Docker image and container command</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -540,8 +530,8 @@ docker container ls -a -q</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t friendlyhello .  <span class="c1"># Create image using this directory&#39;s Dockerfile</span>
-docker run -p <span class="m">4000</span>:80 friendlyhello  <span class="c1"># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
-docker run -d -p <span class="m">4000</span>:80 friendlyhello         <span class="c1"># Same thing, but in detached mode</span>
+docker run -p 4000:80 friendlyhello  <span class="c1"># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
+docker run -d -p 4000:80 friendlyhello         <span class="c1"># Same thing, but in detached mode</span>
 docker container ls                                <span class="c1"># List all running containers</span>
 docker container ls -a             <span class="c1"># List all containers, even those not running</span>
 docker container stop &lt;hash&gt;           <span class="c1"># Gracefully stop the specified container</span>
@@ -554,13 +544,13 @@ docker image rm <span class="k">$(</span>docker image ls -a -q<span class="k">)<
 docker login             <span class="c1"># Log in this CLI session using your Docker credentials</span>
 docker tag &lt;image&gt; username/repository:tag  <span class="c1"># Tag &lt;image&gt; for upload to registry</span>
 docker push username/repository:tag            <span class="c1"># Upload tagged image to registry</span>
-docker run username/repository:tag                   <span class="c1"># Run image from a registry</span></code></pre></td></tr></table>
+docker run username/repository:tag                   <span class="c1"># Run image from a registry</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="docker-stack-commands">Docker stack commands</h3>
+</div><h3 id="docker-stack-commands">Docker stack commands</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -577,13 +567,13 @@ docker service ps &lt;service&gt;                  <span class="c1"># List tasks
 docker inspect &lt;task or container&gt;                   <span class="c1"># Inspect task or container</span>
 docker container ls -q                                      <span class="c1"># List container IDs</span>
 docker stack rm &lt;appname&gt;                             <span class="c1"># Tear down an application</span>
-docker swarm leave --force      <span class="c1"># Take down a single node swarm from the manager</span></code></pre></td></tr></table>
+docker swarm leave --force      <span class="c1"># Take down a single node swarm from the manager</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="docker-machine-commands">Docker-machine commands</h3>
+</div><h3 id="dockermachine-commands">Docker-machine commands</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -626,63 +616,63 @@ docker-machine scp docker-compose.yml myvm1:~ <span class="c1"># Copy file to no
 docker-machine ssh myvm1 <span class="s2">&#34;docker stack deploy -c &lt;file&gt; &lt;app&gt;&#34;</span>   <span class="c1"># Deploy an app using ssh (you must have first copied the Compose file to myvm1)</span>
 <span class="nb">eval</span> <span class="k">$(</span>docker-machine env -u<span class="k">)</span>     <span class="c1"># Disconnect shell from VMs, use native docker</span>
 docker-machine stop <span class="k">$(</span>docker-machine ls -q<span class="k">)</span>               <span class="c1"># Stop all running VMs</span>
-docker-machine rm <span class="k">$(</span>docker-machine ls -q<span class="k">)</span> <span class="c1"># Delete all VMs and their disk images</span></code></pre></td></tr></table>
+docker-machine rm <span class="k">$(</span>docker-machine ls -q<span class="k">)</span> <span class="c1"># Delete all VMs and their disk images</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="清理命令">清理命令</h3>
-
+</div><h3 id="heading">清理命令</h3>
 <h4 id="to-clear-containers">To clear containers:</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker rm -f <span class="k">$(</span>docker ps -a -q<span class="k">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker rm -f <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="to-clear-images">To clear images:</h4>
+</div><h4 id="to-clear-images">To clear images:</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker rmi -f <span class="k">$(</span>docker images -a -q<span class="k">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker rmi -f <span class="k">$(</span>docker images -a -q<span class="k">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="to-clear-dangling-images">To clear dangling images:</h4>
+</div><h4 id="to-clear-dangling-images">To clear dangling images:</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker rmi -f <span class="k">$(</span>docker images -f <span class="s2">&#34;dangling=true&#34;</span> -q<span class="k">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker rmi -f <span class="k">$(</span>docker images -f <span class="s2">&#34;dangling=true&#34;</span> -q<span class="k">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="to-clear-volumes">To clear volumes:</h4>
+</div><h4 id="to-clear-volumes">To clear volumes:</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker volume rm <span class="k">$(</span>docker volume ls -q<span class="k">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker volume rm <span class="k">$(</span>docker volume ls -q<span class="k">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="to-clear-networks">To clear networks:</h4>
+</div><h4 id="to-clear-networks">To clear networks:</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker network rm <span class="k">$(</span>docker network ls <span class="p">|</span> tail -n+2 <span class="p">|</span> awk <span class="s1">&#39;{if($2 !~ /bridge|none|host/){ print $1 }}&#39;</span><span class="k">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker network rm <span class="k">$(</span>docker network ls <span class="p">|</span> tail -n+2 <span class="p">|</span> awk <span class="s1">&#39;{if($2 !~ /bridge|none|host/){ print $1 }}&#39;</span><span class="k">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="查看启动失败的服务信息">查看启动失败的服务信息</h3>
+</div><h3 id="heading1">查看启动失败的服务信息</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker service ps --no-trunc <span class="o">{</span>serviceName<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker service ps --no-trunc <span class="o">{</span>serviceName<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

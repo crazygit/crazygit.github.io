@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Soul Mate</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Soul Mate</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Sep 2019 10:44:29 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 15:29:29 +0800</lastBuildDate>
     
 	<atom:link href="https://crazygit.wiseturtles.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fluentd, docker, elasticsearch, kamba, log</title>
+      <link>https://crazygit.wiseturtles.com/tags/fluentd-docker-elasticsearch-kamba-log/</link>
+      <pubDate>Fri, 29 Nov 2019 15:29:29 +0800</pubDate>
+      
+      <guid>https://crazygit.wiseturtles.com/tags/fluentd-docker-elasticsearch-kamba-log/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>lombok, java, libraries</title>
@@ -179,15 +188,6 @@
       <pubDate>Tue, 09 Jan 2018 09:50:48 +0800</pubDate>
       
       <guid>https://crazygit.wiseturtles.com/tags/seaborn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pipenv</title>
-      <link>https://crazygit.wiseturtles.com/tags/pipenv/</link>
-      <pubDate>Mon, 08 Jan 2018 14:16:29 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/tags/pipenv/</guid>
       <description></description>
     </item>
     

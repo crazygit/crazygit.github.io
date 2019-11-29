@@ -32,7 +32,7 @@
 <meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
 
 
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.60.0" />
 
 
 <link rel="canonical" href="https://crazygit.wiseturtles.com/2018/02/12/docker-get-started/" />
@@ -71,16 +71,13 @@
 <meta itemprop="name" content="docker简单入门">
 <meta itemprop="description" content="Dokcer使用简单入门
 ">
-
-
 <meta itemprop="datePublished" content="2018-02-12T21:15:29&#43;08:00" />
 <meta itemprop="dateModified" content="2018-02-12T21:15:29&#43;08:00" />
-<meta itemprop="wordCount" content="598">
+<meta itemprop="wordCount" content="562">
 
 
 
-<meta itemprop="keywords" content="docker," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker简单入门"/>
 <meta name="twitter:description" content="Dokcer使用简单入门
 "/>
@@ -342,7 +339,7 @@ if (!doNotTrack) {
             <a href="https://crazygit.wiseturtles.com/categories/docker%E5%AE%B9%E5%99%A8/"> docker容器 </a>
             
           </div>
-        <span class="more-meta"> 约 598 字 </span>
+        <span class="more-meta"> 约 562 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -364,41 +361,38 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#docker安装">Docker安装</a></li>
-<li><a href="#测试是否安装成功-运行第一个容器">测试是否安装成功，运行第一个容器</a></li>
-<li><a href="#创建镜像">创建镜像</a>
-<ul>
-<li><a href="#准备创建镜像需要的文件">准备创建镜像需要的文件</a></li>
-<li><a href="#创建镜像-1">创建镜像</a></li>
-<li><a href="#运行容器">运行容器</a></li>
-</ul></li>
-<li><a href="#分享镜像">分享镜像</a>
-<ul>
-<li><a href="#阿里云docker">阿里云Docker</a></li>
-<li><a href="#登录">登录</a></li>
-<li><a href="#给镜像打标签">给镜像打标签</a></li>
-<li><a href="#发布镜像">发布镜像</a></li>
-</ul></li>
-<li><a href="#镜像加速">镜像加速</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#docker">Docker安装</a></li>
+    <li><a href="#heading">测试是否安装成功，运行第一个容器</a></li>
+    <li><a href="#heading1">创建镜像</a>
+      <ul>
+        <li><a href="#heading2">准备创建镜像需要的文件</a></li>
+        <li><a href="#heading3">创建镜像</a></li>
+        <li><a href="#heading4">运行容器</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading5">分享镜像</a>
+      <ul>
+        <li><a href="#docker1">阿里云Docker</a></li>
+        <li><a href="#heading6">登录</a></li>
+        <li><a href="#heading7">给镜像打标签</a></li>
+        <li><a href="#heading8">发布镜像</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading9">镜像加速</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <h2 id="docker安装">Docker安装</h2>
-
+      <h2 id="docker">Docker安装</h2>
 <p>根据自己的操作系统，参考<a href="https://docs.docker.com/install/">官方文档</a>完成安装</p>
-
-<h2 id="测试是否安装成功-运行第一个容器">测试是否安装成功，运行第一个容器</h2>
+<h2 id="heading">测试是否安装成功，运行第一个容器</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -417,41 +411,14 @@ Digest: sha256:66ef312bbac49c39a89aa9bcc3cb4f3c9e7de3788c944158df3ee0176d32b751
 Status: Downloaded newer image <span class="k">for</span> hello-world:latest
 
 Hello from Docker!
-...</code></pre></td></tr></table>
+...
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="创建镜像">创建镜像</h2>
-
-<h3 id="准备创建镜像需要的文件">准备创建镜像需要的文件</h3>
-
+</div><h2 id="heading1">创建镜像</h2>
+<h3 id="heading2">准备创建镜像需要的文件</h3>
 <p>创建一个空的目录<code>docker-demo</code>，在里面放入三个文件</p>
-
 <p><code>Dockerfile</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># Use an official Python runtime as a parent image
+<pre><code># Use an official Python runtime as a parent image
 FROM python:2.7-slim
 
 # Set the working directory to /app
@@ -470,13 +437,11 @@ EXPOSE 80
 ENV NAME World
 
 # Run app.py when the container launches
-CMD [&#34;python&#34;, &#34;app.py&#34;]</pre></td></tr></table>
-</div>
-</div>
-<p><code>app.py</code></p>
+CMD [&quot;python&quot;, &quot;app.py&quot;]
+</code></pre><p><code>app.py</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -511,148 +476,81 @@ CMD [&#34;python&#34;, &#34;app.py&#34;]</pre></td></tr></table>
 <span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="c1"># Connect to Redis</span>
-<span class="n">redis</span> <span class="o">=</span> <span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;redis&#34;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">socket_connect_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">socket_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">redis</span> <span class="o">=</span> <span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">redis</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">socket_connect_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">socket_timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">/</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="p">)</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">visits</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s2">&#34;counter&#34;</span><span class="p">)</span>
+        <span class="n">visits</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">counter</span><span class="s2">&#34;</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">RedisError</span><span class="p">:</span>
-        <span class="n">visits</span> <span class="o">=</span> <span class="s2">&#34;&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;&#34;</span>
+        <span class="n">visits</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">&lt;i&gt;cannot connect to Redis, counter disabled&lt;/i&gt;</span><span class="s2">&#34;</span>
 
-    <span class="n">html</span> <span class="o">=</span> <span class="s2">&#34;&lt;h3&gt;Hello {name}!&lt;/h3&gt;&#34;</span> \
-           <span class="s2">&#34;&lt;b&gt;Hostname:&lt;/b&gt; {hostname}&lt;br/&gt;&#34;</span> \
-           <span class="s2">&#34;&lt;b&gt;Visits:&lt;/b&gt; {visits}&#34;</span>
-    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;NAME&#34;</span><span class="p">,</span> <span class="s2">&#34;world&#34;</span><span class="p">),</span>
-                <span class="n">hostname</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">(),</span> <span class="n">visits</span><span class="o">=</span><span class="n">visits</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">&lt;h3&gt;Hello {name}!&lt;/h3&gt;</span><span class="s2">&#34;</span> \
+           <span class="sa"></span><span class="s2">&#34;</span><span class="s2">&lt;b&gt;Hostname:&lt;/b&gt; {hostname}&lt;br/&gt;</span><span class="s2">&#34;</span> \
+           <span class="sa"></span><span class="s2">&#34;</span><span class="s2">&lt;b&gt;Visits:&lt;/b&gt; {visits}</span><span class="s2">&#34;</span>
+    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">NAME</span><span class="s2">&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">world</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">,</span>
+                <span class="n">hostname</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">visits</span><span class="o">=</span><span class="n">visits</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">__main__</span><span class="s2">&#34;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">0.0.0.0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>requirements.txt</code></p>
+</div><p><code>requirements.txt</code></p>
+<pre><code>Flask
+Redis
+</code></pre><p>创建好的效果如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Flask
-Redis</pre></td></tr></table>
-</div>
-</div>
-<p>创建好的效果如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ ls
-Dockerfile		app.py			requirements.txt</code></pre></td></tr></table>
+Dockerfile		app.py			requirements.txt
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="创建镜像-1">创建镜像</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ docker build -t friendlyhello .
+</div><h3 id="heading3">创建镜像</h3>
+<pre><code>$ docker build -t friendlyhello .
 
 $ docker images
 
 REPOSITORY            TAG                 IMAGE ID
-friendlyhello         latest              326387cea398</pre></td></tr></table>
-</div>
-</div>
-<h3 id="运行容器">运行容器</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ docker run -p 4000:80 friendlyhello</pre></td></tr></table>
-</div>
-</div>
-<p>访问<a href="localhost:4000">localhost:4000</a>查看效果</p>
-
-<h2 id="分享镜像">分享镜像</h2>
-
+friendlyhello         latest              326387cea398
+</code></pre><h3 id="heading4">运行容器</h3>
+<pre><code>$ docker run -p 4000:80 friendlyhello
+</code></pre><p>访问<a href="localhost:4000">localhost:4000</a>查看效果</p>
+<h2 id="heading5">分享镜像</h2>
 <p>由于Dockerhub国内访问速度特别慢，这里用阿里云代替</p>
-
-<h3 id="阿里云docker">阿里云Docker</h3>
-
+<h3 id="docker1">阿里云Docker</h3>
 <ul>
 <li><a href="https://cr.console.aliyun.com/">web控制台</a></li>
 <li><a href="https://dev.aliyun.com/search.html">容器Hub</a></li>
 </ul>
-
-<h3 id="登录">登录</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ docker login registry.cn-hangzhou.aliyuncs.com
+<h3 id="heading6">登录</h3>
+<pre><code>$ docker login registry.cn-hangzhou.aliyuncs.com
 Username: your_username
 Password:  your_password
-Login Succeeded</pre></td></tr></table>
-</div>
-</div>
-<h3 id="给镜像打标签">给镜像打标签</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ docker tag friendlyhello registry.cn-hangzhou.aliyuncs.com/crazygit/get-started:part2</pre></td></tr></table>
-</div>
-</div>
-<h3 id="发布镜像">发布镜像</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ docker push registry.cn-hangzhou.aliyuncs.com/crazygit/get-started:part2</pre></td></tr></table>
-</div>
-</div>
-<h2 id="镜像加速">镜像加速</h2>
-
+Login Succeeded
+</code></pre><h3 id="heading7">给镜像打标签</h3>
+<pre><code>$ docker tag friendlyhello registry.cn-hangzhou.aliyuncs.com/crazygit/get-started:part2
+</code></pre><h3 id="heading8">发布镜像</h3>
+<pre><code>$ docker push registry.cn-hangzhou.aliyuncs.com/crazygit/get-started:part2
+</code></pre><h2 id="heading9">镜像加速</h2>
 <p>默认从docker hub上面下载镜像实在太慢了，可以选择使用国内的镜像，比如下面两家:</p>
-
 <ul>
 <li><a href="https://cr.console.aliyun.com/">阿里云</a></li>
 <li><a href="http://get.daocloud.io/">DaoCloud</a></li>
 <li><a href="https://www.docker-cn.com/registry-mirror">Docker 中国官方镜像加速</a></li>
 </ul>
-
 <p>以使用阿里云为例，创建开发者账号，获取加速器链接，我的加速器链接链接是</p>
-
 <p><a href="https://b06kc77a.mirror.aliyuncs.com">https://b06kc77a.mirror.aliyuncs.com</a></p>
-
 <p>中国官方镜像加速方法:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">docker pull registry.docker-cn.com/myname/myrepo:mytag</pre></td></tr></table>
-</div>
-</div>
+<pre><code>docker pull registry.docker-cn.com/myname/myrepo:mytag
+</code></pre>
     </div>
 
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>推荐系统 on Soul Mate</title>
@@ -18,15 +18,11 @@
       
       <guid>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</guid>
       <description>&lt;p&gt;参考:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://guidetodatamining.com/&#34;&gt;A Programmer&amp;rsquo;s Guide to Data Mining&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;a href=&#34;http://guidetodatamining.com/&#34;&gt;A Programmer&#39;s Guide to Data Mining&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
 假如你喜欢看电影A和B， 另外一个和你&lt;strong&gt;相似的用户&lt;/strong&gt;也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/?title=Collaborative_filtering&#34;&gt;如图所示&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-19-Collaborative_filtering.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-19-Collaborative_filtering.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
