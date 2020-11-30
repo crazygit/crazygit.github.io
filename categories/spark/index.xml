@@ -1,107 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>spark on Soul Mate</title>
-    <link>https://crazygit.wiseturtles.com/categories/spark/</link>
-    <description>Recent content in spark on Soul Mate</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Jan 2018 11:14:35 +0800</lastBuildDate>
-    
-	<atom:link href="https://crazygit.wiseturtles.com/categories/spark/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记目录</title>
-      <link>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</link>
-      <pubDate>Fri, 26 Jan 2018 11:14:35 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/&#34;&gt;《FastDataProcessingwithSpark2读书笔记一》&lt;/a&gt;
-快速了解Spark的安装，Spark Shell使用和SparkSession对象&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/&#34;&gt;《FastDataProcessingwithSpark2读书笔记二》&lt;/a&gt;
-Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/&#34;&gt;《FastDataProcessingwithSpark2读书笔记三》&lt;/a&gt;
-DataSets/DataFrame的常用接口和函数&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/&#34;&gt;《FastDataProcessingwithSpark2读书笔记四》&lt;/a&gt;
-机器学习相关和GraphX（&lt;strong&gt;待完善&lt;/strong&gt;）&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记四</title>
-      <link>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</link>
-      <pubDate>Wed, 17 Jan 2018 10:11:35 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</guid>
-      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;spark-ml-pipelines&#34;&gt;机器学习和Spark ML Pipelines&lt;/h2&gt;
-&lt;h3 id=&#34;spark&#34;&gt;Spark机器学习算法表&lt;/h3&gt;
-&lt;p&gt;机器学习的相关算法: &lt;code&gt;pyspark.ml&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;机器学习算法表&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://images.wiseturtles.com/2018-01-17-MachineLearningAlgorithms2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记三</title>
-      <link>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</link>
-      <pubDate>Tue, 16 Jan 2018 22:55:11 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</guid>
-      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;datasetsdataframes&#34;&gt;数据分析的主力Datasets/DataFrames&lt;/h2&gt;
-&lt;h3 id=&#34;datasets&#34;&gt;DataSets概述&lt;/h3&gt;
-&lt;p&gt;Spark中，Dataset就是一组各式各样的列，类似一张excel表格或关系型数据库中的表。可以用于类型检查和语义化查询。&lt;/p&gt;
-&lt;p&gt;在R和Python语言中，使用的依然是DataFrame类，但是包含了所有的DataSet APIs。因此可以这样认为，DataSet在Python和R语言中就叫做DataFrame。&lt;/p&gt;
-&lt;p&gt;在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记二</title>
-      <link>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</link>
-      <pubDate>Mon, 15 Jan 2018 17:45:35 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</guid>
-      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;spark&#34;&gt;在Spark中加载和保存数据&lt;/h2&gt;
-&lt;p&gt;在我们开始操作数据之前，让我们先看一些Spark的概念以及了解一下不同的数据形态&lt;/p&gt;
-&lt;h3 id=&#34;spark1&#34;&gt;Spark抽象概念&lt;/h3&gt;
-&lt;p&gt;Saprk的主要特点就是分布式的数据描述(representation)和计算，因此拥有大规模的数据操作。&lt;em&gt;Spark主要的数据描述单元就是&lt;code&gt;RDD&lt;/code&gt;&lt;/em&gt;(原句是: Spark&#39;s primary unit for representation of data is RDD)， 可以很方便的允许并行的数据计算。在Saprk 2.0.0版本之前，都是基于&lt;code&gt;RDDs&lt;/code&gt;工作的。然而，它们都是低级别的原始结构，在执行和扩展上有很大的优化空间。因此才有了&lt;code&gt;Datasets/DataFrames&lt;/code&gt;。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;是API级别的抽象，也是编程的主要接口，它提供了大量操作&lt;code&gt;RDD&lt;/code&gt;, 但是通过优化查询计划在&lt;code&gt;RDDs&lt;/code&gt;上封装了一层。因此，底层仍然是&lt;code&gt;RDD&lt;/code&gt;, 只是通过&lt;code&gt;Datasets/DataFrames&lt;/code&gt;的API来访问。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;RDDs can be viewed as arrays of arrays with primitive data types, such as integers, floats, and strings.&lt;/p&gt;
-&lt;p&gt;Datasets/DataFrames, on the other hand, are similar to a table or a spreadsheet with column headings-such as name, title, order number, order date, and movie rating-and the associated data types.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;RDDs&lt;/code&gt;可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。&lt;code&gt;Datasets/DataFrames&lt;/code&gt;在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</title>
-      <link>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</link>
-      <pubDate>Thu, 11 Jan 2018 18:48:27 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</guid>
-      <description>&lt;p&gt;本书其它笔记&lt;a href=&#34;https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/&#34;&gt;Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;spark&#34;&gt;Spark概览&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Apache Spark is a fast and general-purpose cluster computing system&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本文基于目前最新的spark版本&lt;code&gt;2.2.1&lt;/code&gt;整理，以&lt;code&gt;Python3.6&lt;/code&gt;为例，在Mac单机情况下使用。&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;安装&lt;/h2&gt;
-&lt;h3 id=&#34;heading1&#34;&gt;部署环境需求&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Window, Linux, Mac均可&lt;/li&gt;
-&lt;li&gt;Java8+(需要设置&lt;code&gt;JAVA_HOME&lt;/code&gt;环境变量)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下面三个根据自己习惯使用的语言选择安装&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Python2.7+/3.4+&lt;/li&gt;
-&lt;li&gt;R 3.1+&lt;/li&gt;
-&lt;li&gt;为了使用Scala API, 需要安装完整的Scala 2.11.x版本&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spark on Soul Mate</title><link>https://crazygit.wiseturtles.com/categories/spark/</link><description>Recent content in spark on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Jan 2018 11:14:35 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/categories/spark/index.xml" rel="self" type="application/rss+xml"/><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记目录</title><link>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</link><pubDate>Fri, 26 Jan 2018 11:14:35 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/</guid><description>&lt;h2 id="目录">目录&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/">《FastDataProcessingwithSpark2读书笔记一》&lt;/a>
+快速了解Spark的安装，Spark Shell使用和SparkSession对象&lt;/li>
+&lt;li>&lt;a href="https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/">《FastDataProcessingwithSpark2读书笔记二》&lt;/a>
+Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询&lt;/li>
+&lt;li>&lt;a href="https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/">《FastDataProcessingwithSpark2读书笔记三》&lt;/a>
+DataSets/DataFrame的常用接口和函数&lt;/li>
+&lt;li>&lt;a href="https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/">《FastDataProcessingwithSpark2读书笔记四》&lt;/a>
+机器学习相关和GraphX（&lt;strong>待完善&lt;/strong>）&lt;/li>
+&lt;/ul></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记四</title><link>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</link><pubDate>Wed, 17 Jan 2018 10:11:35 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
+&lt;h2 id="机器学习和spark-ml-pipelines">机器学习和Spark ML Pipelines&lt;/h2>
+&lt;h3 id="spark机器学习算法表">Spark机器学习算法表&lt;/h3>
+&lt;p>机器学习的相关算法: &lt;code>pyspark.ml&lt;/code>&lt;/p>
+&lt;p>机器学习算法表&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningAlgorithms1.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningAlgorithms2.png" alt="">&lt;/p></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记三</title><link>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</link><pubDate>Tue, 16 Jan 2018 22:55:11 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
+&lt;h2 id="数据分析的主力datasetsdataframes">数据分析的主力Datasets/DataFrames&lt;/h2>
+&lt;h3 id="datasets概述">DataSets概述&lt;/h3>
+&lt;p>Spark中，Dataset就是一组各式各样的列，类似一张excel表格或关系型数据库中的表。可以用于类型检查和语义化查询。&lt;/p>
+&lt;p>在R和Python语言中，使用的依然是DataFrame类，但是包含了所有的DataSet APIs。因此可以这样认为，DataSet在Python和R语言中就叫做DataFrame。&lt;/p>
+&lt;p>在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记二</title><link>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</link><pubDate>Mon, 15 Jan 2018 17:45:35 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
+&lt;h2 id="在spark中加载和保存数据">在Spark中加载和保存数据&lt;/h2>
+&lt;p>在我们开始操作数据之前，让我们先看一些Spark的概念以及了解一下不同的数据形态&lt;/p>
+&lt;h3 id="spark抽象概念">Spark抽象概念&lt;/h3>
+&lt;p>Saprk的主要特点就是分布式的数据描述(representation)和计算，因此拥有大规模的数据操作。&lt;em>Spark主要的数据描述单元就是&lt;code>RDD&lt;/code>&lt;/em>(原句是: Spark&amp;rsquo;s primary unit for representation of data is RDD)， 可以很方便的允许并行的数据计算。在Saprk 2.0.0版本之前，都是基于&lt;code>RDDs&lt;/code>工作的。然而，它们都是低级别的原始结构，在执行和扩展上有很大的优化空间。因此才有了&lt;code>Datasets/DataFrames&lt;/code>。&lt;code>Datasets/DataFrames&lt;/code>是API级别的抽象，也是编程的主要接口，它提供了大量操作&lt;code>RDD&lt;/code>, 但是通过优化查询计划在&lt;code>RDDs&lt;/code>上封装了一层。因此，底层仍然是&lt;code>RDD&lt;/code>, 只是通过&lt;code>Datasets/DataFrames&lt;/code>的API来访问。&lt;/p>
+&lt;blockquote>
+&lt;p>RDDs can be viewed as arrays of arrays with primitive data types, such as integers, floats, and strings.&lt;/p>
+&lt;p>Datasets/DataFrames, on the other hand, are similar to a table or a spreadsheet with column headings-such as name, title, order number, order date, and movie rating-and the associated data types.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;code>RDDs&lt;/code>可以看做是一系列原始数据数组的集合，比如: 整型，浮点型和字符串。&lt;code>Datasets/DataFrames&lt;/code>在另一方面来说，有点类似一张表单或表格，有许多列标题（比如姓名，标题，订单号，订单日期，电影评分）以及关联的数据类型。&lt;/p></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记一</title><link>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</link><pubDate>Thu, 11 Jan 2018 18:48:27 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/11/fast-data-processing-with-spark2-note-one/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
+&lt;h2 id="spark概览">Spark概览&lt;/h2>
+&lt;blockquote>
+&lt;p>Apache Spark is a fast and general-purpose cluster computing system&lt;/p>
+&lt;/blockquote>
+&lt;p>本文基于目前最新的spark版本&lt;code>2.2.1&lt;/code>整理，以&lt;code>Python3.6&lt;/code>为例，在Mac单机情况下使用。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="部署环境需求">部署环境需求&lt;/h3>
+&lt;ul>
+&lt;li>Window, Linux, Mac均可&lt;/li>
+&lt;li>Java8+(需要设置&lt;code>JAVA_HOME&lt;/code>环境变量)&lt;/li>
+&lt;/ul>
+&lt;p>下面三个根据自己习惯使用的语言选择安装&lt;/p>
+&lt;ul>
+&lt;li>Python2.7+/3.4+&lt;/li>
+&lt;li>R 3.1+&lt;/li>
+&lt;li>为了使用Scala API, 需要安装完整的Scala 2.11.x版本&lt;/li>
+&lt;/ul></description></item></channel></rss>

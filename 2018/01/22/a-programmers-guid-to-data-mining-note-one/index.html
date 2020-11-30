@@ -1,1310 +1,345 @@
-<!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>《A Programmer&#39;s Guide to Data Mining》读书笔记一 - Soul Mate</title>
-  
-
-<meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta name="MobileOptimized" content="width"/>
-<meta name="HandheldFriendly" content="true"/>
-
-
-<meta name="applicable-device" content="pc,mobile">
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="mobile-web-app-capable" content="yes">
-
-<meta name="author" content="crazygit" /><meta name="description" content="推荐系统入门， 物品相似度计算方法汇总
-" />
-
-  <meta name="keywords" content="Hugo, crazygit, blog" />
-
-
-<meta name="baidu-site-verification" content="mEI3NT6pyx" />
-<meta name="google-site-verification" content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8" />
-
-
-<meta name="generator" content="Hugo 0.60.0" />
-
-
-<link rel="canonical" href="https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/" />
-
-
-
-<link rel="icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
-
-
-
-
-<link rel="stylesheet" href="/css/douban.css">
-
-<link rel="stylesheet" href="/css/monokai-syntax.css">
-
-
-<meta property="og:title" content="《A Programmer&#39;s Guide to Data Mining》读书笔记一" />
-<meta property="og:description" content="推荐系统入门， 物品相似度计算方法汇总
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/" />
-<meta property="article:published_time" content="2018-01-22T17:34:52+08:00" />
-<meta property="article:modified_time" content="2018-01-22T17:34:52+08:00" />
-<meta itemprop="name" content="《A Programmer&#39;s Guide to Data Mining》读书笔记一">
-<meta itemprop="description" content="推荐系统入门， 物品相似度计算方法汇总
-">
-<meta itemprop="datePublished" content="2018-01-22T17:34:52&#43;08:00" />
-<meta itemprop="dateModified" content="2018-01-22T17:34:52&#43;08:00" />
-<meta itemprop="wordCount" content="3151">
-
-
-
-<meta itemprop="keywords" content="推荐系统,相似度计算," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="《A Programmer&#39;s Guide to Data Mining》读书笔记一"/>
-<meta name="twitter:description" content="推荐系统入门， 物品相似度计算方法汇总
-"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112251188-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">Soul Mate</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
-          
-        
-      </li>
-    
-
-    
-  </ul>
-</nav>
-
-
-  
-    
-
-
-
-
-
-
-  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
-  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
-</div>
-
-  
-
-  
-
-  
-
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
-  <a href="/" class="logo">
-    
-      Soul Mate
-    
-  </a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/">主页</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/categories/">分类</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/post/">归档</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/tags/">标签</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/books/">读书</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://crazygit.wiseturtles.com/about/">关于</a>
-          
-
-        
-
-      </li>
-    
-
-    
-    
-
-    
-  </ul>
-</nav>
-
-  </header>
-
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">《A Programmer&#39;s Guide to Data Mining》读书笔记一</h1>
-      
-      <div class="post-meta">
-        <time datetime="2018-01-22" class="post-time">
-          2018-01-22
-        </time>
-        <div class="post-category">
-            <a href="https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"> 推荐系统 </a>
-            
-          </div>
-        <span class="more-meta"> 约 3151 字 </span>
-          <span class="more-meta"> 预计阅读 7 分钟 </span>
-
-        
-        
-
-        
-        
-          <span id="/2018/01/22/a-programmers-guid-to-data-mining-note-one/" class="leancloud_visitors" data-flag-title="《A Programmer&#39;s Guide to Data Mining》读书笔记一">
-            <span class="post-meta-item-text"> | 阅读 </span>
-            <span class="leancloud-visitors-count"></span>
-          </span>
-        
-      </div>
-    </header>
-
-    
-    
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">如何找到相似的用户</a>
-      <ul>
-        <li><a href="#manhattan-distance">曼哈顿距离(Manhattan Distance)</a></li>
-        <li><a href="#euclidean-distance">欧几里得距离(Euclidean Distance)</a></li>
-        <li><a href="#chebyshev-distance">切比雪夫距离(Chebyshev Distance)</a></li>
-        <li><a href="#minkowski-distance">闵可夫斯基距离(Minkowski Distance)</a></li>
-        <li><a href="#pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</a></li>
-        <li><a href="#cosine-similarity">余弦相似度(Cosine Similarity)</a></li>
-        <li><a href="#heading2">实战</a></li>
-        <li><a href="#heading3">相似度算法选择</a></li>
-        <li><a href="#heading4">距离计算库</a></li>
-        <li><a href="#k">K最邻近算法</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-
-    
-    <div class="post-content">
-      <p>参考:</p>
-<p><a href="http://guidetodatamining.com/">A Programmer's Guide to Data Mining</a></p>
-<p>推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
-假如你喜欢看电影A和B， 另外一个和你<strong>相似的用户</strong>也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。</p>
-<p><a href="https://en.wikipedia.org/?title=Collaborative_filtering">如图所示</a></p>
-<p><img src="http://images.wiseturtles.com/2018-01-19-Collaborative_filtering.gif" alt=""></p>
-<h2 id="heading">如何找到相似的用户</h2>
-<p>相似度计算方法有很多，本文将主要介绍以下几种</p>
-<p>距离算法</p>
-<ul>
-<li>曼哈顿距离(Manhattan Distance)</li>
-<li>欧几里得距离(Euclidean Distance)</li>
-<li>切比雪夫距离(Chebyshev Distance)</li>
-<li>闵可夫斯基距离(Minkowski Distance)</li>
-</ul>
-<p>相似度系数算法</p>
-<ul>
-<li>皮尔逊相关系数(Pearson Correlation Coefficient)</li>
-<li>向量空间余弦相似度(Cosine Similarity)</li>
-</ul>
-<p>对于相同的计算数据，不同的相似度计算方法结果不同，所以需要根据计算样本的特性，选择合适的计算方式。</p>
-<p>更多相似度计算方法可以参考:</p>
-<ul>
-<li><a href="http://www.cnblogs.com/arachis/p/Similarity.html">常见的距离算法和相似度(相关系数)计算方法</a></li>
-<li><a href="http://www.cnblogs.com/heaad/archive/2011/03/08/1977733.html">机器学习中的相似性度量</a></li>
-<li><a href="http://blog.csdn.net/yixianfeng41/article/details/61917158">常用的相似度计算方法原理及实现</a></li>
-</ul>
-<h3 id="manhattan-distance">曼哈顿距离(Manhattan Distance)</h3>
-<p>参考<a href="https://baike.baidu.com/item/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB">百度百科</a></p>
-<blockquote>
-<p>曼哈顿距离，又叫出租车距离（Manhattan Distance）是由十九世纪的赫尔曼·闵可夫斯基所创词汇 ，是种使用在几何度量空间的几何学用语，用以标明两个点在标准坐标系上的绝对轴距总和。</p>
-</blockquote>
-<p><img src="http://images.wiseturtles.com/2018-01-22-manhattan.jpg" alt=""></p>
-<blockquote>
-<p>图中红线代表曼哈顿距离，绿色代表欧氏距离，也就是直线距离，而蓝色和黄色代表等价的曼哈顿距离。曼哈顿距离——两点在南北方向上的距离加上在东西方向上的距离，即$d(i, j）= |x_i - x_j|+|y_i - y_j|$。对于一个具有正南正北、正东正西方向规则布局的城镇街道，从一点到达另一点的距离正是在南北方向上旅行的距离加上在东西方向上旅行的距离，因此，曼哈顿距离又称为出租车距离。曼哈顿距离不是距离不变量，当坐标轴变动时，点间的距离就会不同。曼哈顿距离示意图在早期的计算机图形学中，屏幕是由像素构成，是整数，点的坐标也一般是整数，原因是浮点运算很昂贵，很慢而且有误差，如果直接使用AB的欧氏距离(欧几里德距离: 在二维和三维空间中的欧氏距离的就是两点之间的距离），则必须要进行浮点运算，如果使用AC和CB，则只要计算加减法即可，这就大大提高了运算速度，而且不管累计运算多少次，都不会有误差。</p>
-</blockquote>
-<ul>
-<li>二维平面两点a(x1,y1)与b(x2,y2)间的曼哈顿距离</li>
-</ul>
-<p>$$
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>《A Programmer's Guide to Data Mining》读书笔记一 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="推荐系统入门， 物品相似度计算方法汇总"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.79.0"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="《A Programmer's Guide to Data Mining》读书笔记一"><meta property="og:description" content="推荐系统入门， 物品相似度计算方法汇总"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/"><meta property="article:published_time" content="2018-01-22T17:34:52+08:00"><meta property="article:modified_time" content="2018-01-22T17:34:52+08:00"><meta itemprop=name content="《A Programmer's Guide to Data Mining》读书笔记一"><meta itemprop=description content="推荐系统入门， 物品相似度计算方法汇总"><meta itemprop=datePublished content="2018-01-22T17:34:52+08:00"><meta itemprop=dateModified content="2018-01-22T17:34:52+08:00"><meta itemprop=wordCount content="3218"><meta itemprop=keywords content="推荐系统,相似度计算,"><meta name=twitter:card content="summary"><meta name=twitter:title content="《A Programmer's Guide to Data Mining》读书笔记一"><meta name=twitter:description content="推荐系统入门， 物品相似度计算方法汇总"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-112251188-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/books/>读书</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/books/>读书</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>《A Programmer's Guide to Data Mining》读书笔记一</h1><div class=post-meta><time datetime=2018-01-22 class=post-time>2018-01-22</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/>推荐系统</a></div><span class=more-meta>约 3218 字</span>
+<span class=more-meta>预计阅读 7 分钟</span>
+<span id=/2018/01/22/a-programmers-guid-to-data-mining-note-one/ class=leancloud_visitors data-flag-title="《A Programmer's Guide to Data Mining》读书笔记一"><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#如何找到相似的用户>如何找到相似的用户</a><ul><li><a href=#曼哈顿距离manhattan-distance>曼哈顿距离(Manhattan Distance)</a></li><li><a href=#欧几里得距离euclidean-distance>欧几里得距离(Euclidean Distance)</a></li><li><a href=#切比雪夫距离chebyshev-distance>切比雪夫距离(Chebyshev Distance)</a></li><li><a href=#闵可夫斯基距离minkowski-distance>闵可夫斯基距离(Minkowski Distance)</a></li><li><a href=#皮尔逊相关系数pearson-correlation-coefficient>皮尔逊相关系数(Pearson Correlation Coefficient)</a></li><li><a href=#余弦相似度cosine-similarity>余弦相似度(Cosine Similarity)</a></li><li><a href=#实战>实战</a></li><li><a href=#相似度算法选择>相似度算法选择</a></li><li><a href=#距离计算库>距离计算库</a></li><li><a href=#k最邻近算法>K最邻近算法</a></li></ul></li></ul></nav></div></div><div class=post-content><p>参考:</p><p><a href=http://guidetodatamining.com/>A Programmer&rsquo;s Guide to Data Mining</a></p><p>推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
+假如你喜欢看电影A和B， 另外一个和你<strong>相似的用户</strong>也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。</p><p><a href="https://en.wikipedia.org/?title=Collaborative_filtering">如图所示</a></p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-19-Collaborative_filtering.gif alt></p><h2 id=如何找到相似的用户>如何找到相似的用户</h2><p>相似度计算方法有很多，本文将主要介绍以下几种</p><p>距离算法</p><ul><li>曼哈顿距离(Manhattan Distance)</li><li>欧几里得距离(Euclidean Distance)</li><li>切比雪夫距离(Chebyshev Distance)</li><li>闵可夫斯基距离(Minkowski Distance)</li></ul><p>相似度系数算法</p><ul><li>皮尔逊相关系数(Pearson Correlation Coefficient)</li><li>向量空间余弦相似度(Cosine Similarity)</li></ul><p>对于相同的计算数据，不同的相似度计算方法结果不同，所以需要根据计算样本的特性，选择合适的计算方式。</p><p>更多相似度计算方法可以参考:</p><ul><li><a href=http://www.cnblogs.com/arachis/p/Similarity.html>常见的距离算法和相似度(相关系数)计算方法</a></li><li><a href=http://www.cnblogs.com/heaad/archive/2011/03/08/1977733.html>机器学习中的相似性度量</a></li><li><a href=http://blog.csdn.net/yixianfeng41/article/details/61917158>常用的相似度计算方法原理及实现</a></li></ul><h3 id=曼哈顿距离manhattan-distance>曼哈顿距离(Manhattan Distance)</h3><p>参考<a href=https://baike.baidu.com/item/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB>百度百科</a></p><blockquote><p>曼哈顿距离，又叫出租车距离（Manhattan Distance）是由十九世纪的赫尔曼·闵可夫斯基所创词汇 ，是种使用在几何度量空间的几何学用语，用以标明两个点在标准坐标系上的绝对轴距总和。</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-manhattan.jpg alt></p><blockquote><p>图中红线代表曼哈顿距离，绿色代表欧氏距离，也就是直线距离，而蓝色和黄色代表等价的曼哈顿距离。曼哈顿距离——两点在南北方向上的距离加上在东西方向上的距离，即$d(i, j）= |x_i - x_j|+|y_i - y_j|$。对于一个具有正南正北、正东正西方向规则布局的城镇街道，从一点到达另一点的距离正是在南北方向上旅行的距离加上在东西方向上旅行的距离，因此，曼哈顿距离又称为出租车距离。曼哈顿距离不是距离不变量，当坐标轴变动时，点间的距离就会不同。曼哈顿距离示意图在早期的计算机图形学中，屏幕是由像素构成，是整数，点的坐标也一般是整数，原因是浮点运算很昂贵，很慢而且有误差，如果直接使用AB的欧氏距离(欧几里德距离: 在二维和三维空间中的欧氏距离的就是两点之间的距离），则必须要进行浮点运算，如果使用AC和CB，则只要计算加减法即可，这就大大提高了运算速度，而且不管累计运算多少次，都不会有误差。</p></blockquote><ul><li>二维平面两点a(x1,y1)与b(x2,y2)间的曼哈顿距离</li></ul><p>$$
 d_{ab} = |x_1 - x_2| + |y_1 - y_2|
-$$</p>
-<ul>
-<li>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的曼哈顿距离</li>
-</ul>
-<p>{% math %}</p>
-<p>d_{ab} =\sum\limits_{k=1}^n|x_{1k} - x_{2k}|</p>
-<p>{% endmath %}</p>
-<h3 id="euclidean-distance">欧几里得距离(Euclidean Distance)</h3>
-<p>参考<a href="%E5%9C%A8%E6%95%B0%E5%AD%A6%E4%B8%AD%EF%BC%8C%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB%E6%88%96%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%BA%A6%E9%87%8F%E6%98%AF%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4%E4%B8%AD%E4%B8%A4%E7%82%B9%E9%97%B4%E2%80%9C%E6%99%AE%E9%80%9A%E2%80%9D%EF%BC%88%E5%8D%B3%E7%9B%B4%E7%BA%BF%EF%BC%89%E8%B7%9D%E7%A6%BB">维基百科</a></p>
-<blockquote>
-<p>在数学中，欧几里得距离或欧几里得度量是欧几里得空间中两点间“普通”（即直线）距离</p>
-</blockquote>
-<ul>
-<li>二维平面上两点a(x1,y1)与b(x2,y2)间的欧几里得距离:</li>
-</ul>
-<p>$$
+$$</p><ul><li>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的曼哈顿距离</li></ul><p>{% math %}</p><p>d_{ab} =\sum\limits_{k=1}^n|x_{1k} - x_{2k}|</p><p>{% endmath %}</p><h3 id=欧几里得距离euclidean-distance>欧几里得距离(Euclidean Distance)</h3><p>参考<a href=%E5%9C%A8%E6%95%B0%E5%AD%A6%E4%B8%AD%EF%BC%8C%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB%E6%88%96%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%BA%A6%E9%87%8F%E6%98%AF%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4%E4%B8%AD%E4%B8%A4%E7%82%B9%E9%97%B4%E2%80%9C%E6%99%AE%E9%80%9A%E2%80%9D%EF%BC%88%E5%8D%B3%E7%9B%B4%E7%BA%BF%EF%BC%89%E8%B7%9D%E7%A6%BB>维基百科</a></p><blockquote><p>在数学中，欧几里得距离或欧几里得度量是欧几里得空间中两点间“普通”（即直线）距离</p></blockquote><ul><li>二维平面上两点a(x1,y1)与b(x2,y2)间的欧几里得距离:</li></ul><p>$$
 d_{ab} = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}
-$$</p>
-<ul>
-<li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧几里得距离</li>
-</ul>
-<p>{% math %}</p>
-<p>d_{ab} = \sqrt{\sum\limits_{k=1}^n(x_{1k} - x_{2k})^2}</p>
-<p>{% endmath %}</p>
-<h3 id="chebyshev-distance">切比雪夫距离(Chebyshev Distance)</h3>
-<p>参考<a href="https://zh.wikipedia.org/wiki/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB">维基百科</a></p>
-<blockquote>
-<p>数学上，切比雪夫距离（Chebyshev distance）或是L∞度量是向量空间中的一种度量，二个点之间的距离定义为_其各座标数值差的最大值_。以(x1,y1)和(x2,y2)二点为例，其切比雪夫距离为max(|x2-x1|,|y2-y1|)。切比雪夫距离得名自俄罗斯数学家切比雪夫。</p>
-</blockquote>
-<p><img src="http://images.wiseturtles.com/2018-01-22-Chebyshev.png" alt=""></p>
-<blockquote>
-<p>若将国际象棋棋盘放在二维直角座标系中，格子的边长定义为1，座标的x轴及y轴和棋盘方格平行，原点恰落在某一格的中心点，则王从一个位置走到其他位置需要的步数恰为二个位置的切比雪夫距离，因此切比雪夫距离也称为棋盘距离。例如位置F6和位置E2的切比雪夫距离为4。任何一个不在棋盘边缘的位置，和周围八个位置的切比雪夫距离都是1。</p>
-</blockquote>
-<ul>
-<li>二维平面两点a(x1,y1)与b(x2,y2)间的切比雪夫距离</li>
-</ul>
-<p>$$
+$$</p><ul><li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧几里得距离</li></ul><p>{% math %}</p><p>d_{ab} = \sqrt{\sum\limits_{k=1}^n(x_{1k} - x_{2k})^2}</p><p>{% endmath %}</p><h3 id=切比雪夫距离chebyshev-distance>切比雪夫距离(Chebyshev Distance)</h3><p>参考<a href=https://zh.wikipedia.org/wiki/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB>维基百科</a></p><blockquote><p>数学上，切比雪夫距离（Chebyshev distance）或是L∞度量是向量空间中的一种度量，二个点之间的距离定义为_其各座标数值差的最大值_。以(x1,y1)和(x2,y2)二点为例，其切比雪夫距离为max(|x2-x1|,|y2-y1|)。切比雪夫距离得名自俄罗斯数学家切比雪夫。</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-Chebyshev.png alt></p><blockquote><p>若将国际象棋棋盘放在二维直角座标系中，格子的边长定义为1，座标的x轴及y轴和棋盘方格平行，原点恰落在某一格的中心点，则王从一个位置走到其他位置需要的步数恰为二个位置的切比雪夫距离，因此切比雪夫距离也称为棋盘距离。例如位置F6和位置E2的切比雪夫距离为4。任何一个不在棋盘边缘的位置，和周围八个位置的切比雪夫距离都是1。</p></blockquote><ul><li>二维平面两点a(x1,y1)与b(x2,y2)间的切比雪夫距离</li></ul><p>$$
 d_{ab} = max(|x_1-x_2|, |y_1 - y_2|)
-$$</p>
-<ul>
-<li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的切比雪夫距离</li>
-</ul>
-<p>{% math %}</p>
-<p>d_{ab} = max(|x_{1i}-x_{2i}|)</p>
-<p>{% endmath %}</p>
-<p>等价于</p>
-<p>{% math %}</p>
-<p>d_{ab} = \lim\limits_{k \to \infty}(\sum\limits_{i=1}^{n}|x_{1i} - x_{2i}|^k)^{\frac{1}{k}}</p>
-<p>{% endmath %}</p>
-<h3 id="minkowski-distance">闵可夫斯基距离(Minkowski Distance)</h3>
-<p>可以将曼哈顿距离，欧几里得距离，切比雪夫距离三种距离的计算公式归纳
-为一个计算公式，这就是闵可夫斯基距离(Minkowski Distance)。</p>
-<p>$$
+$$</p><ul><li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的切比雪夫距离</li></ul><p>{% math %}</p><p>d_{ab} = max(|x_{1i}-x_{2i}|)</p><p>{% endmath %}</p><p>等价于</p><p>{% math %}</p><p>d_{ab} = \lim\limits_{k \to \infty}(\sum\limits_{i=1}^{n}|x_{1i} - x_{2i}|^k)^{\frac{1}{k}}</p><p>{% endmath %}</p><h3 id=闵可夫斯基距离minkowski-distance>闵可夫斯基距离(Minkowski Distance)</h3><p>可以将曼哈顿距离，欧几里得距离，切比雪夫距离三种距离的计算公式归纳
+为一个计算公式，这就是闵可夫斯基距离(Minkowski Distance)。</p><p>$$
 d(x, y) = (\sum\limits_{k=1}^n|x_k - y_k|^r)^{\frac{1}{r}}
-$$</p>
-<ul>
-<li>$r = 1$, 该公式就是曼哈顿距离</li>
-<li>$r = 2$, 该公式就是曼哈顿距离</li>
-<li>$r = \infty$, 该公式就是切比雪夫距离</li>
-</ul>
-<h3 id="pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)</h3>
-<p>参考:
-<a href="https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/">皮尔逊相关系数</a></p>
-<h3 id="cosine-similarity">余弦相似度(Cosine Similarity)</h3>
-<p>参考<a href="https://baike.baidu.com/item/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6">百度百科</a></p>
-<blockquote>
-<p>余弦相似度，又称为余弦相似性，是通过计算两个向量的夹角余弦值来评估他们的相似度。余弦相似度将向量根据坐标值，绘制到向量空间中，如最常见的二维空间。</p>
-</blockquote>
-<p><img src="http://images.wiseturtles.com/2018-01-23-cosine-distance.jpg" alt=""></p>
-<ul>
-<li>二维平面上，假设向量a、b的坐标分别为(x1,y1)、(x2,y2) 。则:</li>
-</ul>
-<p>$$
+$$</p><ul><li>$r = 1$, 该公式就是曼哈顿距离</li><li>$r = 2$, 该公式就是曼哈顿距离</li><li>$r = \infty$, 该公式就是切比雪夫距离</li></ul><h3 id=皮尔逊相关系数pearson-correlation-coefficient>皮尔逊相关系数(Pearson Correlation Coefficient)</h3><p>参考:
+<a href=https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/>皮尔逊相关系数</a></p><h3 id=余弦相似度cosine-similarity>余弦相似度(Cosine Similarity)</h3><p>参考<a href=https://baike.baidu.com/item/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6>百度百科</a></p><blockquote><p>余弦相似度，又称为余弦相似性，是通过计算两个向量的夹角余弦值来评估他们的相似度。余弦相似度将向量根据坐标值，绘制到向量空间中，如最常见的二维空间。</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-23-cosine-distance.jpg alt></p><ul><li>二维平面上，假设向量a、b的坐标分别为(x1,y1)、(x2,y2) 。则:</li></ul><p>$$
 cos\theta = \frac{x_1x_2+y_1y_2}{\sqrt{x_1^2 + y_1^2}\sqrt{x_2^2 + y_2^2}}
-$$</p>
-<ul>
-<li>推广到n维空间，计算公式为:</li>
-</ul>
-<p>$$
+$$</p><ul><li>推广到n维空间，计算公式为:</li></ul><p>$$
 cos\theta = \frac{\sum\limits_1^n(Ai \times Bi)}{\sqrt{\sum\limits_1^nA_i^2}\sqrt{\sum\limits_1^nB_i^2}}
-$$</p>
-<h4 id="heading1">性质</h4>
-<p>余弦值的范围在[-1,1]之间，值越趋近于1，代表两个向量的方向越接近；越趋近于-1，他们的方向越相反；接近于0，表示两个向量近乎于正交。</p>
-<h3 id="heading2">实战</h3>
-<p>在介绍了一大堆的相似度计算之后，我们来通过一些例子，说明具体的用法。
-假设我们要为一个在线音乐网站的用户推荐乐队。用户可以用1-5颗星来评价他喜欢的乐队，其中包含半颗星(如2.5星)，下表展示了8位用户对8支乐队的评价:</p>
-<p><img src="http://images.wiseturtles.com/2018-01-23-Recommand-Music-Bannd.png" alt=""></p>
-<p>图中的<code>-</code>表示没有评分。在计算两个用户的距离时，只考虑他们都评价过的乐队。暂时不考虑数据缺失的情况。</p>
-<p>数据转换成代码如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">users_string</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;&#39;&#39;</span><span class="s1">
-</span><span class="s1"></span><span class="s1">{</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Angelica</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 3.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 2,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 4.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 1.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 2.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Vampire Weekend</span><span class="s1">&#34;</span><span class="s1">: 2</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Bill</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 2,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 3.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Deadmau5</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 2,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 3.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Vampire Weekend</span><span class="s1">&#34;</span><span class="s1">: 3</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Chan</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 1,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Deadmau5</span><span class="s1">&#34;</span><span class="s1">: 1,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 3,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 1</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Dan</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 3,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Deadmau5</span><span class="s1">&#34;</span><span class="s1">: 4.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 3,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 4.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Vampire Weekend</span><span class="s1">&#34;</span><span class="s1">: 2</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Hailey</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Deadmau5</span><span class="s1">&#34;</span><span class="s1">: 1,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Vampire Weekend</span><span class="s1">&#34;</span><span class="s1">: 1</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Jordyn</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 4.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Deadmau5</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 4.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Vampire Weekend</span><span class="s1">&#34;</span><span class="s1">: 4</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Sam</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Broken Bells</span><span class="s1">&#34;</span><span class="s1">: 2,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 3,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 5</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    },</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    </span><span class="s1">&#34;</span><span class="s1">Veronica</span><span class="s1">&#34;</span><span class="s1">: {</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Blues Traveler</span><span class="s1">&#34;</span><span class="s1">: 3,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Norah Jones</span><span class="s1">&#34;</span><span class="s1">: 5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Phoenix</span><span class="s1">&#34;</span><span class="s1">: 4,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#34;</span><span class="s1">: 2.5,</span><span class="s1">
-</span><span class="s1"></span><span class="s1">        </span><span class="s1">&#34;</span><span class="s1">The Strokes</span><span class="s1">&#34;</span><span class="s1">: 3</span><span class="s1">
-</span><span class="s1"></span><span class="s1">    }</span><span class="s1">
-</span><span class="s1"></span><span class="s1">}</span><span class="s1">
-</span><span class="s1"></span><span class="s1">&#39;&#39;&#39;</span>
-
-<span class="n">users</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">users_string</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>计算曼哈顿距离</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">manhattan</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">计算曼哈顿距离</span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating2</span><span class="p">:</span>
-            <span class="n">difference</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="p">)</span>
-            <span class="n">distance</span> <span class="o">+</span><span class="o">=</span> <span class="n">difference</span>
-    <span class="k">return</span> <span class="n">distance</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>测试一下效果</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">manhattan</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Hailey</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">users</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Veronica</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
-<span class="mi">2</span>
-
-<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">manhattan</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Hailey</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">users</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Jordyn</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
-<span class="mf">7.5</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>下面再通过一个函数，实现找出最近的用户距离，该函数会返回一个用户列表，按照距离排序</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">computeNearestNeighbor</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">distances</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">user</span> <span class="o">!=</span> <span class="n">username</span><span class="p">:</span>
-            <span class="n">distance</span> <span class="o">=</span> <span class="n">manhattan</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span><span class="p">,</span> <span class="n">users</span><span class="p">[</span><span class="n">user</span><span class="p">]</span><span class="p">)</span>
-            <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span><span class="p">)</span>
-    <span class="n">distances</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">distances</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>测试一下，计算与用户Hailey最相似的用户</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">computeNearestNeighbor</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Hailey</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>
-<span class="p">[</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Veronica</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Chan</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Sam</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Dan</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Angelica</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Bill</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">,</span>
- <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Jordyn</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>最后再来根据距离做推荐</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">recommend</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span><span class="p">:</span>
-    <span class="c1"># 找到距离最近的用户</span>
-    <span class="n">nearest</span> <span class="o">=</span> <span class="n">computeNearestNeighbor</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span>
-    <span class="c1"># 找出这位用户评价过，但自己未评价过的乐队</span>
-    <span class="n">neighborRatings</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">nearest</span><span class="p">]</span>
-    <span class="n">userRatings</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">neighborRatings</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">userRatings</span><span class="p">:</span>
-            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">neighborRatings</span><span class="p">[</span><span class="n">artist</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
-    <span class="c1"># 按照评分进行排序</span>
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">recommendations</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">recommend</span><span class="p">:</span> <span class="n">recommend</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>为用户Hailey做推荐</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">recommend</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Hailey</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>
-<span class="p">[</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Phoenix</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">,</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Blues Traveler</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="p">,</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Slightly Stoopid</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>闵科夫斯基算法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">minkowski</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">闵可夫斯基算法</span><span class="s2">&#34;&#34;&#34;</span>
-    <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating2</span><span class="p">:</span>
-            <span class="n">distance</span> <span class="o">+</span><span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">r</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>皮尔逊系数</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">pearson</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">sum_xy</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">sum_x</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">sum_y</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">sum_x2</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">sum_y2</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">rating2</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">+</span><span class="o">=</span> <span class="mi">1</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="n">sum_xy</span> <span class="o">+</span><span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-            <span class="n">sum_x</span> <span class="o">+</span><span class="o">=</span> <span class="n">x</span>
-            <span class="n">sum_y</span> <span class="o">+</span><span class="o">=</span> <span class="n">y</span>
-            <span class="n">sum_x2</span> <span class="o">+</span><span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-            <span class="n">sum_y2</span> <span class="o">+</span><span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="c1"># now compute denominator</span>
-    <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_x2</span> <span class="o">-</span> <span class="nb">pow</span><span class="p">(</span><span class="n">sum_x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
-                   <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sum_y2</span> <span class="o">-</span> <span class="nb">pow</span><span class="p">(</span><span class="n">sum_y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">sum_xy</span> <span class="o">-</span> <span class="p">(</span><span class="n">sum_x</span> <span class="o">*</span> <span class="n">sum_y</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">denominator</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="heading3">相似度算法选择</h3>
-<p>根据数据的特性，不同的算法计算的结果会有偏差，但是大体上满足如下规律:</p>
-<ul>
-<li>如果数据存在&quot;分数膨胀&rdquo;，就使用皮尔逊相关系数</li>
-<li>如果数据比较密集，变量之间基本存在公有值，且这些距离数据都是非常重要的，那就使用曼哈顿距离或欧几里得距离</li>
-<li>如果数据是稀释的，就用余弦定理</li>
-</ul>
-<h3 id="heading4">距离计算库</h3>
-<p><a href="https://docs.scipy.org/doc/scipy/reference/spatial.distance.html"><code>scipy.spatial.distance</code></a>模块包含了各种距离的计算方式。</p>
-<ul>
-<li>scipy.spatial.distance.cityblock 曼哈顿距离</li>
-<li>scipy.spatial.distance.euclidean 欧几里得距离</li>
-<li>scipy.spatial.distance.chebyshev 切比雪夫距离</li>
-<li>scipy.spatial.distance.minkowski 闵可夫斯基距离</li>
-<li>scipy.stats.pearsonr 皮尔逊相关系数</li>
-</ul>
-<h3 id="k">K最邻近算法</h3>
-<p>如果只使用最相似的一个用户来做推荐，如果这个用户有特殊的偏好，就会直接反应在推荐内容里。解决方法之一就是寻找多个相似的用户，这里就要用到K最邻近算法了。</p>
-<p>完整实现请参考:</p>
-<p><a href="https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py">https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py</a></p>
-    </div>
-
-    
-    
-<div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">crazygit</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-      2018-01-22
-      
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-
-
-    
-    
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    
-      <label class="qr-code-image" for="reward">
-        <img class="image" src="http://images.wiseturtles.com/wechatpay.jpg">
-        <span>微信打赏</span>
-      </label>
-    
-  </div>
-</div>
-
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="https://crazygit.wiseturtles.com/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">推荐系统</a>
-          <a href="https://crazygit.wiseturtles.com/tags/%E7%9B%B8%E4%BC%BC%E5%BA%A6%E8%AE%A1%E7%AE%97/">相似度计算</a>
-          
-        </div>
-
-      
-      <nav class="post-nav">
-        
-          <a class="prev" href="/2018/01/26/smarter-faster-better/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">《高效的秘密》读书文摘</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/2018/01/19/pearson-correlation-coefficient/">
-            <span class="next-text nav-default">皮尔逊相关系数(Pearson Correlation Coefficient)</span>
-            <span class="prev-text nav-mobile">下一篇</span>
-            
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
-</svg>
-
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-
-  
-  
-
-  
-  
-
-  
-
-  
-  
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "crazygit/hugo-blog-comments"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
-    </div>
-  
-
-  
-
-  
-
-  
-
-    
-
-  
-
-        </div>
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="icon-links">
-  
-  
-    <a href="mailto:crazygit@foxmail.com" rel="me noopener" class="iconfont"
-      title="email" >
-      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://twitter.com/lianglin999" rel="me noopener" class="iconfont"
-      title="twitter"  target="_blank"
-      >
-      <svg class="icon" viewBox="0 0 1264 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M1229.8616 18.043658c0 0-117.852626 63.135335-164.151872 67.344358-105.225559-164.151872-505.082682-92.598492-437.738325 223.078185C278.622548 312.675223 89.216542 47.506814 89.216542 47.506814s-117.852626 189.406006 75.762402 345.139833C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042C1179.353331 249.539887 1263.533778 123.269217 1263.533778 123.269217s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://github.com/crazygit" rel="me noopener" class="iconfont"
-      title="github"  target="_blank"
-      >
-      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
-</svg>
-
-    </a>
-  
-    <a href="https://www.weibo.com/crazygit/profile" rel="me noopener" class="iconfont"
-      title="weibo"  target="_blank"
-      >
-      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="36" height="36">
-  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
-</svg>
-
-    </a>
-
-
-<a href="https://crazygit.wiseturtles.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
-    class="iconfont" title="rss" target="_blank">
-    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="30" height="30">
-  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
-</svg>
-
-  </a>
-   
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
-  </span>
-
-  <span class="copyright-year">
-    &copy;
-    
-      2017 -
-    2019
-    <span class="heart">
-      
-      <i class="iconfont">
-        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="14" height="14">
-  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
-   fill="#8a8a8a"></path>
-</svg>
-
-      </i>
-    </span><span class="author">
-        crazygit
-        
-      </span></span>
-
-  
-  
-    <span id="busuanzi_container">
-      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
-    </span>
-  
-
-  
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="35" height="35">
-  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
-</svg>
-
-      </i>
-    </div>
-  </div>
-  
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-
-
-
-
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
-
-
-
-  <script type="text/javascript">
-    window.MathJax = {
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-
-<script id="baidu_analytics">
-  var _hmt = _hmt || [];
-  (function() {
-    if (window.location.hostname === 'localhost') return;
-    var hm = document.createElement("script"); hm.async = true;
-    hm.src = "https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-  
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
-    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
-    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
-  
-
-
-
-
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script type="text/javascript">
-    AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz", "IcudhQhVD2eqKqkOTQQ6agUS");
-  </script>
-
-  <script>
-    function showHitCount(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push($(this).attr("id").trim());
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var hits = item.get('hits');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(hits);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function (results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("hits");
-            counter.save(null, {
-              success: function (counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
-              },
-              error: function (counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-             
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-             
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("hits", 1);
-            newcounter.save(null, {
-              success: function (newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
-              },
-              error: function (newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function (error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function () {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        
-        addCount(Counter);
-      } else if ($('.post-link').length > 1) {
-        
-        showHitCount(Counter);
-      }
-    });
-  </script>
-
-
-
-
-
-
-
-
-  <script src="/js/douban.js"></script>
-
-
-</body>
-</html>
+$$</p><h4 id=性质>性质</h4><p>余弦值的范围在[-1,1]之间，值越趋近于1，代表两个向量的方向越接近；越趋近于-1，他们的方向越相反；接近于0，表示两个向量近乎于正交。</p><h3 id=实战>实战</h3><p>在介绍了一大堆的相似度计算之后，我们来通过一些例子，说明具体的用法。
+假设我们要为一个在线音乐网站的用户推荐乐队。用户可以用1-5颗星来评价他喜欢的乐队，其中包含半颗星(如2.5星)，下表展示了8位用户对8支乐队的评价:</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-23-Recommand-Music-Bannd.png alt></p><p>图中的<code>-</code>表示没有评分。在计算两个用户的距离时，只考虑他们都评价过的乐队。暂时不考虑数据缺失的情况。</p><p>数据转换成代码如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>json</span>
+
+<span class=n>users_string</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span><span class=s1>{
+</span><span class=s1>    &#34;Angelica&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 3.5,
+</span><span class=s1>        &#34;Broken Bells&#34;: 2,
+</span><span class=s1>        &#34;Norah Jones&#34;: 4.5,
+</span><span class=s1>        &#34;Phoenix&#34;: 5,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 1.5,
+</span><span class=s1>        &#34;The Strokes&#34;: 2.5,
+</span><span class=s1>        &#34;Vampire Weekend&#34;: 2
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Bill&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 2,
+</span><span class=s1>        &#34;Broken Bells&#34;: 3.5,
+</span><span class=s1>        &#34;Deadmau5&#34;: 4,
+</span><span class=s1>        &#34;Phoenix&#34;: 2,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 3.5,
+</span><span class=s1>        &#34;Vampire Weekend&#34;: 3
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Chan&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 5,
+</span><span class=s1>        &#34;Broken Bells&#34;: 1,
+</span><span class=s1>        &#34;Deadmau5&#34;: 1,
+</span><span class=s1>        &#34;Norah Jones&#34;: 3,
+</span><span class=s1>        &#34;Phoenix&#34;: 5,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 1
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Dan&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 3,
+</span><span class=s1>        &#34;Broken Bells&#34;: 4,
+</span><span class=s1>        &#34;Deadmau5&#34;: 4.5,
+</span><span class=s1>        &#34;Phoenix&#34;: 3,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 4.5,
+</span><span class=s1>        &#34;The Strokes&#34;: 4,
+</span><span class=s1>        &#34;Vampire Weekend&#34;: 2
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Hailey&#34;: {
+</span><span class=s1>        &#34;Broken Bells&#34;: 4,
+</span><span class=s1>        &#34;Deadmau5&#34;: 1,
+</span><span class=s1>        &#34;Norah Jones&#34;: 4,
+</span><span class=s1>        &#34;The Strokes&#34;: 4,
+</span><span class=s1>        &#34;Vampire Weekend&#34;: 1
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Jordyn&#34;: {
+</span><span class=s1>        &#34;Broken Bells&#34;: 4.5,
+</span><span class=s1>        &#34;Deadmau5&#34;: 4,
+</span><span class=s1>        &#34;Norah Jones&#34;: 5,
+</span><span class=s1>        &#34;Phoenix&#34;: 5,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 4.5,
+</span><span class=s1>        &#34;The Strokes&#34;: 4,
+</span><span class=s1>        &#34;Vampire Weekend&#34;: 4
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Sam&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 5,
+</span><span class=s1>        &#34;Broken Bells&#34;: 2,
+</span><span class=s1>        &#34;Norah Jones&#34;: 3,
+</span><span class=s1>        &#34;Phoenix&#34;: 5,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 4,
+</span><span class=s1>        &#34;The Strokes&#34;: 5
+</span><span class=s1>    },
+</span><span class=s1>    &#34;Veronica&#34;: {
+</span><span class=s1>        &#34;Blues Traveler&#34;: 3,
+</span><span class=s1>        &#34;Norah Jones&#34;: 5,
+</span><span class=s1>        &#34;Phoenix&#34;: 4,
+</span><span class=s1>        &#34;Slightly Stoopid&#34;: 2.5,
+</span><span class=s1>        &#34;The Strokes&#34;: 3
+</span><span class=s1>    }
+</span><span class=s1>}
+</span><span class=s1>&#39;&#39;&#39;</span>
+
+<span class=n>users</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>users_string</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>计算曼哈顿距离</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>manhattan</span><span class=p>(</span><span class=n>rating1</span><span class=p>,</span> <span class=n>rating2</span><span class=p>):</span>
+    <span class=s2>&#34;&#34;&#34;计算曼哈顿距离&#34;&#34;&#34;</span>
+    <span class=n>distance</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating1</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating2</span><span class=p>:</span>
+            <span class=n>difference</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>rating1</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>-</span> <span class=n>rating2</span><span class=p>[</span><span class=n>key</span><span class=p>])</span>
+            <span class=n>distance</span> <span class=o>+=</span> <span class=n>difference</span>
+    <span class=k>return</span> <span class=n>distance</span>
+</code></pre></td></tr></table></div></div><p>测试一下效果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>manhattan</span><span class=p>(</span><span class=n>users</span><span class=p>[</span><span class=s1>&#39;Hailey&#39;</span><span class=p>],</span> <span class=n>users</span><span class=p>[</span><span class=s1>&#39;Veronica&#39;</span><span class=p>])</span>
+<span class=mi>2</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=n>manhattan</span><span class=p>(</span><span class=n>users</span><span class=p>[</span><span class=s1>&#39;Hailey&#39;</span><span class=p>],</span> <span class=n>users</span><span class=p>[</span><span class=s1>&#39;Jordyn&#39;</span><span class=p>])</span>
+<span class=mf>7.5</span>
+</code></pre></td></tr></table></div></div><p>下面再通过一个函数，实现找出最近的用户距离，该函数会返回一个用户列表，按照距离排序</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>computeNearestNeighbor</span><span class=p>(</span><span class=n>username</span><span class=p>,</span> <span class=n>users</span><span class=p>):</span>
+    <span class=n>distances</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>user</span> <span class=ow>in</span> <span class=n>users</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>user</span> <span class=o>!=</span> <span class=n>username</span><span class=p>:</span>
+            <span class=n>distance</span> <span class=o>=</span> <span class=n>manhattan</span><span class=p>(</span><span class=n>users</span><span class=p>[</span><span class=n>username</span><span class=p>],</span> <span class=n>users</span><span class=p>[</span><span class=n>user</span><span class=p>])</span>
+            <span class=n>distances</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>distance</span><span class=p>,</span> <span class=n>user</span><span class=p>))</span>
+    <span class=n>distances</span><span class=o>.</span><span class=n>sort</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>distances</span>
+</code></pre></td></tr></table></div></div><p>测试一下，计算与用户Hailey最相似的用户</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>computeNearestNeighbor</span><span class=p>(</span><span class=s1>&#39;Hailey&#39;</span><span class=p>,</span> <span class=n>users</span><span class=p>)</span>
+<span class=p>[(</span><span class=mi>2</span><span class=p>,</span> <span class=s1>&#39;Veronica&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=s1>&#39;Chan&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=s1>&#39;Sam&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mf>4.5</span><span class=p>,</span> <span class=s1>&#39;Dan&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mf>5.0</span><span class=p>,</span> <span class=s1>&#39;Angelica&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mf>5.5</span><span class=p>,</span> <span class=s1>&#39;Bill&#39;</span><span class=p>),</span>
+ <span class=p>(</span><span class=mf>7.5</span><span class=p>,</span> <span class=s1>&#39;Jordyn&#39;</span><span class=p>)]</span>
+</code></pre></td></tr></table></div></div><p>最后再来根据距离做推荐</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>recommend</span><span class=p>(</span><span class=n>username</span><span class=p>,</span> <span class=n>users</span><span class=p>):</span>
+    <span class=c1># 找到距离最近的用户</span>
+    <span class=n>nearest</span> <span class=o>=</span> <span class=n>computeNearestNeighbor</span><span class=p>(</span><span class=n>username</span><span class=p>,</span> <span class=n>users</span><span class=p>)[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+    <span class=n>recommendations</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=c1># 找出这位用户评价过，但自己未评价过的乐队</span>
+    <span class=n>neighborRatings</span> <span class=o>=</span> <span class=n>users</span><span class=p>[</span><span class=n>nearest</span><span class=p>]</span>
+    <span class=n>userRatings</span> <span class=o>=</span> <span class=n>users</span><span class=p>[</span><span class=n>username</span><span class=p>]</span>
+    <span class=k>for</span> <span class=n>artist</span> <span class=ow>in</span> <span class=n>neighborRatings</span><span class=p>:</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=n>artist</span> <span class=ow>in</span> <span class=n>userRatings</span><span class=p>:</span>
+            <span class=n>recommendations</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>artist</span><span class=p>,</span> <span class=n>neighborRatings</span><span class=p>[</span><span class=n>artist</span><span class=p>]))</span>
+    <span class=c1># 按照评分进行排序</span>
+    <span class=k>return</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>recommendations</span><span class=p>,</span> <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>recommend</span><span class=p>:</span> <span class=n>recommend</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>reverse</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>为用户Hailey做推荐</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>recommend</span><span class=p>(</span><span class=s1>&#39;Hailey&#39;</span><span class=p>,</span> <span class=n>users</span><span class=p>)</span>
+<span class=p>[(</span><span class=s1>&#39;Phoenix&#39;</span><span class=p>,</span> <span class=mi>4</span><span class=p>),</span> <span class=p>(</span><span class=s1>&#39;Blues Traveler&#39;</span><span class=p>,</span> <span class=mi>3</span><span class=p>),</span> <span class=p>(</span><span class=s1>&#39;Slightly Stoopid&#39;</span><span class=p>,</span> <span class=mf>2.5</span><span class=p>)]</span>
+</code></pre></td></tr></table></div></div><p>闵科夫斯基算法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>minkowski</span><span class=p>(</span><span class=n>rating1</span><span class=p>,</span> <span class=n>rating2</span><span class=p>,</span> <span class=n>r</span><span class=p>):</span>
+    <span class=s2>&#34;&#34;&#34;闵可夫斯基算法&#34;&#34;&#34;</span>
+    <span class=n>distance</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating1</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating2</span><span class=p>:</span>
+            <span class=n>distance</span> <span class=o>+=</span> <span class=nb>pow</span><span class=p>(</span><span class=nb>abs</span><span class=p>(</span><span class=n>rating1</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>-</span> <span class=n>rating2</span><span class=p>[</span><span class=n>key</span><span class=p>]),</span> <span class=n>r</span><span class=p>)</span>
+    <span class=k>return</span> <span class=nb>pow</span><span class=p>(</span><span class=n>distance</span><span class=p>,</span> <span class=mf>1.0</span><span class=o>/</span><span class=n>r</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>皮尔逊系数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>pearson</span><span class=p>(</span><span class=n>rating1</span><span class=p>,</span> <span class=n>rating2</span><span class=p>):</span>
+    <span class=n>sum_xy</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>sum_x</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>sum_y</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>sum_x2</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>sum_y2</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>n</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating1</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>rating2</span><span class=p>:</span>
+            <span class=n>n</span> <span class=o>+=</span> <span class=mi>1</span>
+            <span class=n>x</span> <span class=o>=</span> <span class=n>rating1</span><span class=p>[</span><span class=n>key</span><span class=p>]</span>
+            <span class=n>y</span> <span class=o>=</span> <span class=n>rating2</span><span class=p>[</span><span class=n>key</span><span class=p>]</span>
+            <span class=n>sum_xy</span> <span class=o>+=</span> <span class=n>x</span> <span class=o>*</span> <span class=n>y</span>
+            <span class=n>sum_x</span> <span class=o>+=</span> <span class=n>x</span>
+            <span class=n>sum_y</span> <span class=o>+=</span> <span class=n>y</span>
+            <span class=n>sum_x2</span> <span class=o>+=</span> <span class=nb>pow</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+            <span class=n>sum_y2</span> <span class=o>+=</span> <span class=nb>pow</span><span class=p>(</span><span class=n>y</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=k>return</span> <span class=mi>0</span>
+    <span class=c1># now compute denominator</span>
+    <span class=n>denominator</span> <span class=o>=</span> <span class=p>(</span><span class=n>sqrt</span><span class=p>(</span><span class=n>sum_x2</span> <span class=o>-</span> <span class=nb>pow</span><span class=p>(</span><span class=n>sum_x</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>/</span> <span class=n>n</span><span class=p>)</span>
+                   <span class=o>*</span> <span class=n>sqrt</span><span class=p>(</span><span class=n>sum_y2</span> <span class=o>-</span> <span class=nb>pow</span><span class=p>(</span><span class=n>sum_y</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>/</span> <span class=n>n</span><span class=p>))</span>
+    <span class=k>if</span> <span class=n>denominator</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=k>return</span> <span class=mi>0</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>return</span> <span class=p>(</span><span class=n>sum_xy</span> <span class=o>-</span> <span class=p>(</span><span class=n>sum_x</span> <span class=o>*</span> <span class=n>sum_y</span><span class=p>)</span> <span class=o>/</span> <span class=n>n</span><span class=p>)</span> <span class=o>/</span> <span class=n>denominator</span>
+</code></pre></td></tr></table></div></div><h3 id=相似度算法选择>相似度算法选择</h3><p>根据数据的特性，不同的算法计算的结果会有偏差，但是大体上满足如下规律:</p><ul><li>如果数据存在"分数膨胀"，就使用皮尔逊相关系数</li><li>如果数据比较密集，变量之间基本存在公有值，且这些距离数据都是非常重要的，那就使用曼哈顿距离或欧几里得距离</li><li>如果数据是稀释的，就用余弦定理</li></ul><h3 id=距离计算库>距离计算库</h3><p><a href=https://docs.scipy.org/doc/scipy/reference/spatial.distance.html><code>scipy.spatial.distance</code></a>模块包含了各种距离的计算方式。</p><ul><li>scipy.spatial.distance.cityblock 曼哈顿距离</li><li>scipy.spatial.distance.euclidean 欧几里得距离</li><li>scipy.spatial.distance.chebyshev 切比雪夫距离</li><li>scipy.spatial.distance.minkowski 闵可夫斯基距离</li><li>scipy.stats.pearsonr 皮尔逊相关系数</li></ul><h3 id=k最邻近算法>K最邻近算法</h3><p>如果只使用最相似的一个用户来做推荐，如果这个用户有特殊的偏好，就会直接反应在推荐内容里。解决方法之一就是寻找多个相似的用户，这里就要用到K最邻近算法了。</p><p>完整实现请参考:</p><p><a href=https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py>https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py</a></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-01-22</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=//https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/>推荐系统</a>
+<a href=https://crazygit.wiseturtles.com/tags/%E7%9B%B8%E4%BC%BC%E5%BA%A6%E8%AE%A1%E7%AE%97/>相似度计算</a></div><nav class=post-nav><a class=prev href=/2018/01/26/smarter-faster-better/><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg></i><span class="prev-text nav-default">《高效的秘密》读书文摘</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/2018/01/19/pearson-correlation-coefficient/><span class="next-text nav-default">皮尔逊相关系数(Pearson Correlation Coefficient)</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408 1361.641813S1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523L83.726336 1024H682.532949 753.579947 1348.948139L1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955C777.248 802.205449 742.347691 811.03081 718.063616 811.603883z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358c-105.225559-164.151872-505.082682-92.598492-437.738325 223.078185C278.622548 312.675223 89.216542 47.506814 89.216542 47.506814s-117.852626 189.406006 75.762402 345.139833C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042C1179.353331 249.539887 1263.533778 123.269217 1263.533778 123.269217s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script type=text/javascript>window.MathJax={showProcessingMessages:false,messageStyle:'none'};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==='localhost')return;var hm=document.createElement("script");hm.async=true;hm.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS");</script><script>function showHitCount(Counter){var query=new AV.Query(Counter);var entries=[];var $visitors=$(".leancloud_visitors");$visitors.each(function(){entries.push($(this).attr("id").trim());});query.containedIn('url',entries);query.find().done(function(results){var COUNT_CONTAINER_REF='.leancloud-visitors-count';if(results.length===0){$visitors.find(COUNT_CONTAINER_REF).text(0);return;}
+for(var i=0;i<results.length;i++){var item=results[i];var url=item.get('url');var hits=item.get('hits');var element=document.getElementById(url);$(element).find(COUNT_CONTAINER_REF).text(hits);}
+for(var i=0;i<entries.length;i++){var url=entries[i];var element=document.getElementById(url);var countSpan=$(element).find(COUNT_CONTAINER_REF);if(countSpan.text()==''){countSpan.text(0);}}}).fail(function(object,error){console.log("Error: "+error.code+" "+error.message);});}
+function addCount(Counter){var $visitors=$(".leancloud_visitors");var url=$visitors.attr('id').trim();var title=$visitors.attr('data-flag-title').trim();var query=new AV.Query(Counter);query.equalTo("url",url);query.find({success:function(results){if(results.length>0){var counter=results[0];counter.fetchWhenSave(true);counter.increment("hits");counter.save(null,{success:function(counter){var $element=$(document.getElementById(url));$element.find('.leancloud-visitors-count').text(counter.get('hits'));},error:function(counter,error){console.log('Failed to save Visitor num, with error message: '+error.message);}});}else{var newcounter=new Counter();var acl=new AV.ACL();acl.setPublicReadAccess(true);acl.setPublicWriteAccess(true);newcounter.setACL(acl);newcounter.set("title",title);newcounter.set("url",url);newcounter.set("hits",1);newcounter.save(null,{success:function(newcounter){var $element=$(document.getElementById(url));$element.find('.leancloud-visitors-count').text(newcounter.get('hits'));},error:function(newcounter,error){console.log('Failed to create');}});}},error:function(error){console.log('Error:'+error.code+" "+error.message);}});}
+$(function(){var Counter=AV.Object.extend("Counter");if($('.leancloud_visitors').length==1){addCount(Counter);}else if($('.post-link').length>1){showHitCount(Counter);}});</script><script src=/js/douban.js></script></body></html>

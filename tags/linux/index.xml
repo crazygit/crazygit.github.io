@@ -1,51 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>linux on Soul Mate</title>
-    <link>https://crazygit.wiseturtles.com/tags/linux/</link>
-    <description>Recent content in linux on Soul Mate</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 14 Jan 2013 09:48:29 +0800</lastBuildDate>
-    
-	<atom:link href="https://crazygit.wiseturtles.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Linux命令行与shell脚本编程大全第二版学习笔记</title>
-      <link>https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/</link>
-      <pubDate>Mon, 14 Jan 2013 09:48:29 +0800</pubDate>
-      
-      <guid>https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/</guid>
-      <description>&lt;h2 id=&#34;linux4&#34;&gt;Linux系统可以划分为4个部分&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux内核&lt;/li&gt;
-&lt;li&gt;GUN工具组件&lt;/li&gt;
-&lt;li&gt;图形化桌面环境&lt;/li&gt;
-&lt;li&gt;应用软件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;heading&#34;&gt;常用命令&lt;/h2&gt;
-&lt;h3 id=&#34;ls&#34;&gt;ls&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;-F 在目录名后面添加/ ,方便和普通文件区分&lt;/li&gt;
-&lt;li&gt;-R 递归显示当前目录&lt;/li&gt;
-&lt;li&gt;-A 效果与-a一样，只是不输出(.)和（..)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;touch&#34;&gt;touch&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;-t 修改已有文件的时间戳&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;cp&#34;&gt;cp&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;-b 复制文件时，如果目的地有一份同名文件，就将该文件备份然后再复制，而不是直接覆盖&lt;/li&gt;
-&lt;li&gt;-p 保留拷贝文件的文件属性，如修改时间等&lt;/li&gt;
-&lt;li&gt;-l 与 -s 参数可以使cp命令与ln命令一样，创建链接-l（硬链接),-s(软链接）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;rmdir&#34;&gt;rmdir&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;删除一个空目录&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Soul Mate</title><link>https://crazygit.wiseturtles.com/tags/linux/</link><description>Recent content in linux on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 14 Jan 2013 09:48:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux命令行与shell脚本编程大全第二版学习笔记</title><link>https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/</link><pubDate>Mon, 14 Jan 2013 09:48:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2013/01/14/linux-commands-and-bash/</guid><description>&lt;h2 id="linux系统可以划分为4个部分">Linux系统可以划分为4个部分&lt;/h2>
+&lt;ul>
+&lt;li>Linux内核&lt;/li>
+&lt;li>GUN工具组件&lt;/li>
+&lt;li>图形化桌面环境&lt;/li>
+&lt;li>应用软件&lt;/li>
+&lt;/ul>
+&lt;h2 id="常用命令">常用命令&lt;/h2>
+&lt;h3 id="ls">ls&lt;/h3>
+&lt;ul>
+&lt;li>-F 在目录名后面添加/ ,方便和普通文件区分&lt;/li>
+&lt;li>-R 递归显示当前目录&lt;/li>
+&lt;li>-A 效果与-a一样，只是不输出(.)和（..)&lt;/li>
+&lt;/ul>
+&lt;h3 id="touch">touch&lt;/h3>
+&lt;ul>
+&lt;li>-t 修改已有文件的时间戳&lt;/li>
+&lt;/ul>
+&lt;h3 id="cp">cp&lt;/h3>
+&lt;ul>
+&lt;li>-b 复制文件时，如果目的地有一份同名文件，就将该文件备份然后再复制，而不是直接覆盖&lt;/li>
+&lt;li>-p 保留拷贝文件的文件属性，如修改时间等&lt;/li>
+&lt;li>-l 与 -s 参数可以使cp命令与ln命令一样，创建链接-l（硬链接),-s(软链接）&lt;/li>
+&lt;/ul>
+&lt;h3 id="rmdir">rmdir&lt;/h3>
+&lt;ul>
+&lt;li>删除一个空目录&lt;/li>
+&lt;/ul></description></item></channel></rss>
