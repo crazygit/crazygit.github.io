@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 29 Nov 2019 15:29:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>fluentd教程(含实例)</title><link>https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/</link><pubDate>Fri, 29 Nov 2019 15:29:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/</guid><description>&lt;p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 06 May 2021 13:50:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin开发环境搭建</title><link>https://crazygit.wiseturtles.com/2021/05/06/002-kotlin-development-env-setup/</link><pubDate>Thu, 06 May 2021 13:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/06/002-kotlin-development-env-setup/</guid><description>&lt;p>kotlin的使用非常方便，只需要下载IntelliJ Idea 或者Android Studio,安装好之后默认就可以直接使用kotlin语言进行开发了。Eclipse也可以安装kotlin插件来使用kotlin做开发。&lt;/p>
+&lt;p>IDE的使用虽然方便，但是往往也隐藏了很多技术细节，假如没有IDE,我们该怎么开发呢？&lt;/p>
+&lt;p>因此让我们先抛开那些IDE，从最原始的方式开始， 自己独立安装kotlin编译器。&lt;/p>
+&lt;h2 id="kotlin编译器安装">Kotlin编译器安装&lt;/h2>
+&lt;p>kotlin编译器的安装方式有几种，下面依次介绍一下&lt;/p>
+&lt;h3 id="1-手动安装">1. 手动安装&lt;/h3>
+&lt;p>从&lt;a href="https://github.com/JetBrains/kotlin/releases/latest">Github Release&lt;/a>页面下载kotlion编译器,解压后放到&lt;code>bin&lt;/code>目录下既可使用&lt;/p>
+&lt;h3 id="2-使用sdkman安装适合os-x-linux-cygwin-freebsd-and-solaris系统">2. 使用&lt;code>sdkman&lt;/code>安装(适合OS X, Linux, Cygwin, FreeBSD, and Solaris系统)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ sdk install kotlin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="3使用homebrew安装适合os-x">3.使用&lt;code>Homebrew&lt;/code>安装((适合OS X)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ brew update
+$ brew install kotlin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="4使用snap安装适合-ubuntu-1604">4.使用snap安装(适合 Ubuntu 16.04+)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ sudo snap install --classic kotlin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="验证是否安装成功">验证是否安装成功&lt;/h4>
+&lt;p>执行下面命令,能看到正常输出说明安装没有问题，否则请检查安装过程&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ kotlin -version
+Kotlin version 1.5.10-release-890 &lt;span class="o">(&lt;/span>JRE 11.0.9+11&lt;span class="o">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="创建第一个kotlin程序">创建第一个Kotlin程序&lt;/h2>
+&lt;p>按照国际惯例，让我们先使用kotlin向世界问好。&lt;/p>
+&lt;p>首先创建一个&lt;code>hello.kt&lt;/code>的文件，输入如下内容:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello, World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>编译&lt;code>hello.kt&lt;/code>文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 类似javac编译&lt;/span>
+$ kotlinc hello.kt -include-runtime -d hello.jar
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>运行那个脚本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 运行&lt;/span>
+$ kotlin hello.jar
+&lt;span class="c1"># 或者&lt;/span>
+$ java -jar hello.jar
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="使用交互模式repl">使用交互模式REPL&lt;/h2>
+&lt;p>直接输入命令&lt;code>kotlin&lt;/code>或者&lt;code>kotlinc-jvm&lt;/code>,进入交互模式。(两个命令效果一样)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ kotlin
+Welcome to Kotlin version 1.5.10 &lt;span class="o">(&lt;/span>JRE 11.0.9+11&lt;span class="o">)&lt;/span>
+Type :help &lt;span class="k">for&lt;/span> help, :quit &lt;span class="k">for&lt;/span> quit
+&amp;gt;&amp;gt;&amp;gt; println&lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>
+Hello World
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="直接作为脚本直接运行">直接作为脚本直接运行&lt;/h2>
+&lt;p>作为脚本直接使用有两个条件:&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;code>kts&lt;/code>作为脚本文件的扩展名&lt;/li>
+&lt;li>脚本最顶层必须包含可以执行的语句&lt;/li>
+&lt;/ol>
+&lt;p>创建一个kotlin的脚本&lt;code>foo.kts&lt;/code>，直接运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MutableList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="运行脚本">运行脚本&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ kotlin foo.kts
+&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span>
+&lt;span class="o">[&lt;/span>2&lt;span class="o">]&lt;/span>
+&lt;span class="o">[&lt;/span>3&lt;span class="o">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="增强的交互工具kihttpsgithubcomkotlinkotlin-interactive-shell">&lt;a href="https://github.com/Kotlin/kotlin-interactive-shell">增强的交互工具KI&lt;/a>&lt;/h2>
+&lt;p>默认使用kotlin进入交互模式之后，是没有代码补全，语法高亮等特性的的，这里介绍一个新的工具KI,支持代码补全，语法高亮等特性。&lt;/p>
+&lt;p>ki和kotlin之间的关系就好比&lt;code>python&lt;/code>和&lt;code>ipython&lt;/code>的关系&lt;/p>
+&lt;h3 id="手动安装">手动安装&lt;/h3>
+&lt;p>从&lt;a href="https://github.com/Kotlin/kotlin-interactive-shell/releases">github release&lt;/a> 页面下载安装&lt;/p>
+&lt;p>mac系统可以直接使用&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ brew install ki
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>关于它的使用，可以参考下面的文章&lt;/p>
+&lt;p>&lt;a href="https://blog.jetbrains.com/kotlin/2021/04/ki-the-next-interactive-shell-for-kotlin/">ki: The Next Interactive Shell for Kotlin&lt;/a>&lt;/p>
+&lt;h2 id="使用ide开发运行代码片段">使用IDE开发运行代码片段&lt;/h2>
+&lt;p>当我们使用IDE InteliJ或者Android Studio时，向要快速测试一些代码片段时，可以用下面的方式&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="使用草稿scratches">使用草稿（Scratches）&lt;/h3>
+&lt;p>IDE 中 &lt;strong>File | New | Scratch file&lt;/strong> and select the &lt;strong>Kotlin&lt;/strong> type.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;h3 id="工单kotlin-worksheet">工单(kotlin worksheet)&lt;/h3>
+&lt;p>right-click the directory in the project tree and select &lt;strong>New | Kotlin Worksheet&lt;/strong>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用gradle创建一个kotlin的命令行应用程序">使用Gradle创建一个Kotlin的命令行应用程序&lt;/h2>
+&lt;p>&lt;a href="https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html">Building Kotlin Applications Sample&lt;/a>&lt;/p></description></item><item><title>Kotlin学习资料整理</title><link>https://crazygit.wiseturtles.com/2021/05/06/001-kotlin-learning-materials/</link><pubDate>Thu, 06 May 2021 13:48:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/06/001-kotlin-learning-materials/</guid><description>&lt;ul>
+&lt;li>
+&lt;h2 id="快速入门指南httpskotlinlangorgdocstutorials">&lt;a href="https://kotlinlang.org/docs/tutorials/">快速入门指南&lt;/a>&lt;/h2>
+&lt;p>介绍了使用kotlin在各种场景下的开发环境搭建过程，如配合各种IDE使用Kotlin,&lt;/p>
+&lt;p>混合&lt;code>Java&lt;/code>开发， 以及结合&lt;code>Javascript&lt;/code>, &lt;code>Android&lt;/code>平台，&lt;code>Navtive&lt;/code>开发，&lt;code>Web&lt;/code>开发等。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;h3 id="语法学习资料">语法学习资料&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.kotlincn.net/docs/tutorials/kotlin-for-py/introduction.html">写给Python程序员的Kotlin教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/basic-syntax.html">官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tech.meituan.com/2018/07/05/kotlin-code-inspect.html">Kotlin代码检查在美团的探索与实践&lt;/a>&lt;/li>
+&lt;li>微信读书《Kotlin从 基础到实战》&lt;/li>
+&lt;li>微信读书《kotlin核心编程》&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;h2 id="在线练习">在线练习&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://play.kotlinlang.org/hands-on/overview">Kotlin Hands-On&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://play.kotlinlang.org/byExample/overview">Learn Kotlin by Example&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://play.kotlinlang.org/koans/overview">Kotlin Koans&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul></description></item><item><title>fluentd教程(含实例)</title><link>https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/</link><pubDate>Fri, 29 Nov 2019 15:29:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/</guid><description>&lt;p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。&lt;/p>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1574818088.png" alt="fluentd日志架构">&lt;/p>
 &lt;h2 id="安装">安装&lt;/h2>
 &lt;p>不同操作系统的安装方式不同，具体可以参考:&lt;/p>
@@ -7197,8 +7399,8 @@ yellow open bank EnHJEWvLRv2tZLoI7Z_lXw &lt;span class="m">5&lt;/span> &lt;span 
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="k">SELECT&lt;/span> &lt;span class="k">state&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">COUNT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">bank&lt;/span> &lt;span class="k">GROUP&lt;/span> &lt;span class="k">BY&lt;/span> &lt;span class="k">state&lt;/span> &lt;span class="k">ORDER&lt;/span> &lt;span class="k">BY&lt;/span> &lt;span class="k">COUNT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">DESC&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">state&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COUNT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">bank&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">GROUP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">state&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ORDER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COUNT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DESC&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>聚合嵌套&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -9125,1165 +9327,4 @@ $$&lt;/p>
 &lt;p>$$
 -1 \leq r_{xy} \leq 1
 $$&lt;/p>
-&lt;p>1表示完全正相关，-1表示完全负相关&lt;/p></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记四</title><link>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</link><pubDate>Wed, 17 Jan 2018 10:11:35 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/17/fast-data-processing-with-spark2-note-four/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
-&lt;h2 id="机器学习和spark-ml-pipelines">机器学习和Spark ML Pipelines&lt;/h2>
-&lt;h3 id="spark机器学习算法表">Spark机器学习算法表&lt;/h3>
-&lt;p>机器学习的相关算法: &lt;code>pyspark.ml&lt;/code>&lt;/p>
-&lt;p>机器学习算法表&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningAlgorithms1.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningAlgorithms2.png" alt="">&lt;/p>
-&lt;p>机器学习处理流程&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningProcess.png" alt="">&lt;/p>
-&lt;p>机器学习WorkFlow&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningWorkflow.png" alt="">&lt;/p>
-&lt;p>机器学习API结构图&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-17-MachineLearningAPI.png" alt="">&lt;/p>
-&lt;p>下面部分等待完善&lt;/p>
-&lt;hr>
-&lt;h3 id="基本统计">基本统计&lt;/h3>
-&lt;h3 id="线性回归">线性回归&lt;/h3>
-&lt;h4 id="分类">分类&lt;/h4>
-&lt;h3 id="clustering">Clustering&lt;/h3>
-&lt;h3 id="recommendation">Recommendation&lt;/h3>
-&lt;h3 id="hyper-paramters">Hyper paramters&lt;/h3>
-&lt;h2 id="graphx">GraphX&lt;/h2></description></item><item><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记三</title><link>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</link><pubDate>Tue, 16 Jan 2018 22:55:11 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/16/fast-data-processing-with-spark2-note-three/</guid><description>&lt;p>本书其它笔记&lt;a href="https://crazygit.wiseturtles.com/2018/01/26/fast-data-processing-with-spark2-note-index/">Fast Data Processing with Spark 2（Third Edition)》读书笔记目&lt;/a>&lt;/p>
-&lt;h2 id="数据分析的主力datasetsdataframes">数据分析的主力Datasets/DataFrames&lt;/h2>
-&lt;h3 id="datasets概述">DataSets概述&lt;/h3>
-&lt;p>Spark中，Dataset就是一组各式各样的列，类似一张excel表格或关系型数据库中的表。可以用于类型检查和语义化查询。&lt;/p>
-&lt;p>在R和Python语言中，使用的依然是DataFrame类，但是包含了所有的DataSet APIs。因此可以这样认为，DataSet在Python和R语言中就叫做DataFrame。&lt;/p>
-&lt;p>在Scala和Java语言中，使用的是DataSet接口，不存在DataFrame。&lt;/p>
-&lt;h3 id="dataset-api概览">DataSet API概览&lt;/h3>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-16-DataSetAPIs.png" alt="DataSet APIs">&lt;/p>
-&lt;p>下面的例子使用的数据文件下载地址:&lt;/p>
-&lt;p>&lt;a href="https://github.com/xsankar/fdps-v3">https://github.com/xsankar/fdps-v3&lt;/a>&lt;/p>
-&lt;h3 id="常见的dataset接口和函数">常见的Dataset接口和函数&lt;/h3>
-&lt;h4 id="读写操作">读写操作&lt;/h4>
-&lt;p>这个例子读取的csv文件内容如下:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ cat data/spark-csv/cars.csv
-year,make,model,comment,blank
-2012,Tesla,S,No comment,
-1997,Ford,E350,Go get one now they are going fast,
-2015,Chevy,Volt,,
-2016,Volvo,XC90,Good Car !,
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>读取和保存&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="c1"># -*- coding: utf-8 -*-&lt;/span>
-&lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">SparkSession&lt;/span>
-&lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="n">spark&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">SparkSession&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">builder&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">appName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Datasets APIs Demo&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">master&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;local&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logConf&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logLevel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;ERROR&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">getOrCreate&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Running Spark Version {spark.version}&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="n">cars&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/spark-csv/cars.csv&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Cars has {cars.count()} rows&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 保存为csv格式&lt;/span>
-&lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;overwrite&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>
-&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/cars-out-csv.csv&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">)&lt;/span>
-&lt;span class="c1"># 按年分区，保存为parquet格式&lt;/span>
-&lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;overwrite&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">partitionBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;year&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parquet&lt;/span>&lt;span class="p">(&lt;/span>
-&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/cars-out-pqt&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stop&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>&lt;code>mode&lt;/code>参数有:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>overwrite&lt;/code>: 如果文件存在，则覆写已经存在的文件&lt;/li>
-&lt;li>&lt;code>append&lt;/code>: 追加写入到已经存在的文件&lt;/li>
-&lt;li>&lt;code>ignore&lt;/code>: 会忽略&lt;code>Data Exists&lt;/code>, 并且不会保存数据，使用该模式需要特别注意&lt;/li>
-&lt;li>&lt;code>error&lt;/code>: 如果文件存在，抛出异常&lt;/li>
-&lt;/ul>
-&lt;p>查看保存结果&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ tree data/cars-out-csv.csv data/cars-out-pqt
-data/cars-out-csv.csv
-├── _SUCCESS
-└── part-00000-aa27bc5f-aaeb-4f0c-804f-2d5320803d0d-c000.csv
-data/cars-out-pqt
-├── _SUCCESS
-├── &lt;span class="nv">year&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1997&lt;/span>
-│   └── part-00000-160cc90f-7c7a-4d88-b1c8-16c4fd8ec831.c000.snappy.parquet
-├── &lt;span class="nv">year&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2012&lt;/span>
-│   └── part-00000-160cc90f-7c7a-4d88-b1c8-16c4fd8ec831.c000.snappy.parquet
-├── &lt;span class="nv">year&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2015&lt;/span>
-│   └── part-00000-160cc90f-7c7a-4d88-b1c8-16c4fd8ec831.c000.snappy.parquet
-└── &lt;span class="nv">year&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2016&lt;/span>
-└── part-00000-160cc90f-7c7a-4d88-b1c8-16c4fd8ec831.c000.snappy.parquet
-&lt;span class="m">4&lt;/span> directories, &lt;span class="m">7&lt;/span> files
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>从保存结果可以看出，保存为csv文件时，是一个目录，而不是单个的csv文件。&lt;/p>
-&lt;p>保存为&lt;code>parquet&lt;/code>格式时，由于按照年来分区，因此生成了4个年份的子目录。这样做的好处是可以节约查询时间，比如当查询语句包含&lt;code>year=2015&lt;/code>, 只会去查询&lt;code>year=2015&lt;/code>这个目录的数据。在数据量大时，非常有助于提高查询效率。&lt;/p>
-&lt;p>读取保存的数据&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="c1"># -*- coding: utf-8 -*-&lt;/span>
-&lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">SparkSession&lt;/span>
-&lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="n">spark&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">SparkSession&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">builder&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">appName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Datasets APIs Demo&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">master&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;local&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logConf&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logLevel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;ERROR&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">.&lt;/span>&lt;span class="n">getOrCreate&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Running Spark Version {spark.version}&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="n">cars&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parquet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/cars-out-pqt&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Cars has {cars.count()} rows&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stop&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="聚合函数">聚合函数&lt;/h4>
-&lt;p>首页让我们加载测试数据&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;header&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;true&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;inferSchema&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;true&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;data/car-data/car-mileage.csv&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Cars has {cars.count()} rows&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">Cars&lt;/span> &lt;span class="n">has&lt;/span> &lt;span class="mi">32&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">root&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">mpg&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">displacement&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">hp&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">torque&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">CRatio&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">RARatio&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">CarbBarrells&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">NoOfSpeed&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">length&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">weight&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">automatic&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">mpg&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">displacement&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">hp&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">torque&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">CRatio&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">RARatio&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">CarbBarrells&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">NoOfSpeed&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">width&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">weight&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">automatic&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">18.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">350.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">165&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">260&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.56&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">200.3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">69.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3910&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">17.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">350.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">170&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">275&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.56&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">199.6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">72.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3860&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">20.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">250.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">105&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">185&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.25&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.73&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">196.7&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">72.2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3510&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">18.25&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">351.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">143&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">255&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">3.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">199.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">74.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3890&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">20.07&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">225.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">95&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">170&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.76&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">194.1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">71.8&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3365&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>&lt;code>descripe&lt;/code>统计列&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">describe&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;mpg&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;hp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;weight&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;automatic&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+-------+-----------------+-----------------+----------------+-------------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">summary&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">mpg&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">hp&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">weight&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">automatic&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+-----------------+-----------------+----------------+-------------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">mean&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">20.223125&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">136.875&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">3586.6875&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.71875&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">stddev&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">6.318289089312789&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">44.98082028541039&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">947.943187269323&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">0.45680340939917435&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="nb">min&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">11.2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1905&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="nb">max&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">36.5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">223&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5430&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+-----------------+-----------------+----------------+-------------------+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>分组统计&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;automatic&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;mpg&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;torque&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---------+------------------+-----------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">automatic&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mpg&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torque&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+------------------+-----------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">17.324782608695646&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">257.3636363636364&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">27.630000000000006&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">109.375&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+------------------+-----------------+&lt;/span>
-&lt;span class="c1"># 不分组的情况&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;mpg&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;torque&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mpg&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torque&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">20.223125&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">217.9&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>其它的聚合函数&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql.functions&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">avg&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mean&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">agg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cars&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;mpg&amp;#34;&lt;/span>&lt;span class="p">]),&lt;/span> &lt;span class="n">mean&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cars&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;torque&amp;#34;&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mpg&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torque&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">20.223125&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">217.9&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+-----------+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="统计函数">统计函数&lt;/h4>
-&lt;p>从前面的DataSets API概览图里可以看到，统计相关的函数都是在&lt;code>sql.stat.*&lt;/code>下面。&lt;/p>
-&lt;p>下面看一个利用统计函数的例子&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;header&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;true&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;inferSchema&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;true&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;data/car-data/car-mileage.csv&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">mpg&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">displacement&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">hp&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">torque&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">CRatio&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">RARatio&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">CarbBarrells&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">NoOfSpeed&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">width&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">weight&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">automatic&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">18.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">350.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">165&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">260&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.56&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">200.3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">69.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3910&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">17.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">350.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">170&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">275&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.56&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">199.6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">72.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3860&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mf">20.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">250.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">105&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">185&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.25&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.73&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">196.7&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">72.2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3510&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">18.25&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">351.0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">143&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">255&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">3.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">199.9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">74.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3890&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="mf">20.07&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">225.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">95&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">170&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">8.4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.76&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">194.1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">71.8&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3365&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----+------------+---+------+------+-------+------------+---------+------+-----+------+---------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="c1"># 计算相关性&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cor&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">corr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;hp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;weight&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;hp to weight: Correlation = &lt;/span>&lt;span class="si">%.4f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">cor&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">hp&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">weight&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Correlation&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.8834&lt;/span>
-&lt;span class="c1"># 计算协方差&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cov&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cov&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;hp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;weight&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;hp to weight: Covariance = &lt;/span>&lt;span class="si">%.4f&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">cov&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">hp&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">weight&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Covariance&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">37667.5403&lt;/span>
-&lt;span class="c1"># 交叉表显示&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">crosstab&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;automatic&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;NoOfSpeed&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">automatic_NoOfSpeed&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">23&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>交叉表的功能是分组统计数据。上面的交叉表类似下面的效果&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">cars&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">createOrReplaceGlobalTempView&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Cars&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Select automatic, NoOfSpeed, count(*) from global_temp.Cars group by automatic, NoOfSpeed&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---------+---------+--------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">automatic&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">NoOfSpeed&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+---------+--------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">23&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------+---------+--------+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>交叉表在数据统计中非常有用，有利于我们观察各组数据直接的关系。下面是利用交叉表查看泰坦尼克号中幸存者和他的属性关系。&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;span class="lnt">41
-&lt;/span>&lt;span class="lnt">42
-&lt;/span>&lt;span class="lnt">43
-&lt;/span>&lt;span class="lnt">44
-&lt;/span>&lt;span class="lnt">45
-&lt;/span>&lt;span class="lnt">46
-&lt;/span>&lt;span class="lnt">47
-&lt;/span>&lt;span class="lnt">48
-&lt;/span>&lt;span class="lnt">49
-&lt;/span>&lt;span class="lnt">50
-&lt;/span>&lt;span class="lnt">51
-&lt;/span>&lt;span class="lnt">52
-&lt;/span>&lt;span class="lnt">53
-&lt;/span>&lt;span class="lnt">54
-&lt;/span>&lt;span class="lnt">55
-&lt;/span>&lt;span class="lnt">56
-&lt;/span>&lt;span class="lnt">57
-&lt;/span>&lt;span class="lnt">58
-&lt;/span>&lt;span class="lnt">59
-&lt;/span>&lt;span class="lnt">60
-&lt;/span>&lt;span class="lnt">61
-&lt;/span>&lt;span class="lnt">62
-&lt;/span>&lt;span class="lnt">63
-&lt;/span>&lt;span class="lnt">64
-&lt;/span>&lt;span class="lnt">65
-&lt;/span>&lt;span class="lnt">66
-&lt;/span>&lt;span class="lnt">67
-&lt;/span>&lt;span class="lnt">68
-&lt;/span>&lt;span class="lnt">69
-&lt;/span>&lt;span class="lnt">70
-&lt;/span>&lt;span class="lnt">71
-&lt;/span>&lt;span class="lnt">72
-&lt;/span>&lt;span class="lnt">73
-&lt;/span>&lt;span class="lnt">74
-&lt;/span>&lt;span class="lnt">75
-&lt;/span>&lt;span class="lnt">76
-&lt;/span>&lt;span class="lnt">77
-&lt;/span>&lt;span class="lnt">78
-&lt;/span>&lt;span class="lnt">79
-&lt;/span>&lt;span class="lnt">80
-&lt;/span>&lt;span class="lnt">81
-&lt;/span>&lt;span class="lnt">82
-&lt;/span>&lt;span class="lnt">83
-&lt;/span>&lt;span class="lnt">84
-&lt;/span>&lt;span class="lnt">85
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">passengers&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;data/titanic3_02.csv&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Pclass&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Survived&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Gender&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Age&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="o">...&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;SibSp&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Parch&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>&lt;span class="n">passengers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Fare&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="o">...&lt;/span>
-&lt;span class="c1"># Pclass: 票的等级&lt;/span>
-&lt;span class="c1"># SibSp: 兄弟姐妹/配偶在船上&lt;/span>
-&lt;span class="c1"># Parch: 父母/子女在船上&lt;/span>
-&lt;span class="c1"># Fare: 票价&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+------+--------+------+------+-----+-----+--------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Pclass&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">Survived&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">Gender&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Age&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">SibSp&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">Parch&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Fare&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+------+--------+------+------+-----+-----+--------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">female&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">29.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">211.3375&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">male&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">0.9167&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">151.55&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">female&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">2.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">151.55&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">male&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">30.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">151.55&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">female&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">25.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">151.55&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+------+--------+------+------+-----+-----+--------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">root&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Pclass&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Survived&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Gender&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">string&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Age&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">SibSp&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Parch&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Fare&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Gender&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Gender&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">female&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">466&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">male&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">843&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+------+-----+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">crosstab&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Survived&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Gender&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---------------+------+----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Survived_Gender&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">female&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">male&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------------+------+----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">339&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">161&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">127&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">682&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---------------+------+----+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">crosstab&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Survived&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;SibSp&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+--------------+---+---+---+---+---+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Survived_SibSp&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">8&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+--------------+---+---+---+---+---+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">309&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">163&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">19&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">582&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">156&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">23&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">14&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">19&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+--------------+---+---+---+---+---+---+---+&lt;/span>
-&lt;span class="c1"># 因为Age是浮点型，直接用Age创建的交叉表的结果非常长，不便于观察。所以将它转换为整型&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">ageDist&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Survived&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;age&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;age&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cast&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;int&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;AgeBracket&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">ageDist&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+--------+----------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Survived&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">AgeBracket&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+--------+----------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+--------+----------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="c1"># 20s和30s之间的人最多，还有很多不知道年龄的人&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">ageDist&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">crosstab&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Survived&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;AgeBracket&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+---+---+---+---+---+---+----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">Survived_AgeBracket&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">40&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">null&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+---+---+---+---+---+---+----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">56&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">127&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">98&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">52&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">73&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">87&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">217&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">134&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">83&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">38&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">22&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">190&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------------------+---+---+---+---+---+---+---+---+---+----+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="科学计算函数">科学计算函数&lt;/h4>
-&lt;p>科学统计函数基本都在&lt;code>sql.functions&lt;/code>下面。&lt;/p>
-&lt;p>如: log(), log10(), sqrt(), cbrt(), exp(), pow(), sin(), cos(), tan(), acos(), asin(), atan(), toDegrees(), toRadians()&lt;/p>
-&lt;p>使用示例如下:&lt;/p>
-&lt;p>创建一个DataFrame&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Row&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">row&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Row&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;val&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">l&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">rdd&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sc&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parallelize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">l&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="c1"># 有两种方式将rdd转换为dataframe&lt;/span>
-&lt;span class="c1"># 方法一:&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">createDataFrame&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rdd&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">row&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="c1"># 方法二&lt;/span>
-&lt;span class="c1"># &amp;gt;&amp;gt;&amp;gt; df = rdd.map(row).toDF()&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>一些示例&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql.functions&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">log&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">log10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sart&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="n">log1p&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;ln&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">ln&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">0.6931471805599453&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">1.0986122886681098&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">log10&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;log10&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+-------------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">log10&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+-------------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.3010299956639812&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">0.47712125471966244&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+-------------------+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">sqrt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;sqrt&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">sqrt&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">1.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">1.4142135623730951&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">1.7320508075688772&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">log1p&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;val&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;ln1p&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">ln1p&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">0.6931471805599453&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">1.0986122886681096&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mf">1.3862943611198906&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+------------------+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>对于给定的直角三角形的两个直角边，求其斜边的长度&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferScheam&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/hypot.csv&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">X&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+---+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">7&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">24&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">40&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">11&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">13&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">84&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+---+&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql.functions&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">hypot&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;X&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Y&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="o">...&lt;/span> &lt;span class="n">hypot&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;X&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Y&amp;#34;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;hypot&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">+---+---+-----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">X&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">hypot&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+---+-----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">5.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">13.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">7&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">24&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">25.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">40&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">41.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">11&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">61.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">13&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">84&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">85.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+---+---+-----+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="实战">实战&lt;/h4>
-&lt;p>下面让我们通过一个实战，使用前面学到的接口和函数。&lt;/p>
-&lt;p>我们使用Northwind Sales的数据集来分析下面的问题:&lt;/p>
-&lt;ul>
-&lt;li>How many orders were placed by each customer?&lt;/li>
-&lt;li>How many orders were placed in each country?&lt;/li>
-&lt;li>How many orders were placed for each month/year?&lt;/li>
-&lt;li>What is the total number of sales for each customer, year-wise?&lt;/li>
-&lt;li>What * is the average order by customer, year-wise?&lt;/li>
-&lt;/ul>
-&lt;p>读取数据&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;span class="lnt">41
-&lt;/span>&lt;span class="lnt">42
-&lt;/span>&lt;span class="lnt">43
-&lt;/span>&lt;span class="lnt">44
-&lt;/span>&lt;span class="lnt">45
-&lt;/span>&lt;span class="lnt">46
-&lt;/span>&lt;span class="lnt">47
-&lt;/span>&lt;span class="lnt">48
-&lt;/span>&lt;span class="lnt">49
-&lt;/span>&lt;span class="lnt">50
-&lt;/span>&lt;span class="lnt">51
-&lt;/span>&lt;span class="lnt">52
-&lt;/span>&lt;span class="lnt">53
-&lt;/span>&lt;span class="lnt">54
-&lt;/span>&lt;span class="lnt">55
-&lt;/span>&lt;span class="lnt">56
-&lt;/span>&lt;span class="lnt">57
-&lt;/span>&lt;span class="lnt">58
-&lt;/span>&lt;span class="lnt">59
-&lt;/span>&lt;span class="lnt">60
-&lt;/span>&lt;span class="lnt">61
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orders&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/NW/NW-Orders-01.csv&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">...&lt;/span> &lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Orders has {orders.count()} rows&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">Orders&lt;/span> &lt;span class="n">has&lt;/span> &lt;span class="mi">830&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+-------+----------+----------+-------------------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">OrderID&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">CustomerID&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">EmployeeID&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">OrderDate&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">ShipCountry&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+----------+----------+-------------------+-----------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10248&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">VINET&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">1996&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">02&lt;/span> &lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">France&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10249&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">TOMSP&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">1996&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">03&lt;/span> &lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Germany&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10250&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">HANAR&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">1996&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">06&lt;/span> &lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Brazil&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10251&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">VICTE&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">1996&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">06&lt;/span> &lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">France&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10252&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">SUPRD&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="mi">1996&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mo">07&lt;/span> &lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mo">00&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">Belgium&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+----------+----------+-------------------+-----------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">root&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">OrderID&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">CustomerID&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">string&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">EmployeeID&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">OrderDate&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">timestamp&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">ShipCountry&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">string&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderDetails&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>\
-&lt;span class="o">...&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/NW/NW-Order-Details.csv&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Order Details has {orderDetails.count()} rows&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">Order&lt;/span> &lt;span class="n">Details&lt;/span> &lt;span class="n">has&lt;/span> &lt;span class="mi">2155&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+-------+---------+---------+---+--------+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">OrderID&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">ProductId&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">UnitPrice&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">Qty&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">Discount&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+---------+---------+---+--------+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10248&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">11&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">14.0&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10248&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">42&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">9.8&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10248&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">34.8&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10249&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">14&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">18.6&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="mi">10249&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">51&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">42.4&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">40&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-------+---------+---------+---+--------+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">root&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">OrderID&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">ProductId&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">UnitPrice&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Qty&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">|--&lt;/span> &lt;span class="n">Discount&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">double&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">nullable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">true&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>解答问题1: &lt;code>How many orders were placed by each customer?&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderByCustomer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql.functions&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">desc&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderByCustomer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">desc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;count&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+----------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">CustomerID&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+----------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">SAVEA&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">31&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">ERNSH&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">QUICK&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">28&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">HUNGO&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">19&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">FOLKO&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">19&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+----------+-----+&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>解答问题2: &lt;code>How many orders were placed in each country?&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderByCountry&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;ShipCountry&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">orderByCountry&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">desc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;count&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">+-----------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span>&lt;span class="n">ShipCountry&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----------+-----+&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">Germany&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">122&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">USA&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">122&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">Brazil&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">82&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">France&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">77&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">|&lt;/span> &lt;span class="n">UK&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="mi">56&lt;/span>&lt;span class="o">|&lt;/span>
-&lt;span class="o">+-----------+-----+&lt;/span>
-&lt;span class="n">only&lt;/span> &lt;span class="n">showing&lt;/span> &lt;span class="n">top&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="n">rows&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>后面三个问题可以如下解答&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;span class="lnt">41
-&lt;/span>&lt;span class="lnt">42
-&lt;/span>&lt;span class="lnt">43
-&lt;/span>&lt;span class="lnt">44
-&lt;/span>&lt;span class="lnt">45
-&lt;/span>&lt;span class="lnt">46
-&lt;/span>&lt;span class="lnt">47
-&lt;/span>&lt;span class="lnt">48
-&lt;/span>&lt;span class="lnt">49
-&lt;/span>&lt;span class="lnt">50
-&lt;/span>&lt;span class="lnt">51
-&lt;/span>&lt;span class="lnt">52
-&lt;/span>&lt;span class="lnt">53
-&lt;/span>&lt;span class="lnt">54
-&lt;/span>&lt;span class="lnt">55
-&lt;/span>&lt;span class="lnt">56
-&lt;/span>&lt;span class="lnt">57
-&lt;/span>&lt;span class="lnt">58
-&lt;/span>&lt;span class="lnt">59
-&lt;/span>&lt;span class="lnt">60
-&lt;/span>&lt;span class="lnt">61
-&lt;/span>&lt;span class="lnt">62
-&lt;/span>&lt;span class="lnt">63
-&lt;/span>&lt;span class="lnt">64
-&lt;/span>&lt;span class="lnt">65
-&lt;/span>&lt;span class="lnt">66
-&lt;/span>&lt;span class="lnt">67
-&lt;/span>&lt;span class="lnt">68
-&lt;/span>&lt;span class="lnt">69
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="c1"># -*- coding: utf-8 -*-&lt;/span>
-&lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">SparkSession&lt;/span>
-&lt;span class="kn">from&lt;/span> &lt;span class="nn">pyspark.sql.functions&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">to_date&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">month&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">year&lt;/span>
-&lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
-&lt;span class="n">spark&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">SparkSession&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">builder&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">appName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Datasets APIs Demo&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">master&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;local&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logConf&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;spark.logLevel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;ERROR&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">getOrCreate&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="s2">&amp;#34;Running Spark Version {spark.version}&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">filePath&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>
-&lt;span class="n">orders&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/NW/NW-Orders-01.csv&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">orderDetails&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;header&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">option&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;inferSchema&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filePath&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;data/NW/NW-Order-Details.csv&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;OrderID&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="p">((&lt;/span>&lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;UnitPrice&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Qty&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="p">(&lt;/span>
-&lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;UnitPrice&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Qty&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">orderDetails&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Discount&amp;#39;&lt;/span>&lt;span class="p">]))&lt;/span>&lt;span class="o">.&lt;/span>
-&lt;span class="n">name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;OrderPrice&amp;#39;&lt;/span>&lt;span class="p">)))&lt;/span>
-&lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="c1"># 设置DataFrame orderTot的别名为OrderTotal&lt;/span>
-&lt;span class="n">orderTot&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;OrderID&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;OrderPrice&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;OrderTotal&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">orderTot&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;OrderID&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">orders_df&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orderTot&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">orders&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderID&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">orderTot&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderID&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;inner&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orders&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderID&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="n">orders&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="n">orders&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderDate&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="n">orders&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;ShipCountry&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;ShipCountry&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="n">orderTot&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;sum(OrderPrice)&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">orders_df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 过滤出空行&lt;/span>
-&lt;span class="n">orders_df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orders_df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">isNull&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 添加Date列&lt;/span>
-&lt;span class="n">orders_df2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders_df&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">withColumn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Date&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">to_date&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orders_df&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;OrderDate&amp;#39;&lt;/span>&lt;span class="p">]))&lt;/span>
-&lt;span class="n">orders_df2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">orders_df2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 添加Month和Year列&lt;/span>
-&lt;span class="n">orders_df3&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders_df2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">withColumn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Month&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">month&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orders_df2&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderDate&amp;#34;&lt;/span>&lt;span class="p">]))&lt;/span> \
-&lt;span class="o">.&lt;/span>&lt;span class="n">withColumn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Year&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">year&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">orders_df2&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;OrderDate&amp;#34;&lt;/span>&lt;span class="p">]))&lt;/span>
-&lt;span class="n">orders_df3&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">orders_df3&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">printSchema&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 问题3&lt;/span>
-&lt;span class="n">ordersByYM&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders_df3&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Year&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Month&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">ordersByYM&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ordersByYM&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Year&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ordersByYM&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Month&amp;#34;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 问题4&lt;/span>
-&lt;span class="n">ordersByCY&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders_df3&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Year&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">ordersByCY&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ordersByCY&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ordersByCY&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Year&amp;#34;&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># 问题5&lt;/span>
-&lt;span class="n">ordersCA&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">orders_df3&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;CustomerID&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">avg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">alias&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Total&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">ordersCA&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;avg(Total)&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ascending&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="bp">False&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">show&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">spark&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stop&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;p>1表示完全正相关，-1表示完全负相关&lt;/p></description></item></channel></rss>
