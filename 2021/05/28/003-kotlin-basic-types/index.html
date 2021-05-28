@@ -1,0 +1,322 @@
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本数据类型 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin基本数据类型有: numbers, booleans, characters, strings, arrays
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本数据类型"><meta property="og:description" content="Kotlin基本数据类型有: numbers, booleans, characters, strings, arrays
+"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-05-28T11:50:29+08:00"><meta property="article:modified_time" content="2021-05-28T11:50:29+08:00"><meta itemprop=name content="Kotlin基本数据类型"><meta itemprop=description content="Kotlin基本数据类型有: numbers, booleans, characters, strings, arrays
+"><meta itemprop=datePublished content="2021-05-28T11:50:29+08:00"><meta itemprop=dateModified content="2021-05-28T11:50:29+08:00"><meta itemprop=wordCount content="2197"><meta itemprop=keywords content="kotlin,basic types,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本数据类型"><meta name=twitter:description content="Kotlin基本数据类型有: numbers, booleans, characters, strings, arrays
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/books/>读书</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/books/>读书</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本数据类型</h1><div class=post-meta><time datetime=2021-05-28 class=post-time>2021-05-28</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 2197 字</span>
+<span class=more-meta>预计阅读 5 分钟</span>
+<span id=/2021/05/28/003-kotlin-basic-types/ class=leancloud_visitors data-flag-title=Kotlin基本数据类型><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#基本数据类型httpskotlinlangorgdocsbasic-typeshtml><a href=https://kotlinlang.org/docs/basic-types.html>基本数据类型</a></a></li><li><a href=#numbers>Numbers</a><ul><li><a href=#integer-types>Integer types</a></li><li><a href=#floating-point-types>Floating-point types﻿</a></li><li><a href=#字面表示方式>字面表示方式</a></li><li><a href=#数字在jvm中的表现形式>数字在JVM中的表现形式</a></li><li><a href=#数字类型转换>数字类型转换</a></li><li><a href=#算术运算符>算术运算符</a></li><li><a href=#位运算符>位运算符</a></li><li><a href=#unsigned-integers>Unsigned integers﻿</a></li></ul></li><li><a href=#booleans>Booleans</a></li><li><a href=#characters>Characters﻿</a></li><li><a href=#strings>Strings</a><ul><li></li></ul></li><li><a href=#arrays>Arrays</a><ul><li></li></ul></li></ul></nav></div></div><div class=post-content><p>在Kotlin语言中，<strong>一切皆对象</strong>。因此，我们可以调用任意类型变量的属性或方法。比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// {}是一个空的Lamba表达式，我们也可以通过它调用标准库中的also函数
+</span><span class=c1></span><span class=n>println</span><span class=p>({}.</span><span class=n>also</span> <span class=p>{</span>
+    <span class=n>print</span><span class=p>(</span><span class=s2>&#34;call function on any variable&#34;</span><span class=p>)</span>
+<span class=p>})</span>
+</code></pre></td></tr></table></div></div><h2 id=基本数据类型httpskotlinlangorgdocsbasic-typeshtml><a href=https://kotlinlang.org/docs/basic-types.html>基本数据类型</a></h2><ul><li>numbers</li><li>booleans</li><li>characters</li><li>strings</li><li>arrays</li></ul><h2 id=numbers>Numbers</h2><h3 id=integer-types>Integer types</h3><ul><li>Byte</li><li>Short</li><li>Int</li><li>Long</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>oneByte</span><span class=p>:</span> <span class=n>Byte</span> <span class=p>=</span> <span class=m>1</span> <span class=c1>// Byte
+</span><span class=c1></span><span class=k>val</span> <span class=py>oneShort</span><span class=p>:</span> <span class=n>Short</span> <span class=p>=</span> <span class=m>1</span> <span class=c1>//Short
+</span><span class=c1></span><span class=k>val</span> <span class=py>one</span> <span class=p>=</span> <span class=m>1</span> <span class=c1>// Int
+</span><span class=c1></span><span class=k>val</span> <span class=py>oneLong</span> <span class=p>=</span> <span class=m>1L</span> <span class=c1>// Long, 后面要接L后缀
+</span></code></pre></td></tr></table></div></div><h3 id=floating-point-types>Floating-point types﻿</h3><ul><li>Float</li><li>Double</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>oneDouble</span> <span class=p>=</span> <span class=m>1.0</span> <span class=c1>// Double，小数默认都是Double类型
+</span><span class=c1></span><span class=k>val</span> <span class=py>oneFloat</span><span class=p>=</span> <span class=m>1.0f</span> <span class=c1>// Float, 后面需要跟f后缀(大小写都可以)
+</span></code></pre></td></tr></table></div></div><h3 id=字面表示方式>字面表示方式</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// 16进制以0x开头 
+</span><span class=c1></span><span class=k>val</span> <span class=py>hexTen</span> <span class=p>=</span> <span class=m>0xA</span>
+<span class=n>println</span><span class=p>(</span><span class=n>hexTen</span><span class=p>)</span> <span class=c1>// 10
+</span><span class=c1>// 2进制以0b开头 
+</span><span class=c1></span><span class=k>val</span> <span class=py>binFour</span> <span class=p>=</span> <span class=m>0</span><span class=n>b100</span> 
+<span class=n>println</span><span class=p>(</span><span class=n>binFour</span><span class=p>)</span>  <span class=c1>// 4
+</span><span class=c1></span>
+<span class=c1>// kotlin不支持8进制
+</span><span class=c1></span>
+<span class=c1>// 可以使用下划线让数据更易读
+</span><span class=c1></span><span class=k>val</span> <span class=py>oneMillion</span> <span class=p>=</span> <span class=m>1</span><span class=n>_000_000</span>
+<span class=k>val</span> <span class=py>creditCardNumber</span> <span class=p>=</span> <span class=m>1234</span><span class=n>_5678_9012_3456L</span>
+<span class=k>val</span> <span class=py>socialSecurityNumber</span> <span class=p>=</span> <span class=m>999</span><span class=n>_99_9999L</span>
+<span class=k>val</span> <span class=py>hexBytes</span> <span class=p>=</span> <span class=m>0xFF</span><span class=n>_EC_DE_5E</span>
+<span class=k>val</span> <span class=py>bytes</span> <span class=p>=</span> <span class=m>0</span><span class=n>b11010010_01101001_10010100_10010010</span>
+</code></pre></td></tr></table></div></div><h3 id=数字在jvm中的表现形式>数字在JVM中的表现形式</h3><p>在JVM平台中，数字都是作为原始数据类型,比如<code>int</code>,<code>double</code>等保存的。</p><p>但是可空类型，比如<code>Int?</code> 等则会自动装箱为Java中<code>Integer</code>类型。</p><p>因此，一些引用同一个可空类型的变量，可能属于不同的对象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>a</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>100</span>
+<span class=k>val</span> <span class=py>boxedA</span><span class=p>:</span> <span class=n>Int</span><span class=p>?</span> <span class=p>=</span> <span class=n>a</span>
+<span class=k>val</span> <span class=py>anotherBoxedA</span><span class=p>:</span> <span class=n>Int</span><span class=p>?</span> <span class=p>=</span> <span class=n>a</span>
+
+<span class=k>val</span> <span class=py>b</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>10000</span>
+<span class=k>val</span> <span class=py>boxedB</span><span class=p>:</span> <span class=n>Int</span><span class=p>?</span> <span class=p>=</span> <span class=n>b</span>
+<span class=k>val</span> <span class=py>anotherBoxedB</span><span class=p>:</span> <span class=n>Int</span><span class=p>?</span> <span class=p>=</span> <span class=n>b</span>
+
+<span class=c1>// JVM中会优化Int类型的使用，所以在-128~127直接的Int会被重复使用，不再创建
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>boxedA</span> <span class=o>===</span> <span class=n>anotherBoxedA</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1>// 超出范围的每次都会判断是否引用同一个对象
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>boxedB</span> <span class=o>===</span> <span class=n>anotherBoxedB</span><span class=p>)</span> <span class=c1>// false
+</span><span class=c1></span>
+<span class=n>println</span><span class=p>(</span><span class=n>boxedA</span> <span class=o>==</span> <span class=n>anotherBoxedA</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>boxedB</span> <span class=o>==</span> <span class=n>anotherBoxedB</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span>
+<span class=c1>// == 比较两个变量值是否相等
+</span><span class=c1>// === 比较两个变量是否引用的相同的对象
+</span><span class=c1></span>
+</code></pre></td></tr></table></div></div><h3 id=数字类型转换>数字类型转换</h3><p>不像Java，Kotlin中的数字类型不会自动转换，无论是从Int转Long，或者Long转Int，都需要显示指定，转换方法如下</p><ul><li><code>toByte(): Byte</code></li><li><code>toShort(): Short</code></li><li><code>toInt(): Int</code></li><li><code>toLong(): Long</code></li><li><code>toFloat(): Float</code></li><li><code>toDouble(): Double</code></li><li><code>toChar(): Char</code></li></ul><p>但是大部分时候，都不需要手动指定转换，算术运算符会自动推断类型,比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>l</span> <span class=p>=</span> <span class=m>1L</span> <span class=p>+</span> <span class=m>3</span> <span class=c1>// Long + Int =&gt; Long
+</span></code></pre></td></tr></table></div></div><h3 id=算术运算符>算术运算符</h3><p>类似其它语言，Kotlin支持的运算符如下：</p><ul><li><code>+</code></li><li><code>-</code></li><li><code>*</code></li><li><code>/</code></li><li><code>%</code></li></ul><p>当然，也可以<a href=https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements>重载运算符</a>,以实现其它的效果。</p><p>除法需要注意的是，使用整型做除法时，返回结果也是整型，小数会被自动去掉</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>println</span><span class=p>(</span><span class=m>5</span> <span class=p>/</span> <span class=m>2</span><span class=p>)</span> <span class=c1>// 2
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>5</span> <span class=p>/</span> <span class=m>2f</span><span class=p>)</span> <span class=c1>// 2.5
+</span></code></pre></td></tr></table></div></div><h3 id=位运算符>位运算符</h3><ul><li>有符号左移: <code>shl(bits)</code> – signed shift left</li><li>有符号右移: <code>shr(bits)</code> – signed shift right</li><li>无符号右移:<code>ushr(bits)</code> – unsigned shift right</li><li>与操作: <code>and(bits)</code> – bitwise <strong>and</strong></li><li>或操作:<code>or(bits)</code> – bitwise <strong>or</strong></li><li>异或操作:<code>xor(bits)</code> – bitwise <strong>xor</strong></li><li>按位取反: <code>inv()</code> – bitwise inversion</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>println</span><span class=p>(</span> <span class=m>1</span> <span class=n>shl</span> <span class=m>2</span><span class=p>)</span> <span class=c1>// 4
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=p>-</span><span class=m>6</span> <span class=n>shr</span> <span class=m>1</span><span class=p>)</span> <span class=c1>// -3
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6</span> <span class=n>shr</span> <span class=m>1</span><span class=p>)</span> <span class=c1>// 3
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6</span> <span class=n>ushr</span> <span class=m>1</span><span class=p>)</span> <span class=c1>// 3
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6</span> <span class=n>and</span> <span class=m>4</span><span class=p>)</span> <span class=c1>// 4
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6</span> <span class=n>or</span> <span class=m>4</span><span class=p>)</span> <span class=c1>// 6
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6</span> <span class=n>xor</span> <span class=m>4</span><span class=p>)</span> <span class=c1>// 2
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span> <span class=m>6.</span><span class=n>inv</span><span class=p>())</span> <span class=c1>// -7
+</span></code></pre></td></tr></table></div></div><p>位运算的详细介绍</p><ul><li><p><a href=https://www.huaweicloud.com/articles/6a4c5ca906ecf547f038d24b834cd578.html>负数的二进制表示方法</a></p></li><li><p><a href=https://blog.csdn.net/qq_34996727/article/details/86582705>深入理解位运算操作及使用场景</a></p></li></ul><h3 id=unsigned-integers>Unsigned integers﻿</h3><ul><li><code>UByte</code>: an unsigned 8-bit integer, ranges from 0 to 255</li><li><code>UShort</code>: an unsigned 16-bit integer, ranges from 0 to 65535</li><li><code>UInt</code>: an unsigned 32-bit integer, ranges from 0 to 2^32 - 1</li><li><code>ULong</code>: an unsigned 64-bit integer, ranges from 0 to 2^64 - 1</li></ul><h2 id=booleans>Booleans</h2><p>boolean类型只有<code>true</code>和<code>false</code>两个值</p><p>支持的逻辑运算符有:</p><ul><li><code>||</code> – disjunction (logical <em>OR</em>)</li><li><code>&&</code> – conjunction (logical <em>AND</em>)</li><li><code>!</code>- negation (logical <em>NOT</em>)</li></ul><p><code>||</code> 和 <code>&&</code> 都是懒惰运算符号。即当返回值能确定时，后面的表达式则不再计算。</p><p>比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>condition1</span><span class=p>():</span> <span class=n>Boolean</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;call get condition1&#34;</span><span class=p>)</span>
+    <span class=k>return</span> <span class=k>false</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>condition2</span><span class=p>():</span> <span class=n>Boolean</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;call get condition2&#34;</span><span class=p>)</span>
+    <span class=k>return</span> <span class=k>true</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>condition1</span><span class=p>()</span> <span class=o>&amp;&amp;</span> <span class=n>condition2</span><span class=p>()</span> <span class=c1>// 由于condition1返回false, condition2不会再被调用
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=characters>Characters﻿</h2><p>字符类型，所有的字符类型都是<code>Char</code>类型，可以用单引号来表示，比如: <code>'1'</code></p><p>特殊字符使用<code>\</code>转义，比如<code>\t</code>, <code>\n</code>, <code>\'</code>, <code>\"</code>, <code>\\</code>, <code>\$</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>aChar</span><span class=p>:</span> <span class=n>Char</span> <span class=p>=</span> <span class=sc>&#39;a&#39;</span>
+
+<span class=n>println</span><span class=p>(</span><span class=n>aChar</span><span class=p>)</span>
+<span class=n>println</span><span class=p>(</span><span class=sc>&#39;\n&#39;</span><span class=p>)</span> <span class=c1>//prints an extra newline character
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=sc>&#39;</span><span class=se>\uFF00</span><span class=sc>&#39;</span><span class=p>)</span>
+
+<span class=c1>// 使用digitToInt可以把字符转换成数字
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=sc>&#39;5&#39;</span><span class=p>.</span><span class=n>digitToInt</span><span class=p>())</span> <span class=c1>// 5
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=sc>&#39;3&#39;</span><span class=p>.</span><span class=n>digitToInt</span><span class=p>(</span><span class=n>radix</span> <span class=p>=</span> <span class=m>8</span><span class=p>))</span> <span class=c1>// 3
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=sc>&#39;A&#39;</span><span class=p>.</span><span class=n>digitToInt</span><span class=p>(</span><span class=n>radix</span> <span class=p>=</span> <span class=m>16</span><span class=p>))</span> <span class=c1>// 10
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=sc>&#39;k&#39;</span><span class=p>.</span><span class=n>digitToInt</span><span class=p>(</span><span class=n>radix</span> <span class=p>=</span> <span class=m>36</span><span class=p>))</span> <span class=c1>// 20
+</span><span class=c1></span>
+<span class=c1>// radix argument should be in 2..36
+</span><span class=c1>// &#39;0&#39;.digitToInt(radix = 1) //  will fail
+</span><span class=c1>// &#39;1&#39;.digitToInt(radix = 100) //  will fail
+</span><span class=c1>// only 0 and 1 digits are valid for binary numbers
+</span><span class=c1>// &#39;5&#39;.digitToInt(radix = 2) //  will fail
+</span><span class=c1>// radix = 10 is used by default
+</span><span class=c1>// &#39;A&#39;.digitToInt() //  will fail
+</span><span class=c1>// symbol &#39;+&#39; is not a digit in any radix
+</span><span class=c1>// &#39;+&#39;.digitToInt() //  will fail
+</span><span class=c1>// Only Latin letters are valid for digits greater than 9.
+</span><span class=c1>// &#39;β&#39;.digitToInt(radix = 36) //  will fail
+</span></code></pre></td></tr></table></div></div><h2 id=strings>Strings</h2><p>字符串用双引号<code>""</code>表示</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>str</span> <span class=p>=</span> <span class=s2>&#34;abcd 123&#34;</span>
+<span class=c1>// 可以遍历str里的每个Char元素
+</span><span class=c1></span><span class=k>for</span> <span class=p>(</span><span class=n>c</span> <span class=k>in</span> <span class=n>str</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>c</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=n>println</span><span class=p>(</span><span class=n>str</span><span class=p>[</span><span class=m>0</span><span class=p>])</span> <span class=c1>// &#39;a&#39;
+</span></code></pre></td></tr></table></div></div><p>字符串一旦创建之后是不可改变的，所有关于字符串的操作都是返回了一个新的字符串对象，原来的字符串保持不变</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>str</span> <span class=p>=</span> <span class=s2>&#34;abcd&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=n>str</span><span class=p>.</span><span class=n>uppercase</span><span class=p>())</span> <span class=c1>// Create and print a new String object
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>str</span><span class=p>)</span> <span class=c1>// the original string remains the same
+</span></code></pre></td></tr></table></div></div><p>使用<code>+</code>操作符号可以拼接字符串</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;abc&#34;</span> <span class=p>+</span> <span class=m>1</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s</span> <span class=p>+</span> <span class=s2>&#34;def&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>Kotlin中字符串有两种形式</p><ol><li><p>包含转义字符的字符串</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;Hello, world!</span><span class=se>\n</span><span class=s2>&#34;</span>
+</code></pre></td></tr></table></div></div></li><li><p>包含原始字符的字符串(使用三个引号<code>"""</code>)</p></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>text</span> <span class=p>=</span> <span class=s>&#34;&#34;&#34;
+</span><span class=s>    for (c in &#34;foo&#34;)
+</span><span class=s>        print(c)
+</span><span class=s>&#34;&#34;&#34;</span>
+</code></pre></td></tr></table></div></div><p>可以使用<code>trimMargin()</code>方法来移除开头的边缘符号,默认使用<code>|</code>作为边缘分隔符</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>withoutMargin1</span> <span class=p>=</span> <span class=s>&#34;&#34;&#34;ABC
+</span><span class=s>                |123
+</span><span class=s>                |456&#34;&#34;&#34;</span><span class=p>.</span><span class=n>trimMargin</span><span class=p>()</span>
+<span class=n>println</span><span class=p>(</span><span class=n>withoutMargin1</span><span class=p>)</span> <span class=c1>// ABC\n123\n456
+</span><span class=c1></span>
+<span class=c1>// 自定义#符号
+</span><span class=c1></span><span class=k>val</span> <span class=py>withoutMargin2</span> <span class=p>=</span> <span class=s>&#34;&#34;&#34;
+</span><span class=s>    #XYZ
+</span><span class=s>    #foo
+</span><span class=s>    #bar
+</span><span class=s>&#34;&#34;&#34;</span><span class=p>.</span><span class=n>trimMargin</span><span class=p>(</span><span class=s2>&#34;#&#34;</span><span class=p>)</span>
+<span class=n>println</span><span class=p>(</span><span class=n>withoutMargin2</span><span class=p>)</span> <span class=c1>// XYZ\nfoo\nbar
+</span></code></pre></td></tr></table></div></div><h4 id=字符串模板>字符串模板</h4><p>使用<code>$</code>可以在字符串中引用变量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>i</span> <span class=p>=</span> <span class=m>10</span>
+<span class=n>println</span><span class=p>(</span><span class=s2>&#34;i = </span><span class=si>$i</span><span class=s2>&#34;</span><span class=p>)</span> <span class=c1>// prints &#34;i = 10&#34;
+</span><span class=c1></span>
+<span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;abc&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>$s</span><span class=s2>.length is </span><span class=si>${s.length}</span><span class=s2>&#34;</span><span class=p>)</span> <span class=c1>// prints &#34;abc.length is 3&#34;
+</span></code></pre></td></tr></table></div></div><h2 id=arrays>Arrays</h2><p>Kotlin中使用<code>Array</code>类表示数组类型，重载了<code>[]</code>来调用<code>Array</code>类的<code>get</code>和<code>set</code>方法，获取数组元素个数可以使用<code>size</code>属性获取</p><p>可以使用<code>arryOf</code>和<code>arrayOfNulls</code>方法来创建数组, 也可以使用<code>Array</code>类的构造函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>a</span> <span class=p>=</span> <span class=n>arrayOf</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span> <span class=c1>//  [1, 2, 3]
+</span><span class=c1>// 通过索引访问元素
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>a</span><span class=p>[</span><span class=m>1</span><span class=p>])</span>  <span class=c1>// 2
+</span><span class=c1>// 通过索引修改元素
+</span><span class=c1></span><span class=n>a</span><span class=p>[</span><span class=m>1</span><span class=p>]</span> <span class=p>=</span> <span class=m>4</span>
+<span class=n>println</span><span class=p>(</span><span class=n>a</span><span class=p>[</span><span class=m>1</span><span class=p>])</span>  <span class=c1>// 4
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>size</span><span class=p>)</span> <span class=c1>// 3
+</span><span class=c1></span>
+<span class=k>val</span> <span class=py>b</span> <span class=p>=</span> <span class=n>arrayOfNulls</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;(</span><span class=m>3</span><span class=p>)</span> <span class=c1>// [null, null, null]
+</span><span class=c1></span>
+<span class=c1>// Creates an Array&lt;String&gt; with values [&#34;0&#34;, &#34;1&#34;, &#34;4&#34;, &#34;9&#34;, &#34;16&#34;]
+</span><span class=c1></span><span class=k>val</span> <span class=py>asc</span> <span class=p>=</span> <span class=n>Array</span><span class=p>(</span><span class=m>5</span><span class=p>)</span> <span class=p>{</span> <span class=n>i</span> <span class=o>-&gt;</span> <span class=p>(</span><span class=n>i</span> <span class=p>*</span> <span class=n>i</span><span class=p>).</span><span class=n>toString</span><span class=p>()</span> <span class=p>}</span>
+<span class=n>asc</span><span class=p>.</span><span class=n>forEach</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=k>it</span><span class=p>)</span> <span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><h4 id=primitive-type-arrayshttpskotlinlangorgdocsbasic-typeshtmlprimitive-type-arrays><a href=https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays>Primitive type arrays﻿</a></h4><blockquote><p>Kotlin also has classes that represent arrays of primitive types without boxing overhead: <code>ByteArray</code>, <code>ShortArray</code>, <code>IntArray</code>, and so on. These classes have no inheritance relation to the <code>Array</code> class, but they have the same set of methods and properties. Each of them also has a corresponding factory function:</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// Array of int of size 5 with values [0, 0, 0, 0, 0]
+</span><span class=c1></span><span class=k>val</span> <span class=py>arr</span> <span class=p>=</span> <span class=n>IntArray</span><span class=p>(</span><span class=m>5</span><span class=p>)</span>
+
+<span class=c1>// e.g. initialise the values in the array with a constant
+</span><span class=c1>// Array of int of size 5 with values [42, 42, 42, 42, 42]
+</span><span class=c1></span><span class=k>val</span> <span class=py>arr</span> <span class=p>=</span> <span class=n>IntArray</span><span class=p>(</span><span class=m>5</span><span class=p>)</span> <span class=p>{</span> <span class=m>42</span> <span class=p>}</span>
+
+<span class=c1>// e.g. initialise the values in the array using a lambda
+</span><span class=c1>// Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+</span><span class=c1></span><span class=k>var</span> <span class=py>arr</span> <span class=p>=</span> <span class=n>IntArray</span><span class=p>(</span><span class=m>5</span><span class=p>)</span> <span class=p>{</span> <span class=k>it</span> <span class=p>*</span> <span class=m>1</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-05-28</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/kotlinbasic-types/>kotlin,basic types</a></div><nav class=post-nav><a class=next href=/2021/05/26/002-kotlin-development-env-setup/><span class="next-text nav-default">Kotlin开发环境搭建</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408h399.992405s71.046998 3.997201 71.046998 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zm53.281707 130.131124C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523S0 1024 83.726336 1024H682.532949 753.579947h595.368192C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955c-39.771477 34.470494-74.671786 43.295855-98.955861 43.868928z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2021
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>

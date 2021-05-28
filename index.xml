@@ -1,4 +1,517 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 06 May 2021 13:50:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin开发环境搭建</title><link>https://crazygit.wiseturtles.com/2021/05/06/002-kotlin-development-env-setup/</link><pubDate>Thu, 06 May 2021 13:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/06/002-kotlin-development-env-setup/</guid><description>&lt;p>kotlin的使用非常方便，只需要下载IntelliJ Idea 或者Android Studio,安装好之后默认就可以直接使用kotlin语言进行开发了。Eclipse也可以安装kotlin插件来使用kotlin做开发。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 May 2021 11:50:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本数据类型</title><link>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</link><pubDate>Fri, 28 May 2021 11:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</guid><description>&lt;p>在Kotlin语言中，&lt;strong>一切皆对象&lt;/strong>。因此，我们可以调用任意类型变量的属性或方法。比如&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// {}是一个空的Lamba表达式，我们也可以通过它调用标准库中的also函数
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">({}.&lt;/span>&lt;span class="n">also&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;call function on any variable&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="基本数据类型httpskotlinlangorgdocsbasic-typeshtml">&lt;a href="https://kotlinlang.org/docs/basic-types.html">基本数据类型&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>numbers&lt;/li>
+&lt;li>booleans&lt;/li>
+&lt;li>characters&lt;/li>
+&lt;li>strings&lt;/li>
+&lt;li>arrays&lt;/li>
+&lt;/ul>
+&lt;h2 id="numbers">Numbers&lt;/h2>
+&lt;h3 id="integer-types">Integer types&lt;/h3>
+&lt;ul>
+&lt;li>Byte&lt;/li>
+&lt;li>Short&lt;/li>
+&lt;li>Int&lt;/li>
+&lt;li>Long&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">oneByte&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Byte&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="c1">// Byte
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">oneShort&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Short&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="c1">//Short
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">one&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="c1">// Int
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">oneLong&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1L&lt;/span> &lt;span class="c1">// Long, 后面要接L后缀
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="floating-point-types">Floating-point types﻿&lt;/h3>
+&lt;ul>
+&lt;li>Float&lt;/li>
+&lt;li>Double&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">oneDouble&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1.0&lt;/span> &lt;span class="c1">// Double，小数默认都是Double类型
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">oneFloat&lt;/span>&lt;span class="p">=&lt;/span> &lt;span class="m">1.0f&lt;/span> &lt;span class="c1">// Float, 后面需要跟f后缀(大小写都可以)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="字面表示方式">字面表示方式&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 16进制以0x开头
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">hexTen&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">0xA&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hexTen&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 10
+&lt;/span>&lt;span class="c1">// 2进制以0b开头
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">binFour&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">0&lt;/span>&lt;span class="n">b100&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">binFour&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 4
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// kotlin不支持8进制
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 可以使用下划线让数据更易读
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">oneMillion&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="n">_000_000&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">creditCardNumber&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1234&lt;/span>&lt;span class="n">_5678_9012_3456L&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">socialSecurityNumber&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">999&lt;/span>&lt;span class="n">_99_9999L&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">hexBytes&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">0xFF&lt;/span>&lt;span class="n">_EC_DE_5E&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">bytes&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">0&lt;/span>&lt;span class="n">b11010010_01101001_10010100_10010010&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数字在jvm中的表现形式">数字在JVM中的表现形式&lt;/h3>
+&lt;p>在JVM平台中，数字都是作为原始数据类型,比如&lt;code>int&lt;/code>,&lt;code>double&lt;/code>等保存的。&lt;/p>
+&lt;p>但是可空类型，比如&lt;code>Int?&lt;/code> 等则会自动装箱为Java中&lt;code>Integer&lt;/code>类型。&lt;/p>
+&lt;p>因此，一些引用同一个可空类型的变量，可能属于不同的对象&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">a&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">100&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">boxedA&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">anotherBoxedA&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">b&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">10000&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">boxedB&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">b&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">anotherBoxedB&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">b&lt;/span>
+&lt;span class="c1">// JVM中会优化Int类型的使用，所以在-128~127直接的Int会被重复使用，不再创建
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">boxedA&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="n">anotherBoxedA&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">// 超出范围的每次都会判断是否引用同一个对象
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">boxedB&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="n">anotherBoxedB&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// false
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">boxedA&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">anotherBoxedA&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">boxedB&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">anotherBoxedB&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// == 比较两个变量值是否相等
+&lt;/span>&lt;span class="c1">// === 比较两个变量是否引用的相同的对象
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数字类型转换">数字类型转换&lt;/h3>
+&lt;p>不像Java，Kotlin中的数字类型不会自动转换，无论是从Int转Long，或者Long转Int，都需要显示指定，转换方法如下&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>toByte(): Byte&lt;/code>&lt;/li>
+&lt;li>&lt;code>toShort(): Short&lt;/code>&lt;/li>
+&lt;li>&lt;code>toInt(): Int&lt;/code>&lt;/li>
+&lt;li>&lt;code>toLong(): Long&lt;/code>&lt;/li>
+&lt;li>&lt;code>toFloat(): Float&lt;/code>&lt;/li>
+&lt;li>&lt;code>toDouble(): Double&lt;/code>&lt;/li>
+&lt;li>&lt;code>toChar(): Char&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>但是大部分时候，都不需要手动指定转换，算术运算符会自动推断类型,比如&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">l&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1L&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="c1">// Long + Int =&amp;gt; Long
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="算术运算符">算术运算符&lt;/h3>
+&lt;p>类似其它语言，Kotlin支持的运算符如下：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>+&lt;/code>&lt;/li>
+&lt;li>&lt;code>-&lt;/code>&lt;/li>
+&lt;li>&lt;code>*&lt;/code>&lt;/li>
+&lt;li>&lt;code>/&lt;/code>&lt;/li>
+&lt;li>&lt;code>%&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>当然，也可以&lt;a href="https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements">重载运算符&lt;/a>,以实现其它的效果。&lt;/p>
+&lt;p>除法需要注意的是，使用整型做除法时，返回结果也是整型，小数会被自动去掉&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span> &lt;span class="p">/&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 2
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="p">/&lt;/span> &lt;span class="m">2f&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 2.5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="位运算符">位运算符&lt;/h3>
+&lt;ul>
+&lt;li>有符号左移: &lt;code>shl(bits)&lt;/code> – signed shift left&lt;/li>
+&lt;li>有符号右移: &lt;code>shr(bits)&lt;/code> – signed shift right&lt;/li>
+&lt;li>无符号右移:&lt;code>ushr(bits)&lt;/code> – unsigned shift right&lt;/li>
+&lt;li>与操作: &lt;code>and(bits)&lt;/code> – bitwise &lt;strong>and&lt;/strong>&lt;/li>
+&lt;li>或操作:&lt;code>or(bits)&lt;/code> – bitwise &lt;strong>or&lt;/strong>&lt;/li>
+&lt;li>异或操作:&lt;code>xor(bits)&lt;/code> – bitwise &lt;strong>xor&lt;/strong>&lt;/li>
+&lt;li>按位取反: &lt;code>inv()&lt;/code> – bitwise inversion&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="n">shl&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 4
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="m">6&lt;/span> &lt;span class="n">shr&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// -3
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="n">shr&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="n">ushr&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="n">and&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 4
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="n">or&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 6
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="n">xor&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 2
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="m">6.&lt;/span>&lt;span class="n">inv&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// -7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>位运算的详细介绍&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://www.huaweicloud.com/articles/6a4c5ca906ecf547f038d24b834cd578.html">负数的二进制表示方法&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://blog.csdn.net/qq_34996727/article/details/86582705">深入理解位运算操作及使用场景&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="unsigned-integers">Unsigned integers﻿&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>UByte&lt;/code>: an unsigned 8-bit integer, ranges from 0 to 255&lt;/li>
+&lt;li>&lt;code>UShort&lt;/code>: an unsigned 16-bit integer, ranges from 0 to 65535&lt;/li>
+&lt;li>&lt;code>UInt&lt;/code>: an unsigned 32-bit integer, ranges from 0 to 2^32 - 1&lt;/li>
+&lt;li>&lt;code>ULong&lt;/code>: an unsigned 64-bit integer, ranges from 0 to 2^64 - 1&lt;/li>
+&lt;/ul>
+&lt;h2 id="booleans">Booleans&lt;/h2>
+&lt;p>boolean类型只有&lt;code>true&lt;/code>和&lt;code>false&lt;/code>两个值&lt;/p>
+&lt;p>支持的逻辑运算符有:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>||&lt;/code> – disjunction (logical &lt;em>OR&lt;/em>)&lt;/li>
+&lt;li>&lt;code>&amp;amp;&amp;amp;&lt;/code> – conjunction (logical &lt;em>AND&lt;/em>)&lt;/li>
+&lt;li>&lt;code>!&lt;/code>- negation (logical &lt;em>NOT&lt;/em>)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>||&lt;/code> 和 &lt;code>&amp;amp;&amp;amp;&lt;/code> 都是懒惰运算符号。即当返回值能确定时，后面的表达式则不再计算。&lt;/p>
+&lt;p>比如&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">condition1&lt;/span>&lt;span class="p">():&lt;/span> &lt;span class="n">Boolean&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;call get condition1&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="k">false&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">condition2&lt;/span>&lt;span class="p">():&lt;/span> &lt;span class="n">Boolean&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;call get condition2&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="k">true&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">condition1&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">condition2&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 由于condition1返回false, condition2不会再被调用
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="characters">Characters﻿&lt;/h2>
+&lt;p>字符类型，所有的字符类型都是&lt;code>Char&lt;/code>类型，可以用单引号来表示，比如: &lt;code>'1'&lt;/code>&lt;/p>
+&lt;p>特殊字符使用&lt;code>\&lt;/code>转义，比如&lt;code>\t&lt;/code>, &lt;code>\n&lt;/code>, &lt;code>\'&lt;/code>, &lt;code>\&amp;quot;&lt;/code>, &lt;code>\\&lt;/code>, &lt;code>\$&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">aChar&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Char&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="sc">&amp;#39;a&amp;#39;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">aChar&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">//prints an extra newline character
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;&lt;/span>&lt;span class="se">\uFF00&lt;/span>&lt;span class="sc">&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 使用digitToInt可以把字符转换成数字
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;5&amp;#39;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">digitToInt&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// 5
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;3&amp;#39;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">digitToInt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">radix&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">8&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;A&amp;#39;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">digitToInt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">radix&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">16&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// 10
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;k&amp;#39;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">digitToInt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">radix&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">36&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// 20
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// radix argument should be in 2..36
+&lt;/span>&lt;span class="c1">// &amp;#39;0&amp;#39;.digitToInt(radix = 1) // will fail
+&lt;/span>&lt;span class="c1">// &amp;#39;1&amp;#39;.digitToInt(radix = 100) // will fail
+&lt;/span>&lt;span class="c1">// only 0 and 1 digits are valid for binary numbers
+&lt;/span>&lt;span class="c1">// &amp;#39;5&amp;#39;.digitToInt(radix = 2) // will fail
+&lt;/span>&lt;span class="c1">// radix = 10 is used by default
+&lt;/span>&lt;span class="c1">// &amp;#39;A&amp;#39;.digitToInt() // will fail
+&lt;/span>&lt;span class="c1">// symbol &amp;#39;+&amp;#39; is not a digit in any radix
+&lt;/span>&lt;span class="c1">// &amp;#39;+&amp;#39;.digitToInt() // will fail
+&lt;/span>&lt;span class="c1">// Only Latin letters are valid for digits greater than 9.
+&lt;/span>&lt;span class="c1">// &amp;#39;β&amp;#39;.digitToInt(radix = 36) // will fail
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="strings">Strings&lt;/h2>
+&lt;p>字符串用双引号&lt;code>&amp;quot;&amp;quot;&lt;/code>表示&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">str&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;abcd 123&amp;#34;&lt;/span>
+&lt;span class="c1">// 可以遍历str里的每个Char元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">c&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1">// &amp;#39;a&amp;#39;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>字符串一旦创建之后是不可改变的，所有关于字符串的操作都是返回了一个新的字符串对象，原来的字符串保持不变&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">str&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;abcd&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">uppercase&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// Create and print a new String object
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// the original string remains the same
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>+&lt;/code>操作符号可以拼接字符串&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;abc&amp;#34;&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="s2">&amp;#34;def&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Kotlin中字符串有两种形式&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>包含转义字符的字符串&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Hello, world!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>包含原始字符的字符串(使用三个引号&lt;code>&amp;quot;&amp;quot;&amp;quot;&lt;/code>)&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">text&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span class="s"> for (c in &amp;#34;foo&amp;#34;)
+&lt;/span>&lt;span class="s"> print(c)
+&lt;/span>&lt;span class="s">&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以使用&lt;code>trimMargin()&lt;/code>方法来移除开头的边缘符号,默认使用&lt;code>|&lt;/code>作为边缘分隔符&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">withoutMargin1&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&amp;#34;ABC
+&lt;/span>&lt;span class="s"> |123
+&lt;/span>&lt;span class="s"> |456&amp;#34;&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">trimMargin&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">withoutMargin1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// ABC\n123\n456
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 自定义#符号
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">withoutMargin2&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span class="s"> #XYZ
+&lt;/span>&lt;span class="s"> #foo
+&lt;/span>&lt;span class="s"> #bar
+&lt;/span>&lt;span class="s">&amp;#34;&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">trimMargin&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;#&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">withoutMargin2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// XYZ\nfoo\nbar
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="字符串模板">字符串模板&lt;/h4>
+&lt;p>使用&lt;code>$&lt;/code>可以在字符串中引用变量&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">i&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">10&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;i = &lt;/span>&lt;span class="si">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// prints &amp;#34;i = 10&amp;#34;
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;abc&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">$s&lt;/span>&lt;span class="s2">.length is &lt;/span>&lt;span class="si">${s.length}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// prints &amp;#34;abc.length is 3&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="arrays">Arrays&lt;/h2>
+&lt;p>Kotlin中使用&lt;code>Array&lt;/code>类表示数组类型，重载了&lt;code>[]&lt;/code>来调用&lt;code>Array&lt;/code>类的&lt;code>get&lt;/code>和&lt;code>set&lt;/code>方法，获取数组元素个数可以使用&lt;code>size&lt;/code>属性获取&lt;/p>
+&lt;p>可以使用&lt;code>arryOf&lt;/code>和&lt;code>arrayOfNulls&lt;/code>方法来创建数组, 也可以使用&lt;code>Array&lt;/code>类的构造函数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">a&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">arrayOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [1, 2, 3]
+&lt;/span>&lt;span class="c1">// 通过索引访问元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1">// 2
+&lt;/span>&lt;span class="c1">// 通过索引修改元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">4&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1">// 4
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">b&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">arrayOfNulls&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [null, null, null]
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// Creates an Array&amp;lt;String&amp;gt; with values [&amp;#34;0&amp;#34;, &amp;#34;1&amp;#34;, &amp;#34;4&amp;#34;, &amp;#34;9&amp;#34;, &amp;#34;16&amp;#34;]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">asc&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Array&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">toString&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">asc&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">forEach&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="primitive-type-arrayshttpskotlinlangorgdocsbasic-typeshtmlprimitive-type-arrays">&lt;a href="https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays">Primitive type arrays﻿&lt;/a>&lt;/h4>
+&lt;blockquote>
+&lt;p>Kotlin also has classes that represent arrays of primitive types without boxing overhead: &lt;code>ByteArray&lt;/code>, &lt;code>ShortArray&lt;/code>, &lt;code>IntArray&lt;/code>, and so on. These classes have no inheritance relation to the &lt;code>Array&lt;/code> class, but they have the same set of methods and properties. Each of them also has a corresponding factory function:&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// Array of int of size 5 with values [0, 0, 0, 0, 0]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">arr&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">IntArray&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// e.g. initialise the values in the array with a constant
+&lt;/span>&lt;span class="c1">// Array of int of size 5 with values [42, 42, 42, 42, 42]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">arr&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">IntArray&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="m">42&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="c1">// e.g. initialise the values in the array using a lambda
+&lt;/span>&lt;span class="c1">// Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">var&lt;/span> &lt;span class="py">arr&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">IntArray&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Kotlin开发环境搭建</title><link>https://crazygit.wiseturtles.com/2021/05/26/002-kotlin-development-env-setup/</link><pubDate>Wed, 26 May 2021 13:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/26/002-kotlin-development-env-setup/</guid><description>&lt;p>kotlin的使用非常方便，只需要下载IntelliJ Idea 或者Android Studio,安装好之后默认就可以直接使用kotlin语言进行开发了。Eclipse也可以安装kotlin插件来使用kotlin做开发。&lt;/p>
 &lt;p>IDE的使用虽然方便，但是往往也隐藏了很多技术细节，假如没有IDE,我们该怎么开发呢？&lt;/p>
 &lt;p>因此让我们先抛开那些IDE，从最原始的方式开始， 自己独立安装kotlin编译器。&lt;/p>
 &lt;h2 id="kotlin编译器安装">Kotlin编译器安装&lt;/h2>
@@ -176,7 +689,7 @@ Hello World
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="使用gradle创建一个kotlin的命令行应用程序">使用Gradle创建一个Kotlin的命令行应用程序&lt;/h2>
-&lt;p>&lt;a href="https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html">Building Kotlin Applications Sample&lt;/a>&lt;/p></description></item><item><title>Kotlin学习资料整理</title><link>https://crazygit.wiseturtles.com/2021/05/06/001-kotlin-learning-materials/</link><pubDate>Thu, 06 May 2021 13:48:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/06/001-kotlin-learning-materials/</guid><description>&lt;ul>
+&lt;p>&lt;a href="https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html">Building Kotlin Applications Sample&lt;/a>&lt;/p></description></item><item><title>Kotlin学习资料整理</title><link>https://crazygit.wiseturtles.com/2021/05/26/001-kotlin-learning-materials/</link><pubDate>Wed, 26 May 2021 13:48:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/26/001-kotlin-learning-materials/</guid><description>&lt;ul>
 &lt;li>
 &lt;h2 id="快速入门指南httpskotlinlangorgdocstutorials">&lt;a href="https://kotlinlang.org/docs/tutorials/">快速入门指南&lt;/a>&lt;/h2>
 &lt;p>介绍了使用kotlin在各种场景下的开发环境搭建过程，如配合各种IDE使用Kotlin,&lt;/p>
@@ -190,6 +703,7 @@ Hello World
 &lt;li>&lt;a href="https://tech.meituan.com/2018/07/05/kotlin-code-inspect.html">Kotlin代码检查在美团的探索与实践&lt;/a>&lt;/li>
 &lt;li>微信读书《Kotlin从 基础到实战》&lt;/li>
 &lt;li>微信读书《kotlin核心编程》&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/coding-conventions.html">Kotlin编码风格&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
@@ -8984,347 +9498,4 @@ $$&lt;/p>
 &lt;h3 id="k最邻近算法">K最邻近算法&lt;/h3>
 &lt;p>如果只使用最相似的一个用户来做推荐，如果这个用户有特殊的偏好，就会直接反应在推荐内容里。解决方法之一就是寻找多个相似的用户，这里就要用到K最邻近算法了。&lt;/p>
 &lt;p>完整实现请参考:&lt;/p>
-&lt;p>&lt;a href="https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py">https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py&lt;/a>&lt;/p></description></item><item><title>皮尔逊相关系数(Pearson Correlation Coefficient)</title><link>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</link><pubDate>Fri, 19 Jan 2018 17:48:36 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/</guid><description>&lt;p>在介绍皮尔逊相关系数前，先来回顾一些统计相关的术语，便于我们更好的理解后面的计算公式。&lt;/p>
-&lt;h2 id="方差variance">方差（Variance）&lt;/h2>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE">百度百科&lt;/a>&lt;/p>
-&lt;p>&lt;strong>注意&lt;/strong>:&lt;/p>
-&lt;blockquote>
-&lt;p>方差在统计描述和概率分布中各有不同的定义，并有不同的公式。&lt;/p>
-&lt;/blockquote>
-&lt;p>下面主要介绍在统计描述中的方差&lt;/p>
-&lt;blockquote>
-&lt;p>在统计描述中，方差用来计算每一个变量（观察值）与总体均数之间的差异。为避免出现离均差总和为零，离均差平方和受样本含量的影响，统计学采用平均离均差平方和来描述变量的变异程度。&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;strong>总体方差&lt;/strong>计算公式为:&lt;/p>
-&lt;p>$$
-\sigma^2 = \frac{\sum(X-\mu)^2}{N}
-$$&lt;/p>
-&lt;p>$\sigma^2$为总体方差，$X$为变量，$\mu$为总体均值，$N$为总体例数。&lt;/p>
-&lt;p>实际工作中，总体均数难以得到时，应用样本统计量代替总体参数，经校正后，&lt;/p>
-&lt;p>&lt;strong>样本方差&lt;/strong>计算公式：&lt;/p>
-&lt;p>$$
-S^2 = \frac{\sum(X-\bar{X}) ^2}{(n-1)}
-$$&lt;/p>
-&lt;p>$S^2$为样本方差，$X$为变量，$\bar{X}$为样本均值，$n$为样本例数。&lt;/p>
-&lt;p>例如:&lt;/p>
-&lt;p>两个人X, Y 5次考试测验的分数分别是:&lt;/p>
-&lt;ul>
-&lt;li>X: 50, 100, 100, 60, 50&lt;/li>
-&lt;li>Y: 73, 70, 75, 72, 70&lt;/li>
-&lt;/ul>
-&lt;p>X, Y的平均值分别为:&lt;/p>
-&lt;p>$$
-\mu_x = \bar{X} = \frac{(50+100+100+60+50)}{5} = 72
-$$&lt;/p>
-&lt;p>$$
-\mu_y = \bar{Y} = \frac{(73+70+75+72+70)}{5} = 72
-$$&lt;/p>
-&lt;p>总体方差为:&lt;/p>
-&lt;p>$$
-\sigma^2_x = \frac{(50-72)^2+(100-72)^2+(100-72)^2+(60-72)^2+(50-72)^2}{5}= \frac{2680}{5}=536
-$$&lt;/p>
-&lt;p>$$
-\sigma^2_y = \frac{(73-72)^2+(70-72)^2+(75-72)^2+(72-72)^2+(70-72)^2}{5}=\frac{18}{4}=3.6
-$$&lt;/p>
-&lt;p>样本方差为:&lt;/p>
-&lt;p>$$
-S^2_x = \frac{(50-72)^2+(100-72)^2+(100-72)^2+(60-72)^2+(50-72)^2}{5-1} = \frac{2680}{4} = 670
-$$&lt;/p>
-&lt;p>$$
-S^2_y = \frac{(73-72)^2+(70-72)^2+(75-72)^2+(72-72)^2+(70-72)^2}{5-1}=\frac{18}{4}=4.5
-$$&lt;/p>
-&lt;h3 id="使用python模块计算">使用python模块计算&lt;/h3>
-&lt;p>&lt;code>statistic&lt;/code>和&lt;code>numpy&lt;/code>包含了计算方差的方式&lt;/p>
-&lt;p>&lt;code>statistics.variance&lt;/code>计算&lt;strong>样本方差&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">statistics&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">statistics&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">variance&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mi">670&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">statistics&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">variance&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">4.5&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>&lt;code>numpy&lt;/code>可以通过设置参数&lt;code>ddof&lt;/code>参数来选择计算方式。默认是计算&lt;strong>全局方差&lt;/strong>&lt;/p>
-&lt;p>计算全局方差(&lt;code>ddof=0&lt;/code>)&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">var&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">536.0&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">var&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">3.6&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>计算样本方差(&lt;code>ddof=1&lt;/code>)&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">var&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="mf">670.0&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">var&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="mf">4.5&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="扩展阅读">扩展阅读&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="http://mortada.net/computing-sample-variance-why-divide-by-n-1.html">Computing Sample Variance: Why Divide by N - 1?&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.youtube.com/watch?v=xslIhnquFoE">Variance: The Mystery of n-1 (Part 1: The problem with using n)&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="标准差standard-deviation">标准差(Standard Deviation)&lt;/h2>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE%E5%85%AC%E5%BC%8F">百度百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>标准差（Standard Deviation）, 中文环境中又常称均方差，用σ表示。标准差是方差的算术平方根。标准差能反映一个数据集的离散程度。平均数相同的两组数据，标准差未必相同。&lt;/p>
-&lt;/blockquote>
-&lt;p>标准差的计算公式为:&lt;/p>
-&lt;p>$$
-\sigma = \sqrt{方差} = \sqrt{\frac{(X-\mu)^2}{N}}
-$$&lt;/p>
-&lt;p>同计算方差类似，计算标准差如下:&lt;/p>
-&lt;p>样本的标准差&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">statistics&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stdev&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">25.88435821108957&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">statistics&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stdev&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">2.1213203435596424&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>总体的样本差&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">23.15167380558045&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">1.8973665961010275&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>样本的标准差&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="mf">25.88435821108957&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="mf">2.1213203435596424&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>由标准差可以看出，虽然学生X, Y的平均分数相同(都是72分)&lt;/p>
-&lt;ul>
-&lt;li>X: 50, 100, 100, 60, 50&lt;/li>
-&lt;li>Y: 73, 70, 75, 72, 70&lt;/li>
-&lt;/ul>
-&lt;p>但是,Y的标准差小于X的标准差。Y的考试成绩更稳定。&lt;/p>
-&lt;h2 id="标准分数standard-score">标准分数(Standard Score)&lt;/h2>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%88%86%E6%95%B0">百度百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>标准分数也叫z分数(z-score)，是一种具有相等单位的量数。它是将原始分数与团体的平均数之差除以标准差所得的商数，是以标准差为单位度量原始分数离开其平均数的分数之上多少个标准差，或是在平均数之下多少个标准差。它是一个抽象值，不受原始测量单位的影响，并可接受进一步的统计处理&lt;/p>
-&lt;/blockquote>
-&lt;p>计算公式为:&lt;/p>
-&lt;p>$$
-z = \frac{x - \mu}{\sigma}
-$$&lt;/p>
-&lt;p>$x$为某一具体分数，$\mu$为平均数，$\sigma$为标准差。&lt;/p>
-&lt;h3 id="使用场景">使用场景&lt;/h3>
-&lt;p>某中学高一班期末考试，已知语文期末考试的全班平均分为73分，标准差为7分，甲得了78分；数学期末考试的全班平均分为80分，标准差为6.5分，甲得了83分。甲哪一门考试成绩比较好？&lt;/p>
-&lt;p>因为两科期末考试的标准差不同，因此不能用原始分数直接比较。需要将原始分数转换成标准分数，然后进行比较。&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Z(语文)=(78-73)/7=0.71
-Z(数学)=(83-80)/6.5=0.46
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>甲的语文成绩在其整体分布中位于平均分之上0.71个标准差的地位，他的数学成绩在其整体分布中位于平均分之上0.46个标准差的地位。&lt;/p>
-&lt;p>由此可见，甲的语文期末考试成绩优于数学期末考试成绩。
-由于标准分数不仅能表明原始分数在分布中的地位，它还是以标准差为单位的等距量表，故经过把原始分数转化为标准分数，可以在不同分布的各原始分数之间进行比较。&lt;/p>
-&lt;h3 id="使用python模块计算-1">使用python模块计算&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">scipy&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">stats&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mf">0.95025527&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.2094158&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="mf">1.2094158&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.51832106&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.95025527&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span> &lt;span class="mf">0.52704628&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">1.05409255&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.58113883&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">1.05409255&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mf">0.84993415&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.08173437&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.08173437&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.46360045&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.84993415&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">73&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">70&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span> &lt;span class="mf">0.47140452&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.94280904&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.41421356&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.94280904&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="皮尔逊相关系数pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)&lt;/h2>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0">百度百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>相关系数是最早由统计学家卡尔·皮尔逊设计的统计指标，是研究变量之间线性相关程度的量，一般用字母 r 表示。由于研究对象的不同，相关系数有多种定义方式，较为常用的是皮尔逊相关系数。&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;em>需要说明的是，皮尔逊相关系数并不是唯一的相关系数，但是最常见的相关系数&lt;/em>&lt;/p>
-&lt;p>定义1&lt;/p>
-&lt;blockquote>
-&lt;p>两个变量之间的皮尔逊相关系数定义为两个变量之间的协方差和标准差的商&lt;/p>
-&lt;/blockquote>
-&lt;p>计算公式如下:&lt;/p>
-&lt;p>$$
-P_{xy}=\frac{cov(X, Y)}{\sigma_x\sigma_y}
-$$&lt;/p>
-&lt;p>定义2&lt;/p>
-&lt;blockquote>
-&lt;p>相关系数r亦可由$(X_i,Y_i)$样本点的标准分数均值估计&lt;/p>
-&lt;/blockquote>
-&lt;p>计算公式如下:&lt;/p>
-&lt;p>{% math %}&lt;/p>
-&lt;p>r_{xy} = \frac{1}{n}\sum\limits_{i=1}^n(Z_x)_i(Z_y)_i \\&lt;br>
-= \frac{1}{n}\sum\limits_{i=1}^n\cdot\frac{x-\bar{x}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(x-\bar{x})^2}}\cdot\frac{y-\bar{y}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(y-\bar{y})^2}} \\&lt;br>
-= \frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y-\bar{y})^2}}&lt;/p>
-&lt;p>{% endmath %}&lt;/p>
-&lt;p>其中$Z_x$为$x$的标准分数，其中$Z_y$为$y$的标准分数。$\bar{x}$为x的平均数，$\bar{y}$为y的平均数。&lt;/p>
-&lt;p>举个例子(来自李政轩老师的视频教程&lt;a href="https://www.youtube.com/watch?v=nF-ixjPfaK0">皮尔逊相关系数&lt;/a>):&lt;/p>
-&lt;p>有学生A, B, C&amp;hellip;G的数学成绩和自然成绩分别如下, 现在需要分析学生的数学成绩和自然成绩之间是否存在关系。比如学生数学成绩好的自然成绩也好？&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-zscore.png" alt="相关系数">&lt;/p>
-&lt;p>标准化成绩的计算方式如下:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">scipy&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">stats&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="nn">numpy&lt;/span> &lt;span class="kn">as&lt;/span> &lt;span class="nn">np&lt;/span>
-&lt;span class="c1"># 设置打印3位小数&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">set_printoptions&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">precision&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="c1"># 标准化数学成绩&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">zscore_math&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">76&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">77&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">61&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">zscore_math&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span> &lt;span class="mf">0.667&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.959&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.105&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.938&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.938&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">1.23&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="mf">0.375&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="c1"># 标准化自然成绩&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">zscore_sciense&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">zscore&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">84&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">83&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">85&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">81&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">73&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">ddof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">zscore_sciense&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span> &lt;span class="mf">0.92&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="mf">0.725&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.116&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">1.032&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.837&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.335&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">1.227&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="c1"># 两个标准化成绩相乘&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">dot_math_sciense&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">zscore_math&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">zscore_sciense&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">dot_math_sciense&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([&lt;/span> &lt;span class="mf">0.614&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.695&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.233&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.968&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.785&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.412&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mf">0.461&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>相关系数&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="c1"># 下面除以(n-1)是因为前面一直用样本方差来计算的&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">sum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dot_math_sciense&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">7&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">r&lt;/span>
-&lt;span class="mf">0.5704948696393594&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>相关系数为&lt;code>0.570&lt;/code>, 说明数学成绩和自然成绩之间没有什么关系
-利用现成的库计算&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="c1"># 返回的元组第一个数就是相关系数&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">scipy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stats&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pearsonr&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">76&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">77&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">61&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">84&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">83&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">85&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">81&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">73&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mf">0.5704948696393595&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.18107908965203987&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">corrcoef&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">76&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">77&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">63&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">61&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">72&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">84&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">83&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">85&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">74&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">75&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">81&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">73&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="n">array&lt;/span>&lt;span class="p">([[&lt;/span>&lt;span class="mf">1.&lt;/span> &lt;span class="p">,&lt;/span> &lt;span class="mf">0.57&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="mf">0.57&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span> &lt;span class="p">]])&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="相关系数的特性">相关系数的特性&lt;/h3>
-&lt;p>$$
--1 \leq r_{xy} \leq 1
-$$&lt;/p>
-&lt;p>1表示完全正相关，-1表示完全负相关&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a href="https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py">https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py&lt;/a>&lt;/p></description></item></channel></rss>
