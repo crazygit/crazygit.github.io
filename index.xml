@@ -1,4 +1,621 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 May 2021 11:50:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本数据类型</title><link>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</link><pubDate>Fri, 28 May 2021 11:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</guid><description>&lt;p>在Kotlin语言中，&lt;strong>一切皆对象&lt;/strong>。因此，我们可以调用任意类型变量的属性或方法。比如&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 31 May 2021 10:25:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本语法01</title><link>https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/</link><pubDate>Mon, 31 May 2021 10:25:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/</guid><description>&lt;h2 id="语言特点">语言特点&lt;/h2>
+&lt;p>Kotlin可以编译成Java字节码，也可以编译成JavaScript字节码，方便在没有JVM的设备上运行。&lt;/p>
+&lt;h2 id="基本语法">基本语法&lt;/h2>
+&lt;p>Kotlin语言是严格区分大小写的。&lt;/p>
+&lt;h3 id="变量声明">变量声明&lt;/h3>
+&lt;p>在&lt;code>Kotlin&lt;/code>中定义一个变量，只允许在变量前声明两种关键字:
+&lt;code>val&lt;/code>和&lt;code>var&lt;/code>&lt;/p>
+&lt;h3 id="const-val和val的区别">&lt;code>const val&lt;/code>和&lt;code>val&lt;/code>的区别&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>val&lt;/code>: 相当于Java中的&lt;code>private final static&lt;/code>&lt;/li>
+&lt;li>&lt;code>const val&lt;/code>: 相当于Java中的&lt;code>public final static&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>定义常量时，优先考虑使用&lt;code>const val&lt;/code>&lt;/p>
+&lt;h3 id="空值处理">空值处理&lt;/h3>
+&lt;p>安全调用符&lt;code>?.&lt;/code>，专门用于调用可空类型变量中的成员方法或属性，其语法格式为&lt;code>变量?.成员&lt;/code>。其作用是判断变量是否为&lt;code>null&lt;/code>，如果不为&lt;code>null&lt;/code>才调用变量的成员方法或者属性。&lt;/p>
+&lt;p>使用&lt;code>?.&lt;/code>调用可空变量的属性时，如果当前变量为空，则程序编译也不会报错，而是返回一个null值。&lt;/p>
+&lt;p>Kotlin中提供了一个Elvis操作符&lt;code>?:&lt;/code>，通过Elvis操作符&lt;code>?:&lt;/code>, 其语法格式为&lt;code>表达式?:表达式&lt;/code>。如果左侧表达式非空，则返回左侧表达式的值，否则返回右侧表达式的值。当且仅当左侧为空时，才会对右侧表达式求值。&lt;/p>
+&lt;p>通过非空断言（&lt;code>!!.&lt;/code>）来调用可空类型变量的成员方法或属性。使用非空断言时，调用变量成员方法或属性的语法结构为&lt;code>变量!!.成员&lt;/code>。非空断言&lt;code>!!.&lt;/code>会将任何变量（可空类型变量或者非空类型变量）转换为非空类型的变量，若该变量为空则抛出异常。&lt;/p>
+&lt;h3 id="数据类型">数据类型&lt;/h3>
+&lt;p>Kotlin完全抛弃了Java中的基本数据类型，全部使用对象类型。Kotlin语言中的数据类型不区分基本数据类型和引用数据类型，分别为数值型、字符型、布尔型、数组型、字符串型。&lt;/p>
+&lt;p>Kotlin中每个字符类型变量都会占用2个字节。在给&lt;code>Char&lt;/code>类型的变量赋值时，需要用一对英文半角格式的单引号&lt;code>' '&lt;/code>把字符括起来。&lt;/p>
+&lt;p>数组是用&lt;code>Array&lt;/code>表示，其中数值类型、布尔类型、字符类型都有数组的表现形式&lt;/p>
+&lt;p>这些数组类型变量的初始化有两种方式，一种是以&lt;code>数据类型ArrayOf()&lt;/code>方法进行初始化，另一种是以&lt;code>arrayOf()&lt;/code>方法进行初始化。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 声明数组变量的两种方式
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">intArray&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">intArrayOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">intArray2&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">arrayOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">intArray&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">contentToString&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">intArray2&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">contentToString&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>不能使用&lt;code>stringArrayOf()&lt;/code>方法创建字符串类型数组，因为&lt;code>String&lt;/code>不属于基本数据类型。要想在Kotlin中声明字符串数组，需要使用&lt;code>Array＜String＞&lt;/code>，并且对应的初始化数组的方法也相应变成了&lt;code>arrayOf()&lt;/code>，这种初始化方式对于其他类型的数组同样适用。&lt;/p>
+&lt;h3 id="运算符">运算符&lt;/h3>
+&lt;p>在进行取模&lt;code>(%）&lt;/code>运算时，运算结果的正负取决于被模数（&lt;code>%&lt;/code>左边的数）的符号，与模数（&lt;code>%&lt;/code>右边的数）的符号无关。例如&lt;code>（-1）%2=-1&lt;/code>，而&lt;code>1%（-2）=1&lt;/code>。&lt;/p>
+&lt;p>&lt;code>&amp;amp;&amp;amp;&lt;/code>当运算符左边的表达式为&lt;code>false&lt;/code>时，运算符右边的表达式不会进行运算，结果为&lt;code>false&lt;/code>，因此&lt;code>&amp;amp;&amp;amp;&lt;/code>被称作短路与。&lt;/p>
+&lt;p>同与操作类似，&lt;code>||&lt;/code>表示短路或，当运算符&lt;code>||&lt;/code>的左边为&lt;code>true&lt;/code>时，右边的表达式不会进行运算，结果为&lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="字符串">字符串&lt;/h3>
+&lt;p>字符串是不可变的，字符串中的元素可以使用索引的形式进行访问：即“变量名+角标”的形式，如&lt;code>str[i]&lt;/code>, 也可以用&lt;code>for&lt;/code>循环遍历字符串.&lt;/p>
+&lt;p>为了方便字符串的查找，提供了多个函数，如&lt;code>first()&lt;/code>、&lt;code>last()&lt;/code>、&lt;code>get（index）&lt;/code>，分别用于查找字符串中的第1个元素、最后1个元素以及角标为index的元素。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Hello, World&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// H
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">last&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// d
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1">// o
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>字符串截取主要使用的是&lt;code>subString()&lt;/code>函数和&lt;code>subSequence()&lt;/code>函数，这两个函数都有重载函数（函数名相同，参数不同)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Hello, World&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">substring&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// 返回值类型为String
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">subSequence&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// 返回值类型为CharSequence
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 输出为
+&lt;/span>&lt;span class="c1">// llo
+&lt;/span>&lt;span class="c1">// llo
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>split()&lt;/code>函数还可以传入多个拆分符，多个拆分符中间只需用逗号分隔即可。返回类型为&lt;code>List&amp;lt;String&amp;gt;&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;www.baidu.com&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// [www, baidu, com]
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">s2&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;www.baidu.com/query&amp;#34;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">//[www, baidu, com, query]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此Kotlin提供了&lt;code>trim()&lt;/code>、&lt;code>trimEnd()&lt;/code>等多个函数，其中&lt;code>trim()&lt;/code>用于删除字符串前面的空格，&lt;code>trimEnd()&lt;/code>用于删除字符串后面的字符。&lt;/p>
+&lt;p>原生字符串是使用3对引号（&lt;code>&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&lt;/code>）把所有字符括起来，原生字符串可以有效地保证字符串中原有内容的输出，即使原生字符串中包含转义字符也不会被转义。&lt;/p>
+&lt;p>在原生字符串中，使用模板表达式输出&lt;code>$&lt;/code>需要使用&lt;code>${'$'}&lt;/code>，&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">s&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span class="s"> Hello\nWorld
+&lt;/span>&lt;span class="s"> &lt;/span>&lt;span class="si">${&amp;#39;$&amp;#39;}&lt;/span>&lt;span class="s">200
+&lt;/span>&lt;span class="s"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">trimIndent&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// 输出
+&lt;/span>&lt;span class="c1">// Hello\nWorld
+&lt;/span>&lt;span class="c1">// $200
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="区间">区间&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>..&lt;/code> 两端都是闭区间[a, b], a&amp;lt;b&lt;/li>
+&lt;li>&lt;code>until&lt;/code>左闭右开[a, b), a&amp;lt;b&lt;/li>
+&lt;li>&lt;code>downTo&lt;/code>两端都是闭区间[a, b], a &amp;gt; b&lt;/li>
+&lt;li>&lt;code>step&lt;/code> 步长&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// ..重写了运算操作符rangeTo
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">s1&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1.&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="m">5&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// until 是infix函数
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">s2&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="n">until&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// downTo 是infix函数
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">s3&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="n">downTo&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// 设置步长
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">s4&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">1.&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="m">10&lt;/span> &lt;span class="n">step&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s4&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// 输出
+&lt;/span>&lt;span class="c1">// 1, 2, 3, 4, 5
+&lt;/span>&lt;span class="c1">// 1, 2, 3, 4
+&lt;/span>&lt;span class="c1">// 5, 4, 3, 2, 1
+&lt;/span>&lt;span class="c1">// 1, 3, 5, 7, 9
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 使用in关键子判断一个元素属于一个区间
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">10&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">y&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">9&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="m">1.&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">+&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;fits in range&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">list&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;a&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;c&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 使用!in关键子判断一个元素不属于一个区间
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">if&lt;/span> &lt;span class="p">(-&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="o">!in&lt;/span> &lt;span class="m">0.&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">list&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">lastIndex&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;-1 is out of range&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">list&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span> &lt;span class="o">!in&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">indices&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;list size is out of valid list indices range, too&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数组">数组&lt;/h3>
+&lt;p>Kotlin中，为了方便获取数组的长度，提供了一个&lt;code>size&lt;/code>属性，在程序中可以通过“数组名.size”的方式来获取数组的长度，即元素的个数。&lt;/p>
+&lt;p>在Kotlin中，如果创建的数组对象没有被初始化，则当访问数组中的元素时，程序会报错并提示数组对象必须初始化。脚下留心: 数组中的索引不能超出索引的范围&lt;/p>
+&lt;p>通过数组的&lt;code>withIndex()&lt;/code>方法来遍历并打印数组中元素对应的角标和元素。&lt;/p>
+&lt;p>除了使用数组的&lt;code>indexOf()&lt;/code>方法来查找指定元素中第1个元素的角标之外，还可以通过数组的&lt;code>indexOfFirst()&lt;/code>方法来查找指定元素中第1个元素的角标。&lt;/p>
+&lt;p>通过数组的&lt;code>lastIndexOf()&lt;/code>方法来查找，该方法中传递的参数4就是需要查找的元素。&lt;/p>
+&lt;p>除了调用数组的&lt;code>lastIndexOf()&lt;/code>方法来查找指定元素的角标之外，还可以通过数组的&lt;code>indexOfLast()&lt;/code>方法来查找指定元素的最后一个角标&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">a&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">arrayOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;a&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;c&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;d&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">index&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">indexOfLast&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">it&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;d&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">index&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="is和is操作符">&lt;code>is&lt;/code>和&lt;code>!is&lt;/code>操作符&lt;/h3>
+&lt;p>用于检查一个变量是否为某个类型的对象&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">obj&lt;/span> &lt;span class="p">=&lt;/span>&lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">obj&lt;/span> &lt;span class="k">is&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">obj&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">obj&lt;/span> &lt;span class="o">!is&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// same as !(obj is String)
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Not a String&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">obj&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="类型自动转换">类型自动转换&lt;/h3>
+&lt;p>大多数情况下，我们都不需要显示显示转换变量类型，编译器会根据&lt;code>is&lt;/code>操作符号自动进行转换&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">demo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="k">is&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// x is automatically cast to String
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>when&lt;/code>语句时，类型自动转换同样存在&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">when&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">is&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">is&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">is&lt;/span> &lt;span class="n">IntArray&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">sum&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="非安全的类型转换">非安全的类型转换&lt;/h3>
+&lt;p>当使用&lt;code>as&lt;/code>(中缀infix操作符)进行类型转换失败时，会抛出异常，这样的转换被称为非安全的类型转换&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">String&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的例子中，当&lt;code>y&lt;/code>是&lt;code>null&lt;/code>时，会抛出异常&lt;/p>
+&lt;p>使用下面的形式可以解决这个问题&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="安装的类型转换">安装的类型转换&lt;/h3>
+&lt;p>使用&lt;code>as?&lt;/code>进行类型转换时，在转换失败时会返回&lt;code>null&lt;/code>，而不是抛出异常，这样的类型转换被称为安全的类型转换&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="k">as&lt;/span>&lt;span class="err">？&lt;/span> &lt;span class="n">String&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="包管理">包管理&lt;/h2>
+&lt;h3 id="默认导入的包">默认导入的包&lt;/h3>
+&lt;p>Kotlin中，默认情况下自动导入了下面的包&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/index.html">kotlin.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/index.html">kotlin.annotation.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html">kotlin.collections.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.comparisons/index.html">kotlin.comparisons.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/index.html">kotlin.io.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/index.html">kotlin.ranges.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/index.html">kotlin.sequences.*&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/index.html">kotlin.text.*&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>另外，根据使用的平台不同，额外还导入了如下包&lt;/p>
+&lt;ul>
+&lt;li>JVM:
+&lt;ul>
+&lt;li>java.lang.*&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/index.html">kotlin.jvm.*&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>JS:
+&lt;ul>
+&lt;li>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/index.html">kotlin.js.*&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="添加导入的包">添加导入的包&lt;/h3>
+&lt;p>使用&lt;code>import&lt;/code>关键字可以定义需要添加的包&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 导入单个
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="nn">org.example.Message&lt;/span> &lt;span class="c1">// Message is now accessible without qualification
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 导入多个
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="nn">org.example.*&lt;/span> &lt;span class="c1">// everything in &amp;#39;org.example&amp;#39; becomes accessible
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>as&lt;/code>关键字可以重命名包导入的对象，解决冲突问题&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">import&lt;/span> &lt;span class="nn">org.test.Message&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">testMessage&lt;/span> &lt;span class="c1">// testMessage stands for &amp;#39;org.test.Message&amp;#39;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="函数">函数&lt;/h2>
+&lt;h3 id="函数声明">函数声明&lt;/h3>
+&lt;p>函数使用&lt;code>fun&lt;/code>关键字声明。对于参数，不仅必须声明其名称，还必须声明其类型，并且必须声明函数返回值的类型。函数的主体通常是一个代码块，用花括号括起来&lt;/p>
+&lt;h3 id="函数返回值">函数返回值&lt;/h3>
+&lt;p>与&lt;code>Python&lt;/code>相反，在函数末尾省略&lt;code>return&lt;/code>不会隐式返回&lt;code>null&lt;/code>；如果函数要返回&lt;code>null&lt;/code>，则必须使用&lt;code>return null&lt;/code>。&lt;/p>
+&lt;p>如果一个函数不需要任何返回值，则该函数应该声明返回类型为&lt;code>Unit&lt;/code>,类似于Java中的void。当函数的返回值类型为Unit时，可以省略不写Unit。（或者根本不声明返回类型，在这种情况下，返回类型默认为&lt;code>Unit&lt;/code>）。在这样的函数中，可能根本没有&lt;code>return&lt;/code> 语句，或只有&lt;code>return&lt;/code>。&lt;/p>
+&lt;p>&lt;code>Unit&lt;/code>是一个单例对象（在&lt;code>Python&lt;/code> 中也恰好是&lt;code>None&lt;/code>），也是该对象的类型，它表示&lt;strong>此函数不会返回任何信息&lt;/strong>&lt;/p>
+&lt;h3 id="vararg可选参数">&lt;code>vararg&lt;/code>可选参数&lt;/h3>
+&lt;p>使用关键字&lt;code>vararg&lt;/code>,函数可以接受任意数量的参数，类似于&lt;code>Python&lt;/code>中的 &lt;code>*args&lt;/code>，但它们必须都属于同一类型。与&lt;code>Python&lt;/code>不同的是，可以在可变参数之后声明其他位置参数，但最多可以有一个可变参数。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">countAndPrintArgs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">vararg&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 输出 3
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 输出 1，2，3
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">countAndPrintArgs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以使用包含所有可变参数的一个数组（而不是列表或任何其他可迭代对象）来调用可变参数函数，使用&lt;code>*&lt;/code>运算符（与 Python 相同的语法）将数组展开：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">countAndPrintArgs&lt;/span>&lt;span class="p">(*&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toIntArray&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="命名参数">命名参数&lt;/h3>
+&lt;p>&lt;code>Kotlin&lt;/code>中没有&lt;code>**kwargs&lt;/code>，但是可以定义具有默认值的可选参数，并且在调用函数时可以选择命名部分或所有参数（无论它们是否具有默认值）。具有默认值的参数仍必须明确指定其类型。像在&lt;code>Python&lt;/code>中一样，已命名的参数可以在调用时随意重新排序：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">foo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">decimal&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Double&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">integer&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Hello&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">TODO&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Implement this method&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">foo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3.14&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Bye&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">integer&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">42&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">foo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">integer&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">12&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">decimal&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">3.4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="函数默认值">函数默认值&lt;/h3>
+&lt;p>在&lt;code>Python&lt;/code>中，默认值的表达式只在函数定义时计算一次。这导致了一个经典的陷阱，当开发人员希望每次调用没有传递&lt;code>numbers&lt;/code>参数的函数时，都得到一个新的空列表，但是实际上每次都使用相同的列表：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">[]):&lt;/span> &lt;span class="c1"># Bug：每次调用都会使用相同的列表！&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>依次输出&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">[1]
+[1, 2]
+[1, 2, 3]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在&lt;code>Kotlin&lt;/code>中，每次调用函数时，都会计算默认值的表达式。因此，只要使用在每次求值时生成新列表的表达式，就可以避免上述陷阱&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MutableList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">[1]
+[2]
+[3]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="函数的简化写法">函数的简化写法&lt;/h3>
+&lt;p>当一个函数中只有一行代码时，&lt;code>Kotlin&lt;/code>允许我们不写函数体，直接将唯一的一行代码写在函数定义的尾部，中间等号连接即可。
+如:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">largerNumber&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以直接写成如下形式，其中&lt;code>return&lt;/code>关键字也省略掉了，等号足以表达返回值的意思&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">largeNumber&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>由于自动推导机制，我们知道&lt;code>max&lt;/code>函数会返回&lt;code>Int&lt;/code>类型，因此上面的代码还可以简化成&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">largerNumber&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">num1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="函数重载">函数重载&lt;/h3>
+&lt;p>在&lt;code>Python&lt;/code>中，函数名称在模块或类中必须唯一。而在&lt;code>Kotlin&lt;/code>中，可以&lt;strong>重载&lt;/strong>函数，即可以有多个具有相同名称的函数声明。&lt;/p>
+&lt;p>重载的函数必须通过其&lt;strong>参数列表&lt;/strong>相互区分(参数列表的类型与返回类型一起被称为&lt;strong>函数签名&lt;/strong>，但是返回类型不能用于消除重载函数的歧义)。例如，可以在同一个文件中同时声明这两个函数：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">square&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">number&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">square&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Double&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">number&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在调用时，要使用的函数取决于参数的类型：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="n">square&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 调用第一个函数；结果为 16 (Int)square(3.14) // 调用第二个函数；结果为 9.8596 (Double)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>尽管此示例恰好使用相同的表达式，但这不是必须的。如果需要，重载的函数可以做完全不同的事情（尽管可以使行为截然不同的函数互相重载，但是代码可能会造成混乱）。&lt;/p>
+&lt;h3 id="todo函数">TODO函数&lt;/h3>
+&lt;p>Kotlin标准库中提供了一个&lt;code>TODO&lt;/code>函数用于标记没有完成的代码，调用时会自动抛出&lt;code>NotImplementedError&lt;/code>异常。并且它的返回值是&lt;code>Nothing&lt;/code>类型，所以使用它可以不考虑返回值的类型&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">calcTaxes&lt;/span>&lt;span class="p">():&lt;/span> &lt;span class="n">BigDecimal&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">TODO&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Waiting for feedback from accounting&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="中缀函数infix">中缀函数infix&lt;/h3>
+&lt;p>在创建&lt;code>map&lt;/code>集合的时候，我们用到了&lt;code>to&lt;/code>这样的语法&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">fruits&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mapOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Banana&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">for&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">index&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="n">fruits&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">$name&lt;/span>&lt;span class="s2"> =&amp;gt; &lt;/span>&lt;span class="si">$index&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>首先&lt;code>to&lt;/code>并不是Kotlin中的关键字，之所以能够使用&lt;code>A to B&lt;/code>这样的语法结构，是因为Kotlin提供了一种高级语法糖特性: &lt;code>infix&lt;/code>函数。 &lt;code>infix&lt;/code>函数并不是什么难理解的事物，它只是把编程语言的调用语法规则调整了一下而已，如果&lt;code>A to B&lt;/code>这样的写法，实际上等价于&lt;code>A.to(B)&lt;/code>，&lt;code>infix&lt;/code>函数允许我们将函数调用时的小数点，括号等计算机相关的语法去掉，从而使用一种更接近英语的语法来编程。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">infix&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">String&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">beginWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">startsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="c1">// 我们即可以向普通函数一样使用，也可以使用infix函数的语法糖特性
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">beginWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;A&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span> &lt;span class="n">beginWith&lt;/span> &lt;span class="s2">&amp;#34;A&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>infix&lt;/code>函数有3个比较严格的条件&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>infix&lt;/code>函数是不能定义成顶层函数的，它必须是某个类的成员函数，可以使用扩展函数的方式来将它定义到某个类当中。&lt;/li>
+&lt;li>&lt;code>infix&lt;/code>函数必须接收且只能接收一个参数，至于参数类型是没有限制的。&lt;/li>
+&lt;li>参数不能是可变参数，并且要没有默认值&lt;/li>
+&lt;/ol>
+&lt;p>只有同时满足这3点，infix函数的语法糖才具备使用条件。&lt;/p></description></item><item><title>Kotlin基本数据类型</title><link>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</link><pubDate>Fri, 28 May 2021 11:50:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/05/28/003-kotlin-basic-types/</guid><description>&lt;p>在Kotlin语言中，&lt;strong>一切皆对象&lt;/strong>。因此，我们可以调用任意类型变量的属性或方法。比如&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
@@ -8992,510 +9609,4 @@ DataSets/DataFrame的常用接口和函数&lt;/li>
 &lt;ul>
 &lt;li>当我们得到新信息后，我们应该对信息进行处理。做笔记解释你刚刚学到的东西，或者想出能够验证观点的办法，或者在纸上把一系列数据点绘制成图表，或者跟朋友分享你的观点。人生中的每一个选择都是一种实验，关键是要看到蕴藏其中的数据，并加以运用，这样我们才能从中学到些什么。&lt;/li>
 &lt;/ul>
-&lt;/blockquote></description></item><item><title>《A Programmer's Guide to Data Mining》读书笔记一</title><link>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</link><pubDate>Mon, 22 Jan 2018 17:34:52 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/01/22/a-programmers-guid-to-data-mining-note-one/</guid><description>&lt;p>参考:&lt;/p>
-&lt;p>&lt;a href="http://guidetodatamining.com/">A Programmer&amp;rsquo;s Guide to Data Mining&lt;/a>&lt;/p>
-&lt;p>推荐系统中，最常用的方法就是协同过滤。顾名思义: 这个方法就是利用别人的喜好来推测你的喜好。
-假如你喜欢看电影A和B， 另外一个和你&lt;strong>相似的用户&lt;/strong>也喜欢电影A和B，同时他还喜欢看电影C，那么我们就会推测你也喜欢电影C。&lt;/p>
-&lt;p>&lt;a href="https://en.wikipedia.org/?title=Collaborative_filtering">如图所示&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-19-Collaborative_filtering.gif" alt="">&lt;/p>
-&lt;h2 id="如何找到相似的用户">如何找到相似的用户&lt;/h2>
-&lt;p>相似度计算方法有很多，本文将主要介绍以下几种&lt;/p>
-&lt;p>距离算法&lt;/p>
-&lt;ul>
-&lt;li>曼哈顿距离(Manhattan Distance)&lt;/li>
-&lt;li>欧几里得距离(Euclidean Distance)&lt;/li>
-&lt;li>切比雪夫距离(Chebyshev Distance)&lt;/li>
-&lt;li>闵可夫斯基距离(Minkowski Distance)&lt;/li>
-&lt;/ul>
-&lt;p>相似度系数算法&lt;/p>
-&lt;ul>
-&lt;li>皮尔逊相关系数(Pearson Correlation Coefficient)&lt;/li>
-&lt;li>向量空间余弦相似度(Cosine Similarity)&lt;/li>
-&lt;/ul>
-&lt;p>对于相同的计算数据，不同的相似度计算方法结果不同，所以需要根据计算样本的特性，选择合适的计算方式。&lt;/p>
-&lt;p>更多相似度计算方法可以参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.cnblogs.com/arachis/p/Similarity.html">常见的距离算法和相似度(相关系数)计算方法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.cnblogs.com/heaad/archive/2011/03/08/1977733.html">机器学习中的相似性度量&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://blog.csdn.net/yixianfeng41/article/details/61917158">常用的相似度计算方法原理及实现&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="曼哈顿距离manhattan-distance">曼哈顿距离(Manhattan Distance)&lt;/h3>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB">百度百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>曼哈顿距离，又叫出租车距离（Manhattan Distance）是由十九世纪的赫尔曼·闵可夫斯基所创词汇 ，是种使用在几何度量空间的几何学用语，用以标明两个点在标准坐标系上的绝对轴距总和。&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-manhattan.jpg" alt="">&lt;/p>
-&lt;blockquote>
-&lt;p>图中红线代表曼哈顿距离，绿色代表欧氏距离，也就是直线距离，而蓝色和黄色代表等价的曼哈顿距离。曼哈顿距离——两点在南北方向上的距离加上在东西方向上的距离，即$d(i, j）= |x_i - x_j|+|y_i - y_j|$。对于一个具有正南正北、正东正西方向规则布局的城镇街道，从一点到达另一点的距离正是在南北方向上旅行的距离加上在东西方向上旅行的距离，因此，曼哈顿距离又称为出租车距离。曼哈顿距离不是距离不变量，当坐标轴变动时，点间的距离就会不同。曼哈顿距离示意图在早期的计算机图形学中，屏幕是由像素构成，是整数，点的坐标也一般是整数，原因是浮点运算很昂贵，很慢而且有误差，如果直接使用AB的欧氏距离(欧几里德距离: 在二维和三维空间中的欧氏距离的就是两点之间的距离），则必须要进行浮点运算，如果使用AC和CB，则只要计算加减法即可，这就大大提高了运算速度，而且不管累计运算多少次，都不会有误差。&lt;/p>
-&lt;/blockquote>
-&lt;ul>
-&lt;li>二维平面两点a(x1,y1)与b(x2,y2)间的曼哈顿距离&lt;/li>
-&lt;/ul>
-&lt;p>$$
-d_{ab} = |x_1 - x_2| + |y_1 - y_2|
-$$&lt;/p>
-&lt;ul>
-&lt;li>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的曼哈顿距离&lt;/li>
-&lt;/ul>
-&lt;p>{% math %}&lt;/p>
-&lt;p>d_{ab} =\sum\limits_{k=1}^n|x_{1k} - x_{2k}|&lt;/p>
-&lt;p>{% endmath %}&lt;/p>
-&lt;h3 id="欧几里得距离euclidean-distance">欧几里得距离(Euclidean Distance)&lt;/h3>
-&lt;p>参考&lt;a href="%E5%9C%A8%E6%95%B0%E5%AD%A6%E4%B8%AD%EF%BC%8C%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB%E6%88%96%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%BA%A6%E9%87%8F%E6%98%AF%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4%E4%B8%AD%E4%B8%A4%E7%82%B9%E9%97%B4%E2%80%9C%E6%99%AE%E9%80%9A%E2%80%9D%EF%BC%88%E5%8D%B3%E7%9B%B4%E7%BA%BF%EF%BC%89%E8%B7%9D%E7%A6%BB">维基百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>在数学中，欧几里得距离或欧几里得度量是欧几里得空间中两点间“普通”（即直线）距离&lt;/p>
-&lt;/blockquote>
-&lt;ul>
-&lt;li>二维平面上两点a(x1,y1)与b(x2,y2)间的欧几里得距离:&lt;/li>
-&lt;/ul>
-&lt;p>$$
-d_{ab} = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}
-$$&lt;/p>
-&lt;ul>
-&lt;li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧几里得距离&lt;/li>
-&lt;/ul>
-&lt;p>{% math %}&lt;/p>
-&lt;p>d_{ab} = \sqrt{\sum\limits_{k=1}^n(x_{1k} - x_{2k})^2}&lt;/p>
-&lt;p>{% endmath %}&lt;/p>
-&lt;h3 id="切比雪夫距离chebyshev-distance">切比雪夫距离(Chebyshev Distance)&lt;/h3>
-&lt;p>参考&lt;a href="https://zh.wikipedia.org/wiki/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB">维基百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>数学上，切比雪夫距离（Chebyshev distance）或是L∞度量是向量空间中的一种度量，二个点之间的距离定义为_其各座标数值差的最大值_。以(x1,y1)和(x2,y2)二点为例，其切比雪夫距离为max(|x2-x1|,|y2-y1|)。切比雪夫距离得名自俄罗斯数学家切比雪夫。&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-Chebyshev.png" alt="">&lt;/p>
-&lt;blockquote>
-&lt;p>若将国际象棋棋盘放在二维直角座标系中，格子的边长定义为1，座标的x轴及y轴和棋盘方格平行，原点恰落在某一格的中心点，则王从一个位置走到其他位置需要的步数恰为二个位置的切比雪夫距离，因此切比雪夫距离也称为棋盘距离。例如位置F6和位置E2的切比雪夫距离为4。任何一个不在棋盘边缘的位置，和周围八个位置的切比雪夫距离都是1。&lt;/p>
-&lt;/blockquote>
-&lt;ul>
-&lt;li>二维平面两点a(x1,y1)与b(x2,y2)间的切比雪夫距离&lt;/li>
-&lt;/ul>
-&lt;p>$$
-d_{ab} = max(|x_1-x_2|, |y_1 - y_2|)
-$$&lt;/p>
-&lt;ul>
-&lt;li>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的切比雪夫距离&lt;/li>
-&lt;/ul>
-&lt;p>{% math %}&lt;/p>
-&lt;p>d_{ab} = max(|x_{1i}-x_{2i}|)&lt;/p>
-&lt;p>{% endmath %}&lt;/p>
-&lt;p>等价于&lt;/p>
-&lt;p>{% math %}&lt;/p>
-&lt;p>d_{ab} = \lim\limits_{k \to \infty}(\sum\limits_{i=1}^{n}|x_{1i} - x_{2i}|^k)^{\frac{1}{k}}&lt;/p>
-&lt;p>{% endmath %}&lt;/p>
-&lt;h3 id="闵可夫斯基距离minkowski-distance">闵可夫斯基距离(Minkowski Distance)&lt;/h3>
-&lt;p>可以将曼哈顿距离，欧几里得距离，切比雪夫距离三种距离的计算公式归纳
-为一个计算公式，这就是闵可夫斯基距离(Minkowski Distance)。&lt;/p>
-&lt;p>$$
-d(x, y) = (\sum\limits_{k=1}^n|x_k - y_k|^r)^{\frac{1}{r}}
-$$&lt;/p>
-&lt;ul>
-&lt;li>$r = 1$, 该公式就是曼哈顿距离&lt;/li>
-&lt;li>$r = 2$, 该公式就是曼哈顿距离&lt;/li>
-&lt;li>$r = \infty$, 该公式就是切比雪夫距离&lt;/li>
-&lt;/ul>
-&lt;h3 id="皮尔逊相关系数pearson-correlation-coefficient">皮尔逊相关系数(Pearson Correlation Coefficient)&lt;/h3>
-&lt;p>参考:
-&lt;a href="https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/">皮尔逊相关系数&lt;/a>&lt;/p>
-&lt;h3 id="余弦相似度cosine-similarity">余弦相似度(Cosine Similarity)&lt;/h3>
-&lt;p>参考&lt;a href="https://baike.baidu.com/item/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6">百度百科&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>余弦相似度，又称为余弦相似性，是通过计算两个向量的夹角余弦值来评估他们的相似度。余弦相似度将向量根据坐标值，绘制到向量空间中，如最常见的二维空间。&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-23-cosine-distance.jpg" alt="">&lt;/p>
-&lt;ul>
-&lt;li>二维平面上，假设向量a、b的坐标分别为(x1,y1)、(x2,y2) 。则:&lt;/li>
-&lt;/ul>
-&lt;p>$$
-cos\theta = \frac{x_1x_2+y_1y_2}{\sqrt{x_1^2 + y_1^2}\sqrt{x_2^2 + y_2^2}}
-$$&lt;/p>
-&lt;ul>
-&lt;li>推广到n维空间，计算公式为:&lt;/li>
-&lt;/ul>
-&lt;p>$$
-cos\theta = \frac{\sum\limits_1^n(Ai \times Bi)}{\sqrt{\sum\limits_1^nA_i^2}\sqrt{\sum\limits_1^nB_i^2}}
-$$&lt;/p>
-&lt;h4 id="性质">性质&lt;/h4>
-&lt;p>余弦值的范围在[-1,1]之间，值越趋近于1，代表两个向量的方向越接近；越趋近于-1，他们的方向越相反；接近于0，表示两个向量近乎于正交。&lt;/p>
-&lt;h3 id="实战">实战&lt;/h3>
-&lt;p>在介绍了一大堆的相似度计算之后，我们来通过一些例子，说明具体的用法。
-假设我们要为一个在线音乐网站的用户推荐乐队。用户可以用1-5颗星来评价他喜欢的乐队，其中包含半颗星(如2.5星)，下表展示了8位用户对8支乐队的评价:&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-23-Recommand-Music-Bannd.png" alt="">&lt;/p>
-&lt;p>图中的&lt;code>-&lt;/code>表示没有评分。在计算两个用户的距离时，只考虑他们都评价过的乐队。暂时不考虑数据缺失的情况。&lt;/p>
-&lt;p>数据转换成代码如下:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;span class="lnt">41
-&lt;/span>&lt;span class="lnt">42
-&lt;/span>&lt;span class="lnt">43
-&lt;/span>&lt;span class="lnt">44
-&lt;/span>&lt;span class="lnt">45
-&lt;/span>&lt;span class="lnt">46
-&lt;/span>&lt;span class="lnt">47
-&lt;/span>&lt;span class="lnt">48
-&lt;/span>&lt;span class="lnt">49
-&lt;/span>&lt;span class="lnt">50
-&lt;/span>&lt;span class="lnt">51
-&lt;/span>&lt;span class="lnt">52
-&lt;/span>&lt;span class="lnt">53
-&lt;/span>&lt;span class="lnt">54
-&lt;/span>&lt;span class="lnt">55
-&lt;/span>&lt;span class="lnt">56
-&lt;/span>&lt;span class="lnt">57
-&lt;/span>&lt;span class="lnt">58
-&lt;/span>&lt;span class="lnt">59
-&lt;/span>&lt;span class="lnt">60
-&lt;/span>&lt;span class="lnt">61
-&lt;/span>&lt;span class="lnt">62
-&lt;/span>&lt;span class="lnt">63
-&lt;/span>&lt;span class="lnt">64
-&lt;/span>&lt;span class="lnt">65
-&lt;/span>&lt;span class="lnt">66
-&lt;/span>&lt;span class="lnt">67
-&lt;/span>&lt;span class="lnt">68
-&lt;/span>&lt;span class="lnt">69
-&lt;/span>&lt;span class="lnt">70
-&lt;/span>&lt;span class="lnt">71
-&lt;/span>&lt;span class="lnt">72
-&lt;/span>&lt;span class="lnt">73
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">json&lt;/span>
-&lt;span class="n">users_string&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;
-&lt;/span>&lt;span class="s1">{
-&lt;/span>&lt;span class="s1"> &amp;#34;Angelica&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 3.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 2,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 4.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 1.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 2.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Vampire Weekend&amp;#34;: 2
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Bill&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 2,
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 3.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Deadmau5&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 2,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 3.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Vampire Weekend&amp;#34;: 3
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Chan&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 1,
-&lt;/span>&lt;span class="s1"> &amp;#34;Deadmau5&amp;#34;: 1,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 3,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 1
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Dan&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 3,
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Deadmau5&amp;#34;: 4.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 3,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 4.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Vampire Weekend&amp;#34;: 2
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Hailey&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Deadmau5&amp;#34;: 1,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Vampire Weekend&amp;#34;: 1
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Jordyn&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 4.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Deadmau5&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 4.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Vampire Weekend&amp;#34;: 4
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Sam&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Broken Bells&amp;#34;: 2,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 3,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 5
-&lt;/span>&lt;span class="s1"> },
-&lt;/span>&lt;span class="s1"> &amp;#34;Veronica&amp;#34;: {
-&lt;/span>&lt;span class="s1"> &amp;#34;Blues Traveler&amp;#34;: 3,
-&lt;/span>&lt;span class="s1"> &amp;#34;Norah Jones&amp;#34;: 5,
-&lt;/span>&lt;span class="s1"> &amp;#34;Phoenix&amp;#34;: 4,
-&lt;/span>&lt;span class="s1"> &amp;#34;Slightly Stoopid&amp;#34;: 2.5,
-&lt;/span>&lt;span class="s1"> &amp;#34;The Strokes&amp;#34;: 3
-&lt;/span>&lt;span class="s1"> }
-&lt;/span>&lt;span class="s1">}
-&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
-&lt;span class="n">users&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">loads&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">users_string&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>计算曼哈顿距离&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">manhattan&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rating1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;计算曼哈顿距离&amp;#34;&amp;#34;&amp;#34;&lt;/span>
-&lt;span class="n">distance&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating1&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">difference&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">abs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rating1&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="n">distance&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">difference&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="n">distance&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>测试一下效果&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">manhattan&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Hailey&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Veronica&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mi">2&lt;/span>
-&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">manhattan&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Hailey&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;Jordyn&amp;#39;&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="mf">7.5&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>下面再通过一个函数，实现找出最近的用户距离，该函数会返回一个用户列表，按照距离排序&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">computeNearestNeighbor&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="n">distances&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">user&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">user&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">username&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">distance&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">manhattan&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">])&lt;/span>
-&lt;span class="n">distances&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">distance&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">distances&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="n">distances&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>测试一下，计算与用户Hailey最相似的用户&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">computeNearestNeighbor&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Hailey&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">[(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Veronica&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Chan&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Sam&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mf">4.5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Dan&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mf">5.0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Angelica&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mf">5.5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Bill&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mf">7.5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Jordyn&amp;#39;&lt;/span>&lt;span class="p">)]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>最后再来根据距离做推荐&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">recommend&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="c1"># 找到距离最近的用户&lt;/span>
-&lt;span class="n">nearest&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">computeNearestNeighbor&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">)[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="n">recommendations&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
-&lt;span class="c1"># 找出这位用户评价过，但自己未评价过的乐队&lt;/span>
-&lt;span class="n">neighborRatings&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">nearest&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="n">userRatings&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">username&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">artist&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">neighborRatings&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">artist&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">userRatings&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">recommendations&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">artist&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">neighborRatings&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">artist&lt;/span>&lt;span class="p">]))&lt;/span>
-&lt;span class="c1"># 按照评分进行排序&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="nb">sorted&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">recommendations&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">lambda&lt;/span> &lt;span class="n">recommend&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">recommend&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">reverse&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="bp">True&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>为用户Hailey做推荐&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">recommend&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Hailey&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">users&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">[(&lt;/span>&lt;span class="s1">&amp;#39;Phoenix&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Blues Traveler&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Slightly Stoopid&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">2.5&lt;/span>&lt;span class="p">)]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>闵科夫斯基算法&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">minkowski&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rating1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;闵可夫斯基算法&amp;#34;&amp;#34;&amp;#34;&lt;/span>
-&lt;span class="n">distance&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating1&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">distance&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">abs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rating1&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">]),&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">distance&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.0&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">r&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>皮尔逊系数&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">pearson&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rating1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="n">sum_xy&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="n">sum_x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="n">sum_y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="n">sum_x2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="n">sum_y2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="n">n&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating1&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">key&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="n">n&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="mi">1&lt;/span>
-&lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rating1&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rating2&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="n">sum_xy&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">y&lt;/span>
-&lt;span class="n">sum_x&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">x&lt;/span>
-&lt;span class="n">sum_y&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">y&lt;/span>
-&lt;span class="n">sum_x2&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">sum_y2&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="c1"># now compute denominator&lt;/span>
-&lt;span class="n">denominator&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sqrt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sum_x2&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sum_x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="o">*&lt;/span> &lt;span class="n">sqrt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sum_y2&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="nb">pow&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sum_y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="n">denominator&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sum_xy&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">sum_x&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">sum_y&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">denominator&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="相似度算法选择">相似度算法选择&lt;/h3>
-&lt;p>根据数据的特性，不同的算法计算的结果会有偏差，但是大体上满足如下规律:&lt;/p>
-&lt;ul>
-&lt;li>如果数据存在&amp;quot;分数膨胀&amp;quot;，就使用皮尔逊相关系数&lt;/li>
-&lt;li>如果数据比较密集，变量之间基本存在公有值，且这些距离数据都是非常重要的，那就使用曼哈顿距离或欧几里得距离&lt;/li>
-&lt;li>如果数据是稀释的，就用余弦定理&lt;/li>
-&lt;/ul>
-&lt;h3 id="距离计算库">距离计算库&lt;/h3>
-&lt;p>&lt;a href="https://docs.scipy.org/doc/scipy/reference/spatial.distance.html">&lt;code>scipy.spatial.distance&lt;/code>&lt;/a>模块包含了各种距离的计算方式。&lt;/p>
-&lt;ul>
-&lt;li>scipy.spatial.distance.cityblock 曼哈顿距离&lt;/li>
-&lt;li>scipy.spatial.distance.euclidean 欧几里得距离&lt;/li>
-&lt;li>scipy.spatial.distance.chebyshev 切比雪夫距离&lt;/li>
-&lt;li>scipy.spatial.distance.minkowski 闵可夫斯基距离&lt;/li>
-&lt;li>scipy.stats.pearsonr 皮尔逊相关系数&lt;/li>
-&lt;/ul>
-&lt;h3 id="k最邻近算法">K最邻近算法&lt;/h3>
-&lt;p>如果只使用最相似的一个用户来做推荐，如果这个用户有特殊的偏好，就会直接反应在推荐内容里。解决方法之一就是寻找多个相似的用户，这里就要用到K最邻近算法了。&lt;/p>
-&lt;p>完整实现请参考:&lt;/p>
-&lt;p>&lt;a href="https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py">https://github.com/zacharski/pg2dm-python/blob/master/ch2/recommender.py&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/blockquote></description></item></channel></rss>

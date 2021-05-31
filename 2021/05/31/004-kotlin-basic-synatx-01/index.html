@@ -1,0 +1,346 @@
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法01 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin基本语法，流程控制，包管理，函数定义等
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法01"><meta property="og:description" content="Kotlin基本语法，流程控制，包管理，函数定义等
+"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-05-31T10:25:29+08:00"><meta property="article:modified_time" content="2021-05-31T10:25:29+08:00"><meta itemprop=name content="Kotlin基本语法01"><meta itemprop=description content="Kotlin基本语法，流程控制，包管理，函数定义等
+"><meta itemprop=datePublished content="2021-05-31T10:25:29+08:00"><meta itemprop=dateModified content="2021-05-31T10:25:29+08:00"><meta itemprop=wordCount content="4970"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法01"><meta name=twitter:description content="Kotlin基本语法，流程控制，包管理，函数定义等
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法01</h1><div class=post-meta><time datetime=2021-05-31 class=post-time>2021-05-31</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 4970 字</span>
+<span class=more-meta>预计阅读 10 分钟</span>
+<span id=/2021/05/31/004-kotlin-basic-synatx-01/ class=leancloud_visitors data-flag-title=Kotlin基本语法01><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#语言特点>语言特点</a></li><li><a href=#基本语法>基本语法</a><ul><li><a href=#变量声明>变量声明</a></li><li><a href=#const-val和val的区别><code>const val</code>和<code>val</code>的区别</a></li><li><a href=#空值处理>空值处理</a></li><li><a href=#数据类型>数据类型</a></li><li><a href=#运算符>运算符</a></li><li><a href=#字符串>字符串</a></li><li><a href=#区间>区间</a></li><li><a href=#数组>数组</a></li><li><a href=#is和is操作符><code>is</code>和<code>!is</code>操作符</a></li><li><a href=#类型自动转换>类型自动转换</a></li><li><a href=#非安全的类型转换>非安全的类型转换</a></li><li><a href=#安装的类型转换>安装的类型转换</a></li></ul></li><li><a href=#包管理>包管理</a><ul><li><a href=#默认导入的包>默认导入的包</a></li><li><a href=#添加导入的包>添加导入的包</a></li></ul></li><li><a href=#函数>函数</a><ul><li><a href=#函数声明>函数声明</a></li><li><a href=#函数返回值>函数返回值</a></li><li><a href=#vararg可选参数><code>vararg</code>可选参数</a></li><li><a href=#命名参数>命名参数</a></li><li><a href=#函数默认值>函数默认值</a></li><li><a href=#函数的简化写法>函数的简化写法</a></li><li><a href=#函数重载>函数重载</a></li><li><a href=#todo函数>TODO函数</a></li><li><a href=#中缀函数infix>中缀函数infix</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=语言特点>语言特点</h2><p>Kotlin可以编译成Java字节码，也可以编译成JavaScript字节码，方便在没有JVM的设备上运行。</p><h2 id=基本语法>基本语法</h2><p>Kotlin语言是严格区分大小写的。</p><h3 id=变量声明>变量声明</h3><p>在<code>Kotlin</code>中定义一个变量，只允许在变量前声明两种关键字:
+<code>val</code>和<code>var</code></p><h3 id=const-val和val的区别><code>const val</code>和<code>val</code>的区别</h3><ul><li><code>val</code>: 相当于Java中的<code>private final static</code></li><li><code>const val</code>: 相当于Java中的<code>public final static</code></li></ul><p>定义常量时，优先考虑使用<code>const val</code></p><h3 id=空值处理>空值处理</h3><p>安全调用符<code>?.</code>，专门用于调用可空类型变量中的成员方法或属性，其语法格式为<code>变量?.成员</code>。其作用是判断变量是否为<code>null</code>，如果不为<code>null</code>才调用变量的成员方法或者属性。</p><p>使用<code>?.</code>调用可空变量的属性时，如果当前变量为空，则程序编译也不会报错，而是返回一个null值。</p><p>Kotlin中提供了一个Elvis操作符<code>?:</code>，通过Elvis操作符<code>?:</code>, 其语法格式为<code>表达式?:表达式</code>。如果左侧表达式非空，则返回左侧表达式的值，否则返回右侧表达式的值。当且仅当左侧为空时，才会对右侧表达式求值。</p><p>通过非空断言（<code>!!.</code>）来调用可空类型变量的成员方法或属性。使用非空断言时，调用变量成员方法或属性的语法结构为<code>变量!!.成员</code>。非空断言<code>!!.</code>会将任何变量（可空类型变量或者非空类型变量）转换为非空类型的变量，若该变量为空则抛出异常。</p><h3 id=数据类型>数据类型</h3><p>Kotlin完全抛弃了Java中的基本数据类型，全部使用对象类型。Kotlin语言中的数据类型不区分基本数据类型和引用数据类型，分别为数值型、字符型、布尔型、数组型、字符串型。</p><p>Kotlin中每个字符类型变量都会占用2个字节。在给<code>Char</code>类型的变量赋值时，需要用一对英文半角格式的单引号<code>' '</code>把字符括起来。</p><p>数组是用<code>Array</code>表示，其中数值类型、布尔类型、字符类型都有数组的表现形式</p><p>这些数组类型变量的初始化有两种方式，一种是以<code>数据类型ArrayOf()</code>方法进行初始化，另一种是以<code>arrayOf()</code>方法进行初始化。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// 声明数组变量的两种方式
+</span><span class=c1></span><span class=k>val</span> <span class=py>intArray</span> <span class=p>=</span> <span class=n>intArrayOf</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+<span class=k>val</span> <span class=py>intArray2</span> <span class=p>=</span> <span class=n>arrayOf</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+<span class=n>println</span><span class=p>(</span><span class=n>intArray</span><span class=p>.</span><span class=n>contentToString</span><span class=p>())</span>
+<span class=n>println</span><span class=p>(</span><span class=n>intArray2</span><span class=p>.</span><span class=n>contentToString</span><span class=p>())</span>
+</code></pre></td></tr></table></div></div><p>不能使用<code>stringArrayOf()</code>方法创建字符串类型数组，因为<code>String</code>不属于基本数据类型。要想在Kotlin中声明字符串数组，需要使用<code>Array＜String＞</code>，并且对应的初始化数组的方法也相应变成了<code>arrayOf()</code>，这种初始化方式对于其他类型的数组同样适用。</p><h3 id=运算符>运算符</h3><p>在进行取模<code>(%）</code>运算时，运算结果的正负取决于被模数（<code>%</code>左边的数）的符号，与模数（<code>%</code>右边的数）的符号无关。例如<code>（-1）%2=-1</code>，而<code>1%（-2）=1</code>。</p><p><code>&&</code>当运算符左边的表达式为<code>false</code>时，运算符右边的表达式不会进行运算，结果为<code>false</code>，因此<code>&&</code>被称作短路与。</p><p>同与操作类似，<code>||</code>表示短路或，当运算符<code>||</code>的左边为<code>true</code>时，右边的表达式不会进行运算，结果为<code>true</code>。</p><h3 id=字符串>字符串</h3><p>字符串是不可变的，字符串中的元素可以使用索引的形式进行访问：即“变量名+角标”的形式，如<code>str[i]</code>, 也可以用<code>for</code>循环遍历字符串.</p><p>为了方便字符串的查找，提供了多个函数，如<code>first()</code>、<code>last()</code>、<code>get（index）</code>，分别用于查找字符串中的第1个元素、最后1个元素以及角标为index的元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;Hello, World&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>first</span><span class=p>())</span>  <span class=c1>// H
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>last</span><span class=p>())</span>   <span class=c1>// d
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=m>4</span><span class=p>])</span>      <span class=c1>// o
+</span></code></pre></td></tr></table></div></div><p>字符串截取主要使用的是<code>subString()</code>函数和<code>subSequence()</code>函数，这两个函数都有重载函数（函数名相同，参数不同)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;Hello, World&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>substring</span><span class=p>(</span><span class=m>2</span><span class=p>,</span> <span class=m>5</span><span class=p>))</span>   <span class=c1>// 返回值类型为String
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>subSequence</span><span class=p>(</span><span class=m>2</span><span class=p>,</span> <span class=m>5</span><span class=p>))</span> <span class=c1>// 返回值类型为CharSequence
+</span><span class=c1></span>
+<span class=c1>// 输出为
+</span><span class=c1>// llo
+</span><span class=c1>// llo
+</span></code></pre></td></tr></table></div></div><p><code>split()</code>函数还可以传入多个拆分符，多个拆分符中间只需用逗号分隔即可。返回类型为<code>List&lt;String></code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s2>&#34;www.baidu.com&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>))</span>  <span class=c1>// [www, baidu, com]
+</span><span class=c1></span>
+<span class=k>val</span> <span class=py>s2</span> <span class=p>=</span> <span class=s2>&#34;www.baidu.com/query&#34;</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s2</span><span class=p>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>,</span> <span class=s2>&#34;/&#34;</span><span class=p>))</span>  <span class=c1>//[www, baidu, com, query]
+</span></code></pre></td></tr></table></div></div><p>此Kotlin提供了<code>trim()</code>、<code>trimEnd()</code>等多个函数，其中<code>trim()</code>用于删除字符串前面的空格，<code>trimEnd()</code>用于删除字符串后面的字符。</p><p>原生字符串是使用3对引号（<code>""" """</code>）把所有字符括起来，原生字符串可以有效地保证字符串中原有内容的输出，即使原生字符串中包含转义字符也不会被转义。</p><p>在原生字符串中，使用模板表达式输出<code>$</code>需要使用<code>${'$'}</code>，</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>s</span> <span class=p>=</span> <span class=s>&#34;&#34;&#34;
+</span><span class=s>        Hello\nWorld
+</span><span class=s>        </span><span class=si>${&#39;$&#39;}</span><span class=s>200
+</span><span class=s>    &#34;&#34;&#34;</span><span class=p>.</span><span class=n>trimIndent</span><span class=p>()</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=c1>// 输出
+</span><span class=c1>// Hello\nWorld
+</span><span class=c1>// $200
+</span></code></pre></td></tr></table></div></div><h3 id=区间>区间</h3><ul><li><code>..</code> 两端都是闭区间[a, b], a&lt;b</li><li><code>until</code>左闭右开[a, b), a&lt;b</li><li><code>downTo</code>两端都是闭区间[a, b], a > b</li><li><code>step</code> 步长</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// ..重写了运算操作符rangeTo
+</span><span class=c1></span><span class=k>val</span> <span class=py>s1</span> <span class=p>=</span> <span class=m>1.</span><span class=p>.</span><span class=m>5</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s1</span><span class=p>.</span><span class=n>joinToString</span><span class=p>(</span><span class=s2>&#34;, &#34;</span><span class=p>))</span>
+<span class=c1>// until 是infix函数
+</span><span class=c1></span><span class=k>val</span> <span class=py>s2</span> <span class=p>=</span> <span class=m>1</span> <span class=n>until</span> <span class=m>5</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s2</span><span class=p>.</span><span class=n>joinToString</span><span class=p>(</span><span class=s2>&#34;, &#34;</span><span class=p>))</span>
+<span class=c1>// downTo 是infix函数
+</span><span class=c1></span><span class=k>val</span> <span class=py>s3</span> <span class=p>=</span> <span class=m>5</span> <span class=n>downTo</span> <span class=m>1</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s3</span><span class=p>.</span><span class=n>joinToString</span><span class=p>(</span><span class=s2>&#34;, &#34;</span><span class=p>))</span>
+<span class=c1>// 设置步长
+</span><span class=c1></span><span class=k>val</span> <span class=py>s4</span> <span class=p>=</span> <span class=m>1.</span><span class=p>.</span><span class=m>10</span> <span class=n>step</span> <span class=m>2</span>
+<span class=n>println</span><span class=p>(</span><span class=n>s4</span><span class=p>.</span><span class=n>joinToString</span><span class=p>(</span><span class=s2>&#34;, &#34;</span><span class=p>))</span>
+
+<span class=c1>// 输出
+</span><span class=c1>// 1, 2, 3, 4, 5
+</span><span class=c1>// 1, 2, 3, 4
+</span><span class=c1>// 5, 4, 3, 2, 1
+</span><span class=c1>// 1, 3, 5, 7, 9
+</span><span class=c1></span>
+<span class=c1>// 使用in关键子判断一个元素属于一个区间
+</span><span class=c1></span>
+<span class=k>val</span> <span class=py>x</span> <span class=p>=</span> <span class=m>10</span>
+<span class=k>val</span> <span class=py>y</span> <span class=p>=</span> <span class=m>9</span>
+<span class=k>if</span> <span class=p>(</span><span class=n>x</span> <span class=k>in</span> <span class=m>1.</span><span class=p>.</span><span class=n>y</span><span class=p>+</span><span class=m>1</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;fits in range&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>val</span> <span class=py>list</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span><span class=p>,</span> <span class=s2>&#34;c&#34;</span><span class=p>)</span>
+
+<span class=c1>// 使用!in关键子判断一个元素不属于一个区间
+</span><span class=c1></span><span class=k>if</span> <span class=p>(-</span><span class=m>1</span> <span class=o>!in</span> <span class=m>0.</span><span class=p>.</span><span class=n>list</span><span class=p>.</span><span class=n>lastIndex</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;-1 is out of range&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=k>if</span> <span class=p>(</span><span class=n>list</span><span class=p>.</span><span class=n>size</span> <span class=o>!in</span> <span class=n>list</span><span class=p>.</span><span class=n>indices</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;list size is out of valid list indices range, too&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><h3 id=数组>数组</h3><p>Kotlin中，为了方便获取数组的长度，提供了一个<code>size</code>属性，在程序中可以通过“数组名.size”的方式来获取数组的长度，即元素的个数。</p><p>在Kotlin中，如果创建的数组对象没有被初始化，则当访问数组中的元素时，程序会报错并提示数组对象必须初始化。脚下留心: 数组中的索引不能超出索引的范围</p><p>通过数组的<code>withIndex()</code>方法来遍历并打印数组中元素对应的角标和元素。</p><p>除了使用数组的<code>indexOf()</code>方法来查找指定元素中第1个元素的角标之外，还可以通过数组的<code>indexOfFirst()</code>方法来查找指定元素中第1个元素的角标。</p><p>通过数组的<code>lastIndexOf()</code>方法来查找，该方法中传递的参数4就是需要查找的元素。</p><p>除了调用数组的<code>lastIndexOf()</code>方法来查找指定元素的角标之外，还可以通过数组的<code>indexOfLast()</code>方法来查找指定元素的最后一个角标</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>a</span> <span class=p>=</span> <span class=n>arrayOf</span><span class=p>(</span><span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span><span class=p>,</span> <span class=s2>&#34;c&#34;</span><span class=p>,</span> <span class=s2>&#34;d&#34;</span><span class=p>)</span>
+<span class=k>val</span> <span class=py>index</span> <span class=p>=</span> <span class=n>a</span><span class=p>.</span><span class=n>indexOfLast</span> <span class=p>{</span>
+	<span class=k>it</span> <span class=o>==</span> <span class=s2>&#34;d&#34;</span>
+<span class=p>}</span>
+<span class=n>println</span><span class=p>(</span><span class=n>index</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=is和is操作符><code>is</code>和<code>!is</code>操作符</h3><p>用于检查一个变量是否为某个类型的对象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>obj</span> <span class=p>=</span><span class=s2>&#34;xxx&#34;</span>
+<span class=k>if</span> <span class=p>(</span><span class=n>obj</span> <span class=k>is</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>print</span><span class=p>(</span><span class=n>obj</span><span class=p>.</span><span class=n>length</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>if</span> <span class=p>(</span><span class=n>obj</span> <span class=o>!is</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// same as !(obj is String)
+</span><span class=c1></span>    <span class=n>print</span><span class=p>(</span><span class=s2>&#34;Not a String&#34;</span><span class=p>)</span>
+<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+    <span class=n>print</span><span class=p>(</span><span class=n>obj</span><span class=p>.</span><span class=n>length</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=类型自动转换>类型自动转换</h3><p>大多数情况下，我们都不需要显示显示转换变量类型，编译器会根据<code>is</code>操作符号自动进行转换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>demo</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>Any</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>x</span> <span class=k>is</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>print</span><span class=p>(</span><span class=n>x</span><span class=p>.</span><span class=n>length</span><span class=p>)</span> <span class=c1>// x is automatically cast to String
+</span><span class=c1></span>    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>使用<code>when</code>语句时，类型自动转换同样存在</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>when</span> <span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>is</span> <span class=n>Int</span> <span class=o>-&gt;</span> <span class=n>print</span><span class=p>(</span><span class=n>x</span> <span class=p>+</span> <span class=m>1</span><span class=p>)</span>
+    <span class=k>is</span> <span class=n>String</span> <span class=o>-&gt;</span> <span class=n>print</span><span class=p>(</span><span class=n>x</span><span class=p>.</span><span class=n>length</span> <span class=p>+</span> <span class=m>1</span><span class=p>)</span>
+    <span class=k>is</span> <span class=n>IntArray</span> <span class=o>-&gt;</span> <span class=n>print</span><span class=p>(</span><span class=n>x</span><span class=p>.</span><span class=n>sum</span><span class=p>())</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=非安全的类型转换>非安全的类型转换</h3><p>当使用<code>as</code>(中缀infix操作符)进行类型转换失败时，会抛出异常，这样的转换被称为非安全的类型转换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>String</span> <span class=p>=</span> <span class=n>y</span> <span class=k>as</span> <span class=n>String</span>
+</code></pre></td></tr></table></div></div><p>上面的例子中，当<code>y</code>是<code>null</code>时，会抛出异常</p><p>使用下面的形式可以解决这个问题</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>String</span><span class=p>?</span> <span class=p>=</span> <span class=n>y</span> <span class=k>as</span> <span class=n>String</span><span class=p>?</span>
+</code></pre></td></tr></table></div></div><h3 id=安装的类型转换>安装的类型转换</h3><p>使用<code>as?</code>进行类型转换时，在转换失败时会返回<code>null</code>，而不是抛出异常，这样的类型转换被称为安全的类型转换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>String</span><span class=p>?</span> <span class=p>=</span> <span class=n>y</span> <span class=k>as</span><span class=err>？</span> <span class=n>String</span>
+</code></pre></td></tr></table></div></div><h2 id=包管理>包管理</h2><h3 id=默认导入的包>默认导入的包</h3><p>Kotlin中，默认情况下自动导入了下面的包</p><ul><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/index.html>kotlin.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/index.html>kotlin.annotation.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html>kotlin.collections.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.comparisons/index.html>kotlin.comparisons.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/index.html>kotlin.io.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/index.html>kotlin.ranges.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/index.html>kotlin.sequences.*</a></li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/index.html>kotlin.text.*</a></li></ul><p>另外，根据使用的平台不同，额外还导入了如下包</p><ul><li>JVM:<ul><li>java.lang.*</li><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/index.html>kotlin.jvm.*</a></li></ul></li><li>JS:<ul><li><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/index.html>kotlin.js.*</a></li></ul></li></ul><h3 id=添加导入的包>添加导入的包</h3><p>使用<code>import</code>关键字可以定义需要添加的包</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// 导入单个	
+</span><span class=c1></span><span class=k>import</span> <span class=nn>org.example.Message</span> <span class=c1>// Message is now accessible without qualification
+</span><span class=c1></span>
+<span class=c1>// 导入多个
+</span><span class=c1></span><span class=k>import</span> <span class=nn>org.example.*</span> <span class=c1>// everything in &#39;org.example&#39; becomes accessible
+</span></code></pre></td></tr></table></div></div><p>使用<code>as</code>关键字可以重命名包导入的对象，解决冲突问题</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>import</span> <span class=nn>org.test.Message</span> <span class=k>as</span> <span class=n>testMessage</span> <span class=c1>// testMessage stands for &#39;org.test.Message&#39;
+</span></code></pre></td></tr></table></div></div><h2 id=函数>函数</h2><h3 id=函数声明>函数声明</h3><p>函数使用<code>fun</code>关键字声明。对于参数，不仅必须声明其名称，还必须声明其类型，并且必须声明函数返回值的类型。函数的主体通常是一个代码块，用花括号括起来</p><h3 id=函数返回值>函数返回值</h3><p>与<code>Python</code>相反，在函数末尾省略<code>return</code>不会隐式返回<code>null</code>；如果函数要返回<code>null</code>，则必须使用<code>return null</code>。</p><p>如果一个函数不需要任何返回值，则该函数应该声明返回类型为<code>Unit</code>,类似于Java中的void。当函数的返回值类型为Unit时，可以省略不写Unit。（或者根本不声明返回类型，在这种情况下，返回类型默认为<code>Unit</code>）。在这样的函数中，可能根本没有<code>return</code> 语句，或只有<code>return</code>。</p><p><code>Unit</code>是一个单例对象（在<code>Python</code> 中也恰好是<code>None</code>），也是该对象的类型，它表示<strong>此函数不会返回任何信息</strong></p><h3 id=vararg可选参数><code>vararg</code>可选参数</h3><p>使用关键字<code>vararg</code>,函数可以接受任意数量的参数，类似于<code>Python</code>中的 <code>*args</code>，但它们必须都属于同一类型。与<code>Python</code>不同的是，可以在可变参数之后声明其他位置参数，但最多可以有一个可变参数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>countAndPrintArgs</span><span class=p>(</span><span class=k>vararg</span> <span class=n>numbers</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+
+	<span class=n>println</span><span class=p>(</span><span class=n>numbers</span><span class=p>.</span><span class=n>size</span><span class=p>)</span> <span class=c1>// 输出 3
+</span><span class=c1></span>
+	<span class=k>for</span> <span class=p>(</span><span class=n>number</span> <span class=k>in</span> <span class=n>numbers</span><span class=p>)</span> <span class=n>println</span><span class=p>(</span><span class=n>number</span><span class=p>)</span> <span class=c1>// 输出 1，2，3
+</span><span class=c1></span>
+<span class=p>}</span>
+<span class=n>countAndPrintArgs</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>可以使用包含所有可变参数的一个数组（而不是列表或任何其他可迭代对象）来调用可变参数函数，使用<code>*</code>运算符（与 Python 相同的语法）将数组展开：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>numbers</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+<span class=n>countAndPrintArgs</span><span class=p>(*</span><span class=n>numbers</span><span class=p>.</span><span class=n>toIntArray</span><span class=p>())</span>
+</code></pre></td></tr></table></div></div><h3 id=命名参数>命名参数</h3><p><code>Kotlin</code>中没有<code>**kwargs</code>，但是可以定义具有默认值的可选参数，并且在调用函数时可以选择命名部分或所有参数（无论它们是否具有默认值）。具有默认值的参数仍必须明确指定其类型。像在<code>Python</code>中一样，已命名的参数可以在调用时随意重新排序：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>foo</span><span class=p>(</span><span class=n>decimal</span><span class=p>:</span> <span class=n>Double</span><span class=p>,</span> <span class=n>integer</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>text</span><span class=p>:</span> <span class=n>String</span> <span class=p>=</span> <span class=s2>&#34;Hello&#34;</span><span class=p>)</span> <span class=p>{</span>
+	<span class=n>TODO</span><span class=p>(</span><span class=s2>&#34;Implement this method&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=n>foo</span><span class=p>(</span><span class=m>3.14</span><span class=p>,</span> <span class=n>text</span> <span class=p>=</span> <span class=s2>&#34;Bye&#34;</span><span class=p>,</span> <span class=n>integer</span> <span class=p>=</span> <span class=m>42</span><span class=p>)</span>
+<span class=n>foo</span><span class=p>(</span><span class=n>integer</span> <span class=p>=</span> <span class=m>12</span><span class=p>,</span> <span class=n>decimal</span> <span class=p>=</span> <span class=m>3.4</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=函数默认值>函数默认值</h3><p>在<code>Python</code>中，默认值的表达式只在函数定义时计算一次。这导致了一个经典的陷阱，当开发人员希望每次调用没有传递<code>numbers</code>参数的函数时，都得到一个新的空列表，但是实际上每次都使用相同的列表：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>tricky</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>numbers</span><span class=o>=</span><span class=p>[]):</span> <span class=c1># Bug：每次调用都会使用相同的列表！</span>
+	<span class=n>numbers</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+	<span class=k>print</span><span class=p>(</span><span class=n>numbers</span><span class=p>)</span>
+
+<span class=n>tricky</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+<span class=n>tricky</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+<span class=n>tricky</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>依次输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[1]
+[1, 2]
+[1, 2, 3]
+</code></pre></td></tr></table></div></div><p>在<code>Kotlin</code>中，每次调用函数时，都会计算默认值的表达式。因此，只要使用在每次求值时生成新列表的表达式，就可以避免上述陷阱</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>tricky</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>numbers</span><span class=p>:</span> <span class=n>MutableList</span><span class=p>&lt;</span><span class=n>Int</span><span class=p>&gt;</span> <span class=p>=</span> <span class=n>mutableListOf</span><span class=p>())</span> <span class=p>{</span>
+    <span class=n>numbers</span><span class=p>.</span><span class=n>add</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>numbers</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=n>tricky</span><span class=p>(</span><span class=m>1</span><span class=p>)</span>
+<span class=n>tricky</span><span class=p>(</span><span class=m>2</span><span class=p>)</span>
+<span class=n>tricky</span><span class=p>(</span><span class=m>3</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>输出为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[1]
+[2]
+[3]
+</code></pre></td></tr></table></div></div><h3 id=函数的简化写法>函数的简化写法</h3><p>当一个函数中只有一行代码时，<code>Kotlin</code>允许我们不写函数体，直接将唯一的一行代码写在函数定义的尾部，中间等号连接即可。
+如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>largerNumber</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=n>max</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>可以直接写成如下形式，其中<code>return</code>关键字也省略掉了，等号足以表达返回值的意思</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>largeNumber</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>=</span> <span class=n>max</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>由于自动推导机制，我们知道<code>max</code>函数会返回<code>Int</code>类型，因此上面的代码还可以简化成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>largerNumber</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>=</span> <span class=n>max</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=函数重载>函数重载</h3><p>在<code>Python</code>中，函数名称在模块或类中必须唯一。而在<code>Kotlin</code>中，可以<strong>重载</strong>函数，即可以有多个具有相同名称的函数声明。</p><p>重载的函数必须通过其<strong>参数列表</strong>相互区分(参数列表的类型与返回类型一起被称为<strong>函数签名</strong>，但是返回类型不能用于消除重载函数的歧义)。例如，可以在同一个文件中同时声明这两个函数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>square</span><span class=p>(</span><span class=n>number</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>=</span> <span class=n>number</span> <span class=p>*</span> <span class=n>number</span>
+<span class=k>fun</span> <span class=nf>square</span><span class=p>(</span><span class=n>number</span><span class=p>:</span> <span class=n>Double</span><span class=p>)</span> <span class=p>=</span> <span class=n>number</span> <span class=p>*</span> <span class=n>number</span>
+</code></pre></td></tr></table></div></div><p>在调用时，要使用的函数取决于参数的类型：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=n>square</span><span class=p>(</span><span class=m>4</span><span class=p>)</span> <span class=c1>// 调用第一个函数；结果为 16 (Int)square(3.14) // 调用第二个函数；结果为 9.8596 (Double)
+</span></code></pre></td></tr></table></div></div><p>尽管此示例恰好使用相同的表达式，但这不是必须的。如果需要，重载的函数可以做完全不同的事情（尽管可以使行为截然不同的函数互相重载，但是代码可能会造成混乱）。</p><h3 id=todo函数>TODO函数</h3><p>Kotlin标准库中提供了一个<code>TODO</code>函数用于标记没有完成的代码，调用时会自动抛出<code>NotImplementedError</code>异常。并且它的返回值是<code>Nothing</code>类型，所以使用它可以不考虑返回值的类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>calcTaxes</span><span class=p>():</span> <span class=n>BigDecimal</span> <span class=p>=</span> <span class=n>TODO</span><span class=p>(</span><span class=s2>&#34;Waiting for feedback from accounting&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=中缀函数infix>中缀函数infix</h3><p>在创建<code>map</code>集合的时候，我们用到了<code>to</code>这样的语法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>fruits</span> <span class=p>=</span> <span class=n>mapOf</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span> <span class=n>to</span> <span class=m>1</span><span class=p>,</span> <span class=s2>&#34;Orange&#34;</span> <span class=n>to</span> <span class=m>2</span><span class=p>,</span> <span class=s2>&#34;Banana&#34;</span> <span class=n>to</span> <span class=m>3</span><span class=p>)</span>
+<span class=k>for</span> <span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>index</span><span class=p>)</span> <span class=k>in</span> <span class=n>fruits</span><span class=p>)</span> <span class=p>{</span>
+	<span class=n>println</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>$name</span><span class=s2> =&gt; </span><span class=si>$index</span><span class=s2>&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>首先<code>to</code>并不是Kotlin中的关键字，之所以能够使用<code>A to B</code>这样的语法结构，是因为Kotlin提供了一种高级语法糖特性: <code>infix</code>函数。 <code>infix</code>函数并不是什么难理解的事物，它只是把编程语言的调用语法规则调整了一下而已，如果<code>A to B</code>这样的写法，实际上等价于<code>A.to(B)</code>，<code>infix</code>函数允许我们将函数调用时的小数点，括号等计算机相关的语法去掉，从而使用一种更接近英语的语法来编程。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>infix</span> <span class=k>fun</span> <span class=nf>String</span><span class=p>.</span><span class=n>beginWith</span><span class=p>(</span><span class=n>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>=</span> <span class=n>startsWith</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// 我们即可以向普通函数一样使用，也可以使用infix函数的语法糖特性
+</span><span class=c1></span>    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>.</span><span class=n>beginWith</span><span class=p>(</span><span class=s2>&#34;A&#34;</span><span class=p>))</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span> <span class=n>beginWith</span> <span class=s2>&#34;A&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>使用<code>infix</code>函数有3个比较严格的条件</p><ol><li><code>infix</code>函数是不能定义成顶层函数的，它必须是某个类的成员函数，可以使用扩展函数的方式来将它定义到某个类当中。</li><li><code>infix</code>函数必须接收且只能接收一个参数，至于参数类型是没有限制的。</li><li>参数不能是可变参数，并且要没有默认值</li></ol><p>只有同时满足这3点，infix函数的语法糖才具备使用条件。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-05-31</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/kotlin/>kotlin</a></div><nav class=post-nav><a class=next href=/2021/05/28/003-kotlin-basic-types/><span class="next-text nav-default">Kotlin基本数据类型</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408h399.992405s71.046998 3.997201 71.046998 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zm53.281707 130.131124C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523S0 1024 83.726336 1024H682.532949 753.579947h595.368192C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955c-39.771477 34.470494-74.671786 43.295855-98.955861 43.868928z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2021
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
