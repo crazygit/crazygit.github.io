@@ -1,0 +1,492 @@
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法02 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin中的Lambda表达式和高阶函数
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/06/02/005-kotlin-basic-synatx-02/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法02"><meta property="og:description" content="Kotlin中的Lambda表达式和高阶函数
+"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/06/02/005-kotlin-basic-synatx-02/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-06-02T11:00:29+08:00"><meta property="article:modified_time" content="2021-06-02T11:00:29+08:00"><meta itemprop=name content="Kotlin基本语法02"><meta itemprop=description content="Kotlin中的Lambda表达式和高阶函数
+"><meta itemprop=datePublished content="2021-06-02T11:00:29+08:00"><meta itemprop=dateModified content="2021-06-02T11:00:29+08:00"><meta itemprop=wordCount content="5359"><meta itemprop=keywords content="kotlin,High-order functions,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法02"><meta name=twitter:description content="Kotlin中的Lambda表达式和高阶函数
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法02</h1><div class=post-meta><time datetime=2021-06-02 class=post-time>2021-06-02</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 5359 字</span>
+<span class=more-meta>预计阅读 11 分钟</span>
+<span id=/2021/06/02/005-kotlin-basic-synatx-02/ class=leancloud_visitors data-flag-title=Kotlin基本语法02><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#lambda表达式和高阶函数>Lambda表达式和高阶函数</a><ul><li><a href=#lambda定义>Lambda定义</a></li><li><a href=#lambda语法简化流程>Lambda语法简化流程</a></li><li><a href=#lambda中的return>Lambda中的return</a></li></ul></li><li><a href=#高阶函数>高阶函数</a><ul><li><a href=#什么是高阶函数>什么是高阶函数</a></li><li><a href=#使用高阶函数实现类似标准函数apply的功能>使用高阶函数实现类似标准函数<code>apply</code>的功能</a></li><li><a href=#内联函数inline>内联函数(<code>inline</code>)</a></li><li><a href=#noinline><code>noinline</code></a></li><li><a href=#crossinline><code>crossinline</code></a></li></ul></li><li><a href=#高阶函数的应用>高阶函数的应用</a><ul><li><a href=#简化sharedpreferences的用法>简化<code>SharedPreferences</code>的用法</a></li></ul></li><li><a href=#heading></a></li></ul></nav></div></div><div class=post-content><h2 id=lambda表达式和高阶函数>Lambda表达式和高阶函数</h2><p>在Kotlin当中，函数可以像普通变量一样作为参数传递或者作为返回值返回。</p><h3 id=lambda定义>Lambda定义</h3><p>Lambda就是一段可以作为参数传递的代码。Lambda表达式的语法结构</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{参数名1: 参数类型, 参数名2: 参数类型 -&gt; 函数体}
+</code></pre></td></tr></table></div></div><p>函数体中最后一行代码会自动作为Lambda表达式的返回值。</p><h3 id=lambda语法简化流程>Lambda语法简化流程</h3><p>一个完整的lambda表达式用法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>fruits</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=s2>&#34;Orange&#34;</span><span class=p>,</span> <span class=s2>&#34;Pear&#34;</span><span class=p>,</span> <span class=s2>&#34;Grape&#34;</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>lambda</span> <span class=p>=</span> <span class=p>{</span> <span class=n>fruit</span><span class=p>:</span> <span class=n>String</span> <span class=o>-&gt;</span> <span class=n>fruit</span><span class=p>.</span><span class=n>length</span> <span class=p>}</span>
+    <span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span><span class=p>(</span><span class=n>lambda</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>maxLengthFruit</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>首先，我们不需要单独定义一个lambda变量，而是直接将lambda表达式传入<code>maxBy</code>函数当中。因此第一步简化为:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span><span class=p>({</span> <span class=n>fruit</span><span class=p>:</span> <span class=n>String</span> <span class=o>-&gt;</span> <span class=n>fruit</span><span class=p>.</span><span class=n>length</span> <span class=p>})</span>
+</code></pre></td></tr></table></div></div><p>Kotlin当中规定，当Lambda作为最后一个参数时，可以将Lambda表达式移到括号外面。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span><span class=p>(){</span> <span class=n>fruit</span><span class=p>:</span> <span class=n>String</span> <span class=o>-&gt;</span> <span class=n>fruit</span><span class=p>.</span><span class=n>length</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>接下来，如果该Lambda参数是函数的唯一一个参数的话，可以将函数的括号省略掉:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span> <span class=p>{</span> <span class=n>fruit</span><span class=p>:</span> <span class=n>String</span> <span class=o>-&gt;</span> <span class=n>fruit</span><span class=p>.</span><span class=n>length</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>由于自动推导机制，Lambda表达式的参数列表大多数时候是不需要声明参数类型的。因此代码可以简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span> <span class=p>{</span> <span class=n>fruit</span> <span class=o>-&gt;</span> <span class=n>fruit</span><span class=p>.</span><span class=n>length</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>最后，当Lambda表达式的参数列表只有一个参数时，也不必声明参数名,而是可以直接使用<code>it</code>关键字来代替，上面的代码可以简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>maxLengthFruit</span> <span class=p>=</span> <span class=n>fruits</span><span class=p>.</span><span class=n>maxBy</span> <span class=p>{</span> <span class=k>it</span><span class=p>.</span><span class=n>length</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=lambda中的return>Lambda中的return</h3><p>Lambda表达式中，默认把最后一行作为返回值返回，一般不需要使用<code>return</code>关键字。但是它在结合高阶函数一起使用时，需要注意，比如下面的例子</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>getListSize</span><span class=p>():</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>list</span> <span class=p>=</span> <span class=n>ArrayList</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;()</span>
+    <span class=k>val</span> <span class=py>listSize</span> <span class=p>=</span> <span class=n>list</span><span class=p>.</span><span class=n>run</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;add hello&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s2>&#34;hello&#34;</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>size</span> <span class=o>==</span> <span class=m>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=m>1</span>
+        <span class=p>}</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;add world&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s2>&#34;world&#34;</span><span class=p>)</span>
+        <span class=n>size</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;current list size is: </span><span class=si>$listSize</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>listSize</span>
+<span class=p>}</span>
+
+<span class=c1>// 输出
+</span><span class=c1>// add hello
+</span></code></pre></td></tr></table></div></div><p>上面的例子中，使用<code>return</code>语句时会直接结束<code>run()</code>函数外部的方法，也就是<code>getListSize()</code>方法,所以看到<code>getListSize()</code>方法后面的语句都没有被执行。</p><p>如果要只是结束当前Lambda表达式，应该使用下面的写法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>getListSize</span><span class=p>():</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>list</span> <span class=p>=</span> <span class=n>ArrayList</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;()</span>
+    <span class=k>val</span> <span class=py>listSize</span> <span class=p>=</span> <span class=n>list</span><span class=p>.</span><span class=n>run</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;add hello&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s2>&#34;hello&#34;</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>size</span> <span class=o>==</span> <span class=m>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span><span class=nd>@run</span> <span class=m>1</span>
+        <span class=p>}</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;add world&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s2>&#34;world&#34;</span><span class=p>)</span>
+        <span class=n>size</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;current list size is: </span><span class=si>$listSize</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>listSize</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>getListSize</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=c1>// 输出
+</span><span class=c1>// add hello
+</span><span class=c1>// current list size is: 1
+</span></code></pre></td></tr></table></div></div><h2 id=高阶函数>高阶函数</h2><p>在前面的学习中，我们了解了<code>map</code>,<code>filter</code>, <code>with</code>, <code>run</code>, <code>apply</code>等函数，这几个函数有一个共同的特点:</p><p>它们都会要求我们传入一个Lambda表达式作为参数。像这种接收Lambda参数的函数可以称为<strong>具有函数式编程风格的API</strong>, 而如果想自己实现这样的函数式API，就需要借助<strong>高阶函数</strong>来实现了</p><h3 id=什么是高阶函数>什么是高阶函数</h3><p>高阶函数就是一个接受函数作为参数，或者把函数作为返回值的函数。</p><p>如果一个函数接收另一个函数作为参数，或者返回值的类型是另外一个函数，那么该函数就被称为<strong>高阶函数</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=k>operator</span><span class=p>:</span> <span class=p>(</span><span class=n>Int</span><span class=p>,</span> <span class=n>Int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=k>operator</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>plus</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=n>num1</span> <span class=p>+</span> <span class=n>num2</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>minus</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=n>num1</span> <span class=p>-</span> <span class=n>num2</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>10</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>5</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>,</span> <span class=o>::</span><span class=n>plus</span><span class=p>))</span> <span class=c1>// 注意第三个参数: 函数引用的写法
+</span><span class=c1></span>    <span class=n>println</span><span class=p>(</span><span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>,</span> <span class=o>::</span><span class=n>minus</span><span class=p>))</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>上面的例子中<code>num1AndNumber2</code>就是一个高阶函数，但是如果每次调用高阶函数都要定义一个与函数参数类型相匹配的函数(如上面的<code>plus</code>和<code>minus</code>函数)，就略显麻烦了。</p><p>Kotlin还支持其它多种方式来调用高阶函数,比如Lambda表达式，匿名函数，成员引用等.因此上面的例子可以简化为下面的方式，<code>plus</code>和<code>minus</code>函数都不再需要了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>10</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>5</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span> <span class=p>{</span> <span class=n>n1</span><span class=p>,</span> <span class=n>n2</span> <span class=o>-&gt;</span> <span class=n>n1</span> <span class=p>+</span> <span class=n>n2</span> <span class=p>})</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span> <span class=p>{</span> <span class=n>n1</span><span class=p>,</span> <span class=n>n2</span> <span class=o>-&gt;</span> <span class=n>n1</span> <span class=p>-</span> <span class=n>n2</span> <span class=p>})</span>
+</code></pre></td></tr></table></div></div><h3 id=使用高阶函数实现类似标准函数apply的功能>使用高阶函数实现类似标准函数<code>apply</code>的功能</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>StringBuilder</span><span class=p>.</span><span class=n>build</span><span class=p>(</span><span class=n>block</span><span class=p>:</span> <span class=n>StringBuilder</span><span class=p>.()</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>):</span> <span class=n>StringBuilder</span> <span class=p>{</span>
+    <span class=n>block</span><span class=p>()</span>
+    <span class=k>return</span> <span class=k>this</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>fruits</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=s2>&#34;Orange&#34;</span><span class=p>,</span> <span class=s2>&#34;Pear&#34;</span><span class=p>,</span> <span class=s2>&#34;Grape&#34;</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>StringBuilder</span><span class=p>().</span><span class=n>build</span> <span class=p>{</span>
+        <span class=n>append</span><span class=p>(</span><span class=s2>&#34;Start eating fruits</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=k>for</span> <span class=p>(</span><span class=n>fruit</span> <span class=k>in</span> <span class=n>fruits</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>append</span><span class=p>(</span><span class=s2>&#34;eat </span><span class=si>$fruit</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=p>}</span>
+        <span class=n>append</span><span class=p>(</span><span class=s2>&#34;Ate all fruits.&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>上面的代码中，给<code>StringBuilder</code>类定义了扩展函数<code>build</code>来实现<code>apply</code>函数的功能。</p><p>这里要注意函数类型参数的声明方式: 它在函数类型的前面加上了<code>StringBuiler.</code>的语法结构。这才是定义高阶函数的完整语法，在函数类型的前面加上<code>ClassName.</code>就表示函数类型是定义在哪个类当中的，这样的好处就是当我们在调用<code>build</code>函数时，Lambda表达式将自动拥有<code>StringBuilder</code>的上下文，同时这也是<code>apply</code>函数的实现方式(这里只是一个简化版本的<code>apply</code>函数实现方式)</p><h3 id=内联函数inline>内联函数(<code>inline</code>)</h3><p>如下面的高阶函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=k>operator</span><span class=p>:</span> <span class=p>(</span><span class=n>Int</span><span class=p>,</span> <span class=n>Int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=k>operator</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>100</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>80</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span> <span class=p>{</span> <span class=n>n1</span><span class=p>,</span> <span class=n>n2</span> <span class=o>-&gt;</span>
+        <span class=n>n1</span> <span class=p>+</span> <span class=n>n2</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Kotlin的代码最后还是要编译成Java字节码的，但是Java中并没有高阶函数的概念。
+那么Kotlin究竟使用了什么魔法让Java支持高阶函数的语法呢?这就要归功于Kotlin的编译器了。Kotlin的编译器会将这些代码转换成Java支持的语法结构。上述的Kotlin代码大致会转成下面的Java代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=kt>int</span> <span class=nf>num1AndNum2</span><span class=o>(</span><span class=kt>int</span> <span class=n>num1</span><span class=o>,</span> <span class=kt>int</span> <span class=n>num2</span><span class=o>,</span> <span class=n>Function</span> <span class=n>operation</span><span class=o>)</span> <span class=o>{</span>
+	<span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=o>(</span><span class=kt>int</span><span class=o>)</span><span class=n>operation</span><span class=o>.</span><span class=na>invoke</span><span class=o>(</span><span class=n>num1</span><span class=o>,</span> <span class=n>num2</span><span class=o>);</span>
+	<span class=k>return</span> <span class=n>result</span><span class=o>;</span>
+<span class=o>}</span>
+
+<span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>()</span> <span class=o>{</span>
+	<span class=kt>int</span> <span class=n>num1</span> <span class=o>=</span> <span class=n>100</span><span class=o>;</span>
+	<span class=kt>int</span> <span class=n>num2</span> <span class=o>=</span> <span class=n>80</span><span class=o>;</span>
+	<span class=kt>int</span> <span class=n>result</span> <span class=o>=</span> <span class=n>num1AndNum2</span><span class=o>(</span><span class=n>num1</span><span class=o>,</span> <span class=n>num2</span><span class=o>,</span> <span class=k>new</span> <span class=n>Function</span><span class=o>()</span> <span class=o>{</span>
+		<span class=nd>@Override</span>
+		<span class=kd>public</span> <span class=n>Integer</span> <span class=nf>invoke</span><span class=o>(</span><span class=n>Integer</span> <span class=n>n1</span><span class=o>,</span> <span class=n>Integer</span> <span class=n>n2</span><span class=o>)</span> <span class=o>{</span>
+			<span class=k>return</span> <span class=n>n1</span> <span class=o>+</span> <span class=n>n2</span><span class=o>;</span>
+		<span class=o>}</span>
+	<span class=o>});</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>上面的代码是进行了调整的，并不是严格对应了Kotlin转换成的Java代码。这里可以看到，<code>num1AndNum2()</code>函数的第三个参数变成了<code>Function</code>接口，这个是Kotlin内置的接口，里面有一个待实现的<code>invoke()</code>函数。而<code>num1AndNum2()</code>就是调用了<code>Function</code>接口的<code>invoke()</code>函数，并将<code>num1</code>和<code>num2</code>参数传了进去。</p><p>在调用<code>num1AndNum2()</code>函数的时候，之前的Lambda表达式在这里变成了<code>Function</code>接口的匿名类实现，然后在<code>invoke()</code>函数中实现了<code>n1 + n2</code>的逻辑，并将结果返回。</p><p>这就是高阶函数背后的实现原理。你会发现，原来我们一直使用的Lambda表达式在底层被转换成了匿名类的实现方式。这就表明，我们每调用一次Lambda表达式，都会创建一个新的匿名类实例，当然也就造成额外的内存和性能开销。</p><p>为了解决这个问题，Kotlin提供了<strong>内联函数</strong>的功能，它可以将Lambda表达式带来的运行时开销完全消除。</p><p><strong>内联函数</strong>的用法非常简单，只需要在定义高阶函数的时候加上<code>inline</code>关键字的声明即可。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=k>operator</span><span class=p>:</span> <span class=p>(</span><span class=n>Int</span><span class=p>,</span> <span class=n>Int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=k>operator</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h4 id=内联函数的工作原理>内联函数的工作原理</h4><p>内联函数的工作原理是什么呢？其实并不复杂，就是Kotlin编译器会将内联函数中的代码在编译的时候自动替换到调用它的地方，那么也就不存在运行时的开销了。具体步骤如下:</p><p>原始代码为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=k>operator</span><span class=p>:</span> <span class=p>(</span><span class=n>Int</span><span class=p>,</span> <span class=n>Int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+	<span class=k>val</span> <span class=py>reuslt</span> <span class=p>=</span> <span class=k>operator</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+	<span class=k>return</span> <span class=n>result</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>100</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>80</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span> <span class=p>{</span> <span class=n>n1</span><span class=p>,</span> <span class=n>n2</span> <span class=o>-&gt;</span>
+        <span class=n>n1</span> <span class=p>+</span> <span class=n>n2</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><p>第一步， Kotlin编译器会将Lambda表达式中的代码替换到函数类型参数调用的地方，代码变成下面的形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>num2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>num1</span> <span class=p>+</span> <span class=n>num2</span>
+    <span class=k>return</span> <span class=n>result</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>100</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>80</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>num1AndNumber2</span><span class=p>(</span><span class=n>num1</span><span class=p>,</span> <span class=n>num2</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>第二步， 将内联函数中的全部代码替换到函数调用的地方，最后代码变成下面的形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>num1</span> <span class=p>=</span> <span class=m>100</span>
+    <span class=k>val</span> <span class=py>num2</span> <span class=p>=</span> <span class=m>80</span>
+    <span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>num1</span> <span class=p>+</span> <span class=n>num2</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>也正式如此，内联函数才能完全消除Lambda表达式所带来的运行时开销</p><h3 id=noinline><code>noinline</code></h3><p>一个高阶函数中如果接收了两个或者很多的函数类型的参数，这时我们给函数加上<code>inline</code>关键字，那么Kotlin编译器就会自动将所有引用的Lambda表达式全部进行内联。</p><p>但是，假如我们只想内联其中一个Lambda表达式该怎么办呢？这时就可以使用<code>noinline</code>关键字。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>inlineTest</span><span class=p>(</span><span class=n>block1</span><span class=p>:</span> <span class=p>()</span><span class=o>-&gt;</span><span class=n>Unit</span><span class=p>,</span> <span class=k>noinline</span> <span class=n>block2</span><span class=p>:</span> <span class=p>()</span><span class=o>-&gt;</span><span class=n>Unit</span><span class=p>){</span>
+	<span class=n>TODO</span><span class=p>(</span><span class=s2>&#34;Implementation this&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>可以看到，这里使用了<code>inline</code>关键字声明了<code>inlineTest()</code>函数，原本<code>block1()</code>和<code>block2()</code>这两个函数类型参数所引用的Lambda表达式都会被内联。但是我们在<code>block2</code>参数的前面加上了<code>noinline</code>关键字，那么现在只会对<code>block1</code>参数所引用的Lambda表达式进行内联了，这就是<code>noinline</code>关键字的作用。</p><p>前面我们已经解释了内联函数的好处？那么为什么Kotlin还要提供一个<code>noinline</code>关键字来排除内联呢？这是因为内联的函数类型参数在编译的时候会进行代码替换，因此它没有真正的参数属性。</p><p><strong>非内联的函数参数类型可以自由地传递给其它任何函数，因为它就是一个真实的参数，而内联的函数类型参数只能传递给另外一个内联函数，这也是它的最大局限性</strong>。</p><p>另外，内联函数和非内联函数还有一个重要的区别，那就是内联函数所引用的Lambada表达式中是可以使用<code>return</code>关键字来进行函数返回的，而非内联的函数只能进行局部返回。为了说明这个例子，让我们看下面的例子。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>printString</span><span class=p>(</span><span class=n>str</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=n>block</span><span class=p>:</span> <span class=p>(</span><span class=n>String</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;printString begin&#34;</span><span class=p>)</span>
+    <span class=n>block</span><span class=p>(</span><span class=n>str</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;printString end&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;main start&#34;</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>str</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+    <span class=n>printString</span><span class=p>(</span><span class=n>str</span><span class=p>)</span> <span class=p>{</span> <span class=n>s</span> <span class=o>-&gt;</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Lambda start&#34;</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>isEmpty</span><span class=p>())</span> <span class=k>return</span><span class=nd>@printString</span> <span class=c1>// 局部返回
+</span><span class=c1></span>        <span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Lambda finish&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;main end&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//输出
+</span><span class=c1>// main start
+</span><span class=c1>// printString begin
+</span><span class=c1>// Lambda start
+</span><span class=c1>// printString end
+</span><span class=c1>// main end
+</span></code></pre></td></tr></table></div></div><p>Lambda表达式中是不允许直接使用<code>return</code>关键字的，上面使用了<code>return@printString</code>进行局部返回，并且不再执行Lambda表达式的剩余部分代码。
+从输出结果可以看到，除了Lambda表达式中<code>return@printString</code>语句之后的代码没有打印，其它的日志都是正常打印了的，说明<code>return@printString</code>确实只能进行局部返回。</p><p>但是我们将<code>printSring()</code>函数声明成一个内联函数，那么情况就不一样了.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>printString</span><span class=p>(</span><span class=n>str</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=n>block</span><span class=p>:</span> <span class=p>(</span><span class=n>String</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;printString begin&#34;</span><span class=p>)</span>
+    <span class=n>block</span><span class=p>(</span><span class=n>str</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;printString end&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;main start&#34;</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>str</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+    <span class=n>printString</span><span class=p>(</span><span class=n>str</span><span class=p>)</span> <span class=p>{</span> <span class=n>s</span> <span class=o>-&gt;</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Lambda start&#34;</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>isEmpty</span><span class=p>())</span> <span class=k>return</span>
+        <span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Lambda finish&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;main end&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=c1>// 输出
+</span><span class=c1>// main start
+</span><span class=c1>// printString begin
+</span><span class=c1>// Lambda start
+</span></code></pre></td></tr></table></div></div><p>现在的<code>printString()</code>函数变成了内联函数，我们就可以在Lambda的表达式中使用<code>return</code>关键字，此时的<code>return</code>代表的是返回外层的调用函数，也就是<code>main()</code>函数。</p><h3 id=crossinline><code>crossinline</code></h3><p><strong>将高阶函数声明成内联函数是一种良好的编程习惯</strong>, 事实上，绝大多数的高阶函数可以是直接声明成内联函数的，但是也有少部分例外的情况。观察下面的代码:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>runRunnable</span><span class=p>(</span><span class=n>block</span><span class=p>:</span> <span class=p>()</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>runnable</span> <span class=p>=</span> <span class=n>Runnable</span> <span class=p>{</span>
+        <span class=n>block</span><span class=p>()</span>
+    <span class=p>}</span>
+    <span class=n>runnable</span><span class=p>.</span><span class=n>run</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>这点代码在没有加上<code>inline</code>关键字的时候绝对是可以正常工作的，但是在加上<code>inline</code>关键字之后，上面的代码在block部分会有错误提示</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Can&#39;t inline &#39;block&#39; here: it may contain non-local returns. Add &#39;crossinline&#39; modifier to parameter declaration &#39;block&#39;
+</code></pre></td></tr></table></div></div><p>这个错误出现的原因解释起来可能会稍微有点复杂。首先，在<code>runRunnable()</code>函数中，我们创建了一个<code>Runnable</code>对象，并在<code>Runnable</code>的Lambda表达式中调用了传入的函数类型参数。而Lambda表达式在编译的时候会被转换成匿名类的实现方式。也就是说，上述代码实际上在匿名类中调用了传入的函数类型参数。</p><p>而内联函数所引用的Lambda表达式允许使用<code>return</code>关键字进行函数返回，但是由于我们是在匿名类中调用的函数类型参数，此时是不可能进行外层调用函数返回的，最多只能对匿名类中的函数调用进行返回，因此这里就出现了上述错误。</p><p><strong>也就是说，如果我们在高阶函数中创建了Lambda或者匿名的实现，并且在这些实现中调用了函数类型参数，此时再将高阶函数声明为内联函数，就一定会提示错误。</strong></p><p>借助<code>crossinline</code>关键字就可以很好地解决这个问题:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=nf>runRunnable</span><span class=p>(</span><span class=k>crossinline</span> <span class=n>block</span><span class=p>:</span> <span class=p>()</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>runnable</span> <span class=p>=</span> <span class=n>Runnable</span> <span class=p>{</span>
+        <span class=n>block</span><span class=p>()</span>
+    <span class=p>}</span>
+    <span class=n>runnable</span><span class=p>.</span><span class=n>run</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>这里可以看到，在函数类型参数<code>block</code>前面加上了<code>crossinline</code>的声明，代码就可以正常编译通过了。</p><p>那么这个<code>crossinline</code>关键字又是什么呢?</p><p>前面我们已经分析过，上面的代码之所以在没有添加<code>crossinline</code>时会报错，就是因为内联函数的Lambda表达式中允许使用<code>return</code>关键字，和高阶函数的匿名类实现中不允许使用<code>return</code>关键字之间造成了冲突。而<code>crossinline</code>关键字就像一个契约，它用于保证在内联函数的Lambda表达式中一定不会使用<code>return</code>关键字，这样冲突就不存在了，问题也就巧妙地解决了。</p><p>声明了<code>crossinline</code>之后，我们就无法在调用<code>runRunnable()</code>函数时的Lambda表达式中使用<code>return</code>关键字进行函数返回了，但是仍然可以使用<code>return@runRunnable</code>的写法进行局部返回。总体来说，
+除了<code>return</code>关键字的使用上有所区别之外，<code>crossinline</code>保留了内联函数的其它所有特性。</p><h2 id=高阶函数的应用>高阶函数的应用</h2><p>高阶函数非常适合简化各种API的调用，一些API的原有用法在使用高阶函数简化之后，不管是在易用性还是可读性方面，都可能会有很大的提升。</p><h3 id=简化sharedpreferences的用法>简化<code>SharedPreferences</code>的用法</h3><p>原来的用法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>editor</span> <span class=p>=</span> <span class=n>getSharedPreferences</span><span class=p>(</span><span class=s2>&#34;data&#34;</span><span class=p>,</span> <span class=n>Context</span><span class=p>.</span><span class=n>MODE_PRIVATE</span><span class=p>).</span><span class=n>edit</span><span class=p>()</span>
+<span class=n>editor</span><span class=p>.</span><span class=n>putString</span><span class=p>(</span><span class=s2>&#34;name&#34;</span><span class=p>,</span> <span class=s2>&#34;Tom&#34;</span><span class=p>)</span>
+<span class=n>editor</span><span class=p>.</span><span class=n>putString</span><span class=p>(</span><span class=s2>&#34;age&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>)</span>
+<span class=n>editor</span><span class=p>.</span><span class=n>apply</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p>上面的写法更多还是使用的Java的编程方式来编写代码的，利用高阶函数，我们可以简化<code>SharedPreferences</code>的用法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>SharedPreferences</span><span class=p>.</span><span class=k>open</span><span class=p>(</span><span class=n>block</span><span class=p>:</span> <span class=n>SharedPreferences</span><span class=p>.</span><span class=n>Editor</span><span class=p>.()</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>val</span> <span class=py>editor</span> <span class=p>=</span> <span class=n>edit</span><span class=p>()</span> <span class=c1>//由于open函数内拥有SharedPreferences的上下文，因此这里可以直接使用edit()方法来获取SharedPreferences.Editor对象。
+</span><span class=c1></span>	<span class=n>editor</span><span class=p>.</span><span class=n>block</span><span class=p>()</span> <span class=c1>// 由于open函数接受的是一个SharedPreferences.Editor的函数类型参数，因此这里要调用editor.block()对函数类型参数进行调用。
+</span><span class=c1></span>	<span class=n>editor</span><span class=p>.</span><span class=n>apply</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>定义好上面的函数之后，以后我们只需要在项目中使用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=n>getSharedPreferences</span><span class=p>(</span><span class=s2>&#34;data&#34;</span><span class=p>,</span> <span class=n>Context</span><span class=p>.</span><span class=n>MODE_PRIVATE</span><span class=p>).</span><span class=k>open</span> <span class=p>{</span>
+	<span class=n>putString</span><span class=p>(</span><span class=s2>&#34;name&#34;</span><span class=p>,</span> <span class=s2>&#34;Tom&#34;</span><span class=p>)</span>
+	<span class=n>putString</span><span class=p>(</span><span class=s2>&#34;age&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>相比之下，代码简化了很多。</p><p>其实Google提供的KTX扩展库中已经包含了上述<code>SharedPreferences</code>的简化用法。实际上，我们可以在项目中直接使用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=n>getSharedPreferences</span><span class=p>(</span><span class=s2>&#34;data&#34;</span><span class=p>,</span> <span class=n>Context</span><span class=p>.</span><span class=n>MODE_PRIVATE</span><span class=p>).</span><span class=n>edit</span> <span class=p>{</span>
+	<span class=n>putString</span><span class=p>(</span><span class=s2>&#34;name&#34;</span><span class=p>,</span> <span class=s2>&#34;Tom&#34;</span><span class=p>)</span>
+	<span class=n>putString</span><span class=p>(</span><span class=s2>&#34;age&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=heading></h2></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-06-02</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/kotlin/>kotlin</a>
+<a href=https://crazygit.wiseturtles.com/tags/high-order-functions/>High-order functions</a></div><nav class=post-nav><a class=next href=/2021/05/31/004-kotlin-basic-synatx-01/><span class="next-text nav-default">Kotlin基本语法01</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408h399.992405s71.046998 3.997201 71.046998 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zm53.281707 130.131124C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523S0 1024 83.726336 1024H682.532949 753.579947h595.368192C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955c-39.771477 34.470494-74.671786 43.295855-98.955861 43.868928z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2021
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
