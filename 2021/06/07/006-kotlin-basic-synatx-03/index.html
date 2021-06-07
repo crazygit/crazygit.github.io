@@ -1,0 +1,690 @@
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法03 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin中的面向对象编程
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/06/07/006-kotlin-basic-synatx-03/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法03"><meta property="og:description" content="Kotlin中的面向对象编程
+"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/06/07/006-kotlin-basic-synatx-03/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-06-07T11:17:29+08:00"><meta property="article:modified_time" content="2021-06-07T11:17:29+08:00"><meta itemprop=name content="Kotlin基本语法03"><meta itemprop=description content="Kotlin中的面向对象编程
+"><meta itemprop=datePublished content="2021-06-07T11:17:29+08:00"><meta itemprop=dateModified content="2021-06-07T11:17:29+08:00"><meta itemprop=wordCount content="4461"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法03"><meta name=twitter:description content="Kotlin中的面向对象编程
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法03</h1><div class=post-meta><time datetime=2021-06-07 class=post-time>2021-06-07</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 4461 字</span>
+<span class=more-meta>预计阅读 9 分钟</span>
+<span id=/2021/06/07/006-kotlin-basic-synatx-03/ class=leancloud_visitors data-flag-title=Kotlin基本语法03><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#面向对象编程>面向对象编程</a><ul><li><a href=#类>类</a></li><li><a href=#主构造函数>主构造函数</a></li><li><a href=#次构造函数>次构造函数</a></li><li><a href=#创建类的对象>创建类的对象</a></li><li><a href=#继承>继承</a></li><li><a href=#方法覆写>方法覆写</a></li><li><a href=#属性覆写>属性覆写</a></li><li><a href=#派生类的执行顺序>派生类的执行顺序</a></li><li><a href=#调用父类的方法>调用父类的方法</a></li><li><a href=#覆写顺序>覆写顺序</a></li><li><a href=#属性的gettersetter函数>属性的<code>getter/setter</code>函数</a></li><li><a href=#setter函数中的一个坑><code>Setter</code>函数中的一个坑</a></li><li><a href=#接口>接口</a></li><li><a href=#functional-sam-interfaces>Functional (SAM) interfaces</a></li><li><a href=#函数可见性修饰符>函数可见性修饰符</a></li><li><a href=#数据类>数据类</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=面向对象编程>面向对象编程</h2><h3 id=类>类</h3><p>与Java一样，Kotlin中使用<code>class</code>关键字来声明类, 例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>当一个类不包含任何属性和方法时，可以简写为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span>
+</code></pre></td></tr></table></div></div><h3 id=主构造函数>主构造函数</h3><p>Kotlin中，一个类可以有1个主构造函数，以及一个或者多个次构造函数。</p><p>主构造函数使用关键字**<code>constructor</code>**关键字声明，紧跟在类名后面，格式如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span> <span class=k>constructor</span><span class=p>(</span><span class=n>firstName</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>如果主构造函数没有任何注解或修饰符，可以把<code>constructor</code>关键字省略掉，直接写作</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=n>firstName</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>但是如果主构造函数前有注解或修饰符时，<code>constructor</code>关键字不能省略</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Customer</span> <span class=k>public</span> <span class=nd>@Inject</span> <span class=k>constructor</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>主构造函数里不能包含任何代码块，初始语句可以放在<code>init</code>代码块里面，并且一个类可以包含多个<code>init</code>代码块，按照他们在类中出现的顺序依次执行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>InitOrderDemo</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>firstProperty</span> <span class=p>=</span> <span class=s2>&#34;First property: </span><span class=si>$name</span><span class=s2>&#34;</span><span class=p>.</span><span class=n>also</span><span class=p>(</span><span class=o>::</span><span class=n>println</span><span class=p>)</span>
+
+    <span class=k>init</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;First initializer block that prints </span><span class=si>${name}</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=k>val</span> <span class=py>secondProperty</span> <span class=p>=</span> <span class=s2>&#34;Second property: </span><span class=si>${name.length}</span><span class=s2>&#34;</span><span class=p>.</span><span class=n>also</span><span class=p>(</span><span class=o>::</span><span class=n>println</span><span class=p>)</span>
+
+    <span class=k>init</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Second initializer block that prints </span><span class=si>${name.length}</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>主构造函数里的参数即可以在<code>init</code>块里使用，也可以在类属性初始化时使用，比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Customer</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>customerKey</span> <span class=p>=</span> <span class=n>name</span><span class=p>.</span><span class=n>uppercase</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>定义类的属性时，只需要在主构造函数的参数前面加上<code>val</code>或者<code>var</code>即可</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=k>val</span> <span class=py>firstName</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>lastName</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>var</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=次构造函数>次构造函数</h3><p>如果需要多种方法来初始化类，则可以创建<strong>次构造函数</strong>，每个构造函数都是一个名称为<code>constructor</code> 的函数。每个次构造函数都必须使用<code>this</code>或<code>super</code>关键字来调用另一个（主或次）构造函数，就好像它是一个函数一样（以便每个实例构造最终都调用该主构造函数）。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>var</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+
+    <span class=k>constructor</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>:</span> <span class=k>this</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=m>0</span><span class=p>)</span>
+
+    <span class=k>constructor</span><span class=p>(</span><span class=n>yearOfBirth</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>:</span> <span class=k>this</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=m>2018</span> <span class=p>-</span> <span class=n>yearOfBirth</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>val</span> <span class=py>p1</span> <span class=p>=</span> <span class=n>Person</span><span class=p>(</span><span class=s2>&#34;Jim&#34;</span><span class=p>,</span> <span class=m>12</span><span class=p>)</span>
+<span class=k>val</span> <span class=py>p2</span> <span class=p>=</span> <span class=n>Person</span><span class=p>(</span><span class=s2>&#34;Jack&#34;</span><span class=p>)</span>
+<span class=k>val</span> <span class=py>p3</span> <span class=p>=</span> <span class=n>Person</span><span class=p>(</span><span class=m>1988</span><span class=p>,</span> <span class=s2>&#34;Sam&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=创建类的对象>创建类的对象</h3><p>直接调用构造函数即可调用创建类对象，跟Java不同的是，不需要使用<code>new</code>关键字</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>invoice</span> <span class=p>=</span> <span class=n>Invoice</span><span class=p>()</span>
+
+<span class=k>val</span> <span class=py>customer</span> <span class=p>=</span> <span class=n>Customer</span><span class=p>(</span><span class=s2>&#34;Joe Smith&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=继承>继承</h3><p>Kotlin中每个未明确声明父类的类都从<code>Any</code>类继承，<code>Any</code>是类层次结构的根（类似于 Python 中的<code>Object</code>）通过继承<code>Any</code>类，每个类自动具有以下函数：</p><ul><li><p><code>toString()</code> 返回对象的字符串表示形式，类似于 Python 中的 <code>__str__()</code>（默认实现相当有趣，因为它仅返回类名与类似于对象 ID 的名称）</p></li><li><p><code>equals(x)</code> 检查此对象是否与任何类的某个其他对象<code>x</code>相同（默认情况下，它仅检查该对象是否与<code>x</code>是相同的对象，类似 Python 中的 <code>is</code>， 但可以被子类覆盖以进行属性值的自定义比较）</p></li><li><p><code>hashCode()</code> 返回一个整数，哈希表可以使用该整数并用于简化复杂的相等比较（根据<code>equals()</code> 相等的对象必须具有相同的哈希码，因此，如果两个对象的哈希码不同，则这些对象不能相等）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Person</span> <span class=p>{</span>
+
+	<span class=k>var</span> <span class=py>name</span> <span class=p>=</span> <span class=s2>&#34;Anne&#34;</span>
+
+	<span class=k>var</span> <span class=py>age</span> <span class=p>=</span> <span class=m>32</span>
+
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>与 Python 相反，在类内部直接声明属性不会创建类级别的属性，而是创建实例级别的属性：<code>Person</code>的每个实例都有它自己的<code>name</code>和<code>age。</code>它们的值将在每个实例中分别以<code>Anne</code>与<code>32</code>生成，但是每个实例中的值可以独立于其他实例进行修改。在Kotlin中要使用类属性，需要使用"伴生对象"(<code>objects-and-companion-objects</code>)</p></li></ul><p>默认情况下，Kotlin中每个都都是<code>final</code>的，不能被继承，要让一个类可以被继承，需要使用<code>open</code>关键字</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Base</span><span class=p>(</span><span class=n>p</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>Derived</span><span class=p>(</span><span class=n>p</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span><span class=p>(</span><span class=n>p</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=方法覆写>方法覆写</h3><p>方法覆写时，除了继承的类必须是<code>open</code>之类，覆写的方法也必须是<code>open</code>才可以，例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Shape</span> <span class=p>{</span>
+    <span class=k>open</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/*...*/</span>
+    <span class=p>}</span>
+
+    <span class=k>fun</span> <span class=nf>fill</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/*...*/</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Circle</span><span class=p>()</span> <span class=p>:</span> <span class=n>Shape</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/*...*/</span>
+    <span class=p>}</span>
+
+    <span class=c1>// 编译器会报错
+</span><span class=c1></span>    <span class=c1>// override fun fill() {}
+</span><span class=c1></span><span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><p>上面的例子中，只有<code>draw</code>方法才可以被覆写。</p><p>覆写的方法自身是<code>open</code>的，想让覆写的方法自身不被它的子类覆写，可以加上<code>final</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Rectangle</span><span class=p>()</span> <span class=p>:</span> <span class=n>Shape</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>final</span> <span class=k>override</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=属性覆写>属性覆写</h3><p>跟方法覆写一样，属性覆写也是类似的, 注释覆写的属性类型必须和父类的兼容</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Shape</span> <span class=p>{</span>
+    <span class=k>open</span> <span class=k>val</span> <span class=py>vertexCount</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>0</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Rectangle</span> <span class=p>:</span> <span class=n>Shape</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>val</span> <span class=py>vertexCount</span> <span class=p>=</span> <span class=m>4</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>甚至可以使用<code>val</code>覆写<code>var</code>属性，反之亦然。</p><p>另外，也可以直接在主构造函数里使用<code>override</code>关键字</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Shape</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>vertexCount</span><span class=p>:</span> <span class=n>Int</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Rectangle</span><span class=p>(</span><span class=k>override</span> <span class=k>val</span> <span class=py>vertexCount</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>4</span><span class=p>)</span> <span class=p>:</span> <span class=n>Shape</span> <span class=c1>// Always has 4 vertices
+</span><span class=c1></span>
+<span class=k>class</span> <span class=nc>Polygon</span> <span class=p>:</span> <span class=n>Shape</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>var</span> <span class=py>vertexCount</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>0</span>  <span class=c1>// Can be set to any number later
+</span><span class=c1></span><span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><h3 id=派生类的执行顺序>派生类的执行顺序</h3><p>首先是父类先初始化，然后才是子类。子类里覆写父类的属性或也要在子类初始化完成后才正式可用，假如在父类里调用了被覆写的属性，可能会导致错误的结果。</p><p>因此在设计父类的时候，应当避免在构造参数，属性初始化，或者<code>init</code>模块中，使用带<code>open</code>修饰的成员。</p><p>并且</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Base</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+
+    <span class=k>init</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Initializing a base class&#34;</span><span class=p>)</span> <span class=p>}</span>
+
+    <span class=k>open</span> <span class=k>val</span> <span class=py>size</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span>
+        <span class=n>name</span><span class=p>.</span><span class=n>length</span><span class=p>.</span><span class=n>also</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Initializing size in the base class: </span><span class=si>$it</span><span class=s2>&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Derived</span><span class=p>(</span>
+    <span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>lastName</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+<span class=p>)</span> <span class=p>:</span> <span class=n>Base</span><span class=p>(</span><span class=n>name</span><span class=p>.</span><span class=n>replaceFirstChar</span> <span class=p>{</span> <span class=k>it</span><span class=p>.</span><span class=n>uppercase</span><span class=p>()</span> <span class=p>}.</span><span class=n>also</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Argument for the base class: </span><span class=si>$it</span><span class=s2>&#34;</span><span class=p>)</span> <span class=p>})</span> <span class=p>{</span>
+
+    <span class=k>init</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Initializing a derived class&#34;</span><span class=p>)</span> <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>val</span> <span class=py>size</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span>
+        <span class=p>(</span><span class=k>super</span><span class=p>.</span><span class=n>size</span> <span class=p>+</span> <span class=n>lastName</span><span class=p>.</span><span class=n>length</span><span class=p>).</span><span class=n>also</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Initializing size in the derived class: </span><span class=si>$it</span><span class=s2>&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Constructing the derived class(</span><span class=se>\&#34;</span><span class=s2>hello</span><span class=se>\&#34;</span><span class=s2>, </span><span class=se>\&#34;</span><span class=s2>world</span><span class=se>\&#34;</span><span class=s2>)&#34;</span><span class=p>)</span>
+    <span class=n>Derived</span><span class=p>(</span><span class=s2>&#34;hello&#34;</span><span class=p>,</span> <span class=s2>&#34;world&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>输出如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Constructing the derived class(&#34;hello&#34;, &#34;world&#34;)
+Argument for the base class: Hello
+Initializing a base class
+Initializing size in the base class: 5
+Initializing a derived class
+Initializing size in the derived class: 10
+</code></pre></td></tr></table></div></div><p>从上面的输出可以看出，size属性签名有两个值。</p><h3 id=调用父类的方法>调用父类的方法</h3><p>在派生类中，如果想调用父类的方法，使用<code>super</code>关键字即可</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Rectangle</span> <span class=p>{</span>
+    <span class=k>open</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Drawing a rectangle&#34;</span><span class=p>)</span> <span class=p>}</span>
+    <span class=k>val</span> <span class=py>borderColor</span><span class=p>:</span> <span class=n>String</span> <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=s2>&#34;black&#34;</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>FilledRectangle</span> <span class=p>:</span> <span class=n>Rectangle</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span>
+       <span class=c1>// 使用super调用父类的方法
+</span><span class=c1></span>        <span class=k>super</span><span class=p>.</span><span class=n>draw</span><span class=p>()</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Filling the rectangle&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=c1>// 使用super调用父类的方法
+</span><span class=c1></span>    <span class=k>val</span> <span class=py>fillColor</span><span class=p>:</span> <span class=n>String</span> <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=k>super</span><span class=p>.</span><span class=n>borderColor</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>在<code>inner class</code>里，想要访问外部类的父类方法时，可以使用<code>super</code>关键字加上外部类的类名来实现，类似<code>super@OuterClassName</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>FilledRectangle</span><span class=p>:</span> <span class=n>Rectangle</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>filler</span> <span class=p>=</span> <span class=n>Filler</span><span class=p>()</span>
+        <span class=n>filler</span><span class=p>.</span><span class=n>drawAndFill</span><span class=p>()</span>
+    <span class=p>}</span>
+
+    <span class=k>inner</span> <span class=k>class</span> <span class=nc>Filler</span> <span class=p>{</span>
+        <span class=k>fun</span> <span class=nf>fill</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Filling&#34;</span><span class=p>)</span> <span class=p>}</span>
+        <span class=k>fun</span> <span class=nf>drawAndFill</span><span class=p>()</span> <span class=p>{</span>
+             <span class=c1>// 调用外部类FilledRectangle的父类Rectangle的draw()方法
+</span><span class=c1></span>            <span class=k>super</span><span class=nd>@FilledRectangle</span><span class=p>.</span><span class=n>draw</span><span class=p>()</span> <span class=c1>// Calls Rectangle&#39;s implementation of draw()
+</span><span class=c1></span>            <span class=n>fill</span><span class=p>()</span>
+            <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Drawn a filled rectangle with color </span><span class=si>${super@FilledRectangle.borderColor}</span><span class=s2>&#34;</span><span class=p>)</span> <span class=c1>// Uses Rectangle&#39;s implementation of borderColor&#39;s get()
+</span><span class=c1></span>        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=覆写顺序>覆写顺序</h3><p>当一个类同时实现了多个相同的方法时，必须明确指定它要调用的是哪个的实现(使用<code>super&lt;Base></code>的形式) 或者自己重写这个方法。</p><p>例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Rectangle</span> <span class=p>{</span>
+    <span class=k>open</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/* ... */</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>interface</span> <span class=nc>Polygon</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span> <span class=cm>/* ... */</span> <span class=p>}</span> <span class=c1>// interface members are &#39;open&#39; by default
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Square</span><span class=p>()</span> <span class=p>:</span> <span class=n>Rectangle</span><span class=p>(),</span> <span class=n>Polygon</span> <span class=p>{</span>
+    <span class=c1>// The compiler requires draw() to be overridden:
+</span><span class=c1></span>    <span class=k>override</span> <span class=k>fun</span> <span class=nf>draw</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>super</span><span class=p>&lt;</span><span class=n>Rectangle</span><span class=p>&gt;.</span><span class=n>draw</span><span class=p>()</span> <span class=c1>// call to Rectangle.draw()
+</span><span class=c1></span>        <span class=k>super</span><span class=p>&lt;</span><span class=n>Polygon</span><span class=p>&gt;.</span><span class=n>draw</span><span class=p>()</span> <span class=c1>// call to Polygon.draw()
+</span><span class=c1></span>    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=属性的gettersetter函数>属性的<code>getter/setter</code>函数</h3><p>Kotlin中类属性实际上是一个 幕后字段（对象内部为隐藏变量的种类）与两个访问器函数：一个用于获取变量的值，另一个用于设置值。<strong>访问函数在每次调用属性时都会执行，类似计算属性</strong></p><p>可以重写一个或两个访问器（未被重写的访问器会自动获得默认行为，即直接返回或设置幕后字段）。</p><p>在访问器内部，可以使用<code>field</code>引用幕后字段。<code>Setter</code>访问器必须采用参数 <code>value</code>，这是赋值给属性的值。</p><p>一个<code>Getter</code> 主体可以是一个以<code>=</code>开头的单行表达式，也可以是一个花括号括起来的更复杂的主体，而<code>Setter</code>主体通常包括一个赋值，因此必须括在花括号中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>package</span> <span class=nn>com.github.crazygit.koltlin.demo</span>
+
+<span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=n>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+
+    <span class=k>var</span> <span class=py>age</span> <span class=p>=</span> <span class=m>0</span>
+        <span class=k>set</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>value</span> <span class=p>&lt;</span> <span class=m>0</span><span class=p>)</span> <span class=k>throw</span> <span class=n>IllegalArgumentException</span><span class=p>(</span>
+                    <span class=s2>&#34;Age cannot be negative&#34;</span>
+            <span class=p>)</span>
+            <span class=k>field</span> <span class=p>=</span> <span class=n>value</span>
+        <span class=p>}</span>
+
+    <span class=k>init</span> <span class=p>{</span>
+        <span class=k>this</span><span class=p>.</span><span class=n>age</span> <span class=p>=</span> <span class=n>age</span>
+    <span class=p>}</span>
+
+    <span class=c1>//创建实际上没有幕后字段的属性，而只需引用另一个属性
+</span><span class=c1></span>    <span class=k>val</span> <span class=py>isNewborn</span>
+        <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=n>age</span> <span class=o>==</span> <span class=m>0</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>p</span> <span class=p>=</span> <span class=n>Person</span><span class=p>(</span><span class=m>10</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>p</span><span class=p>.</span><span class=n>age</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>p</span><span class=p>.</span><span class=n>isNewborn</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>请注意，尽管由于使用<code>val</code>声明了<code>isNewborn</code>是一个只读属性（在这种情况下，即使没有提供<code>Setter</code>），但它的值仍然可以更改，因为它是从可变属性中读取的——只是无法给该属性赋值。另外，请注意，属性类型是根据<code>Getter</code>的返回值推断出来的。</p><p>访问器前面的缩进是由于约定，像Kotlin的其他地方一样，它没有语法意义。编译器可以知道哪些访问器属于哪些属性，<strong>因为访问器的唯一合法位置是在属性声明之后（并且最多可以有一个 Getter 与一个 Setter——因此无法拆分属性声明与访问器声明。然而，访问器的顺序并不重要</strong>。</p><h3 id=setter函数中的一个坑><code>Setter</code>函数中的一个坑</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=n>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>var</span> <span class=py>age</span> <span class=p>=</span> <span class=n>age</span>
+        <span class=k>set</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>println</span><span class=p>(</span><span class=s2>&#34;call age setter with value: </span><span class=si>$value</span><span class=s2>&#34;</span><span class=p>)</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>value</span> <span class=p>&lt;</span> <span class=m>0</span><span class=p>)</span> <span class=k>throw</span> <span class=n>IllegalArgumentException</span><span class=p>(</span>
+                    <span class=s2>&#34;Age cannot be negative&#34;</span>
+            <span class=p>)</span>
+            <span class=k>field</span> <span class=p>=</span> <span class=n>value</span>
+        <span class=p>}</span>
+<span class=p>}</span>
+
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>p</span> <span class=p>=</span> <span class=n>Person</span><span class=p>(-</span><span class=m>10</span><span class=p>)</span> <span class=c1>//初始为负数，但是不会报错, setter中的println语句并不会执行
+</span><span class=c1></span>    <span class=n>print</span><span class=p>(</span><span class=n>p</span><span class=p>.</span><span class=n>age</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>上面的类虽然设置了<code>age</code>的<code>Setter</code>，但是初始化并未调用<code>Setter</code>逻辑，而是直接设置了幕后字段。必须用下面的写法，通过<code>init</code>模块才能让初始化调用<code>setter</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Person</span><span class=p>(</span><span class=n>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>var</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>0</span>
+        <span class=k>set</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>println</span><span class=p>(</span><span class=s2>&#34;call age setter with value: </span><span class=si>$value</span><span class=s2>&#34;</span><span class=p>)</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>value</span> <span class=p>&lt;</span> <span class=m>0</span><span class=p>)</span> <span class=k>throw</span> <span class=n>IllegalArgumentException</span><span class=p>(</span>
+                    <span class=s2>&#34;Age cannot be negative&#34;</span>
+            <span class=p>)</span>
+            <span class=k>field</span> <span class=p>=</span> <span class=n>value</span>
+        <span class=p>}</span>
+
+    <span class=k>init</span> <span class=p>{</span>
+        <span class=k>this</span><span class=p>.</span><span class=n>age</span> <span class=p>=</span> <span class=n>age</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=接口>接口</h3><p>实现接口和继承类使用的是同样的关键字<code>:</code>,另外接口的名称后面不用加上括号，因为它没有主构造函数需要实现.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>package</span> <span class=nn>com.github.crazygit.koltlin.demo</span>
+
+<span class=k>interface</span> <span class=nc>Study</span> <span class=p>{</span>
+    <span class=c1>// 接口中同样可以声明属性
+</span><span class=c1></span>    <span class=k>val</span> <span class=py>prop</span><span class=p>:</span> <span class=n>Int</span> <span class=c1>// abstract
+</span><span class=c1></span>    <span class=k>fun</span> <span class=nf>readBooks</span><span class=p>()</span>
+    <span class=k>fun</span> <span class=nf>doHomework</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;do homework default implementation&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><p>与Java1.8一样，Kotlin的接口允许拥有默认实现，在实现接口时，拥有默认实现的函数可以自由选择实现或者不实现，不实现时自动使用默认的实现逻辑。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>package</span> <span class=nn>com.github.crazygit.koltlin.demo</span>
+
+<span class=k>class</span> <span class=nc>Student</span><span class=p>(</span><span class=k>val</span> <span class=py>sno</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>grade</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=n>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>Person</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>age</span><span class=p>),</span> <span class=n>Study</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>val</span> <span class=py>prop</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>29</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>readBooks</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>$name</span><span class=s2> is reading books&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>doHomework</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>$name</span><span class=s2> is doing homework&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>接口直接也是可以相互继承的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Named</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span>
+<span class=p>}</span>
+
+<span class=k>interface</span> <span class=nc>Person</span> <span class=p>:</span> <span class=n>Named</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>firstName</span><span class=p>:</span> <span class=n>String</span>
+    <span class=k>val</span> <span class=py>lastName</span><span class=p>:</span> <span class=n>String</span>
+
+    <span class=k>override</span> <span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span> <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=s2>&#34;</span><span class=si>$firstName</span><span class=s2> </span><span class=si>$lastName</span><span class=s2>&#34;</span>
+<span class=p>}</span>
+
+<span class=k>data</span> <span class=k>class</span> <span class=nc>Employee</span><span class=p>(</span>
+    <span class=c1>// implementing &#39;name&#39; is not required
+</span><span class=c1></span>    <span class=k>override</span> <span class=k>val</span> <span class=py>firstName</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>override</span> <span class=k>val</span> <span class=py>lastName</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>position</span><span class=p>:</span> <span class=n>Position</span>
+<span class=p>)</span> <span class=p>:</span> <span class=n>Person</span>
+</code></pre></td></tr></table></div></div><p>当实现多个具有相同函数的接口时，需要显示指定调用哪个的接口</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>A</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>foo</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=s2>&#34;A&#34;</span><span class=p>)</span> <span class=p>}</span>
+    <span class=k>fun</span> <span class=nf>bar</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>interface</span> <span class=nc>B</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>foo</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=s2>&#34;B&#34;</span><span class=p>)</span> <span class=p>}</span>
+    <span class=k>fun</span> <span class=nf>bar</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>C</span> <span class=p>:</span> <span class=n>A</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>bar</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>D</span> <span class=p>:</span> <span class=n>A</span><span class=p>,</span> <span class=n>B</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>foo</span><span class=p>()</span> <span class=p>{</span>
+        <span class=c1>//使用super调用接口里的方法
+</span><span class=c1></span>        <span class=k>super</span><span class=p>&lt;</span><span class=n>A</span><span class=p>&gt;.</span><span class=n>foo</span><span class=p>()</span>
+        <span class=k>super</span><span class=p>&lt;</span><span class=n>B</span><span class=p>&gt;.</span><span class=n>foo</span><span class=p>()</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>bar</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>super</span><span class=p>&lt;</span><span class=n>B</span><span class=p>&gt;.</span><span class=n>bar</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><h3 id=functional-sam-interfaces>Functional (SAM) interfaces</h3><p>一个接口只有一个抽象方法时，这个接口被叫做功能性接口(<em>functional interface</em>)，或者<em>Single Abstract Method (SAM) interface</em>. 它可以有几个非抽象的属性。</p><p>使用<code>fun</code>关键字声明功能性接口</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>interface</span> <span class=n>KRunnable</span> <span class=p>{</span>
+   <span class=k>fun</span> <span class=nf>invoke</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>SAM接口有个语法，可以使用Lambda表达式来简化接口的实现</p><p>比如有这么一个接口</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>interface</span> <span class=n>IntPredicate</span> <span class=p>{</span>
+   <span class=k>fun</span> <span class=nf>accept</span><span class=p>(</span><span class=n>i</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Boolean</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>不使用SAM语法，实现这个接口的写法是</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// Creating an instance of a class
+</span><span class=c1></span><span class=k>val</span> <span class=py>isEven</span> <span class=p>=</span> <span class=k>object</span> <span class=err>: </span><span class=nc>IntPredicate</span> <span class=p>{</span>
+   <span class=k>override</span> <span class=k>fun</span> <span class=nf>accept</span><span class=p>(</span><span class=n>i</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Boolean</span> <span class=p>{</span>
+       <span class=k>return</span> <span class=n>i</span> <span class=p>%</span> <span class=m>2</span> <span class=o>==</span> <span class=m>0</span>
+   <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>使用SAM语法，可以直接简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// Creating an instance using lambda
+</span><span class=c1></span><span class=k>val</span> <span class=py>isEven</span> <span class=p>=</span> <span class=n>IntPredicate</span> <span class=p>{</span> <span class=k>it</span> <span class=p>%</span> <span class=m>2</span> <span class=o>==</span> <span class=m>0</span> <span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=函数可见性修饰符>函数可见性修饰符</h3><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1603766576.png alt=Java与Kotlin函数可见性修饰符对照表></p><h3 id=数据类>数据类</h3><p>当在一个类前面声明了<code>data</code>关键字时，就表明你希望这个类是一个数据类，Kotlin会根据主构造函数中的参数帮你将如下函数自动生成。</p><ul><li><code>eaquals()</code>/<code>hashCode()</code></li><li><code>toString()</code></li><li><code>componentN()</code></li><li><code>copy()</code></li></ul><p>另外数据类有一下几个必要条件</p><ol><li><p>主构造函数只要要有一个属性</p></li><li><p>所有主构造属性的属性应该标记为<code>var</code>或者<code>val</code></p></li><li><p>数据类不能是 abstract, open, sealed or inner类型</p></li><li><p>不允许覆写数据类的<code>componentN()</code>和<code>Copy()</code>方法</p></li></ol><h4 id=常规类>常规类</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Phone</span><span class=p>(</span><span class=k>val</span> <span class=py>brand</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>price</span><span class=p>:</span> <span class=n>Double</span><span class=p>)</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>phone1</span> <span class=p>=</span> <span class=n>Phone</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=m>6999.99</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>phone2</span> <span class=p>=</span> <span class=n>Phone</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=m>6999.99</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>phone1</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;phone1 equals phone2: &#34;</span> <span class=p>+</span> <span class=p>(</span><span class=n>phone1</span> <span class=o>==</span> <span class=n>phone2</span><span class=p>))</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>输出为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>com.github.crazygit.koltlin.demo.Phone@17c68925
+phone1 equals phone2: false
+</code></pre></td></tr></table></div></div><h4 id=使用数据类>使用数据类</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>data</span> <span class=k>class</span> <span class=nc>Phone</span><span class=p>(</span><span class=k>val</span> <span class=py>brand</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>price</span><span class=p>:</span> <span class=n>Double</span><span class=p>)</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>phone1</span> <span class=p>=</span> <span class=n>Phone</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=m>6999.99</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>phone2</span> <span class=p>=</span> <span class=n>Phone</span><span class=p>(</span><span class=s2>&#34;Apple&#34;</span><span class=p>,</span> <span class=m>6999.99</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>phone1</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;phone1 equals phone2: &#34;</span> <span class=p>+</span> <span class=p>(</span><span class=n>phone1</span> <span class=o>==</span> <span class=n>phone2</span><span class=p>))</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>输出为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Phone(brand=Apple, price=6999.99)
+phone1 equals phone2: true
+</code></pre></td></tr></table></div></div><h4 id=properties-declared-in-the-class-body>Properties declared in the class body</h4><p>在类里面声明属性时，是不会被自动添加到生成的<code>toString()</code>, <code>equals()</code>, <code>hashCode()</code>等方法里面的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>data</span> <span class=k>class</span> <span class=nc>Person1</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+<span class=k>data</span> <span class=k>class</span> <span class=nc>Person2</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>0</span>
+<span class=p>}</span>
+
+<span class=n>println</span><span class=p>(</span><span class=n>Person1</span><span class=p>(</span><span class=s2>&#34;Jack&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>))</span> <span class=c1>// Person1(name=Jack, age=10)
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>Person2</span><span class=p>(</span><span class=s2>&#34;Jack&#34;</span><span class=p>))</span> <span class=c1>// Person2(name=Jack)
+</span><span class=c1></span>
+</code></pre></td></tr></table></div></div><h4 id=使用copy方法复制对象并修改部分属性>使用copy()方法复制对象并修改部分属性</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>jack</span> <span class=p>=</span> <span class=n>User</span><span class=p>(</span><span class=n>name</span> <span class=p>=</span> <span class=s2>&#34;Jack&#34;</span><span class=p>,</span> <span class=n>age</span> <span class=p>=</span> <span class=m>1</span><span class=p>)</span>
+<span class=k>val</span> <span class=py>olderJack</span> <span class=p>=</span> <span class=n>jack</span><span class=p>.</span><span class=n>copy</span><span class=p>(</span><span class=n>age</span> <span class=p>=</span> <span class=m>2</span><span class=p>)</span>
+<span class=n>println</span><span class=p>(</span><span class=n>jack</span><span class=p>)</span>  <span class=c1>// User(name=Jack, age=1)
+</span><span class=c1>// 复制对象的同时修改age属性
+</span><span class=c1></span><span class=n>println</span><span class=p>(</span><span class=n>olderJack</span><span class=p>)</span> <span class=c1>// User(name=Jack, age=2)
+</span></code></pre></td></tr></table></div></div><h4 id=data-classes-and-destructuring-declarations>Data classes and destructuring declarations</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>data</span> <span class=k>class</span> <span class=nc>User</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>val</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+
+<span class=c1>// componentN()方法的用法
+</span><span class=c1></span><span class=k>val</span> <span class=py>u</span> <span class=p>=</span> <span class=n>User</span><span class=p>(</span><span class=s2>&#34;Jack&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>)</span>
+<span class=k>val</span> <span class=err>(</span><span class=py>name</span><span class=p>,</span> <span class=n>age</span><span class=p>)</span> <span class=p>=</span> <span class=n>u</span> <span class=c1>//注意写法
+</span><span class=c1></span><span class=n>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span> <span class=c1>// Jack，相当于调用u.component1()
+</span><span class=c1></span><span class=n>print</span><span class=p>(</span><span class=n>age</span><span class=p>)</span>  <span class=c1>// 10， 相当于调用u.component2()
+</span></code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-06-07</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/kotlin/>kotlin</a></div><nav class=post-nav><a class=next href=/2021/06/02/005-kotlin-basic-synatx-02/><span class="next-text nav-default">Kotlin基本语法02</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408h399.992405s71.046998 3.997201 71.046998 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zm53.281707 130.131124C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523S0 1024 83.726336 1024H682.532949 753.579947h595.368192C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955c-39.771477 34.470494-74.671786 43.295855-98.955861 43.868928z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2021
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>

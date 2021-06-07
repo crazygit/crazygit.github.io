@@ -1,15 +1,15 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法01 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin基本语法，流程控制，包管理，函数定义等
 "><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法01"><meta property="og:description" content="Kotlin基本语法，流程控制，包管理，函数定义等
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/05/31/004-kotlin-basic-synatx-01/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-05-31T10:25:29+08:00"><meta property="article:modified_time" content="2021-05-31T10:25:29+08:00"><meta itemprop=name content="Kotlin基本语法01"><meta itemprop=description content="Kotlin基本语法，流程控制，包管理，函数定义等
-"><meta itemprop=datePublished content="2021-05-31T10:25:29+08:00"><meta itemprop=dateModified content="2021-05-31T10:25:29+08:00"><meta itemprop=wordCount content="6503"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法01"><meta name=twitter:description content="Kotlin基本语法，流程控制，包管理，函数定义等
+"><meta itemprop=datePublished content="2021-05-31T10:25:29+08:00"><meta itemprop=dateModified content="2021-05-31T10:25:29+08:00"><meta itemprop=wordCount content="7222"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法01"><meta name=twitter:description content="Kotlin基本语法，流程控制，包管理，函数定义等
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法01</h1><div class=post-meta><time datetime=2021-05-31 class=post-time>2021-05-31</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 6503 字</span>
-<span class=more-meta>预计阅读 13 分钟</span>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法01</h1><div class=post-meta><time datetime=2021-05-31 class=post-time>2021-05-31</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 7222 字</span>
+<span class=more-meta>预计阅读 15 分钟</span>
 <span id=/2021/05/31/004-kotlin-basic-synatx-01/ class=leancloud_visitors data-flag-title=Kotlin基本语法01><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#语言特点>语言特点</a></li><li><a href=#基本语法>基本语法</a><ul><li><a href=#变量声明>变量声明</a></li><li><a href=#const-val和val的区别><code>const val</code>和<code>val</code>的区别</a></li><li><a href=#空值处理>空值处理</a></li><li><a href=#数据类型>数据类型</a></li><li><a href=#运算符>运算符</a></li><li><a href=#字符串>字符串</a></li><li><a href=#区间>区间</a></li><li><a href=#数组>数组</a></li><li><a href=#is和is操作符><code>is</code>和<code>!is</code>操作符</a></li><li><a href=#类型自动转换>类型自动转换</a></li><li><a href=#非安全的类型转换>非安全的类型转换</a></li><li><a href=#安全的类型转换>安全的类型转换</a></li></ul></li><li><a href=#包管理>包管理</a><ul><li><a href=#默认导入的包>默认导入的包</a></li><li><a href=#添加导入的包>添加导入的包</a></li></ul></li><li><a href=#函数>函数</a><ul><li><a href=#函数声明>函数声明</a></li><li><a href=#函数返回值>函数返回值</a></li><li><a href=#vararg可选参数><code>vararg</code>可选参数</a></li><li><a href=#命名参数>命名参数</a></li><li><a href=#函数默认值>函数默认值</a></li><li><a href=#函数的简化写法>函数的简化写法</a></li><li><a href=#函数重载>函数重载</a></li><li><a href=#todo函数>TODO函数</a></li><li><a href=#中缀函数infix>中缀函数infix</a></li><li><a href=#函数扩展>函数扩展</a></li><li><a href=#运算符重载>运算符重载</a></li><li><a href=#结合扩展函数和运算符重载this作用域声明>结合扩展函数和运算符重载（this作用域声明）</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=语言特点>语言特点</h2><p>Kotlin可以编译成Java字节码，也可以编译成JavaScript字节码，方便在没有JVM的设备上运行。</p><h2 id=基本语法>基本语法</h2><p>Kotlin语言是严格区分大小写的。</p><h3 id=变量声明>变量声明</h3><p>在<code>Kotlin</code>中定义一个变量，只允许在变量前声明两种关键字:
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#语言特点>语言特点</a></li><li><a href=#基本语法>基本语法</a><ul><li><a href=#变量声明>变量声明</a></li><li><a href=#const-val和val的区别><code>const val</code>和<code>val</code>的区别</a></li><li><a href=#空值处理>空值处理</a></li><li><a href=#数据类型>数据类型</a></li><li><a href=#运算符>运算符</a></li><li><a href=#字符串>字符串</a></li><li><a href=#区间>区间</a></li><li><a href=#数组>数组</a></li><li><a href=#is和is操作符><code>is</code>和<code>!is</code>操作符</a></li><li><a href=#类型自动转换>类型自动转换</a></li><li><a href=#非安全的类型转换>非安全的类型转换</a></li><li><a href=#安全的类型转换>安全的类型转换</a></li></ul></li><li><a href=#包管理>包管理</a><ul><li><a href=#默认导入的包>默认导入的包</a></li><li><a href=#添加导入的包>添加导入的包</a></li></ul></li><li><a href=#函数>函数</a><ul><li><a href=#函数声明>函数声明</a></li><li><a href=#函数返回值>函数返回值</a></li><li><a href=#vararg可选参数><code>vararg</code>可选参数</a></li><li><a href=#命名参数>命名参数</a></li><li><a href=#函数默认值>函数默认值</a></li><li><a href=#函数的简化写法>函数的简化写法</a></li><li><a href=#函数重载>函数重载</a></li><li><a href=#todo函数>TODO函数</a></li><li><a href=#中缀函数infix>中缀函数infix</a></li><li><a href=#函数扩展>函数扩展</a></li><li><a href=#扩展属性>扩展属性</a></li><li><a href=#伴生对象扩展companion-object-extensions>伴生对象扩展(<code>Companion object extensions</code>)</a></li><li><a href=#运算符重载>运算符重载</a></li><li><a href=#结合扩展函数和运算符重载this作用域声明>结合扩展函数和运算符重载（this作用域声明）</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=语言特点>语言特点</h2><p>Kotlin可以编译成Java字节码，也可以编译成JavaScript字节码，方便在没有JVM的设备上运行。</p><h2 id=基本语法>基本语法</h2><p>Kotlin语言是严格区分大小写的。</p><h3 id=变量声明>变量声明</h3><p>在<code>Kotlin</code>中定义一个变量，只允许在变量前声明两种关键字:
 <code>val</code>和<code>var</code></p><h3 id=const-val和val的区别><code>const val</code>和<code>val</code>的区别</h3><ul><li><code>val</code>: 相当于Java中的<code>private final static</code></li><li><code>const val</code>: 相当于Java中的<code>public final static</code></li></ul><p>定义常量时，优先考虑使用<code>const val</code></p><h3 id=空值处理>空值处理</h3><p>安全调用符<code>?.</code>，专门用于调用可空类型变量中的成员方法或属性，其语法格式为<code>变量?.成员</code>。其作用是判断变量是否为<code>null</code>，如果不为<code>null</code>才调用变量的成员方法或者属性。</p><p>使用<code>?.</code>调用可空变量的属性时，如果当前变量为空，则程序编译也不会报错，而是返回一个null值。</p><p>Kotlin中提供了一个Elvis操作符<code>?:</code>，通过Elvis操作符<code>?:</code>, 其语法格式为<code>表达式?:表达式</code>。如果左侧表达式非空，则返回左侧表达式的值，否则返回右侧表达式的值。当且仅当左侧为空时，才会对右侧表达式求值。</p><p>通过非空断言（<code>!!.</code>）来调用可空类型变量的成员方法或属性。使用非空断言时，调用变量成员方法或属性的语法结构为<code>变量!!.成员</code>。非空断言<code>!!.</code>会将任何变量（可空类型变量或者非空类型变量）转换为非空类型的变量，若该变量为空则抛出异常。</p><h3 id=数据类型>数据类型</h3><p>Kotlin完全抛弃了Java中的基本数据类型，全部使用对象类型。Kotlin语言中的数据类型不区分基本数据类型和引用数据类型，分别为数值型、字符型、布尔型、数组型、字符串型。</p><p>Kotlin中每个字符类型变量都会占用2个字节。在给<code>Char</code>类型的变量赋值时，需要用一对英文半角格式的单引号<code>' '</code>把字符括起来。</p><p>数组是用<code>Array</code>表示，其中数值类型、布尔类型、字符类型都有数组的表现形式</p><p>这些数组类型变量的初始化有两种方式，一种是以<code>数据类型ArrayOf()</code>方法进行初始化，另一种是以<code>arrayOf()</code>方法进行初始化。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -337,7 +337,7 @@
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>ClassName</span><span class=p>.</span><span class=n>methodName</span><span class=p>(</span><span class=n>param1</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span> <span class=n>param2</span><span class=p>:</span> <span class=n>Int</span><span class=p>):</span> <span class=n>Int</span> <span class=p>{</span>
 	<span class=k>return</span> <span class=m>0</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>相比与定义一个普通的函数，定义扩展函数只需要在函数名的前面添加一个<code>ClassName.</code>的语法结构，就表示将该函数添加到指定的类中了。</p><p>比如，向<code>String</code>类中添加一个统计字符串中包含字母个数的函数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p>相比与定义一个普通的函数，定义扩展函数只需要在函数名的前面添加一个<code>ClassName.</code>的语法结构，就表示将该函数添加到指定的类中了。这里的ClassName称为<code>receiver type</code></p><p>比如，向<code>String</code>类中添加一个统计字符串中包含字母个数的函数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -357,7 +357,151 @@
 <span class=p>}</span>
 </code></pre></td></tr></table></div></div><p>这里需要注意，我们将<code>lettersCount()</code>函数定义为<code>String</code>类的扩展函数，那么函数中就自动拥有了<code>String</code>实例的上下文。因此<code>lettersCount()</code>函数就不再需要接收一个字符串参数了，而是直接使用<code>this</code>即可，因为现在<code>this</code>就代表着字符串本身。</p><p>然后我们就可以像调用<code>String</code>类自带的函数一样调用它了</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>count</span> <span class=p>=</span> <span class=s2>&#34;ABC#$$123EFG&#34;</span><span class=p>.</span><span class=n>lettersCount</span><span class=p>()</span>
-</code></pre></td></tr></table></div></div><h4 id=最佳实践>最佳实践</h4><p>当我们希望向<code>String</code>类中添加一个扩展函数时，建议先先创建一个<code>String.kt</code>文件。文件名虽然没有固定的要求，但是建议向哪个类添加扩展函数时，就定义一个同名的Kotlin文件，这样便于后期查找。</p><p>当然，扩展函数也是可以定义在任何一个现有的类当中的，并不一定要创建新的文件。不过通常来说，最好将它定义成顶层方法，这样可以让扩展函数拥有全局的访问域。</p><h3 id=运算符重载>运算符重载</h3><p>我们可以对<code>+</code>, <code>-</code>, <code>*</code>,<code>/</code>等运算进行重载，实现将任意两个对象进行相加，相减等操作。</p><p>运算符重载使用的是<code>operator</code>关键字，只要在<strong>指定的函数</strong>前面加上<code>operator</code>关键字，就可以实现运算符的重载了。指定的函数指的是呢?不同的运算符对应的指定函数是不一样，比如加号运算符对应的是<code>plus()</code>函数,减号运算符对应的是<code>minus()</code>函数。具体运算符和实际对应的函数关系如下表:</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1603848776.png alt=运算符和函数关系表></p><p>如果想实现让两个类相加的功能，那么它的语法结构为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h4 id=最佳实践>最佳实践</h4><p>当我们希望向<code>String</code>类中添加一个扩展函数时，建议先先创建一个<code>String.kt</code>文件。文件名虽然没有固定的要求，但是建议向哪个类添加扩展函数时，就定义一个同名的Kotlin文件，这样便于后期查找。</p><p>当然，扩展函数也是可以定义在任何一个现有的类当中的，并不一定要创建新的文件。不过通常来说，最好将它定义成顶层方法，这样可以让扩展函数拥有全局的访问域。</p><h4 id=扩展函数是静态扩展>扩展函数是静态扩展</h4><p>调用扩展函数时，是根据声明时的类型来决定调用方法的，而不是实际运行时的类型，例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>Shape</span>
+
+<span class=k>class</span> <span class=nc>Rectangle</span><span class=p>:</span> <span class=n>Shape</span><span class=p>()</span>
+
+<span class=k>fun</span> <span class=nf>Shape</span><span class=p>.</span><span class=n>getName</span><span class=p>()</span> <span class=p>=</span> <span class=s2>&#34;Shape&#34;</span>
+
+<span class=k>fun</span> <span class=nf>Rectangle</span><span class=p>.</span><span class=n>getName</span><span class=p>()</span> <span class=p>=</span> <span class=s2>&#34;Rectangle&#34;</span>
+
+<span class=k>fun</span> <span class=nf>printClassName</span><span class=p>(</span><span class=n>s</span><span class=p>:</span> <span class=n>Shape</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>getName</span><span class=p>())</span>
+<span class=p>}</span>
+
+<span class=c1>// 这里传的参数虽然是Rectangle,
+</span><span class=c1>// 但是printClassName声明的参数类型是Shape
+</span><span class=c1>// 所以结果仍然是Shape
+</span><span class=c1></span><span class=n>printClassName</span><span class=p>(</span><span class=n>Rectangle</span><span class=p>())</span> <span class=c1>// Shape
+</span></code></pre></td></tr></table></div></div><h4 id=扩展函数无法覆盖原始类里已有的同名函数>扩展函数无法覆盖原始类里已有的同名函数</h4><p>当扩展函数的名称和原始类的名称一样时，始终会调用原始类里的函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Example</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>printFunctionType</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Class method&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>Example</span><span class=p>.</span><span class=n>printFunctionType</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Extension function&#34;</span><span class=p>)</span> <span class=p>}</span>
+
+<span class=n>Example</span><span class=p>().</span><span class=n>printFunctionType</span><span class=p>()</span> <span class=c1>// Class method
+</span></code></pre></td></tr></table></div></div><p>当然，在扩展函数里对原始类的函数重载是可以的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Example</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>printFunctionType</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Class method&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>Example</span><span class=p>.</span><span class=n>printFunctionType</span><span class=p>(</span><span class=n>i</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Extension function&#34;</span><span class=p>)</span> <span class=p>}</span>
+
+<span class=n>Example</span><span class=p>().</span><span class=n>printFunctionType</span><span class=p>(</span><span class=m>1</span><span class=p>)</span> <span class=c1>// Extension function
+</span></code></pre></td></tr></table></div></div><h4 id=nullable-receiver>Nullable receiver</h4><p>扩展函数的<code>receiver</code>同样可以为空.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>Any</span><span class=o>?.</span><span class=n>toString</span><span class=p>():</span> <span class=n>String</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=k>this</span> <span class=o>==</span> <span class=k>null</span><span class=p>)</span> <span class=k>return</span> <span class=s2>&#34;null&#34;</span>
+    <span class=c1>// after the null check, &#39;this&#39; is autocast to a non-null type, so the toString() below
+</span><span class=c1></span>    <span class=c1>// resolves to the member function of the Any class
+</span><span class=c1></span>    <span class=k>return</span> <span class=n>toString</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=扩展属性>扩展属性</h3><p>除了扩展函数之外，同样支持扩展属性。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=err>&lt;</span><span class=py>T</span><span class=p>&gt;</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;.</span><span class=n>lastIndex</span><span class=p>:</span> <span class=n>Int</span>
+    <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=n>size</span> <span class=p>-</span> <span class=m>1</span>
+</code></pre></td></tr></table></div></div><p>不过由于扩展属性同样不能修改原始类的代码，因此扩展属性只能通过<code>getter</code>或<code>setter</code></p><p>方法来实现，没法直接扩展</p><p>例如，下面的写法就是错误的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>House</span><span class=p>.</span><span class=n>number</span> <span class=p>=</span> <span class=m>1</span> <span class=c1>// error: initializers are not allowed for extension properties
+</span></code></pre></td></tr></table></div></div><h3 id=伴生对象扩展companion-object-extensions>伴生对象扩展(<code>Companion object extensions</code>)</h3><p>如果一个类里面包含伴生类，那么伴生类同样是可以扩展的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
+    <span class=k>companion</span> <span class=k>object</span> <span class=p>{</span> <span class=p>}</span>  <span class=c1>// will be called &#34;Companion&#34;
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=c1>// 注意伴生对象的recevier写法
+</span><span class=c1></span><span class=k>fun</span> <span class=nf>MyClass</span><span class=p>.</span><span class=n>Companion</span><span class=p>.</span><span class=n>printCompanion</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;companion&#34;</span><span class=p>)</span> <span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>MyClass</span><span class=p>.</span><span class=n>printCompanion</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h4 id=将扩展函数作为类成员定义>将扩展函数作为类成员定义</h4><p>一般情况下，我们是直接在包名顶级下定义扩展函数的。同样也可以在类里面定义扩展函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Host</span><span class=p>(</span><span class=k>val</span> <span class=py>hostname</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>printHostname</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=n>hostname</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Connection</span><span class=p>(</span><span class=k>val</span> <span class=py>host</span><span class=p>:</span> <span class=n>Host</span><span class=p>,</span> <span class=k>val</span> <span class=py>port</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
+     <span class=k>fun</span> <span class=nf>printPort</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=n>port</span><span class=p>)</span> <span class=p>}</span>
+
+     <span class=k>fun</span> <span class=nf>Host</span><span class=p>.</span><span class=n>printConnectionString</span><span class=p>()</span> <span class=p>{</span>
+         <span class=n>printHostname</span><span class=p>()</span>   <span class=c1>// calls Host.printHostname()
+</span><span class=c1></span>         <span class=n>print</span><span class=p>(</span><span class=s2>&#34;:&#34;</span><span class=p>)</span>
+         <span class=n>printPort</span><span class=p>()</span>   <span class=c1>// calls Connection.printPort()
+</span><span class=c1></span>     <span class=p>}</span>
+
+     <span class=k>fun</span> <span class=nf>connect</span><span class=p>()</span> <span class=p>{</span>
+         <span class=cm>/*...*/</span>
+         <span class=n>host</span><span class=p>.</span><span class=n>printConnectionString</span><span class=p>()</span>   <span class=c1>// calls the extension function
+</span><span class=c1></span>     <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>Connection</span><span class=p>(</span><span class=n>Host</span><span class=p>(</span><span class=s2>&#34;kotl.in&#34;</span><span class=p>),</span> <span class=m>443</span><span class=p>).</span><span class=n>connect</span><span class=p>()</span>
+    <span class=c1>//Host(&#34;kotl.in&#34;).printConnectionString(443)  // error, the extension function is unavailable outside Connection
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=运算符重载>运算符重载</h3><p>我们可以对<code>+</code>, <code>-</code>, <code>*</code>,<code>/</code>等运算进行重载，实现将任意两个对象进行相加，相减等操作。</p><p>运算符重载使用的是<code>operator</code>关键字，只要在<strong>指定的函数</strong>前面加上<code>operator</code>关键字，就可以实现运算符的重载了。指定的函数指的是呢?不同的运算符对应的指定函数是不一样，比如加号运算符对应的是<code>plus()</code>函数,减号运算符对应的是<code>minus()</code>函数。具体运算符和实际对应的函数关系如下表:</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1603848776.png alt=运算符和函数关系表></p><p>如果想实现让两个类相加的功能，那么它的语法结构为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4

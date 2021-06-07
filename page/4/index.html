@@ -2,7 +2,84 @@
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class="menu-item active"><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><section id=posts class=posts><article class="post bg-white"><header class=post-header><h1 class=post-title><a class=post-link href=/2017/12/28/python-for-data-analysis-2nd-edition-note-two/>《利用Python进行数据分析第二版》读书笔记二</a></h1><div class=post-meta><time datetime=2017-12-28 class=post-time>2017-12-28</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>python数据分析</a></div><span class=more-meta>约 3322 字</span>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class="menu-item active"><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><section id=posts class=posts><article class="post bg-white"><header class=post-header><h1 class=post-title><a class=post-link href=/2018/01/04/python-for-data-analysis-2nd-edition-note-two/>《利用Python进行数据分析第二版》读书笔记三</a></h1><div class=post-meta><time datetime=2018-01-04 class=post-time>2018-01-04</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>python数据分析</a></div><span class=more-meta>约 6863 字</span>
+<span class=more-meta>预计阅读 14 分钟</span>
+<span id=/2018/01/04/python-for-data-analysis-2nd-edition-note-two/ class=leancloud_visitors data-flag-title=《利用Python进行数据分析第二版》读书笔记三><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-content><div class=post-summary><h1 id=数据合并拼接和变型>数据合并，拼接和变型</h1><h2 id=分层索引>分层索引</h2><p>分层索引是<code>Pandas</code>的一个重要特性，能够让我们在一个轴上拥有多层索引。简单来说，它提供了一个在降纬模式下处理多维数据的能力。</p><p>如下是一个多层索引的例子</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>9</span><span class=p>),</span>
+<span class=o>...</span>                  <span class=n>index</span><span class=o>=</span><span class=p>[[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>,</span> <span class=s1>&#39;d&#39;</span><span class=p>,</span> <span class=s1>&#39;d&#39;</span><span class=p>],</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>]])</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span>
+<span class=n>a</span>  <span class=mi>1</span>    <span class=mf>1.007189</span>
+   <span class=mi>2</span>   <span class=o>-</span><span class=mf>1.296221</span>
+   <span class=mi>3</span>    <span class=mf>0.274992</span>
+<span class=n>b</span>  <span class=mi>1</span>    <span class=mf>0.228913</span>
+   <span class=mi>3</span>    <span class=mf>1.352917</span>
+<span class=n>c</span>  <span class=mi>1</span>    <span class=mf>0.886429</span>
+   <span class=mi>2</span>   <span class=o>-</span><span class=mf>2.001637</span>
+<span class=n>d</span>  <span class=mi>2</span>   <span class=o>-</span><span class=mf>0.371843</span>
+   <span class=mi>3</span>    <span class=mf>1.669025</span>
+<span class=n>dtype</span><span class=p>:</span> <span class=n>float64</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>index</span>
+<span class=n>MultiIndex</span><span class=p>(</span><span class=n>levels</span><span class=o>=</span><span class=p>[[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>,</span> <span class=s1>&#39;d&#39;</span><span class=p>],</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]],</span>
+           <span class=n>labels</span><span class=o>=</span><span class=p>[[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>3</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>]])</span>
+
+<span class=c1># 访问外层索引</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=p>[</span><span class=s1>&#39;b&#39;</span><span class=p>]</span>
+<span class=mi>1</span>    <span class=mf>0.228913</span>
+<span class=mi>3</span>    <span class=mf>1.352917</span>
+<span class=n>dtype</span><span class=p>:</span> <span class=n>float64</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=p>[</span><span class=s1>&#39;b&#39;</span><span class=p>:</span><span class=s1>&#39;c&#39;</span><span class=p>]</span>
+<span class=n>b</span>  <span class=mi>1</span>    <span class=mf>0.228913</span>
+   <span class=mi>3</span>    <span class=mf>1.352917</span>
+<span class=n>c</span>  <span class=mi>1</span>    <span class=mf>0.886429</span>
+   <span class=mi>2</span>   <span class=o>-</span><span class=mf>2.001637</span>
+
+<span class=c1># 访问内层索引</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>loc</span><span class=p>[:,</span> <span class=mi>2</span><span class=p>]</span>
+<span class=n>a</span>   <span class=o>-</span><span class=mf>1.296221</span>
+<span class=n>c</span>   <span class=o>-</span><span class=mf>2.001637</span>
+<span class=n>d</span>   <span class=o>-</span><span class=mf>0.371843</span>
+<span class=n>dtype</span><span class=p>:</span> <span class=n>float64</span>
+</code></pre></td></tr></table></div></div></div><div class=read-more><a href=/2018/01/04/python-for-data-analysis-2nd-edition-note-two/ class=read-more-link>阅读全文</a></div></div></article><article class="post bg-white"><header class=post-header><h1 class=post-title><a class=post-link href=/2017/12/28/python-for-data-analysis-2nd-edition-note-two/>《利用Python进行数据分析第二版》读书笔记二</a></h1><div class=post-meta><time datetime=2017-12-28 class=post-time>2017-12-28</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>python数据分析</a></div><span class=more-meta>约 3322 字</span>
 <span class=more-meta>预计阅读 7 分钟</span>
 <span id=/2017/12/28/python-for-data-analysis-2nd-edition-note-two/ class=leancloud_visitors data-flag-title=《利用Python进行数据分析第二版》读书笔记二><span class=post-meta-item-text>| 阅读</span>
 <span class=leancloud-visitors-count></span></span></div></header><div class=post-content><div class=post-summary><h2 id=数据清洗和预处理>数据清洗和预处理</h2><h3 id=过滤出缺失的数据>过滤出缺失的数据</h3><p>Series</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
