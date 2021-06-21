@@ -60,11 +60,11 @@
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">xml.etree.ElementTree&lt;/span> &lt;span class="kn">as&lt;/span> &lt;span class="nn">ET&lt;/span>
+&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">xml.etree.ElementTree&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">ET&lt;/span>
 &lt;span class="kn">import&lt;/span> &lt;span class="nn">requests&lt;/span>
 &lt;span class="n">root&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ET&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fromstring&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">requests&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="k">for&lt;/span> &lt;span class="n">enclosure&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">root&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">findall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;.//enclosure&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">enclosure&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;url&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">enclosure&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;url&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Swift入门指南二</title><link>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/</link><pubDate>Sat, 27 Oct 2018 22:55:22 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/</guid><description>&lt;h2 id="对象和类">对象和类&lt;/h2>

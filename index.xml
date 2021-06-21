@@ -1,4 +1,646 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 15 Jun 2021 10:11:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本语法04</title><link>https://crazygit.wiseturtles.com/2021/06/15/006-kotlin-basic-synatx-04/</link><pubDate>Tue, 15 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/15/006-kotlin-basic-synatx-04/</guid><description>&lt;h2 id="密封类sealed-class">密封类&lt;code>sealed class&lt;/code>&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 21 Jun 2021 10:11:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本语法05</title><link>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</link><pubDate>Mon, 21 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</guid><description>&lt;h3 id="heading">&lt;/h3>
+&lt;h3 id="类委托和委托属性httpskotlinlangorgdocsreferencedelegated-propertieshtml">&lt;a href="https://kotlinlang.org/docs/reference/delegated-properties.html">类委托和委托属性&lt;/a>&lt;/h3>
+&lt;p>委托是一种设计模式，它的基本理念是:操作对象自己不会去处理某段逻辑，而是会把工作委托给另外一个辅助对象去处理。&lt;/p>
+&lt;h3 id="类委托">类委托&lt;/h3>
+&lt;p>类委托的核心思想在于将一个类的具体实现委托给另外一个类是去完成。Kotlin中委托使用的关键字是&lt;code>by&lt;/code>,我们只需要在接口声明的后面使用&lt;code>by&lt;/code>关键字，再接上接受委托的辅助对象，就可以了。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">MySet&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">helperSet&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">HashSet&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">&amp;gt;)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Set&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">helperSet&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">helloWorld&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">isEmpty&lt;/span>&lt;span class="p">():&lt;/span> &lt;span class="n">Boolean&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">helperSet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">isEmpty&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面就创建了&lt;code>MySet&lt;/code>类就是通过委托对象&lt;code>helperSet&lt;/code>实现了接口&lt;code>Set&lt;/code>里的所有方法，
+我们只需要根据自己的需要，重写&lt;code>helperSet&lt;/code>里的方法就可以了，剩余的其它方法又&lt;code>helperSet&lt;/code>自身实现。&lt;/p>
+&lt;p>使用类委托的例子&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">interface&lt;/span> &lt;span class="nc">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">print&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">print&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">b&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">b&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">print&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 10
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>覆写类委托里的方法&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">interface&lt;/span> &lt;span class="nc">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">printMessage&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">printMessageLine&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">printMessage&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">printMessageLine&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">printMessage&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;abc&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">b&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">printMessage&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// abc
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">printMessageLine&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 10
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>属性是不会被覆写的&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">interface&lt;/span> &lt;span class="nc">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">message&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">print&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">x&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">val&lt;/span> &lt;span class="py">message&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;BaseImpl: x = &lt;/span>&lt;span class="si">$x&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">override&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">print&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">Base&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="c1">// This property is not accessed from b&amp;#39;s implementation of `print`
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="k">override&lt;/span> &lt;span class="k">val&lt;/span> &lt;span class="py">message&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Message of Derived&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">b&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">BaseImpl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">derived&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Derived&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 这里输出的仍然是代理类的message变量
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">derived&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">print&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// BaseImpl: x = 10
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="c1">// 自身的属性只能通过自己的对象来方法
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">derived&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// Message of Derived
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="委托属性">委托属性&lt;/h3>
+&lt;p>委托属性的核心思想是将一个属性(字段)的具体实现委托给另一个类去完成。委托属性的语法结构如下:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">MyClass&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">var&lt;/span> &lt;span class="py">p&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">Delegate&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里使用&lt;code>by&lt;/code>关键字连接了左边的&lt;code>p&lt;/code>属性和右边的&lt;code>Delegate&lt;/code>实例，代表着将&lt;code>p&lt;/code>属性的具体实现委托给了&lt;code>Delegate&lt;/code>类去完成。到调用p属性的时候会自动调用&lt;code>Delegate&lt;/code>类的&lt;code>getValue()&lt;/code>方法，当给&lt;code>p&lt;/code>属性赋值的时候会自动调用&lt;code>Delegate&lt;/code>类的&lt;code>setValue()&lt;/code>方法。&lt;/p>
+&lt;p>因此，我们还必须对&lt;code>Delegate&lt;/code>类进行实现才可以，具体代码如下:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">Delegate&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">private&lt;/span> &lt;span class="k">var&lt;/span> &lt;span class="py">propValue&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="k">null&lt;/span>
+&lt;span class="k">operator&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">getValue&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">myClass&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MyClass&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">property&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">KProperty&lt;/span>&lt;span class="p">&amp;lt;*&amp;gt;):&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">propValue&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">operator&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">setValue&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">myClass&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MyClass&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">property&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">KProperty&lt;/span>&lt;span class="p">&amp;lt;*&amp;gt;,&lt;/span> &lt;span class="n">value&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">propValue&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">value&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>在&lt;code>Delegate&lt;/code>类中，我们必须实现&lt;code>getValue()&lt;/code>和&lt;code>setValue()&lt;/code>这两个方法，并且都要使用&lt;code>operator&lt;/code>关键字进行声明。&lt;/strong>&lt;/p>
+&lt;p>&lt;code>getValue()&lt;/code>方法接收两个参数: 第一个是用于声明该&lt;code>Delegate&lt;/code>类的委托功能可以在什么类中使用，这里写成&lt;code>MyClass&lt;/code>表示仅可以在&lt;code>MyClass&lt;/code>类中使用; 第二个参数&lt;code>KProperty&amp;lt;*&amp;gt;&lt;/code>是Kotlin的一个属性操作类，可用于获取各种属性相关的值，在当前场景下用不上，但是必须在方法参数上声明。&lt;/p>
+&lt;p>&lt;code>setValue()&lt;/code>的方法也是类似，只不过它要接收3个参数。前两个参数和&lt;code>getValue()&lt;/code>方法中是一样的，最后一个参数表示具体要赋值给委托属性的值，&lt;strong>这个参数的类型必须和&lt;code>getValue()&lt;/code>方法返回值的类型保持一致。&lt;/strong>&lt;/p>
+&lt;p>不过还存在一种不需要在&lt;code>Delegate&lt;/code>类中实现&lt;code>setValue()&lt;/code>的方法，那就是&lt;code>MyClass&lt;/code>类中的&lt;code>p&lt;/code>属性使用的是关键字&lt;code>val&lt;/code>声明的。如果&lt;code>p&lt;/code>属性是使用&lt;code>val&lt;/code>声明的，那么就意味着&lt;code>p&lt;/code>属性是无法在初始之后重新被赋值的，因此也就没有逼下台实现&lt;code>setValue()&lt;/code>方法，只需要实现&lt;code>getValue()&lt;/code>方法即可。&lt;/p>
+&lt;h3 id="标准库中的委托属性">标准库中的委托属性&lt;/h3>
+&lt;h4 id="lazy">Lazy&lt;/h4>
+&lt;p>我们先看看&lt;code>lazy&lt;/code>函数的作用&lt;/p>
+&lt;blockquote>
+&lt;p>lazy() is a function that takes a lambda and returns an instance of Lazy&lt;!-- raw HTML omitted --> which can serve as a delegate for implementing a lazy property: the first call to get() executes the lambda passed to lazy() and remembers the result, subsequent calls to get() simply return the remembered result.&lt;/p>
+&lt;/blockquote>
+&lt;p>具体效果如下:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">lazyValue&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">lazy&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;computed!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="s2">&amp;#34;Hello&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lazyValue&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lazyValue&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// 输出结果为
+&lt;/span>&lt;span class="c1">// computed!
+&lt;/span>&lt;span class="c1">// Hello
+&lt;/span>&lt;span class="c1">// Hello
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>从输出结果我们可以看到，实际上&lt;code>lazy&lt;/code>函数的Lambda表达式只有在第一次获取值的时候运行了一次，第二次调用&lt;code>lazyValue&lt;/code>的时候用的是它的缓存值。&lt;/p>
+&lt;p>从代码可以看到: 懒加载背后的原理就是属性委托, 在&lt;code>lazy&lt;/code>函数中创建并返回了一个&lt;code>Delegate&lt;/code>对象,当我们调用属性&lt;code>lazyValue&lt;/code>的时候，其实就是调用&lt;code>Delegate&lt;/code>对象的&lt;code>getValue()&lt;/code>方法，然后&lt;code>getValue()&lt;/code>中又会调用&lt;code>lazy&lt;/code>函数传入的Lambda表达式，这样表达式中的代码就可以执行了，并且调用&lt;code>p&lt;/code>属性后得到的值就是Lambda表达式中最后一行代码的返回值。&lt;/p>
+&lt;p>让我们自己实现一个简单版本的&lt;code>lazy&lt;/code>函数，新建一个&lt;code>Later.kt&lt;/code>文件，创建一个&lt;code>Later&lt;/code>类，并实现&lt;code>getValue()&lt;/code>方法&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">Later&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">block&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">T&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">private&lt;/span> &lt;span class="k">var&lt;/span> &lt;span class="py">value&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="k">null&lt;/span>
+&lt;span class="k">operator&lt;/span> &lt;span class="k">fun&lt;/span> &lt;span class="nf">getValue&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">any&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?,&lt;/span> &lt;span class="n">prop&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">KProperty&lt;/span>&lt;span class="p">&amp;lt;*&amp;gt;):&lt;/span> &lt;span class="n">T&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">value&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">value&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">block&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">T&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>getValue()&lt;/code>方法第一个参数指定为&lt;code>Any?&lt;/code>,表示我们希望&lt;code>Later&lt;/code>的委托功能在所有类中都可以用。然后使用了一个变量&lt;code>value&lt;/code>变量对值进行缓存，如果&lt;code>value&lt;/code>为空就调用构造函数中传入的函数类型参数去获取值，否则就直接返回。&lt;/p>
+&lt;p>由于懒加载技术是不会对属性赋值的，因此这里我们就不用实现&lt;code>setValue&lt;/code>方法了。&lt;/p>
+&lt;p>然后让我们再定义一个顶层函数，让它的调用方式更接近&lt;code>lazy&lt;/code>函数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nc">T&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nf">later&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">block&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">T&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Later&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">block&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>现在我们就可以使用自己定义的&lt;code>later&lt;/code>函数来代替&lt;code>lazy&lt;/code>函数了。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">lazyValue&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">later&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;computed!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="s2">&amp;#34;Hello&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lazyValue&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lazyValue&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>,虽然我们自己实现了懒加载函数&lt;code>later&lt;/code>,但是它只是一个简单的版本，在一些诸如同步，空值处理等方面并没有实现得很严谨。因此在正式项目中，推荐使用Kotlin内置的&lt;code>lazy&lt;/code>函数才是最好的。&lt;/p>
+&lt;h4 id="观察属性">观察属性&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">import&lt;/span> &lt;span class="nn">kotlin.properties.Delegates&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">User&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">var&lt;/span> &lt;span class="py">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">Delegates&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">observable&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;no name&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">prop&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">old&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">new&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">$old&lt;/span>&lt;span class="s2"> -&amp;gt; &lt;/span>&lt;span class="si">$new&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">user&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">User&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">name&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;first&amp;#34;&lt;/span> &lt;span class="c1">//&amp;lt;no name&amp;gt; -&amp;gt; first
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">name&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;second&amp;#34;&lt;/span> &lt;span class="c1">//first -&amp;gt; second
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>观察属性会在每次给对象赋值时(赋值之后)，都执行一次观察里的方法。&lt;/p>
+&lt;p>同理，如果想在每次赋值之前被调用，可以使用&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html">&lt;code>vetoable&lt;/code>&lt;/a>来实现&lt;/p>
+&lt;p>属性委托同样可以用语委托给类自身的另给一个属性，使用&lt;code>::&lt;/code>来引用另一个属性。例如&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">MyClass&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">var&lt;/span> &lt;span class="py">newName&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;span class="nd">@Deprecated&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Use &amp;#39;newName&amp;#39; instead&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ReplaceWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;newName&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="k">var&lt;/span> &lt;span class="py">oldName&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">newName&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">myClass&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">MyClass&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="c1">// Notification: &amp;#39;oldName: Int&amp;#39; is deprecated.
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="c1">// Use &amp;#39;newName&amp;#39; instead
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">myClass&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">oldName&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">42&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">myClass&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">newName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 42
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>oldName&lt;/code>是被抛弃的方法，为了向前兼容，把它委托给&lt;code>newName&lt;/code>属性。&lt;/p>
+&lt;p>使用属性委托的特定，我们还可以实现存储属性的效果&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">User&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">map&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Map&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">?&amp;gt;)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">map&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">age&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="k">by&lt;/span> &lt;span class="n">map&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">user&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">User&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mapOf&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="s2">&amp;#34;name&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="s2">&amp;#34;John Doe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s2">&amp;#34;age&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">25&lt;/span>
+&lt;span class="p">))&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// Prints &amp;#34;John Doe&amp;#34;
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">age&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// Prints 25
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>创建User对象的时候通过map来构建User,然后就可以通过属性直接访问了.&lt;/p>
+&lt;h3 id="类型别名">类型别名&lt;/h3>
+&lt;p>可以给已经存在的类型设置一个别名，方便在编写代码时调用，多用于泛型或集合类型。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">typealias&lt;/span> &lt;span class="n">NodeSet&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Set&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Network&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Node&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="k">typealias&lt;/span> &lt;span class="n">FileTable&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">K&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">MutableMap&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">K&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MutableList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">File&lt;/span>&lt;span class="p">&amp;gt;&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也可以给函数&lt;strong>类型&lt;/strong>设置别名&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">typealias&lt;/span> &lt;span class="n">MyHandler&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Unit&lt;/span>
+&lt;span class="k">typealias&lt;/span> &lt;span class="n">Predicate&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Boolean&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>内部类和嵌套类也可以设置别名&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">A&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">inner&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">Inner&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">B&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">inner&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">Inner&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">typealias&lt;/span> &lt;span class="n">AInner&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">A&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Inner&lt;/span>
+&lt;span class="k">typealias&lt;/span> &lt;span class="n">BInner&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">B&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Inner&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="空指针检查">空指针检查&lt;/h3>
+&lt;p>Kotlin利用编译时判空检查的机制&lt;strong>几乎&lt;/strong>(并不是百分百)杜绝了空指针异常，也就是说，Kotlin将空指针检查提前到了编译时期。&lt;/p>
+&lt;h4 id="可空类型声明">可空类型声明&lt;/h4>
+&lt;p>Kotlin中默认所有的参数和变量都不能为空，要定义可空类型，就要在类名后面加上&lt;code>?&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">a&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="err">？&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="操作符">&lt;code>?.&lt;/code>操作符&lt;/h4>
+&lt;p>&lt;code>?.&lt;/code>操作符表示当对象不为空时正常调用相应的方法，否则什么也不做。&lt;/p>
+&lt;p>如:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="p">!&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">a&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">doSomething&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以简化为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="n">a&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">doSomething&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="操作符-1">&lt;code>?:&lt;/code>操作符&lt;/h4>
+&lt;p>&lt;code>?:&lt;/code>操作符的左右两边都接受一个表达式，如果左边表示表达式的结果不为空就返回左边表达式的结果，否则就返回右边表达式的结果。&lt;/p>
+&lt;p>如:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">c&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">a&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">b&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以简化为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">c&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">?:&lt;/span> &lt;span class="n">b&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="和结合使用">&lt;code>?.&lt;/code>和&lt;code>?:&lt;/code>结合使用&lt;/h4>
+&lt;p>上面两个操作符可以结合使用，如:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">getTextLength&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?):&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>简化为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">getTextLength&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="o">?:&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="非空断言工具">&lt;code>!!&lt;/code>非空断言工具&lt;/h4>
+&lt;p>如下面的代码，虽然我们在&lt;code>main&lt;/code>函数中对&lt;code>content&lt;/code>做了非空判断的检查,但是下面的代码仍然无法编译过。因为&lt;code>printUpperCase&lt;/code>函数并不知道外部已经对&lt;code>content&lt;/code>进行了非空检查。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">?&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Hello&amp;#34;&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">content&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">printUpperCase&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">printUpperCase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">upperCase&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toUpperCase&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">upperCase&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>要让上面的代码编译过，可以使用非可断言工具&lt;code>!!&lt;/code>,写法是在对象后面加上&lt;code>!!&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">printUpperCase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">upperCase&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">content&lt;/span>&lt;span class="o">!!&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toUpperCase&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">upperCase&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="相等比较">相等比较&lt;/h3>
+&lt;p>kotlin中比较两个变量是否相等有两种比较方式：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>==&lt;/code>比较两个变量的值是否相等，即两个遍历的&lt;code>equals()&lt;/code>返回值是否相等,等价于&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="n">a&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">equals&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">?:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>===&lt;/code>比较两个变量是否引用同一个对象&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="方法引用">方法引用&lt;code>::&lt;/code>&lt;/h3>
+&lt;h3 id="kotlin中使用来引用方法">Kotlin中使用&lt;code>::&lt;/code>来引用方法&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">class&lt;/span> &lt;span class="nc">Book&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="c1">// 让getBook引用Book的构造函数
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="k">val&lt;/span> &lt;span class="py">getBook&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="o">::&lt;/span>&lt;span class="n">Book&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">getBook&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Dive into Kotlin&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">bookNames&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="n">Book&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Dive into Java&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">Book&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Dive into Kotlin&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">).&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="c1">// 引用获取name的方法
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">Book&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">name&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bookNames&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="heading-1">&lt;/h3></description></item><item><title>Kotlin基本语法04</title><link>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</link><pubDate>Tue, 15 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</guid><description>&lt;h3 id="密封类sealed-class">密封类&lt;code>sealed class&lt;/code>&lt;/h3>
 &lt;p>密封类的具体作用如下:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -59,7 +701,7 @@
 &lt;/div>&lt;p>使用密封类之后，当在&lt;code>when&lt;/code>语句中传入一个密封类变量作为条件时，Kotlin编译器会自动检查该密封类包含哪些子类，并强制要求你将每一个子类所对应的条件全部处理。这样就可以保证没有添加&lt;code>else&lt;/code>分支的情况下，也不可能会漏写条件分支的情况。&lt;/p>
 &lt;p>&lt;strong>注意&lt;/strong>:&lt;/p>
 &lt;p>密封类以及所有子类只能定义在同一个文件的顶层位置，不能嵌套在其他类中，这是被密封类底层的实现机制所限制的。&lt;/p>
-&lt;h2 id="泛型">泛型&lt;/h2>
+&lt;h3 id="泛型">泛型&lt;/h3>
 &lt;p>关于泛型部分的&lt;code>in&lt;/code>, &lt;code>out&lt;/code>, &lt;code>where&lt;/code>关键字的使用，建议先阅读&lt;/p>
 &lt;p>&lt;a href="https://rengwuxian.com/kotlin-generics/">https://rengwuxian.com/kotlin-generics/&lt;/a>&lt;/p>
 &lt;p>Kotlin中的泛型与Java中的泛型有同有异，我们先来看相同的部分。&lt;/p>
@@ -884,7 +1526,7 @@
 &lt;span class="k">val&lt;/span> &lt;span class="py">f&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Factory&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">MyClass&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">MyClass&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="静态方法">静态方法&lt;/h2>
+&lt;/div>&lt;h3 id="静态方法">静态方法&lt;/h3>
 &lt;p>在Kotlin中极度弱化了静态方法这个概念。像工具类这种功能，在Kotlin中非常推荐使用单例的方式来实现。比如&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -3091,7 +3733,7 @@ phone1 equals phone2: true
 &lt;td class="lntd">
 &lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">def&lt;/span> &lt;span class="nf">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">[]):&lt;/span> &lt;span class="c1"># Bug：每次调用都会使用相同的列表！&lt;/span>
 &lt;span class="n">numbers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="n">tricky&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>
@@ -8978,11 +9620,11 @@ $ curl http://127.0.0.1/5000
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">xml.etree.ElementTree&lt;/span> &lt;span class="kn">as&lt;/span> &lt;span class="nn">ET&lt;/span>
+&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">xml.etree.ElementTree&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">ET&lt;/span>
 &lt;span class="kn">import&lt;/span> &lt;span class="nn">requests&lt;/span>
 &lt;span class="n">root&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ET&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fromstring&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">requests&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="k">for&lt;/span> &lt;span class="n">enclosure&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">root&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">findall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;.//enclosure&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="k">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">enclosure&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;url&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">enclosure&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;url&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="解析结果">解析结果&lt;/h2>
@@ -11780,292 +12422,4 @@ yellow open bank EnHJEWvLRv2tZLoI7Z_lXw &lt;span class="m">5&lt;/span> &lt;span 
 &lt;li>短信查询：编辑短信内容“YTCX+约投挂号信函邮件号码（含字母‘NE’）”发送到11185，11185会以短信的形式告知客户当前的邮寄状态。&lt;/li>
 &lt;/ol>
 &lt;p>收到借记卡后，根据在网点拿到的密码函里的初始密码，在境内工行ATM机办理一笔查询/取款交易即可启用卡片。&lt;/p>
-&lt;p>最后，祝大家顺利办到工银亚洲卡。&lt;/p></description></item><item><title>docker常用命令</title><link>https://crazygit.wiseturtles.com/2018/02/12/docker-commands/</link><pubDate>Mon, 12 Feb 2018 22:21:02 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/02/12/docker-commands/</guid><description>&lt;h3 id="install-docker-on-mac">Install docker on mac&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ brew cask install docker
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="get-docker-info">Get docker info&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ docker --version
-Docker version 17.12.0-ce, build c97c6d6
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ docker-compose --version
-docker-compose version 1.18.0, build 8dd22a9
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ docker-machine --version
-docker-machine version 0.13.0, build 9ba6da9
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ docker version
-Client:
-Version: 17.12.0-ce
-API version: 1.35
-Go version: go1.9.2
-Git commit: c97c6d6
-Built: Wed Dec &lt;span class="m">27&lt;/span> 20:03:51 &lt;span class="m">2017&lt;/span>
-OS/Arch: darwin/amd64
-Server:
-Engine:
-Version: 17.12.0-ce
-API version: 1.35 &lt;span class="o">(&lt;/span>minimum version 1.12&lt;span class="o">)&lt;/span>
-Go version: go1.9.2
-Git commit: c97c6d6
-Built: Wed Dec &lt;span class="m">27&lt;/span> 20:12:29 &lt;span class="m">2017&lt;/span>
-OS/Arch: linux/amd64
-Experimental: &lt;span class="nb">true&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="basic-commands">Basic commands&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># List Docker CLI commands&lt;/span>
-docker
-docker container --help
-&lt;span class="c1"># Display Docker version and info&lt;/span>
-docker --version
-docker version
-docker info
-&lt;span class="c1"># Excecute Docker image&lt;/span>
-docker run hello-world
-&lt;span class="c1"># List Docker images&lt;/span>
-docker image ls
-&lt;span class="c1"># List Docker containers (running, all, all in quiet mode)&lt;/span>
-docker container ls
-docker container ls -all
-docker container ls -a -q
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="docker-image-and-container-command">Docker image and container command&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t friendlyhello . &lt;span class="c1"># Create image using this directory&amp;#39;s Dockerfile&lt;/span>
-docker run -p 4000:80 friendlyhello &lt;span class="c1"># Run &amp;#34;friendlyname&amp;#34; mapping port 4000 to 80&lt;/span>
-docker run -d -p 4000:80 friendlyhello &lt;span class="c1"># Same thing, but in detached mode&lt;/span>
-docker container ls &lt;span class="c1"># List all running containers&lt;/span>
-docker container ls -a &lt;span class="c1"># List all containers, even those not running&lt;/span>
-docker container stop &amp;lt;hash&amp;gt; &lt;span class="c1"># Gracefully stop the specified container&lt;/span>
-docker container &lt;span class="nb">kill&lt;/span> &amp;lt;hash&amp;gt; &lt;span class="c1"># Force shutdown of the specified container&lt;/span>
-docker container rm &amp;lt;hash&amp;gt; &lt;span class="c1"># Remove specified container from this machine&lt;/span>
-docker container rm &lt;span class="k">$(&lt;/span>docker container ls -a -q&lt;span class="k">)&lt;/span> &lt;span class="c1"># Remove all containers&lt;/span>
-docker image ls -a &lt;span class="c1"># List all images on this machine&lt;/span>
-docker image rm &amp;lt;image id&amp;gt; &lt;span class="c1"># Remove specified image from this machine&lt;/span>
-docker image rm &lt;span class="k">$(&lt;/span>docker image ls -a -q&lt;span class="k">)&lt;/span> &lt;span class="c1"># Remove all images from this machine&lt;/span>
-docker login &lt;span class="c1"># Log in this CLI session using your Docker credentials&lt;/span>
-docker tag &amp;lt;image&amp;gt; username/repository:tag &lt;span class="c1"># Tag &amp;lt;image&amp;gt; for upload to registry&lt;/span>
-docker push username/repository:tag &lt;span class="c1"># Upload tagged image to registry&lt;/span>
-docker run username/repository:tag &lt;span class="c1"># Run image from a registry&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="docker-stack-commands">Docker stack commands&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker stack ls &lt;span class="c1"># List stacks or apps&lt;/span>
-docker stack deploy -c &amp;lt;composefile&amp;gt; &amp;lt;appname&amp;gt; &lt;span class="c1"># Run the specified Compose file&lt;/span>
-docker service ls &lt;span class="c1"># List running services associated with an app&lt;/span>
-docker service ps &amp;lt;service&amp;gt; &lt;span class="c1"># List tasks associated with an app&lt;/span>
-docker inspect &amp;lt;task or container&amp;gt; &lt;span class="c1"># Inspect task or container&lt;/span>
-docker container ls -q &lt;span class="c1"># List container IDs&lt;/span>
-docker stack rm &amp;lt;appname&amp;gt; &lt;span class="c1"># Tear down an application&lt;/span>
-docker swarm leave --force &lt;span class="c1"># Take down a single node swarm from the manager&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="docker-machine-commands">Docker-machine commands&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-machine create --driver virtualbox myvm1 &lt;span class="c1"># Create a VM (Mac, Win7, Linux)&lt;/span>
-docker-machine create -d hyperv --hyperv-virtual-switch &lt;span class="s2">&amp;#34;myswitch&amp;#34;&lt;/span> myvm1 &lt;span class="c1"># Win10&lt;/span>
-docker-machine env myvm1 &lt;span class="c1"># View basic information about your node&lt;/span>
-docker-machine ssh myvm1 &lt;span class="s2">&amp;#34;docker node ls&amp;#34;&lt;/span> &lt;span class="c1"># List the nodes in your swarm&lt;/span>
-docker-machine ssh myvm1 &lt;span class="s2">&amp;#34;docker node inspect &amp;lt;node ID&amp;gt;&amp;#34;&lt;/span> &lt;span class="c1"># Inspect a node&lt;/span>
-docker-machine ssh myvm1 &lt;span class="s2">&amp;#34;docker swarm join-token -q worker&amp;#34;&lt;/span> &lt;span class="c1"># View join token&lt;/span>
-docker-machine ssh myvm1 &lt;span class="c1"># Open an SSH session with the VM; type &amp;#34;exit&amp;#34; to end&lt;/span>
-docker node ls &lt;span class="c1"># View nodes in swarm (while logged on to manager)&lt;/span>
-docker-machine ssh myvm2 &lt;span class="s2">&amp;#34;docker swarm leave&amp;#34;&lt;/span> &lt;span class="c1"># Make the worker leave the swarm&lt;/span>
-docker-machine ssh myvm1 &lt;span class="s2">&amp;#34;docker swarm leave -f&amp;#34;&lt;/span> &lt;span class="c1"># Make master leave, kill swarm&lt;/span>
-docker-machine ls &lt;span class="c1"># list VMs, asterisk shows which VM this shell is talking to&lt;/span>
-docker-machine start myvm1 &lt;span class="c1"># Start a VM that is currently not running&lt;/span>
-docker-machine env myvm1 &lt;span class="c1"># show environment variables and command for myvm1&lt;/span>
-&lt;span class="nb">eval&lt;/span> &lt;span class="k">$(&lt;/span>docker-machine env myvm1&lt;span class="k">)&lt;/span> &lt;span class="c1"># Mac command to connect shell to myvm1&lt;/span>
-&lt;span class="p">&amp;amp;&lt;/span> &lt;span class="s2">&amp;#34;C:\Program Files\Docker\Docker\Resources\bin\docker-machine.exe&amp;#34;&lt;/span> env myvm1 &lt;span class="p">|&lt;/span> Invoke-Expression &lt;span class="c1"># Windows command to connect shell to myvm1&lt;/span>
-docker stack deploy -c &amp;lt;file&amp;gt; &amp;lt;app&amp;gt; &lt;span class="c1"># Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file&lt;/span>
-docker-machine scp docker-compose.yml myvm1:~ &lt;span class="c1"># Copy file to node&amp;#39;s home dir (only required if you use ssh to connect to manager and deploy the app)&lt;/span>
-docker-machine ssh myvm1 &lt;span class="s2">&amp;#34;docker stack deploy -c &amp;lt;file&amp;gt; &amp;lt;app&amp;gt;&amp;#34;&lt;/span> &lt;span class="c1"># Deploy an app using ssh (you must have first copied the Compose file to myvm1)&lt;/span>
-&lt;span class="nb">eval&lt;/span> &lt;span class="k">$(&lt;/span>docker-machine env -u&lt;span class="k">)&lt;/span> &lt;span class="c1"># Disconnect shell from VMs, use native docker&lt;/span>
-docker-machine stop &lt;span class="k">$(&lt;/span>docker-machine ls -q&lt;span class="k">)&lt;/span> &lt;span class="c1"># Stop all running VMs&lt;/span>
-docker-machine rm &lt;span class="k">$(&lt;/span>docker-machine ls -q&lt;span class="k">)&lt;/span> &lt;span class="c1"># Delete all VMs and their disk images&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="清理命令">清理命令&lt;/h3>
-&lt;h4 id="to-clear-containers">To clear containers:&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker rm -f &lt;span class="k">$(&lt;/span>docker ps -a -q&lt;span class="k">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="to-clear-images">To clear images:&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker rmi -f &lt;span class="k">$(&lt;/span>docker images -a -q&lt;span class="k">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="to-clear-dangling-images">To clear dangling images:&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker rmi -f &lt;span class="k">$(&lt;/span>docker images -f &lt;span class="s2">&amp;#34;dangling=true&amp;#34;&lt;/span> -q&lt;span class="k">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="to-clear-volumes">To clear volumes:&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker volume rm &lt;span class="k">$(&lt;/span>docker volume ls -q&lt;span class="k">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="to-clear-networks">To clear networks:&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker network rm &lt;span class="k">$(&lt;/span>docker network ls &lt;span class="p">|&lt;/span> tail -n+2 &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;{if($2 !~ /bridge|none|host/){ print $1 }}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="查看启动失败的服务信息">查看启动失败的服务信息&lt;/h3>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker service ps --no-trunc &lt;span class="o">{&lt;/span>serviceName&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;p>最后，祝大家顺利办到工银亚洲卡。&lt;/p></description></item></channel></rss>

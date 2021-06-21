@@ -1,0 +1,457 @@
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法05 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin中的面向对象编程03
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.0"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法05"><meta property="og:description" content="Kotlin中的面向对象编程03
+"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-06-21T10:11:29+08:00"><meta property="article:modified_time" content="2021-06-21T10:11:29+08:00"><meta itemprop=name content="Kotlin基本语法05"><meta itemprop=description content="Kotlin中的面向对象编程03
+"><meta itemprop=datePublished content="2021-06-21T10:11:29+08:00"><meta itemprop=dateModified content="2021-06-21T10:11:29+08:00"><meta itemprop=wordCount content="3395"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法05"><meta name=twitter:description content="Kotlin中的面向对象编程03
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法05</h1><div class=post-meta><time datetime=2021-06-21 class=post-time>2021-06-21</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 3395 字</span>
+<span class=more-meta>预计阅读 7 分钟</span>
+<span id=/2021/06/21/008-kotlin-basic-synatx-05/ class=leancloud_visitors data-flag-title=Kotlin基本语法05><span class=post-meta-item-text>| 阅读</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#heading></a></li><li><a href=#类委托和委托属性httpskotlinlangorgdocsreferencedelegated-propertieshtml><a href=https://kotlinlang.org/docs/reference/delegated-properties.html>类委托和委托属性</a></a></li><li><a href=#类委托>类委托</a></li><li><a href=#委托属性>委托属性</a></li><li><a href=#标准库中的委托属性>标准库中的委托属性</a></li><li><a href=#类型别名>类型别名</a></li><li><a href=#空指针检查>空指针检查</a></li><li><a href=#相等比较>相等比较</a></li><li><a href=#方法引用>方法引用<code>::</code></a></li><li><a href=#kotlin中使用来引用方法>Kotlin中使用<code>::</code>来引用方法</a></li><li><a href=#heading-1></a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=heading></h3><h3 id=类委托和委托属性httpskotlinlangorgdocsreferencedelegated-propertieshtml><a href=https://kotlinlang.org/docs/reference/delegated-properties.html>类委托和委托属性</a></h3><p>委托是一种设计模式，它的基本理念是:操作对象自己不会去处理某段逻辑，而是会把工作委托给另外一个辅助对象去处理。</p><h3 id=类委托>类委托</h3><p>类委托的核心思想在于将一个类的具体实现委托给另外一个类是去完成。Kotlin中委托使用的关键字是<code>by</code>,我们只需要在接口声明的后面使用<code>by</code>关键字，再接上接受委托的辅助对象，就可以了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>MySet</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;(</span><span class=k>val</span> <span class=py>helperSet</span><span class=p>:</span> <span class=n>HashSet</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;)</span> <span class=p>:</span> <span class=n>Set</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;</span> <span class=k>by</span> <span class=n>helperSet</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>helloWorld</span><span class=p>()</span> <span class=p>=</span> <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello World&#34;</span><span class=p>)</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>isEmpty</span><span class=p>():</span> <span class=n>Boolean</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>helperSet</span><span class=p>.</span><span class=n>isEmpty</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>上面就创建了<code>MySet</code>类就是通过委托对象<code>helperSet</code>实现了接口<code>Set</code>里的所有方法，
+我们只需要根据自己的需要，重写<code>helperSet</code>里的方法就可以了，剩余的其它方法又<code>helperSet</code>自身实现。</p><p>使用类委托的例子</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Base</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>print</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>BaseImpl</span><span class=p>(</span><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>print</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>:</span> <span class=n>Base</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=k>by</span> <span class=n>b</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>b</span> <span class=p>=</span> <span class=n>BaseImpl</span><span class=p>(</span><span class=m>10</span><span class=p>)</span>
+    <span class=n>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>).</span><span class=n>print</span><span class=p>()</span> <span class=c1>// 10
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>覆写类委托里的方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Base</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>printMessage</span><span class=p>()</span>
+    <span class=k>fun</span> <span class=nf>printMessageLine</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>BaseImpl</span><span class=p>(</span><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>printMessage</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=p>}</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>printMessageLine</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>:</span> <span class=n>Base</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=k>by</span> <span class=n>b</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>printMessage</span><span class=p>()</span> <span class=p>{</span> <span class=n>print</span><span class=p>(</span><span class=s2>&#34;abc&#34;</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>b</span> <span class=p>=</span> <span class=n>BaseImpl</span><span class=p>(</span><span class=m>10</span><span class=p>)</span>
+    <span class=n>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>).</span><span class=n>printMessage</span><span class=p>()</span> <span class=c1>// abc
+</span><span class=c1></span>    <span class=n>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>).</span><span class=n>printMessageLine</span><span class=p>()</span> <span class=c1>// 10
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>属性是不会被覆写的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Base</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>message</span><span class=p>:</span> <span class=n>String</span>
+    <span class=k>fun</span> <span class=nf>print</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>BaseImpl</span><span class=p>(</span><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=p>{</span>
+    <span class=k>override</span> <span class=k>val</span> <span class=py>message</span> <span class=p>=</span> <span class=s2>&#34;BaseImpl: x = </span><span class=si>$x</span><span class=s2>&#34;</span>
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>print</span><span class=p>()</span> <span class=p>{</span> <span class=n>println</span><span class=p>(</span><span class=n>message</span><span class=p>)</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>:</span> <span class=n>Base</span><span class=p>)</span> <span class=p>:</span> <span class=n>Base</span> <span class=k>by</span> <span class=n>b</span> <span class=p>{</span>
+    <span class=c1>// This property is not accessed from b&#39;s implementation of `print`
+</span><span class=c1></span>    <span class=k>override</span> <span class=k>val</span> <span class=py>message</span> <span class=p>=</span> <span class=s2>&#34;Message of Derived&#34;</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>b</span> <span class=p>=</span> <span class=n>BaseImpl</span><span class=p>(</span><span class=m>10</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>derived</span> <span class=p>=</span> <span class=n>Derived</span><span class=p>(</span><span class=n>b</span><span class=p>)</span>
+    <span class=c1>// 这里输出的仍然是代理类的message变量
+</span><span class=c1></span>    <span class=n>derived</span><span class=p>.</span><span class=n>print</span><span class=p>()</span> <span class=c1>//  BaseImpl: x = 10
+</span><span class=c1></span>	  <span class=c1>// 自身的属性只能通过自己的对象来方法
+</span><span class=c1></span>    <span class=n>println</span><span class=p>(</span><span class=n>derived</span><span class=p>.</span><span class=n>message</span><span class=p>)</span> <span class=c1>// Message of Derived
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=委托属性>委托属性</h3><p>委托属性的核心思想是将一个属性(字段)的具体实现委托给另一个类去完成。委托属性的语法结构如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
+	<span class=k>var</span> <span class=py>p</span> <span class=k>by</span> <span class=n>Delegate</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>这里使用<code>by</code>关键字连接了左边的<code>p</code>属性和右边的<code>Delegate</code>实例，代表着将<code>p</code>属性的具体实现委托给了<code>Delegate</code>类去完成。到调用p属性的时候会自动调用<code>Delegate</code>类的<code>getValue()</code>方法，当给<code>p</code>属性赋值的时候会自动调用<code>Delegate</code>类的<code>setValue()</code>方法。</p><p>因此，我们还必须对<code>Delegate</code>类进行实现才可以，具体代码如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Delegate</span> <span class=p>{</span>
+    <span class=k>private</span> <span class=k>var</span> <span class=py>propValue</span><span class=p>:</span> <span class=n>Any</span><span class=p>?</span> <span class=p>=</span> <span class=k>null</span>
+    <span class=k>operator</span> <span class=k>fun</span> <span class=nf>getValue</span><span class=p>(</span><span class=n>myClass</span><span class=p>:</span> <span class=n>MyClass</span><span class=p>,</span> <span class=k>property</span><span class=p>:</span> <span class=n>KProperty</span><span class=p>&lt;*&gt;):</span> <span class=n>Any</span><span class=p>?</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>propValue</span>
+    <span class=p>}</span>
+
+    <span class=k>operator</span> <span class=k>fun</span> <span class=nf>setValue</span><span class=p>(</span><span class=n>myClass</span><span class=p>:</span> <span class=n>MyClass</span><span class=p>,</span> <span class=k>property</span><span class=p>:</span> <span class=n>KProperty</span><span class=p>&lt;*&gt;,</span> <span class=n>value</span><span class=p>:</span> <span class=n>Any</span><span class=p>?)</span> <span class=p>{</span>
+        <span class=n>propValue</span> <span class=p>=</span> <span class=n>value</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><strong>在<code>Delegate</code>类中，我们必须实现<code>getValue()</code>和<code>setValue()</code>这两个方法，并且都要使用<code>operator</code>关键字进行声明。</strong></p><p><code>getValue()</code>方法接收两个参数: 第一个是用于声明该<code>Delegate</code>类的委托功能可以在什么类中使用，这里写成<code>MyClass</code>表示仅可以在<code>MyClass</code>类中使用; 第二个参数<code>KProperty&lt;*></code>是Kotlin的一个属性操作类，可用于获取各种属性相关的值，在当前场景下用不上，但是必须在方法参数上声明。</p><p><code>setValue()</code>的方法也是类似，只不过它要接收3个参数。前两个参数和<code>getValue()</code>方法中是一样的，最后一个参数表示具体要赋值给委托属性的值，<strong>这个参数的类型必须和<code>getValue()</code>方法返回值的类型保持一致。</strong></p><p>不过还存在一种不需要在<code>Delegate</code>类中实现<code>setValue()</code>的方法，那就是<code>MyClass</code>类中的<code>p</code>属性使用的是关键字<code>val</code>声明的。如果<code>p</code>属性是使用<code>val</code>声明的，那么就意味着<code>p</code>属性是无法在初始之后重新被赋值的，因此也就没有逼下台实现<code>setValue()</code>方法，只需要实现<code>getValue()</code>方法即可。</p><h3 id=标准库中的委托属性>标准库中的委托属性</h3><h4 id=lazy>Lazy</h4><p>我们先看看<code>lazy</code>函数的作用</p><blockquote><p>lazy() is a function that takes a lambda and returns an instance of Lazy which can serve as a delegate for implementing a lazy property: the first call to get() executes the lambda passed to lazy() and remembers the result, subsequent calls to get() simply return the remembered result.</p></blockquote><p>具体效果如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>lazyValue</span><span class=p>:</span> <span class=n>String</span> <span class=k>by</span> <span class=n>lazy</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;computed!&#34;</span><span class=p>)</span>
+    <span class=s2>&#34;Hello&#34;</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>lazyValue</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>lazyValue</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// 输出结果为
+</span><span class=c1>// computed!
+</span><span class=c1>// Hello
+</span><span class=c1>// Hello
+</span></code></pre></td></tr></table></div></div><p>从输出结果我们可以看到，实际上<code>lazy</code>函数的Lambda表达式只有在第一次获取值的时候运行了一次，第二次调用<code>lazyValue</code>的时候用的是它的缓存值。</p><p>从代码可以看到: 懒加载背后的原理就是属性委托, 在<code>lazy</code>函数中创建并返回了一个<code>Delegate</code>对象,当我们调用属性<code>lazyValue</code>的时候，其实就是调用<code>Delegate</code>对象的<code>getValue()</code>方法，然后<code>getValue()</code>中又会调用<code>lazy</code>函数传入的Lambda表达式，这样表达式中的代码就可以执行了，并且调用<code>p</code>属性后得到的值就是Lambda表达式中最后一行代码的返回值。</p><p>让我们自己实现一个简单版本的<code>lazy</code>函数，新建一个<code>Later.kt</code>文件，创建一个<code>Later</code>类，并实现<code>getValue()</code>方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Later</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;(</span><span class=k>val</span> <span class=py>block</span><span class=p>:</span> <span class=p>()</span> <span class=o>-&gt;</span> <span class=n>T</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>private</span> <span class=k>var</span> <span class=py>value</span><span class=p>:</span> <span class=n>Any</span><span class=p>?</span> <span class=p>=</span> <span class=k>null</span>
+    <span class=k>operator</span> <span class=k>fun</span> <span class=nf>getValue</span><span class=p>(</span><span class=n>any</span><span class=p>:</span> <span class=n>Any</span><span class=p>?,</span> <span class=n>prop</span><span class=p>:</span> <span class=n>KProperty</span><span class=p>&lt;*&gt;):</span> <span class=n>T</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>value</span> <span class=o>==</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>value</span> <span class=p>=</span> <span class=n>block</span><span class=p>()</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>value</span> <span class=k>as</span> <span class=n>T</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><code>getValue()</code>方法第一个参数指定为<code>Any?</code>,表示我们希望<code>Later</code>的委托功能在所有类中都可以用。然后使用了一个变量<code>value</code>变量对值进行缓存，如果<code>value</code>为空就调用构造函数中传入的函数类型参数去获取值，否则就直接返回。</p><p>由于懒加载技术是不会对属性赋值的，因此这里我们就不用实现<code>setValue</code>方法了。</p><p>然后让我们再定义一个顶层函数，让它的调用方式更接近<code>lazy</code>函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=p>&lt;</span><span class=nc>T</span><span class=p>&gt;</span> <span class=nf>later</span><span class=p>(</span><span class=n>block</span><span class=p>:</span> <span class=p>()</span> <span class=o>-&gt;</span> <span class=n>T</span><span class=p>)</span> <span class=p>=</span> <span class=n>Later</span><span class=p>(</span><span class=n>block</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>现在我们就可以使用自己定义的<code>later</code>函数来代替<code>lazy</code>函数了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>lazyValue</span><span class=p>:</span> <span class=n>String</span> <span class=k>by</span> <span class=n>later</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;computed!&#34;</span><span class=p>)</span>
+    <span class=s2>&#34;Hello&#34;</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>lazyValue</span><span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>lazyValue</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><strong>注意</strong>,虽然我们自己实现了懒加载函数<code>later</code>,但是它只是一个简单的版本，在一些诸如同步，空值处理等方面并没有实现得很严谨。因此在正式项目中，推荐使用Kotlin内置的<code>lazy</code>函数才是最好的。</p><h4 id=观察属性>观察属性</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>import</span> <span class=nn>kotlin.properties.Delegates</span>
+
+<span class=k>class</span> <span class=nc>User</span> <span class=p>{</span>
+    <span class=k>var</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span> <span class=k>by</span> <span class=n>Delegates</span><span class=p>.</span><span class=n>observable</span><span class=p>(</span><span class=s2>&#34;&lt;no name&gt;&#34;</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>prop</span><span class=p>,</span> <span class=n>old</span><span class=p>,</span> <span class=n>new</span> <span class=o>-&gt;</span>
+        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>$old</span><span class=s2> -&gt; </span><span class=si>$new</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>user</span> <span class=p>=</span> <span class=n>User</span><span class=p>()</span>
+    <span class=n>user</span><span class=p>.</span><span class=n>name</span> <span class=p>=</span> <span class=s2>&#34;first&#34;</span> <span class=c1>//&lt;no name&gt; -&gt; first
+</span><span class=c1></span>    <span class=n>user</span><span class=p>.</span><span class=n>name</span> <span class=p>=</span> <span class=s2>&#34;second&#34;</span> <span class=c1>//first -&gt; second
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>观察属性会在每次给对象赋值时(赋值之后)，都执行一次观察里的方法。</p><p>同理，如果想在每次赋值之前被调用，可以使用<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html><code>vetoable</code></a>来实现</p><p>属性委托同样可以用语委托给类自身的另给一个属性，使用<code>::</code>来引用另一个属性。例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
+   <span class=k>var</span> <span class=py>newName</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>0</span>
+   <span class=nd>@Deprecated</span><span class=p>(</span><span class=s2>&#34;Use &#39;newName&#39; instead&#34;</span><span class=p>,</span> <span class=n>ReplaceWith</span><span class=p>(</span><span class=s2>&#34;newName&#34;</span><span class=p>))</span>
+   <span class=k>var</span> <span class=py>oldName</span><span class=p>:</span> <span class=n>Int</span> <span class=k>by</span> <span class=k>this</span><span class=o>::</span><span class=n>newName</span>
+<span class=p>}</span>
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+   <span class=k>val</span> <span class=py>myClass</span> <span class=p>=</span> <span class=n>MyClass</span><span class=p>()</span>
+   <span class=c1>// Notification: &#39;oldName: Int&#39; is deprecated.
+</span><span class=c1></span>   <span class=c1>// Use &#39;newName&#39; instead
+</span><span class=c1></span>   <span class=n>myClass</span><span class=p>.</span><span class=n>oldName</span> <span class=p>=</span> <span class=m>42</span>
+   <span class=n>println</span><span class=p>(</span><span class=n>myClass</span><span class=p>.</span><span class=n>newName</span><span class=p>)</span> <span class=c1>// 42
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><code>oldName</code>是被抛弃的方法，为了向前兼容，把它委托给<code>newName</code>属性。</p><p>使用属性委托的特定，我们还可以实现存储属性的效果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>User</span><span class=p>(</span><span class=k>val</span> <span class=py>map</span><span class=p>:</span> <span class=n>Map</span><span class=p>&lt;</span><span class=n>String</span><span class=p>,</span> <span class=n>Any</span><span class=p>?&gt;)</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span> <span class=k>by</span> <span class=n>map</span>
+    <span class=k>val</span> <span class=py>age</span><span class=p>:</span> <span class=n>Int</span>     <span class=k>by</span> <span class=n>map</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>user</span> <span class=p>=</span> <span class=n>User</span><span class=p>(</span><span class=n>mapOf</span><span class=p>(</span>
+        <span class=s2>&#34;name&#34;</span> <span class=n>to</span> <span class=s2>&#34;John Doe&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;age&#34;</span>  <span class=n>to</span> <span class=m>25</span>
+    <span class=p>))</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>user</span><span class=p>.</span><span class=n>name</span><span class=p>)</span> <span class=c1>// Prints &#34;John Doe&#34;
+</span><span class=c1></span>    <span class=n>println</span><span class=p>(</span><span class=n>user</span><span class=p>.</span><span class=n>age</span><span class=p>)</span>  <span class=c1>// Prints 25
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>创建User对象的时候通过map来构建User,然后就可以通过属性直接访问了.</p><h3 id=类型别名>类型别名</h3><p>可以给已经存在的类型设置一个别名，方便在编写代码时调用，多用于泛型或集合类型。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>typealias</span> <span class=n>NodeSet</span> <span class=p>=</span> <span class=n>Set</span><span class=p>&lt;</span><span class=n>Network</span><span class=p>.</span><span class=n>Node</span><span class=p>&gt;</span>
+
+<span class=k>typealias</span> <span class=n>FileTable</span><span class=p>&lt;</span><span class=n>K</span><span class=p>&gt;</span> <span class=p>=</span> <span class=n>MutableMap</span><span class=p>&lt;</span><span class=n>K</span><span class=p>,</span> <span class=n>MutableList</span><span class=p>&lt;</span><span class=n>File</span><span class=p>&gt;&gt;</span>
+
+</code></pre></td></tr></table></div></div><p>也可以给函数<strong>类型</strong>设置别名</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>typealias</span> <span class=n>MyHandler</span> <span class=p>=</span> <span class=p>(</span><span class=n>Int</span><span class=p>,</span> <span class=n>String</span><span class=p>,</span> <span class=n>Any</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Unit</span>
+<span class=k>typealias</span> <span class=n>Predicate</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;</span> <span class=p>=</span> <span class=p>(</span><span class=n>T</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Boolean</span>
+
+</code></pre></td></tr></table></div></div><p>内部类和嵌套类也可以设置别名</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>A</span> <span class=p>{</span>
+    <span class=k>inner</span> <span class=k>class</span> <span class=nc>Inner</span>
+<span class=p>}</span>
+<span class=k>class</span> <span class=nc>B</span> <span class=p>{</span>
+    <span class=k>inner</span> <span class=k>class</span> <span class=nc>Inner</span>
+<span class=p>}</span>
+
+<span class=k>typealias</span> <span class=n>AInner</span> <span class=p>=</span> <span class=n>A</span><span class=p>.</span><span class=n>Inner</span>
+<span class=k>typealias</span> <span class=n>BInner</span> <span class=p>=</span> <span class=n>B</span><span class=p>.</span><span class=n>Inner</span>
+
+</code></pre></td></tr></table></div></div><h3 id=空指针检查>空指针检查</h3><p>Kotlin利用编译时判空检查的机制<strong>几乎</strong>(并不是百分百)杜绝了空指针异常，也就是说，Kotlin将空指针检查提前到了编译时期。</p><h4 id=可空类型声明>可空类型声明</h4><p>Kotlin中默认所有的参数和变量都不能为空，要定义可空类型，就要在类名后面加上<code>?</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>a</span><span class=p>:</span> <span class=n>String</span><span class=err>？</span>
+</code></pre></td></tr></table></div></div><h4 id=操作符><code>?.</code>操作符</h4><p><code>?.</code>操作符表示当对象不为空时正常调用相应的方法，否则什么也不做。</p><p>如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>if</span> <span class=p>(</span><span class=n>a</span> <span class=p>!</span> <span class=p>=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+	<span class=n>a</span><span class=p>.</span><span class=n>doSomething</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>可以简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=n>a</span><span class=o>?.</span><span class=n>doSomething</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><h4 id=操作符-1><code>?:</code>操作符</h4><p><code>?:</code>操作符的左右两边都接受一个表达式，如果左边表示表达式的结果不为空就返回左边表达式的结果，否则就返回右边表达式的结果。</p><p>如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>c</span> <span class=p>=</span> <span class=k>if</span> <span class=p>(</span> <span class=n>a</span> <span class=o>!=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+	<span class=n>a</span>
+<span class=p>}</span>
+<span class=k>else</span> <span class=p>{</span>
+	<span class=n>b</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>可以简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>c</span> <span class=p>=</span> <span class=n>a</span> <span class=o>?:</span> <span class=n>b</span>
+</code></pre></td></tr></table></div></div><h4 id=和结合使用><code>?.</code>和<code>?:</code>结合使用</h4><p>上面两个操作符可以结合使用，如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>getTextLength</span><span class=p>(</span><span class=n>text</span><span class=p>:</span> <span class=n>String</span><span class=p>?):</span> <span class=n>Int</span> <span class=p>{</span>
+	<span class=k>if</span> <span class=p>(</span><span class=n>text</span> <span class=o>!=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+		<span class=k>return</span> <span class=n>text</span><span class=p>.</span><span class=n>length</span>
+	<span class=p>}</span>
+	<span class=k>return</span> <span class=m>0</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>简化为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>getTextLength</span><span class=p>(</span><span class=n>text</span><span class=p>:</span> <span class=n>String</span><span class=p>?)</span> <span class=p>=</span> <span class=n>text</span><span class=o>?.</span><span class=n>length</span> <span class=o>?:</span> <span class=m>0</span>
+</code></pre></td></tr></table></div></div><h4 id=非空断言工具><code>!!</code>非空断言工具</h4><p>如下面的代码，虽然我们在<code>main</code>函数中对<code>content</code>做了非空判断的检查,但是下面的代码仍然无法编译过。因为<code>printUpperCase</code>函数并不知道外部已经对<code>content</code>进行了非空检查。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>val</span> <span class=py>content</span><span class=p>:</span> <span class=n>String</span><span class=p>?</span> <span class=p>=</span> <span class=s2>&#34;Hello&#34;</span>
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>content</span> <span class=o>!=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printUpperCase</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>printUpperCase</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>upperCase</span> <span class=p>=</span> <span class=n>content</span><span class=p>.</span><span class=n>toUpperCase</span><span class=p>()</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>upperCase</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>要让上面的代码编译过，可以使用非可断言工具<code>!!</code>,写法是在对象后面加上<code>!!</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>printUpperCase</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>upperCase</span> <span class=p>=</span> <span class=n>content</span><span class=o>!!</span><span class=p>.</span><span class=n>toUpperCase</span><span class=p>()</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>upperCase</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=相等比较>相等比较</h3><p>kotlin中比较两个变量是否相等有两种比较方式：</p><ol><li><p><code>==</code>比较两个变量的值是否相等，即两个遍历的<code>equals()</code>返回值是否相等,等价于</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>a</span><span class=o>?.</span><span class=n>equals</span><span class=p>(</span><span class=n>b</span><span class=p>)</span> <span class=o>?:</span> <span class=p>(</span><span class=n>b</span> <span class=o>===</span> <span class=k>null</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div></li><li><p><code>===</code>比较两个变量是否引用同一个对象</p></li></ol><h3 id=方法引用>方法引用<code>::</code></h3><h3 id=kotlin中使用来引用方法>Kotlin中使用<code>::</code>来引用方法</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Book</span><span class=p>(</span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span>
+
+<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// 让getBook引用Book的构造函数
+</span><span class=c1></span>    <span class=k>val</span> <span class=py>getBook</span> <span class=p>=</span> <span class=o>::</span><span class=n>Book</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>getBook</span><span class=p>(</span><span class=s2>&#34;Dive into Kotlin&#34;</span><span class=p>).</span><span class=n>name</span><span class=p>)</span>
+
+    <span class=k>val</span> <span class=py>bookNames</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span>
+        <span class=n>Book</span><span class=p>(</span><span class=s2>&#34;Dive into Java&#34;</span><span class=p>),</span>
+        <span class=n>Book</span><span class=p>(</span><span class=s2>&#34;Dive into Kotlin&#34;</span><span class=p>)</span>
+    <span class=p>).</span><span class=n>map</span><span class=p>(</span>
+        <span class=c1>// 引用获取name的方法
+</span><span class=c1></span>        <span class=n>Book</span><span class=o>::</span><span class=n>name</span>
+    <span class=p>)</span>
+    <span class=n>println</span><span class=p>(</span><span class=n>bookNames</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=heading-1></h3></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-06-21</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/wechatpay.jpg>
+<span>微信打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=https://crazygit.wiseturtles.com/tags/kotlin/>kotlin</a></div><nav class=post-nav><a class=next href=/2021/06/15/007-kotlin-basic-synatx-04/><span class="next-text nav-default">Kotlin基本语法04</span>
+<span class="prev-text nav-mobile">下一篇</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg></i></a></nav></footer></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=crazygit/hugo-blog-comments issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></div></main><footer id=footer class=footer><div class=icon-links><a href=mailto:crazygit@foxmail.com rel="me noopener" class=iconfont title=email><svg class="icon" viewBox="0 0 1451 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M664.781909 681.472759.0 97.881301C0 3.997201 71.046997.0 71.046997.0H474.477909 961.649408h399.992405s71.046998 3.997201 71.046998 97.881301L771.345323 681.472759S764.482731 685.154773 753.594283 688.65053V688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858V688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759zm53.281707 130.131124C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633.0 212.052267.0 212.052267V942.809523S0 1024 83.726336 1024H682.532949 753.579947h595.368192C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523V212.052267S893.138176 701.759633 817.019477 767.734955c-39.771477 34.470494-74.671786 43.295855-98.955861 43.868928z"/></svg></a><a href=https://twitter.com/lianglin999 rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg></a><a href=https://github.com/crazygit rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg></a><a href=https://www.weibo.com/crazygit/profile rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg></a><a href=https://crazygit.wiseturtles.com/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2021
+<span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>

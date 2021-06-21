@@ -1,12 +1,12 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>《利用Python进行数据分析第二版》读书笔记一 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="《利用Python进行数据分析第二版》读书笔记一"><meta property="og:description" content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.0"><link rel=canonical href=https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="《利用Python进行数据分析第二版》读书笔记一"><meta property="og:description" content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2017/12/26/python-for-data-analysis-2nd-edition-note-one/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-12-26T18:21:46+08:00"><meta property="article:modified_time" content="2017-12-26T18:21:46+08:00"><meta itemprop=name content="《利用Python进行数据分析第二版》读书笔记一"><meta itemprop=description content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
 "><meta itemprop=datePublished content="2017-12-26T18:21:46+08:00"><meta itemprop=dateModified content="2017-12-26T18:21:46+08:00"><meta itemprop=wordCount content="5072"><meta itemprop=keywords content="numpy,pandas,matplotlib,"><meta name=twitter:card content="summary"><meta name=twitter:title content="《利用Python进行数据分析第二版》读书笔记一"><meta name=twitter:description content="本文是利用Python进行数据分析的读书笔记一，主要记录了Numpy, Pandas的一些基础操作和数据读取和保存方法
-"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>《利用Python进行数据分析第二版》读书笔记一</h1><div class=post-meta><time datetime=2017-12-26 class=post-time>2017-12-26</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>python数据分析</a></div><span class=more-meta>约 5072 字</span>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>《利用Python进行数据分析第二版》读书笔记一</h1><div class=post-meta><time datetime=2017-12-26 class=post-time>2017-12-26</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>python数据分析</a></div><span class=more-meta>约 5072 字</span>
 <span class=more-meta>预计阅读 11 分钟</span>
 <span id=/2017/12/26/python-for-data-analysis-2nd-edition-note-one/ class=leancloud_visitors data-flag-title=《利用Python进行数据分析第二版》读书笔记一><span class=post-meta-item-text>| 阅读</span>
 <span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#numpy基础>Numpy基础</a><ul><li><a href=#numpy数据类型>Numpy数据类型</a></li><li><a href=#npwhere>np.where</a></li><li><a href=#布尔数组>布尔数组</a></li><li><a href=#数组排序>数组排序</a></li><li><a href=#唯一性和in操作>唯一性和in操作</a></li><li><a href=#文件输入输出>文件输入输出</a></li><li><a href=#矩阵乘法的另一种表示方法>矩阵乘法的另一种表示方法</a></li><li><a href=#线性代数linear-algebra>线性代数(Linear Algebra)</a></li></ul></li><li><a href=#pandas基础>Pandas基础</a><ul><li><a href=#series对象和它的index都有一个name属性><code>Series</code>对象和它的<code>index</code>都有一个<code>name</code>属性</a></li><li><a href=#列操作>列操作</a></li><li><a href=#dataframe的index和column也可以设置name属性>DataFrame的index和column也可以设置name属性</a></li><li><a href=#reindexing>Reindexing</a></li><li><a href=#drop行或列>Drop行或列</a></li><li><a href=#函数应用和映射>函数应用和映射</a></li><li><a href=#排序sort>排序(Sort)</a></li><li><a href=#排名rank>排名(rank)</a></li><li><a href=#重复的索引>重复的索引</a></li></ul></li><li><a href=#pandas数据加载存储>Pandas数据加载，存储</a><ul><li><a href=#读取csv文件>读取CSV文件</a></li><li><a href=#保存数据>保存数据</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=numpy基础>Numpy基础</h2><p>更多关于NumPy的使用, 可以参考<a href=https://crazygit.wiseturtles.com/2017/12/19/numpy-qucikstart/>NumPy快速入门指南</a></p><h3 id=numpy数据类型>Numpy数据类型</h3><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2017-12-26-Numpy_data_types.png alt="Numpy DataTypes"></p><h3 id=npwhere>np.where</h3><p><code>np.where</code>是一个向量版本的三元表达式<code>x if c else y</code>。假如我们有三个数组<code>xarr</code>, <code>yarr</code>, <code>cond</code>。
@@ -24,7 +24,7 @@
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>yarr</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>2.1</span><span class=p>,</span> <span class=mf>2.2</span><span class=p>,</span> <span class=mf>2.3</span><span class=p>,</span> <span class=mf>2.4</span><span class=p>,</span> <span class=mf>2.5</span><span class=p>])</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>cond</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>])</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>cond</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>])</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>result</span> <span class=o>=</span> <span class=p>[(</span><span class=n>x</span> <span class=k>if</span> <span class=n>c</span> <span class=k>else</span> <span class=n>y</span><span class=p>)</span> <span class=k>for</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>c</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>xarr</span><span class=p>,</span> <span class=n>yarr</span><span class=p>,</span> <span class=n>cond</span><span class=p>)]</span>
 
@@ -74,10 +74,10 @@
        <span class=p>[</span> <span class=mf>0.24704485</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.87881313</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.06539659</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.82992508</span><span class=p>]])</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>arr</span> <span class=o>&gt;</span> <span class=mi>0</span>
-<span class=n>array</span><span class=p>([[</span><span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>],</span>
-       <span class=p>[</span> <span class=bp>True</span><span class=p>,</span>  <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>],</span>
-       <span class=p>[</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>],</span>
-       <span class=p>[</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>]],</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>bool</span><span class=p>)</span>
+<span class=n>array</span><span class=p>([[</span><span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>],</span>
+       <span class=p>[</span> <span class=kc>True</span><span class=p>,</span>  <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>],</span>
+       <span class=p>[</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>],</span>
+       <span class=p>[</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>]],</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>bool</span><span class=p>)</span>
 
 <span class=c1># 将数组中&gt;0的全部替换为2，小于0的全部用-2替换</span>
 <span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>where</span><span class=p>(</span><span class=n>arr</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>2</span><span class=p>)</span>
@@ -117,13 +117,13 @@
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>bools</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>])</span>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>bools</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>])</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>bools</span><span class=o>.</span><span class=n>any</span><span class=p>()</span>
-<span class=bp>True</span>
+<span class=kc>True</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>bools</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
-<span class=bp>False</span>
+<span class=kc>False</span>
 </code></pre></td></tr></table></div></div><h3 id=数组排序>数组排序</h3><p>就跟python内置的<code>sort</code>函数一样，Numpy提供了排序功能</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -231,7 +231,7 @@
 
 <span class=c1># 检查一个数组的值是否在另一个数组里，返回一个布尔数组</span>
 <span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>in1d</span><span class=p>(</span><span class=n>values</span><span class=p>,</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>6</span><span class=p>])</span>
-<span class=n>array</span><span class=p>([</span> <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span>  <span class=bp>True</span><span class=p>,</span>  <span class=bp>True</span><span class=p>,</span> <span class=bp>False</span><span class=p>,</span>  <span class=bp>True</span><span class=p>],</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>bool</span><span class=p>)</span>
+<span class=n>array</span><span class=p>([</span> <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span>  <span class=kc>True</span><span class=p>,</span>  <span class=kc>True</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span>  <span class=kc>True</span><span class=p>],</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>bool</span><span class=p>)</span>
 </code></pre></td></tr></table></div></div><h3 id=文件输入输出>文件输入输出</h3><p>numpy可以使用<code>save</code>和<code>load</code>方法来输出和加载。默认情况下，是以未压缩的二进制格式保存，并会自动加上后缀扩展<code>.npy</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -243,7 +243,7 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>arr</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span>
 
@@ -296,7 +296,7 @@
 <span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>np</span><span class=o>.</span><span class=n>ones</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
 <span class=n>array</span><span class=p>([</span>  <span class=mf>6.</span><span class=p>,</span>  <span class=mf>15.</span><span class=p>])</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>x</span> <span class=err>@</span> <span class=n>np</span><span class=o>.</span><span class=n>ones</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>x</span> <span class=o>@</span> <span class=n>np</span><span class=o>.</span><span class=n>ones</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
 <span class=n>array</span><span class=p>([</span>  <span class=mf>6.</span><span class=p>,</span>  <span class=mf>15.</span><span class=p>])</span>
 </code></pre></td></tr></table></div></div><h3 id=线性代数linear-algebra>线性代数(Linear Algebra)</h3><p><code>numpy.linalg</code> 模块包含类线性代数常用的操作</p><h2 id=pandas基础>Pandas基础</h2><p>更多关于Pandas的使用, 可以参考<a href=https://crazygit.wiseturtles.com/2017/12/20/10-minutes-to-pandas/>10分钟入门Pandas</a></p><h3 id=series对象和它的index都有一个name属性><code>Series</code>对象和它的<code>index</code>都有一个<code>name</code>属性</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -695,7 +695,7 @@
 
 <span class=c1># 默认情况下，drop方法会返回一个新的对象，但是不会修改原来的值</span>
 <span class=c1># 使用inplace参数可以直接修改原来的值</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>drop</span><span class=p>(</span><span class=s1>&#39;Utah&#39;</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>drop</span><span class=p>(</span><span class=s1>&#39;Utah&#39;</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>data</span>
           <span class=n>one</span>  <span class=n>two</span>  <span class=n>three</span>  <span class=n>four</span>
@@ -785,16 +785,16 @@
 <span class=n>dtype</span><span class=p>:</span> <span class=n>float64</span>
 
 <span class=c1># applymap作用于每个元素</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>format</span> <span class=o>=</span> <span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=s1>&#39;</span><span class=si>%.2f</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=n>x</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=nb>format</span> <span class=o>=</span> <span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=s1>&#39;</span><span class=si>%.2f</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=n>x</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=o>.</span><span class=n>applymap</span><span class=p>(</span><span class=n>format</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=o>.</span><span class=n>applymap</span><span class=p>(</span><span class=nb>format</span><span class=p>)</span>
             <span class=n>b</span>      <span class=n>d</span>      <span class=n>e</span>
 <span class=n>Utah</span>     <span class=mf>0.28</span>  <span class=o>-</span><span class=mf>0.94</span>  <span class=o>-</span><span class=mf>1.21</span>
 <span class=n>Ohio</span>    <span class=o>-</span><span class=mf>1.07</span>  <span class=o>-</span><span class=mf>0.25</span>  <span class=o>-</span><span class=mf>0.73</span>
 <span class=n>Texas</span>    <span class=mf>2.26</span>   <span class=mf>0.17</span>  <span class=o>-</span><span class=mf>0.51</span>
 <span class=n>Oregon</span>  <span class=o>-</span><span class=mf>0.80</span>   <span class=mf>0.63</span>   <span class=mf>1.13</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=p>[</span><span class=s1>&#39;e&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=n>format</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=p>[</span><span class=s1>&#39;e&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=nb>format</span><span class=p>)</span>
 <span class=n>Utah</span>      <span class=o>-</span><span class=mf>1.21</span>
 <span class=n>Ohio</span>      <span class=o>-</span><span class=mf>0.73</span>
 <span class=n>Texas</span>     <span class=o>-</span><span class=mf>0.51</span>
@@ -878,7 +878,7 @@
 <span class=n>one</span>    <span class=mi>5</span>  <span class=mi>6</span>  <span class=mi>7</span>  <span class=mi>4</span>
 
 <span class=c1># 按照降序排序</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=o>.</span><span class=n>sort_index</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>ascending</span><span class=o>=</span><span class=bp>False</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>frame</span><span class=o>.</span><span class=n>sort_index</span><span class=p>(</span><span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>ascending</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
        <span class=n>d</span>  <span class=n>c</span>  <span class=n>b</span>  <span class=n>a</span>
 <span class=n>three</span>  <span class=mi>0</span>  <span class=mi>3</span>  <span class=mi>2</span>  <span class=mi>1</span>
 <span class=n>one</span>    <span class=mi>4</span>  <span class=mi>7</span>  <span class=mi>6</span>  <span class=mi>5</span>
@@ -1175,7 +1175,7 @@
 <span class=n>dtype</span><span class=p>:</span> <span class=n>float64</span>
 
 <span class=c1># 按照倒序排名</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>obj</span><span class=o>.</span><span class=n>rank</span><span class=p>(</span><span class=n>method</span><span class=o>=</span><span class=s1>&#39;min&#39;</span><span class=p>,</span> <span class=n>ascending</span><span class=o>=</span><span class=bp>False</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>obj</span><span class=o>.</span><span class=n>rank</span><span class=p>(</span><span class=n>method</span><span class=o>=</span><span class=s1>&#39;min&#39;</span><span class=p>,</span> <span class=n>ascending</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 <span class=mi>0</span>    <span class=mf>1.0</span>
 <span class=mi>1</span>    <span class=mf>7.0</span>
 <span class=mi>2</span>    <span class=mf>1.0</span>
@@ -1227,7 +1227,7 @@
 
 <span class=c1># is_unique 属性可以确定index是否含有重复的值</span>
 <span class=o>&gt;&gt;&gt;</span> <span class=n>obj</span><span class=o>.</span><span class=n>index</span><span class=o>.</span><span class=n>is_unique</span>
-<span class=bp>False</span>
+<span class=kc>False</span>
 </code></pre></td></tr></table></div></div><h2 id=pandas数据加载存储>Pandas数据加载，存储</h2><p><strong>备注</strong>: 下面例子使用的csv文件可以从这里<a href=https://github.com/wesm/pydata-book>下载</a>。</p><h3 id=读取csv文件>读取CSV文件</h3><p>使用<code>read_csv</code>加载文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -1243,7 +1243,7 @@
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>pandas</span> <span class=kn>as</span> <span class=nn>pd</span>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
 
 <span class=o>&gt;&gt;&gt;</span> <span class=err>!</span> <span class=n>cat</span> <span class=n>examples</span><span class=o>/</span><span class=n>ex1</span><span class=o>.</span><span class=n>csv</span>
 <span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>,</span><span class=n>c</span><span class=p>,</span><span class=n>d</span><span class=p>,</span><span class=n>message</span>
@@ -1283,7 +1283,7 @@
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;examples/ex2.csv&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=bp>None</span><span class=p>)</span>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;examples/ex2.csv&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
    <span class=mi>0</span>   <span class=mi>1</span>   <span class=mi>2</span>   <span class=mi>3</span>      <span class=mi>4</span>
 <span class=mi>0</span>  <span class=mi>1</span>   <span class=mi>2</span>   <span class=mi>3</span>   <span class=mi>4</span>  <span class=n>hello</span>
 <span class=mi>1</span>  <span class=mi>5</span>   <span class=mi>6</span>   <span class=mi>7</span>   <span class=mi>8</span>  <span class=n>world</span>
@@ -1461,9 +1461,9 @@
 
 <span class=o>&gt;&gt;&gt;</span> <span class=n>pd</span><span class=o>.</span><span class=n>isnull</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
    <span class=n>something</span>      <span class=n>a</span>      <span class=n>b</span>      <span class=n>c</span>      <span class=n>d</span>  <span class=n>message</span>
-<span class=mi>0</span>      <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>     <span class=bp>True</span>
-<span class=mi>1</span>      <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>   <span class=bp>True</span>  <span class=bp>False</span>    <span class=bp>False</span>
-<span class=mi>2</span>      <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>  <span class=bp>False</span>    <span class=bp>False</span>
+<span class=mi>0</span>      <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>     <span class=kc>True</span>
+<span class=mi>1</span>      <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>   <span class=kc>True</span>  <span class=kc>False</span>    <span class=kc>False</span>
+<span class=mi>2</span>      <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>  <span class=kc>False</span>    <span class=kc>False</span>
 </code></pre></td></tr></table></div></div><p>也可以通过<code>na_values</code>来指定缺失的值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -1632,7 +1632,7 @@
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># columns的索引用的是header参数</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>stdout</span><span class=p>,</span> <span class=n>na_rep</span><span class=o>=</span><span class=s1>&#39;NULL&#39;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=bp>False</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>stdout</span><span class=p>,</span> <span class=n>na_rep</span><span class=o>=</span><span class=s1>&#39;NULL&#39;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 <span class=n>one</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mf>3.0</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=n>NULL</span>
 <span class=n>two</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=n>NULL</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=n>world</span>
 <span class=n>three</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>10</span><span class=p>,</span><span class=mf>11.0</span><span class=p>,</span><span class=mi>12</span><span class=p>,</span><span class=n>foo</span>
@@ -1643,7 +1643,7 @@
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># 只保存a,b,c列</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>stdout</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>columns</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>])</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>stdout</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>columns</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>])</span>
 <span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>,</span><span class=n>c</span>
 <span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mf>3.0</span>
 <span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span>
