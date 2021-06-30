@@ -4881,7 +4881,7 @@ foo(integer = &lt;span style="color:#ae81ff">12&lt;/span>, decimal = &lt;span st
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">tricky&lt;/span>(x, numbers&lt;span style="color:#f92672">=&lt;/span>[]): &lt;span style="color:#75715e"># Bug：每次调用都会使用相同的列表！&lt;/span>
 numbers&lt;span style="color:#f92672">.&lt;/span>append(x)
-print(numbers)
+&lt;span style="color:#66d9ef">print&lt;/span>(numbers)
 tricky(&lt;span style="color:#ae81ff">1&lt;/span>)
 tricky(&lt;span style="color:#ae81ff">2&lt;/span>)
 tricky(&lt;span style="color:#ae81ff">3&lt;/span>)
@@ -10763,11 +10763,11 @@ preconditionFailure(&lt;span style="color:#e6db74">&amp;#34;A person&amp;#39;s a
 &lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> xml.etree.ElementTree &lt;span style="color:#66d9ef">as&lt;/span> ET
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> xml.etree.ElementTree &lt;span style="color:#f92672">as&lt;/span> ET
 &lt;span style="color:#f92672">import&lt;/span> requests
 root &lt;span style="color:#f92672">=&lt;/span> ET&lt;span style="color:#f92672">.&lt;/span>fromstring(requests&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>text)
 &lt;span style="color:#66d9ef">for&lt;/span> enclosure &lt;span style="color:#f92672">in&lt;/span> root&lt;span style="color:#f92672">.&lt;/span>findall(&lt;span style="color:#e6db74">&amp;#39;.//enclosure&amp;#39;&lt;/span>):
-print(enclosure&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;url&amp;#39;&lt;/span>))
+&lt;span style="color:#66d9ef">print&lt;/span>(enclosure&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;url&amp;#39;&lt;/span>))
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="解析结果">解析结果&lt;/h2>

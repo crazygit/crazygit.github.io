@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>《Fast Data Processing with Spark 2（Third Edition)》读书笔记二 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="本文主要介绍在Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二"><meta property="og:description" content="本文主要介绍在Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.83.1"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.4baf5c84916469672a89b7f5fc19c29ebbe2ad00604a9de32aae72eba3237fcf.css integrity="sha256-S69chJFkaWcqibf1/BnCnrvirQBgSp3jKq5y66Mjf88=" media=screen crossorigin=anonymous><meta property="og:title" content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二"><meta property="og:description" content="本文主要介绍在Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/15/fast-data-processing-with-spark2-note-two/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-01-15T17:45:35+08:00"><meta property="article:modified_time" content="2018-01-15T17:45:35+08:00"><meta itemprop=name content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二"><meta itemprop=description content="本文主要介绍在Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询
 "><meta itemprop=datePublished content="2018-01-15T17:45:35+08:00"><meta itemprop=dateModified content="2018-01-15T17:45:35+08:00"><meta itemprop=wordCount content="4383"><meta itemprop=keywords content="spark,"><meta name=twitter:card content="summary"><meta name=twitter:title content="《Fast Data Processing with Spark 2（Third Edition)》读书笔记二"><meta name=twitter:description content="本文主要介绍在Spark中加载和保存数据, 以及Spark的一些概念和Spark SQL查询
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -215,13 +215,13 @@ out<span style=color:#f92672>.</span>txt<span style=color:#f92672>/</span>part<s
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> print(<span style=color:#e6db74>&#39;Running Spark version: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> spark<span style=color:#f92672>.</span>version)
-Running Spark version: <span style=color:#ae81ff>2.2.1</span>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Running Spark version: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> spark<span style=color:#f92672>.</span>version)
+Running Spark version: <span style=color:#ae81ff>2.2</span><span style=color:#f92672>.</span><span style=color:#ae81ff>1</span>
 
 <span style=color:#f92672>&gt;&gt;&gt;</span> employees <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>option(<span style=color:#e6db74>&#39;header&#39;</span>, <span style=color:#e6db74>&#39;true&#39;</span>)<span style=color:#f92672>.</span>csv(<span style=color:#e6db74>&#39;data/NW-Employees.csv&#39;</span>)
 </code></pre></td></tr></table></div></div><p>统计总行数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> print(<span style=color:#e6db74>&#39;Employees has </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> rows&#39;</span> <span style=color:#f92672>%</span> employees<span style=color:#f92672>.</span>count())
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Employees has </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> rows&#39;</span> <span style=color:#f92672>%</span> employees<span style=color:#f92672>.</span>count())
 Employees has <span style=color:#ae81ff>9</span> rows
 </code></pre></td></tr></table></div></div><p>打印前5行</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
@@ -268,7 +268,7 @@ only showing top <span style=color:#ae81ff>5</span> rows
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>for</span> column_name, data_type <span style=color:#f92672>in</span> employees<span style=color:#f92672>.</span>dtypes:
-<span style=color:#f92672>...</span>     print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>column_name<span style=color:#e6db74>}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>{</span>data_type<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
+<span style=color:#f92672>...</span>     <span style=color:#66d9ef>print</span>(f<span style=color:#e6db74>&#39;{column_name}: {data_type}&#39;</span>)
 <span style=color:#f92672>...</span>
 EmployeeID: string
 LastName: string
@@ -340,7 +340,7 @@ root
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> employees <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>option(<span style=color:#e6db74>&#39;header&#39;</span>, <span style=color:#e6db74>&#39;true&#39;</span>)<span style=color:#f92672>.</span>option(<span style=color:#e6db74>&#39;inferSchema&#39;</span>, <span style=color:#e6db74>&#39;true&#39;</span>)<span style=color:#f92672>.</span>csv(<span style=color:#e6db74>&#39;data/NW-Employees.csv&#39;</span>)
 
 <span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>for</span> column_name, data_type <span style=color:#f92672>in</span> employees<span style=color:#f92672>.</span>dtypes:
-<span style=color:#f92672>...</span>     print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>column_name<span style=color:#e6db74>}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>{</span>data_type<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
+<span style=color:#f92672>...</span>     <span style=color:#66d9ef>print</span>(f<span style=color:#e6db74>&#39;{column_name}: {data_type}&#39;</span>)
 <span style=color:#f92672>...</span>
 EmployeeID: int
 LastName: string
@@ -408,7 +408,7 @@ only showing top <span style=color:#ae81ff>5</span> rows
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> employees<span style=color:#f92672>.</span>explain(<span style=color:#66d9ef>True</span>)
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> employees<span style=color:#f92672>.</span>explain(True)
 <span style=color:#f92672>==</span> Parsed Logical Plan <span style=color:#f92672>==</span>
 Relation[EmployeeID<span style=color:#75715e>#12,LastName#13,FirstName#14,Title#15,BirthDate#16,HireDate#17,City#18,State#19,Zip#20,Country#21,ReportsTo#22] csv</span>
 
@@ -494,7 +494,7 @@ Relation[EmployeeID<span style=color:#75715e>#12,LastName#13,FirstName#14,Title#
 
 spark <span style=color:#f92672>=</span> SparkSession<span style=color:#f92672>.</span>builder<span style=color:#f92672>.</span>appName(<span style=color:#e6db74>&#39;SQL Demo&#39;</span>)<span style=color:#f92672>.</span>getOrCreate()
 
-print(<span style=color:#e6db74>&#39;Running Spark version: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> spark<span style=color:#f92672>.</span>version)
+<span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Running Spark version: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> spark<span style=color:#f92672>.</span>version)
 
 filePath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;.&#39;</span>
 
@@ -502,7 +502,7 @@ filePath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;.&#39
 employees <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>option(<span style=color:#e6db74>&#39;header&#39;</span>, <span style=color:#e6db74>&#39;true&#39;</span>)<span style=color:#f92672>.</span>csv(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(filePath, <span style=color:#e6db74>&#39;data/NW-Employees.csv&#39;</span>))
 
 <span style=color:#75715e># 统计总行数</span>
-print(<span style=color:#e6db74>&#39;Employees has </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> rows&#39;</span> <span style=color:#f92672>%</span> employees<span style=color:#f92672>.</span>count())
+<span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Employees has </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> rows&#39;</span> <span style=color:#f92672>%</span> employees<span style=color:#f92672>.</span>count())
 <span style=color:#75715e># 打印前5行</span>
 employees<span style=color:#f92672>.</span>show(<span style=color:#ae81ff>5</span>)
 <span style=color:#75715e># 返回前3行</span>
@@ -511,7 +511,7 @@ employees<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>3</spa
 
 <span style=color:#75715e># 查看每一列的数据类型，默认读取的数据都是String</span>
 <span style=color:#66d9ef>for</span> column_name, data_type <span style=color:#f92672>in</span> employees<span style=color:#f92672>.</span>dtypes:
-    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>column_name<span style=color:#e6db74>}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>{</span>data_type<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
+    <span style=color:#66d9ef>print</span>(f<span style=color:#e6db74>&#39;{column_name}: {data_type}&#39;</span>)
 
 employees<span style=color:#f92672>.</span>printSchema()
 
@@ -522,7 +522,7 @@ result <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span
 result<span style=color:#f92672>.</span>show(<span style=color:#ae81ff>5</span>)
 
 <span style=color:#75715e># 查看分析结果</span>
-employees<span style=color:#f92672>.</span>explain(<span style=color:#66d9ef>True</span>)
+employees<span style=color:#f92672>.</span>explain(True)
 
 <span style=color:#75715e># 添加过滤条件</span>
 result <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span>sql(<span style=color:#e6db74>&#39;select * from global_temp.EmployeesTable where State=&#34;WA&#34;&#39;</span>)
@@ -664,7 +664,7 @@ only showing top <span style=color:#ae81ff>10</span> rows
 only showing top <span style=color:#ae81ff>10</span> rows
 
 <span style=color:#75715e># 排序</span>
-<span style=color:#f92672>&gt;&gt;&gt;</span> result<span style=color:#f92672>.</span>orderBy(<span style=color:#e6db74>&#34;ProductSales&#34;</span>, ascending<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)<span style=color:#f92672>.</span>show(<span style=color:#ae81ff>10</span>)
+<span style=color:#f92672>&gt;&gt;&gt;</span> result<span style=color:#f92672>.</span>orderBy(<span style=color:#e6db74>&#34;ProductSales&#34;</span>, ascending<span style=color:#f92672>=</span>False)<span style=color:#f92672>.</span>show(<span style=color:#ae81ff>10</span>)
 <span style=color:#f92672>+-----------+------------------+</span>
 <span style=color:#f92672>|</span>ShipCountry<span style=color:#f92672>|</span>      ProductSales<span style=color:#f92672>|</span>
 <span style=color:#f92672>+-----------+------------------+</span>
