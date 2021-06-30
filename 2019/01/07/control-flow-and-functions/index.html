@@ -1,502 +1,502 @@
-<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>流程控制和函数 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="流程控制和函数"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="流程控制和函数"><meta property="og:description" content="流程控制和函数"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-01-07T15:19:54+08:00"><meta property="article:modified_time" content="2019-01-07T15:19:54+08:00"><meta itemprop=name content="流程控制和函数"><meta itemprop=description content="流程控制和函数"><meta itemprop=datePublished content="2019-01-07T15:19:54+08:00"><meta itemprop=dateModified content="2019-01-07T15:19:54+08:00"><meta itemprop=wordCount content="2333"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="流程控制和函数"><meta name=twitter:description content="流程控制和函数"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>流程控制和函数 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="流程控制和函数"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="流程控制和函数"><meta property="og:description" content="流程控制和函数"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2019/01/07/control-flow-and-functions/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-01-07T15:19:54+08:00"><meta property="article:modified_time" content="2019-01-07T15:19:54+08:00"><meta itemprop=name content="流程控制和函数"><meta itemprop=description content="流程控制和函数"><meta itemprop=datePublished content="2019-01-07T15:19:54+08:00"><meta itemprop=dateModified content="2019-01-07T15:19:54+08:00"><meta itemprop=wordCount content="2333"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="流程控制和函数"><meta name=twitter:description content="流程控制和函数"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>流程控制和函数</h1><div class=post-meta><time datetime=2019-01-07 class=post-time>2019-01-07</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/>iOS开发入门</a></div><span class=more-meta>约 2333 字</span>
 <span class=more-meta>预计阅读 5 分钟</span>
 <span id=/2019/01/07/control-flow-and-functions/ class=leancloud_visitors data-flag-title=流程控制和函数><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#流程控制>流程控制</a><ul><li><a href=#for-in>For-In</a></li><li><a href=#while>While</a></li><li><a href=#switch>switch</a></li><li><a href=#guard>guard</a></li></ul></li><li><a href=#函数>函数</a><ul><li><a href=#默认参数>默认参数</a></li><li><a href=#不定参数>不定参数</a></li><li><a href=#输入输出参数in-out参数>输入输出参数(In-Out参数)</a></li><li><a href=#函数类型>函数类型</a></li><li><a href=#使用函数类型>使用函数类型</a></li><li><a href=#函数嵌套>函数嵌套</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=流程控制>流程控制</h2><p>流程控制的关键字</p><ul><li><code>while</code></li><li><code>if</code></li><li><code>guard</code></li><li><code>switch</code></li><li><code>for-in</code></li><li><code>continue</code></li><li><code>break</code></li></ul><h3 id=for-in>For-In</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>minutes</span> <span class=p>=</span> <span class=mi>60</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#流程控制>流程控制</a><ul><li><a href=#for-in>For-In</a></li><li><a href=#while>While</a></li><li><a href=#switch>switch</a></li><li><a href=#guard>guard</a></li></ul></li><li><a href=#函数>函数</a><ul><li><a href=#默认参数>默认参数</a></li><li><a href=#不定参数>不定参数</a></li><li><a href=#输入输出参数in-out参数>输入输出参数(In-Out参数)</a></li><li><a href=#函数类型>函数类型</a></li><li><a href=#使用函数类型>使用函数类型</a></li><li><a href=#函数嵌套>函数嵌套</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=流程控制>流程控制</h2><p>流程控制的关键字</p><ul><li><code>while</code></li><li><code>if</code></li><li><code>guard</code></li><li><code>switch</code></li><li><code>for-in</code></li><li><code>continue</code></li><li><code>break</code></li></ul><h3 id=for-in>For-In</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> minutes = <span style=color:#ae81ff>60</span>
 
-<span class=c1>// 半开区间</span>
-<span class=k>for</span> <span class=n>tickMark</span> <span class=k>in</span> <span class=mf>0.</span><span class=p>.&lt;</span><span class=n>minutes</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>tickMark</span><span class=p>)</span> <span class=c1>// 打印从0到59</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>使用<code>stride(from:to:by)</code>实现设置步长的效果，半开区间</p><p>使用<code>stride(from:through:by)</code>实现设置步长的效果，全闭区别</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>minutesInterval</span> <span class=p>=</span> <span class=mi>5</span>
+<span style=color:#75715e>// 半开区间</span>
+<span style=color:#66d9ef>for</span> tickMark <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>0.</span>.&lt;minutes {
+    print(tickMark) <span style=color:#75715e>// 打印从0到59</span>
+}
+</code></pre></td></tr></table></div></div><p>使用<code>stride(from:to:by)</code>实现设置步长的效果，半开区间</p><p>使用<code>stride(from:through:by)</code>实现设置步长的效果，全闭区别</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> minutesInterval = <span style=color:#ae81ff>5</span>
 
-<span class=k>for</span> <span class=n>tickMark</span> <span class=k>in</span> <span class=bp>stride</span><span class=p>(</span><span class=n>from</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=n>to</span><span class=p>:</span> <span class=n>minutes</span><span class=p>,</span> <span class=n>by</span><span class=p>:</span> <span class=n>minutesInterval</span><span class=p>){</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>tickMark</span><span class=p>)</span> <span class=c1>//打印0,5,10...55</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>for</span> tickMark <span style=color:#66d9ef>in</span> stride(from: <span style=color:#ae81ff>0</span>, to: minutes, by: minutesInterval){
+    print(tickMark) <span style=color:#75715e>//打印0,5,10...55</span>
+}
 
-<span class=k>for</span> <span class=n>tickMark</span> <span class=k>in</span> <span class=bp>stride</span><span class=p>(</span><span class=n>from</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=n>through</span><span class=p>:</span> <span class=n>minutes</span><span class=p>,</span> <span class=n>by</span><span class=p>:</span> <span class=n>minutesInterval</span><span class=p>){</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>tickMark</span><span class=p>)</span> <span class=c1>//打印0,5,10...55,60</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=while>While</h3><p>white循环有两种形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 可能不会执行循环</span>
+<span style=color:#66d9ef>for</span> tickMark <span style=color:#66d9ef>in</span> stride(from: <span style=color:#ae81ff>0</span>, through: minutes, by: minutesInterval){
+    print(tickMark) <span style=color:#75715e>//打印0,5,10...55,60</span>
+}
+</code></pre></td></tr></table></div></div><h3 id=while>While</h3><p>white循环有两种形式</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 可能不会执行循环</span>
 
-<span class=k>while</span> <span class=n>condition</span> <span class=p>{</span>
-    <span class=n>statements</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>while</span> condition {
+    statements
+}
 
-<span class=c1>// 至少执行一次循环</span>
-<span class=k>repeat</span> <span class=p>{</span>
-    <span class=n>statements</span>
-<span class=p>}</span> <span class=k>while</span> <span class=n>condition</span>
-</code></pre></td></tr></table></div></div><h3 id=switch>switch</h3><p>switch语法如下图所示:</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-26-swift-switch-syntax.png alt="swich synatx"></p><p><code>switch</code>中条件的判断必须是详细的，必须考虑到每一种可能存在的情况，不然<code>default</code>语句是不能省略的。如下面的语句加入去掉<code>default</code>语句，在运行的时候会报错。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>switch</span> <span class=n>someCharacter</span> <span class=p>{</span>
-<span class=k>case</span> <span class=s>&#34;a&#34;</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;The first letter of the alphabet&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=s>&#34;z&#34;</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;The last letter of the alphabet&#34;</span><span class=p>)</span>
-<span class=c1>//default:</span>
-<span class=c1>//    print(&#34;Some other charater&#34;)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>默认情况下, <code>swicth</code>语句的<code>case</code>部分不再需要明确指定<code>break</code>, 当多个case语句需要同样的逻辑时，可以使用逗号将<code>case</code>语句区分</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>caseInSensitiveCharacter</span> <span class=p>=</span> <span class=s>&#34;a&#34;</span>
+<span style=color:#75715e>// 至少执行一次循环</span>
+<span style=color:#66d9ef>repeat</span> {
+    statements
+} <span style=color:#66d9ef>while</span> condition
+</code></pre></td></tr></table></div></div><h3 id=switch>switch</h3><p>switch语法如下图所示:</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-26-swift-switch-syntax.png alt="swich synatx"></p><p><code>switch</code>中条件的判断必须是详细的，必须考虑到每一种可能存在的情况，不然<code>default</code>语句是不能省略的。如下面的语句加入去掉<code>default</code>语句，在运行的时候会报错。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>switch</span> someCharacter {
+<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;a&#34;</span>:
+    print(<span style=color:#e6db74>&#34;The first letter of the alphabet&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;z&#34;</span>:
+    print(<span style=color:#e6db74>&#34;The last letter of the alphabet&#34;</span>)
+<span style=color:#75715e>//default:</span>
+<span style=color:#75715e>//    print(&#34;Some other charater&#34;)</span>
+}
+</code></pre></td></tr></table></div></div><p>默认情况下, <code>swicth</code>语句的<code>case</code>部分不再需要明确指定<code>break</code>, 当多个case语句需要同样的逻辑时，可以使用逗号将<code>case</code>语句区分</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> caseInSensitiveCharacter = <span style=color:#e6db74>&#34;a&#34;</span>
 
-<span class=k>switch</span> <span class=n>caseInSensitiveCharacter</span> <span class=p>{</span>
-<span class=k>case</span> <span class=s>&#34;a&#34;</span><span class=p>,</span> <span class=s>&#34;A&#34;</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;The first letter of alphabet&#34;</span><span class=p>)</span>
-<span class=c1>//    break</span>
-<span class=k>case</span> <span class=s>&#34;z&#34;</span><span class=p>,</span> <span class=s>&#34;Z&#34;</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;The last letter of the alphabet&#34;</span><span class=p>)</span>
-<span class=c1>//    break</span>
-<span class=k>default</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Some other charater&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p><code>case</code>语句同样可以检查是否满足一个区间的匹配</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>approximateCount</span> <span class=p>=</span> <span class=mi>62</span>
-<span class=kd>let</span> <span class=nv>countedThings</span> <span class=p>=</span> <span class=s>&#34;moons orbiting Saturn&#34;</span>
+<span style=color:#66d9ef>switch</span> caseInSensitiveCharacter {
+<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;a&#34;</span>, <span style=color:#e6db74>&#34;A&#34;</span>:
+    print(<span style=color:#e6db74>&#34;The first letter of alphabet&#34;</span>)
+<span style=color:#75715e>//    break</span>
+<span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;z&#34;</span>, <span style=color:#e6db74>&#34;Z&#34;</span>:
+    print(<span style=color:#e6db74>&#34;The last letter of the alphabet&#34;</span>)
+<span style=color:#75715e>//    break</span>
+<span style=color:#66d9ef>default</span>:
+    print(<span style=color:#e6db74>&#34;Some other charater&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p><code>case</code>语句同样可以检查是否满足一个区间的匹配</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> approximateCount = <span style=color:#ae81ff>62</span>
+<span style=color:#66d9ef>let</span> countedThings = <span style=color:#e6db74>&#34;moons orbiting Saturn&#34;</span>
 
-<span class=kd>var</span> <span class=nv>naturalCount</span><span class=p>:</span> <span class=nb>String</span> <span class=p>=</span> <span class=s>&#34;&#34;</span>
+<span style=color:#66d9ef>var</span> naturalCount: String = <span style=color:#e6db74>&#34;&#34;</span>
 
-<span class=k>switch</span> <span class=n>approximateCount</span> <span class=p>{</span>
-<span class=k>case</span> <span class=mi>0</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;no&#34;</span>
-<span class=k>case</span> <span class=mf>1.</span><span class=p>.&lt;</span><span class=mi>5</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;a few&#34;</span>
-<span class=k>case</span> <span class=mf>5.</span><span class=p>.&lt;</span><span class=mi>12</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;several&#34;</span>
-<span class=k>case</span> <span class=mf>12.</span><span class=p>.&lt;</span><span class=mi>100</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;dozens of&#34;</span>
-<span class=k>case</span> <span class=mf>100.</span><span class=p>.&lt;</span><span class=mi>1000</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;hundreds of&#34;</span>
-<span class=k>default</span><span class=p>:</span>
-    <span class=n>naturalCount</span> <span class=p>=</span> <span class=s>&#34;many&#34;</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>switch</span> approximateCount {
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>0</span>:
+    naturalCount = <span style=color:#e6db74>&#34;no&#34;</span>
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>1.</span>.&lt;<span style=color:#ae81ff>5</span>:
+    naturalCount = <span style=color:#e6db74>&#34;a few&#34;</span>
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>5.</span>.&lt;<span style=color:#ae81ff>12</span>:
+    naturalCount = <span style=color:#e6db74>&#34;several&#34;</span>
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>12.</span>.&lt;<span style=color:#ae81ff>100</span>:
+    naturalCount = <span style=color:#e6db74>&#34;dozens of&#34;</span>
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>100.</span>.&lt;<span style=color:#ae81ff>1000</span>:
+    naturalCount = <span style=color:#e6db74>&#34;hundreds of&#34;</span>
+<span style=color:#66d9ef>default</span>:
+    naturalCount = <span style=color:#e6db74>&#34;many&#34;</span>
+}
 
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;There are </span><span class=si>\(</span><span class=n>naturalCount</span><span class=si>)</span><span class=s> </span><span class=si>\(</span><span class=n>countedThings</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>使用元组，可以在<code>switch</code>语句的<code>case</code>条件中同时比较多个值，下划线<code>_</code>表示匹配任意值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>somePoint</span> <span class=p>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
-<span class=k>switch</span> <span class=n>somePoint</span> <span class=p>{</span>
-<span class=k>case</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>somePoint</span><span class=si>)</span><span class=s> is at the origin&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=p>(</span><span class=kc>_</span><span class=p>,</span> <span class=mi>0</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>somePoint</span><span class=si>)</span><span class=s> is on the x-axis&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=kc>_</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>somePoint</span><span class=si>)</span><span class=s> is on the y-axis&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=p>(</span><span class=o>-</span><span class=mf>2.</span><span class=p>..</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mf>2.</span><span class=p>..</span><span class=mi>2</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>somePoint</span><span class=si>)</span><span class=s> is inside the box&#34;</span><span class=p>)</span>
-<span class=k>default</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>somePoint</span><span class=si>)</span><span class=s> is outside the box&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>当条件匹配多个case语句时，只有第一个匹配的case语句会被执行，上面的例子中, <code>(0, 0)</code>是满足每个条件的，但是只有第一个case语句会执行，后面的都直接被忽略了。</p><p><code>switch</code>语句可以将匹配的<code>case</code>语句赋值到一个临时变量，方便在<code>case</code>语句的代码部分使用.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>anotherPoint</span> <span class=p>=</span> <span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>0</span><span class=p>)</span>
-<span class=k>switch</span> <span class=n>anotherPoint</span> <span class=p>{</span>
-<span class=k>case</span> <span class=p>(</span><span class=kd>let</span> <span class=nv>x</span><span class=p>,</span> <span class=mi>0</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;on the x-axis with an x value </span><span class=si>\(</span><span class=n>x</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=kd>let</span> <span class=nv>y</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;on the y-axis with an y value </span><span class=si>\(</span><span class=n>y</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=kd>let</span> <span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;somewhere else at (</span><span class=si>\(</span><span class=n>x</span><span class=si>)</span><span class=s>, </span><span class=si>\(</span><span class=n>y</span><span class=si>)</span><span class=s>)&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p><code>switch</code>语句还可以拥有<code>where</code>语句检查额外的条件。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>yetAnotherPoint</span> <span class=p>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+print(<span style=color:#e6db74>&#34;There are </span><span style=color:#e6db74>\(</span>naturalCount<span style=color:#e6db74>)</span><span style=color:#e6db74> </span><span style=color:#e6db74>\(</span>countedThings<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+</code></pre></td></tr></table></div></div><p>使用元组，可以在<code>switch</code>语句的<code>case</code>条件中同时比较多个值，下划线<code>_</code>表示匹配任意值</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> somePoint = (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>)
+<span style=color:#66d9ef>switch</span> somePoint {
+<span style=color:#66d9ef>case</span> (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>):
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>somePoint<span style=color:#e6db74>)</span><span style=color:#e6db74> is at the origin&#34;</span>)
+<span style=color:#66d9ef>case</span> (<span style=color:#66d9ef>_</span>, <span style=color:#ae81ff>0</span>):
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>somePoint<span style=color:#e6db74>)</span><span style=color:#e6db74> is on the x-axis&#34;</span>)
+<span style=color:#66d9ef>case</span> (<span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>_</span>):
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>somePoint<span style=color:#e6db74>)</span><span style=color:#e6db74> is on the y-axis&#34;</span>)
+<span style=color:#66d9ef>case</span> (<span style=color:#f92672>-</span><span style=color:#ae81ff>2.</span>..<span style=color:#ae81ff>2</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>2.</span>..<span style=color:#ae81ff>2</span>):
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>somePoint<span style=color:#e6db74>)</span><span style=color:#e6db74> is inside the box&#34;</span>)
+<span style=color:#66d9ef>default</span>:
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>somePoint<span style=color:#e6db74>)</span><span style=color:#e6db74> is outside the box&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p>当条件匹配多个case语句时，只有第一个匹配的case语句会被执行，上面的例子中, <code>(0, 0)</code>是满足每个条件的，但是只有第一个case语句会执行，后面的都直接被忽略了。</p><p><code>switch</code>语句可以将匹配的<code>case</code>语句赋值到一个临时变量，方便在<code>case</code>语句的代码部分使用.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> anotherPoint = (<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>0</span>)
+<span style=color:#66d9ef>switch</span> anotherPoint {
+<span style=color:#66d9ef>case</span> (<span style=color:#66d9ef>let</span> x, <span style=color:#ae81ff>0</span>):
+    print(<span style=color:#e6db74>&#34;on the x-axis with an x value </span><span style=color:#e6db74>\(</span>x<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+<span style=color:#66d9ef>case</span> (<span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>let</span> y):
+    print(<span style=color:#e6db74>&#34;on the y-axis with an y value </span><span style=color:#e6db74>\(</span>y<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span> (x, y):
+    print(<span style=color:#e6db74>&#34;somewhere else at (</span><span style=color:#e6db74>\(</span>x<span style=color:#e6db74>)</span><span style=color:#e6db74>, </span><span style=color:#e6db74>\(</span>y<span style=color:#e6db74>)</span><span style=color:#e6db74>)&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p><code>switch</code>语句还可以拥有<code>where</code>语句检查额外的条件。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> yetAnotherPoint = (<span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
 
-<span class=k>switch</span> <span class=n>yetAnotherPoint</span> <span class=p>{</span>
-<span class=k>case</span> <span class=kd>let</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span> <span class=k>where</span> <span class=n>x</span> <span class=p>==</span> <span class=n>y</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;(</span><span class=si>\(</span><span class=n>x</span><span class=si>)</span><span class=s>, </span><span class=si>\(</span><span class=n>y</span><span class=si>)</span><span class=s>) is on the line x=y&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=kd>let</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span> <span class=k>where</span> <span class=n>x</span> <span class=p>==</span> <span class=o>-</span><span class=n>y</span><span class=p>:</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;(</span><span class=si>\(</span><span class=n>x</span><span class=si>)</span><span class=s>, </span><span class=si>\(</span><span class=n>y</span><span class=si>)</span><span class=s>) is on the line x=-y&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=kd>let</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;(</span><span class=si>\(</span><span class=n>x</span><span class=si>)</span><span class=s>, </span><span class=si>\(</span><span class=n>y</span><span class=si>)</span><span class=s>) is just some arbitray&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>switch语句中，每个满足条件的case语句执行后，就结束了，不像有些语言必须在每个case后面跟上break语句，否则接下来的case语句同样会执行，如果想在switch中实现这种效果，可以使用fallthrough</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>integerToDescribe</span> <span class=p>=</span> <span class=mi>5</span>
-<span class=kd>var</span> <span class=nv>description</span> <span class=p>=</span> <span class=s>&#34;The number </span><span class=si>\(</span><span class=n>integerToDescribe</span><span class=si>)</span><span class=s> is&#34;</span>
-<span class=k>switch</span> <span class=n>integerToDescribe</span> <span class=p>{</span>
-<span class=k>case</span> <span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>11</span><span class=p>,</span><span class=mi>13</span><span class=p>,</span><span class=mi>17</span><span class=p>,</span><span class=mi>19</span><span class=p>:</span>
-    <span class=n>description</span> <span class=o>+=</span> <span class=s>&#34; a prime number, and also&#34;</span>
-    <span class=k>fallthrough</span>
-<span class=k>default</span><span class=p>:</span>
-    <span class=n>description</span> <span class=o>+=</span> <span class=s>&#34; an integer.&#34;</span>
-<span class=p>}</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>description</span><span class=p>)</span> <span class=c1>// The number 5 is a prime number, and also an integer.</span>
-</code></pre></td></tr></table></div></div><p><strong>PS</strong></p><p><code>fallthrough</code>不会检查后面的case语句条件是否满足，会直接执行</p><p>带标签的语句语法如下， 在循环语句前设置标签即可</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-28-swift-lable-statement.png alt="Labeled Statements"></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>outter_loop</span><span class=p>:</span> <span class=k>for</span> <span class=n>i</span> <span class=k>in</span> <span class=mf>1.</span><span class=p>..</span><span class=mi>5</span> <span class=p>{</span>
-    <span class=n>inner_loop</span><span class=p>:</span> <span class=k>for</span> <span class=n>j</span> <span class=k>in</span> <span class=mf>6.</span><span class=p>..</span><span class=mi>10</span> <span class=p>{</span>
-        <span class=k>if</span> <span class=n>i</span> <span class=p>==</span> <span class=mi>2</span> <span class=o>&amp;&amp;</span> <span class=n>j</span> <span class=p>==</span> <span class=mi>6</span> <span class=p>{</span>
-            <span class=k>continue</span> <span class=n>outter_loop</span>
-        <span class=p>}</span>
-        <span class=k>else</span> <span class=k>if</span> <span class=n>i</span> <span class=p>==</span> <span class=mi>3</span> <span class=o>&amp;&amp;</span> <span class=n>j</span> <span class=p>==</span> <span class=mi>7</span> <span class=p>{</span>
-                <span class=k>break</span> <span class=n>outter_loop</span>
-            <span class=p>}</span>
-        <span class=k>else</span><span class=p>{</span>
-            <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>i</span><span class=si>)</span><span class=s>, </span><span class=si>\(</span><span class=n>j</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-<span class=c1>// 输出</span>
-<span class=c1>// 1, 6</span>
-<span class=c1>// 1, 7</span>
-<span class=c1>// 1, 8</span>
-<span class=c1>// 1, 9</span>
-<span class=c1>// 1, 10</span>
-<span class=c1>// 3, 6</span>
-</code></pre></td></tr></table></div></div><h3 id=guard>guard</h3><p><code>guard</code>语句和<code>if</code>语句类型，根据条件的真假执行语句，与<code>if</code>不同的是，<code>guard</code>后必须跟<code>else</code>条件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>greet</span><span class=p>(</span><span class=n>person</span><span class=p>:</span> <span class=p>[</span><span class=nb>String</span><span class=p>:</span> <span class=nb>String</span><span class=p>])</span> <span class=p>{</span>
-    <span class=k>guard</span> <span class=kd>let</span> <span class=nv>name</span> <span class=p>=</span> <span class=n>person</span><span class=p>[</span><span class=s>&#34;name&#34;</span><span class=p>]</span> <span class=k>else</span> <span class=p>{</span>
-        <span class=k>return</span>
-    <span class=p>}</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Hello </span><span class=si>\(</span><span class=n>name</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
+<span style=color:#66d9ef>switch</span> yetAnotherPoint {
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span>(x, y) <span style=color:#66d9ef>where</span> x == y:
+    print(<span style=color:#e6db74>&#34;(</span><span style=color:#e6db74>\(</span>x<span style=color:#e6db74>)</span><span style=color:#e6db74>, </span><span style=color:#e6db74>\(</span>y<span style=color:#e6db74>)</span><span style=color:#e6db74>) is on the line x=y&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span>(x, y) <span style=color:#66d9ef>where</span> x == <span style=color:#f92672>-</span>y:
+    print(<span style=color:#e6db74>&#34;(</span><span style=color:#e6db74>\(</span>x<span style=color:#e6db74>)</span><span style=color:#e6db74>, </span><span style=color:#e6db74>\(</span>y<span style=color:#e6db74>)</span><span style=color:#e6db74>) is on the line x=-y&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span>(x, y):
+    print(<span style=color:#e6db74>&#34;(</span><span style=color:#e6db74>\(</span>x<span style=color:#e6db74>)</span><span style=color:#e6db74>, </span><span style=color:#e6db74>\(</span>y<span style=color:#e6db74>)</span><span style=color:#e6db74>) is just some arbitray&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p>switch语句中，每个满足条件的case语句执行后，就结束了，不像有些语言必须在每个case后面跟上break语句，否则接下来的case语句同样会执行，如果想在switch中实现这种效果，可以使用fallthrough</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> integerToDescribe = <span style=color:#ae81ff>5</span>
+<span style=color:#66d9ef>var</span> description = <span style=color:#e6db74>&#34;The number </span><span style=color:#e6db74>\(</span>integerToDescribe<span style=color:#e6db74>)</span><span style=color:#e6db74> is&#34;</span>
+<span style=color:#66d9ef>switch</span> integerToDescribe {
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>11</span>,<span style=color:#ae81ff>13</span>,<span style=color:#ae81ff>17</span>,<span style=color:#ae81ff>19</span>:
+    description <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; a prime number, and also&#34;</span>
+    <span style=color:#66d9ef>fallthrough</span>
+<span style=color:#66d9ef>default</span>:
+    description <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; an integer.&#34;</span>
+}
+print(description) <span style=color:#75715e>// The number 5 is a prime number, and also an integer.</span>
+</code></pre></td></tr></table></div></div><p><strong>PS</strong></p><p><code>fallthrough</code>不会检查后面的case语句条件是否满足，会直接执行</p><p>带标签的语句语法如下， 在循环语句前设置标签即可</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-28-swift-lable-statement.png alt="Labeled Statements"></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>outter_loop: <span style=color:#66d9ef>for</span> i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>..<span style=color:#ae81ff>5</span> {
+    inner_loop: <span style=color:#66d9ef>for</span> j <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>6.</span>..<span style=color:#ae81ff>10</span> {
+        <span style=color:#66d9ef>if</span> i == <span style=color:#ae81ff>2</span> <span style=color:#f92672>&amp;&amp;</span> j == <span style=color:#ae81ff>6</span> {
+            <span style=color:#66d9ef>continue</span> outter_loop
+        }
+        <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> i == <span style=color:#ae81ff>3</span> <span style=color:#f92672>&amp;&amp;</span> j == <span style=color:#ae81ff>7</span> {
+                <span style=color:#66d9ef>break</span> outter_loop
+            }
+        <span style=color:#66d9ef>else</span>{
+            print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>i<span style=color:#e6db74>)</span><span style=color:#e6db74>, </span><span style=color:#e6db74>\(</span>j<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+        }
+    }
+}
+<span style=color:#75715e>// 输出</span>
+<span style=color:#75715e>// 1, 6</span>
+<span style=color:#75715e>// 1, 7</span>
+<span style=color:#75715e>// 1, 8</span>
+<span style=color:#75715e>// 1, 9</span>
+<span style=color:#75715e>// 1, 10</span>
+<span style=color:#75715e>// 3, 6</span>
+</code></pre></td></tr></table></div></div><h3 id=guard>guard</h3><p><code>guard</code>语句和<code>if</code>语句类型，根据条件的真假执行语句，与<code>if</code>不同的是，<code>guard</code>后必须跟<code>else</code>条件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>greet</span>(person: [String: String]) {
+    <span style=color:#66d9ef>guard</span> <span style=color:#66d9ef>let</span> name = person[<span style=color:#e6db74>&#34;name&#34;</span>] <span style=color:#66d9ef>else</span> {
+        <span style=color:#66d9ef>return</span>
+    }
+    print(<span style=color:#e6db74>&#34;Hello </span><span style=color:#e6db74>\(</span>name<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
 
-    <span class=k>guard</span> <span class=kd>let</span> <span class=nv>location</span> <span class=p>=</span> <span class=n>person</span><span class=p>[</span><span class=s>&#34;location&#34;</span><span class=p>]</span> <span class=k>else</span> <span class=p>{</span>
-        <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I hope the weather is nice near you.&#34;</span><span class=p>)</span>
-        <span class=k>return</span>
-<span class=p>}</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I hope the weather is nice in </span><span class=si>\(</span><span class=n>location</span><span class=si>)</span><span class=s>.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>guard</span> <span style=color:#66d9ef>let</span> location = person[<span style=color:#e6db74>&#34;location&#34;</span>] <span style=color:#66d9ef>else</span> {
+        print(<span style=color:#e6db74>&#34;I hope the weather is nice near you.&#34;</span>)
+        <span style=color:#66d9ef>return</span>
+}
+    print(<span style=color:#e6db74>&#34;I hope the weather is nice in </span><span style=color:#e6db74>\(</span>location<span style=color:#e6db74>)</span><span style=color:#e6db74>.&#34;</span>)
+}
 
-<span class=n>greet</span><span class=p>(</span><span class=n>person</span><span class=p>:</span> <span class=p>[</span><span class=s>&#34;name&#34;</span><span class=p>:</span> <span class=s>&#34;John&#34;</span><span class=p>])</span>
-<span class=c1>//Hello John</span>
-<span class=c1>//I hope the weather is nice near you.</span>
+greet(person: [<span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;John&#34;</span>])
+<span style=color:#75715e>//Hello John</span>
+<span style=color:#75715e>//I hope the weather is nice near you.</span>
 
-<span class=n>greet</span><span class=p>(</span><span class=n>person</span><span class=p>:</span> <span class=p>[</span><span class=s>&#34;name&#34;</span><span class=p>:</span> <span class=s>&#34;Jane&#34;</span><span class=p>,</span> <span class=s>&#34;location&#34;</span><span class=p>:</span> <span class=s>&#34;Cupertino&#34;</span><span class=p>])</span>
-<span class=c1>//Hello Jane</span>
-<span class=c1>//I hope the weather is nice in Cupertino.</span>
+greet(person: [<span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Jane&#34;</span>, <span style=color:#e6db74>&#34;location&#34;</span>: <span style=color:#e6db74>&#34;Cupertino&#34;</span>])
+<span style=color:#75715e>//Hello Jane</span>
+<span style=color:#75715e>//I hope the weather is nice in Cupertino.</span>
 
-</code></pre></td></tr></table></div></div><h2 id=函数>函数</h2><p>swift中，函数既可以作为函数的参数，也可以作为返回值存在，函数也可以嵌套函数</p><h3 id=默认参数>默认参数</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>someFunction</span><span class=p>(</span><span class=n>parameterWithoutDefault</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=n>parameterWithDefault</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mi>12</span><span class=p>)</span> <span class=p>{</span>
-    <span class=c1>// If you omit the second argument when calling this function, then</span>
-    <span class=c1>// the value of parameterWithDefault is 12 inside the function body.</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=不定参数>不定参数</h3><p>在参数类型后面跟<code>...</code>表示这个参数是不定的，它可以结束0个或者多个参数， 一个函数最多一个不定参数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>arithmeticMean</span><span class=p>(</span><span class=kc>_</span> <span class=n>numbers</span><span class=p>:</span> <span class=nb>Double</span><span class=p>...)</span> <span class=p>-&gt;</span> <span class=nb>Double</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>total</span><span class=p>:</span> <span class=nb>Double</span> <span class=p>=</span> <span class=mi>0</span>
-    <span class=k>for</span> <span class=n>number</span> <span class=k>in</span> <span class=n>numbers</span> <span class=p>{</span>
-        <span class=n>total</span> <span class=o>+=</span> <span class=n>number</span>
-    <span class=p>}</span>
-    <span class=k>return</span> <span class=n>total</span> <span class=o>/</span> <span class=nb>Double</span><span class=p>(</span><span class=n>numbers</span><span class=p>.</span><span class=bp>count</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=n>arithmeticMean</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>)</span>
-<span class=c1>// returns 3.0, which is the arithmetic mean of these five numbers</span>
-<span class=n>arithmeticMean</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mf>8.25</span><span class=p>,</span> <span class=mf>18.75</span><span class=p>)</span>
-<span class=c1>// returns 10.0, which is the arithmetic mean of these three numbers</span>
-</code></pre></td></tr></table></div></div><h3 id=输入输出参数in-out参数>输入输出参数(In-Out参数)</h3><p>默认情况下，函数的参数都是常量类型，当尝试从函数体内修改参数时，都会报编译错误。如果想修改参数的值，就必须使用In-Out参数，通过在参数名前使用关键字<code>inout</code>。我们只能使用变量作为in-out参数，不能使用常量作为参数，因为常量是不能被修改的。在参数去使用<code>&</code>符号，当传递in-out参数时，in-out参数不能有默认值，可变参数不能被标记为in-out参数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>someInt</span> <span class=p>=</span> <span class=mi>3</span>
-<span class=kd>var</span> <span class=nv>anotherInt</span> <span class=p>=</span> <span class=mi>107</span>
-
-
-<span class=kd>func</span> <span class=nf>tesetSwapTwoInts</span><span class=p>(</span><span class=kc>_</span> <span class=n>a</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>b</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>temporaryA</span> <span class=p>=</span> <span class=n>a</span>
-    <span class=n>a</span> <span class=p>=</span> <span class=n>b</span>
-    <span class=n>b</span> <span class=p>=</span> <span class=n>temporaryA</span>
-<span class=p>}</span>
-<span class=n>swapTwoInts</span><span class=p>(</span><span class=n>someInt</span><span class=p>,</span> <span class=n>anotherInt</span><span class=p>)</span> <span class=c1>// 会报编译错误</span>
+</code></pre></td></tr></table></div></div><h2 id=函数>函数</h2><p>swift中，函数既可以作为函数的参数，也可以作为返回值存在，函数也可以嵌套函数</p><h3 id=默认参数>默认参数</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>someFunction</span>(parameterWithoutDefault: Int, parameterWithDefault: Int = <span style=color:#ae81ff>12</span>) {
+    <span style=color:#75715e>// If you omit the second argument when calling this function, then</span>
+    <span style=color:#75715e>// the value of parameterWithDefault is 12 inside the function body.</span>
+}
+</code></pre></td></tr></table></div></div><h3 id=不定参数>不定参数</h3><p>在参数类型后面跟<code>...</code>表示这个参数是不定的，它可以结束0个或者多个参数， 一个函数最多一个不定参数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>arithmeticMean</span>(<span style=color:#66d9ef>_</span> numbers: Double...) -&gt; Double {
+    <span style=color:#66d9ef>var</span> total: Double = <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>for</span> number <span style=color:#66d9ef>in</span> numbers {
+        total <span style=color:#f92672>+=</span> number
+    }
+    <span style=color:#66d9ef>return</span> total <span style=color:#f92672>/</span> Double(numbers.count)
+}
+arithmeticMean(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>)
+<span style=color:#75715e>// returns 3.0, which is the arithmetic mean of these five numbers</span>
+arithmeticMean(<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>8.25</span>, <span style=color:#ae81ff>18.75</span>)
+<span style=color:#75715e>// returns 10.0, which is the arithmetic mean of these three numbers</span>
+</code></pre></td></tr></table></div></div><h3 id=输入输出参数in-out参数>输入输出参数(In-Out参数)</h3><p>默认情况下，函数的参数都是常量类型，当尝试从函数体内修改参数时，都会报编译错误。如果想修改参数的值，就必须使用In-Out参数，通过在参数名前使用关键字<code>inout</code>。我们只能使用变量作为in-out参数，不能使用常量作为参数，因为常量是不能被修改的。在参数去使用<code>&</code>符号，当传递in-out参数时，in-out参数不能有默认值，可变参数不能被标记为in-out参数。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> someInt = <span style=color:#ae81ff>3</span>
+<span style=color:#66d9ef>var</span> anotherInt = <span style=color:#ae81ff>107</span>
 
 
-<span class=kd>func</span> <span class=nf>swapTwoInts</span><span class=p>(</span><span class=kc>_</span> <span class=n>a</span><span class=p>:</span> <span class=kr>inout</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>b</span><span class=p>:</span> <span class=kr>inout</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>temporaryA</span> <span class=p>=</span> <span class=n>a</span>
-    <span class=n>a</span> <span class=p>=</span> <span class=n>b</span>
-    <span class=n>b</span> <span class=p>=</span> <span class=n>temporaryA</span>
-<span class=p>}</span>
-
-<span class=n>swapTwoInts</span><span class=p>(&amp;</span><span class=n>someInt</span><span class=p>,</span> <span class=p>&amp;</span><span class=n>anotherInt</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;someInt is now </span><span class=si>\(</span><span class=n>someInt</span><span class=si>)</span><span class=s>, and another is now </span><span class=si>\(</span><span class=n>anotherInt</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-
-<span class=c1>// someInt is now 107, and another is now 3</span>
-</code></pre></td></tr></table></div></div><h3 id=函数类型>函数类型</h3><p>每个函数都有函数类型，它是由函数参数类型和函数返回值类型构成的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>addTwoInts</span><span class=p>(</span><span class=kc>_</span> <span class=n>a</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>b</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>a</span> <span class=o>+</span> <span class=n>b</span>
-<span class=p>}</span>
-
-<span class=kd>func</span> <span class=nf>multiplyTwoInts</span><span class=p>(</span><span class=kc>_</span> <span class=n>a</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>b</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>a</span> <span class=o>*</span> <span class=n>b</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>上面两个函数类型都是<code>(Int, Int) -> Int</code></p><p>没有参数和返回值的函数类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>printHelloWorld</span><span class=p>()</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;hello, world&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>上面的函数类型是<code>() -> Void</code></p><h3 id=使用函数类型>使用函数类型</h3><ol><li><p>我们可以像使用普通类型的变量一样使用函数类型。例如，将一个函数赋值为变量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>mathFunction</span><span class=p>:</span> <span class=p>(</span><span class=nb>Int</span><span class=p>,</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>=</span> <span class=n>addTwoInts</span>
-</code></pre></td></tr></table></div></div></li><li><p>将函数作为参数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>printMathResult</span><span class=p>(</span><span class=kc>_</span> <span class=n>mathFunction</span><span class=p>:</span> <span class=p>(</span><span class=nb>Int</span><span class=p>,</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>a</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=kc>_</span> <span class=n>b</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Result: </span><span class=si>\(</span><span class=n>mathFunction</span><span class=si>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=si>))</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=n>printMathResult</span><span class=p>(</span><span class=n>addTwoInts</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div></li><li><p>将函数作为返回值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>stepForward</span><span class=p>(</span><span class=kc>_</span> <span class=n>input</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>input</span> <span class=o>+</span> <span class=mi>1</span>
-<span class=p>}</span>
-
-<span class=kd>func</span> <span class=nf>stepBackward</span><span class=p>(</span><span class=kc>_</span> <span class=n>input</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>input</span> <span class=o>-</span> <span class=mi>1</span>
-<span class=p>}</span>
-
-<span class=kd>func</span> <span class=nf>chooseStepFunction</span><span class=p>(</span><span class=n>backward</span><span class=p>:</span> <span class=nb>Bool</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=p>(</span><span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>backward</span> <span class=p>?</span> <span class=n>stepBackward</span> <span class=p>:</span> <span class=n>stepForward</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>tesetSwapTwoInts</span>(<span style=color:#66d9ef>_</span> a: Int, <span style=color:#66d9ef>_</span> b: Int) {
+    <span style=color:#66d9ef>let</span> temporaryA = a
+    a = b
+    b = temporaryA
+}
+swapTwoInts(someInt, anotherInt) <span style=color:#75715e>// 会报编译错误</span>
 
 
-<span class=kd>var</span> <span class=nv>currentValue</span> <span class=p>=</span> <span class=mi>3</span>
-<span class=kd>let</span> <span class=nv>moveNearerToZero</span> <span class=p>=</span> <span class=n>chooseStepFunction</span><span class=p>(</span><span class=n>backward</span><span class=p>:</span> <span class=n>currentValue</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>swapTwoInts</span>(<span style=color:#66d9ef>_</span> a: <span style=color:#66d9ef>inout</span> Int, <span style=color:#66d9ef>_</span> b: <span style=color:#66d9ef>inout</span> Int) {
+    <span style=color:#66d9ef>let</span> temporaryA = a
+    a = b
+    b = temporaryA
+}
 
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;Counting to zero:&#34;</span><span class=p>)</span>
-<span class=c1>// Counting to zero:</span>
-<span class=k>while</span> <span class=n>currentValue</span> <span class=o>!=</span> <span class=mi>0</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>currentValue</span><span class=si>)</span><span class=s>... &#34;</span><span class=p>)</span>
-    <span class=n>currentValue</span> <span class=p>=</span> <span class=n>moveNearerToZero</span><span class=p>(</span><span class=n>currentValue</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;zero!&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div></li></ol><h3 id=函数嵌套>函数嵌套</h3><p>一个函数可以包含另一个函数的定义，或者将嵌套的函数作为返回值返回</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>chooseStepFunction</span><span class=p>(</span><span class=n>backward</span><span class=p>:</span> <span class=nb>Bool</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=p>(</span><span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=kd>func</span> <span class=nf>stepForward</span><span class=p>(</span><span class=kc>_</span> <span class=n>input</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=n>input</span> <span class=o>+</span> <span class=mi>1</span>
-    <span class=p>}</span>
+swapTwoInts(&amp;someInt, &amp;anotherInt)
+print(<span style=color:#e6db74>&#34;someInt is now </span><span style=color:#e6db74>\(</span>someInt<span style=color:#e6db74>)</span><span style=color:#e6db74>, and another is now </span><span style=color:#e6db74>\(</span>anotherInt<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
 
-    <span class=kd>func</span> <span class=nf>stepBackward</span><span class=p>(</span><span class=kc>_</span> <span class=n>input</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Int</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=n>input</span> <span class=o>-</span> <span class=mi>1</span>
-    <span class=p>}</span>
+<span style=color:#75715e>// someInt is now 107, and another is now 3</span>
+</code></pre></td></tr></table></div></div><h3 id=函数类型>函数类型</h3><p>每个函数都有函数类型，它是由函数参数类型和函数返回值类型构成的</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>addTwoInts</span>(<span style=color:#66d9ef>_</span> a: Int, <span style=color:#66d9ef>_</span> b: Int) -&gt; Int {
+    <span style=color:#66d9ef>return</span> a <span style=color:#f92672>+</span> b
+}
 
-    <span class=k>return</span> <span class=n>backward</span> <span class=p>?</span> <span class=n>stepBackward</span> <span class=p>:</span> <span class=n>stepForward</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>multiplyTwoInts</span>(<span style=color:#66d9ef>_</span> a: Int, <span style=color:#66d9ef>_</span> b: Int) -&gt; Int {
+    <span style=color:#66d9ef>return</span> a <span style=color:#f92672>*</span> b
+}
+</code></pre></td></tr></table></div></div><p>上面两个函数类型都是<code>(Int, Int) -> Int</code></p><p>没有参数和返回值的函数类型</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>printHelloWorld</span>() {
+    print(<span style=color:#e6db74>&#34;hello, world&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p>上面的函数类型是<code>() -> Void</code></p><h3 id=使用函数类型>使用函数类型</h3><ol><li><p>我们可以像使用普通类型的变量一样使用函数类型。例如，将一个函数赋值为变量</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> mathFunction: (Int, Int) -&gt; Int = addTwoInts
+</code></pre></td></tr></table></div></div></li><li><p>将函数作为参数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>printMathResult</span>(<span style=color:#66d9ef>_</span> mathFunction: (Int, Int) -&gt; Int, <span style=color:#66d9ef>_</span> a: Int, <span style=color:#66d9ef>_</span> b: Int) {
+    print(<span style=color:#e6db74>&#34;Result: </span><span style=color:#e6db74>\(</span>mathFunction<span style=color:#e6db74>(</span>a, b<span style=color:#e6db74>))</span><span style=color:#e6db74>&#34;</span>)
+}
+printMathResult(addTwoInts, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>5</span>)
+</code></pre></td></tr></table></div></div></li><li><p>将函数作为返回值</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>stepForward</span>(<span style=color:#66d9ef>_</span> input: Int) -&gt; Int {
+    <span style=color:#66d9ef>return</span> input <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+}
 
-<span class=kd>var</span> <span class=nv>currentValue</span> <span class=p>=</span> <span class=o>-</span><span class=mi>4</span>
-<span class=kd>let</span> <span class=nv>moveNearerToZero</span> <span class=p>=</span> <span class=n>chooseStepFunction</span><span class=p>(</span><span class=n>backward</span><span class=p>:</span> <span class=n>currentValue</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>stepBackward</span>(<span style=color:#66d9ef>_</span> input: Int) -&gt; Int {
+    <span style=color:#66d9ef>return</span> input <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+}
 
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;Counting to zero:&#34;</span><span class=p>)</span>
-<span class=c1>// Counting to zero:</span>
-<span class=k>while</span> <span class=n>currentValue</span> <span class=o>!=</span> <span class=mi>0</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>currentValue</span><span class=si>)</span><span class=s>... &#34;</span><span class=p>)</span>
-    <span class=n>currentValue</span> <span class=p>=</span> <span class=n>moveNearerToZero</span><span class=p>(</span><span class=n>currentValue</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;zero!&#34;</span><span class=p>)</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>chooseStepFunction</span>(backward: Bool) -&gt; (Int) -&gt; Int {
+    <span style=color:#66d9ef>return</span> backward ? stepBackward : stepForward
+}
+
+
+<span style=color:#66d9ef>var</span> currentValue = <span style=color:#ae81ff>3</span>
+<span style=color:#66d9ef>let</span> moveNearerToZero = chooseStepFunction(backward: currentValue <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>)
+
+print(<span style=color:#e6db74>&#34;Counting to zero:&#34;</span>)
+<span style=color:#75715e>// Counting to zero:</span>
+<span style=color:#66d9ef>while</span> currentValue <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> {
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>currentValue<span style=color:#e6db74>)</span><span style=color:#e6db74>... &#34;</span>)
+    currentValue = moveNearerToZero(currentValue)
+}
+print(<span style=color:#e6db74>&#34;zero!&#34;</span>)
+</code></pre></td></tr></table></div></div></li></ol><h3 id=函数嵌套>函数嵌套</h3><p>一个函数可以包含另一个函数的定义，或者将嵌套的函数作为返回值返回</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>chooseStepFunction</span>(backward: Bool) -&gt; (Int) -&gt; Int {
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>stepForward</span>(<span style=color:#66d9ef>_</span> input: Int) -&gt; Int {
+        <span style=color:#66d9ef>return</span> input <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+    }
+
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>stepBackward</span>(<span style=color:#66d9ef>_</span> input: Int) -&gt; Int {
+        <span style=color:#66d9ef>return</span> input <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+    }
+
+    <span style=color:#66d9ef>return</span> backward ? stepBackward : stepForward
+}
+
+<span style=color:#66d9ef>var</span> currentValue = <span style=color:#f92672>-</span><span style=color:#ae81ff>4</span>
+<span style=color:#66d9ef>let</span> moveNearerToZero = chooseStepFunction(backward: currentValue <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>)
+
+print(<span style=color:#e6db74>&#34;Counting to zero:&#34;</span>)
+<span style=color:#75715e>// Counting to zero:</span>
+<span style=color:#66d9ef>while</span> currentValue <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> {
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>currentValue<span style=color:#e6db74>)</span><span style=color:#e6db74>... &#34;</span>)
+    currentValue = moveNearerToZero(currentValue)
+}
+print(<span style=color:#e6db74>&#34;zero!&#34;</span>)
 </code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2019-01-07</span></p><p class=copyright-item><span class=item-title>许可协议</span>
@@ -513,4 +513,4 @@
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

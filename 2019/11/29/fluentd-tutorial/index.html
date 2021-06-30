@@ -1,91 +1,91 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>fluentd教程(含实例) - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="fluentd教程，含使用实例，开箱即用
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="fluentd教程(含实例)"><meta property="og:description" content="fluentd教程，含使用实例，开箱即用
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="fluentd教程(含实例)"><meta property="og:description" content="fluentd教程，含使用实例，开箱即用
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2019/11/29/fluentd-tutorial/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-11-29T15:29:29+08:00"><meta property="article:modified_time" content="2019-11-29T15:29:29+08:00"><meta itemprop=name content="fluentd教程(含实例)"><meta itemprop=description content="fluentd教程，含使用实例，开箱即用
-"><meta itemprop=datePublished content="2019-11-29T15:29:29+08:00"><meta itemprop=dateModified content="2019-11-29T15:29:29+08:00"><meta itemprop=wordCount content="7472"><meta itemprop=keywords content="fluentd,docker,elasticsearch,kamba,log,"><meta name=twitter:card content="summary"><meta name=twitter:title content="fluentd教程(含实例)"><meta name=twitter:description content="fluentd教程，含使用实例，开箱即用
+"><meta itemprop=datePublished content="2019-11-29T15:29:29+08:00"><meta itemprop=dateModified content="2019-11-29T15:29:29+08:00"><meta itemprop=wordCount content="7556"><meta itemprop=keywords content="fluentd,docker,elasticsearch,kamba,log,"><meta name=twitter:card content="summary"><meta name=twitter:title content="fluentd教程(含实例)"><meta name=twitter:description content="fluentd教程，含使用实例，开箱即用
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>fluentd教程(含实例)</h1><div class=post-meta><time datetime=2019-11-29 class=post-time>2019-11-29</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/devops/>DevOps</a></div><span class=more-meta>约 7472 字</span>
-<span class=more-meta>预计阅读 15 分钟</span>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>fluentd教程(含实例)</h1><div class=post-meta><time datetime=2019-11-29 class=post-time>2019-11-29</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/devops/>DevOps</a></div><span class=more-meta>约 7556 字</span>
+<span class=more-meta>预计阅读 16 分钟</span>
 <span id=/2019/11/29/fluentd-tutorial/ class=leancloud_visitors data-flag-title=fluentd教程(含实例)><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#安装>安装</a><ul><li><a href=#准备配置文件>准备配置文件</a></li><li><a href=#启动容器>启动容器</a></li><li><a href=#测试>测试</a></li></ul></li><li><a href=#fluentd事件的生命周期>Fluentd事件的生命周期</a><ul><li><a href=#什么是事件event>什么是事件(Event)</a></li><li><a href=#事件结构>事件结构</a></li><li><a href=#事件的处理流程>事件的处理流程</a></li></ul></li><li><a href=#配置文件语法>配置文件语法</a><ul><li><a href=#配置文件中的术语>配置文件中的术语</a></li><li><a href=#配置文件的模式匹配patterns>配置文件的模式匹配(patterns)</a></li><li><a href=#常见的配置文件示例>常见的配置文件示例</a></li><li><a href=#配置文件中的参数类型>配置文件中的参数类型</a></li><li><a href=#常见的参数>常见的参数</a></li><li><a href=#模块section支持>模块(section)支持</a></li><li><a href=#检查配置文件的格式>检查配置文件的格式</a></li></ul></li><li><a href=#使用fluentd收集docker容器的日志>使用Fluentd收集docker容器的日志</a><ul><li><a href=#docker容器日志格式>docker容器日志格式</a></li><li><a href=#收集docker容器的日志示例>收集Docker容器的日志示例</a></li><li><a href=#在docker-compose中使用示例>在docker-compose中使用示例</a></li></ul></li><li><a href=#更多>更多</a></li></ul></nav></div></div><div class=post-content><p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1574818088.png alt=fluentd日志架构></p><h2 id=安装>安装</h2><p>不同操作系统的安装方式不同，具体可以参考:</p><p><a href=https://docs.fluentd.org/installation>官方文档: Installation</a></p><p>另外在生产环境中安装Fluentd之前，也需要对操作系统做一些配置，如:</p><ul><li>设置好NTP时间同步</li><li>调整允许操作的文件符最大个数</li><li>优化内核中与网络相关的参数等</li></ul><p>具体配置可以参考:</p><p><a href=https://docs.fluentd.org/installation/before-install>官方文档: Before Installation</a></p><p>本文为了便于快速测试，直接使用fluentd的docker镜像来启动fluentd服务。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 下载fluentd镜像</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#安装>安装</a><ul><li><a href=#准备配置文件>准备配置文件</a></li><li><a href=#启动容器>启动容器</a></li><li><a href=#测试>测试</a></li></ul></li><li><a href=#fluentd事件的生命周期>Fluentd事件的生命周期</a><ul><li><a href=#什么是事件event>什么是事件(Event)</a></li><li><a href=#事件结构>事件结构</a></li><li><a href=#事件的处理流程>事件的处理流程</a></li></ul></li><li><a href=#配置文件语法>配置文件语法</a><ul><li><a href=#配置文件中的术语>配置文件中的术语</a></li><li><a href=#配置文件的模式匹配patterns>配置文件的模式匹配(patterns)</a></li><li><a href=#常见的配置文件示例>常见的配置文件示例</a></li><li><a href=#配置文件中的参数类型>配置文件中的参数类型</a></li><li><a href=#常见的参数>常见的参数</a></li><li><a href=#模块section支持>模块(section)支持</a></li><li><a href=#检查配置文件的格式>检查配置文件的格式</a></li></ul></li><li><a href=#使用fluentd收集docker容器的日志>使用Fluentd收集docker容器的日志</a><ul><li><a href=#docker容器日志格式>docker容器日志格式</a></li><li><a href=#收集docker容器的日志示例>收集Docker容器的日志示例</a></li><li><a href=#在docker-compose中使用示例>在docker-compose中使用示例</a></li></ul></li><li><a href=#更多>更多</a></li></ul></nav></div></div><div class=post-content><p>fluentd是一个开源的日志收集系统，能够收集各式各样的日志, 并将日志转换成方便机器处理的json格式。</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1574818088.png alt=fluentd日志架构></p><h2 id=安装>安装</h2><p>不同操作系统的安装方式不同，具体可以参考:</p><p><a href=https://docs.fluentd.org/installation>官方文档: Installation</a></p><p>另外在生产环境中安装Fluentd之前，也需要对操作系统做一些配置，如:</p><ul><li>设置好NTP时间同步</li><li>调整允许操作的文件符最大个数</li><li>优化内核中与网络相关的参数等</li></ul><p>具体配置可以参考:</p><p><a href=https://docs.fluentd.org/installation/before-install>官方文档: Before Installation</a></p><p>本文为了便于快速测试，直接使用fluentd的docker镜像来启动fluentd服务。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 下载fluentd镜像</span>
 $ docker pull fluent/fluentd:v1.7-1
-</code></pre></td></tr></table></div></div><h3 id=准备配置文件>准备配置文件</h3><p>首先创建一些简单的文件方便测试。本文所有使用到的配置文件都已经上传到github,可以直接下载使用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ git clone https://github.com/crazygit/fluentd_demo
-</code></pre></td></tr></table></div></div><p>当然也可以自己动手完成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ mkdir fluentd_demo
+</code></pre></td></tr></table></div></div><h3 id=准备配置文件>准备配置文件</h3><p>首先创建一些简单的文件方便测试。本文所有使用到的配置文件都已经上传到github,可以直接下载使用</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/crazygit/fluentd_demo
+</code></pre></td></tr></table></div></div><p>当然也可以自己动手完成</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mkdir fluentd_demo
 
-<span class=c1># 注意: 本文后续所有命令都在fluentd_demo目录下执行</span>
-$ <span class=nb>cd</span> fluentd_demo
+<span style=color:#75715e># 注意: 本文后续所有命令都在fluentd_demo目录下执行</span>
+$ cd fluentd_demo
 
-<span class=c1># 创建用于保存fluentd的配置文件的etc目录和保存日志文件的log目录</span>
+<span style=color:#75715e># 创建用于保存fluentd的配置文件的etc目录和保存日志文件的log目录</span>
 $ mkdir -p etc log
 
-<span class=c1># 再创建一个简单的配置文件</span>
+<span style=color:#75715e># 再创建一个简单的配置文件</span>
 $ cat etc/fluentd_basic_setup.conf
 
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type http
-  port <span class=m>8888</span>
-  <span class=nb>bind</span> 0.0.0.0
+  port <span style=color:#ae81ff>8888</span>
+  bind 0.0.0.0
 &lt;/source&gt;
 &lt;match test.cycle&gt;
   @type stdout
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>配置文件解释:</p><ul><li><p><code>source</code>部分使用了<code>http</code>输入插件，在<code>8888</code>端口启动一个web服务用于收集日志</p></li><li><p><code>match</code>部分定义只要日志匹配<code>test.cycle</code>标签，就将日志输出到标准输出</p></li></ul><p>目前不用太关心配置文件的格式，后面会有详细的介绍。</p><p>创建好的目录结构如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ tree
+</code></pre></td></tr></table></div></div><p>配置文件解释:</p><ul><li><p><code>source</code>部分使用了<code>http</code>输入插件，在<code>8888</code>端口启动一个web服务用于收集日志</p></li><li><p><code>match</code>部分定义只要日志匹配<code>test.cycle</code>标签，就将日志输出到标准输出</p></li></ul><p>目前不用太关心配置文件的格式，后面会有详细的介绍。</p><p>创建好的目录结构如下:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ tree
 .
 ├── etc
 │   └── fluentd_basic_setup.conf
 └── log
-</code></pre></td></tr></table></div></div><h3 id=启动容器>启动容器</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_basic_setup.conf -v
-</code></pre></td></tr></table></div></div><p>命令参数解释如下:</p><ul><li><code>-p</code>参数映射容器的<code>8888</code>端口到宿主机的<code>8888</code>端口，方便我们直接从宿主机直接访问容器</li><li>第一个<code>-v</code>参数用于挂载本地的<code>etc</code>目录到容器内的<code>etc</code>目录，让容器能够使用本地的配置文件</li><li>第二个<code>-v</code>参数用于挂载本地的<code>log</code>目录到容器内的<code>log</code>目录，便于保存输出的日志文件</li><li><code>-c</code>参数用于设置容器内的<code>fluentd</code>时候启动的使用<code>/fluentd/etc/fluentd_basic_setup.conf</code>配置文件</li><li>最后一个参数<code>-v</code>用于设置容器内的<code>fluentd</code>时候启动的开启<code>verbose</code>模式，便于调试发现问题。</li></ul><p>正常启动后，能看到如下输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>fluentd -c /fluentd/etc/fluentd_basic_setup.conf -v
+</code></pre></td></tr></table></div></div><h3 id=启动容器>启动容器</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_basic_setup.conf -v
+</code></pre></td></tr></table></div></div><p>命令参数解释如下:</p><ul><li><code>-p</code>参数映射容器的<code>8888</code>端口到宿主机的<code>8888</code>端口，方便我们直接从宿主机直接访问容器</li><li>第一个<code>-v</code>参数用于挂载本地的<code>etc</code>目录到容器内的<code>etc</code>目录，让容器能够使用本地的配置文件</li><li>第二个<code>-v</code>参数用于挂载本地的<code>log</code>目录到容器内的<code>log</code>目录，便于保存输出的日志文件</li><li><code>-c</code>参数用于设置容器内的<code>fluentd</code>时候启动的使用<code>/fluentd/etc/fluentd_basic_setup.conf</code>配置文件</li><li>最后一个参数<code>-v</code>用于设置容器内的<code>fluentd</code>时候启动的开启<code>verbose</code>模式，便于调试发现问题。</li></ul><p>正常启动后，能看到如下输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>fluentd -c /fluentd/etc/fluentd_basic_setup.conf -v
 2019-11-27 02:03:22 +0000 [info]: fluent/log.rb:322:info: parsing config file is succeeded path=&#34;/fluentd/etc/fluentd_basic_setup.conf&#34;
 2019-11-27 02:03:22 +0000 [info]: fluent/log.rb:322:info: using configuration file: &lt;ROOT&gt;
   &lt;source&gt;
@@ -105,55 +105,55 @@ $ cat etc/fluentd_basic_setup.conf
 2019-11-27 02:03:23 +0000 [info]: #0 fluent/log.rb:322:info: starting fluentd worker pid=14 ppid=6 worker=0
 2019-11-27 02:03:23 +0000 [debug]: #0 fluent/log.rb:302:debug: listening http bind=&#34;0.0.0.0&#34; port=8888
 2019-11-27 02:03:23 +0000 [info]: #0 fluent/log.rb:322:info: fluentd worker is now running worker=0
-</code></pre></td></tr></table></div></div><p>另外，也可以通过环境变量<code>FLUENTD_CONF</code>设置需要使用的配置文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 下面的命令和上面的是等效的</span>
-$ docker run -p 8888:8888 --rm -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc/ -e <span class=nv>FLUENTD_CONF</span><span class=o>=</span>fluentd_basic_setup.conf fluent/fluentd:v1.7-1
-</code></pre></td></tr></table></div></div><h3 id=测试>测试</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 任意伪造一个用户登录的日志，向fluentd服务提交日志</span>
-$ curl -i -X POST -d <span class=s1>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
-HTTP/1.1 <span class=m>200</span> OK
+</code></pre></td></tr></table></div></div><p>另外，也可以通过环境变量<code>FLUENTD_CONF</code>设置需要使用的配置文件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 下面的命令和上面的是等效的</span>
+$ docker run -p 8888:8888 --rm -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc/ -e FLUENTD_CONF<span style=color:#f92672>=</span>fluentd_basic_setup.conf fluent/fluentd:v1.7-1
+</code></pre></td></tr></table></div></div><h3 id=测试>测试</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 任意伪造一个用户登录的日志，向fluentd服务提交日志</span>
+$ curl -i -X POST -d <span style=color:#e6db74>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
+HTTP/1.1 <span style=color:#ae81ff>200</span> OK
 Content-Type: text/plain
 Connection: Keep-Alive
-Content-Length: <span class=m>0</span>
-</code></pre></td></tr></table></div></div><p>在<code>fluentd</code>的容器里能看到如下输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>2019-11-27 02:05:16.583154500 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
-</code></pre></td></tr></table></div></div><h2 id=fluentd事件的生命周期>Fluentd事件的生命周期</h2><h3 id=什么是事件event>什么是事件(Event)</h3><p>正如开篇提到过，Fluentd是一个日志收集系统，那么一条日志消息，在Fluentd里就认为是一个事件(<code>Event</code>)。</p><h3 id=事件结构>事件结构</h3><p>Fluentd的事件由下面三部分组成</p><ul><li>标签(<code>tag</code>): 用于说明这个事件是哪里产生的，可用于后面的事件路由</li><li>时间(<code>time</code>): 事件是什么时候发生的，时间格式为: <a href=https://en.wikipedia.org/wiki/Unix_time>Epoch time</a>, 即Unix时间戳</li><li>记录(<code>record</code>): 事件内容本身，JSON格式</li></ul><p>所有的输入插件都需要解析原始日志，生成满足上面结构的事件字段，比如，一条Apache的访问日志:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] &#34;GET / HTTP/1.1&#34; 200 777
-</code></pre></td></tr></table></div></div><p>通过<code>in_tail</code>输入插件处理之后，将会得到下面的输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>tag: apache.access <span class=c1># 由配置文件指定</span>
-time: <span class=m>1362020400</span>   <span class=c1># 28/Feb/2013:12:00:00 +0900</span>
-record: <span class=o>{</span><span class=s2>&#34;user&#34;</span>:<span class=s2>&#34;-&#34;</span>,<span class=s2>&#34;method&#34;</span>:<span class=s2>&#34;GET&#34;</span>,<span class=s2>&#34;code&#34;</span>:200,<span class=s2>&#34;size&#34;</span>:777,<span class=s2>&#34;host&#34;</span>:<span class=s2>&#34;192.168.0.1&#34;</span>,<span class=s2>&#34;path&#34;</span>:<span class=s2>&#34;/&#34;</span><span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=事件的处理流程>事件的处理流程</h3><p>当fluentd收到一个事件之后，会经过一系列的处理流程:</p><ol><li>如修改事件的相关字段</li><li>过滤掉一些不关心的事件</li><li>路由事件输出到不同的地方</li></ol><p>下面将一一介绍介绍事件的处理流程</p><h4 id=过滤器filter>过滤器(Filter）</h4><p>Filter用于定义一个事件是该被接受或者是被过滤掉(抛弃掉)。使用示例如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat etc/fluentd_filter_demo.conf
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+Content-Length: <span style=color:#ae81ff>0</span>
+</code></pre></td></tr></table></div></div><p>在<code>fluentd</code>的容器里能看到如下输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>2019-11-27 02:05:16.583154500 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
+</code></pre></td></tr></table></div></div><h2 id=fluentd事件的生命周期>Fluentd事件的生命周期</h2><h3 id=什么是事件event>什么是事件(Event)</h3><p>正如开篇提到过，Fluentd是一个日志收集系统，那么一条日志消息，在Fluentd里就认为是一个事件(<code>Event</code>)。</p><h3 id=事件结构>事件结构</h3><p>Fluentd的事件由下面三部分组成</p><ul><li>标签(<code>tag</code>): 用于说明这个事件是哪里产生的，可用于后面的事件路由</li><li>时间(<code>time</code>): 事件是什么时候发生的，时间格式为: <a href=https://en.wikipedia.org/wiki/Unix_time>Epoch time</a>, 即Unix时间戳</li><li>记录(<code>record</code>): 事件内容本身，JSON格式</li></ul><p>所有的输入插件都需要解析原始日志，生成满足上面结构的事件字段，比如，一条Apache的访问日志:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] &#34;GET / HTTP/1.1&#34; 200 777
+</code></pre></td></tr></table></div></div><p>通过<code>in_tail</code>输入插件处理之后，将会得到下面的输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tag: apache.access <span style=color:#75715e># 由配置文件指定</span>
+time: <span style=color:#ae81ff>1362020400</span>   <span style=color:#75715e># 28/Feb/2013:12:00:00 +0900</span>
+record: <span style=color:#f92672>{</span><span style=color:#e6db74>&#34;user&#34;</span>:<span style=color:#e6db74>&#34;-&#34;</span>,<span style=color:#e6db74>&#34;method&#34;</span>:<span style=color:#e6db74>&#34;GET&#34;</span>,<span style=color:#e6db74>&#34;code&#34;</span>:200,<span style=color:#e6db74>&#34;size&#34;</span>:777,<span style=color:#e6db74>&#34;host&#34;</span>:<span style=color:#e6db74>&#34;192.168.0.1&#34;</span>,<span style=color:#e6db74>&#34;path&#34;</span>:<span style=color:#e6db74>&#34;/&#34;</span><span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h3 id=事件的处理流程>事件的处理流程</h3><p>当fluentd收到一个事件之后，会经过一系列的处理流程:</p><ol><li>如修改事件的相关字段</li><li>过滤掉一些不关心的事件</li><li>路由事件输出到不同的地方</li></ol><p>下面将一一介绍介绍事件的处理流程</p><h4 id=过滤器filter>过滤器(Filter）</h4><p>Filter用于定义一个事件是该被接受或者是被过滤掉(抛弃掉)。使用示例如下:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat etc/fluentd_filter_demo.conf
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type http
-  port <span class=m>8888</span>
-  <span class=nb>bind</span> 0.0.0.0
+  port <span style=color:#ae81ff>8888</span>
+  bind 0.0.0.0
 &lt;/source&gt;
 
 &lt;filter test.cycle&gt;
@@ -167,67 +167,67 @@ record: <span class=o>{</span><span class=s2>&#34;user&#34;</span>:<span class=s
 &lt;match test.cycle&gt;
   @type stdout
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>上面的示例配置了让我们直接过滤掉用户<code>logout</code>的事件。</p><p>重启fluentd,使用上面的定义的配置文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_filter_demo.conf -v
-</code></pre></td></tr></table></div></div><p>测试</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -i -X POST -d <span class=s1>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
-HTTP/1.1 <span class=m>200</span> OK
+</code></pre></td></tr></table></div></div><p>上面的示例配置了让我们直接过滤掉用户<code>logout</code>的事件。</p><p>重启fluentd,使用上面的定义的配置文件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_filter_demo.conf -v
+</code></pre></td></tr></table></div></div><p>测试</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -i -X POST -d <span style=color:#e6db74>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
+HTTP/1.1 <span style=color:#ae81ff>200</span> OK
 Content-type: text/plain
 Connection: Keep-Alive
-Content-length: <span class=m>0</span>
+Content-length: <span style=color:#ae81ff>0</span>
 
-$ curl -i -X POST -d <span class=s1>&#39;json={&#34;action&#34;:&#34;logout&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
-HTTP/1.1 <span class=m>200</span> OK
+$ curl -i -X POST -d <span style=color:#e6db74>&#39;json={&#34;action&#34;:&#34;logout&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
+HTTP/1.1 <span style=color:#ae81ff>200</span> OK
 Content-type: text/plain
 Connection: Keep-Alive
-Content-length: <span class=m>0</span>
-</code></pre></td></tr></table></div></div><p>我们向fluentd发送了两个事件，分别是用户<code>login</code>和<code>logout</code>的事件。</p><p>检查<code>fluend</code>的输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>2019-11-27 03:38:28.973757600 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
-</code></pre></td></tr></table></div></div><p>可以看到只输出了用户<code>login</code>的事件，<code>logout</code>事件被过滤掉了。</p><h4 id=标识符labels>标识符(Labels)</h4><p>从前面的例子里，我们可以看到，<code>fluentd</code>的处理流程是根据我们在配置文件中的定义，从上到下依次执行的。假如我们在配置文件里定义了比较多输入源，不同的输入源需要使用不同的filters时，如果仍然按照从上到下执行的顺序的话，由于不同的处理需求，我们的配置文件可能变得非常复杂。</p><p>通过<code>label</code>，我们可以为不同的输入源指定不同的处理流程，示例如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat etc/fluentd_labels.conf
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+Content-length: <span style=color:#ae81ff>0</span>
+</code></pre></td></tr></table></div></div><p>我们向fluentd发送了两个事件，分别是用户<code>login</code>和<code>logout</code>的事件。</p><p>检查<code>fluend</code>的输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>2019-11-27 03:38:28.973757600 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
+</code></pre></td></tr></table></div></div><p>可以看到只输出了用户<code>login</code>的事件，<code>logout</code>事件被过滤掉了。</p><h4 id=标识符labels>标识符(Labels)</h4><p>从前面的例子里，我们可以看到，<code>fluentd</code>的处理流程是根据我们在配置文件中的定义，从上到下依次执行的。假如我们在配置文件里定义了比较多输入源，不同的输入源需要使用不同的filters时，如果仍然按照从上到下执行的顺序的话，由于不同的处理需求，我们的配置文件可能变得非常复杂。</p><p>通过<code>label</code>，我们可以为不同的输入源指定不同的处理流程，示例如下:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat etc/fluentd_labels.conf
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type http
-  <span class=nb>bind</span> 0.0.0.0
-  port <span class=m>8888</span>
-  @label @STAGING  <span class=c1># 注意这里我们添加了label</span>
+  bind 0.0.0.0
+  port <span style=color:#ae81ff>8888</span>
+  @label @STAGING  <span style=color:#75715e># 注意这里我们添加了label</span>
 &lt;/source&gt;
 
 &lt;filter test.cycle&gt;
@@ -251,168 +251,168 @@ Content-length: <span class=m>0</span>
     @type stdout
   &lt;/match&gt;
 &lt;/label&gt;
-</code></pre></td></tr></table></div></div><p>上面的示例文件里，我们首先定义了一个filter过滤掉<code>login</code>事件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;filter test.cycle&gt;
+</code></pre></td></tr></table></div></div><p>上面的示例文件里，我们首先定义了一个filter过滤掉<code>login</code>事件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&lt;filter test.cycle&gt;
   @type grep
   &lt;exclude&gt;
     key action
     pattern ^login$
   &lt;/exclude&gt;
 &lt;/filter&gt;
-</code></pre></td></tr></table></div></div><p>接着又在<code>label</code>块里面过滤掉了<code>logout</code>事件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;filter test.cycle&gt;
+</code></pre></td></tr></table></div></div><p>接着又在<code>label</code>块里面过滤掉了<code>logout</code>事件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&lt;filter test.cycle&gt;
   @type grep
   &lt;exclude&gt;
     key action
     pattern ^login$
   &lt;/exclude&gt;
 &lt;/filter&gt;
-</code></pre></td></tr></table></div></div><p>如果按照从上到下的顺序执行，那么我们将看不到任何<code>login</code>和<code>logout</code>的事件。但是实际结果如何呢？让我们来测试一下。</p><p>使用上面定义的配置文件启动fluentd</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_labels.conf -v
-</code></pre></td></tr></table></div></div><p>提交事件来测试, 同样向fluentd发送两个事件，分别是用户<code>login</code>和<code>logout</code>的事件。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -i -X POST -d <span class=s1>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
-HTTP/1.1 <span class=m>200</span> OK
+</code></pre></td></tr></table></div></div><p>如果按照从上到下的顺序执行，那么我们将看不到任何<code>login</code>和<code>logout</code>的事件。但是实际结果如何呢？让我们来测试一下。</p><p>使用上面定义的配置文件启动fluentd</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -p 8888:8888 --rm -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/log:/fluentd/log fluent/fluentd:v1.7-1 -c /fluentd/etc/fluentd_labels.conf -v
+</code></pre></td></tr></table></div></div><p>提交事件来测试, 同样向fluentd发送两个事件，分别是用户<code>login</code>和<code>logout</code>的事件。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -i -X POST -d <span style=color:#e6db74>&#39;json={&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
+HTTP/1.1 <span style=color:#ae81ff>200</span> OK
 Content-Type: text/plain
 Connection: Keep-Alive
-Content-Length: <span class=m>0</span>
+Content-Length: <span style=color:#ae81ff>0</span>
 
-$ curl -i -X POST -d <span class=s1>&#39;json={&#34;action&#34;:&#34;logout&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
-HTTP/1.1 <span class=m>200</span> OK
+$ curl -i -X POST -d <span style=color:#e6db74>&#39;json={&#34;action&#34;:&#34;logout&#34;,&#34;user&#34;:2}&#39;</span> http://localhost:8888/test.cycle
+HTTP/1.1 <span style=color:#ae81ff>200</span> OK
 Content-Type: text/plain
 Connection: Keep-Alive
-Content-Length: <span class=m>0</span>
-</code></pre></td></tr></table></div></div><p>查看fluentd输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>2019-11-27 03:51:45.088464900 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
-</code></pre></td></tr></table></div></div><p>可以看到，只有<code>logout</code>事件被过滤了，原因是我们为输入设置了label</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;source&gt;
+Content-Length: <span style=color:#ae81ff>0</span>
+</code></pre></td></tr></table></div></div><p>查看fluentd输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>2019-11-27 03:51:45.088464900 +0000 test.cycle: {&#34;action&#34;:&#34;login&#34;,&#34;user&#34;:2}
+</code></pre></td></tr></table></div></div><p>可以看到，只有<code>logout</code>事件被过滤了，原因是我们为输入设置了label</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&lt;source&gt;
   @type http
   bind 0.0.0.0
   port 8888
   @label @STAGING  # 注意这里我们添加了label
 &lt;/source&gt;
 </code></pre></td></tr></table></div></div><p>因此跳过中间设置的一些filter，只运行了<code>&lt;label @STAGING>...&lt;/lable></code>标签块里的<code>filter</code></p><h4 id=缓冲区buffers>缓冲区(Buffers)</h4><p>在前面的例子中，我们使用的都是<code>stdout</code>这样一个没有缓冲区的输出，在生产环境中，我们用到的输出基本都是有缓冲区
-的,比如<code>s3</code>, <code>forward</code>,<code>mongodb</code>等，这些输出插件在收到事件之后，会将事件先保存到缓冲区，然后等满足特定条件之后，再将事件输出到目标输出。</p><h2 id=配置文件语法>配置文件语法</h2><p>配置文件由一下几部分组成</p><h3 id=配置文件中的术语>配置文件中的术语</h3><ul><li><p><code>source</code>: 指定输入源</p><p>例如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 在24224端口接受TCP事件</span>
+的,比如<code>s3</code>, <code>forward</code>,<code>mongodb</code>等，这些输出插件在收到事件之后，会将事件先保存到缓冲区，然后等满足特定条件之后，再将事件输出到目标输出。</p><h2 id=配置文件语法>配置文件语法</h2><p>配置文件由一下几部分组成</p><h3 id=配置文件中的术语>配置文件中的术语</h3><ul><li><p><code>source</code>: 指定输入源</p><p>例如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 在24224端口接受TCP事件</span>
 &lt;source&gt;
   @type forward
-  port <span class=m>24224</span>
+  port <span style=color:#ae81ff>24224</span>
 &lt;/source&gt;
 
 &lt;source&gt;
   @type http
-  port <span class=m>9880</span>
+  port <span style=color:#ae81ff>9880</span>
 &lt;/source&gt;
 </code></pre></td></tr></table></div></div><p>输入源可以一次指定多个， <code>@type</code>参数指定使用哪一个输入插件。
 fluentd支持各种输入插件, 比如:</p><ul><li>in_tail</li><li>in_forward</li><li>in_udp</li><li>in_tcp</li><li>in_unix</li><li>in_http</li><li>in_syslog</li><li>in_exec</li><li>in_dummy</li><li>in_windows_eventlog</li></ul><p>插件的具体使用可以参考文档:
-<a href=https://docs.fluentd.org/input>https://docs.fluentd.org/input</a></p></li><li><p><code>match</code>: 指定输出的目的地</p><p>例如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 将满足myapp.acccess标签的事件全部输出到</span>
-<span class=c1># /var/log/fluent/access.%Y-%m-%d</span>
+<a href=https://docs.fluentd.org/input>https://docs.fluentd.org/input</a></p></li><li><p><code>match</code>: 指定输出的目的地</p><p>例如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 将满足myapp.acccess标签的事件全部输出到</span>
+<span style=color:#75715e># /var/log/fluent/access.%Y-%m-%d</span>
 &lt;match myapp.access&gt;
   @type file
   path /var/log/fluent/access
 &lt;/match&gt;
 </code></pre></td></tr></table></div></div><p>输出也可以一次指定多个， <code>@type</code>参数指定使用哪一个输出插件。
 fluentd支持各种输出插件, 比如:</p><ul><li>out_copy</li><li>out_null</li><li>out_roundrobin</li><li>out_stdout</li><li>out_exec_filter</li><li>out_forward</li><li>out_mongo or out_mongo_replset</li><li>out_exec</li><li>out_file</li><li>out_s3</li><li>out_webhdfs</li></ul><p>插件的具体使用可以参考文档:
-<a href=https://docs.fluentd.org/output>https://docs.fluentd.org/output</a></p></li><li><p><code>filter</code>: 指定事件的处理流程</p><p>可以多个filter串联起来，比如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Input -&gt; filter 1 -&gt; ... -&gt; filter N -&gt; Output
-</code></pre></td></tr></table></div></div><p>例如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;filter myapp.access&gt;
+<a href=https://docs.fluentd.org/output>https://docs.fluentd.org/output</a></p></li><li><p><code>filter</code>: 指定事件的处理流程</p><p>可以多个filter串联起来，比如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Input -&gt; filter 1 -&gt; ... -&gt; filter N -&gt; Output
+</code></pre></td></tr></table></div></div><p>例如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&lt;filter myapp.access&gt;
 @type record_transformer
 &lt;record&gt;
   host_param &#34;#{Socket.gethostname}&#34;
 &lt;/record&gt;
 &lt;/filter&gt;
-</code></pre></td></tr></table></div></div><p>上面的<code>filter</code>会添加<code>host_param</code>参数到事件</p><p>fluentd也内置了各种<code>filter</code>, 比如:</p><ul><li>grep</li><li>record-transformer</li><li>filter_stdout</li><li>geoip</li><li>parser</li></ul><p>filter的具体使用可以参考文档:</p><p><a href=https://docs.fluentd.org/filter>https://docs.fluentd.org/filter</a></p></li><li><p><code>system</code>: 指定系统级别的配置</p><p>可以设置的参数有</p><ul><li>log_level</li><li>suppress_repeated_stacktrace</li><li>emit_error_log_interval</li><li>suppress_config_dump</li><li>without_source</li><li>process_name (only available in system directive. No fluentd option)</li></ul><p>例如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;system&gt;
-<span class=c1># equal to -qq option</span>
+</code></pre></td></tr></table></div></div><p>上面的<code>filter</code>会添加<code>host_param</code>参数到事件</p><p>fluentd也内置了各种<code>filter</code>, 比如:</p><ul><li>grep</li><li>record-transformer</li><li>filter_stdout</li><li>geoip</li><li>parser</li></ul><p>filter的具体使用可以参考文档:</p><p><a href=https://docs.fluentd.org/filter>https://docs.fluentd.org/filter</a></p></li><li><p><code>system</code>: 指定系统级别的配置</p><p>可以设置的参数有</p><ul><li>log_level</li><li>suppress_repeated_stacktrace</li><li>emit_error_log_interval</li><li>suppress_config_dump</li><li>without_source</li><li>process_name (only available in system directive. No fluentd option)</li></ul><p>例如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;system&gt;
+<span style=color:#75715e># equal to -qq option</span>
 log_level error
-<span class=c1># equal to --without-source option</span>
+<span style=color:#75715e># equal to --without-source option</span>
 without_source
-<span class=c1># ...</span>
+<span style=color:#75715e># ...</span>
 &lt;/system&gt;
-</code></pre></td></tr></table></div></div></li><li><p><code>label</code>: 用于分组特定的filter和match</p><p>例如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div></li><li><p><code>label</code>: 用于分组特定的filter和match</p><p>例如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
 @type forward
 &lt;/source&gt;
 
@@ -424,73 +424,73 @@ without_source
 &lt;filter access.**&gt;
   @type record_transformer
   &lt;record&gt;
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/record&gt;
 &lt;/filter&gt;
 &lt;match **&gt;
   @type elasticsearch
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
 
 &lt;label @SYSTEM&gt;
   &lt;filter var.log.middleware.**&gt;
     @type grep
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/filter&gt;
   &lt;match **&gt;
     @type s3
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/match&gt;
 &lt;/label&gt;
 </code></pre></td></tr></table></div></div><p>上面的配置文件中:</p><p><code>in_forward</code>的事件将经过<code>record_transformer</code> 过滤器和<code>elasticsearch</code>输出。</p><p><code>in_tail</code>输入的事件将经过<code>grep</code>过滤器和<code>s3</code>输出。</p><p>另外: <code>&lt;label @ERROR></code>属于内置的配置，用于保存内部错误，比如:
-缓冲区已经满了或者无效的事件等。</p></li><li><p><code>@include</code>: 引入其它的配置文件。可以将配置文件拆分为多个，便于复用。当要使用的时候，直接使用<code>@include</code>引入即可，例如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 通过绝对路径引入</span>
+缓冲区已经满了或者无效的事件等。</p></li><li><p><code>@include</code>: 引入其它的配置文件。可以将配置文件拆分为多个，便于复用。当要使用的时候，直接使用<code>@include</code>引入即可，例如：</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 通过绝对路径引入</span>
 @include /path/to/config.conf
 
-<span class=c1># 通过相对路径引入，相对于当前配置文件的路径</span>
+<span style=color:#75715e># 通过相对路径引入，相对于当前配置文件的路径</span>
 @include extra.conf
 
-<span class=c1># 模糊匹配，所有符合条件的会根据文件名的字母顺序依次导入</span>
-<span class=c1># 比如: a.conf, b.conf, ..., z.conf</span>
-<span class=c1># 因此, 要注意各个配置文件不应该有顺#序依赖，如果有顺序依赖，请明确指出导入的文件名</span>
+<span style=color:#75715e># 模糊匹配，所有符合条件的会根据文件名的字母顺序依次导入</span>
+<span style=color:#75715e># 比如: a.conf, b.conf, ..., z.conf</span>
+<span style=color:#75715e># 因此, 要注意各个配置文件不应该有顺#序依赖，如果有顺序依赖，请明确指出导入的文件名</span>
 @include config.d/*.conf
 
-<span class=c1># 使用在线的配置</span>
+<span style=color:#75715e># 使用在线的配置</span>
 @include http://example.com/fluent.conf
-</code></pre></td></tr></table></div></div><p><code>@include</code>指定也可以用于导入相关的参数信息，比如:</p><p>有如下配置文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;match pattern&gt;
+</code></pre></td></tr></table></div></div><p><code>@include</code>指定也可以用于导入相关的参数信息，比如:</p><p>有如下配置文件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;match pattern&gt;
   @type forward
-  <span class=c1># other parameters...</span>
+  <span style=color:#75715e># other parameters...</span>
   &lt;buffer&gt;
     @type file
     path /path/to/buffer/forward
@@ -500,37 +500,37 @@ without_source
 
 &lt;match pattern&gt;
   @type elasticsearch
-  <span class=c1># other parameters...</span>
+  <span style=color:#75715e># other parameters...</span>
   &lt;buffer&gt;
     @type file
     path /path/to/buffer/es
     @include /path/to/out_buf_params.conf
   &lt;/buffer&gt;
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>参数配置文件<code>/path/to/out_buf_params.conf</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>flush_interval 5s
+</code></pre></td></tr></table></div></div><p>参数配置文件<code>/path/to/out_buf_params.conf</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>flush_interval 5s
 total_limit_size 100m
 chunk_limit_size 1m
-</code></pre></td></tr></table></div></div></li></ul><h3 id=配置文件的模式匹配patterns>配置文件的模式匹配(patterns)</h3><h4 id=通配符>通配符</h4><p>如前面的示例可以看到，fluented主要根据事件的tag来分区不同的处理流程</p><p>虽然我们可以明确指定需要处理的tag，比如:<code>&lt;filter app.log></code>来指定只处理tag为<code>app.log</code>的事件。我们也可以在<code>filter</code>和<code>match</code>中通过通配符，来处理同一类tag的事件</p><p>tag通常是一个字符串，由<code>.</code>分隔，比如<code>myapp.access</code></p><ul><li><p><code>*</code>: 匹配满足一个tag部分的事件, 比如: <code>a.*</code>, 它将匹配<code>a.b</code>这样的tag, 但是不会处理<code>a</code>或者<code>a.b.c</code>这类tag</p></li><li><p><code>**</code>: 匹配满足0个或多个tag部分，比如: <code>a.**</code>, 它将匹配<code>a</code>, <code>a.b</code>, <code>a.b.c</code>这三种tag</p></li><li><p><code>{X, Y, Z}</code>: 匹配满足<code>X</code>,<code>Y</code>或者<code>Z</code>的tag, 比如: <code>{a, b}</code>将匹配<code>a</code>或者<code>b</code>,但是不会匹配<code>c</code>。</p><p>这种格式也可以和通配符组合使用,比如<code>a.{b.c}.*</code>或<code>a.{b.c}.**</code></p></li><li><p><code>#{...}</code> 会把花括号内的字符串当做是<code>ruby</code>的表达式处理。比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;match &#34;app.#{ENV[&#39;FLUENTD_TAG&#39;]}&#34;&gt;
+</code></pre></td></tr></table></div></div></li></ul><h3 id=配置文件的模式匹配patterns>配置文件的模式匹配(patterns)</h3><h4 id=通配符>通配符</h4><p>如前面的示例可以看到，fluented主要根据事件的tag来分区不同的处理流程</p><p>虽然我们可以明确指定需要处理的tag，比如:<code>&lt;filter app.log></code>来指定只处理tag为<code>app.log</code>的事件。我们也可以在<code>filter</code>和<code>match</code>中通过通配符，来处理同一类tag的事件</p><p>tag通常是一个字符串，由<code>.</code>分隔，比如<code>myapp.access</code></p><ul><li><p><code>*</code>: 匹配满足一个tag部分的事件, 比如: <code>a.*</code>, 它将匹配<code>a.b</code>这样的tag, 但是不会处理<code>a</code>或者<code>a.b.c</code>这类tag</p></li><li><p><code>**</code>: 匹配满足0个或多个tag部分，比如: <code>a.**</code>, 它将匹配<code>a</code>, <code>a.b</code>, <code>a.b.c</code>这三种tag</p></li><li><p><code>{X, Y, Z}</code>: 匹配满足<code>X</code>,<code>Y</code>或者<code>Z</code>的tag, 比如: <code>{a, b}</code>将匹配<code>a</code>或者<code>b</code>,但是不会匹配<code>c</code>。</p><p>这种格式也可以和通配符组合使用,比如<code>a.{b.c}.*</code>或<code>a.{b.c}.**</code></p></li><li><p><code>#{...}</code> 会把花括号内的字符串当做是<code>ruby</code>的表达式处理。比如</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&lt;match &#34;app.#{ENV[&#39;FLUENTD_TAG&#39;]}&#34;&gt;
   @type stdout
 &lt;/match&gt;
 </code></pre></td></tr></table></div></div><p>如果设置了环境变量<code>FLUENTD_TAG</code>为<code>dev</code>,那上面等价于<code>app.dev</code></p></li><li><p>当指定了多个模式时（使用一个或多个空格分开）,只要满足其中任意一个就行。</p><p>比如:
 <code>&lt;match a b></code>匹配<code>a</code>和<code>b</code>
-<code>&lt;match a.** b.*></code>匹配<code>a</code>, <code>a.b</code>, <code>a.b.c</code>, <code>b.d</code>等</p></li></ul><h4 id=多个match之间的顺序注意>多个match之间的顺序注意</h4><p>当有多个match, 需要注意一下它们的顺序， 如下面的例子，第二个match永远也不会生效</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># ** matches all tags. Bad :(
+<code>&lt;match a.** b.*></code>匹配<code>a</code>, <code>a.b</code>, <code>a.b.c</code>, <code>b.d</code>等</p></li></ul><h4 id=多个match之间的顺序注意>多个match之间的顺序注意</h4><p>当有多个match, 需要注意一下它们的顺序， 如下面的例子，第二个match永远也不会生效</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># ** matches all tags. Bad :(
 &lt;match **&gt;
   @type blackhole_plugin
 &lt;/match&gt;
@@ -539,37 +539,37 @@ chunk_limit_size 1m
   @type file
   path /var/log/fluent/access
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>正确的写发应该是将确定的tag尽量写在前面，模糊匹配的写在后面。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;match myapp.access&gt;
+</code></pre></td></tr></table></div></div><p>正确的写发应该是将确定的tag尽量写在前面，模糊匹配的写在后面。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;match myapp.access&gt;
   @type file
   path /var/log/fluent/access
 &lt;/match&gt;
 
-<span class=c1># Capture all unmatched tags. Good :)</span>
+<span style=color:#75715e># Capture all unmatched tags. Good :)</span>
 &lt;match **&gt;
   @type blackhole_plugin
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>如果需要将输出到多个match,需要使用<code>out_copy</code>插件。</p><p>另外需要注意顺序的是<code>filter</code>和<code>match</code>, 如果将<code>filter</code>放在<code>match</code>之后，那么它也永远不会生效，正确的用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># You should NOT put this &lt;filter&gt; block after the &lt;match&gt; block below.</span>
-<span class=c1># If you do, Fluentd will just emit events without applying the filter.</span>
+</code></pre></td></tr></table></div></div><p>如果需要将输出到多个match,需要使用<code>out_copy</code>插件。</p><p>另外需要注意顺序的是<code>filter</code>和<code>match</code>, 如果将<code>filter</code>放在<code>match</code>之后，那么它也永远不会生效，正确的用法如下：</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># You should NOT put this &lt;filter&gt; block after the &lt;match&gt; block below.</span>
+<span style=color:#75715e># If you do, Fluentd will just emit events without applying the filter.</span>
 &lt;filter myapp.access&gt;
   @type record_transformer
   ...
@@ -579,165 +579,165 @@ chunk_limit_size 1m
   @type file
   path /var/log/fluent/access
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><h3 id=常见的配置文件示例>常见的配置文件示例</h3><p>下面给出了一些常见的使用场景的配置文件写法</p><h4 id=简单的输入过滤输出>简单的输入，过滤，输出</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h3 id=常见的配置文件示例>常见的配置文件示例</h3><p>下面给出了一些常见的使用场景的配置文件写法</p><h4 id=简单的输入过滤输出>简单的输入，过滤，输出</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type forward
 &lt;/source&gt;
 
 &lt;filter app.**&gt;
   @type record_transformer
   &lt;record&gt;
-    hostname <span class=s2>&#34;#{Socket.gethostname}&#34;</span>
+    hostname <span style=color:#e6db74>&#34;#{Socket.gethostname}&#34;</span>
   &lt;/record&gt;
 &lt;/filter&gt;
 
 &lt;match app.**&gt;
   @type file
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><h4 id=多个输入>多个输入</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h4 id=多个输入>多个输入</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type forward
 &lt;/source&gt;
 
 &lt;source&gt;
   @type tail
   tag system.logs
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/source&gt;
 
 &lt;filter app.**&gt;
   @type record_transformer
   &lt;record&gt;
-    hostname <span class=s2>&#34;#{Socket.gethostname}&#34;</span>
+    hostname <span style=color:#e6db74>&#34;#{Socket.gethostname}&#34;</span>
   &lt;/record&gt;
 &lt;/filter&gt;
 
-&lt;match <span class=o>{</span>app.**,system.logs<span class=o>}</span>&gt;
+&lt;match <span style=color:#f92672>{</span>app.**,system.logs<span style=color:#f92672>}</span>&gt;
   @type file
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><h4 id=使用label的输出>使用Label的输出</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h4 id=使用label的输出>使用Label的输出</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
 @type forward
 &lt;/source&gt;
 
 &lt;source&gt;
   @type dstat
-  @label @METRICS <span class=c1># dstat events are routed to &lt;label @METRICS&gt;</span>
-  <span class=c1># ...</span>
+  @label @METRICS <span style=color:#75715e># dstat events are routed to &lt;label @METRICS&gt;</span>
+  <span style=color:#75715e># ...</span>
 &lt;/source&gt;
 
 &lt;filter app.**&gt;
   @type record_transformer
   &lt;record&gt;
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/record&gt;
 &lt;/filter&gt;
 
 &lt;match app.**&gt;
   @type file
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
 
 &lt;label @METRICS&gt;
   &lt;match **&gt;
     @type elasticsearch
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/match&gt;
 &lt;/label&gt;
-</code></pre></td></tr></table></div></div><h4 id=重新设置标签并重新路由fluent-plugin-routehttpsgithubcomtagomorisfluent-plugin-route-插件的使用>重新设置标签并重新路由(<a href=https://github.com/tagomoris/fluent-plugin-route>fluent-plugin-route</a>插件的使用)</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;match worker.**&gt;
+</code></pre></td></tr></table></div></div><h4 id=重新设置标签并重新路由fluent-plugin-routehttpsgithubcomtagomorisfluent-plugin-route-插件的使用>重新设置标签并重新路由(<a href=https://github.com/tagomoris/fluent-plugin-route>fluent-plugin-route</a>插件的使用)</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;match worker.**&gt;
   @type route
   remove_tag_prefix worker
   add_tag_prefix metrics.event
 
   &lt;route **&gt;
-    copy <span class=c1># For fall-through. Without copy, routing is stopped here.</span>
+    copy <span style=color:#75715e># For fall-through. Without copy, routing is stopped here.</span>
   &lt;/route&gt;
   &lt;route **&gt;
     copy
@@ -755,85 +755,85 @@ chunk_limit_size 1m
     path /var/log/fluent/bakcup
   &lt;/match&gt;
 &lt;/label&gt;
-</code></pre></td></tr></table></div></div><h4 id=根据事件内容重新路由fluent-plugin-rewrite-tag-filterhttpsgithubcomfluentfluent-plugin-rewrite-tag-filter插件的使用>根据事件内容重新路由(<a href=https://github.com/fluent/fluent-plugin-rewrite-tag-filter>fluent-plugin-rewrite-tag-filter</a>插件的使用)</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h4 id=根据事件内容重新路由fluent-plugin-rewrite-tag-filterhttpsgithubcomfluentfluent-plugin-rewrite-tag-filter插件的使用>根据事件内容重新路由(<a href=https://github.com/fluent/fluent-plugin-rewrite-tag-filter>fluent-plugin-rewrite-tag-filter</a>插件的使用)</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type forward
 &lt;/source&gt;
 
-<span class=c1># event example: app.logs {&#34;message&#34;:&#34;[info]: ...&#34;}</span>
+<span style=color:#75715e># event example: app.logs {&#34;message&#34;:&#34;[info]: ...&#34;}</span>
 &lt;match app.**&gt;
   @type rewrite_tag_filter
   &lt;rule&gt;
     key message
-    pattern ^<span class=se>\[</span><span class=o>(</span><span class=se>\w</span>+<span class=o>)</span><span class=se>\]</span>
-    tag <span class=nv>$1</span>.<span class=si>${</span><span class=nv>tag</span><span class=si>}</span>
+    pattern ^<span style=color:#ae81ff>\[</span><span style=color:#f92672>(</span><span style=color:#ae81ff>\w</span>+<span style=color:#f92672>)</span><span style=color:#ae81ff>\]</span>
+    tag $1.<span style=color:#e6db74>${</span>tag<span style=color:#e6db74>}</span>
   &lt;/rule&gt;
-  <span class=c1># you can put more &lt;rule&gt;</span>
+  <span style=color:#75715e># you can put more &lt;rule&gt;</span>
 &lt;/match&gt;
 
-<span class=c1># send mail when receives alert level logs</span>
+<span style=color:#75715e># send mail when receives alert level logs</span>
 &lt;match alert.app.**&gt;
   @type mail
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
 
-<span class=c1># other logs are stored into file</span>
+<span style=color:#75715e># other logs are stored into file</span>
 &lt;match *.app.**&gt;
   @type file
-  <span class=c1># ...</span>
+  <span style=color:#75715e># ...</span>
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><h4 id=重新路由事件到其它的labelout_relabelhttpsdocsfluentdorgoutputrelabel插件的使用>重新路由事件到其它的Label(<a href=https://docs.fluentd.org/output/relabel>out_relabel</a>插件的使用)</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h4 id=重新路由事件到其它的labelout_relabelhttpsdocsfluentdorgoutputrelabel插件的使用>重新路由事件到其它的Label(<a href=https://docs.fluentd.org/output/relabel>out_relabel</a>插件的使用)</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type forward
 &lt;/source&gt;
 
@@ -841,7 +841,7 @@ chunk_limit_size 1m
   @type copy
   &lt;store&gt;
     @type forward
-    <span class=c1># ...</span>
+    <span style=color:#75715e># ...</span>
   &lt;/store&gt;
   &lt;store&gt;
     @type relabel
@@ -859,199 +859,199 @@ chunk_limit_size 1m
     @type mail
   &lt;/match&gt;
 &lt;/label&gt;
-</code></pre></td></tr></table></div></div><h3 id=配置文件中的参数类型>配置文件中的参数类型</h3><p>在配置文件中使用的插件，大部分都可以接受1个或多个参数，也可以指定参数类型</p><ul><li><p><code>string</code>: 字符串类型</p></li><li><p><code>integer</code>: 整型</p></li><li><p><code>float</code>: 浮点型</p></li><li><p><code>size</code>: 字节(bytes)类型.为了便于阅读，它的值有几种常见的写法</p><ul><li><code>&lt;INTEGER>k</code>或<code>&lt;INTEGER>K</code> 表示使用单位<code>KB</code></li><li><code>&lt;INTEGER>m</code>或<code>&lt;INTEGER>M</code> 表示使用单位<code>M</code></li><li><code>&lt;INTEGER>g</code>或<code>&lt;INTEGER>G</code> 表示使用单位<code>G</code></li><li><code>&lt;INTEGER>t</code>或<code>&lt;INTEGER>T</code> 表示使用单位<code>T</code></li><li>纯数字时表示使用默认单位为<code>B</code></li></ul></li><li><p><code>time</code>: 时间类型，默认单位为秒， 同样为了便于阅读，它的值也有几种常见的写法</p><ul><li><code>&lt;INTEGER>s</code>, 表示使用单位<code>秒</code></li><li><code>&lt;INTEGER>m</code>, 表示使用单位<code>分钟</code></li><li><code>&lt;INTEGER>h</code>, 表示使用单位<code>小时</code></li><li><code>&lt;INTEGER>d</code>, 表示使用单位<code>天</code></li><li>纯数字时表示使用默认单位为<code>秒</code>， <code>0.1</code>表示<code>100ms</code></li></ul></li><li><p><code>array</code>: 数组类型。有两种写法:</p><ul><li>完整格式的写法: <code>["key1", "key2"]</code></li><li>简写: <code>key1,key2</code></li></ul></li><li><p><code>hash</code>: 字典类型。也有两种写法:</p><ul><li>完整格式的写法: <code>{"key1":"value1", "key2":"value2"}</code></li><li>简写: <code>key1:value1,key2:value2</code></li></ul></li></ul><h3 id=常见的参数>常见的参数</h3><p>以<code>@</code>开始的参数表示fluented的保留参数</p><ul><li><code>@type</code>: 指定使用的参加类型</li><li><code>@id</code>: 指定插件的ID</li><li><code>@label</code>: 指定事件的标识符</li><li><code>@log_level</code>: 指定类型</li></ul><h3 id=模块section支持>模块(section)支持</h3><p>下面的模块并不是所有的插件都支持，具体使用请结合使用的插件查看</p><ul><li><code>parse</code>: 指明如何解析原始内容，如解析nginx, apache日志等</li><li><code>buffer</code>: 配置如何缓冲输出</li><li><code>format</code>: 配置如何格式化事件</li><li><code>extract</code>: 从事件中提取值</li><li><code>inject</code>: 向事件注入一些属性</li><li><code>transport</code>: 用于指定某些插件的输入输出时<code>server</code>的连接信息</li><li><code>storage</code>: 指定如何保存插件本身的状态</li></ul><p>每个模块都有对应的插件，使用详情可以查看官方文档</p><h3 id=检查配置文件的格式>检查配置文件的格式</h3><p>可以使用下面的命令检查配置文件的格式是否正确</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker run --rm -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc/ fluent/fluentd:v1.7-1 --dry-run -c /fluentd/etc/fluentd_basic_setup.conf
-</code></pre></td></tr></table></div></div><h2 id=使用fluentd收集docker容器的日志>使用Fluentd收集docker容器的日志</h2><h3 id=docker容器日志格式>docker容器日志格式</h3><p>在使用fluentd收集docker日志时，默认会将日志分成4个部分:</p><p>分别是:</p><ul><li><code>container_id</code>: 容器的ID</li><li><code>container_name</code>:容器的名字</li><li><code>source</code>: 日志的类型，<code>stdout</code>或<code>stderr</code></li><li><code>log</code>: 日志本身</li></ul><h3 id=收集docker容器的日志示例>收集Docker容器的日志示例</h3><ol><li>首先创建一个配置文件<code>etc/fluentd_docker.conf</code></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><h3 id=配置文件中的参数类型>配置文件中的参数类型</h3><p>在配置文件中使用的插件，大部分都可以接受1个或多个参数，也可以指定参数类型</p><ul><li><p><code>string</code>: 字符串类型</p></li><li><p><code>integer</code>: 整型</p></li><li><p><code>float</code>: 浮点型</p></li><li><p><code>size</code>: 字节(bytes)类型.为了便于阅读，它的值有几种常见的写法</p><ul><li><code>&lt;INTEGER>k</code>或<code>&lt;INTEGER>K</code> 表示使用单位<code>KB</code></li><li><code>&lt;INTEGER>m</code>或<code>&lt;INTEGER>M</code> 表示使用单位<code>M</code></li><li><code>&lt;INTEGER>g</code>或<code>&lt;INTEGER>G</code> 表示使用单位<code>G</code></li><li><code>&lt;INTEGER>t</code>或<code>&lt;INTEGER>T</code> 表示使用单位<code>T</code></li><li>纯数字时表示使用默认单位为<code>B</code></li></ul></li><li><p><code>time</code>: 时间类型，默认单位为秒， 同样为了便于阅读，它的值也有几种常见的写法</p><ul><li><code>&lt;INTEGER>s</code>, 表示使用单位<code>秒</code></li><li><code>&lt;INTEGER>m</code>, 表示使用单位<code>分钟</code></li><li><code>&lt;INTEGER>h</code>, 表示使用单位<code>小时</code></li><li><code>&lt;INTEGER>d</code>, 表示使用单位<code>天</code></li><li>纯数字时表示使用默认单位为<code>秒</code>， <code>0.1</code>表示<code>100ms</code></li></ul></li><li><p><code>array</code>: 数组类型。有两种写法:</p><ul><li>完整格式的写法: <code>["key1", "key2"]</code></li><li>简写: <code>key1,key2</code></li></ul></li><li><p><code>hash</code>: 字典类型。也有两种写法:</p><ul><li>完整格式的写法: <code>{"key1":"value1", "key2":"value2"}</code></li><li>简写: <code>key1:value1,key2:value2</code></li></ul></li></ul><h3 id=常见的参数>常见的参数</h3><p>以<code>@</code>开始的参数表示fluented的保留参数</p><ul><li><code>@type</code>: 指定使用的参加类型</li><li><code>@id</code>: 指定插件的ID</li><li><code>@label</code>: 指定事件的标识符</li><li><code>@log_level</code>: 指定类型</li></ul><h3 id=模块section支持>模块(section)支持</h3><p>下面的模块并不是所有的插件都支持，具体使用请结合使用的插件查看</p><ul><li><code>parse</code>: 指明如何解析原始内容，如解析nginx, apache日志等</li><li><code>buffer</code>: 配置如何缓冲输出</li><li><code>format</code>: 配置如何格式化事件</li><li><code>extract</code>: 从事件中提取值</li><li><code>inject</code>: 向事件注入一些属性</li><li><code>transport</code>: 用于指定某些插件的输入输出时<code>server</code>的连接信息</li><li><code>storage</code>: 指定如何保存插件本身的状态</li></ul><p>每个模块都有对应的插件，使用详情可以查看官方文档</p><h3 id=检查配置文件的格式>检查配置文件的格式</h3><p>可以使用下面的命令检查配置文件的格式是否正确</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run --rm -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc/ fluent/fluentd:v1.7-1 --dry-run -c /fluentd/etc/fluentd_basic_setup.conf
+</code></pre></td></tr></table></div></div><h2 id=使用fluentd收集docker容器的日志>使用Fluentd收集docker容器的日志</h2><h3 id=docker容器日志格式>docker容器日志格式</h3><p>在使用fluentd收集docker日志时，默认会将日志分成4个部分:</p><p>分别是:</p><ul><li><code>container_id</code>: 容器的ID</li><li><code>container_name</code>:容器的名字</li><li><code>source</code>: 日志的类型，<code>stdout</code>或<code>stderr</code></li><li><code>log</code>: 日志本身</li></ul><h3 id=收集docker容器的日志示例>收集Docker容器的日志示例</h3><ol><li>首先创建一个配置文件<code>etc/fluentd_docker.conf</code></li></ol><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
   @type forward
-  port <span class=m>24224</span>
-  <span class=nb>bind</span> 0.0.0.0
+  port <span style=color:#ae81ff>24224</span>
+  bind 0.0.0.0
 &lt;/source&gt;
 &lt;match **&gt;
     @type stdout
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 启动一个fluentd服务</span>
-$ docker run -it -p 24224:24224 -v <span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span>/etc:/fluentd/etc/ -e <span class=nv>FLUENTD_CONF</span><span class=o>=</span>fluentd_docker.conf fluent/fluentd:v1.7-1
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 启动一个fluentd服务</span>
+$ docker run -it -p 24224:24224 -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/etc:/fluentd/etc/ -e FLUENTD_CONF<span style=color:#f92672>=</span>fluentd_docker.conf fluent/fluentd:v1.7-1
 
-<span class=c1># 启动一个docker容器并使用fluentd收集日志</span>
-$ docker run --log-driver<span class=o>=</span>fluentd -p 5000:80 httpd
+<span style=color:#75715e># 启动一个docker容器并使用fluentd收集日志</span>
+$ docker run --log-driver<span style=color:#f92672>=</span>fluentd -p 5000:80 httpd
 
-<span class=c1># 访问服务产生日志</span>
+<span style=color:#75715e># 访问服务产生日志</span>
 $ curl http://127.0.0.1:5000
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
-</code></pre></td></tr></table></div></div><p>在fluentd的容器日志里，能看到下面的输出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>2019-11-28 01:43:23.000000000 +0000 8da5b8365552: {&#34;container_id&#34;:&#34;8da5b8365552b4c0c610ff5df3dc28509bfc5781ec580628143b00cf997d5b72&#34;,&#34;container_name&#34;:&#34;/confident_curie&#34;,&#34;source&#34;:&#34;stdout&#34;,&#34;log&#34;:&#34;172.17.0.1 - - [28/Nov/2019:01:43:23 +0000] \&#34;GET / HTTP/1.1\&#34; 200 45&#34;}
-</code></pre></td></tr></table></div></div><h3 id=在docker-compose中使用示例>在docker-compose中使用示例</h3><p>为了介绍下对日志常用的处理场景，这里将收集的日志分成三部分:</p><ul><li>输出到fluentd的容器的标准输出，方便直接查看</li><li>保存一份到文件，按照日期自动切割日志</li><li>保存一份到Elasticsearch，方便通过Kibana面板直接查看</li></ul><p>同时为了方便人查看，输出到fluentd标准输出和保存到日志文件的，只显示log字段的信息(不用<code>contanier_id</code>, <code>container_name</code>等暂时不关心的信息)，保存到Elastisearch的日志保存完整的结构。</p><p>首先，根据我们上面的需求，创建fluentd配置文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat etc/fluentd_docker_compose.conf
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span><span class=lnt>68
-</span><span class=lnt>69
-</span><span class=lnt>70
-</span><span class=lnt>71
-</span><span class=lnt>72
-</span><span class=lnt>73
-</span><span class=lnt>74
-</span><span class=lnt>75
-</span><span class=lnt>76
-</span><span class=lnt>77
-</span><span class=lnt>78
-</span><span class=lnt>79
-</span><span class=lnt>80
-</span><span class=lnt>81
-</span><span class=lnt>82
-</span><span class=lnt>83
-</span><span class=lnt>84
-</span><span class=lnt>85
-</span><span class=lnt>86
-</span><span class=lnt>87
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>&lt;source&gt;
+</code></pre></td></tr></table></div></div><p>在fluentd的容器日志里，能看到下面的输出</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>2019-11-28 01:43:23.000000000 +0000 8da5b8365552: {&#34;container_id&#34;:&#34;8da5b8365552b4c0c610ff5df3dc28509bfc5781ec580628143b00cf997d5b72&#34;,&#34;container_name&#34;:&#34;/confident_curie&#34;,&#34;source&#34;:&#34;stdout&#34;,&#34;log&#34;:&#34;172.17.0.1 - - [28/Nov/2019:01:43:23 +0000] \&#34;GET / HTTP/1.1\&#34; 200 45&#34;}
+</code></pre></td></tr></table></div></div><h3 id=在docker-compose中使用示例>在docker-compose中使用示例</h3><p>为了介绍下对日志常用的处理场景，这里将收集的日志分成三部分:</p><ul><li>输出到fluentd的容器的标准输出，方便直接查看</li><li>保存一份到文件，按照日期自动切割日志</li><li>保存一份到Elasticsearch，方便通过Kibana面板直接查看</li></ul><p>同时为了方便人查看，输出到fluentd标准输出和保存到日志文件的，只显示log字段的信息(不用<code>contanier_id</code>, <code>container_name</code>等暂时不关心的信息)，保存到Elastisearch的日志保存完整的结构。</p><p>首先，根据我们上面的需求，创建fluentd配置文件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat etc/fluentd_docker_compose.conf
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">66
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">67
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">68
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">69
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">70
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">71
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">72
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">73
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">74
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">75
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">76
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">77
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">78
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">79
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">80
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">81
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">82
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">83
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">84
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">85
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">86
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">87
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;source&gt;
     @type forward
-    port <span class=m>24224</span>
-    <span class=nb>bind</span> 0.0.0.0
+    port <span style=color:#ae81ff>24224</span>
+    bind 0.0.0.0
 &lt;/source&gt;
 
-<span class=c1># docker相关的日志处理</span>
+<span style=color:#75715e># docker相关的日志处理</span>
 &lt;match docker.**&gt;
-    <span class=c1># docker相关的日志输出三份，一份输出到fluentd容器的标准输出，便于实时查看，另一份保存到文件, 还有一份保存到Elasticsearch</span>
+    <span style=color:#75715e># docker相关的日志输出三份，一份输出到fluentd容器的标准输出，便于实时查看，另一份保存到文件, 还有一份保存到Elasticsearch</span>
     @type copy
 
-    <span class=c1># 输出到标准输出</span>
+    <span style=color:#75715e># 输出到标准输出</span>
     &lt;store&gt;
         @type stdout
-        <span class=c1># 默认输出的格式是json格式，由于docker生成的日志，包含了容器信息等其他信息，不是很方便人去阅读。</span>
-        <span class=c1># 这里只输出我们关心的log字段</span>
-        <span class=c1># 使用stdout作为主format，single_value为子format，这样可以在输出log的同时保留直接tag和time信息</span>
+        <span style=color:#75715e># 默认输出的格式是json格式，由于docker生成的日志，包含了容器信息等其他信息，不是很方便人去阅读。</span>
+        <span style=color:#75715e># 这里只输出我们关心的log字段</span>
+        <span style=color:#75715e># 使用stdout作为主format，single_value为子format，这样可以在输出log的同时保留直接tag和time信息</span>
         &lt;format&gt;
            @type stdout
            output_type single_value
            message_key log
-           add_newline <span class=nb>true</span>
+           add_newline true
         &lt;/format&gt;
     &lt;/store&gt;
 
-    <span class=c1># 输出到文件</span>
+    <span style=color:#75715e># 输出到文件</span>
     &lt;store&gt;
         @type file
-        <span class=c1># 使用tag和日期作为保存日志的文件名</span>
-        path /fluentd/log/<span class=si>${</span><span class=nv>tag</span><span class=si>}</span>/%Y%m%d
-        <span class=c1># 合并多个flush chunk块到一个文件</span>
-        append <span class=nb>true</span>
-        <span class=c1># 使用gzip压缩生成的日志文件</span>
+        <span style=color:#75715e># 使用tag和日期作为保存日志的文件名</span>
+        path /fluentd/log/<span style=color:#e6db74>${</span>tag<span style=color:#e6db74>}</span>/%Y%m%d
+        <span style=color:#75715e># 合并多个flush chunk块到一个文件</span>
+        append true
+        <span style=color:#75715e># 使用gzip压缩生成的日志文件</span>
         compress gzip
         &lt;format&gt;
             @type stdout
             output_type single_value
             message_key log
-            add_newline <span class=nb>true</span>
+            add_newline true
         &lt;/format&gt;
-        <span class=c1># 使用文件作为缓冲区</span>
+        <span style=color:#75715e># 使用文件作为缓冲区</span>
         &lt;buffer tag, time&gt;
             @type file
             chunk_limit_size 1M
-            <span class=c1># 每隔1分钟写一次日志</span>
+            <span style=color:#75715e># 每隔1分钟写一次日志</span>
             flush_interval 1m
-            flush_at_shutdown <span class=nb>true</span>
+            flush_at_shutdown true
             flush_mode interval
         &lt;/buffer&gt;
     &lt;/store&gt;
 
-    <span class=c1># 输出到Eleastichsearch</span>
+    <span style=color:#75715e># 输出到Eleastichsearch</span>
     &lt;store&gt;
        @type elasticsearch
        host elasticsearch
-       port <span class=m>9200</span>
-       logstash_format <span class=nb>true</span>
+       port <span style=color:#ae81ff>9200</span>
+       logstash_format true
        logstash_prefix fluentd
        logstash_dateformat %Y%m%d
-       include_tag_key <span class=nb>true</span>
+       include_tag_key true
        type_name access_log
        tag_key @log_name
     &lt;/store&gt;
 &lt;/match&gt;
 
-<span class=c1># 其它日志处理</span>
+<span style=color:#75715e># 其它日志处理</span>
 &lt;match **&gt;
     @type copy
 
@@ -1059,195 +1059,195 @@ $ curl http://127.0.0.1:5000
         @type stdout
     &lt;/store&gt;
 
-    <span class=c1># 输出到others目录</span>
+    <span style=color:#75715e># 输出到others目录</span>
     &lt;store&gt;
         @type file
-        path /fluentd/log/others/<span class=si>${</span><span class=nv>tag</span><span class=si>}</span>/%Y%m%d
-        append <span class=nb>true</span>
+        path /fluentd/log/others/<span style=color:#e6db74>${</span>tag<span style=color:#e6db74>}</span>/%Y%m%d
+        append true
         &lt;buffer tag, time&gt;
             @type file
             chunk_limit_size 1M
             flush_interval 1m
-            flush_at_shutdown <span class=nb>true</span>
+            flush_at_shutdown true
             flush_mode interval
         &lt;/buffer&gt;
     &lt;/store&gt;
 &lt;/match&gt;
-</code></pre></td></tr></table></div></div><p>由于使用到了elasticsearch输出插件，而默认的fluentd中并没有安装这个插件，因此，我们需要自己定义<code>Dockfile</code>来安装elasticsearch插件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ cat fluentd/Dockerfile
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Dockerfile data-lang=Dockerfile><span class=err>
-</span><span class=err></span><span class=k>FROM</span><span class=s> fluent/fluentd:v1.7-1</span><span class=err>
-</span><span class=err></span><span class=k>USER</span><span class=s> root</span><span class=err>
-</span><span class=err></span><span class=k>RUN</span> <span class=o>[</span><span class=s2>&#34;fluent-gem&#34;</span>, <span class=s2>&#34;install&#34;</span>, <span class=s2>&#34;fluent-plugin-elasticsearch&#34;</span><span class=o>]</span><span class=err>
-</span><span class=err></span><span class=k>USER</span><span class=s> fluent</span><span class=err>
-</span></code></pre></td></tr></table></div></div><p>最后创建<code>docker-compose.yaml</code>文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat docker-compose.yaml
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span><span class=lnt>68
-</span><span class=lnt>69
-</span><span class=lnt>70
-</span><span class=lnt>71
-</span><span class=lnt>72
-</span><span class=lnt>73
-</span><span class=lnt>74
-</span><span class=lnt>75
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3&#39;</span><span class=w>
-</span><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>httpd</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>httpd</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;5000:80&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>webnet</span><span class=w>
-</span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>fluentd</span><span class=w>
-</span><span class=w>    </span><span class=nt>logging</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>fluentd</span><span class=w>
-</span><span class=w>      </span><span class=nt>options</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=nt>fluentd-address</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;localhost:24224&#34;</span><span class=w>
-</span><span class=w>        </span><span class=nt>fluentd-retry-wait</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;1s&#39;</span><span class=w>
-</span><span class=w>        </span><span class=nt>fluentd-max-retries</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;10&#39;</span><span class=w>
-</span><span class=w>        </span><span class=nt>tag</span><span class=p>:</span><span class=w> </span><span class=l>docker.httpd</span><span class=w>
-</span><span class=w>
-</span><span class=w>  </span><span class=nt>fluentd</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>build</span><span class=p>:</span><span class=w> </span><span class=l>./fluentd/</span><span class=w>
-</span><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>./etc/:/fluentd/etc</span><span class=w>
-</span><span class=w>      </span>- <span class=l>./log/:/fluentd/log</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;24224:24224&#34;</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;24224:24224/udp&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>FLUENTD_CONF=fluentd_docker_compose.conf</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>webnet</span><span class=w>
-</span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>elasticsearch</span><span class=w>
-</span><span class=w>      </span>- <span class=l>kibana</span><span class=w>
-</span><span class=w>
-</span><span class=w>  </span><span class=nt>elasticsearch</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;9200:9200&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>webnet</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;9200:9200&#34;</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;9300:9300&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>discovery.type=single-node</span><span class=w>
-</span><span class=w>      </span>- <span class=l>cluster.name=docker-cluster</span><span class=w>
-</span><span class=w>      </span>- <span class=l>bootstrap.memory_lock=true</span><span class=w>
-</span><span class=w>      </span>- <span class=l>http.host=0.0.0.0</span><span class=w>
-</span><span class=w>      </span>- <span class=l>transport.host=127.0.0.1</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>ulimits</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=nt>memlock</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=nt>soft</span><span class=p>:</span><span class=w> </span>-<span class=m>1</span><span class=w>
-</span><span class=w>        </span><span class=nt>hard</span><span class=p>:</span><span class=w> </span>-<span class=m>1</span><span class=w>
-</span><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>es_data:/usr/share/elasticsearch/data</span><span class=w>
-</span><span class=w>
-</span><span class=w>  </span><span class=nt>kibana</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>docker.elastic.co/kibana/kibana-oss:6.2.3</span><span class=w>
-</span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=nt>SERVER_NAME</span><span class=p>:</span><span class=w> </span><span class=l>kibana-server</span><span class=w>
-</span><span class=w>      </span><span class=nt>ELASTICSEARCH_URL</span><span class=p>:</span><span class=w> </span><span class=l>http://elasticsearch:9200</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;5601:5601&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>elasticsearch</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>webnet</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>webnet</span><span class=p>:</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>es_data</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>local</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>最后启动服务</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker-compose up --build
-</code></pre></td></tr></table></div></div><p>实际使用中发现，采用上面的方式启动服务后，有时间fluentd没法收集到httpd服务的日志，最后发现原因是如果在fluentd服务还没准备就绪的情况下就启动httpd服务，就会产生这种现象。因此，建议的做法是先启动fluentd, 再启动httpd</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker-compose up --build fluentd
-<span class=c1># 等fluentd服务就绪后，再启动httpd服务</span>
+</code></pre></td></tr></table></div></div><p>由于使用到了elasticsearch输出插件，而默认的fluentd中并没有安装这个插件，因此，我们需要自己定义<code>Dockfile</code>来安装elasticsearch插件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cat fluentd/Dockerfile
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> fluent/fluentd:v1.7-1</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>USER</span><span style=color:#e6db74> root</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;fluent-gem&#34;</span>, <span style=color:#e6db74>&#34;install&#34;</span>, <span style=color:#e6db74>&#34;fluent-plugin-elasticsearch&#34;</span><span style=color:#f92672>]</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>USER</span><span style=color:#e6db74> fluent</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></td></tr></table></div></div><p>最后创建<code>docker-compose.yaml</code>文件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat docker-compose.yaml
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">66
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">67
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">68
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">69
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">70
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">71
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">72
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">73
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">74
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">75
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+<span style=color:#f92672>services</span>:
+  <span style=color:#f92672>httpd</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>httpd</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;5000:80&#34;</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>webnet</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>fluentd</span>
+    <span style=color:#f92672>logging</span>:
+      <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>fluentd</span>
+      <span style=color:#f92672>options</span>:
+        <span style=color:#f92672>fluentd-address</span>: <span style=color:#e6db74>&#34;localhost:24224&#34;</span>
+        <span style=color:#f92672>fluentd-retry-wait</span>: <span style=color:#e6db74>&#39;1s&#39;</span>
+        <span style=color:#f92672>fluentd-max-retries</span>: <span style=color:#e6db74>&#39;10&#39;</span>
+        <span style=color:#f92672>tag</span>: <span style=color:#ae81ff>docker.httpd</span>
+
+  <span style=color:#f92672>fluentd</span>:
+    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>./fluentd/</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>./etc/:/fluentd/etc</span>
+      - <span style=color:#ae81ff>./log/:/fluentd/log</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;24224:24224&#34;</span>
+      - <span style=color:#e6db74>&#34;24224:24224/udp&#34;</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>FLUENTD_CONF=fluentd_docker_compose.conf</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>webnet</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>elasticsearch</span>
+      - <span style=color:#ae81ff>kibana</span>
+
+  <span style=color:#f92672>elasticsearch</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;9200:9200&#34;</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>webnet</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;9200:9200&#34;</span>
+      - <span style=color:#e6db74>&#34;9300:9300&#34;</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>discovery.type=single-node</span>
+      - <span style=color:#ae81ff>cluster.name=docker-cluster</span>
+      - <span style=color:#ae81ff>bootstrap.memory_lock=true</span>
+      - <span style=color:#ae81ff>http.host=0.0.0.0</span>
+      - <span style=color:#ae81ff>transport.host=127.0.0.1</span>
+      - <span style=color:#e6db74>&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span>
+    <span style=color:#f92672>ulimits</span>:
+      <span style=color:#f92672>memlock</span>:
+        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>es_data:/usr/share/elasticsearch/data</span>
+
+  <span style=color:#f92672>kibana</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>docker.elastic.co/kibana/kibana-oss:6.2.3</span>
+    <span style=color:#f92672>environment</span>:
+      <span style=color:#f92672>SERVER_NAME</span>: <span style=color:#ae81ff>kibana-server</span>
+      <span style=color:#f92672>ELASTICSEARCH_URL</span>: <span style=color:#ae81ff>http://elasticsearch:9200</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;5601:5601&#34;</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>elasticsearch</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>webnet</span>
+
+<span style=color:#f92672>networks</span>:
+  <span style=color:#f92672>webnet</span>:
+
+<span style=color:#f92672>volumes</span>:
+  <span style=color:#f92672>es_data</span>:
+    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>local</span>
+</code></pre></td></tr></table></div></div><p>最后启动服务</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-compose up --build
+</code></pre></td></tr></table></div></div><p>实际使用中发现，采用上面的方式启动服务后，有时间fluentd没法收集到httpd服务的日志，最后发现原因是如果在fluentd服务还没准备就绪的情况下就启动httpd服务，就会产生这种现象。因此，建议的做法是先启动fluentd, 再启动httpd</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-compose up --build fluentd
+<span style=color:#75715e># 等fluentd服务就绪后，再启动httpd服务</span>
 $ docker-compose up httpd
-</code></pre></td></tr></table></div></div><p>当然更优雅点的做法是控制docker-compose中服务的启动顺序，具体可以参考:</p><p><a href=https://docs.docker.com/compose/startup-order/>https://docs.docker.com/compose/startup-order/</a></p><p>测试，访问 httpd服务</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 可以多执行几次，产生多一些访问记录</span>
+</code></pre></td></tr></table></div></div><p>当然更优雅点的做法是控制docker-compose中服务的启动顺序，具体可以参考:</p><p><a href=https://docs.docker.com/compose/startup-order/>https://docs.docker.com/compose/startup-order/</a></p><p>测试，访问 httpd服务</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 可以多执行几次，产生多一些访问记录</span>
 $ curl http://127.0.0.1/5000
 </code></pre></td></tr></table></div></div><p>最后可以分别在fluentd的容器的终端，log目录，以及elasticsearch中看到保存的访问记录信息了。如下是通过Kibana面板看到的请求情况</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1575000628.png alt=Kibana面板></p><h2 id=更多>更多</h2><p>更多关于Fluentd的使用方式可以参考官方文档</p><ul><li><a href=https://docs.fluentd.org/how-to-guides>各种使用fluentd收集日志的场景</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
@@ -1269,4 +1269,4 @@ $ curl http://127.0.0.1/5000
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

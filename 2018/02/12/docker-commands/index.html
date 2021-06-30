@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>docker常用命令 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="docker常用命令集合
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/02/12/docker-commands/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="docker常用命令"><meta property="og:description" content="docker常用命令集合
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/02/12/docker-commands/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="docker常用命令"><meta property="og:description" content="docker常用命令集合
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/02/12/docker-commands/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-02-12T22:21:02+08:00"><meta property="article:modified_time" content="2018-02-12T22:21:02+08:00"><meta itemprop=name content="docker常用命令"><meta itemprop=description content="docker常用命令集合
 "><meta itemprop=datePublished content="2018-02-12T22:21:02+08:00"><meta itemprop=dateModified content="2018-02-12T22:21:02+08:00"><meta itemprop=wordCount content="890"><meta itemprop=keywords content="docker,"><meta name=twitter:card content="summary"><meta name=twitter:title content="docker常用命令"><meta name=twitter:description content="docker常用命令集合
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -9,196 +9,196 @@
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>docker常用命令</h1><div class=post-meta><time datetime=2018-02-12 class=post-time>2018-02-12</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/docker%E5%AE%B9%E5%99%A8/>docker容器</a></div><span class=more-meta>约 890 字</span>
 <span class=more-meta>预计阅读 2 分钟</span>
 <span id=/2018/02/12/docker-commands/ class=leancloud_visitors data-flag-title=docker常用命令><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#install-docker-on-mac>Install docker on mac</a></li><li><a href=#get-docker-info>Get docker info</a></li><li><a href=#basic-commands>Basic commands</a></li><li><a href=#docker-image-and-container-command>Docker image and container command</a></li><li><a href=#docker-stack-commands>Docker stack commands</a></li><li><a href=#docker-machine-commands>Docker-machine commands</a></li><li><a href=#清理命令>清理命令</a></li><li><a href=#查看启动失败的服务信息>查看启动失败的服务信息</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=install-docker-on-mac>Install docker on mac</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ brew cask install docker
-</code></pre></td></tr></table></div></div><h3 id=get-docker-info>Get docker info</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker --version
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#install-docker-on-mac>Install docker on mac</a></li><li><a href=#get-docker-info>Get docker info</a></li><li><a href=#basic-commands>Basic commands</a></li><li><a href=#docker-image-and-container-command>Docker image and container command</a></li><li><a href=#docker-stack-commands>Docker stack commands</a></li><li><a href=#docker-machine-commands>Docker-machine commands</a></li><li><a href=#清理命令>清理命令</a></li><li><a href=#查看启动失败的服务信息>查看启动失败的服务信息</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=install-docker-on-mac>Install docker on mac</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew cask install docker
+</code></pre></td></tr></table></div></div><h3 id=get-docker-info>Get docker info</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker --version
 Docker version 17.12.0-ce, build c97c6d6
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker-compose --version
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-compose --version
 docker-compose version 1.18.0, build 8dd22a9
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker-machine --version
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-machine --version
 docker-machine version 0.13.0, build 9ba6da9
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker version
+</code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker version
 Client:
  Version:	17.12.0-ce
  API version:	1.35
  Go version:	go1.9.2
  Git commit:	c97c6d6
- Built:	Wed Dec <span class=m>27</span> 20:03:51 <span class=m>2017</span>
+ Built:	Wed Dec <span style=color:#ae81ff>27</span> 20:03:51 <span style=color:#ae81ff>2017</span>
  OS/Arch:	darwin/amd64
 
 Server:
  Engine:
   Version:	17.12.0-ce
-  API version:	1.35 <span class=o>(</span>minimum version 1.12<span class=o>)</span>
+  API version:	1.35 <span style=color:#f92672>(</span>minimum version 1.12<span style=color:#f92672>)</span>
   Go version:	go1.9.2
   Git commit:	c97c6d6
-  Built:	Wed Dec <span class=m>27</span> 20:12:29 <span class=m>2017</span>
+  Built:	Wed Dec <span style=color:#ae81ff>27</span> 20:12:29 <span style=color:#ae81ff>2017</span>
   OS/Arch:	linux/amd64
-  Experimental:	<span class=nb>true</span>
-</code></pre></td></tr></table></div></div><h3 id=basic-commands>Basic commands</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># List Docker CLI commands</span>
+  Experimental:	true
+</code></pre></td></tr></table></div></div><h3 id=basic-commands>Basic commands</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># List Docker CLI commands</span>
 docker
 docker container --help
 
-<span class=c1># Display Docker version and info</span>
+<span style=color:#75715e># Display Docker version and info</span>
 docker --version
 docker version
 docker info
 
-<span class=c1># Excecute Docker image</span>
+<span style=color:#75715e># Excecute Docker image</span>
 docker run hello-world
 
-<span class=c1># List Docker images</span>
+<span style=color:#75715e># List Docker images</span>
 docker image ls
 
-<span class=c1># List Docker containers (running, all, all in quiet mode)</span>
+<span style=color:#75715e># List Docker containers (running, all, all in quiet mode)</span>
 docker container ls
 docker container ls -all
 docker container ls -a -q
-</code></pre></td></tr></table></div></div><h3 id=docker-image-and-container-command>Docker image and container command</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker build -t friendlyhello .  <span class=c1># Create image using this directory&#39;s Dockerfile</span>
-docker run -p 4000:80 friendlyhello  <span class=c1># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
-docker run -d -p 4000:80 friendlyhello         <span class=c1># Same thing, but in detached mode</span>
-docker container ls                                <span class=c1># List all running containers</span>
-docker container ls -a             <span class=c1># List all containers, even those not running</span>
-docker container stop &lt;hash&gt;           <span class=c1># Gracefully stop the specified container</span>
-docker container <span class=nb>kill</span> &lt;hash&gt;         <span class=c1># Force shutdown of the specified container</span>
-docker container rm &lt;hash&gt;        <span class=c1># Remove specified container from this machine</span>
-docker container rm <span class=k>$(</span>docker container ls -a -q<span class=k>)</span>         <span class=c1># Remove all containers</span>
-docker image ls -a                             <span class=c1># List all images on this machine</span>
-docker image rm &lt;image id&gt;            <span class=c1># Remove specified image from this machine</span>
-docker image rm <span class=k>$(</span>docker image ls -a -q<span class=k>)</span>   <span class=c1># Remove all images from this machine</span>
-docker login             <span class=c1># Log in this CLI session using your Docker credentials</span>
-docker tag &lt;image&gt; username/repository:tag  <span class=c1># Tag &lt;image&gt; for upload to registry</span>
-docker push username/repository:tag            <span class=c1># Upload tagged image to registry</span>
-docker run username/repository:tag                   <span class=c1># Run image from a registry</span>
-</code></pre></td></tr></table></div></div><h3 id=docker-stack-commands>Docker stack commands</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker stack ls                                            <span class=c1># List stacks or apps</span>
-docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  <span class=c1># Run the specified Compose file</span>
-docker service ls                 <span class=c1># List running services associated with an app</span>
-docker service ps &lt;service&gt;                  <span class=c1># List tasks associated with an app</span>
-docker inspect &lt;task or container&gt;                   <span class=c1># Inspect task or container</span>
-docker container ls -q                                      <span class=c1># List container IDs</span>
-docker stack rm &lt;appname&gt;                             <span class=c1># Tear down an application</span>
-docker swarm leave --force      <span class=c1># Take down a single node swarm from the manager</span>
-</code></pre></td></tr></table></div></div><h3 id=docker-machine-commands>Docker-machine commands</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker-machine create --driver virtualbox myvm1 <span class=c1># Create a VM (Mac, Win7, Linux)</span>
-docker-machine create -d hyperv --hyperv-virtual-switch <span class=s2>&#34;myswitch&#34;</span> myvm1 <span class=c1># Win10</span>
-docker-machine env myvm1                <span class=c1># View basic information about your node</span>
-docker-machine ssh myvm1 <span class=s2>&#34;docker node ls&#34;</span>         <span class=c1># List the nodes in your swarm</span>
-docker-machine ssh myvm1 <span class=s2>&#34;docker node inspect &lt;node ID&gt;&#34;</span>        <span class=c1># Inspect a node</span>
-docker-machine ssh myvm1 <span class=s2>&#34;docker swarm join-token -q worker&#34;</span>   <span class=c1># View join token</span>
-docker-machine ssh myvm1   <span class=c1># Open an SSH session with the VM; type &#34;exit&#34; to end</span>
-docker node ls                <span class=c1># View nodes in swarm (while logged on to manager)</span>
-docker-machine ssh myvm2 <span class=s2>&#34;docker swarm leave&#34;</span>  <span class=c1># Make the worker leave the swarm</span>
-docker-machine ssh myvm1 <span class=s2>&#34;docker swarm leave -f&#34;</span> <span class=c1># Make master leave, kill swarm</span>
-docker-machine ls <span class=c1># list VMs, asterisk shows which VM this shell is talking to</span>
-docker-machine start myvm1            <span class=c1># Start a VM that is currently not running</span>
-docker-machine env myvm1      <span class=c1># show environment variables and command for myvm1</span>
-<span class=nb>eval</span> <span class=k>$(</span>docker-machine env myvm1<span class=k>)</span>         <span class=c1># Mac command to connect shell to myvm1</span>
-<span class=p>&amp;</span> <span class=s2>&#34;C:\Program Files\Docker\Docker\Resources\bin\docker-machine.exe&#34;</span> env myvm1 <span class=p>|</span> Invoke-Expression   <span class=c1># Windows command to connect shell to myvm1</span>
-docker stack deploy -c &lt;file&gt; &lt;app&gt;  <span class=c1># Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file</span>
-docker-machine scp docker-compose.yml myvm1:~ <span class=c1># Copy file to node&#39;s home dir (only required if you use ssh to connect to manager and deploy the app)</span>
-docker-machine ssh myvm1 <span class=s2>&#34;docker stack deploy -c &lt;file&gt; &lt;app&gt;&#34;</span>   <span class=c1># Deploy an app using ssh (you must have first copied the Compose file to myvm1)</span>
-<span class=nb>eval</span> <span class=k>$(</span>docker-machine env -u<span class=k>)</span>     <span class=c1># Disconnect shell from VMs, use native docker</span>
-docker-machine stop <span class=k>$(</span>docker-machine ls -q<span class=k>)</span>               <span class=c1># Stop all running VMs</span>
-docker-machine rm <span class=k>$(</span>docker-machine ls -q<span class=k>)</span> <span class=c1># Delete all VMs and their disk images</span>
-</code></pre></td></tr></table></div></div><h3 id=清理命令>清理命令</h3><h4 id=to-clear-containers>To clear containers:</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker rm -f <span class=k>$(</span>docker ps -a -q<span class=k>)</span>
-</code></pre></td></tr></table></div></div><h4 id=to-clear-images>To clear images:</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker rmi -f <span class=k>$(</span>docker images -a -q<span class=k>)</span>
-</code></pre></td></tr></table></div></div><h4 id=to-clear-dangling-images>To clear dangling images:</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker rmi -f <span class=k>$(</span>docker images -f <span class=s2>&#34;dangling=true&#34;</span> -q<span class=k>)</span>
-</code></pre></td></tr></table></div></div><h4 id=to-clear-volumes>To clear volumes:</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker volume rm <span class=k>$(</span>docker volume ls -q<span class=k>)</span>
-</code></pre></td></tr></table></div></div><h4 id=to-clear-networks>To clear networks:</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker network rm <span class=k>$(</span>docker network ls <span class=p>|</span> tail -n+2 <span class=p>|</span> awk <span class=s1>&#39;{if($2 !~ /bridge|none|host/){ print $1 }}&#39;</span><span class=k>)</span>
-</code></pre></td></tr></table></div></div><h3 id=查看启动失败的服务信息>查看启动失败的服务信息</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>docker service ps --no-trunc <span class=o>{</span>serviceName<span class=o>}</span>
+</code></pre></td></tr></table></div></div><h3 id=docker-image-and-container-command>Docker image and container command</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker build -t friendlyhello .  <span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
+docker run -p 4000:80 friendlyhello  <span style=color:#75715e># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
+docker run -d -p 4000:80 friendlyhello         <span style=color:#75715e># Same thing, but in detached mode</span>
+docker container ls                                <span style=color:#75715e># List all running containers</span>
+docker container ls -a             <span style=color:#75715e># List all containers, even those not running</span>
+docker container stop &lt;hash&gt;           <span style=color:#75715e># Gracefully stop the specified container</span>
+docker container kill &lt;hash&gt;         <span style=color:#75715e># Force shutdown of the specified container</span>
+docker container rm &lt;hash&gt;        <span style=color:#75715e># Remove specified container from this machine</span>
+docker container rm <span style=color:#66d9ef>$(</span>docker container ls -a -q<span style=color:#66d9ef>)</span>         <span style=color:#75715e># Remove all containers</span>
+docker image ls -a                             <span style=color:#75715e># List all images on this machine</span>
+docker image rm &lt;image id&gt;            <span style=color:#75715e># Remove specified image from this machine</span>
+docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span>   <span style=color:#75715e># Remove all images from this machine</span>
+docker login             <span style=color:#75715e># Log in this CLI session using your Docker credentials</span>
+docker tag &lt;image&gt; username/repository:tag  <span style=color:#75715e># Tag &lt;image&gt; for upload to registry</span>
+docker push username/repository:tag            <span style=color:#75715e># Upload tagged image to registry</span>
+docker run username/repository:tag                   <span style=color:#75715e># Run image from a registry</span>
+</code></pre></td></tr></table></div></div><h3 id=docker-stack-commands>Docker stack commands</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker stack ls                                            <span style=color:#75715e># List stacks or apps</span>
+docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;  <span style=color:#75715e># Run the specified Compose file</span>
+docker service ls                 <span style=color:#75715e># List running services associated with an app</span>
+docker service ps &lt;service&gt;                  <span style=color:#75715e># List tasks associated with an app</span>
+docker inspect &lt;task or container&gt;                   <span style=color:#75715e># Inspect task or container</span>
+docker container ls -q                                      <span style=color:#75715e># List container IDs</span>
+docker stack rm &lt;appname&gt;                             <span style=color:#75715e># Tear down an application</span>
+docker swarm leave --force      <span style=color:#75715e># Take down a single node swarm from the manager</span>
+</code></pre></td></tr></table></div></div><h3 id=docker-machine-commands>Docker-machine commands</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-machine create --driver virtualbox myvm1 <span style=color:#75715e># Create a VM (Mac, Win7, Linux)</span>
+docker-machine create -d hyperv --hyperv-virtual-switch <span style=color:#e6db74>&#34;myswitch&#34;</span> myvm1 <span style=color:#75715e># Win10</span>
+docker-machine env myvm1                <span style=color:#75715e># View basic information about your node</span>
+docker-machine ssh myvm1 <span style=color:#e6db74>&#34;docker node ls&#34;</span>         <span style=color:#75715e># List the nodes in your swarm</span>
+docker-machine ssh myvm1 <span style=color:#e6db74>&#34;docker node inspect &lt;node ID&gt;&#34;</span>        <span style=color:#75715e># Inspect a node</span>
+docker-machine ssh myvm1 <span style=color:#e6db74>&#34;docker swarm join-token -q worker&#34;</span>   <span style=color:#75715e># View join token</span>
+docker-machine ssh myvm1   <span style=color:#75715e># Open an SSH session with the VM; type &#34;exit&#34; to end</span>
+docker node ls                <span style=color:#75715e># View nodes in swarm (while logged on to manager)</span>
+docker-machine ssh myvm2 <span style=color:#e6db74>&#34;docker swarm leave&#34;</span>  <span style=color:#75715e># Make the worker leave the swarm</span>
+docker-machine ssh myvm1 <span style=color:#e6db74>&#34;docker swarm leave -f&#34;</span> <span style=color:#75715e># Make master leave, kill swarm</span>
+docker-machine ls <span style=color:#75715e># list VMs, asterisk shows which VM this shell is talking to</span>
+docker-machine start myvm1            <span style=color:#75715e># Start a VM that is currently not running</span>
+docker-machine env myvm1      <span style=color:#75715e># show environment variables and command for myvm1</span>
+eval <span style=color:#66d9ef>$(</span>docker-machine env myvm1<span style=color:#66d9ef>)</span>         <span style=color:#75715e># Mac command to connect shell to myvm1</span>
+&amp; <span style=color:#e6db74>&#34;C:\Program Files\Docker\Docker\Resources\bin\docker-machine.exe&#34;</span> env myvm1 | Invoke-Expression   <span style=color:#75715e># Windows command to connect shell to myvm1</span>
+docker stack deploy -c &lt;file&gt; &lt;app&gt;  <span style=color:#75715e># Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file</span>
+docker-machine scp docker-compose.yml myvm1:~ <span style=color:#75715e># Copy file to node&#39;s home dir (only required if you use ssh to connect to manager and deploy the app)</span>
+docker-machine ssh myvm1 <span style=color:#e6db74>&#34;docker stack deploy -c &lt;file&gt; &lt;app&gt;&#34;</span>   <span style=color:#75715e># Deploy an app using ssh (you must have first copied the Compose file to myvm1)</span>
+eval <span style=color:#66d9ef>$(</span>docker-machine env -u<span style=color:#66d9ef>)</span>     <span style=color:#75715e># Disconnect shell from VMs, use native docker</span>
+docker-machine stop <span style=color:#66d9ef>$(</span>docker-machine ls -q<span style=color:#66d9ef>)</span>               <span style=color:#75715e># Stop all running VMs</span>
+docker-machine rm <span style=color:#66d9ef>$(</span>docker-machine ls -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Delete all VMs and their disk images</span>
+</code></pre></td></tr></table></div></div><h3 id=清理命令>清理命令</h3><h4 id=to-clear-containers>To clear containers:</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rm -f <span style=color:#66d9ef>$(</span>docker ps -a -q<span style=color:#66d9ef>)</span>
+</code></pre></td></tr></table></div></div><h4 id=to-clear-images>To clear images:</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rmi -f <span style=color:#66d9ef>$(</span>docker images -a -q<span style=color:#66d9ef>)</span>
+</code></pre></td></tr></table></div></div><h4 id=to-clear-dangling-images>To clear dangling images:</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rmi -f <span style=color:#66d9ef>$(</span>docker images -f <span style=color:#e6db74>&#34;dangling=true&#34;</span> -q<span style=color:#66d9ef>)</span>
+</code></pre></td></tr></table></div></div><h4 id=to-clear-volumes>To clear volumes:</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker volume rm <span style=color:#66d9ef>$(</span>docker volume ls -q<span style=color:#66d9ef>)</span>
+</code></pre></td></tr></table></div></div><h4 id=to-clear-networks>To clear networks:</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker network rm <span style=color:#66d9ef>$(</span>docker network ls | tail -n+2 | awk <span style=color:#e6db74>&#39;{if($2 !~ /bridge|none|host/){ print $1 }}&#39;</span><span style=color:#66d9ef>)</span>
+</code></pre></td></tr></table></div></div><h3 id=查看启动失败的服务信息>查看启动失败的服务信息</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker service ps --no-trunc <span style=color:#f92672>{</span>serviceName<span style=color:#f92672>}</span>
 </code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-02-12</span></p><p class=copyright-item><span class=item-title>许可协议</span>
@@ -215,4 +215,4 @@ docker-machine rm <span class=k>$(</span>docker-machine ls -q<span class=k>)</sp
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

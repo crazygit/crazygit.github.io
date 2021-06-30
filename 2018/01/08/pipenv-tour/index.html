@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>pipenv使用指南 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="本文主要介绍了python包管理工具: pipenv的使用方法。
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="pipenv使用指南"><meta property="og:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="pipenv使用指南"><meta property="og:description" content="本文主要介绍了python包管理工具: pipenv的使用方法。
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-01-08T14:16:29+08:00"><meta property="article:modified_time" content="2018-01-08T14:16:29+08:00"><meta itemprop=name content="pipenv使用指南"><meta itemprop=description content="本文主要介绍了python包管理工具: pipenv的使用方法。
 "><meta itemprop=datePublished content="2018-01-08T14:16:29+08:00"><meta itemprop=dateModified content="2018-01-08T14:16:29+08:00"><meta itemprop=wordCount content="3428"><meta itemprop=keywords content="pipenv,"><meta name=twitter:card content="summary"><meta name=twitter:title content="pipenv使用指南"><meta name=twitter:description content="本文主要介绍了python包管理工具: pipenv的使用方法。
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -9,79 +9,79 @@
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>pipenv使用指南</h1><div class=post-meta><time datetime=2018-01-08 class=post-time>2018-01-08</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/python%E5%BA%93%E7%9B%B8%E5%85%B3/>python库相关</a></div><span class=more-meta>约 3428 字</span>
 <span class=more-meta>预计阅读 7 分钟</span>
 <span id=/2018/01/08/pipenv-tour/ class=leancloud_visitors data-flag-title=pipenv使用指南><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#安装>安装</a></li><li><a href=#基本概念>基本概念</a></li><li><a href=#添加shell补齐>添加shell补齐</a></li><li><a href=#pipenv命令>pipenv命令</a></li><li><a href=#常用命令介绍>常用命令介绍</a></li><li><a href=#高级技巧>高级技巧</a><ul><li><a href=#导入requirementstxt>导入<code>requirements.txt</code></a></li><li><a href=#指定安装包的版本信息>指定安装包的版本信息</a></li><li><a href=#指定python的版本信息>指定Python的版本信息</a></li><li><a href=#指定安装包的源>指定安装包的源</a></li><li><a href=#生成requirementstxt文件>生成requirements.txt文件</a></li><li><a href=#检查安全隐患>检查安全隐患</a></li><li><a href=#编码风格检查>编码风格检查</a></li><li><a href=#浏览模块代码>浏览模块代码</a></li><li><a href=#自动加载环境变量env>自动加载环境变量.env</a></li><li><a href=#自定义虚拟环境的路径>自定义虚拟环境的路径</a></li><li><a href=#自动激活虚拟环境>自动激活虚拟环境</a></li><li><a href=#通过环境变量配置pipenv>通过环境变量配置pipenv</a></li></ul></li><li><a href=#常见问题>常见问题</a><ul><li><a href=#pipenv-install时报错pipexceptionsinstallationerror-command-python-setuppy-egg_info-failed-with-error-code-1><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command "python setup.py egg_info" failed with error code 1</code></a></li><li><a href=#在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag>在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></a></li></ul></li></ul></nav></div></div><div class=post-content><p><a href=https://github.com/pypa/pipenv><code>pipenv</code></a>是<a href=https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies>Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p><p>它能够自动为项目创建和管理虚拟环境，从<code>Pipfile</code>文件添加或删除安装的包，同时生成<code>Pipfile.lock</code>来锁定安装包的版本和依赖信息，避免构建错误。</p><p><code>pipenv</code>主要解决了如下问题:</p><ul><li>不用再单独使用<code>pip</code>和<code>virtualenv</code>, 现在它们合并在一起了</li><li>不用再维护<code>requirements.txt</code>, 使用<code>Pipfile</code>和<code>Pipfile.lock</code>来代替</li><li>可以使用多个python版本(<code>python2</code>和<code>python3</code>)</li><li>在安装了<code>pyenv</code>的条件下，可以自动安装需要的Python版本</li></ul><h2 id=安装>安装</h2><p>为了方便使用, 建议<strong>全局</strong>安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pip install pipenv
-</code></pre></td></tr></table></div></div><h2 id=基本概念>基本概念</h2><ul><li>虚拟环境如果不存在的话，会自动创建</li><li>当<code>install</code>命令没有传递参数指定安装包时，所有<code>[packages]</code>里指定的包都会被安装</li><li><code>pipenv --three</code>可以初始化一个<code>python3</code>版本的虚拟环境</li><li><code>pipenv --two</code>可以初始化一个<code>python2</code>版本的虚拟环境</li></ul><h2 id=添加shell补齐>添加shell补齐</h2><p>如果使用的是<code>bash</code>, 可添加下面语句到<code>.bashrc</code>或<code>.bash_profile</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>eval</span> <span class=s2>&#34;</span><span class=k>$(</span>pipenv --completion<span class=k>)</span><span class=s2>&#34;</span>
-</code></pre></td></tr></table></div></div><h2 id=pipenv命令>pipenv命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pipenv
-Usage: pipenv <span class=o>[</span>OPTIONS<span class=o>]</span> COMMAND <span class=o>[</span>ARGS<span class=o>]</span>...
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#安装>安装</a></li><li><a href=#基本概念>基本概念</a></li><li><a href=#添加shell补齐>添加shell补齐</a></li><li><a href=#pipenv命令>pipenv命令</a></li><li><a href=#常用命令介绍>常用命令介绍</a></li><li><a href=#高级技巧>高级技巧</a><ul><li><a href=#导入requirementstxt>导入<code>requirements.txt</code></a></li><li><a href=#指定安装包的版本信息>指定安装包的版本信息</a></li><li><a href=#指定python的版本信息>指定Python的版本信息</a></li><li><a href=#指定安装包的源>指定安装包的源</a></li><li><a href=#生成requirementstxt文件>生成requirements.txt文件</a></li><li><a href=#检查安全隐患>检查安全隐患</a></li><li><a href=#编码风格检查>编码风格检查</a></li><li><a href=#浏览模块代码>浏览模块代码</a></li><li><a href=#自动加载环境变量env>自动加载环境变量.env</a></li><li><a href=#自定义虚拟环境的路径>自定义虚拟环境的路径</a></li><li><a href=#自动激活虚拟环境>自动激活虚拟环境</a></li><li><a href=#通过环境变量配置pipenv>通过环境变量配置pipenv</a></li></ul></li><li><a href=#常见问题>常见问题</a><ul><li><a href=#pipenv-install时报错pipexceptionsinstallationerror-command-python-setuppy-egg_info-failed-with-error-code-1><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command "python setup.py egg_info" failed with error code 1</code></a></li><li><a href=#在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag>在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></a></li></ul></li></ul></nav></div></div><div class=post-content><p><a href=https://github.com/pypa/pipenv><code>pipenv</code></a>是<a href=https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies>Python官方推荐</a>的包管理工具。可以说，它集成了<code>virtualenv</code>, <code>pip</code>和<code>pyenv</code>三者的功能。其目的旨在集合了所有的包管理工具的长处，如: <code>npm</code>, <code>yarn</code>, <code>composer</code>等的优点。</p><p>它能够自动为项目创建和管理虚拟环境，从<code>Pipfile</code>文件添加或删除安装的包，同时生成<code>Pipfile.lock</code>来锁定安装包的版本和依赖信息，避免构建错误。</p><p><code>pipenv</code>主要解决了如下问题:</p><ul><li>不用再单独使用<code>pip</code>和<code>virtualenv</code>, 现在它们合并在一起了</li><li>不用再维护<code>requirements.txt</code>, 使用<code>Pipfile</code>和<code>Pipfile.lock</code>来代替</li><li>可以使用多个python版本(<code>python2</code>和<code>python3</code>)</li><li>在安装了<code>pyenv</code>的条件下，可以自动安装需要的Python版本</li></ul><h2 id=安装>安装</h2><p>为了方便使用, 建议<strong>全局</strong>安装</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip install pipenv
+</code></pre></td></tr></table></div></div><h2 id=基本概念>基本概念</h2><ul><li>虚拟环境如果不存在的话，会自动创建</li><li>当<code>install</code>命令没有传递参数指定安装包时，所有<code>[packages]</code>里指定的包都会被安装</li><li><code>pipenv --three</code>可以初始化一个<code>python3</code>版本的虚拟环境</li><li><code>pipenv --two</code>可以初始化一个<code>python2</code>版本的虚拟环境</li></ul><h2 id=添加shell补齐>添加shell补齐</h2><p>如果使用的是<code>bash</code>, 可添加下面语句到<code>.bashrc</code>或<code>.bash_profile</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>eval <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>pipenv --completion<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</code></pre></td></tr></table></div></div><h2 id=pipenv命令>pipenv命令</h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pipenv
+Usage: pipenv <span style=color:#f92672>[</span>OPTIONS<span style=color:#f92672>]</span> COMMAND <span style=color:#f92672>[</span>ARGS<span style=color:#f92672>]</span>...
 
 Options:
-  --update         Update Pipenv <span class=p>&amp;</span> pip to latest.     <span class=c1># 更新pipenv和pip到最新版本</span>
-  --where          Output project home information.   <span class=c1># 获取项目路径</span>
-  --venv           Output virtualenv information.     <span class=c1># 获取虚拟环境的路径</span>
-  --py             Output Python interpreter information. <span class=c1># 获取python解释器的路径</span>
-  --envs           Output Environment Variable options. <span class=c1># 输出当前的环境变量</span>
-  --rm             Remove the virtualenv.   <span class=c1># 删除虚拟环境</span>
+  --update         Update Pipenv &amp; pip to latest.     <span style=color:#75715e># 更新pipenv和pip到最新版本</span>
+  --where          Output project home information.   <span style=color:#75715e># 获取项目路径</span>
+  --venv           Output virtualenv information.     <span style=color:#75715e># 获取虚拟环境的路径</span>
+  --py             Output Python interpreter information. <span style=color:#75715e># 获取python解释器的路径</span>
+  --envs           Output Environment Variable options. <span style=color:#75715e># 输出当前的环境变量</span>
+  --rm             Remove the virtualenv.   <span style=color:#75715e># 删除虚拟环境</span>
   --bare           Minimal output.
-  --completion     Output completion <span class=o>(</span>to be eval<span class=err>&#39;</span>d<span class=o>)</span>.
+  --completion     Output completion <span style=color:#f92672>(</span>to be eval<span style=color:#960050;background-color:#1e0010>&#39;</span>d<span style=color:#f92672>)</span>.
   --man            Display manpage.
-  --three / --two  Use Python 3/2 when creating virtualenv. <span class=c1># 使用python3/2创建虚拟环境</span>
-  --python TEXT    Specify which version of Python virtualenv should use. <span class=c1># 指定python的版本信息</span>
-  --site-packages  Enable site-packages <span class=k>for</span> the virtualenv.
+  --three / --two  Use Python 3/2 when creating virtualenv. <span style=color:#75715e># 使用python3/2创建虚拟环境</span>
+  --python TEXT    Specify which version of Python virtualenv should use. <span style=color:#75715e># 指定python的版本信息</span>
+  --site-packages  Enable site-packages <span style=color:#66d9ef>for</span> the virtualenv.
   --jumbotron      An easter egg, effectively.
   --version        Show the version and exit.
   -h, --help       Show this message and exit.
@@ -90,7 +90,7 @@ Usage Examples:
    Create a new project using Python 3.6, specifically:
    $ pipenv --python 3.6
 
-   Install all dependencies <span class=k>for</span> a project <span class=o>(</span>including dev<span class=o>)</span>:
+   Install all dependencies <span style=color:#66d9ef>for</span> a project <span style=color:#f92672>(</span>including dev<span style=color:#f92672>)</span>:
    $ pipenv install --dev
 
    Create a lockfile containing pre-releases:
@@ -99,85 +99,85 @@ Usage Examples:
    Show a graph of your installed dependencies:
    $ pipenv graph
 
-   Check your installed dependencies <span class=k>for</span> security vulnerabilities:
+   Check your installed dependencies <span style=color:#66d9ef>for</span> security vulnerabilities:
    $ pipenv check
 
-   Install a <span class=nb>local</span> setup.py into your virtual environment/Pipfile:
+   Install a local setup.py into your virtual environment/Pipfile:
    $ pipenv install -e .
 
 Commands:
-  check      Checks <span class=k>for</span> security vulnerabilities and against PEP <span class=m>508</span> markers
+  check      Checks <span style=color:#66d9ef>for</span> security vulnerabilities and against PEP <span style=color:#ae81ff>508</span> markers
              provided in Pipfile.
   graph      Displays currently–installed dependency graph information.
-  install    Installs provided packages and adds them to Pipfile, or <span class=o>(</span><span class=k>if</span> none
-             is given<span class=o>)</span>, installs all packages.
+  install    Installs provided packages and adds them to Pipfile, or <span style=color:#f92672>(</span><span style=color:#66d9ef>if</span> none
+             is given<span style=color:#f92672>)</span>, installs all packages.
   lock       Generates Pipfile.lock.
   open       View a given module in your editor.
-  run        Spawns a <span class=nb>command</span> installed into the virtualenv.
+  run        Spawns a command installed into the virtualenv.
   shell      Spawns a shell within the virtualenv.
   uninstall  Un-installs a provided package and removes it from Pipfile.
-  update     Uninstalls all packages, and re-installs package<span class=o>(</span>s<span class=o>)</span> in <span class=o>[</span>packages<span class=o>]</span>
+  update     Uninstalls all packages, and re-installs package<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span> in <span style=color:#f92672>[</span>packages<span style=color:#f92672>]</span>
              to latest compatible versions.
 
-</code></pre></td></tr></table></div></div><h2 id=常用命令介绍>常用命令介绍</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 安装包</span>
+</code></pre></td></tr></table></div></div><h2 id=常用命令介绍>常用命令介绍</h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 安装包</span>
 $ pipenv install
 
-<span class=c1># 激活当前项目的虚拟环境</span>
+<span style=color:#75715e># 激活当前项目的虚拟环境</span>
 $ pipenv shell
 
-<span class=c1># 安装开发依赖包</span>
+<span style=color:#75715e># 安装开发依赖包</span>
 $ pipenv install pytest --dev
 
-<span class=c1># 图形显示包依赖关系</span>
+<span style=color:#75715e># 图形显示包依赖关系</span>
 $ pipenv graph
 
-<span class=c1># 生成lockfile</span>
+<span style=color:#75715e># 生成lockfile</span>
 $ pipenv lock
 
-<span class=c1># 删除所有的安装包</span>
+<span style=color:#75715e># 删除所有的安装包</span>
 $ pipenv uninstall --all
-</code></pre></td></tr></table></div></div><h2 id=高级技巧>高级技巧</h2><h3 id=导入requirementstxt>导入<code>requirements.txt</code></h3><p>当在执行<code>pipenv install</code>命令的时候，如果有一个<code>requirements.txt</code>文件，那么会自动从<code>requirements.txt</code>文件导入安装包信息并创建一个<code>Pipfile</code>文件。</p><p>同样可以使用<code>$ pipenv install -r path/to/requirements.txt</code>来导入<code>requirements.txt</code>文件</p><p><strong>注意</strong>:</p><p>默认情况下，我们都是在<code>requirements.txt</code>文件里指定了安装包的版本信息的，在导入<code>requirements.txt</code>文件时，版本信息也会被自动写<code>Pipfile</code>文件里， 但是这个信息我们一般不需要保存在<code>Pipfile</code>文件里，需要手动更新<code>Pipfile</code>来删除版本信息</p><h3 id=指定安装包的版本信息>指定安装包的版本信息</h3><p>为了安装指定版本的包信息，可以使用:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pipenv install <span class=nv>requests</span><span class=o>==</span>2.13.0
-</code></pre></td></tr></table></div></div><p>这个命令也会自动更新<code>Pipfile</code>文件</p><h3 id=指定python的版本信息>指定Python的版本信息</h3><p>在创建虚拟环境的时候，我们可以指定使用的python版本信息，类似<code>pyenv</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ pipenv --python 3
+</code></pre></td></tr></table></div></div><h2 id=高级技巧>高级技巧</h2><h3 id=导入requirementstxt>导入<code>requirements.txt</code></h3><p>当在执行<code>pipenv install</code>命令的时候，如果有一个<code>requirements.txt</code>文件，那么会自动从<code>requirements.txt</code>文件导入安装包信息并创建一个<code>Pipfile</code>文件。</p><p>同样可以使用<code>$ pipenv install -r path/to/requirements.txt</code>来导入<code>requirements.txt</code>文件</p><p><strong>注意</strong>:</p><p>默认情况下，我们都是在<code>requirements.txt</code>文件里指定了安装包的版本信息的，在导入<code>requirements.txt</code>文件时，版本信息也会被自动写<code>Pipfile</code>文件里， 但是这个信息我们一般不需要保存在<code>Pipfile</code>文件里，需要手动更新<code>Pipfile</code>来删除版本信息</p><h3 id=指定安装包的版本信息>指定安装包的版本信息</h3><p>为了安装指定版本的包信息，可以使用:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pipenv install requests<span style=color:#f92672>==</span>2.13.0
+</code></pre></td></tr></table></div></div><p>这个命令也会自动更新<code>Pipfile</code>文件</p><h3 id=指定python的版本信息>指定Python的版本信息</h3><p>在创建虚拟环境的时候，我们可以指定使用的python版本信息，类似<code>pyenv</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ pipenv --python 3
 $ pipenv --python 3.6
 $ pipenv --python 2.7.14
-</code></pre></td></tr></table></div></div><p><code>pipenv</code>会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了<code>pyenv</code>, 它会自动调用<code>pyenv</code>下载对应的版本的python</p><h3 id=指定安装包的源>指定安装包的源</h3><p>如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[[source]]
+</code></pre></td></tr></table></div></div><p><code>pipenv</code>会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了<code>pyenv</code>, 它会自动调用<code>pyenv</code>下载对应的版本的python</p><h3 id=指定安装包的源>指定安装包的源</h3><p>如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>[[source]]
 url = &#34;https://pypi.python.org/simple&#34;
 verify_ssl = true
 name = &#34;pypi&#34;
@@ -193,120 +193,120 @@ name = &#34;home&#34;
 requests = {version=&#34;*&#34;, index=&#34;home&#34;}
 maya = {version=&#34;*&#34;, index=&#34;pypi&#34;}
 records = &#34;*&#34;
-</code></pre></td></tr></table></div></div><p>如上设置了两个源：</p><ul><li><code>pypi</code>(<a href=https://pypi.python.org/simple>https://pypi.python.org/simple</a>)</li><li><code>home</code>(<a href=http://pypi.home.kennethreitz.org/simple>http://pypi.home.kennethreitz.org/simple</a>)</li></ul><p>同时指定<code>requests</code>包从<code>home</code>源下载，<code>maya</code>包从<code>pypi</code>源下载</p><h3 id=生成requirementstxt文件>生成requirements.txt文件</h3><p>我们也可以从<code>Pipfile</code>和<code>Pipfile.lock</code>文件来生成<code>requirements.txt</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 生成requirements.txt文件
+</code></pre></td></tr></table></div></div><p>如上设置了两个源：</p><ul><li><code>pypi</code>(<a href=https://pypi.python.org/simple>https://pypi.python.org/simple</a>)</li><li><code>home</code>(<a href=http://pypi.home.kennethreitz.org/simple>http://pypi.home.kennethreitz.org/simple</a>)</li></ul><p>同时指定<code>requests</code>包从<code>home</code>源下载，<code>maya</code>包从<code>pypi</code>源下载</p><h3 id=生成requirementstxt文件>生成requirements.txt文件</h3><p>我们也可以从<code>Pipfile</code>和<code>Pipfile.lock</code>文件来生成<code>requirements.txt</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># 生成requirements.txt文件
 $ pipenv lock -r
 
 # 生成dev-packages的requirements.txt文件
 # pipenv lock -r -d
-</code></pre></td></tr></table></div></div><h3 id=检查安全隐患>检查安全隐患</h3><p><code>pipenv</code>包含了<code>safety</code>模块，可以让我们坚持安装包是否存在安全隐患。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat Pipfile
-<span class=o>[</span>packages<span class=o>]</span>
-<span class=nv>django</span> <span class=o>=</span> <span class=s2>&#34;==1.10.1&#34;</span>
+</code></pre></td></tr></table></div></div><h3 id=检查安全隐患>检查安全隐患</h3><p><code>pipenv</code>包含了<code>safety</code>模块，可以让我们坚持安装包是否存在安全隐患。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat Pipfile
+<span style=color:#f92672>[</span>packages<span style=color:#f92672>]</span>
+django <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;==1.10.1&#34;</span>
 
 $ pipenv check
-Checking PEP <span class=m>508</span> requirements…
+Checking PEP <span style=color:#ae81ff>508</span> requirements…
 Passed!
 Checking installed package safety…
 
-33075: django &gt;<span class=o>=</span>1.10,&lt;1.10.3 resolved <span class=o>(</span>1.10.1 installed<span class=o>)</span>!
+33075: django &gt;<span style=color:#f92672>=</span>1.10,&lt;1.10.3 resolved <span style=color:#f92672>(</span>1.10.1 installed<span style=color:#f92672>)</span>!
 Django before 1.8.x before 1.8.16, 1.9.x before 1.9.11, and 1.10.x before 1.10.3, when settings.DEBUG is True, allow remote attackers to conduct DNS rebinding attacks by leveraging failure to validate the HTTP Host header against settings.ALLOWED_HOSTS.
 
-33076: django &gt;<span class=o>=</span>1.10,&lt;1.10.3 resolved <span class=o>(</span>1.10.1 installed<span class=o>)</span>!
-Django 1.8.x before 1.8.16, 1.9.x before 1.9.11, and 1.10.x before 1.10.3 use a hardcoded password <span class=k>for</span> a temporary database user created when running tests with an Oracle database, which makes it easier <span class=k>for</span> remote attackers to obtain access to the database server by leveraging failure to manually specify a password in the database settings TEST dictionary.
+33076: django &gt;<span style=color:#f92672>=</span>1.10,&lt;1.10.3 resolved <span style=color:#f92672>(</span>1.10.1 installed<span style=color:#f92672>)</span>!
+Django 1.8.x before 1.8.16, 1.9.x before 1.9.11, and 1.10.x before 1.10.3 use a hardcoded password <span style=color:#66d9ef>for</span> a temporary database user created when running tests with an Oracle database, which makes it easier <span style=color:#66d9ef>for</span> remote attackers to obtain access to the database server by leveraging failure to manually specify a password in the database settings TEST dictionary.
 
-33300: django &gt;<span class=o>=</span>1.10,&lt;1.10.7 resolved <span class=o>(</span>1.10.1 installed<span class=o>)</span>!
-CVE-2017-7233: Open redirect and possible XSS attack via user-supplied numeric redirect <span class=nv>URLs</span>
-<span class=o>============================================================================================</span>
+33300: django &gt;<span style=color:#f92672>=</span>1.10,&lt;1.10.7 resolved <span style=color:#f92672>(</span>1.10.1 installed<span style=color:#f92672>)</span>!
+CVE-2017-7233: Open redirect and possible XSS attack via user-supplied numeric redirect URLs
+<span style=color:#f92672>============================================================================================</span>
 
-Django relies on user input in some cases  <span class=o>(</span>e.g.
-:func:<span class=sb>`</span>django.contrib.auth.views.login<span class=sb>`</span> and :doc:<span class=sb>`</span>i18n &lt;/topics/i18n/index&gt;<span class=sb>`</span><span class=o>)</span>
-to redirect the user to an <span class=s2>&#34;on success&#34;</span> URL. The security check <span class=k>for</span> these
-redirects <span class=o>(</span>namely <span class=sb>``</span>django.utils.http.is_safe_url<span class=o>()</span><span class=sb>``</span><span class=o>)</span> considered some numeric
-URLs <span class=o>(</span>e.g. <span class=sb>``</span>http:999999999<span class=sb>``</span><span class=o>)</span> <span class=s2>&#34;safe&#34;</span> when they shouldn<span class=s1>&#39;t be.
-</span><span class=s1>
-</span><span class=s1>Also, if a developer relies on ``is_safe_url()`` to provide safe redirect
-</span><span class=s1>targets and puts such a URL into a link, they could suffer from an XSS attack.
-</span><span class=s1>
-</span><span class=s1>CVE-2017-7234: Open redirect vulnerability in ``django.views.static.serve()``
-</span><span class=s1>=============================================================================
-</span><span class=s1>
-</span><span class=s1>A maliciously crafted URL to a Django site using the
-</span><span class=s1>:func:`~django.views.static.serve` view could redirect to any other domain. The
-</span><span class=s1>view no longer does any redirects as they don&#39;</span>t provide any known, useful
+Django relies on user input in some cases  <span style=color:#f92672>(</span>e.g.
+:func:<span style=color:#e6db74>`</span>django.contrib.auth.views.login<span style=color:#e6db74>`</span> and :doc:<span style=color:#e6db74>`</span>i18n &lt;/topics/i18n/index&gt;<span style=color:#e6db74>`</span><span style=color:#f92672>)</span>
+to redirect the user to an <span style=color:#e6db74>&#34;on success&#34;</span> URL. The security check <span style=color:#66d9ef>for</span> these
+redirects <span style=color:#f92672>(</span>namely <span style=color:#e6db74>``</span>django.utils.http.is_safe_url<span style=color:#f92672>()</span><span style=color:#e6db74>``</span><span style=color:#f92672>)</span> considered some numeric
+URLs <span style=color:#f92672>(</span>e.g. <span style=color:#e6db74>``</span>http:999999999<span style=color:#e6db74>``</span><span style=color:#f92672>)</span> <span style=color:#e6db74>&#34;safe&#34;</span> when they shouldn<span style=color:#e6db74>&#39;t be.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Also, if a developer relies on ``is_safe_url()`` to provide safe redirect
+</span><span style=color:#e6db74>targets and puts such a URL into a link, they could suffer from an XSS attack.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>CVE-2017-7234: Open redirect vulnerability in ``django.views.static.serve()``
+</span><span style=color:#e6db74>=============================================================================
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>A maliciously crafted URL to a Django site using the
+</span><span style=color:#e6db74>:func:`~django.views.static.serve` view could redirect to any other domain. The
+</span><span style=color:#e6db74>view no longer does any redirects as they don&#39;</span>t provide any known, useful
 functionality.
 
 Note, however, that this view has always carried a warning that it is not
-hardened <span class=k>for</span> production use and should be used only as a development aid.
-</code></pre></td></tr></table></div></div><h3 id=编码风格检查>编码风格检查</h3><p><code>pipenv</code>默认集成了<code>flake8</code>, 可以用来检测编码风格</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ cat t.py
+hardened <span style=color:#66d9ef>for</span> production use and should be used only as a development aid.
+</code></pre></td></tr></table></div></div><h3 id=编码风格检查>编码风格检查</h3><p><code>pipenv</code>默认集成了<code>flake8</code>, 可以用来检测编码风格</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat t.py
 import requests
 
 $ pipenv check --style t.py
-t.py:1:1: F401 <span class=s1>&#39;requests&#39;</span> imported but unused
+t.py:1:1: F401 <span style=color:#e6db74>&#39;requests&#39;</span> imported but unused
 t.py:1:16: W292 no newline at end of file
-</code></pre></td></tr></table></div></div><h3 id=浏览模块代码>浏览模块代码</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 用编辑器打开requests模块</span>
+</code></pre></td></tr></table></div></div><h3 id=浏览模块代码>浏览模块代码</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 用编辑器打开requests模块</span>
 $ pipenv open requests
-</code></pre></td></tr></table></div></div><h3 id=自动加载环境变量env>自动加载环境变量.env</h3><p>如果项目根目录下有<code>.env</code>文件，<code>$ pipenv shell</code>和<code>$ pipenv run</code>会自动加载它。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ cat .env
+</code></pre></td></tr></table></div></div><h3 id=自动加载环境变量env>自动加载环境变量.env</h3><p>如果项目根目录下有<code>.env</code>文件，<code>$ pipenv shell</code>和<code>$ pipenv run</code>会自动加载它。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cat .env
 HELLO=WORLD
 
 $ pipenv run python
@@ -317,48 +317,48 @@ Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34;
 &gt;&gt;&gt; import os
 &gt;&gt;&gt; os.environ[&#39;HELLO&#39;]
 &#39;WORLD&#39;
-</code></pre></td></tr></table></div></div><h3 id=自定义虚拟环境的路径>自定义虚拟环境的路径</h3><p>默认情况下,<code>pipenv</code>使用<a href=https://github.com/berdario/pew><code>pew</code></a>来管理虚拟环境的路径，我们可以自定义<code>WORKON_HOME</code>环境变量来设置虚拟环境的路径。比如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>WORKON_HOME</span><span class=o>=</span>~/.venvs
-</code></pre></td></tr></table></div></div><p>我们也可以通过设置环境变量<code>PIPENV_VENV_IN_PROJECT</code>使虚拟环境在每个项目的根目录下<code>project/.venv</code>。</p><h3 id=自动激活虚拟环境>自动激活虚拟环境</h3><p>配合<a href=https://github.com/RobertDeRose/virtualenv-autodetect>virtualenv-autodetect</a>和设置<code>PIPENV_VENV_IN_PROJECT</code>环境变量可以自动激活虚拟环境。</p><p>在<code>.bashrc</code>或<code>.bash_profile</code>中配置如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>export PIPENV_VENV_IN_PROJECT=1
+</code></pre></td></tr></table></div></div><h3 id=自定义虚拟环境的路径>自定义虚拟环境的路径</h3><p>默认情况下,<code>pipenv</code>使用<a href=https://github.com/berdario/pew><code>pew</code></a>来管理虚拟环境的路径，我们可以自定义<code>WORKON_HOME</code>环境变量来设置虚拟环境的路径。比如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export WORKON_HOME<span style=color:#f92672>=</span>~/.venvs
+</code></pre></td></tr></table></div></div><p>我们也可以通过设置环境变量<code>PIPENV_VENV_IN_PROJECT</code>使虚拟环境在每个项目的根目录下<code>project/.venv</code>。</p><h3 id=自动激活虚拟环境>自动激活虚拟环境</h3><p>配合<a href=https://github.com/RobertDeRose/virtualenv-autodetect>virtualenv-autodetect</a>和设置<code>PIPENV_VENV_IN_PROJECT</code>环境变量可以自动激活虚拟环境。</p><p>在<code>.bashrc</code>或<code>.bash_profile</code>中配置如下</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>export PIPENV_VENV_IN_PROJECT=1
 source /path/to/virtualenv-autodetect.sh
-</code></pre></td></tr></table></div></div><p>如果使用了<code>oh-my-zsh</code>, 可以直接使用它的插件形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 安装插件
+</code></pre></td></tr></table></div></div><p>如果使用了<code>oh-my-zsh</code>, 可以直接使用它的插件形式</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># 安装插件
 $ git@github.com:RobertDeRose/virtualenv-autodetect.git ~/.oh-my-zsh/custom/plugins
-</code></pre></td></tr></table></div></div><p>再修改<code>.zshrc</code>文件启动插件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 找到启动plugins的行添加启用插件
+</code></pre></td></tr></table></div></div><p>再修改<code>.zshrc</code>文件启动插件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># 找到启动plugins的行添加启用插件
 plugins=(... virtualenv-autodetect)
-</code></pre></td></tr></table></div></div><h3 id=通过环境变量配置pipenv>通过环境变量配置pipenv</h3><p>pipenv内置了很多环境变量，可以通过设置这些环境变量来配置<code>pipenv</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pipenv --envs
-The following environment variables can be set, to <span class=k>do</span> various things:
+</code></pre></td></tr></table></div></div><h3 id=通过环境变量配置pipenv>通过环境变量配置pipenv</h3><p>pipenv内置了很多环境变量，可以通过设置这些环境变量来配置<code>pipenv</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pipenv --envs
+The following environment variables can be set, to <span style=color:#66d9ef>do</span> various things:
 
   - PIPENV_MAX_DEPTH
   - PIPENV_SHELL
@@ -368,7 +368,7 @@ The following environment variables can be set, to <span class=k>do</span> vario
   - PIPENV_VIRTUALENV
   - PIPENV_MAX_SUBPROCESS
   - PIPENV_COLORBLIND
-  - PIPENV_VENV_IN_PROJECT <span class=c1># 在项目根路径下创建虚拟环境</span>
+  - PIPENV_VENV_IN_PROJECT <span style=color:#75715e># 在项目根路径下创建虚拟环境</span>
   - PIPENV_MAX_ROUNDS
   - PIPENV_USE_SYSTEM
   - PIPENV_SHELL_COMPAT
@@ -380,59 +380,59 @@ The following environment variables can be set, to <span class=k>do</span> vario
   - PIPENV_SHELL_FANCY
   - PIPENV_DONT_USE_PYENV
   - PIPENV_DONT_LOAD_ENV
-  - PIPENV_DEFAULT_PYTHON_VERSION <span class=c1># 设置创建虚拟环境时默认的python版本信息，如: 3.6</span>
+  - PIPENV_DEFAULT_PYTHON_VERSION <span style=color:#75715e># 设置创建虚拟环境时默认的python版本信息，如: 3.6</span>
   - PIPENV_SKIP_VALIDATION
   - PIPENV_TIMEOUT
-</code></pre></td></tr></table></div></div><p>需要修改某个默认配置时，只需要把它添加到<code>.bashrc</code>或<code>.bash_profile</code>文件里即可。</p><h2 id=常见问题>常见问题</h2><h3 id=pipenv-install时报错pipexceptionsinstallationerror-command-python-setuppy-egg_info-failed-with-error-code-1><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command "python setup.py egg_info" failed with error code 1</code></h3><p>错误原因是<code>pipenv</code>是用python2安装的，解决办法是使用pip3重新安装pipenv</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pip unintall pipenv
+</code></pre></td></tr></table></div></div><p>需要修改某个默认配置时，只需要把它添加到<code>.bashrc</code>或<code>.bash_profile</code>文件里即可。</p><h2 id=常见问题>常见问题</h2><h3 id=pipenv-install时报错pipexceptionsinstallationerror-command-python-setuppy-egg_info-failed-with-error-code-1><code>pipenv install</code>时报错<code>pip.exceptions.InstallationError: Command "python setup.py egg_info" failed with error code 1</code></h3><p>错误原因是<code>pipenv</code>是用python2安装的，解决办法是使用pip3重新安装pipenv</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip unintall pipenv
 $ pip3 install pipenv
-</code></pre></td></tr></table></div></div><h3 id=在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag>在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ pipenv
+</code></pre></td></tr></table></div></div><h3 id=在项目目录里运行pipenv时报错attributeerror-module-enum-has-no-attribute-intflag>在项目目录里运行<code>pipenv</code>时报错<code>AttributeError: module 'enum' has no attribute 'IntFlag'</code></h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pipenv
 Failed to import the site module
-Traceback <span class=o>(</span>most recent call last<span class=o>)</span>:
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 544, in &lt;module&gt;
-    main<span class=o>()</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 530, in main
-    <span class=nv>known_paths</span> <span class=o>=</span> addusersitepackages<span class=o>(</span>known_paths<span class=o>)</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 282, in addusersitepackages
-    <span class=nv>user_site</span> <span class=o>=</span> getusersitepackages<span class=o>()</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 258, in getusersitepackages
-    <span class=nv>user_base</span> <span class=o>=</span> getuserbase<span class=o>()</span> <span class=c1># this will also set USER_BASE</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 248, in getuserbase
-    <span class=nv>USER_BASE</span> <span class=o>=</span> get_config_var<span class=o>(</span><span class=s1>&#39;userbase&#39;</span><span class=o>)</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line 601, in get_config_var
-    <span class=k>return</span> get_config_vars<span class=o>()</span>.get<span class=o>(</span>name<span class=o>)</span>
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line 580, in get_config_vars
+Traceback <span style=color:#f92672>(</span>most recent call last<span style=color:#f92672>)</span>:
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 544, in &lt;module&gt;
+    main<span style=color:#f92672>()</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 530, in main
+    known_paths <span style=color:#f92672>=</span> addusersitepackages<span style=color:#f92672>(</span>known_paths<span style=color:#f92672>)</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 282, in addusersitepackages
+    user_site <span style=color:#f92672>=</span> getusersitepackages<span style=color:#f92672>()</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 258, in getusersitepackages
+    user_base <span style=color:#f92672>=</span> getuserbase<span style=color:#f92672>()</span> <span style=color:#75715e># this will also set USER_BASE</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site.py&#34;</span>, line 248, in getuserbase
+    USER_BASE <span style=color:#f92672>=</span> get_config_var<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;userbase&#39;</span><span style=color:#f92672>)</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line 601, in get_config_var
+    <span style=color:#66d9ef>return</span> get_config_vars<span style=color:#f92672>()</span>.get<span style=color:#f92672>(</span>name<span style=color:#f92672>)</span>
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sysconfig.py&#34;</span>, line 580, in get_config_vars
     import _osx_support
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_osx_support.py&#34;</span>, line 4, in &lt;module&gt;
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/_osx_support.py&#34;</span>, line 4, in &lt;module&gt;
     import re
-  File <span class=s2>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/re.py&#34;</span>, line 142, in &lt;module&gt;
-    class RegexFlag<span class=o>(</span>enum.IntFlag<span class=o>)</span>:
-AttributeError: module <span class=s1>&#39;enum&#39;</span> has no attribute <span class=s1>&#39;IntFlag&#39;</span>
-</code></pre></td></tr></table></div></div><p>是因为在项目目录里运行<code>pipenv</code>命令时，项目虚拟环境的python版本低于<code>3.6.4</code>, 由于<code>IntFlag</code>是从<code>python3.6.4</code>才开始集成到python内置模块的。当激活了项目的虚拟环境之后, 环境变量<code>PYTHONPATH</code>会被设置为当前虚拟环境的<code>site-packages</code>目录，因此<code>pipenv</code>依赖的<code>IntFlag</code>无法找到。 解决办法是在运行<code>pipenv</code>时设置环境变量<code>PYTHONPATH</code>为空</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nv>PYTHONPATH</span><span class=o>=</span> pipenv
+  File <span style=color:#e6db74>&#34;/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/re.py&#34;</span>, line 142, in &lt;module&gt;
+    class RegexFlag<span style=color:#f92672>(</span>enum.IntFlag<span style=color:#f92672>)</span>:
+AttributeError: module <span style=color:#e6db74>&#39;enum&#39;</span> has no attribute <span style=color:#e6db74>&#39;IntFlag&#39;</span>
+</code></pre></td></tr></table></div></div><p>是因为在项目目录里运行<code>pipenv</code>命令时，项目虚拟环境的python版本低于<code>3.6.4</code>, 由于<code>IntFlag</code>是从<code>python3.6.4</code>才开始集成到python内置模块的。当激活了项目的虚拟环境之后, 环境变量<code>PYTHONPATH</code>会被设置为当前虚拟环境的<code>site-packages</code>目录，因此<code>pipenv</code>依赖的<code>IntFlag</code>无法找到。 解决办法是在运行<code>pipenv</code>时设置环境变量<code>PYTHONPATH</code>为空</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ PYTHONPATH<span style=color:#f92672>=</span> pipenv
 </code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-01-08</span></p><p class=copyright-item><span class=item-title>许可协议</span>
@@ -449,4 +449,4 @@ AttributeError: module <span class=s1>&#39;enum&#39;</span> has no attribute <sp
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

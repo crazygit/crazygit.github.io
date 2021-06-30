@@ -1,980 +1,980 @@
-<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Elasticsearch快速入门 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Elasticsearch快速入门"><meta property="og:description" content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-04-11T18:15:39+08:00"><meta property="article:modified_time" content="2018-04-11T18:15:39+08:00"><meta itemprop=name content="Elasticsearch快速入门"><meta itemprop=description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta itemprop=datePublished content="2018-04-11T18:15:39+08:00"><meta itemprop=dateModified content="2018-04-11T18:15:39+08:00"><meta itemprop=wordCount content="3465"><meta itemprop=keywords content="elasticsearch,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Elasticsearch快速入门"><meta name=twitter:description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Elasticsearch快速入门 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="Elasticsearch快速入门"><meta property="og:description" content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/04/11/elasticsearch-getting-started/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-04-11T18:15:39+08:00"><meta property="article:modified_time" content="2018-04-11T18:15:39+08:00"><meta itemprop=name content="Elasticsearch快速入门"><meta itemprop=description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><meta itemprop=datePublished content="2018-04-11T18:15:39+08:00"><meta itemprop=dateModified content="2018-04-11T18:15:39+08:00"><meta itemprop=wordCount content="3524"><meta itemprop=keywords content="elasticsearch,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Elasticsearch快速入门"><meta name=twitter:description content="Elasticsearch快速入门, 主要介绍一些Elasticsearch的基本概念和操作"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Elasticsearch快速入门</h1><div class=post-meta><time datetime=2018-04-11 class=post-time>2018-04-11</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/elasticsearch/>Elasticsearch</a></div><span class=more-meta>约 3465 字</span>
-<span class=more-meta>预计阅读 7 分钟</span>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Elasticsearch快速入门</h1><div class=post-meta><time datetime=2018-04-11 class=post-time>2018-04-11</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/elasticsearch/>Elasticsearch</a></div><span class=more-meta>约 3524 字</span>
+<span class=more-meta>预计阅读 8 分钟</span>
 <span id=/2018/04/11/elasticsearch-getting-started/ class=leancloud_visitors data-flag-title=Elasticsearch快速入门><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#基本概念httpswwwelasticcoguideenelasticsearchreferencecurrent_basic_conceptshtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html>基本概念</a></a></li><li><a href=#安装>安装</a></li><li><a href=#探索集群>探索集群</a><ul><li><a href=#列出所有索引信息>列出所有索引信息</a></li><li><a href=#创建索引>创建索引</a></li><li><a href=#创建文档>创建文档</a></li><li><a href=#删除索引>删除索引</a></li></ul></li><li><a href=#修改数据>修改数据</a><ul><li><a href=#更新文档>更新文档</a></li><li><a href=#删除文档>删除文档</a></li><li><a href=#批量处理>批量处理</a></li></ul></li><li><a href=#探索数据>探索数据</a><ul><li><a href=#查询数据>查询数据</a></li><li><a href=#查询语法>查询语法</a></li><li><a href=#执行查询>执行查询</a></li><li><a href=#过滤filter>过滤(Filter)</a></li><li><a href=#聚合aggregations>聚合(Aggregations)</a></li></ul></li><li><a href=#eleasticsearch安装及配置httpswwwelasticcoguideenelasticsearchreferencecurrentsetuphtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html>Eleasticsearch安装及配置</a></a></li><li><a href=#docker-composeyml>docker-compose.yml</a></li></ul></nav></div></div><div class=post-content><h1 id=elasticsearch快速入门httpswwwelasticcoguideenelasticsearchreferencecurrentgetting-startedhtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html>Elasticsearch快速入门</a></h1><p>当前使用版本: 6.2</p><h2 id=基本概念httpswwwelasticcoguideenelasticsearchreferencecurrent_basic_conceptshtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html>基本概念</a></h2><ul><li><p>Near Realtime (NRT)</p><p>实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p></li><li><p>Cluster</p><p>集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。</p></li></ul><ul><li><p>Node</p><p>节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</p></li><li><p>Index</p><p>索引(Index)是一系列文档(Document)的集合, 索引名全部必须小写，一个集群里可以有任意多个索引。类似关系型数据库中的DB。</p></li><li><p>Type</p><p>类似关系型数据库中的Table， 从Elasticsearch 6.0.0, 一个Index里只允许创建一个Type。</p></li><li><p>Document</p><p>文档，存储的最小单元,类似关系型数据库中的Row。</p></li><li><p>Shards & Replicas</p></li></ul><h2 id=安装>安装</h2><p>本文主要介绍使用docker的安装的方式，主要有三种格式的镜像</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 基本版本(默认版本)，包含X-pack的基本特性和免费证书</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#基本概念httpswwwelasticcoguideenelasticsearchreferencecurrent_basic_conceptshtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html>基本概念</a></a></li><li><a href=#安装>安装</a></li><li><a href=#探索集群>探索集群</a><ul><li><a href=#列出所有索引信息>列出所有索引信息</a></li><li><a href=#创建索引>创建索引</a></li><li><a href=#创建文档>创建文档</a></li><li><a href=#删除索引>删除索引</a></li></ul></li><li><a href=#修改数据>修改数据</a><ul><li><a href=#更新文档>更新文档</a></li><li><a href=#删除文档>删除文档</a></li><li><a href=#批量处理>批量处理</a></li></ul></li><li><a href=#探索数据>探索数据</a><ul><li><a href=#查询数据>查询数据</a></li><li><a href=#查询语法>查询语法</a></li><li><a href=#执行查询>执行查询</a></li><li><a href=#过滤filter>过滤(Filter)</a></li><li><a href=#聚合aggregations>聚合(Aggregations)</a></li></ul></li><li><a href=#eleasticsearch安装及配置httpswwwelasticcoguideenelasticsearchreferencecurrentsetuphtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html>Eleasticsearch安装及配置</a></a></li><li><a href=#docker-composeyml>docker-compose.yml</a></li></ul></nav></div></div><div class=post-content><h1 id=elasticsearch快速入门httpswwwelasticcoguideenelasticsearchreferencecurrentgetting-startedhtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html>Elasticsearch快速入门</a></h1><p>当前使用版本: 6.2</p><h2 id=基本概念httpswwwelasticcoguideenelasticsearchreferencecurrent_basic_conceptshtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html>基本概念</a></h2><ul><li><p>Near Realtime (NRT)</p><p>实时搜索，创建文档的索引后无需等待，立刻就可以开始搜索</p></li><li><p>Cluster</p><p>集群，一个集群可以包含多个节点。需要注意的是集群名字很重要，在同一个网络环境中，节点会自动加入相同集群名的集群。</p></li></ul><ul><li><p>Node</p><p>节点，每个节点都有自己的名字，它作为集群的一个单元，拥有数据存储和提供搜索能力等功能。</p></li><li><p>Index</p><p>索引(Index)是一系列文档(Document)的集合, 索引名全部必须小写，一个集群里可以有任意多个索引。类似关系型数据库中的DB。</p></li><li><p>Type</p><p>类似关系型数据库中的Table， 从Elasticsearch 6.0.0, 一个Index里只允许创建一个Type。</p></li><li><p>Document</p><p>文档，存储的最小单元,类似关系型数据库中的Row。</p></li><li><p>Shards & Replicas</p></li></ul><h2 id=安装>安装</h2><p>本文主要介绍使用docker的安装的方式，主要有三种格式的镜像</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 基本版本(默认版本)，包含X-pack的基本特性和免费证书</span>
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.3
-<span class=c1># platinum版本，包含X-pack的全部特性和30天试用证书</span>
+<span style=color:#75715e># platinum版本，包含X-pack的全部特性和30天试用证书</span>
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.3
-<span class=c1># oss版本，不包含X-pack，只有开源的Elasticsearch</span>
+<span style=color:#75715e># oss版本，不包含X-pack，只有开源的Elasticsearch</span>
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
-</code></pre></td></tr></table></div></div><p>选择使用oss版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 安装</span>
+</code></pre></td></tr></table></div></div><p>选择使用oss版本</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 安装</span>
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
-<span class=c1># 启动服务</span>
-$ docker run -p 9200:9200 -p 9300:9300 -e <span class=s2>&#34;cluster.name=mycluster&#34;</span> -e <span class=s2>&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
+<span style=color:#75715e># 启动服务</span>
+$ docker run -p 9200:9200 -p 9300:9300 -e <span style=color:#e6db74>&#34;cluster.name=mycluster&#34;</span> -e <span style=color:#e6db74>&#34;node.name=my_node&#34;</span> docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3
 
-<span class=c1># 检查启动的服务</span>
+<span style=color:#75715e># 检查启动的服务</span>
 $ curl localhost:9200
-<span class=o>{</span>
-  <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;my_node&#34;</span>,
-  <span class=s2>&#34;cluster_name&#34;</span> : <span class=s2>&#34;mycluster&#34;</span>,
-  <span class=s2>&#34;cluster_uuid&#34;</span> : <span class=s2>&#34;e4xwigyJQp-Er6ZJeIg1wg&#34;</span>,
-  <span class=s2>&#34;version&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;number&#34;</span> : <span class=s2>&#34;6.2.3&#34;</span>,
-    <span class=s2>&#34;build_hash&#34;</span> : <span class=s2>&#34;c59ff00&#34;</span>,
-    <span class=s2>&#34;build_date&#34;</span> : <span class=s2>&#34;2018-03-13T10:06:29.741383Z&#34;</span>,
-    <span class=s2>&#34;build_snapshot&#34;</span> : false,
-    <span class=s2>&#34;lucene_version&#34;</span> : <span class=s2>&#34;7.2.1&#34;</span>,
-    <span class=s2>&#34;minimum_wire_compatibility_version&#34;</span> : <span class=s2>&#34;5.6.0&#34;</span>,
-    <span class=s2>&#34;minimum_index_compatibility_version&#34;</span> : <span class=s2>&#34;5.0.0&#34;</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;tagline&#34;</span> : <span class=s2>&#34;You Know, for Search&#34;</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h2 id=探索集群>探索集群</h2><p>集群健康状态检查</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl <span class=s2>&#34;localhost:9200/_cat/health?v&#34;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;name&#34;</span> : <span style=color:#e6db74>&#34;my_node&#34;</span>,
+  <span style=color:#e6db74>&#34;cluster_name&#34;</span> : <span style=color:#e6db74>&#34;mycluster&#34;</span>,
+  <span style=color:#e6db74>&#34;cluster_uuid&#34;</span> : <span style=color:#e6db74>&#34;e4xwigyJQp-Er6ZJeIg1wg&#34;</span>,
+  <span style=color:#e6db74>&#34;version&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;number&#34;</span> : <span style=color:#e6db74>&#34;6.2.3&#34;</span>,
+    <span style=color:#e6db74>&#34;build_hash&#34;</span> : <span style=color:#e6db74>&#34;c59ff00&#34;</span>,
+    <span style=color:#e6db74>&#34;build_date&#34;</span> : <span style=color:#e6db74>&#34;2018-03-13T10:06:29.741383Z&#34;</span>,
+    <span style=color:#e6db74>&#34;build_snapshot&#34;</span> : false,
+    <span style=color:#e6db74>&#34;lucene_version&#34;</span> : <span style=color:#e6db74>&#34;7.2.1&#34;</span>,
+    <span style=color:#e6db74>&#34;minimum_wire_compatibility_version&#34;</span> : <span style=color:#e6db74>&#34;5.6.0&#34;</span>,
+    <span style=color:#e6db74>&#34;minimum_index_compatibility_version&#34;</span> : <span style=color:#e6db74>&#34;5.0.0&#34;</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;tagline&#34;</span> : <span style=color:#e6db74>&#34;You Know, for Search&#34;</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h2 id=探索集群>探索集群</h2><p>集群健康状态检查</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#e6db74>&#34;localhost:9200/_cat/health?v&#34;</span>
 epoch      timestamp cluster   status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
-<span class=m>1523427762</span> 06:22:42  mycluster green           <span class=m>1</span>         <span class=m>1</span>      <span class=m>0</span>   <span class=m>0</span>    <span class=m>0</span>    <span class=m>0</span>        <span class=m>0</span>             <span class=m>0</span>                  -                100.0%
-</code></pre></td></tr></table></div></div><p>节点信息检查</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl <span class=s2>&#34;localhost:9200/_cat/nodes?v&#34;</span>
+<span style=color:#ae81ff>1523427762</span> 06:22:42  mycluster green           <span style=color:#ae81ff>1</span>         <span style=color:#ae81ff>1</span>      <span style=color:#ae81ff>0</span>   <span style=color:#ae81ff>0</span>    <span style=color:#ae81ff>0</span>    <span style=color:#ae81ff>0</span>        <span style=color:#ae81ff>0</span>             <span style=color:#ae81ff>0</span>                  -                100.0%
+</code></pre></td></tr></table></div></div><p>节点信息检查</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#e6db74>&#34;localhost:9200/_cat/nodes?v&#34;</span>
 ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
-172.17.0.2           <span class=m>11</span>          <span class=m>91</span>   <span class=m>2</span>    0.00    0.03     0.04 mdi       *      my_node
-</code></pre></td></tr></table></div></div><h3 id=列出所有索引信息>列出所有索引信息</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl <span class=s2>&#34;localhost:9200/_cat/indices?v&#34;</span>
+172.17.0.2           <span style=color:#ae81ff>11</span>          <span style=color:#ae81ff>91</span>   <span style=color:#ae81ff>2</span>    0.00    0.03     0.04 mdi       *      my_node
+</code></pre></td></tr></table></div></div><h3 id=列出所有索引信息>列出所有索引信息</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#e6db74>&#34;localhost:9200/_cat/indices?v&#34;</span>
 health status index uuid pri rep docs.count docs.deleted store.size pri.store.size
-</code></pre></td></tr></table></div></div><h3 id=创建索引>创建索引</h3><p>创建名为<code>customer</code>的索引</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -X PUT <span class=s2>&#34;localhost:9200/customer?pretty&#34;</span>
-<span class=o>{</span>
-  <span class=s2>&#34;acknowledged&#34;</span> : true,
-  <span class=s2>&#34;shards_acknowledged&#34;</span> : true,
-  <span class=s2>&#34;index&#34;</span> : <span class=s2>&#34;customer&#34;</span>
-<span class=o>}</span>
+</code></pre></td></tr></table></div></div><h3 id=创建索引>创建索引</h3><p>创建名为<code>customer</code>的索引</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -X PUT <span style=color:#e6db74>&#34;localhost:9200/customer?pretty&#34;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;acknowledged&#34;</span> : true,
+  <span style=color:#e6db74>&#34;shards_acknowledged&#34;</span> : true,
+  <span style=color:#e6db74>&#34;index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>
+<span style=color:#f92672>}</span>
 
-$ curl <span class=s2>&#34;localhost:9200/_cat/indices?v&#34;</span>
+$ curl <span style=color:#e6db74>&#34;localhost:9200/_cat/indices?v&#34;</span>
 health status index    uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span class=m>5</span>   <span class=m>1</span>          <span class=m>0</span>            <span class=m>0</span>      1.1kb          1.1kb
+yellow open   customer ltwryTbDSUy2mKATPJ2adA   <span style=color:#ae81ff>5</span>   <span style=color:#ae81ff>1</span>          <span style=color:#ae81ff>0</span>            <span style=color:#ae81ff>0</span>      1.1kb          1.1kb
 </code></pre></td></tr></table></div></div><h3 id=创建文档>创建文档</h3><p>在<code>customer</code>索引里，创建ID为1的文档。
-注意: 加入索引不存在，elasticearch会自动创建索引。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XPUT <span class=s1>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;name&#34;: &#34;John Doe&#34;
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+注意: 加入索引不存在，elasticearch会自动创建索引。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XPUT <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;name&#34;: &#34;John Doe&#34;
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 1,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;created&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 0,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 1,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;created&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 0,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
 
-<span class=c1># 查看创建的结果</span>
-$ curl <span class=s1>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 2,
-  <span class=s2>&#34;found&#34;</span> : true,
-  <span class=s2>&#34;_source&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;name&#34;</span> : <span class=s2>&#34;John Doe&#34;</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=删除索引>删除索引</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -X DELETE <span class=s1>&#39;localhost:9200/customer?pretty&#39;</span>
-<span class=o>{</span>
-  <span class=s2>&#34;acknowledged&#34;</span> : <span class=nb>true</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h2 id=修改数据>修改数据</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 创建一个文档</span>
-$ curl -XPUT <span class=s1>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;name&#34;: &#34;John Doe&#34;
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+<span style=color:#75715e># 查看创建的结果</span>
+$ curl <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 2,
+  <span style=color:#e6db74>&#34;found&#34;</span> : true,
+  <span style=color:#e6db74>&#34;_source&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;name&#34;</span> : <span style=color:#e6db74>&#34;John Doe&#34;</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h3 id=删除索引>删除索引</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -X DELETE <span style=color:#e6db74>&#39;localhost:9200/customer?pretty&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;acknowledged&#34;</span> : true
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h2 id=修改数据>修改数据</h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 创建一个文档</span>
+$ curl -XPUT <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;name&#34;: &#34;John Doe&#34;
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 1,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;created&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 0,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 1,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;created&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 0,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
 
-<span class=c1># 修改文档</span>
-$ curl -XPUT <span class=s1>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;name&#34;: &#34;xxxxx&#34;
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+<span style=color:#75715e># 修改文档</span>
+$ curl -XPUT <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/1?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;name&#34;: &#34;xxxxx&#34;
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 2,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;updated&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 1,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 2,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;updated&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 1,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
 
-<span class=c1>## 通过POST方法，在创建文档时可以不用指定文档的id， elasticsearch会自动生成一个</span>
-$ curl -XPOST <span class=s1>&#39;localhost:9200/customer/_doc?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;name&#34;: &#34;Jane Doe&#34;
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+<span style=color:#75715e>## 通过POST方法，在创建文档时可以不用指定文档的id， elasticsearch会自动生成一个</span>
+$ curl -XPOST <span style=color:#e6db74>&#39;localhost:9200/customer/_doc?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;name&#34;: &#34;Jane Doe&#34;
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;Umx0s2IBV3QZ-G3Zdj0c&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 1,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;created&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 0,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=更新文档>更新文档</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XPOST <span class=s1>&#39;localhost:9200/customer/_doc/1/_update?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;doc&#34;: { &#34;name&#34;: &#34;Jane Doe&#34; }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;Umx0s2IBV3QZ-G3Zdj0c&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 1,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;created&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 0,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h3 id=更新文档>更新文档</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XPOST <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/1/_update?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;doc&#34;: { &#34;name&#34;: &#34;Jane Doe&#34; }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 3,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;updated&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 2,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=删除文档>删除文档</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XDELETE <span class=s1>&#39;localhost:9200/customer/_doc/2?pretty&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 3,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;updated&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 2,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h3 id=删除文档>删除文档</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XDELETE <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/2?pretty&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-  <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-  <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;2&#34;</span>,
-  <span class=s2>&#34;_version&#34;</span> : 1,
-  <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;not_found&#34;</span>,
-  <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-    <span class=s2>&#34;total&#34;</span> : 2,
-    <span class=s2>&#34;successful&#34;</span> : 1,
-    <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-  <span class=o>}</span>,
-  <span class=s2>&#34;_seq_no&#34;</span> : 0,
-  <span class=s2>&#34;_primary_term&#34;</span> : <span class=m>1</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=批量处理>批量处理</h3><p>同时创建两个文档</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XPOST <span class=s1>&#39;localhost:9200/customer/_doc/_bulk?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{&#34;index&#34;:{&#34;_id&#34;:&#34;1&#34;}}
-</span><span class=s1>{&#34;name&#34;: &#34;John Doe&#34; }
-</span><span class=s1>{&#34;index&#34;:{&#34;_id&#34;:&#34;2&#34;}}
-</span><span class=s1>{&#34;name&#34;: &#34;Jane Doe&#34; }
-</span><span class=s1>&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+  <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+  <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;2&#34;</span>,
+  <span style=color:#e6db74>&#34;_version&#34;</span> : 1,
+  <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;not_found&#34;</span>,
+  <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+    <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+    <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>}</span>,
+  <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 0,
+  <span style=color:#e6db74>&#34;_primary_term&#34;</span> : <span style=color:#ae81ff>1</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><h3 id=批量处理>批量处理</h3><p>同时创建两个文档</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XPOST <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/_bulk?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{&#34;index&#34;:{&#34;_id&#34;:&#34;1&#34;}}
+</span><span style=color:#e6db74>{&#34;name&#34;: &#34;John Doe&#34; }
+</span><span style=color:#e6db74>{&#34;index&#34;:{&#34;_id&#34;:&#34;2&#34;}}
+</span><span style=color:#e6db74>{&#34;name&#34;: &#34;Jane Doe&#34; }
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;took&#34;</span> : 14,
-  <span class=s2>&#34;errors&#34;</span> : false,
-  <span class=s2>&#34;items&#34;</span> : <span class=o>[</span>
-    <span class=o>{</span>
-      <span class=s2>&#34;index&#34;</span> : <span class=o>{</span>
-        <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-        <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-        <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-        <span class=s2>&#34;_version&#34;</span> : 4,
-        <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;updated&#34;</span>,
-        <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-          <span class=s2>&#34;total&#34;</span> : 2,
-          <span class=s2>&#34;successful&#34;</span> : 1,
-          <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-        <span class=o>}</span>,
-        <span class=s2>&#34;_seq_no&#34;</span> : 3,
-        <span class=s2>&#34;_primary_term&#34;</span> : 1,
-        <span class=s2>&#34;status&#34;</span> : <span class=m>200</span>
-      <span class=o>}</span>
-    <span class=o>}</span>,
-    <span class=o>{</span>
-      <span class=s2>&#34;index&#34;</span> : <span class=o>{</span>
-        <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-        <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-        <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;2&#34;</span>,
-        <span class=s2>&#34;_version&#34;</span> : 1,
-        <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;created&#34;</span>,
-        <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-          <span class=s2>&#34;total&#34;</span> : 2,
-          <span class=s2>&#34;successful&#34;</span> : 1,
-          <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-        <span class=o>}</span>,
-        <span class=s2>&#34;_seq_no&#34;</span> : 1,
-        <span class=s2>&#34;_primary_term&#34;</span> : 1,
-        <span class=s2>&#34;status&#34;</span> : <span class=m>201</span>
-      <span class=o>}</span>
-    <span class=o>}</span>
-  <span class=o>]</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><p>更新和删除文档</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XPOST <span class=s1>&#39;localhost:9200/customer/_doc/_bulk?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{&#34;update&#34;:{&#34;_id&#34;:&#34;1&#34;}}
-</span><span class=s1>{&#34;doc&#34;: { &#34;name&#34;: &#34;John Doe becomes Jane Doe&#34; } }
-</span><span class=s1>{&#34;delete&#34;:{&#34;_id&#34;:&#34;2&#34;}}
-</span><span class=s1>&#39;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;took&#34;</span> : 14,
+  <span style=color:#e6db74>&#34;errors&#34;</span> : false,
+  <span style=color:#e6db74>&#34;items&#34;</span> : <span style=color:#f92672>[</span>
+    <span style=color:#f92672>{</span>
+      <span style=color:#e6db74>&#34;index&#34;</span> : <span style=color:#f92672>{</span>
+        <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+        <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+        <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+        <span style=color:#e6db74>&#34;_version&#34;</span> : 4,
+        <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;updated&#34;</span>,
+        <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+          <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+          <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+          <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+        <span style=color:#f92672>}</span>,
+        <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 3,
+        <span style=color:#e6db74>&#34;_primary_term&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;status&#34;</span> : <span style=color:#ae81ff>200</span>
+      <span style=color:#f92672>}</span>
+    <span style=color:#f92672>}</span>,
+    <span style=color:#f92672>{</span>
+      <span style=color:#e6db74>&#34;index&#34;</span> : <span style=color:#f92672>{</span>
+        <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+        <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+        <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;2&#34;</span>,
+        <span style=color:#e6db74>&#34;_version&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;created&#34;</span>,
+        <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+          <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+          <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+          <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+        <span style=color:#f92672>}</span>,
+        <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;_primary_term&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;status&#34;</span> : <span style=color:#ae81ff>201</span>
+      <span style=color:#f92672>}</span>
+    <span style=color:#f92672>}</span>
+  <span style=color:#f92672>]</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><p>更新和删除文档</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XPOST <span style=color:#e6db74>&#39;localhost:9200/customer/_doc/_bulk?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{&#34;update&#34;:{&#34;_id&#34;:&#34;1&#34;}}
+</span><span style=color:#e6db74>{&#34;doc&#34;: { &#34;name&#34;: &#34;John Doe becomes Jane Doe&#34; } }
+</span><span style=color:#e6db74>{&#34;delete&#34;:{&#34;_id&#34;:&#34;2&#34;}}
+</span><span style=color:#e6db74>&#39;</span>
 
-<span class=o>{</span>
-  <span class=s2>&#34;took&#34;</span> : 20,
-  <span class=s2>&#34;errors&#34;</span> : false,
-  <span class=s2>&#34;items&#34;</span> : <span class=o>[</span>
-    <span class=o>{</span>
-      <span class=s2>&#34;update&#34;</span> : <span class=o>{</span>
-        <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-        <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-        <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;1&#34;</span>,
-        <span class=s2>&#34;_version&#34;</span> : 5,
-        <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;updated&#34;</span>,
-        <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-          <span class=s2>&#34;total&#34;</span> : 2,
-          <span class=s2>&#34;successful&#34;</span> : 1,
-          <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-        <span class=o>}</span>,
-        <span class=s2>&#34;_seq_no&#34;</span> : 4,
-        <span class=s2>&#34;_primary_term&#34;</span> : 1,
-        <span class=s2>&#34;status&#34;</span> : <span class=m>200</span>
-      <span class=o>}</span>
-    <span class=o>}</span>,
-    <span class=o>{</span>
-      <span class=s2>&#34;delete&#34;</span> : <span class=o>{</span>
-        <span class=s2>&#34;_index&#34;</span> : <span class=s2>&#34;customer&#34;</span>,
-        <span class=s2>&#34;_type&#34;</span> : <span class=s2>&#34;_doc&#34;</span>,
-        <span class=s2>&#34;_id&#34;</span> : <span class=s2>&#34;2&#34;</span>,
-        <span class=s2>&#34;_version&#34;</span> : 2,
-        <span class=s2>&#34;result&#34;</span> : <span class=s2>&#34;deleted&#34;</span>,
-        <span class=s2>&#34;_shards&#34;</span> : <span class=o>{</span>
-          <span class=s2>&#34;total&#34;</span> : 2,
-          <span class=s2>&#34;successful&#34;</span> : 1,
-          <span class=s2>&#34;failed&#34;</span> : <span class=m>0</span>
-        <span class=o>}</span>,
-        <span class=s2>&#34;_seq_no&#34;</span> : 2,
-        <span class=s2>&#34;_primary_term&#34;</span> : 1,
-        <span class=s2>&#34;status&#34;</span> : <span class=m>200</span>
-      <span class=o>}</span>
-    <span class=o>}</span>
-  <span class=o>]</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><p>当批量操作时，如果某个操作失败，后面的操作仍然会继续执行，并且根据执行顺序，依次返回每个操作的执行状态。</p><h2 id=探索数据>探索数据</h2><p>在了解了基本操作之后，让我们来多添加一些数据，做一些数据分析的工作。</p><p>下载测试用的数据集</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ wget <span class=s2>&#34;https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json?raw=true&#34;</span> -O accounts.json
-</code></pre></td></tr></table></div></div><p>导入数据</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -H <span class=s2>&#34;Content-Type: application/json&#34;</span> -XPOST <span class=s2>&#34;localhost:9200/bank/_doc/_bulk?pretty&amp;refresh&#34;</span> --data-binary <span class=s2>&#34;@accounts.json&#34;</span>
+<span style=color:#f92672>{</span>
+  <span style=color:#e6db74>&#34;took&#34;</span> : 20,
+  <span style=color:#e6db74>&#34;errors&#34;</span> : false,
+  <span style=color:#e6db74>&#34;items&#34;</span> : <span style=color:#f92672>[</span>
+    <span style=color:#f92672>{</span>
+      <span style=color:#e6db74>&#34;update&#34;</span> : <span style=color:#f92672>{</span>
+        <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+        <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+        <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;1&#34;</span>,
+        <span style=color:#e6db74>&#34;_version&#34;</span> : 5,
+        <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;updated&#34;</span>,
+        <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+          <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+          <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+          <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+        <span style=color:#f92672>}</span>,
+        <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 4,
+        <span style=color:#e6db74>&#34;_primary_term&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;status&#34;</span> : <span style=color:#ae81ff>200</span>
+      <span style=color:#f92672>}</span>
+    <span style=color:#f92672>}</span>,
+    <span style=color:#f92672>{</span>
+      <span style=color:#e6db74>&#34;delete&#34;</span> : <span style=color:#f92672>{</span>
+        <span style=color:#e6db74>&#34;_index&#34;</span> : <span style=color:#e6db74>&#34;customer&#34;</span>,
+        <span style=color:#e6db74>&#34;_type&#34;</span> : <span style=color:#e6db74>&#34;_doc&#34;</span>,
+        <span style=color:#e6db74>&#34;_id&#34;</span> : <span style=color:#e6db74>&#34;2&#34;</span>,
+        <span style=color:#e6db74>&#34;_version&#34;</span> : 2,
+        <span style=color:#e6db74>&#34;result&#34;</span> : <span style=color:#e6db74>&#34;deleted&#34;</span>,
+        <span style=color:#e6db74>&#34;_shards&#34;</span> : <span style=color:#f92672>{</span>
+          <span style=color:#e6db74>&#34;total&#34;</span> : 2,
+          <span style=color:#e6db74>&#34;successful&#34;</span> : 1,
+          <span style=color:#e6db74>&#34;failed&#34;</span> : <span style=color:#ae81ff>0</span>
+        <span style=color:#f92672>}</span>,
+        <span style=color:#e6db74>&#34;_seq_no&#34;</span> : 2,
+        <span style=color:#e6db74>&#34;_primary_term&#34;</span> : 1,
+        <span style=color:#e6db74>&#34;status&#34;</span> : <span style=color:#ae81ff>200</span>
+      <span style=color:#f92672>}</span>
+    <span style=color:#f92672>}</span>
+  <span style=color:#f92672>]</span>
+<span style=color:#f92672>}</span>
+</code></pre></td></tr></table></div></div><p>当批量操作时，如果某个操作失败，后面的操作仍然会继续执行，并且根据执行顺序，依次返回每个操作的执行状态。</p><h2 id=探索数据>探索数据</h2><p>在了解了基本操作之后，让我们来多添加一些数据，做一些数据分析的工作。</p><p>下载测试用的数据集</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ wget <span style=color:#e6db74>&#34;https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json?raw=true&#34;</span> -O accounts.json
+</code></pre></td></tr></table></div></div><p>导入数据</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> -XPOST <span style=color:#e6db74>&#34;localhost:9200/bank/_doc/_bulk?pretty&amp;refresh&#34;</span> --data-binary <span style=color:#e6db74>&#34;@accounts.json&#34;</span>
 
-$ curl <span class=s2>&#34;localhost:9200/_cat/indices?v&#34;</span>
+$ curl <span style=color:#e6db74>&#34;localhost:9200/_cat/indices?v&#34;</span>
 health status index uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class=m>5</span>   <span class=m>1</span>       <span class=m>1000</span>            <span class=m>0</span>    474.7kb        474.7kb
-</code></pre></td></tr></table></div></div><h3 id=查询数据>查询数据</h3><p>查询数据，主要有两种方式：</p><ul><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-uri-request.html>REST request URI</a></li><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html>REST request body</a></li></ul><p>后者跟前者比，可以执行更复杂的操作，查询体也是json格式，便于阅读。前者主要是使用起来更加方便。</p><p>比如:</p><p>使用<code>request URI</code>的格式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl <span class=s2>&#34;http://localhost:9200/bank/_search?q=*&amp;sort=account_number:asc&amp;pretty&#34;</span>
-</code></pre></td></tr></table></div></div><p>使用<code>request body</code>的格式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>  &#34;sort&#34;: [
-</span><span class=s1>    { &#34;account_number&#34;: &#34;asc&#34; }
-</span><span class=s1>  ]
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h3 id=查询语法>查询语法</h3><p>Elasticsearch提供了一个类似json格式的查询语法，叫做<a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl.html>Query DSL</a>。</p><p>限定返回查询结果的个数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>  &#34;size&#34;: 1
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><p>分页效果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>  &#34;from&#34;: 10,
-</span><span class=s1>  &#34;size&#34;: 10
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><p>排序</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>  &#34;sort&#34;: { &#34;balance&#34;: { &#34;order&#34;: &#34;desc&#34; } }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h3 id=执行查询>执行查询</h3><p>默认情况下，查询返回的<code>_source</code>会包含所有的字段，我们也可以限制返回某些我们关心的字段</p><p>只返回<code>account_number</code>和<code>balance</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>  &#34;_source&#34;: [&#34;account_number&#34;, &#34;balance&#34;]
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=match_all>match_all</h4><p>返回所有结果，没有查询条件限制</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=match>match</h4><p>限定查询条件，返回<code>account_number</code>为20的结果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match&#34;: { &#34;account_number&#34;: 20 } }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><p>查询<code>address</code>里包含<code>mill</code>的结果（不区分大小写）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><p>查询<code>address</code>里包含<code>mill</code>或<code>lane</code>的记录（不区分大小写)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=match_phrase>match_phrase</h4><p>查询<code>address</code>里包含<code>mill</code>和<code>lane</code>的记录（不区分大小写)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: { &#34;match_phrase&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=bool-must>bool must</h4><p>返回<code>address</code>包含<code>mill</code>和<code>lane</code>的结果，与上面的<code>match_phrase</code>效果一样</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: {
-</span><span class=s1>    &#34;bool&#34;: {
-</span><span class=s1>      &#34;must&#34;: [
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
-</span><span class=s1>      ]
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=bool-should>bool should</h4><p>返回<code>address</code>包含<code>mill</code>或<code>lane</code>的结果，与<code>{"match": { "address": "mill lane"}</code>效果一样</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: {
-</span><span class=s1>    &#34;bool&#34;: {
-</span><span class=s1>      &#34;should&#34;: [
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
-</span><span class=s1>      ]
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=bool-must_not>bool must_not</h4><p>返回<code>address</code>包即不包含<code>mill</code>，也不包含<code>lane</code>的结果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: {
-</span><span class=s1>    &#34;bool&#34;: {
-</span><span class=s1>      &#34;must_not&#34;: [
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
-</span><span class=s1>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
-</span><span class=s1>      ]
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h4 id=组合>组合</h4><p>bool的多个条件还可以相互组合</p><p>返回<code>age=40</code>并且<code>state!=ID</code>的结果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: {
-</span><span class=s1>    &#34;bool&#34;: {
-</span><span class=s1>      &#34;must&#34;: [
-</span><span class=s1>        { &#34;match&#34;: { &#34;age&#34;: &#34;40&#34; } }
-</span><span class=s1>      ],
-</span><span class=s1>      &#34;must_not&#34;: [
-</span><span class=s1>        { &#34;match&#34;: { &#34;state&#34;: &#34;ID&#34; } }
-</span><span class=s1>      ]
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h3 id=过滤filter>过滤(Filter)</h3><p>过滤出<code>20000&lt;balance&lt;30000</code>的结果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;query&#34;: {
-</span><span class=s1>    &#34;bool&#34;: {
-</span><span class=s1>      &#34;must&#34;: { &#34;match_all&#34;: {} },
-</span><span class=s1>      &#34;filter&#34;: {
-</span><span class=s1>        &#34;range&#34;: {
-</span><span class=s1>          &#34;balance&#34;: {
-</span><span class=s1>            &#34;gte&#34;: 20000,
-</span><span class=s1>            &#34;lte&#34;: 30000
-</span><span class=s1>          }
-</span><span class=s1>        }
-</span><span class=s1>      }
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><h3 id=聚合aggregations>聚合(Aggregations)</h3><p>设置<code>size=0</code>是因为我们只关心聚合后的结果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;size&#34;: 0,
-</span><span class=s1>  &#34;aggs&#34;: {
-</span><span class=s1>    &#34;group_by_state&#34;: {
-</span><span class=s1>      &#34;terms&#34;: {
-</span><span class=s1>        &#34;field&#34;: &#34;state.keyword&#34;
-</span><span class=s1>      }
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
-</code></pre></td></tr></table></div></div><p>上面的语句等价于</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>state</span><span class=p>,</span><span class=w> </span><span class=k>COUNT</span><span class=p>(</span><span class=o>*</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>bank</span><span class=w> </span><span class=k>GROUP</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=k>state</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=k>COUNT</span><span class=p>(</span><span class=o>*</span><span class=p>)</span><span class=w> </span><span class=k>DESC</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>聚合嵌套</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ curl -XGET <span class=s1>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span class=s1>&#39;Content-Type: application/json&#39;</span> -d<span class=s1>&#39;
-</span><span class=s1>{
-</span><span class=s1>  &#34;size&#34;: 0,
-</span><span class=s1>  &#34;aggs&#34;: {
-</span><span class=s1>    &#34;group_by_state&#34;: {
-</span><span class=s1>      &#34;terms&#34;: {
-</span><span class=s1>        &#34;field&#34;: &#34;state.keyword&#34;
-</span><span class=s1>      },
-</span><span class=s1>      &#34;aggs&#34;: {
-</span><span class=s1>        &#34;average_balance&#34;: {
-</span><span class=s1>          &#34;avg&#34;: {
-</span><span class=s1>            &#34;field&#34;: &#34;balance&#34;
-</span><span class=s1>          }
-</span><span class=s1>        }
-</span><span class=s1>      }
-</span><span class=s1>    }
-</span><span class=s1>  }
-</span><span class=s1>}
-</span><span class=s1>&#39;</span>
+yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span style=color:#ae81ff>5</span>   <span style=color:#ae81ff>1</span>       <span style=color:#ae81ff>1000</span>            <span style=color:#ae81ff>0</span>    474.7kb        474.7kb
+</code></pre></td></tr></table></div></div><h3 id=查询数据>查询数据</h3><p>查询数据，主要有两种方式：</p><ul><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-uri-request.html>REST request URI</a></li><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html>REST request body</a></li></ul><p>后者跟前者比，可以执行更复杂的操作，查询体也是json格式，便于阅读。前者主要是使用起来更加方便。</p><p>比如:</p><p>使用<code>request URI</code>的格式</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#e6db74>&#34;http://localhost:9200/bank/_search?q=*&amp;sort=account_number:asc&amp;pretty&#34;</span>
+</code></pre></td></tr></table></div></div><p>使用<code>request body</code>的格式</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>  &#34;sort&#34;: [
+</span><span style=color:#e6db74>    { &#34;account_number&#34;: &#34;asc&#34; }
+</span><span style=color:#e6db74>  ]
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h3 id=查询语法>查询语法</h3><p>Elasticsearch提供了一个类似json格式的查询语法，叫做<a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl.html>Query DSL</a>。</p><p>限定返回查询结果的个数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>  &#34;size&#34;: 1
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><p>分页效果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>  &#34;from&#34;: 10,
+</span><span style=color:#e6db74>  &#34;size&#34;: 10
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><p>排序</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>  &#34;sort&#34;: { &#34;balance&#34;: { &#34;order&#34;: &#34;desc&#34; } }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h3 id=执行查询>执行查询</h3><p>默认情况下，查询返回的<code>_source</code>会包含所有的字段，我们也可以限制返回某些我们关心的字段</p><p>只返回<code>account_number</code>和<code>balance</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>  &#34;_source&#34;: [&#34;account_number&#34;, &#34;balance&#34;]
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=match_all>match_all</h4><p>返回所有结果，没有查询条件限制</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=match>match</h4><p>限定查询条件，返回<code>account_number</code>为20的结果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match&#34;: { &#34;account_number&#34;: 20 } }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><p>查询<code>address</code>里包含<code>mill</code>的结果（不区分大小写）</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><p>查询<code>address</code>里包含<code>mill</code>或<code>lane</code>的记录（不区分大小写)</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=match_phrase>match_phrase</h4><p>查询<code>address</code>里包含<code>mill</code>和<code>lane</code>的记录（不区分大小写)</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: { &#34;match_phrase&#34;: { &#34;address&#34;: &#34;mill lane&#34; } }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=bool-must>bool must</h4><p>返回<code>address</code>包含<code>mill</code>和<code>lane</code>的结果，与上面的<code>match_phrase</code>效果一样</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: {
+</span><span style=color:#e6db74>    &#34;bool&#34;: {
+</span><span style=color:#e6db74>      &#34;must&#34;: [
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
+</span><span style=color:#e6db74>      ]
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=bool-should>bool should</h4><p>返回<code>address</code>包含<code>mill</code>或<code>lane</code>的结果，与<code>{"match": { "address": "mill lane"}</code>效果一样</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: {
+</span><span style=color:#e6db74>    &#34;bool&#34;: {
+</span><span style=color:#e6db74>      &#34;should&#34;: [
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
+</span><span style=color:#e6db74>      ]
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=bool-must_not>bool must_not</h4><p>返回<code>address</code>包即不包含<code>mill</code>，也不包含<code>lane</code>的结果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: {
+</span><span style=color:#e6db74>    &#34;bool&#34;: {
+</span><span style=color:#e6db74>      &#34;must_not&#34;: [
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;mill&#34; } },
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;address&#34;: &#34;lane&#34; } }
+</span><span style=color:#e6db74>      ]
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=组合>组合</h4><p>bool的多个条件还可以相互组合</p><p>返回<code>age=40</code>并且<code>state!=ID</code>的结果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: {
+</span><span style=color:#e6db74>    &#34;bool&#34;: {
+</span><span style=color:#e6db74>      &#34;must&#34;: [
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;age&#34;: &#34;40&#34; } }
+</span><span style=color:#e6db74>      ],
+</span><span style=color:#e6db74>      &#34;must_not&#34;: [
+</span><span style=color:#e6db74>        { &#34;match&#34;: { &#34;state&#34;: &#34;ID&#34; } }
+</span><span style=color:#e6db74>      ]
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h3 id=过滤filter>过滤(Filter)</h3><p>过滤出<code>20000&lt;balance&lt;30000</code>的结果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;query&#34;: {
+</span><span style=color:#e6db74>    &#34;bool&#34;: {
+</span><span style=color:#e6db74>      &#34;must&#34;: { &#34;match_all&#34;: {} },
+</span><span style=color:#e6db74>      &#34;filter&#34;: {
+</span><span style=color:#e6db74>        &#34;range&#34;: {
+</span><span style=color:#e6db74>          &#34;balance&#34;: {
+</span><span style=color:#e6db74>            &#34;gte&#34;: 20000,
+</span><span style=color:#e6db74>            &#34;lte&#34;: 30000
+</span><span style=color:#e6db74>          }
+</span><span style=color:#e6db74>        }
+</span><span style=color:#e6db74>      }
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><h3 id=聚合aggregations>聚合(Aggregations)</h3><p>设置<code>size=0</code>是因为我们只关心聚合后的结果</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;size&#34;: 0,
+</span><span style=color:#e6db74>  &#34;aggs&#34;: {
+</span><span style=color:#e6db74>    &#34;group_by_state&#34;: {
+</span><span style=color:#e6db74>      &#34;terms&#34;: {
+</span><span style=color:#e6db74>        &#34;field&#34;: &#34;state.keyword&#34;
+</span><span style=color:#e6db74>      }
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
+</code></pre></td></tr></table></div></div><p>上面的语句等价于</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>state</span>, <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>FROM</span> bank <span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#66d9ef>state</span> <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>DESC</span>
+</code></pre></td></tr></table></div></div><p>聚合嵌套</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -XGET <span style=color:#e6db74>&#39;localhost:9200/bank/_search?pretty&#39;</span> -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> -d<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>{
+</span><span style=color:#e6db74>  &#34;size&#34;: 0,
+</span><span style=color:#e6db74>  &#34;aggs&#34;: {
+</span><span style=color:#e6db74>    &#34;group_by_state&#34;: {
+</span><span style=color:#e6db74>      &#34;terms&#34;: {
+</span><span style=color:#e6db74>        &#34;field&#34;: &#34;state.keyword&#34;
+</span><span style=color:#e6db74>      },
+</span><span style=color:#e6db74>      &#34;aggs&#34;: {
+</span><span style=color:#e6db74>        &#34;average_balance&#34;: {
+</span><span style=color:#e6db74>          &#34;avg&#34;: {
+</span><span style=color:#e6db74>            &#34;field&#34;: &#34;balance&#34;
+</span><span style=color:#e6db74>          }
+</span><span style=color:#e6db74>        }
+</span><span style=color:#e6db74>      }
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>  }
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&#39;</span>
 </code></pre></td></tr></table></div></div><h2 id=eleasticsearch安装及配置httpswwwelasticcoguideenelasticsearchreferencecurrentsetuphtml><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html>Eleasticsearch安装及配置</a></h2><p><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html>官方文档</a>详细介绍了各种安装Elasticsearch的方法，以及如何配置Elasticsearch。另外，
 还介绍了将Elasticsearch迁移到生产环境时，需要关注的配置项等。</p><h2 id=docker-composeyml>docker-compose.yml</h2><p>使用<code>docker compose</code>, 可以很方便的在本机创建一个关于elastic stack小集群， 对于开发和测试非常方便。
-使用下面的<code>docker-compose.yml</code>文件，通过<code>docker compose</code>命令，可以在本地直接运行<code>elasticsearch</code>和<code>kibana</code>服务，<code>kibana</code>里开发工具的<code>Console</code>可以很方便的和<code>elasticsearch</code>交互。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3&#34;</span><span class=w>
-</span><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>elasticsearch</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</span><span class=w>
-</span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>elasticsearch</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;9200:9200&#34;</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;9300:9300&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>cluster.name=docker-cluster</span><span class=w>
-</span><span class=w>      </span>- <span class=l>bootstrap.memory_lock=true</span><span class=w>
-</span><span class=w>      </span>- <span class=l>http.host=0.0.0.0</span><span class=w>
-</span><span class=w>      </span>- <span class=l>transport.host=127.0.0.1</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>ulimits</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=nt>memlock</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=nt>soft</span><span class=p>:</span><span class=w> </span>-<span class=m>1</span><span class=w>
-</span><span class=w>        </span><span class=nt>hard</span><span class=p>:</span><span class=w> </span>-<span class=m>1</span><span class=w>
-</span><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>es_data:/usr/share/elasticsearch/data</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>esnet</span><span class=w>
-</span><span class=w>
-</span><span class=w>  </span><span class=nt>kibana</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>docker.elastic.co/kibana/kibana-oss:6.2.3</span><span class=w>
-</span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>kibana</span><span class=w>
-</span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=nt>SERVER_NAME</span><span class=p>:</span><span class=w> </span><span class=l>kibana-server</span><span class=w>
-</span><span class=w>      </span><span class=nt>ELASTICSEARCH_URL</span><span class=p>:</span><span class=w> </span><span class=l>http://elasticsearch:9200</span><span class=w>
-</span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>esnet</span><span class=w>
-</span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>elasticsearch</span><span class=w>
-</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;5601:5601&#34;</span><span class=w>
-</span><span class=w></span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>es_data</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>local</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>esnet</span><span class=p>:</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>关于集成更多elastic stack服务，可以参考:
+使用下面的<code>docker-compose.yml</code>文件，通过<code>docker compose</code>命令，可以在本地直接运行<code>elasticsearch</code>和<code>kibana</code>服务，<code>kibana</code>里开发工具的<code>Console</code>可以很方便的和<code>elasticsearch</code>交互。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3&#34;</span>
+<span style=color:#f92672>services</span>:
+  <span style=color:#f92672>elasticsearch</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.3</span>
+    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>elasticsearch</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;9200:9200&#34;</span>
+      - <span style=color:#e6db74>&#34;9300:9300&#34;</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>cluster.name=docker-cluster</span>
+      - <span style=color:#ae81ff>bootstrap.memory_lock=true</span>
+      - <span style=color:#ae81ff>http.host=0.0.0.0</span>
+      - <span style=color:#ae81ff>transport.host=127.0.0.1</span>
+      - <span style=color:#e6db74>&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span>
+    <span style=color:#f92672>ulimits</span>:
+      <span style=color:#f92672>memlock</span>:
+        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>es_data:/usr/share/elasticsearch/data</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>esnet</span>
+
+  <span style=color:#f92672>kibana</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>docker.elastic.co/kibana/kibana-oss:6.2.3</span>
+    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>kibana</span>
+    <span style=color:#f92672>environment</span>:
+      <span style=color:#f92672>SERVER_NAME</span>: <span style=color:#ae81ff>kibana-server</span>
+      <span style=color:#f92672>ELASTICSEARCH_URL</span>: <span style=color:#ae81ff>http://elasticsearch:9200</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>esnet</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>elasticsearch</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;5601:5601&#34;</span>
+<span style=color:#f92672>volumes</span>:
+  <span style=color:#f92672>es_data</span>:
+    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>local</span>
+
+<span style=color:#f92672>networks</span>:
+  <span style=color:#f92672>esnet</span>:
+</code></pre></td></tr></table></div></div><p>关于集成更多elastic stack服务，可以参考:
 <a href=https://github.com/elastic/stack-docker/blob/master/docker-compose.yml>https://github.com/elastic/stack-docker/blob/master/docker-compose.yml</a></p><p>kibana Console运行效果如下：</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-04-12-kibana-devtool.png alt="kibana console"></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-04-11</span></p><p class=copyright-item><span class=item-title>许可协议</span>
@@ -991,4 +991,4 @@ yellow open   bank  EnHJEWvLRv2tZLoI7Z_lXw   <span class=m>5</span>   <span clas
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

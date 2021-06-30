@@ -1,253 +1,253 @@
-<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>集合类型 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="集合类型"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/12/26/collection-types/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="集合类型"><meta property="og:description" content="集合类型"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/12/26/collection-types/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-12-26T23:11:51+08:00"><meta property="article:modified_time" content="2018-12-26T23:11:51+08:00"><meta itemprop=name content="集合类型"><meta itemprop=description content="集合类型"><meta itemprop=datePublished content="2018-12-26T23:11:51+08:00"><meta itemprop=dateModified content="2018-12-26T23:11:51+08:00"><meta itemprop=wordCount content="1816"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="集合类型"><meta name=twitter:description content="集合类型"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>集合类型 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="集合类型"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/12/26/collection-types/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="集合类型"><meta property="og:description" content="集合类型"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/12/26/collection-types/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-12-26T23:11:51+08:00"><meta property="article:modified_time" content="2018-12-26T23:11:51+08:00"><meta itemprop=name content="集合类型"><meta itemprop=description content="集合类型"><meta itemprop=datePublished content="2018-12-26T23:11:51+08:00"><meta itemprop=dateModified content="2018-12-26T23:11:51+08:00"><meta itemprop=wordCount content="1816"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="集合类型"><meta name=twitter:description content="集合类型"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>集合类型</h1><div class=post-meta><time datetime=2018-12-26 class=post-time>2018-12-26</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/>iOS开发入门</a></div><span class=more-meta>约 1816 字</span>
 <span class=more-meta>预计阅读 4 分钟</span>
 <span id=/2018/12/26/collection-types/ class=leancloud_visitors data-flag-title=集合类型><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#数组arrays>数组（Arrays）</a><ul><li><a href=#创建一个空数组>创建一个空数组</a></li><li><a href=#创建有值的数组>创建有值的数组</a></li><li><a href=#创建含有默认值的数组>创建含有默认值的数组</a></li><li><a href=#通过相加数组创建新的数组>通过相加数组创建新的数组</a></li><li><a href=#数组常用的属性和方法>数组常用的属性和方法</a></li></ul></li><li><a href=#集合sets>集合(Sets)</a><ul><li><a href=#集合的中的数据类型必须是hashble>集合的中的数据类型必须是<code>hashble</code></a></li><li><a href=#创建集合>创建集合</a></li><li><a href=#集合常用的属性和方法>集合常用的属性和方法</a></li><li><a href=#集合操作>集合操作</a></li><li><a href=#集合关系>集合关系</a></li></ul></li><li><a href=#字典dictionaries>字典(Dictionaries)</a><ul><li><a href=#创建一个空字典>创建一个空字典</a></li><li><a href=#使用字典语法创建字典>使用字典语法创建字典</a></li><li><a href=#数组常用的属性和方法-1>数组常用的属性和方法</a></li></ul></li></ul></nav></div></div><div class=post-content><p>Swift有三种主要的集合类型，分别是:</p><ul><li>Arrays</li><li>Sets</li><li>dictionaries</li></ul><h2 id=数组arrays>数组（Arrays）</h2><p>数组是包含<strong>相同数据类型</strong>的<strong>有序</strong>数据集合，<strong>允许相同的数据</strong>出现在不同的位置。</p><h3 id=创建一个空数组>创建一个空数组</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 两种不同的写法</span>
-<span class=kd>var</span> <span class=nv>someInts</span> <span class=p>=</span> <span class=p>[</span><span class=nb>Int</span><span class=p>]()</span>
-<span class=kd>var</span> <span class=nv>anotherInts</span><span class=p>:</span> <span class=p>[</span><span class=nb>Int</span><span class=p>]</span> <span class=p>=</span> <span class=p>[]</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#数组arrays>数组（Arrays）</a><ul><li><a href=#创建一个空数组>创建一个空数组</a></li><li><a href=#创建有值的数组>创建有值的数组</a></li><li><a href=#创建含有默认值的数组>创建含有默认值的数组</a></li><li><a href=#通过相加数组创建新的数组>通过相加数组创建新的数组</a></li><li><a href=#数组常用的属性和方法>数组常用的属性和方法</a></li></ul></li><li><a href=#集合sets>集合(Sets)</a><ul><li><a href=#集合的中的数据类型必须是hashble>集合的中的数据类型必须是<code>hashble</code></a></li><li><a href=#创建集合>创建集合</a></li><li><a href=#集合常用的属性和方法>集合常用的属性和方法</a></li><li><a href=#集合操作>集合操作</a></li><li><a href=#集合关系>集合关系</a></li></ul></li><li><a href=#字典dictionaries>字典(Dictionaries)</a><ul><li><a href=#创建一个空字典>创建一个空字典</a></li><li><a href=#使用字典语法创建字典>使用字典语法创建字典</a></li><li><a href=#数组常用的属性和方法-1>数组常用的属性和方法</a></li></ul></li></ul></nav></div></div><div class=post-content><p>Swift有三种主要的集合类型，分别是:</p><ul><li>Arrays</li><li>Sets</li><li>dictionaries</li></ul><h2 id=数组arrays>数组（Arrays）</h2><p>数组是包含<strong>相同数据类型</strong>的<strong>有序</strong>数据集合，<strong>允许相同的数据</strong>出现在不同的位置。</p><h3 id=创建一个空数组>创建一个空数组</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 两种不同的写法</span>
+<span style=color:#66d9ef>var</span> someInts = [Int]()
+<span style=color:#66d9ef>var</span> anotherInts: [Int] = []
 
-<span class=bp>print</span><span class=p>(</span><span class=n>someInts</span><span class=p>.</span><span class=bp>count</span><span class=p>)</span> <span class=c1>// 0</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>anotherInts</span><span class=p>.</span><span class=bp>count</span><span class=p>)</span> <span class=c1>// 0</span>
-</code></pre></td></tr></table></div></div><h3 id=创建有值的数组>创建有值的数组</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>shoppingList</span><span class=p>:</span> <span class=p>[</span><span class=nb>String</span><span class=p>]</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Eggs&#34;</span><span class=p>,</span> <span class=s>&#34;Milk&#34;</span><span class=p>]</span>
-</code></pre></td></tr></table></div></div><h3 id=创建含有默认值的数组>创建含有默认值的数组</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>threeDoubles</span> <span class=p>=</span> <span class=nb>Array</span><span class=p>(</span><span class=n>repeating</span><span class=p>:</span> <span class=mf>0.0</span><span class=p>,</span> <span class=bp>count</span><span class=p>:</span> <span class=mi>3</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>threeDoubles</span><span class=p>)</span> <span class=c1>// [0.0, 0.0, 0.0]</span>
-</code></pre></td></tr></table></div></div><h3 id=通过相加数组创建新的数组>通过相加数组创建新的数组</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>threeDoubles</span> <span class=p>=</span> <span class=nb>Array</span><span class=p>(</span><span class=n>repeating</span><span class=p>:</span> <span class=mf>0.0</span><span class=p>,</span> <span class=bp>count</span><span class=p>:</span> <span class=mi>3</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>threeDoubles</span><span class=p>)</span>
+print(someInts.count) <span style=color:#75715e>// 0</span>
+print(anotherInts.count) <span style=color:#75715e>// 0</span>
+</code></pre></td></tr></table></div></div><h3 id=创建有值的数组>创建有值的数组</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> shoppingList: [String] = [<span style=color:#e6db74>&#34;Eggs&#34;</span>, <span style=color:#e6db74>&#34;Milk&#34;</span>]
+</code></pre></td></tr></table></div></div><h3 id=创建含有默认值的数组>创建含有默认值的数组</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> threeDoubles = Array(repeating: <span style=color:#ae81ff>0.0</span>, count: <span style=color:#ae81ff>3</span>)
+print(threeDoubles) <span style=color:#75715e>// [0.0, 0.0, 0.0]</span>
+</code></pre></td></tr></table></div></div><h3 id=通过相加数组创建新的数组>通过相加数组创建新的数组</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> threeDoubles = Array(repeating: <span style=color:#ae81ff>0.0</span>, count: <span style=color:#ae81ff>3</span>)
+print(threeDoubles)
 
-<span class=kd>var</span> <span class=nv>anotherTrheeDoubles</span> <span class=p>=</span> <span class=nb>Array</span><span class=p>(</span><span class=n>repeating</span><span class=p>:</span> <span class=mf>2.5</span><span class=p>,</span> <span class=bp>count</span><span class=p>:</span> <span class=mi>3</span><span class=p>)</span>
+<span style=color:#66d9ef>var</span> anotherTrheeDoubles = Array(repeating: <span style=color:#ae81ff>2.5</span>, count: <span style=color:#ae81ff>3</span>)
 
-<span class=kd>var</span> <span class=nv>sixDoubles</span> <span class=p>=</span> <span class=n>threeDoubles</span> <span class=o>+</span> <span class=n>anotherTrheeDoubles</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>sixDoubles</span><span class=p>)</span> <span class=c1>// [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
-</code></pre></td></tr></table></div></div><h3 id=数组常用的属性和方法>数组常用的属性和方法</h3><ul><li><p>跟字符串类型类似，使用<code>count</code>属性获取数组元素的个数， 使用<code>isEmpty</code>属性可以检查数组是否为空。</p></li><li><p>使用<code>append</code>方法可以添加一个元素到数组</p></li><li><p>使用<code>+=</code>可以添加一个数组到另一个数组</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>shoppingList</span><span class=p>:</span> <span class=p>[</span><span class=nb>String</span><span class=p>]</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Eggs&#34;</span><span class=p>,</span> <span class=s>&#34;Milk&#34;</span><span class=p>]</span>
+<span style=color:#66d9ef>var</span> sixDoubles = threeDoubles <span style=color:#f92672>+</span> anotherTrheeDoubles
+print(sixDoubles) <span style=color:#75715e>// [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
+</code></pre></td></tr></table></div></div><h3 id=数组常用的属性和方法>数组常用的属性和方法</h3><ul><li><p>跟字符串类型类似，使用<code>count</code>属性获取数组元素的个数， 使用<code>isEmpty</code>属性可以检查数组是否为空。</p></li><li><p>使用<code>append</code>方法可以添加一个元素到数组</p></li><li><p>使用<code>+=</code>可以添加一个数组到另一个数组</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> shoppingList: [String] = [<span style=color:#e6db74>&#34;Eggs&#34;</span>, <span style=color:#e6db74>&#34;Milk&#34;</span>]
 
-<span class=n>shoppingList</span><span class=p>.</span><span class=n>append</span><span class=p>(</span><span class=s>&#34;Flour&#34;</span><span class=p>)</span>
+shoppingList.append(<span style=color:#e6db74>&#34;Flour&#34;</span>)
 
-<span class=n>shoppingList</span> <span class=o>+=</span> <span class=p>[</span><span class=s>&#34;Baking&#34;</span><span class=p>,</span> <span class=s>&#34;Powder&#34;</span><span class=p>]</span>
-</code></pre></td></tr></table></div></div></li><li><p>使用下标可以修改数组元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>shoppingList</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;Six Eggs&#34;</span>
+shoppingList <span style=color:#f92672>+=</span> [<span style=color:#e6db74>&#34;Baking&#34;</span>, <span style=color:#e6db74>&#34;Powder&#34;</span>]
+</code></pre></td></tr></table></div></div></li><li><p>使用下标可以修改数组元素</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>shoppingList[<span style=color:#ae81ff>0</span>] = <span style=color:#e6db74>&#34;Six Eggs&#34;</span>
 
-<span class=c1>// 下标指定的元素个数和赋值的元素个数不一定要相同</span>
-<span class=n>shoppingList</span><span class=p>[</span><span class=mf>1.</span><span class=p>..</span><span class=mi>4</span><span class=p>]</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Bananas&#34;</span><span class=p>,</span> <span class=s>&#34;Apples&#34;</span><span class=p>]</span>
-</code></pre></td></tr></table></div></div></li><li><p>插入/删除一个元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>shoppingList</span><span class=p>.</span><span class=bp>insert</span><span class=p>(</span><span class=s>&#34;Maple Syrup&#34;</span><span class=p>,</span> <span class=n>at</span><span class=p>:</span> <span class=mi>0</span><span class=p>)</span>
+<span style=color:#75715e>// 下标指定的元素个数和赋值的元素个数不一定要相同</span>
+shoppingList[<span style=color:#ae81ff>1.</span>..<span style=color:#ae81ff>4</span>] = [<span style=color:#e6db74>&#34;Bananas&#34;</span>, <span style=color:#e6db74>&#34;Apples&#34;</span>]
+</code></pre></td></tr></table></div></div></li><li><p>插入/删除一个元素</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>shoppingList.insert(<span style=color:#e6db74>&#34;Maple Syrup&#34;</span>, at: <span style=color:#ae81ff>0</span>)
 
-<span class=c1>// 删除指定位置的元素</span>
-<span class=n>shoppingList</span><span class=p>.</span><span class=n>remove</span><span class=p>(</span><span class=n>at</span><span class=p>:</span> <span class=mi>3</span><span class=p>)</span>
+<span style=color:#75715e>// 删除指定位置的元素</span>
+shoppingList.remove(at: <span style=color:#ae81ff>3</span>)
 
-<span class=c1>// 删除最后一个元素</span>
-<span class=n>shoppingList</span><span class=p>.</span><span class=bp>removeLast</span><span class=p>()</span>
-</code></pre></td></tr></table></div></div></li><li><p>遍历数组</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>for</span> <span class=n>item</span> <span class=k>in</span> <span class=n>shoppingList</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>item</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div></li></ul><h2 id=集合sets>集合(Sets)</h2><p>集合就是<strong>无序</strong>， <strong>唯一</strong>， <strong>相同数据类型</strong>的集合</p><h3 id=集合的中的数据类型必须是hashble>集合的中的数据类型必须是<code>hashble</code></h3><p>为了实现唯一性，集合中的元素必须是<code>hashble</code>的，比较两个元素是否相同时，比较的其实就是hash值，比如<code>a</code> == <code>b</code> 就是比较<code>a.hashValue</code> == <code>b.hashValue</code>。</p><p>所有的Swift基础类型(<code>String</code>, <code>Int</code>, <code>Double</code>和<code>Bool</code>)默认都是<code>hashble</code>的。当自定义类型需要加入到Sets时，需要自己实现<code>Hashable</code>协议。</p><h3 id=创建集合>创建集合</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 创建一个空集合</span>
-<span class=kd>var</span> <span class=nv>letters</span> <span class=p>=</span> <span class=n>Set</span><span class=p>&lt;</span><span class=nb>Character</span><span class=p>&gt;()</span>
-<span class=kd>var</span> <span class=nv>anohterletters</span><span class=p>:</span> <span class=n>Set</span><span class=p>&lt;</span><span class=nb>Character</span><span class=p>&gt;</span> <span class=p>=</span> <span class=p>[]</span>
+<span style=color:#75715e>// 删除最后一个元素</span>
+shoppingList.removeLast()
+</code></pre></td></tr></table></div></div></li><li><p>遍历数组</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>for</span> item <span style=color:#66d9ef>in</span> shoppingList {
+    print(item)
+}
+</code></pre></td></tr></table></div></div></li></ul><h2 id=集合sets>集合(Sets)</h2><p>集合就是<strong>无序</strong>， <strong>唯一</strong>， <strong>相同数据类型</strong>的集合</p><h3 id=集合的中的数据类型必须是hashble>集合的中的数据类型必须是<code>hashble</code></h3><p>为了实现唯一性，集合中的元素必须是<code>hashble</code>的，比较两个元素是否相同时，比较的其实就是hash值，比如<code>a</code> == <code>b</code> 就是比较<code>a.hashValue</code> == <code>b.hashValue</code>。</p><p>所有的Swift基础类型(<code>String</code>, <code>Int</code>, <code>Double</code>和<code>Bool</code>)默认都是<code>hashble</code>的。当自定义类型需要加入到Sets时，需要自己实现<code>Hashable</code>协议。</p><h3 id=创建集合>创建集合</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 创建一个空集合</span>
+<span style=color:#66d9ef>var</span> letters = Set&lt;Character&gt;()
+<span style=color:#66d9ef>var</span> anohterletters: Set&lt;Character&gt; = []
 
-<span class=c1>// 创建初始有值的集合</span>
-<span class=kd>var</span> <span class=nv>favoriteGenres</span><span class=p>:</span> <span class=n>Set</span><span class=p>&lt;</span><span class=nb>String</span><span class=p>&gt;</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Rock&#34;</span><span class=p>,</span> <span class=s>&#34;Classical&#34;</span><span class=p>,</span> <span class=s>&#34;Hip hop&#34;</span><span class=p>]</span>
-<span class=c1>// 简写形式</span>
-<span class=kd>var</span> <span class=nv>favoriteGenres</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Rock&#34;</span><span class=p>,</span> <span class=s>&#34;Classical&#34;</span><span class=p>,</span> <span class=s>&#34;Hip hop&#34;</span><span class=p>]</span>
-</code></pre></td></tr></table></div></div><h3 id=集合常用的属性和方法>集合常用的属性和方法</h3><ul><li><p>跟字符串类型类似，使用<code>count</code>属性获取集合元素的个数， 使用<code>isEmpty</code>属性可以检查集合是否为空。</p></li><li><p>往集合添加元素可以使用<code>insert(_:)</code>方法， 删除元素使用<code>remove(_:)</code> 方法, 检查是否包含某个元素可以使用<code>contains(_:)</code>方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>fruits</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;Apple&#34;</span><span class=p>,</span> <span class=s>&#34;Pear&#34;</span><span class=p>,</span> <span class=s>&#34;Orange&#34;</span><span class=p>]</span>
-<span class=n>fruits</span><span class=p>.</span><span class=bp>insert</span><span class=p>(</span><span class=s>&#34;Banana&#34;</span><span class=p>)</span>
-<span class=n>fruits</span><span class=p>.</span><span class=n>remove</span><span class=p>(</span><span class=s>&#34;Apple&#34;</span><span class=p>)</span>
+<span style=color:#75715e>// 创建初始有值的集合</span>
+<span style=color:#66d9ef>var</span> favoriteGenres: Set&lt;String&gt; = [<span style=color:#e6db74>&#34;Rock&#34;</span>, <span style=color:#e6db74>&#34;Classical&#34;</span>, <span style=color:#e6db74>&#34;Hip hop&#34;</span>]
+<span style=color:#75715e>// 简写形式</span>
+<span style=color:#66d9ef>var</span> favoriteGenres: Set = [<span style=color:#e6db74>&#34;Rock&#34;</span>, <span style=color:#e6db74>&#34;Classical&#34;</span>, <span style=color:#e6db74>&#34;Hip hop&#34;</span>]
+</code></pre></td></tr></table></div></div><h3 id=集合常用的属性和方法>集合常用的属性和方法</h3><ul><li><p>跟字符串类型类似，使用<code>count</code>属性获取集合元素的个数， 使用<code>isEmpty</code>属性可以检查集合是否为空。</p></li><li><p>往集合添加元素可以使用<code>insert(_:)</code>方法， 删除元素使用<code>remove(_:)</code> 方法, 检查是否包含某个元素可以使用<code>contains(_:)</code>方法</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> fruits: Set = [<span style=color:#e6db74>&#34;Apple&#34;</span>, <span style=color:#e6db74>&#34;Pear&#34;</span>, <span style=color:#e6db74>&#34;Orange&#34;</span>]
+fruits.insert(<span style=color:#e6db74>&#34;Banana&#34;</span>)
+fruits.remove(<span style=color:#e6db74>&#34;Apple&#34;</span>)
 
-<span class=n>fruits</span><span class=p>.</span><span class=bp>contains</span><span class=p>(</span><span class=s>&#34;Pear&#34;</span><span class=p>)</span>
+fruits.contains(<span style=color:#e6db74>&#34;Pear&#34;</span>)
 
-<span class=c1>// 遍及集合</span>
-<span class=k>for</span> <span class=n>fruit</span> <span class=k>in</span> <span class=n>fruits</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>fruit</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div></li></ul><h3 id=集合操作>集合操作</h3><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-03-swift_set_operations.png alt="Set Opearations"></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>oddDigits</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>9</span><span class=p>]</span>
-<span class=kd>let</span> <span class=nv>evenDigits</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>8</span><span class=p>]</span>
-<span class=kd>let</span> <span class=nv>singleDigitPrimerNumbers</span><span class=p>:</span><span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>7</span><span class=p>]</span>
+<span style=color:#75715e>// 遍及集合</span>
+<span style=color:#66d9ef>for</span> fruit <span style=color:#66d9ef>in</span> fruits {
+    print(fruit)
+}
+</code></pre></td></tr></table></div></div></li></ul><h3 id=集合操作>集合操作</h3><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-03-swift_set_operations.png alt="Set Opearations"></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> oddDigits: Set = [<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>9</span>]
+<span style=color:#66d9ef>let</span> evenDigits: Set = [<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>6</span>,<span style=color:#ae81ff>8</span>]
+<span style=color:#66d9ef>let</span> singleDigitPrimerNumbers:Set = [<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>7</span>]
 
-<span class=c1>// 两个集合的交集</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>oddDigits</span><span class=p>.</span><span class=n>intersection</span><span class=p>(</span><span class=n>evenDigits</span><span class=p>).</span><span class=bp>sorted</span><span class=p>())</span> <span class=c1>// []</span>
-<span class=c1>// 两个集合交集以外的集合</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>oddDigits</span><span class=p>.</span><span class=n>symmetricDifference</span><span class=p>(</span><span class=n>singleDigitPrimerNumbers</span><span class=p>).</span><span class=bp>sorted</span><span class=p>())</span> <span class=c1>// [1, 2, 9]</span>
-<span class=c1>// 两个集合的并集</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>oddDigits</span><span class=p>.</span><span class=n>union</span><span class=p>(</span><span class=n>evenDigits</span><span class=p>).</span><span class=bp>sorted</span><span class=p>())</span> <span class=c1>// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
-<span class=c1>// 属于集合a, 但是不属于集合b</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>oddDigits</span><span class=p>.</span><span class=n>subtracting</span><span class=p>(</span><span class=n>singleDigitPrimerNumbers</span><span class=p>).</span><span class=bp>sorted</span><span class=p>())</span> <span class=c1>// [1, 9]</span>
-</code></pre></td></tr></table></div></div><h3 id=集合关系>集合关系</h3><p>假如有三个集合<code>a</code>, <code>b</code>, <code>c</code>的关系如下图所示:</p><ul><li><code>a</code>是<code>b</code>的父集，<code>a</code>包含所有<code>b</code>中的元素</li><li><code>b</code>是<code>a</code>的自己，<code>b</code>中的元素<code>a</code>中都有</li><li><code>b</code>和<code>c</code>没有相交，它们之间没有相同的元素</li></ul><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-03-swift_set_membership.png alt="set membership"></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>houseAnimals</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;🐶&#34;</span><span class=p>,</span> <span class=s>&#34;🐱&#34;</span><span class=p>]</span>
-<span class=kd>let</span> <span class=nv>farmAnimals</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;🐮&#34;</span><span class=p>,</span> <span class=s>&#34;🐔&#34;</span><span class=p>,</span> <span class=s>&#34;🐑&#34;</span><span class=p>,</span> <span class=s>&#34;🐶&#34;</span><span class=p>,</span> <span class=s>&#34;🐱&#34;</span><span class=p>]</span>
-<span class=kd>let</span> <span class=nv>cityAnimals</span><span class=p>:</span> <span class=n>Set</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;🐦&#34;</span><span class=p>,</span> <span class=s>&#34;🐭&#34;</span><span class=p>]</span>
+<span style=color:#75715e>// 两个集合的交集</span>
+print(oddDigits.intersection(evenDigits).sorted()) <span style=color:#75715e>// []</span>
+<span style=color:#75715e>// 两个集合交集以外的集合</span>
+print(oddDigits.symmetricDifference(singleDigitPrimerNumbers).sorted()) <span style=color:#75715e>// [1, 2, 9]</span>
+<span style=color:#75715e>// 两个集合的并集</span>
+print(oddDigits.union(evenDigits).sorted()) <span style=color:#75715e>// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span style=color:#75715e>// 属于集合a, 但是不属于集合b</span>
+print(oddDigits.subtracting(singleDigitPrimerNumbers).sorted()) <span style=color:#75715e>// [1, 9]</span>
+</code></pre></td></tr></table></div></div><h3 id=集合关系>集合关系</h3><p>假如有三个集合<code>a</code>, <code>b</code>, <code>c</code>的关系如下图所示:</p><ul><li><code>a</code>是<code>b</code>的父集，<code>a</code>包含所有<code>b</code>中的元素</li><li><code>b</code>是<code>a</code>的自己，<code>b</code>中的元素<code>a</code>中都有</li><li><code>b</code>和<code>c</code>没有相交，它们之间没有相同的元素</li></ul><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-12-03-swift_set_membership.png alt="set membership"></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> houseAnimals: Set = [<span style=color:#e6db74>&#34;🐶&#34;</span>, <span style=color:#e6db74>&#34;🐱&#34;</span>]
+<span style=color:#66d9ef>let</span> farmAnimals: Set = [<span style=color:#e6db74>&#34;🐮&#34;</span>, <span style=color:#e6db74>&#34;🐔&#34;</span>, <span style=color:#e6db74>&#34;🐑&#34;</span>, <span style=color:#e6db74>&#34;🐶&#34;</span>, <span style=color:#e6db74>&#34;🐱&#34;</span>]
+<span style=color:#66d9ef>let</span> cityAnimals: Set = [<span style=color:#e6db74>&#34;🐦&#34;</span>, <span style=color:#e6db74>&#34;🐭&#34;</span>]
 
-<span class=c1>// 用&#34;==&#34;判断两个集合是否相同</span>
-<span class=n>houseAnimals</span> <span class=p>==</span> <span class=n>cityAnimals</span> <span class=c1>// false</span>
-<span class=c1>// 是否是子集(两个集合可能相等)</span>
-<span class=n>houseAnimals</span><span class=p>.</span><span class=n>isSubset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>farmAnimals</span><span class=p>)</span> <span class=c1>// true</span>
-<span class=c1>// 是否是父集</span>
-<span class=n>farmAnimals</span><span class=p>.</span><span class=n>isSuperset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>houseAnimals</span><span class=p>)</span> <span class=c1>// true</span>
-<span class=c1>// 是否不相交</span>
-<span class=n>farmAnimals</span><span class=p>.</span><span class=n>isDisjoint</span><span class=p>(</span><span class=n>with</span><span class=p>:</span> <span class=n>cityAnimals</span><span class=p>)</span> <span class=c1>// true</span>
+<span style=color:#75715e>// 用&#34;==&#34;判断两个集合是否相同</span>
+houseAnimals == cityAnimals <span style=color:#75715e>// false</span>
+<span style=color:#75715e>// 是否是子集(两个集合可能相等)</span>
+houseAnimals.isSubset(of: farmAnimals) <span style=color:#75715e>// true</span>
+<span style=color:#75715e>// 是否是父集</span>
+farmAnimals.isSuperset(of: houseAnimals) <span style=color:#75715e>// true</span>
+<span style=color:#75715e>// 是否不相交</span>
+farmAnimals.isDisjoint(with: cityAnimals) <span style=color:#75715e>// true</span>
 
-<span class=c1>// 判断是否是子集或父集(两个集合不相等)</span>
-<span class=n>houseAnimals</span><span class=p>.</span><span class=n>isStrictSubset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>farmAnimals</span><span class=p>)</span> <span class=c1>// true</span>
-<span class=n>farmAnimals</span><span class=p>.</span><span class=n>isStrictSuperset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>houseAnimals</span><span class=p>)</span> <span class=c1>// true</span>
+<span style=color:#75715e>// 判断是否是子集或父集(两个集合不相等)</span>
+houseAnimals.isStrictSubset(of: farmAnimals) <span style=color:#75715e>// true</span>
+farmAnimals.isStrictSuperset(of: houseAnimals) <span style=color:#75715e>// true</span>
 
-<span class=n>houseAnimals</span><span class=p>.</span><span class=n>isSubset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>houseAnimals</span><span class=p>)</span>  <span class=c1>// true</span>
-<span class=n>houseAnimals</span><span class=p>.</span><span class=n>isStrictSubset</span><span class=p>(</span><span class=n>of</span><span class=p>:</span> <span class=n>houseAnimals</span><span class=p>)</span> <span class=c1>// false</span>
-</code></pre></td></tr></table></div></div><h2 id=字典dictionaries>字典(Dictionaries)</h2><p>字典就是键值对的集合，跟Set类型一样，字典的键也必须是<code>hashble</code>的，字段中的元素都是无序的</p><h3 id=创建一个空字典>创建一个空字典</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>namesOfIntegers</span> <span class=p>=</span> <span class=p>[</span><span class=nb>Int</span><span class=p>:</span> <span class=nb>String</span><span class=p>]()</span>
-</code></pre></td></tr></table></div></div><h3 id=使用字典语法创建字典>使用字典语法创建字典</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>airports</span><span class=p>:[</span><span class=nb>String</span><span class=p>:</span> <span class=nb>String</span><span class=p>]</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;XYZ&#34;</span><span class=p>:</span> <span class=s>&#34;Toronto Pearson&#34;</span><span class=p>,</span> <span class=s>&#34;DUB&#34;</span><span class=p>:</span> <span class=s>&#34;Dublin&#34;</span><span class=p>]</span>
-</code></pre></td></tr></table></div></div><h3 id=数组常用的属性和方法-1>数组常用的属性和方法</h3><ul><li><p>跟数组一样，可以使用<em>只读</em>属性<code>count</code>获取字典中的元素个数</p></li><li><p>使用<code>isEmpty</code>属性检查字典元素格式是否为0</p></li><li><p>可以直接使用下标访问字典</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>airports</span><span class=p>[</span><span class=s>&#34;LHR&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;London&#34;</span>
-<span class=n>airports</span><span class=p>[</span><span class=s>&#34;LHR&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;London Heathrow&#34;</span>
-</code></pre></td></tr></table></div></div></li><li><p>除了上面通过下标的方式修改元素的值之外，也可以使用<code>updateValue(_:forKey:)</code>来修改元素的值，与使用下标方式不同的值，如果指定的key存在的话，它除了改变key的值之外，还会返回key之前的值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>airports</span><span class=p>[</span><span class=s>&#34;Name&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;John&#34;</span>
-<span class=k>if</span> <span class=kd>let</span> <span class=nv>oldValue</span> <span class=p>=</span> <span class=n>airports</span><span class=p>.</span><span class=n>updateValue</span><span class=p>(</span><span class=s>&#34;Crazygit&#34;</span><span class=p>,</span> <span class=n>forKey</span><span class=p>:</span> <span class=s>&#34;Name&#34;</span><span class=p>)</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>oldValue</span><span class=p>)</span> <span class=c1>// print &#34;John&#34;</span>
-<span class=p>}</span>
+houseAnimals.isSubset(of: houseAnimals)  <span style=color:#75715e>// true</span>
+houseAnimals.isStrictSubset(of: houseAnimals) <span style=color:#75715e>// false</span>
+</code></pre></td></tr></table></div></div><h2 id=字典dictionaries>字典(Dictionaries)</h2><p>字典就是键值对的集合，跟Set类型一样，字典的键也必须是<code>hashble</code>的，字段中的元素都是无序的</p><h3 id=创建一个空字典>创建一个空字典</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> namesOfIntegers = [Int: String]()
+</code></pre></td></tr></table></div></div><h3 id=使用字典语法创建字典>使用字典语法创建字典</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> airports:[String: String] = [<span style=color:#e6db74>&#34;XYZ&#34;</span>: <span style=color:#e6db74>&#34;Toronto Pearson&#34;</span>, <span style=color:#e6db74>&#34;DUB&#34;</span>: <span style=color:#e6db74>&#34;Dublin&#34;</span>]
+</code></pre></td></tr></table></div></div><h3 id=数组常用的属性和方法-1>数组常用的属性和方法</h3><ul><li><p>跟数组一样，可以使用<em>只读</em>属性<code>count</code>获取字典中的元素个数</p></li><li><p>使用<code>isEmpty</code>属性检查字典元素格式是否为0</p></li><li><p>可以直接使用下标访问字典</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>airports[<span style=color:#e6db74>&#34;LHR&#34;</span>] = <span style=color:#e6db74>&#34;London&#34;</span>
+airports[<span style=color:#e6db74>&#34;LHR&#34;</span>] = <span style=color:#e6db74>&#34;London Heathrow&#34;</span>
+</code></pre></td></tr></table></div></div></li><li><p>除了上面通过下标的方式修改元素的值之外，也可以使用<code>updateValue(_:forKey:)</code>来修改元素的值，与使用下标方式不同的值，如果指定的key存在的话，它除了改变key的值之外，还会返回key之前的值</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>airports[<span style=color:#e6db74>&#34;Name&#34;</span>] = <span style=color:#e6db74>&#34;John&#34;</span>
+<span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> oldValue = airports.updateValue(<span style=color:#e6db74>&#34;Crazygit&#34;</span>, forKey: <span style=color:#e6db74>&#34;Name&#34;</span>) {
+    print(oldValue) <span style=color:#75715e>// print &#34;John&#34;</span>
+}
 
-</code></pre></td></tr></table></div></div></li><li><p>通过下标访问字段的时候，返回的值也是可选值类型, 当key不存在时，直接返回<code>nil</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>if</span> <span class=kd>let</span> <span class=nv>name</span> <span class=p>=</span> <span class=n>airports</span><span class=p>[</span><span class=s>&#34;Name&#34;</span><span class=p>]</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;No Name&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div></li><li><p>删除元素有两种方式，一种是使用下标的方式，将元素赋值为<code>nil</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>airports</span><span class=p>[</span><span class=s>&#34;Name&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=kc>nil</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>airports</span><span class=p>)</span>  <span class=c1>// Name键已经从字典中移除</span>
-</code></pre></td></tr></table></div></div><p>另一种方式是使用<code>removeValue(forkey:)</code>方法，与通过下标访问的不同的是，它会返回被移除的值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>if</span> <span class=kd>let</span> <span class=nv>removedValue</span> <span class=p>=</span> <span class=n>airports</span><span class=p>.</span><span class=n>removeValue</span><span class=p>(</span><span class=n>forKey</span><span class=p>:</span> <span class=s>&#34;DUB&#34;</span><span class=p>)</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Remove key DUB from airports dict&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span><span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;airport dict dose not contain a value for DUB&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div></li><li><p>遍历字典</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 遍历键和值</span>
-<span class=k>for</span> <span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span> <span class=k>in</span> <span class=n>airports</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>key</span><span class=si>)</span><span class=s> =&gt; </span><span class=si>\(</span><span class=n>value</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+</code></pre></td></tr></table></div></div></li><li><p>通过下标访问字段的时候，返回的值也是可选值类型, 当key不存在时，直接返回<code>nil</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> name = airports[<span style=color:#e6db74>&#34;Name&#34;</span>] {
+    print(name)
+}
+<span style=color:#66d9ef>else</span> {
+    print(<span style=color:#e6db74>&#34;No Name&#34;</span>)
+}
+</code></pre></td></tr></table></div></div></li><li><p>删除元素有两种方式，一种是使用下标的方式，将元素赋值为<code>nil</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>airports[<span style=color:#e6db74>&#34;Name&#34;</span>] = <span style=color:#66d9ef>nil</span>
+print(airports)  <span style=color:#75715e>// Name键已经从字典中移除</span>
+</code></pre></td></tr></table></div></div><p>另一种方式是使用<code>removeValue(forkey:)</code>方法，与通过下标访问的不同的是，它会返回被移除的值</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> removedValue = airports.removeValue(forKey: <span style=color:#e6db74>&#34;DUB&#34;</span>) {
+    print(<span style=color:#e6db74>&#34;Remove key DUB from airports dict&#34;</span>)
+}
+<span style=color:#66d9ef>else</span>{
+    print(<span style=color:#e6db74>&#34;airport dict dose not contain a value for DUB&#34;</span>)
+}
+</code></pre></td></tr></table></div></div></li><li><p>遍历字典</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 遍历键和值</span>
+<span style=color:#66d9ef>for</span> (key, value) <span style=color:#66d9ef>in</span> airports {
+    print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>key<span style=color:#e6db74>)</span><span style=color:#e6db74> =&gt; </span><span style=color:#e6db74>\(</span>value<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+}
 
-<span class=c1>// 遍历键</span>
-<span class=k>for</span> <span class=n>key</span> <span class=k>in</span> <span class=n>airports</span><span class=p>.</span><span class=n>keys</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>key</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#75715e>// 遍历键</span>
+<span style=color:#66d9ef>for</span> key <span style=color:#66d9ef>in</span> airports.keys {
+    print(key)
+}
 
-<span class=c1>// 遍历值</span>
-<span class=k>for</span> <span class=n>value</span> <span class=k>in</span> <span class=n>airports</span><span class=p>.</span><span class=n>values</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#75715e>// 遍历值</span>
+<span style=color:#66d9ef>for</span> value <span style=color:#66d9ef>in</span> airports.values {
+    print(value)
+}
 
 </code></pre></td></tr></table></div></div></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
@@ -265,4 +265,4 @@
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

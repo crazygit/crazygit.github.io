@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>皮尔逊相关系数(Pearson Correlation Coefficient) - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="皮尔逊相关系数(Pearson Correlation Coefficient)"><meta property="og:description" content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="皮尔逊相关系数(Pearson Correlation Coefficient)"><meta property="og:description" content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/01/19/pearson-correlation-coefficient/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-01-19T17:48:36+08:00"><meta property="article:modified_time" content="2018-01-19T17:48:36+08:00"><meta itemprop=name content="皮尔逊相关系数(Pearson Correlation Coefficient)"><meta itemprop=description content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
 "><meta itemprop=datePublished content="2018-01-19T17:48:36+08:00"><meta itemprop=dateModified content="2018-01-19T17:48:36+08:00"><meta itemprop=wordCount content="2326"><meta itemprop=keywords content="math,statistics,variance,standard deviation,standard score,Pearson Correlation Coefficient,"><meta name=twitter:card content="summary"><meta name=twitter:title content="皮尔逊相关系数(Pearson Correlation Coefficient)"><meta name=twitter:description content="本文主要介绍方差，标准差，标准分数, 皮尔逊相关系数的概念
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -25,180 +25,180 @@ $$</p><p>样本方差为:</p><p>$$
 S^2_x = \frac{(50-72)^2+(100-72)^2+(100-72)^2+(60-72)^2+(50-72)^2}{5-1} = \frac{2680}{4} = 670
 $$</p><p>$$
 S^2_y = \frac{(73-72)^2+(70-72)^2+(75-72)^2+(72-72)^2+(70-72)^2}{5-1}=\frac{18}{4}=4.5
-$$</p><h3 id=使用python模块计算>使用python模块计算</h3><p><code>statistic</code>和<code>numpy</code>包含了计算方差的方式</p><p><code>statistics.variance</code>计算<strong>样本方差</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>statistics</span>
+$$</p><h3 id=使用python模块计算>使用python模块计算</h3><p><code>statistic</code>和<code>numpy</code>包含了计算方差的方式</p><p><code>statistics.variance</code>计算<strong>样本方差</strong></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> statistics
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>statistics</span><span class=o>.</span><span class=n>variance</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>])</span>
-<span class=mi>670</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> statistics<span style=color:#f92672>.</span>variance([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>])
+<span style=color:#ae81ff>670</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>statistics</span><span class=o>.</span><span class=n>variance</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>])</span>
-<span class=mf>4.5</span>
-</code></pre></td></tr></table></div></div><p><code>numpy</code>可以通过设置参数<code>ddof</code>参数来选择计算方式。默认是计算<strong>全局方差</strong></p><p>计算全局方差(<code>ddof=0</code>)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>var</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>])</span>
-<span class=mf>536.0</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> statistics<span style=color:#f92672>.</span>variance([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>])
+<span style=color:#ae81ff>4.5</span>
+</code></pre></td></tr></table></div></div><p><code>numpy</code>可以通过设置参数<code>ddof</code>参数来选择计算方式。默认是计算<strong>全局方差</strong></p><p>计算全局方差(<code>ddof=0</code>)</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>var([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>])
+<span style=color:#ae81ff>536.0</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>var</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>])</span>
-<span class=mf>3.6</span>
-</code></pre></td></tr></table></div></div><p>计算样本方差(<code>ddof=1</code>)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>var</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=mf>670.0</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>var([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>])
+<span style=color:#ae81ff>3.6</span>
+</code></pre></td></tr></table></div></div><p>计算样本方差(<code>ddof=1</code>)</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>var([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+<span style=color:#ae81ff>670.0</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>var</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=mf>4.5</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>var([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+<span style=color:#ae81ff>4.5</span>
 </code></pre></td></tr></table></div></div><h3 id=扩展阅读>扩展阅读</h3><ul><li><a href=http://mortada.net/computing-sample-variance-why-divide-by-n-1.html>Computing Sample Variance: Why Divide by N - 1?</a></li><li><a href="https://www.youtube.com/watch?v=xslIhnquFoE">Variance: The Mystery of n-1 (Part 1: The problem with using n)</a></li></ul><h2 id=标准差standard-deviation>标准差(Standard Deviation)</h2><p>参考<a href=https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%B7%AE%E5%85%AC%E5%BC%8F>百度百科</a></p><blockquote><p>标准差（Standard Deviation）, 中文环境中又常称均方差，用σ表示。标准差是方差的算术平方根。标准差能反映一个数据集的离散程度。平均数相同的两组数据，标准差未必相同。</p></blockquote><p>标准差的计算公式为:</p><p>$$
 \sigma = \sqrt{方差} = \sqrt{\frac{(X-\mu)^2}{N}}
-$$</p><p>同计算方差类似，计算标准差如下:</p><p>样本的标准差</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>statistics</span><span class=o>.</span><span class=n>stdev</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>])</span>
-<span class=mf>25.88435821108957</span>
+$$</p><p>同计算方差类似，计算标准差如下:</p><p>样本的标准差</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> statistics<span style=color:#f92672>.</span>stdev([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>])
+<span style=color:#ae81ff>25.88435821108957</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>statistics</span><span class=o>.</span><span class=n>stdev</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>])</span>
-<span class=mf>2.1213203435596424</span>
-</code></pre></td></tr></table></div></div><p>总体的样本差</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>std</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>])</span>
-<span class=mf>23.15167380558045</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> statistics<span style=color:#f92672>.</span>stdev([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>])
+<span style=color:#ae81ff>2.1213203435596424</span>
+</code></pre></td></tr></table></div></div><p>总体的样本差</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>std([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>])
+<span style=color:#ae81ff>23.15167380558045</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>std</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>])</span>
-<span class=mf>1.8973665961010275</span>
-</code></pre></td></tr></table></div></div><p>样本的标准差</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>std</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=mf>25.88435821108957</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>std([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>])
+<span style=color:#ae81ff>1.8973665961010275</span>
+</code></pre></td></tr></table></div></div><p>样本的标准差</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>std([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+<span style=color:#ae81ff>25.88435821108957</span>
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>std</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=mf>2.1213203435596424</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>std([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+<span style=color:#ae81ff>2.1213203435596424</span>
 </code></pre></td></tr></table></div></div><p>由标准差可以看出，虽然学生X, Y的平均分数相同(都是72分)</p><ul><li>X: 50, 100, 100, 60, 50</li><li>Y: 73, 70, 75, 72, 70</li></ul><p>但是,Y的标准差小于X的标准差。Y的考试成绩更稳定。</p><h2 id=标准分数standard-score>标准分数(Standard Score)</h2><p>参考<a href=https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E5%88%86%E6%95%B0>百度百科</a></p><blockquote><p>标准分数也叫z分数(z-score)，是一种具有相等单位的量数。它是将原始分数与团体的平均数之差除以标准差所得的商数，是以标准差为单位度量原始分数离开其平均数的分数之上多少个标准差，或是在平均数之下多少个标准差。它是一个抽象值，不受原始测量单位的影响，并可接受进一步的统计处理</p></blockquote><p>计算公式为:</p><p>$$
 z = \frac{x - \mu}{\sigma}
-$$</p><p>$x$为某一具体分数，$\mu$为平均数，$\sigma$为标准差。</p><h3 id=使用场景>使用场景</h3><p>某中学高一班期末考试，已知语文期末考试的全班平均分为73分，标准差为7分，甲得了78分；数学期末考试的全班平均分为80分，标准差为6.5分，甲得了83分。甲哪一门考试成绩比较好？</p><p>因为两科期末考试的标准差不同，因此不能用原始分数直接比较。需要将原始分数转换成标准分数，然后进行比较。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Z(语文)=(78-73)/7=0.71
+$$</p><p>$x$为某一具体分数，$\mu$为平均数，$\sigma$为标准差。</p><h3 id=使用场景>使用场景</h3><p>某中学高一班期末考试，已知语文期末考试的全班平均分为73分，标准差为7分，甲得了78分；数学期末考试的全班平均分为80分，标准差为6.5分，甲得了83分。甲哪一门考试成绩比较好？</p><p>因为两科期末考试的标准差不同，因此不能用原始分数直接比较。需要将原始分数转换成标准分数，然后进行比较。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Z(语文)=(78-73)/7=0.71
 Z(数学)=(83-80)/6.5=0.46
 </code></pre></td></tr></table></div></div><p>甲的语文成绩在其整体分布中位于平均分之上0.71个标准差的地位，他的数学成绩在其整体分布中位于平均分之上0.46个标准差的地位。</p><p>由此可见，甲的语文期末考试成绩优于数学期末考试成绩。
-由于标准分数不仅能表明原始分数在分布中的地位，它还是以标准差为单位的等距量表，故经过把原始分数转化为标准分数，可以在不同分布的各原始分数之间进行比较。</p><h3 id=使用python模块计算-1>使用python模块计算</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>from</span> <span class=nn>scipy</span> <span class=kn>import</span> <span class=n>stats</span>
+由于标准分数不仅能表明原始分数在分布中的地位，它还是以标准差为单位的等距量表，故经过把原始分数转化为标准分数，可以在不同分布的各原始分数之间进行比较。</p><h3 id=使用python模块计算-1>使用python模块计算</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>from</span> scipy <span style=color:#f92672>import</span> stats
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>])</span>
-<span class=n>array</span><span class=p>([</span><span class=o>-</span><span class=mf>0.95025527</span><span class=p>,</span>  <span class=mf>1.2094158</span> <span class=p>,</span>  <span class=mf>1.2094158</span> <span class=p>,</span> <span class=o>-</span><span class=mf>0.51832106</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.95025527</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>])
+array([<span style=color:#f92672>-</span><span style=color:#ae81ff>0.95025527</span>,  <span style=color:#ae81ff>1.2094158</span> ,  <span style=color:#ae81ff>1.2094158</span> , <span style=color:#f92672>-</span><span style=color:#ae81ff>0.51832106</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.95025527</span>])
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>])</span>
-<span class=n>array</span><span class=p>([</span> <span class=mf>0.52704628</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.05409255</span><span class=p>,</span>  <span class=mf>1.58113883</span><span class=p>,</span>  <span class=mf>0.</span>        <span class=p>,</span> <span class=o>-</span><span class=mf>1.05409255</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>])
+array([ <span style=color:#ae81ff>0.52704628</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1.05409255</span>,  <span style=color:#ae81ff>1.58113883</span>,  <span style=color:#ae81ff>0.</span>        , <span style=color:#f92672>-</span><span style=color:#ae81ff>1.05409255</span>])
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>50</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=n>array</span><span class=p>([</span><span class=o>-</span><span class=mf>0.84993415</span><span class=p>,</span>  <span class=mf>1.08173437</span><span class=p>,</span>  <span class=mf>1.08173437</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.46360045</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.84993415</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>50</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+array([<span style=color:#f92672>-</span><span style=color:#ae81ff>0.84993415</span>,  <span style=color:#ae81ff>1.08173437</span>,  <span style=color:#ae81ff>1.08173437</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.46360045</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.84993415</span>])
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>73</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>72</span><span class=p>,</span> <span class=mi>70</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-<span class=n>array</span><span class=p>([</span> <span class=mf>0.47140452</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.94280904</span><span class=p>,</span>  <span class=mf>1.41421356</span><span class=p>,</span>  <span class=mf>0.</span>        <span class=p>,</span> <span class=o>-</span><span class=mf>0.94280904</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>73</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>72</span>, <span style=color:#ae81ff>70</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+array([ <span style=color:#ae81ff>0.47140452</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.94280904</span>,  <span style=color:#ae81ff>1.41421356</span>,  <span style=color:#ae81ff>0.</span>        , <span style=color:#f92672>-</span><span style=color:#ae81ff>0.94280904</span>])
 </code></pre></td></tr></table></div></div><h2 id=皮尔逊相关系数pearson-correlation-coefficient>皮尔逊相关系数(Pearson Correlation Coefficient)</h2><p>参考<a href=https://baike.baidu.com/item/%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0>百度百科</a></p><blockquote><p>相关系数是最早由统计学家卡尔·皮尔逊设计的统计指标，是研究变量之间线性相关程度的量，一般用字母 r 表示。由于研究对象的不同，相关系数有多种定义方式，较为常用的是皮尔逊相关系数。</p></blockquote><p><em>需要说明的是，皮尔逊相关系数并不是唯一的相关系数，但是最常见的相关系数</em></p><p>定义1</p><blockquote><p>两个变量之间的皮尔逊相关系数定义为两个变量之间的协方差和标准差的商</p></blockquote><p>计算公式如下:</p><p>$$
 P_{xy}=\frac{cov(X, Y)}{\sigma_x\sigma_y}
-$$</p><p>定义2</p><blockquote><p>相关系数r亦可由$(X_i,Y_i)$样本点的标准分数均值估计</p></blockquote><p>计算公式如下:</p><p>{% math %}</p><p>r_{xy} = \frac{1}{n}\sum\limits_{i=1}^n(Z_x)_i(Z_y)_i \\<br>= \frac{1}{n}\sum\limits_{i=1}^n\cdot\frac{x-\bar{x}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(x-\bar{x})^2}}\cdot\frac{y-\bar{y}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(y-\bar{y})^2}} \\<br>= \frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y-\bar{y})^2}}</p><p>{% endmath %}</p><p>其中$Z_x$为$x$的标准分数，其中$Z_y$为$y$的标准分数。$\bar{x}$为x的平均数，$\bar{y}$为y的平均数。</p><p>举个例子(来自李政轩老师的视频教程<a href="https://www.youtube.com/watch?v=nF-ixjPfaK0">皮尔逊相关系数</a>):</p><p>有学生A, B, C&mldr;G的数学成绩和自然成绩分别如下, 现在需要分析学生的数学成绩和自然成绩之间是否存在关系。比如学生数学成绩好的自然成绩也好？</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-zscore.png alt=相关系数></p><p>标准化成绩的计算方式如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>from</span> <span class=nn>scipy</span> <span class=kn>import</span> <span class=n>stats</span>
+$$</p><p>定义2</p><blockquote><p>相关系数r亦可由$(X_i,Y_i)$样本点的标准分数均值估计</p></blockquote><p>计算公式如下:</p><p>{% math %}</p><p>r_{xy} = \frac{1}{n}\sum\limits_{i=1}^n(Z_x)_i(Z_y)_i \\<br>= \frac{1}{n}\sum\limits_{i=1}^n\cdot\frac{x-\bar{x}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(x-\bar{x})^2}}\cdot\frac{y-\bar{y}}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^n(y-\bar{y})^2}} \\<br>= \frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y-\bar{y})^2}}</p><p>{% endmath %}</p><p>其中$Z_x$为$x$的标准分数，其中$Z_y$为$y$的标准分数。$\bar{x}$为x的平均数，$\bar{y}$为y的平均数。</p><p>举个例子(来自李政轩老师的视频教程<a href="https://www.youtube.com/watch?v=nF-ixjPfaK0">皮尔逊相关系数</a>):</p><p>有学生A, B, C&mldr;G的数学成绩和自然成绩分别如下, 现在需要分析学生的数学成绩和自然成绩之间是否存在关系。比如学生数学成绩好的自然成绩也好？</p><p><img src=https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-01-22-zscore.png alt=相关系数></p><p>标准化成绩的计算方式如下:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>from</span> scipy <span style=color:#f92672>import</span> stats
 
-<span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
 
-<span class=c1># 设置打印3位小数</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>set_printoptions</span><span class=p>(</span><span class=n>precision</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+<span style=color:#75715e># 设置打印3位小数</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>set_printoptions(precision<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>)
 
-<span class=c1># 标准化数学成绩</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>zscore_math</span> <span class=o>=</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>74</span><span class=p>,</span> <span class=mi>76</span><span class=p>,</span> <span class=mi>77</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>61</span><span class=p>,</span> <span class=mi>72</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+<span style=color:#75715e># 标准化数学成绩</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> zscore_math <span style=color:#f92672>=</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>76</span>, <span style=color:#ae81ff>77</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>61</span>, <span style=color:#ae81ff>72</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>zscore_math</span>
-<span class=n>array</span><span class=p>([</span> <span class=mf>0.667</span><span class=p>,</span>  <span class=mf>0.959</span><span class=p>,</span>  <span class=mf>1.105</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.938</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.938</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.23</span> <span class=p>,</span>  <span class=mf>0.375</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> zscore_math
+array([ <span style=color:#ae81ff>0.667</span>,  <span style=color:#ae81ff>0.959</span>,  <span style=color:#ae81ff>1.105</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.938</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.938</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1.23</span> ,  <span style=color:#ae81ff>0.375</span>])
 
-<span class=c1># 标准化自然成绩</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>zscore_sciense</span> <span class=o>=</span> <span class=n>stats</span><span class=o>.</span><span class=n>zscore</span><span class=p>([</span><span class=mi>84</span><span class=p>,</span> <span class=mi>83</span><span class=p>,</span> <span class=mi>85</span><span class=p>,</span> <span class=mi>74</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>81</span><span class=p>,</span> <span class=mi>73</span><span class=p>],</span> <span class=n>ddof</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+<span style=color:#75715e># 标准化自然成绩</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> zscore_sciense <span style=color:#f92672>=</span> stats<span style=color:#f92672>.</span>zscore([<span style=color:#ae81ff>84</span>, <span style=color:#ae81ff>83</span>, <span style=color:#ae81ff>85</span>, <span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>81</span>, <span style=color:#ae81ff>73</span>], ddof<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>zscore_sciense</span>
-<span class=n>array</span><span class=p>([</span> <span class=mf>0.92</span> <span class=p>,</span>  <span class=mf>0.725</span><span class=p>,</span>  <span class=mf>1.116</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.032</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.837</span><span class=p>,</span>  <span class=mf>0.335</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.227</span><span class=p>])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> zscore_sciense
+array([ <span style=color:#ae81ff>0.92</span> ,  <span style=color:#ae81ff>0.725</span>,  <span style=color:#ae81ff>1.116</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1.032</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.837</span>,  <span style=color:#ae81ff>0.335</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1.227</span>])
 
-<span class=c1># 两个标准化成绩相乘</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>dot_math_sciense</span> <span class=o>=</span> <span class=n>zscore_math</span> <span class=o>*</span> <span class=n>zscore_sciense</span>
+<span style=color:#75715e># 两个标准化成绩相乘</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> dot_math_sciense <span style=color:#f92672>=</span> zscore_math <span style=color:#f92672>*</span> zscore_sciense
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>dot_math_sciense</span>
-<span class=n>array</span><span class=p>([</span> <span class=mf>0.614</span><span class=p>,</span>  <span class=mf>0.695</span><span class=p>,</span>  <span class=mf>1.233</span><span class=p>,</span>  <span class=mf>0.968</span><span class=p>,</span>  <span class=mf>0.785</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.412</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.461</span><span class=p>])</span>
-</code></pre></td></tr></table></div></div><p>相关系数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># 下面除以(n-1)是因为前面一直用样本方差来计算的</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>r</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=n>dot_math_sciense</span><span class=p>)</span> <span class=o>/</span> <span class=p>(</span><span class=mi>7</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> dot_math_sciense
+array([ <span style=color:#ae81ff>0.614</span>,  <span style=color:#ae81ff>0.695</span>,  <span style=color:#ae81ff>1.233</span>,  <span style=color:#ae81ff>0.968</span>,  <span style=color:#ae81ff>0.785</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.412</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>0.461</span>])
+</code></pre></td></tr></table></div></div><p>相关系数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># 下面除以(n-1)是因为前面一直用样本方差来计算的</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> r <span style=color:#f92672>=</span> sum(dot_math_sciense) <span style=color:#f92672>/</span> (<span style=color:#ae81ff>7</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>r</span>
-<span class=mf>0.5704948696393594</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> r
+<span style=color:#ae81ff>0.5704948696393594</span>
 </code></pre></td></tr></table></div></div><p>相关系数为<code>0.570</code>, 说明数学成绩和自然成绩之间没有什么关系
-利用现成的库计算</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># 返回的元组第一个数就是相关系数</span>
-<span class=o>&gt;&gt;&gt;</span> <span class=n>scipy</span><span class=o>.</span><span class=n>stats</span><span class=o>.</span><span class=n>pearsonr</span><span class=p>([</span><span class=mi>74</span><span class=p>,</span> <span class=mi>76</span><span class=p>,</span> <span class=mi>77</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>61</span><span class=p>,</span> <span class=mi>72</span><span class=p>],</span> <span class=p>[</span><span class=mi>84</span><span class=p>,</span> <span class=mi>83</span><span class=p>,</span> <span class=mi>85</span><span class=p>,</span> <span class=mi>74</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>81</span><span class=p>,</span> <span class=mi>73</span><span class=p>])</span>
-<span class=p>(</span><span class=mf>0.5704948696393595</span><span class=p>,</span> <span class=mf>0.18107908965203987</span><span class=p>)</span>
+利用现成的库计算</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># 返回的元组第一个数就是相关系数</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> scipy<span style=color:#f92672>.</span>stats<span style=color:#f92672>.</span>pearsonr([<span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>76</span>, <span style=color:#ae81ff>77</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>61</span>, <span style=color:#ae81ff>72</span>], [<span style=color:#ae81ff>84</span>, <span style=color:#ae81ff>83</span>, <span style=color:#ae81ff>85</span>, <span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>81</span>, <span style=color:#ae81ff>73</span>])
+(<span style=color:#ae81ff>0.5704948696393595</span>, <span style=color:#ae81ff>0.18107908965203987</span>)
 
-<span class=o>&gt;&gt;&gt;</span> <span class=n>np</span><span class=o>.</span><span class=n>corrcoef</span><span class=p>([</span><span class=mi>74</span><span class=p>,</span> <span class=mi>76</span><span class=p>,</span> <span class=mi>77</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>61</span><span class=p>,</span> <span class=mi>72</span><span class=p>],</span> <span class=p>[</span><span class=mi>84</span><span class=p>,</span> <span class=mi>83</span><span class=p>,</span> <span class=mi>85</span><span class=p>,</span> <span class=mi>74</span><span class=p>,</span> <span class=mi>75</span><span class=p>,</span> <span class=mi>81</span><span class=p>,</span> <span class=mi>73</span><span class=p>])</span>
-<span class=n>array</span><span class=p>([[</span><span class=mf>1.</span>  <span class=p>,</span> <span class=mf>0.57</span><span class=p>],</span>
-       <span class=p>[</span><span class=mf>0.57</span><span class=p>,</span> <span class=mf>1.</span>  <span class=p>]])</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>corrcoef([<span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>76</span>, <span style=color:#ae81ff>77</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>61</span>, <span style=color:#ae81ff>72</span>], [<span style=color:#ae81ff>84</span>, <span style=color:#ae81ff>83</span>, <span style=color:#ae81ff>85</span>, <span style=color:#ae81ff>74</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>81</span>, <span style=color:#ae81ff>73</span>])
+array([[<span style=color:#ae81ff>1.</span>  , <span style=color:#ae81ff>0.57</span>],
+       [<span style=color:#ae81ff>0.57</span>, <span style=color:#ae81ff>1.</span>  ]])
 </code></pre></td></tr></table></div></div><h3 id=相关系数的特性>相关系数的特性</h3><p>$$
 -1 \leq r_{xy} \leq 1
 $$</p><p>1表示完全正相关，-1表示完全负相关</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
@@ -222,4 +222,4 @@ $$</p><p>1表示完全正相关，-1表示完全负相关</p></div><div class=po
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script type=text/javascript>window.MathJax={showProcessingMessages:!1,messageStyle:'none'}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script type=text/javascript>window.MathJax={showProcessingMessages:!1,messageStyle:'none'}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

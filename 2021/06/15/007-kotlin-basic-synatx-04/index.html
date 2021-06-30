@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Kotlin基本语法04 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Kotlin中的面向对象编程02
-"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Kotlin基本语法04"><meta property="og:description" content="Kotlin中的面向对象编程02
+"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="Kotlin基本语法04"><meta property="og:description" content="Kotlin中的面向对象编程02
 "><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-06-15T10:11:29+08:00"><meta property="article:modified_time" content="2021-06-15T10:11:29+08:00"><meta itemprop=name content="Kotlin基本语法04"><meta itemprop=description content="Kotlin中的面向对象编程02
 "><meta itemprop=datePublished content="2021-06-15T10:11:29+08:00"><meta itemprop=dateModified content="2021-06-15T10:11:29+08:00"><meta itemprop=wordCount content="5891"><meta itemprop=keywords content="kotlin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kotlin基本语法04"><meta name=twitter:description content="Kotlin中的面向对象编程02
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -9,700 +9,700 @@
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Kotlin基本语法04</h1><div class=post-meta><time datetime=2021-06-15 class=post-time>2021-06-15</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/kotlin/>Kotlin</a></div><span class=more-meta>约 5891 字</span>
 <span class=more-meta>预计阅读 12 分钟</span>
 <span id=/2021/06/15/007-kotlin-basic-synatx-04/ class=leancloud_visitors data-flag-title=Kotlin基本语法04><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#密封类sealed-class>密封类<code>sealed class</code></a></li><li><a href=#泛型>泛型</a></li><li><a href=#kotlin泛型与java泛型相同的部分>Kotlin泛型与Java泛型相同的部分</a></li><li><a href=#kotlin泛型独有的功能>Kotlin泛型独有的功能</a></li><li><a href=#泛型实化的应用>泛型实化的应用</a></li><li><a href=#说回-kotlin-中的-out-和-in>说回 Kotlin 中的 <code>out</code> 和 <code>in</code></a></li><li><a href=#嵌套类>嵌套类</a></li><li><a href=#枚举类>枚举类</a></li><li><a href=#inline-class>Inline Class</a></li><li><a href=#calling-from-java-code>Calling from Java code</a></li><li><a href=#object-expressions-and-declarations>Object expressions and declarations</a></li><li><a href=#单例类>单例类</a></li><li><a href=#伴生类>伴生类</a></li><li><a href=#静态方法>静态方法</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=密封类sealed-class>密封类<code>sealed class</code></h3><p>密封类的具体作用如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=c1>// 定义一个空接口
-</span><span class=c1></span><span class=k>interface</span> <span class=nc>Result</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#密封类sealed-class>密封类<code>sealed class</code></a></li><li><a href=#泛型>泛型</a></li><li><a href=#kotlin泛型与java泛型相同的部分>Kotlin泛型与Java泛型相同的部分</a></li><li><a href=#kotlin泛型独有的功能>Kotlin泛型独有的功能</a></li><li><a href=#泛型实化的应用>泛型实化的应用</a></li><li><a href=#说回-kotlin-中的-out-和-in>说回 Kotlin 中的 <code>out</code> 和 <code>in</code></a></li><li><a href=#嵌套类>嵌套类</a></li><li><a href=#枚举类>枚举类</a></li><li><a href=#inline-class>Inline Class</a></li><li><a href=#calling-from-java-code>Calling from Java code</a></li><li><a href=#object-expressions-and-declarations>Object expressions and declarations</a></li><li><a href=#单例类>单例类</a></li><li><a href=#伴生类>伴生类</a></li><li><a href=#静态方法>静态方法</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=密封类sealed-class>密封类<code>sealed class</code></h3><p>密封类的具体作用如下:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#75715e>// 定义一个空接口
+</span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Result</span>
 
-<span class=k>class</span> <span class=nc>Success</span><span class=p>(</span><span class=k>val</span> <span class=py>msg</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>:</span> <span class=n>Result</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Success</span>(<span style=color:#66d9ef>val</span> msg: String) : Result
 
-<span class=k>class</span> <span class=nc>Failure</span><span class=p>(</span><span class=k>val</span> <span class=py>error</span><span class=p>:</span> <span class=n>Exception</span><span class=p>)</span> <span class=p>:</span> <span class=n>Result</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Failure</span>(<span style=color:#66d9ef>val</span> error: Exception) : Result
 
 
-<span class=k>fun</span> <span class=nf>getResultMsg</span><span class=p>(</span><span class=n>result</span><span class=p>:</span> <span class=n>Result</span><span class=p>)</span> <span class=p>=</span> <span class=k>when</span> <span class=p>(</span><span class=n>result</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>is</span> <span class=n>Success</span> <span class=o>-&gt;</span> <span class=n>result</span><span class=p>.</span><span class=n>msg</span>
-    <span class=k>is</span> <span class=n>Failure</span> <span class=o>-&gt;</span> <span class=n>result</span><span class=p>.</span><span class=n>error</span><span class=p>.</span><span class=n>message</span>
-    <span class=k>else</span> <span class=o>-&gt;</span> <span class=k>throw</span> <span class=n>IllegalArgumentException</span><span class=p>()</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getResultMsg</span>(result: Result) = <span style=color:#66d9ef>when</span> (result) {
+    <span style=color:#66d9ef>is</span> Success <span style=color:#f92672>-&gt;</span> result.msg
+    <span style=color:#66d9ef>is</span> Failure <span style=color:#f92672>-&gt;</span> result.error.message
+    <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>throw</span> IllegalArgumentException()
+}
 
 </code></pre></td></tr></table></div></div><p>上面定义了一个<code>Result</code>接口，用于表示某个操作的执行结果（接口中没有任何内容）。然后定义了两个类<code>Success</code>和<code>Failure</code>实现<code>Result</code>接口。
-再看<code>getResultMsg</code>方法，它接收一个<code>Result</code>参数，然后我们通过<code>when</code>语句判断<code>result</code>参数。我们知道，<code>result</code>只有为<code>Success</code>或<code>Failure</code>两种情况，但是在<code>when</code>语句最后，我们不得不添加一个<code>else</code>条件，否则Kotlin编译器会认为这里缺少条件分支，会编译不过。</p><p>我们在这里添加一个<code>else</code>条件，仅仅只是为了让通过语法检查而已。使用密封类可以很好地解决这个问题。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>sealed</span> <span class=k>class</span> <span class=nc>Result</span>
+再看<code>getResultMsg</code>方法，它接收一个<code>Result</code>参数，然后我们通过<code>when</code>语句判断<code>result</code>参数。我们知道，<code>result</code>只有为<code>Success</code>或<code>Failure</code>两种情况，但是在<code>when</code>语句最后，我们不得不添加一个<code>else</code>条件，否则Kotlin编译器会认为这里缺少条件分支，会编译不过。</p><p>我们在这里添加一个<code>else</code>条件，仅仅只是为了让通过语法检查而已。使用密封类可以很好地解决这个问题。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>sealed</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Result</span>
 
-<span class=k>class</span> <span class=nc>Success</span><span class=p>(</span><span class=k>val</span> <span class=py>msg</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>:</span> <span class=n>Result</span><span class=p>()</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Success</span>(<span style=color:#66d9ef>val</span> msg: String) : Result()
 
-<span class=k>class</span> <span class=nc>Failure</span><span class=p>(</span><span class=k>val</span> <span class=py>error</span><span class=p>:</span> <span class=n>Exception</span><span class=p>)</span> <span class=p>:</span> <span class=n>Result</span><span class=p>()</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Failure</span>(<span style=color:#66d9ef>val</span> error: Exception) : Result()
 
 
-<span class=k>fun</span> <span class=nf>getResultMsg</span><span class=p>(</span><span class=n>result</span><span class=p>:</span> <span class=n>Result</span><span class=p>)</span> <span class=p>=</span> <span class=k>when</span> <span class=p>(</span><span class=n>result</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>is</span> <span class=n>Success</span> <span class=o>-&gt;</span> <span class=n>result</span><span class=p>.</span><span class=n>msg</span>
-    <span class=k>is</span> <span class=n>Failure</span> <span class=o>-&gt;</span> <span class=n>result</span><span class=p>.</span><span class=n>error</span><span class=p>.</span><span class=n>message</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>使用密封类之后，当在<code>when</code>语句中传入一个密封类变量作为条件时，Kotlin编译器会自动检查该密封类包含哪些子类，并强制要求你将每一个子类所对应的条件全部处理。这样就可以保证没有添加<code>else</code>分支的情况下，也不可能会漏写条件分支的情况。</p><p><strong>注意</strong>:</p><p>密封类以及所有子类只能定义在同一个文件的顶层位置，不能嵌套在其他类中，这是被密封类底层的实现机制所限制的。</p><h3 id=泛型>泛型</h3><p>关于泛型部分的<code>in</code>, <code>out</code>, <code>where</code>关键字的使用，建议先阅读</p><p><a href=https://rengwuxian.com/kotlin-generics/>https://rengwuxian.com/kotlin-generics/</a></p><p>Kotlin中的泛型与Java中的泛型有同有异，我们先来看相同的部分。</p><h3 id=kotlin泛型与java泛型相同的部分>Kotlin泛型与Java泛型相同的部分</h3><p>泛型的定义方式有两种: 一种是定义泛型类，另一种是定义泛型方法。</p><p>定义一个泛型类,泛型类中的方法允许使用<code>T</code>类型作为参数和返回值。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;</span> <span class=p>{</span>
-	<span class=k>fun</span> <span class=nf>method</span><span class=p>(</span><span class=k>param</span><span class=p>:</span> <span class=n>T</span><span class=p>):</span> <span class=n>T</span> <span class=p>{</span>
-		<span class=k>return</span> <span class=k>param</span>
-	<span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getResultMsg</span>(result: Result) = <span style=color:#66d9ef>when</span> (result) {
+    <span style=color:#66d9ef>is</span> Success <span style=color:#f92672>-&gt;</span> result.msg
+    <span style=color:#66d9ef>is</span> Failure <span style=color:#f92672>-&gt;</span> result.error.message
+}
+</code></pre></td></tr></table></div></div><p>使用密封类之后，当在<code>when</code>语句中传入一个密封类变量作为条件时，Kotlin编译器会自动检查该密封类包含哪些子类，并强制要求你将每一个子类所对应的条件全部处理。这样就可以保证没有添加<code>else</code>分支的情况下，也不可能会漏写条件分支的情况。</p><p><strong>注意</strong>:</p><p>密封类以及所有子类只能定义在同一个文件的顶层位置，不能嵌套在其他类中，这是被密封类底层的实现机制所限制的。</p><h3 id=泛型>泛型</h3><p>关于泛型部分的<code>in</code>, <code>out</code>, <code>where</code>关键字的使用，建议先阅读</p><p><a href=https://rengwuxian.com/kotlin-generics/>https://rengwuxian.com/kotlin-generics/</a></p><p>Kotlin中的泛型与Java中的泛型有同有异，我们先来看相同的部分。</p><h3 id=kotlin泛型与java泛型相同的部分>Kotlin泛型与Java泛型相同的部分</h3><p>泛型的定义方式有两种: 一种是定义泛型类，另一种是定义泛型方法。</p><p>定义一个泛型类,泛型类中的方法允许使用<code>T</code>类型作为参数和返回值。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyClass</span> &lt;T&gt; {
+	<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>method</span>(<span style=color:#66d9ef>param</span>: T): T {
+		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>param</span>
+	}
+}
 
-<span class=k>val</span> <span class=py>myClass</span> <span class=p>=</span> <span class=n>MyClass</span><span class=p>&lt;</span><span class=n>Int</span><span class=p>&gt;()</span>
-<span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>myClass</span><span class=p>.</span><span class=n>method</span><span class=p>(</span><span class=m>123</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>只定义一个泛型方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
-	<span class=k>fun</span> <span class=p>&lt;</span><span class=nc>T</span><span class=p>&gt;</span> <span class=nf>method</span><span class=p>(</span><span class=k>param</span><span class=p>:</span> <span class=n>T</span><span class=p>):</span> <span class=n>T</span> <span class=p>{</span>
-		<span class=k>return</span> <span class=k>param</span>
-	<span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>val</span> myClass = MyClass&lt;Int&gt;()
+<span style=color:#66d9ef>val</span> result = myClass.method(<span style=color:#ae81ff>123</span>)
+</code></pre></td></tr></table></div></div><p>只定义一个泛型方法</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyClass</span> {
+	<span style=color:#66d9ef>fun</span> &lt;<span style=color:#a6e22e>T</span>&gt; <span style=color:#a6e22e>method</span>(<span style=color:#66d9ef>param</span>: T): T {
+		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>param</span>
+	}
+}
 
-<span class=k>val</span> <span class=py>myClass</span> <span class=p>=</span> <span class=n>Myclass</span><span class=p>()</span>
-<span class=k>val</span> <span class=py>result</span> <span class=p>=</span> <span class=n>myClass</span><span class=p>.</span><span class=n>method</span><span class=p>&lt;</span><span class=n>Int</span><span class=p>&gt;(</span><span class=m>123</span><span class=p>)</span>
-<span class=k>val</span> <span class=py>result2</span> <span class=p>=</span> <span class=n>myClass</span><span class=p>.</span><span class=n>method</span><span class=p>(</span><span class=m>123</span><span class=p>)</span> <span class=c1>//利用推导机制，可以省略掉泛型的指定
-</span></code></pre></td></tr></table></div></div><p>通过限定上界，可以限制泛型的类型，下面的方法将限制泛型只能是数字类型。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
-	<span class=k>fun</span> <span class=p>&lt;</span><span class=nc>T</span><span class=p>:</span> <span class=nc>Number</span><span class=p>&gt;</span> <span class=nf>method</span><span class=p>(</span><span class=k>param</span><span class=p>:</span> <span class=n>T</span><span class=p>):</span> <span class=n>T</span> <span class=p>{</span>
-		<span class=k>return</span> <span class=k>param</span>
-	<span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>默认情况下，所有的泛型类型都是可以指定成可空类型的，在没有指定上界的时候，泛型的上界默认是<code>Any?</code>。如果想让泛型的类型不可为空，可以将泛型的上界手动指定为<code>Any</code>类型。</p><h3 id=kotlin泛型独有的功能>Kotlin泛型独有的功能</h3><h4 id=对泛型实化>对泛型实化</h4><p>泛型实例化这个功能对于绝大多数Java程序员来讲是非常默认的，因为Java中完全没有这个概念。而如果我们要先解释一下泛型实化，就要先解释一下Java的擦除机制。</p><p>Java的泛型功能是通过类型擦除机制来实现的。什么意思呢？就是说泛型对于类型的约束只在编译时期存在，JVM是识别不出来我们在代码中指定的泛型类型的。假如我们创建了一个<code>List&lt;String></code>集合，虽然在编译时期只能想集合里添加<code>String</code>类型的元素，但是在运行时期JVM并不能知道它本来只打算包含哪种类型的元素，只能识别出来它是一个<code>List</code>.</p><p>所有基于JVM的语言，它们的泛型功能都是通过类型擦除机制来实现的，其中当然也包括Kotlin. 这种机制使得我们不可能使用<code>a is T</code>或者<code>T::class.java</code>这样的语法，因为<code>T</code>的实际类型在运行的时候已经被擦除了。</p><p>然而不同的是，Kotlin提供了一个内联函数的概念。内联函数中的代码会在编译的时候自动被替换到调用它的地方，这样的话也就不存在什么泛型擦除问题了，因为代码在编译后会直接使用实际的类型来替代内联函数中的泛型声明。</p><p>所以在Kotlin中泛型实化要有两个条件:</p><ol><li>该函数必须是内联函数才行，也就是要用inline关键字来修饰该函数。</li><li>在声明泛型的地方必须加上<code>reified</code>关键字来表示该泛型要进行实化。</li></ol><p>比如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=p>&lt;</span><span class=k>reified</span> <span class=nc>T</span><span class=p>&gt;</span> <span class=nf>getGenericType</span><span class=p>()</span> <span class=p>=</span> <span class=n>T</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span>
-</code></pre></td></tr></table></div></div><p>上面的函数直接返回了指定泛型的实际类型，<code>T.class</code>这样的语法在Java中是不合法的，而在Kotlin中，借助泛型实化功能就可以使用<code>T::class.java</code>这样的语法了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>println</span><span class=p>(</span><span class=n>getGenericType</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;())</span>
-    <span class=n>println</span><span class=p>(</span><span class=n>getGenericType</span><span class=p>&lt;</span><span class=n>Int</span><span class=p>&gt;())</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>val</span> myClass = Myclass()
+<span style=color:#66d9ef>val</span> result = myClass.method&lt;Int&gt;(<span style=color:#ae81ff>123</span>)
+<span style=color:#66d9ef>val</span> result2 = myClass.method(<span style=color:#ae81ff>123</span>) <span style=color:#75715e>//利用推导机制，可以省略掉泛型的指定
+</span></code></pre></td></tr></table></div></div><p>通过限定上界，可以限制泛型的类型，下面的方法将限制泛型只能是数字类型。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyClass</span> {
+	<span style=color:#66d9ef>fun</span> &lt;<span style=color:#a6e22e>T</span>: <span style=color:#a6e22e>Number</span>&gt; <span style=color:#a6e22e>method</span>(<span style=color:#66d9ef>param</span>: T): T {
+		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>param</span>
+	}
+}
+</code></pre></td></tr></table></div></div><p>默认情况下，所有的泛型类型都是可以指定成可空类型的，在没有指定上界的时候，泛型的上界默认是<code>Any?</code>。如果想让泛型的类型不可为空，可以将泛型的上界手动指定为<code>Any</code>类型。</p><h3 id=kotlin泛型独有的功能>Kotlin泛型独有的功能</h3><h4 id=对泛型实化>对泛型实化</h4><p>泛型实例化这个功能对于绝大多数Java程序员来讲是非常默认的，因为Java中完全没有这个概念。而如果我们要先解释一下泛型实化，就要先解释一下Java的擦除机制。</p><p>Java的泛型功能是通过类型擦除机制来实现的。什么意思呢？就是说泛型对于类型的约束只在编译时期存在，JVM是识别不出来我们在代码中指定的泛型类型的。假如我们创建了一个<code>List&lt;String></code>集合，虽然在编译时期只能想集合里添加<code>String</code>类型的元素，但是在运行时期JVM并不能知道它本来只打算包含哪种类型的元素，只能识别出来它是一个<code>List</code>.</p><p>所有基于JVM的语言，它们的泛型功能都是通过类型擦除机制来实现的，其中当然也包括Kotlin. 这种机制使得我们不可能使用<code>a is T</code>或者<code>T::class.java</code>这样的语法，因为<code>T</code>的实际类型在运行的时候已经被擦除了。</p><p>然而不同的是，Kotlin提供了一个内联函数的概念。内联函数中的代码会在编译的时候自动被替换到调用它的地方，这样的话也就不存在什么泛型擦除问题了，因为代码在编译后会直接使用实际的类型来替代内联函数中的泛型声明。</p><p>所以在Kotlin中泛型实化要有两个条件:</p><ol><li>该函数必须是内联函数才行，也就是要用inline关键字来修饰该函数。</li><li>在声明泛型的地方必须加上<code>reified</code>关键字来表示该泛型要进行实化。</li></ol><p>比如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> &lt;<span style=color:#66d9ef>reified</span> <span style=color:#a6e22e>T</span>&gt; <span style=color:#a6e22e>getGenericType</span>() = T<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java
+</code></pre></td></tr></table></div></div><p>上面的函数直接返回了指定泛型的实际类型，<code>T.class</code>这样的语法在Java中是不合法的，而在Kotlin中，借助泛型实化功能就可以使用<code>T::class.java</code>这样的语法了。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    println(getGenericType&lt;String&gt;())
+    println(getGenericType&lt;Int&gt;())
+}
 
-<span class=c1>// 输出
-</span><span class=c1>// class java.lang.String
-</span><span class=c1>// class java.lang.Integer
-</span></code></pre></td></tr></table></div></div><h3 id=泛型实化的应用>泛型实化的应用</h3><p>泛型实化功能允许我们在泛型函数中获得泛型实例的实际类型，这也就使得类似<code>a is T</code>、<code>T::class.java</code>这样的语法成为了可能。</p><p>看一个启动<code>Activity</code>的代码，一般我们是这样写的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>intent</span> <span class=p>=</span> <span class=n>Intnet</span><span class=p>(</span><span class=n>context</span><span class=p>,</span> <span class=n>TestActivity</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span>
-<span class=n>intent</span><span class=p>.</span><span class=n>putExtra</span><span class=p>(</span><span class=s2>&#34;param1&#34;</span><span class=p>,</span> <span class=s2>&#34;data&#34;</span><span class=p>)</span>
-<span class=n>intent</span><span class=p>.</span><span class=n>putExtra</span><span class=p>(</span><span class=s2>&#34;param2&#34;</span><span class=p>,</span> <span class=m>123</span><span class=p>)</span>
-<span class=n>context</span><span class=p>.</span><span class=n>startActivity</span><span class=p>(</span><span class=n>intent</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>利用泛型实化和高阶函数，我可以定义一个如下函数<code>startActivity()</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>inline</span> <span class=k>fun</span> <span class=p>&lt;</span><span class=k>reified</span> <span class=nc>T</span><span class=p>&gt;</span> <span class=nf>startActivity</span><span class=p>(</span><span class=n>Context</span><span class=p>:</span> <span class=n>context</span><span class=p>,</span> <span class=n>block</span><span class=p>:</span> <span class=n>Intent</span><span class=p>.()</span> <span class=o>-&gt;</span> <span class=n>Unit</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>val</span> <span class=py>intent</span> <span class=p>=</span> <span class=n>Intent</span><span class=p>(</span><span class=n>context</span><span class=p>,</span> <span class=n>T</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span>
-    <span class=n>intent</span><span class=p>.</span><span class=n>block</span><span class=p>()</span>
-    <span class=n>context</span><span class=p>.</span><span class=n>startActivity</span><span class=p>(</span><span class=n>intent</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>然后调用的时候直接使用下面的形式就可以了</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>startActivity</span><span class=p>&lt;</span><span class=n>TestActivity</span><span class=p>&gt;(</span><span class=n>context</span><span class=p>,</span> <span class=p>{</span>
-    <span class=n>putExtra</span><span class=p>(</span><span class=s2>&#34;param1&#34;</span><span class=p>,</span> <span class=s2>&#34;data&#34;</span><span class=p>)</span>
-    <span class=n>putExtra</span><span class=p>(</span><span class=s2>&#34;param2&#34;</span><span class=p>,</span> <span class=m>123</span><span class=p>)</span>
-<span class=p>})</span>
-</code></pre></td></tr></table></div></div><h4 id=泛型的协变>泛型的协变</h4><p>假如定义了一个<code>MyClass&lt;T></code>的泛型类，其中<code>A</code>是<code>B</code>的子类，同时<code>MyClass&lt;A></code>又是<code>MyClass&lt;B></code>的子类，那么我们就称<code>MyClass</code>在<code>T</code>这个泛型上是协变的。</p><h4 id=泛型的逆变>泛型的逆变</h4><p>假如定义了一个<code>MyClass&lt;T></code>的泛型类，其中<code>A</code>是<code>B</code>的子类，同时<code>MyClass&lt;B></code>又是<code>MyClass&lt;A></code>的子类，那么我们就称<code>MyClass</code>在<code>T</code>这个泛型上是逆变的。</p><p>Java 的泛型本身是不支持协变和逆变的。</p><ul><li>可以使用泛型通配符 <code>? extends</code> 来使泛型支持协变，但是「只能读取不能修改」，这里的修改仅指对泛型集合添加元素，如果是 <code>remove(int index)</code> 以及 <code>clear</code> 当然是可以的。</li><li>可以使用泛型通配符 <code>? super</code> 来使泛型支持逆变，但是「只能修改不能读取」，这里说的不能读取是指不能按照泛型类型读取，你如果按照 <code>Object</code> 读出来再强转当然也是可以的。</li></ul><p>根据前面的说法，这被称为 PECS 法则：「<em>Producer-Extends, Consumer-Super</em>」。</p><h3 id=说回-kotlin-中的-out-和-in>说回 Kotlin 中的 <code>out</code> 和 <code>in</code></h3><p>和 Java 泛型一样，Kolin 中的泛型本身也是不可变的。</p><ul><li>使用关键字 <code>out</code> 来支持协变，等同于 Java 中的上界通配符 <code>? extends</code>。</li><li>使用关键字 <code>in</code> 来支持逆变，等同于 Java 中的下界通配符 <code>? super</code>。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>var</span> <span class=py>textViews</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=k>out</span> <span class=n>TextView</span><span class=p>&gt;</span>
-<span class=k>var</span> <span class=py>textViews</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=k>in</span> <span class=n>TextView</span><span class=p>&gt;</span>
-</code></pre></td></tr></table></div></div><p>Kotlin换了个写法，但作用是完全一样的。<code>out</code> 表示，我这个变量或者参数只用来输出，不用来输入，你只能读我不能写我；<code>in</code> 就反过来，表示它只用来输入，不用来输出，你只能写我不能读我。</p><h3 id=嵌套类>嵌套类</h3><p>kotlin中，类和接口可以任意组合嵌套，比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Outer</span> <span class=p>{</span>
-    <span class=k>private</span> <span class=k>val</span> <span class=py>bar</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>1</span>
-    <span class=k>class</span> <span class=nc>Nested</span> <span class=p>{</span>
-        <span class=k>fun</span> <span class=nf>foo</span><span class=p>()</span> <span class=p>=</span> <span class=m>2</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#75715e>// 输出
+</span><span style=color:#75715e>// class java.lang.String
+</span><span style=color:#75715e>// class java.lang.Integer
+</span></code></pre></td></tr></table></div></div><h3 id=泛型实化的应用>泛型实化的应用</h3><p>泛型实化功能允许我们在泛型函数中获得泛型实例的实际类型，这也就使得类似<code>a is T</code>、<code>T::class.java</code>这样的语法成为了可能。</p><p>看一个启动<code>Activity</code>的代码，一般我们是这样写的</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> intent = Intnet(context, TestActivity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
+intent.putExtra(<span style=color:#e6db74>&#34;param1&#34;</span>, <span style=color:#e6db74>&#34;data&#34;</span>)
+intent.putExtra(<span style=color:#e6db74>&#34;param2&#34;</span>, <span style=color:#ae81ff>123</span>)
+context.startActivity(intent)
+</code></pre></td></tr></table></div></div><p>利用泛型实化和高阶函数，我可以定义一个如下函数<code>startActivity()</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> &lt;<span style=color:#66d9ef>reified</span> <span style=color:#a6e22e>T</span>&gt; <span style=color:#a6e22e>startActivity</span>(Context: context, block: Intent.() <span style=color:#f92672>-&gt;</span> Unit) {
+    <span style=color:#66d9ef>val</span> intent = Intent(context, T<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
+    intent.block()
+    context.startActivity(intent)
+}
+</code></pre></td></tr></table></div></div><p>然后调用的时候直接使用下面的形式就可以了</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>startActivity&lt;TestActivity&gt;(context, {
+    putExtra(<span style=color:#e6db74>&#34;param1&#34;</span>, <span style=color:#e6db74>&#34;data&#34;</span>)
+    putExtra(<span style=color:#e6db74>&#34;param2&#34;</span>, <span style=color:#ae81ff>123</span>)
+})
+</code></pre></td></tr></table></div></div><h4 id=泛型的协变>泛型的协变</h4><p>假如定义了一个<code>MyClass&lt;T></code>的泛型类，其中<code>A</code>是<code>B</code>的子类，同时<code>MyClass&lt;A></code>又是<code>MyClass&lt;B></code>的子类，那么我们就称<code>MyClass</code>在<code>T</code>这个泛型上是协变的。</p><h4 id=泛型的逆变>泛型的逆变</h4><p>假如定义了一个<code>MyClass&lt;T></code>的泛型类，其中<code>A</code>是<code>B</code>的子类，同时<code>MyClass&lt;B></code>又是<code>MyClass&lt;A></code>的子类，那么我们就称<code>MyClass</code>在<code>T</code>这个泛型上是逆变的。</p><p>Java 的泛型本身是不支持协变和逆变的。</p><ul><li>可以使用泛型通配符 <code>? extends</code> 来使泛型支持协变，但是「只能读取不能修改」，这里的修改仅指对泛型集合添加元素，如果是 <code>remove(int index)</code> 以及 <code>clear</code> 当然是可以的。</li><li>可以使用泛型通配符 <code>? super</code> 来使泛型支持逆变，但是「只能修改不能读取」，这里说的不能读取是指不能按照泛型类型读取，你如果按照 <code>Object</code> 读出来再强转当然也是可以的。</li></ul><p>根据前面的说法，这被称为 PECS 法则：「<em>Producer-Extends, Consumer-Super</em>」。</p><h3 id=说回-kotlin-中的-out-和-in>说回 Kotlin 中的 <code>out</code> 和 <code>in</code></h3><p>和 Java 泛型一样，Kolin 中的泛型本身也是不可变的。</p><ul><li>使用关键字 <code>out</code> 来支持协变，等同于 Java 中的上界通配符 <code>? extends</code>。</li><li>使用关键字 <code>in</code> 来支持逆变，等同于 Java 中的下界通配符 <code>? super</code>。</li></ul><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>var</span> textViews: List&lt;<span style=color:#66d9ef>out</span> TextView&gt;
+<span style=color:#66d9ef>var</span> textViews: List&lt;<span style=color:#66d9ef>in</span> TextView&gt;
+</code></pre></td></tr></table></div></div><p>Kotlin换了个写法，但作用是完全一样的。<code>out</code> 表示，我这个变量或者参数只用来输出，不用来输入，你只能读我不能写我；<code>in</code> 就反过来，表示它只用来输入，不用来输出，你只能写我不能读我。</p><h3 id=嵌套类>嵌套类</h3><p>kotlin中，类和接口可以任意组合嵌套，比如</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Outer</span> {
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> bar: Int = <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Nested</span> {
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>foo</span>() = <span style=color:#ae81ff>2</span>
+    }
+}
 
-<span class=k>val</span> <span class=py>demo</span> <span class=p>=</span> <span class=n>Outer</span><span class=p>.</span><span class=n>Nested</span><span class=p>().</span><span class=n>foo</span><span class=p>()</span> <span class=c1>// == 2
-</span><span class=c1></span>
-<span class=c1>// 接口和类直接也可以相互嵌套
-</span><span class=c1></span><span class=k>interface</span> <span class=nc>OuterInterface</span> <span class=p>{</span>
-    <span class=k>class</span> <span class=nc>InnerClass</span>
-    <span class=k>interface</span> <span class=nc>InnerInterface</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>val</span> demo = Outer.Nested().foo() <span style=color:#75715e>// == 2
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// 接口和类直接也可以相互嵌套
+</span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>OuterInterface</span> {
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>InnerClass</span>
+    <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>InnerInterface</span>
+}
 
-<span class=k>class</span> <span class=nc>OuterClass</span> <span class=p>{</span>
-    <span class=k>class</span> <span class=nc>InnerClass</span>
-    <span class=k>interface</span> <span class=nc>InnerInterface</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h4 id=inner-classes>Inner classes﻿</h4><p>如果一个嵌套类被标记为<code>inner</code>,那么这个类可以访问外部类的成员(没有标记时是不能直接访问的)，它包含了一个外部类的引用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>Outer</span> <span class=p>{</span>
-    <span class=k>private</span> <span class=k>val</span> <span class=py>bar</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=m>1</span>
-    <span class=k>inner</span> <span class=k>class</span> <span class=nc>Inner</span> <span class=p>{</span>
-        <span class=k>fun</span> <span class=nf>foo</span><span class=p>()</span> <span class=p>=</span> <span class=n>bar</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OuterClass</span> {
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>InnerClass</span>
+    <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>InnerInterface</span>
+}
+</code></pre></td></tr></table></div></div><h4 id=inner-classes>Inner classes﻿</h4><p>如果一个嵌套类被标记为<code>inner</code>,那么这个类可以访问外部类的成员(没有标记时是不能直接访问的)，它包含了一个外部类的引用</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Outer</span> {
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> bar: Int = <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>inner</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Inner</span> {
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>foo</span>() = bar
+    }
+}
 
-<span class=k>val</span> <span class=py>demo</span> <span class=p>=</span> <span class=n>Outer</span><span class=p>().</span><span class=n>Inner</span><span class=p>().</span><span class=n>foo</span><span class=p>()</span> <span class=c1>// == 1
-</span></code></pre></td></tr></table></div></div><h4 id=匿名内部类anonymous-inner-classes>匿名内部类(Anonymous inner classes)</h4><p>使用<code>object</code>关键字，可以创建匿名的内部类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>window</span><span class=p>.</span><span class=n>addMouseListener</span><span class=p>(</span><span class=k>object</span> <span class=err>: </span><span class=nc>MouseAdapter</span><span class=p>()</span> <span class=p>{</span>
+<span style=color:#66d9ef>val</span> demo = Outer().Inner().foo() <span style=color:#75715e>// == 1
+</span></code></pre></td></tr></table></div></div><h4 id=匿名内部类anonymous-inner-classes>匿名内部类(Anonymous inner classes)</h4><p>使用<code>object</code>关键字，可以创建匿名的内部类</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>window.addMouseListener(<span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>MouseAdapter</span>() {
 
-    <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseClicked</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span> <span class=o>..</span><span class=p>.</span> <span class=p>}</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseClicked</span>(e: MouseEvent) { <span style=color:#f92672>..</span>. }
 
-    <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseEntered</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span> <span class=o>..</span><span class=p>.</span> <span class=p>}</span>
-<span class=p>})</span>
-</code></pre></td></tr></table></div></div><h3 id=枚举类>枚举类</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>enum</span> <span class=k>class</span> <span class=nc>Direction</span> <span class=p>{</span>
-    <span class=n>NORTH</span><span class=p>,</span> <span class=n>SOUTH</span><span class=p>,</span> <span class=n>WEST</span><span class=p>,</span> <span class=n>EAST</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseEntered</span>(e: MouseEvent) { <span style=color:#f92672>..</span>. }
+})
+</code></pre></td></tr></table></div></div><h3 id=枚举类>枚举类</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>enum</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Direction</span> {
+    NORTH, SOUTH, WEST, EAST
+}
 
-<span class=c1>//包含初始值的枚举类
-</span><span class=c1></span><span class=k>enum</span> <span class=k>class</span> <span class=nc>Color</span><span class=p>(</span><span class=k>val</span> <span class=py>rgb</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>RED</span><span class=p>(</span><span class=m>0xFF0000</span><span class=p>),</span>
-        <span class=n>GREEN</span><span class=p>(</span><span class=m>0x00FF00</span><span class=p>),</span>
-        <span class=n>BLUE</span><span class=p>(</span><span class=m>0x0000FF</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>枚举类也可以匿名类的形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>enum</span> <span class=k>class</span> <span class=nc>ProtocolState</span> <span class=p>{</span>
-    <span class=n>WAITING</span> <span class=p>{</span>
-        <span class=k>override</span> <span class=k>fun</span> <span class=nf>signal</span><span class=p>()</span> <span class=p>=</span> <span class=n>TALKING</span>
-    <span class=p>},</span>
+<span style=color:#75715e>//包含初始值的枚举类
+</span><span style=color:#75715e></span><span style=color:#66d9ef>enum</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Color</span>(<span style=color:#66d9ef>val</span> rgb: Int) {
+        RED(<span style=color:#ae81ff>0xFF0000</span>),
+        GREEN(<span style=color:#ae81ff>0x00FF00</span>),
+        BLUE(<span style=color:#ae81ff>0x0000FF</span>)
+}
+</code></pre></td></tr></table></div></div><p>枚举类也可以匿名类的形式</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>enum</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ProtocolState</span> {
+    WAITING {
+        <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>signal</span>() = TALKING
+    },
 
-    <span class=n>TALKING</span> <span class=p>{</span>
-        <span class=k>override</span> <span class=k>fun</span> <span class=nf>signal</span><span class=p>()</span> <span class=p>=</span> <span class=n>WAITING</span>
-    <span class=p>};</span>
+    TALKING {
+        <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>signal</span>() = WAITING
+    };
 
-    <span class=k>abstract</span> <span class=k>fun</span> <span class=nf>signal</span><span class=p>():</span> <span class=n>ProtocolState</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h4 id=枚举类的常用方法>枚举类的常用方法</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>EnumClass</span><span class=p>.</span><span class=n>valueOf</span><span class=p>(</span><span class=n>value</span><span class=p>:</span> <span class=n>String</span><span class=p>):</span> <span class=n>EnumClass</span>
-<span class=c1>// 获取枚举类的
-</span><span class=c1></span><span class=n>EnumClass</span><span class=p>.</span><span class=n>values</span><span class=p>():</span> <span class=n>Array</span><span class=p>&lt;</span><span class=n>EnumClass</span><span class=p>&gt;</span>
+    <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>signal</span>(): ProtocolState
+}
+</code></pre></td></tr></table></div></div><h4 id=枚举类的常用方法>枚举类的常用方法</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>EnumClass.valueOf(value: String): EnumClass
+<span style=color:#75715e>// 获取枚举类的
+</span><span style=color:#75715e></span>EnumClass.values(): Array&lt;EnumClass&gt;
 
-<span class=c1>// 通过泛型方式方法
-</span><span class=c1>// enumValues&lt;T&gt;()
-</span><span class=c1></span><span class=k>enum</span> <span class=k>class</span> <span class=nc>RGB</span> <span class=p>{</span> <span class=n>RED</span><span class=p>,</span> <span class=n>GREEN</span><span class=p>,</span> <span class=n>BLUE</span> <span class=p>}</span>
+<span style=color:#75715e>// 通过泛型方式方法
+</span><span style=color:#75715e>// enumValues&lt;T&gt;()
+</span><span style=color:#75715e></span><span style=color:#66d9ef>enum</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RGB</span> { RED, GREEN, BLUE }
 
-<span class=k>inline</span> <span class=k>fun</span> <span class=p>&lt;</span><span class=k>reified</span> <span class=nc>T</span> <span class=p>:</span> <span class=nc>Enum</span><span class=p>&lt;</span><span class=nc>T</span><span class=p>&gt;&gt;</span> <span class=nf>printAllValues</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>print</span><span class=p>(</span><span class=n>enumValues</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;().</span><span class=n>joinToString</span> <span class=p>{</span> <span class=k>it</span><span class=p>.</span><span class=n>name</span> <span class=p>})</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> &lt;<span style=color:#66d9ef>reified</span> <span style=color:#a6e22e>T</span> : <span style=color:#a6e22e>Enum</span>&lt;<span style=color:#a6e22e>T</span>&gt;&gt; <span style=color:#a6e22e>printAllValues</span>() {
+    print(enumValues&lt;T&gt;().joinToString { <span style=color:#66d9ef>it</span>.name })
+}
 
-</code></pre></td></tr></table></div></div><p>每个枚举类都默认有两个属性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>ordinal</span><span class=p>:</span> <span class=n>Int</span> <span class=c1>// 按照声明顺序在枚举类中的位置
-</span><span class=c1></span><span class=k>val</span> <span class=py>name</span><span class=p>:</span> <span class=n>String</span>
-</code></pre></td></tr></table></div></div><h3 id=inline-class>Inline Class</h3><p>类似<code>data class</code>, 在编写程序时，为了一些逻辑。我们经常会定义一些类来封装数据。这也做很方便，但是也会带来一些额外的运算开销。尤其是当只有一个属性时。因此，Kotlin中引起了<code>Inline Class</code>,可以把它看作为<code>data class</code>的子类</p><p>使用<code>value</code>关键字声明<code>Inline Class</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>value</span> <span class=k>class</span> <span class=nc>Password</span><span class=p>(</span><span class=k>private</span> <span class=k>val</span> <span class=py>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>为了兼容JVM，还需要使用注解<code>@JvmInline</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// For JVM backends
-</span><span class=c1></span><span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>Password</span><span class=p>(</span><span class=k>private</span> <span class=k>val</span> <span class=py>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p><code>Inline Class</code>必须在主构造函数里必须有一个属性，在代码运行的时候，编译器会将它作为原始数据来对待，而不会额外创建一个类来处理</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// No actual instantiation of class &#39;Password&#39; happens
-</span><span class=c1>// At runtime &#39;securePassword&#39; contains just &#39;String&#39;
-</span><span class=c1></span><span class=k>val</span> <span class=py>securePassword</span> <span class=p>=</span> <span class=n>Password</span><span class=p>(</span><span class=s2>&#34;Don&#39;t try this in production&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h4 id=inline-class-members>Inline Class Members</h4><p><code>Inline Class</code>同样跟普通类一样，支持定义属性和一些方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>Name</span><span class=p>(</span><span class=k>val</span> <span class=py>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>init</span> <span class=p>{</span>
-        <span class=n>require</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>length</span> <span class=p>&gt;</span> <span class=m>0</span><span class=p>)</span> <span class=p>{</span> <span class=p>}</span>
-    <span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>每个枚举类都默认有两个属性</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> ordinal: Int <span style=color:#75715e>// 按照声明顺序在枚举类中的位置
+</span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> name: String
+</code></pre></td></tr></table></div></div><h3 id=inline-class>Inline Class</h3><p>类似<code>data class</code>, 在编写程序时，为了一些逻辑。我们经常会定义一些类来封装数据。这也做很方便，但是也会带来一些额外的运算开销。尤其是当只有一个属性时。因此，Kotlin中引起了<code>Inline Class</code>,可以把它看作为<code>data class</code>的子类</p><p>使用<code>value</code>关键字声明<code>Inline Class</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Password</span>(<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> s: String)
+</code></pre></td></tr></table></div></div><p>为了兼容JVM，还需要使用注解<code>@JvmInline</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// For JVM backends
+</span><span style=color:#75715e></span><span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Password</span>(<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> s: String)
+</code></pre></td></tr></table></div></div><p><code>Inline Class</code>必须在主构造函数里必须有一个属性，在代码运行的时候，编译器会将它作为原始数据来对待，而不会额外创建一个类来处理</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// No actual instantiation of class &#39;Password&#39; happens
+</span><span style=color:#75715e>// At runtime &#39;securePassword&#39; contains just &#39;String&#39;
+</span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> securePassword = Password(<span style=color:#e6db74>&#34;Don&#39;t try this in production&#34;</span>)
+</code></pre></td></tr></table></div></div><h4 id=inline-class-members>Inline Class Members</h4><p><code>Inline Class</code>同样跟普通类一样，支持定义属性和一些方法</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Name</span>(<span style=color:#66d9ef>val</span> s: String) {
+    <span style=color:#66d9ef>init</span> {
+        require(s.length &gt; <span style=color:#ae81ff>0</span>) { }
+    }
 
-    <span class=k>val</span> <span class=py>length</span><span class=p>:</span> <span class=n>Int</span>
-        <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=n>s</span><span class=p>.</span><span class=n>length</span>
+    <span style=color:#66d9ef>val</span> length: Int
+        <span style=color:#66d9ef>get</span>() = s.length
 
-    <span class=k>fun</span> <span class=nf>greet</span><span class=p>()</span> <span class=p>{</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello, </span><span class=si>$s</span><span class=s2>&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>greet</span>() {
+        println(<span style=color:#e6db74>&#34;Hello, </span><span style=color:#e6db74>$s</span><span style=color:#e6db74>&#34;</span>)
+    }
+}
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>val</span> <span class=py>name</span> <span class=p>=</span> <span class=n>Name</span><span class=p>(</span><span class=s2>&#34;Kotlin&#34;</span><span class=p>)</span>
-    <span class=n>name</span><span class=p>.</span><span class=n>greet</span><span class=p>()</span> <span class=c1>// method `greet` is called as a static method
-</span><span class=c1></span>    <span class=n>println</span><span class=p>(</span><span class=n>name</span><span class=p>.</span><span class=n>length</span><span class=p>)</span> <span class=c1>// property getter is called as a static method
-</span><span class=c1></span><span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#66d9ef>val</span> name = Name(<span style=color:#e6db74>&#34;Kotlin&#34;</span>)
+    name.greet() <span style=color:#75715e>// method `greet` is called as a static method
+</span><span style=color:#75715e></span>    println(name.length) <span style=color:#75715e>// property getter is called as a static method
+</span><span style=color:#75715e></span>}
 
-</code></pre></td></tr></table></div></div><p><code>Inline Class 继承</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Printable</span> <span class=p>{</span>
-    <span class=k>fun</span> <span class=nf>prettyPrint</span><span class=p>():</span> <span class=n>String</span>
-<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><code>Inline Class 继承</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Printable</span> {
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>prettyPrint</span>(): String
+}
 
-<span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>Name</span><span class=p>(</span><span class=k>val</span> <span class=py>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>:</span> <span class=n>Printable</span> <span class=p>{</span>
-    <span class=k>override</span> <span class=k>fun</span> <span class=nf>prettyPrint</span><span class=p>():</span> <span class=n>String</span> <span class=p>=</span> <span class=s2>&#34;Let&#39;s </span><span class=si>$s</span><span class=s2>!&#34;</span>
-<span class=p>}</span>
+<span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Name</span>(<span style=color:#66d9ef>val</span> s: String) : Printable {
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>prettyPrint</span>(): String = <span style=color:#e6db74>&#34;Let&#39;s </span><span style=color:#e6db74>$s</span><span style=color:#e6db74>!&#34;</span>
+}
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>val</span> <span class=py>name</span> <span class=p>=</span> <span class=n>Name</span><span class=p>(</span><span class=s2>&#34;Kotlin&#34;</span><span class=p>)</span>
-    <span class=n>println</span><span class=p>(</span><span class=n>name</span><span class=p>.</span><span class=n>prettyPrint</span><span class=p>())</span> <span class=c1>// Still called as a static method
-</span><span class=c1></span><span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#66d9ef>val</span> name = Name(<span style=color:#e6db74>&#34;Kotlin&#34;</span>)
+    println(name.prettyPrint()) <span style=color:#75715e>// Still called as a static method
+</span><span style=color:#75715e></span>}
 
-</code></pre></td></tr></table></div></div><h4 id=根据不情况具有不同的表现形式>根据不情况具有不同的表现形式</h4><p><code>Inline Class</code>并不是一直在运行时都做被当成原始数据，而是根据使用场景，优化了是否封包解包的操作。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>I</span>
+</code></pre></td></tr></table></div></div><h4 id=根据不情况具有不同的表现形式>根据不情况具有不同的表现形式</h4><p><code>Inline Class</code>并不是一直在运行时都做被当成原始数据，而是根据使用场景，优化了是否封包解包的操作。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>I</span>
 
-<span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>Foo</span><span class=p>(</span><span class=k>val</span> <span class=py>i</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>:</span> <span class=n>I</span>
+<span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Foo</span>(<span style=color:#66d9ef>val</span> i: Int) : I
 
-<span class=k>fun</span> <span class=nf>asInline</span><span class=p>(</span><span class=n>f</span><span class=p>:</span> <span class=n>Foo</span><span class=p>)</span> <span class=p>{}</span>
-<span class=k>fun</span> <span class=p>&lt;</span><span class=nc>T</span><span class=p>&gt;</span> <span class=nf>asGeneric</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>T</span><span class=p>)</span> <span class=p>{}</span>
-<span class=k>fun</span> <span class=nf>asInterface</span><span class=p>(</span><span class=n>i</span><span class=p>:</span> <span class=n>I</span><span class=p>)</span> <span class=p>{}</span>
-<span class=k>fun</span> <span class=nf>asNullable</span><span class=p>(</span><span class=n>i</span><span class=p>:</span> <span class=n>Foo</span><span class=p>?)</span> <span class=p>{}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>asInline</span>(f: Foo) {}
+<span style=color:#66d9ef>fun</span> &lt;<span style=color:#a6e22e>T</span>&gt; <span style=color:#a6e22e>asGeneric</span>(x: T) {}
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>asInterface</span>(i: I) {}
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>asNullable</span>(i: Foo?) {}
 
-<span class=k>fun</span> <span class=p>&lt;</span><span class=nc>T</span><span class=p>&gt;</span> <span class=nf>id</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>T</span><span class=p>):</span> <span class=n>T</span> <span class=p>=</span> <span class=n>x</span>
+<span style=color:#66d9ef>fun</span> &lt;<span style=color:#a6e22e>T</span>&gt; <span style=color:#a6e22e>id</span>(x: T): T = x
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>val</span> <span class=py>f</span> <span class=p>=</span> <span class=n>Foo</span><span class=p>(</span><span class=m>42</span><span class=p>)</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#66d9ef>val</span> f = Foo(<span style=color:#ae81ff>42</span>)
 
-    <span class=n>asInline</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>    <span class=c1>// unboxed: used as Foo itself
-</span><span class=c1></span>    <span class=n>asGeneric</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>   <span class=c1>// boxed: used as generic type T
-</span><span class=c1></span>    <span class=n>asInterface</span><span class=p>(</span><span class=n>f</span><span class=p>)</span> <span class=c1>// boxed: used as type I
-</span><span class=c1></span>    <span class=n>asNullable</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>  <span class=c1>// boxed: used as Foo?, which is different from Foo
-</span><span class=c1></span>
-    <span class=c1>// below, &#39;f&#39; first is boxed (while being passed to &#39;id&#39;) and then unboxed (when returned from &#39;id&#39;)
-</span><span class=c1></span>    <span class=c1>// In the end, &#39;c&#39; contains unboxed representation (just &#39;42&#39;), as &#39;f&#39;
-</span><span class=c1></span>    <span class=k>val</span> <span class=py>c</span> <span class=p>=</span> <span class=n>id</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>
-<span class=p>}</span>
+    asInline(f)    <span style=color:#75715e>// unboxed: used as Foo itself
+</span><span style=color:#75715e></span>    asGeneric(f)   <span style=color:#75715e>// boxed: used as generic type T
+</span><span style=color:#75715e></span>    asInterface(f) <span style=color:#75715e>// boxed: used as type I
+</span><span style=color:#75715e></span>    asNullable(f)  <span style=color:#75715e>// boxed: used as Foo?, which is different from Foo
+</span><span style=color:#75715e></span>
+    <span style=color:#75715e>// below, &#39;f&#39; first is boxed (while being passed to &#39;id&#39;) and then unboxed (when returned from &#39;id&#39;)
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// In the end, &#39;c&#39; contains unboxed representation (just &#39;42&#39;), as &#39;f&#39;
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>val</span> c = id(f)
+}
 
-</code></pre></td></tr></table></div></div><h4 id=mangling>Mangling</h4><p>Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>UInt</span><span class=p>(</span><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h4 id=mangling>Mangling</h4><p>Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UInt</span>(<span style=color:#66d9ef>val</span> x: Int)
 
-<span class=c1>// Represented as &#39;public final void compute(int x)&#39; on the JVM
-</span><span class=c1></span><span class=k>fun</span> <span class=nf>compute</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span> <span class=p>}</span>
+<span style=color:#75715e>// Represented as &#39;public final void compute(int x)&#39; on the JVM
+</span><span style=color:#75715e></span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>compute</span>(x: Int) { }
 
-<span class=c1>// Also represented as &#39;public final void compute(int x)&#39; on the JVM!
-</span><span class=c1></span><span class=k>fun</span> <span class=nf>compute</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>UInt</span><span class=p>)</span> <span class=p>{</span> <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>To mitigate such issues, functions using inline classes are <em>mangled</em> by adding some stable hashcode to the function name. Therefore, <code>fun compute(x: UInt)</code> will be represented as <code>public final void compute-&lt;hashcode>(int x)</code>, which solves the clash problem.</p><h3 id=calling-from-java-code>Calling from Java code</h3><p>You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling: add the <code>@JvmName</code> annotation before the function declaration:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>UInt</span><span class=p>(</span><span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span>
+<span style=color:#75715e>// Also represented as &#39;public final void compute(int x)&#39; on the JVM!
+</span><span style=color:#75715e></span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>compute</span>(x: UInt) { }
+</code></pre></td></tr></table></div></div><p>To mitigate such issues, functions using inline classes are <em>mangled</em> by adding some stable hashcode to the function name. Therefore, <code>fun compute(x: UInt)</code> will be represented as <code>public final void compute-&lt;hashcode>(int x)</code>, which solves the clash problem.</p><h3 id=calling-from-java-code>Calling from Java code</h3><p>You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling: add the <code>@JvmName</code> annotation before the function declaration:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UInt</span>(<span style=color:#66d9ef>val</span> x: Int)
 
-<span class=k>fun</span> <span class=nf>compute</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span> <span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>compute</span>(x: Int) { }
 
-<span class=nd>@JvmName</span><span class=p>(</span><span class=s2>&#34;computeUInt&#34;</span><span class=p>)</span>
-<span class=k>fun</span> <span class=nf>compute</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>UInt</span><span class=p>)</span> <span class=p>{</span> <span class=p>}</span>
-</code></pre></td></tr></table></div></div><h4 id=inline-classes-vs-type-aliases>Inline classes vs type aliases</h4><p>At first sight, inline classes seem very similar to <a href=https://kotlinlang.org/docs/type-aliases.html>type aliases</a>. Indeed, both seem to introduce a new type and both will be represented as the underlying type at runtime.</p><p>However, the crucial difference is that type aliases are <em>assignment-compatible</em> with their underlying type (and with other type aliases with the same underlying type), while inline classes are not.</p><p>In other words, inline classes introduce a truly <em>new</em> type, contrary to type aliases which only introduce an alternative name (alias) for an existing type:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>typealias</span> <span class=n>NameTypeAlias</span> <span class=p>=</span> <span class=n>String</span>
+<span style=color:#a6e22e>@JvmName</span>(<span style=color:#e6db74>&#34;computeUInt&#34;</span>)
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>compute</span>(x: UInt) { }
+</code></pre></td></tr></table></div></div><h4 id=inline-classes-vs-type-aliases>Inline classes vs type aliases</h4><p>At first sight, inline classes seem very similar to <a href=https://kotlinlang.org/docs/type-aliases.html>type aliases</a>. Indeed, both seem to introduce a new type and both will be represented as the underlying type at runtime.</p><p>However, the crucial difference is that type aliases are <em>assignment-compatible</em> with their underlying type (and with other type aliases with the same underlying type), while inline classes are not.</p><p>In other words, inline classes introduce a truly <em>new</em> type, contrary to type aliases which only introduce an alternative name (alias) for an existing type:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>typealias</span> NameTypeAlias = String
 
-<span class=nd>@JvmInline</span>
-<span class=n>value</span> <span class=k>class</span> <span class=nc>NameInlineClass</span><span class=p>(</span><span class=k>val</span> <span class=py>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span>
+<span style=color:#a6e22e>@JvmInline</span>
+value <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NameInlineClass</span>(<span style=color:#66d9ef>val</span> s: String)
 
-<span class=k>fun</span> <span class=nf>acceptString</span><span class=p>(</span><span class=n>s</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{}</span>
-<span class=k>fun</span> <span class=nf>acceptNameTypeAlias</span><span class=p>(</span><span class=n>n</span><span class=p>:</span> <span class=n>NameTypeAlias</span><span class=p>)</span> <span class=p>{}</span>
-<span class=k>fun</span> <span class=nf>acceptNameInlineClass</span><span class=p>(</span><span class=n>p</span><span class=p>:</span> <span class=n>NameInlineClass</span><span class=p>)</span> <span class=p>{}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>acceptString</span>(s: String) {}
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>acceptNameTypeAlias</span>(n: NameTypeAlias) {}
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>acceptNameInlineClass</span>(p: NameInlineClass) {}
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>val</span> <span class=py>nameAlias</span><span class=p>:</span> <span class=n>NameTypeAlias</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
-    <span class=k>val</span> <span class=py>nameInlineClass</span><span class=p>:</span> <span class=n>NameInlineClass</span> <span class=p>=</span> <span class=n>NameInlineClass</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
-    <span class=k>val</span> <span class=py>string</span><span class=p>:</span> <span class=n>String</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#66d9ef>val</span> nameAlias: NameTypeAlias = <span style=color:#e6db74>&#34;&#34;</span>
+    <span style=color:#66d9ef>val</span> nameInlineClass: NameInlineClass = NameInlineClass(<span style=color:#e6db74>&#34;&#34;</span>)
+    <span style=color:#66d9ef>val</span> string: String = <span style=color:#e6db74>&#34;&#34;</span>
 
-    <span class=n>acceptString</span><span class=p>(</span><span class=n>nameAlias</span><span class=p>)</span> <span class=c1>// OK: pass alias instead of underlying type
-</span><span class=c1></span>    <span class=n>acceptString</span><span class=p>(</span><span class=n>nameInlineClass</span><span class=p>)</span> <span class=c1>// Not OK: can&#39;t pass inline class instead of underlying type
-</span><span class=c1></span>
-    <span class=c1>// And vice versa:
-</span><span class=c1></span>    <span class=n>acceptNameTypeAlias</span><span class=p>(</span><span class=n>string</span><span class=p>)</span> <span class=c1>// OK: pass underlying type instead of alias
-</span><span class=c1></span>    <span class=n>acceptNameInlineClass</span><span class=p>(</span><span class=n>string</span><span class=p>)</span> <span class=c1>// Not OK: can&#39;t pass underlying type instead of inline class
-</span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=object-expressions-and-declarations>Object expressions and declarations</h3><p>有些时候，我们可能只需要修改修改类的一点东西而不想单独创建一个类，这个时候对象表达式就派上用场了。</p><p>对象表达式创建的类都不使用<code>class</code>关键字，一般情况下只会使用一次。</p><h4 id=创建一个匿名类>创建一个匿名类</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>helloWorld</span> <span class=p>=</span> <span class=k>object</span> <span class=err>{</span>
-    <span class=k>val</span> <span class=py>hello</span> <span class=p>=</span> <span class=s2>&#34;Hello&#34;</span>
-    <span class=k>val</span> <span class=py>world</span> <span class=p>=</span> <span class=s2>&#34;World&#34;</span>
-    <span class=c1>// object expressions extend Any, so `override` is required on `toString()`
-</span><span class=c1></span>    <span class=k>override</span> <span class=k>fun</span> <span class=nf>toString</span><span class=p>()</span> <span class=p>=</span> <span class=s2>&#34;</span><span class=si>$hello</span><span class=s2> </span><span class=si>$world</span><span class=s2>&#34;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>创建一个继承自其它类的匿名类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>window</span><span class=p>.</span><span class=n>addMouseListener</span><span class=p>(</span><span class=k>object</span> <span class=err>: </span><span class=nc>MouseAdapter</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseClicked</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+    acceptString(nameAlias) <span style=color:#75715e>// OK: pass alias instead of underlying type
+</span><span style=color:#75715e></span>    acceptString(nameInlineClass) <span style=color:#75715e>// Not OK: can&#39;t pass inline class instead of underlying type
+</span><span style=color:#75715e></span>
+    <span style=color:#75715e>// And vice versa:
+</span><span style=color:#75715e></span>    acceptNameTypeAlias(string) <span style=color:#75715e>// OK: pass underlying type instead of alias
+</span><span style=color:#75715e></span>    acceptNameInlineClass(string) <span style=color:#75715e>// Not OK: can&#39;t pass underlying type instead of inline class
+</span><span style=color:#75715e></span>}
+</code></pre></td></tr></table></div></div><h3 id=object-expressions-and-declarations>Object expressions and declarations</h3><p>有些时候，我们可能只需要修改修改类的一点东西而不想单独创建一个类，这个时候对象表达式就派上用场了。</p><p>对象表达式创建的类都不使用<code>class</code>关键字，一般情况下只会使用一次。</p><h4 id=创建一个匿名类>创建一个匿名类</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> helloWorld = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>{</span>
+    <span style=color:#66d9ef>val</span> hello = <span style=color:#e6db74>&#34;Hello&#34;</span>
+    <span style=color:#66d9ef>val</span> world = <span style=color:#e6db74>&#34;World&#34;</span>
+    <span style=color:#75715e>// object expressions extend Any, so `override` is required on `toString()`
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>toString</span>() = <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$hello</span><span style=color:#e6db74> </span><span style=color:#e6db74>$world</span><span style=color:#e6db74>&#34;</span>
+}
+</code></pre></td></tr></table></div></div><p>创建一个继承自其它类的匿名类</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>window.addMouseListener(<span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>MouseAdapter</span>() {
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseClicked</span>(e: MouseEvent) { <span style=color:#75715e>/*...*/</span> }
 
-    <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseEntered</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
-<span class=p>})</span>
-</code></pre></td></tr></table></div></div><p>如果继承的父类有构造函数，创建时也需要传递构造函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>open</span> <span class=k>class</span> <span class=nc>A</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=n>Int</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>public</span> <span class=k>open</span> <span class=k>val</span> <span class=py>y</span><span class=p>:</span> <span class=n>Int</span> <span class=p>=</span> <span class=n>x</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseEntered</span>(e: MouseEvent) { <span style=color:#75715e>/*...*/</span> }
+})
+</code></pre></td></tr></table></div></div><p>如果继承的父类有构造函数，创建时也需要传递构造函数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(x: Int) {
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>val</span> y: Int = x
+}
 
-<span class=k>interface</span> <span class=nc>B</span> <span class=p>{</span> <span class=cm>/*...*/</span> <span class=p>}</span>
+<span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>B</span> { <span style=color:#75715e>/*...*/</span> }
 
-<span class=k>val</span> <span class=py>ab</span><span class=p>:</span> <span class=n>A</span> <span class=p>=</span> <span class=k>object</span> <span class=err>: </span><span class=nc>A</span><span class=p>(</span><span class=m>1</span><span class=p>),</span> <span class=n>B</span> <span class=p>{</span>
-    <span class=k>override</span> <span class=k>val</span> <span class=py>y</span> <span class=p>=</span> <span class=m>15</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h4 id=使用匿名类作为返回值>使用匿名类作为返回值</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>C</span> <span class=p>{</span>
-    <span class=k>private</span> <span class=k>fun</span> <span class=nf>getObject</span><span class=p>()</span> <span class=p>=</span> <span class=k>object</span> <span class=err>{</span>
-        <span class=k>val</span> <span class=py>x</span><span class=p>:</span> <span class=n>String</span> <span class=p>=</span> <span class=s2>&#34;x&#34;</span>
-    <span class=p>}</span>
+<span style=color:#66d9ef>val</span> ab: A = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>A</span>(<span style=color:#ae81ff>1</span>), B {
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>val</span> y = <span style=color:#ae81ff>15</span>
+}
+</code></pre></td></tr></table></div></div><h4 id=使用匿名类作为返回值>使用匿名类作为返回值</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C</span> {
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getObject</span>() = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>{</span>
+        <span style=color:#66d9ef>val</span> x: String = <span style=color:#e6db74>&#34;x&#34;</span>
+    }
 
-    <span class=k>fun</span> <span class=nf>printX</span><span class=p>()</span> <span class=p>{</span>
-        <span class=n>println</span><span class=p>(</span><span class=n>getObject</span><span class=p>().</span><span class=n>x</span><span class=p>)</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h4 id=从匿名内部类可以访问外部的成员>从匿名内部类可以访问外部的成员</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>countClicks</span><span class=p>(</span><span class=n>window</span><span class=p>:</span> <span class=n>JComponent</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>var</span> <span class=py>clickCount</span> <span class=p>=</span> <span class=m>0</span>
-    <span class=k>var</span> <span class=py>enterCount</span> <span class=p>=</span> <span class=m>0</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>printX</span>() {
+        println(getObject().x)
+    }
+}
+</code></pre></td></tr></table></div></div><h4 id=从匿名内部类可以访问外部的成员>从匿名内部类可以访问外部的成员</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>countClicks</span>(window: JComponent) {
+    <span style=color:#66d9ef>var</span> clickCount = <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>var</span> enterCount = <span style=color:#ae81ff>0</span>
 
-    <span class=n>window</span><span class=p>.</span><span class=n>addMouseListener</span><span class=p>(</span><span class=k>object</span> <span class=err>: </span><span class=nc>MouseAdapter</span><span class=p>()</span> <span class=p>{</span>
-        <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseClicked</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span>
-            <span class=n>clickCount</span><span class=o>++</span>
-        <span class=p>}</span>
+    window.addMouseListener(<span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>MouseAdapter</span>() {
+        <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseClicked</span>(e: MouseEvent) {
+            clickCount<span style=color:#f92672>++</span>
+        }
 
-        <span class=k>override</span> <span class=k>fun</span> <span class=nf>mouseEntered</span><span class=p>(</span><span class=n>e</span><span class=p>:</span> <span class=n>MouseEvent</span><span class=p>)</span> <span class=p>{</span>
-            <span class=n>enterCount</span><span class=o>++</span>
-        <span class=p>}</span>
-    <span class=p>})</span>
-    <span class=c1>// ...
-</span><span class=c1></span><span class=p>}</span>
+        <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>mouseEntered</span>(e: MouseEvent) {
+            enterCount<span style=color:#f92672>++</span>
+        }
+    })
+    <span style=color:#75715e>// ...
+</span><span style=color:#75715e></span>}
 
-</code></pre></td></tr></table></div></div><h3 id=单例类>单例类</h3><p>在Kotlin中创建一个单例类的方法特别简单，只需要将<code>class</code>关键字改为<code>object</code>关键字即可。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>object</span> <span class=nc>Manager</span> <span class=p>{</span>
-    <span class=k>fun</span> <span class=nf>manager</span><span class=p>()</span> <span class=p>{</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;manager is called.&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>调用单例类中的函数也很简单，比较类似Java中静态方法的调用方式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=n>Manager</span><span class=p>.</span><span class=n>manager</span><span class=p>()</span>
-</code></pre></td></tr></table></div></div><p>上面的写法看起来很像是静态方法的调用，但其实Kotlin背后帮我们自动创建了一个<code>Manager</code>类的实例，并保证全局只有一个<code>Manager</code>实例。</p><h3 id=伴生类>伴生类</h3><p>使用<code>companion object</code>关键字，可以创建伴生类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
-    <span class=k>companion</span> <span class=k>object</span> <span class=n>Factory</span> <span class=p>{</span>
-        <span class=k>fun</span> <span class=nf>create</span><span class=p>():</span> <span class=n>MyClass</span> <span class=p>=</span> <span class=n>MyClass</span><span class=p>()</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>伴生类里面的成员可以直接通过外部类的类名访问</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>instance</span> <span class=p>=</span> <span class=n>MyClass</span><span class=p>.</span><span class=n>create</span><span class=p>()</span>
-</code></pre></td></tr></table></div></div><p>尽管伴生类看起来像是静态类，但是在使用时仍然是一个实际存在的对象，因此它也可以实现接口</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>Factory</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;</span> <span class=p>{</span>
-    <span class=k>fun</span> <span class=nf>create</span><span class=p>():</span> <span class=n>T</span>
-<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=单例类>单例类</h3><p>在Kotlin中创建一个单例类的方法特别简单，只需要将<code>class</code>关键字改为<code>object</code>关键字即可。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>Manager</span> {
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>manager</span>() {
+        println(<span style=color:#e6db74>&#34;manager is called.&#34;</span>)
+    }
+}
+</code></pre></td></tr></table></div></div><p>调用单例类中的函数也很简单，比较类似Java中静态方法的调用方式：</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin>Manager.manager()
+</code></pre></td></tr></table></div></div><p>上面的写法看起来很像是静态方法的调用，但其实Kotlin背后帮我们自动创建了一个<code>Manager</code>类的实例，并保证全局只有一个<code>Manager</code>实例。</p><h3 id=伴生类>伴生类</h3><p>使用<code>companion object</code>关键字，可以创建伴生类</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyClass</span> {
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> Factory {
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>create</span>(): MyClass = MyClass()
+    }
+}
+</code></pre></td></tr></table></div></div><p>伴生类里面的成员可以直接通过外部类的类名访问</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> instance = MyClass.create()
+</code></pre></td></tr></table></div></div><p>尽管伴生类看起来像是静态类，但是在使用时仍然是一个实际存在的对象，因此它也可以实现接口</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Factory</span>&lt;T&gt; {
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>create</span>(): T
+}
 
-<span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
-    <span class=k>companion</span> <span class=k>object</span> <span class=p>:</span> <span class=n>Factory</span><span class=p>&lt;</span><span class=n>MyClass</span><span class=p>&gt;</span> <span class=p>{</span>
-        <span class=k>override</span> <span class=k>fun</span> <span class=nf>create</span><span class=p>():</span> <span class=n>MyClass</span> <span class=p>=</span> <span class=n>MyClass</span><span class=p>()</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyClass</span> {
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> : Factory&lt;MyClass&gt; {
+        <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>create</span>(): MyClass = MyClass()
+    }
+}
 
-<span class=k>val</span> <span class=py>f</span><span class=p>:</span> <span class=n>Factory</span><span class=p>&lt;</span><span class=n>MyClass</span><span class=p>&gt;</span> <span class=p>=</span> <span class=n>MyClass</span>
+<span style=color:#66d9ef>val</span> f: Factory&lt;MyClass&gt; = MyClass
 
-</code></pre></td></tr></table></div></div><h3 id=静态方法>静态方法</h3><p>在Kotlin中极度弱化了静态方法这个概念。像工具类这种功能，在Kotlin中非常推荐使用单例的方式来实现。比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>object</span> <span class=nc>Util</span> <span class=p>{</span>
-	<span class=k>fun</span> <span class=nf>doAction</span><span class=p>()</span> <span class=p>{</span>
-		<span class=n>println</span><span class=p>(</span><span class=s2>&#34;do some action&#34;</span><span class=p>)</span>
-	<span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>虽然这里的<code>doAction()</code>方法并不是静态方法，但是由于<code>Util</code>被声明为了单例的形式，我们仍然可以使用<code>Util.doAction()</code>的方式来调用，非常方便。</p><p>不过使用单例类的写法会将类中所有的方法都变成类似静态方法的调用方式，而如果我们只希望让类中的一个方法变成静态方法时，就需要使用<code>companion object</code>了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Util</span> <span class=p>{</span>
-    <span class=k>fun</span> <span class=nf>doAction1</span><span class=p>()</span> <span class=p>{</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;do action1&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=静态方法>静态方法</h3><p>在Kotlin中极度弱化了静态方法这个概念。像工具类这种功能，在Kotlin中非常推荐使用单例的方式来实现。比如</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>Util</span> {
+	<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doAction</span>() {
+		println(<span style=color:#e6db74>&#34;do some action&#34;</span>)
+	}
+}
+</code></pre></td></tr></table></div></div><p>虽然这里的<code>doAction()</code>方法并不是静态方法，但是由于<code>Util</code>被声明为了单例的形式，我们仍然可以使用<code>Util.doAction()</code>的方式来调用，非常方便。</p><p>不过使用单例类的写法会将类中所有的方法都变成类似静态方法的调用方式，而如果我们只希望让类中的一个方法变成静态方法时，就需要使用<code>companion object</code>了。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Util</span> {
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doAction1</span>() {
+        println(<span style=color:#e6db74>&#34;do action1&#34;</span>)
+    }
 
-    <span class=k>companion</span> <span class=k>object</span> <span class=p>{</span>
-        <span class=k>fun</span> <span class=nf>doAction2</span><span class=p>()</span> <span class=p>{</span>
-            <span class=n>println</span><span class=p>(</span><span class=s2>&#34;do action2&#34;</span><span class=p>)</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doAction2</span>() {
+            println(<span style=color:#e6db74>&#34;do action2&#34;</span>)
+        }
+    }
+}
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>Util</span><span class=p>().</span><span class=n>doAction1</span><span class=p>()</span> <span class=c1>// doAction1必须先创建对象才能调用
-</span><span class=c1></span>    <span class=n>Util</span><span class=p>.</span><span class=n>doAction2</span><span class=p>()</span>  <span class=c1>// doAction2可以像静态方法一样直接调用
-</span><span class=c1></span><span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    Util().doAction1() <span style=color:#75715e>// doAction1必须先创建对象才能调用
+</span><span style=color:#75715e></span>    Util.doAction2()  <span style=color:#75715e>// doAction2可以像静态方法一样直接调用
+</span><span style=color:#75715e></span>}
 </code></pre></td></tr></table></div></div><p><code>doAction2()</code>方法其实也不是一个静态方法，<code>companion object</code>这个关键字实际上会在<code>Util</code>类的内部创建一个伴生类，而<code>doAction2()</code>就是定义在这个伴生类里的<strong>实例</strong>方法。
-只是Kotlin会保证在<code>Util</code>类始终存在一个伴生类<strong>对象</strong>，因此调用<code>Util.doAction2()</code>实际上就是调用了<code>Util</code>类中伴生对象的<code>doAction2</code>方法。</p><p>由此可以看出，Kotlin确实没有直接定义静态方法的关键字，但是提供了一些语法特性来支持类似静态方法调用的写法。</p><p>如果确实需要定义真正的静态方法，Kotlin提供了两种实现方式:</p><ul><li>注解</li><li>顶层方法</li></ul><h4 id=通过注解实现静态方法>通过注解实现静态方法</h4><p>先来看注解，前面使用单例类和<code>companion object</code>都只是在语法上模仿了静态方法的调用方式，实际上他们都不是真正的静态方法。因此如果你在Java中以静态方法的形式调用上面的方法的话，会发现这些方法根本不存在。而如果我们给单例类或者<code>companion object</code>中的方法加上<code>@JvmStatic</code>注解，那么Kotlin编译器就会将这些方法编译成真正的静态方法。如:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>class</span> <span class=nc>Util</span> <span class=p>{</span>
-    <span class=k>fun</span> <span class=nf>doAction1</span><span class=p>()</span> <span class=p>{</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;do action1&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
+只是Kotlin会保证在<code>Util</code>类始终存在一个伴生类<strong>对象</strong>，因此调用<code>Util.doAction2()</code>实际上就是调用了<code>Util</code>类中伴生对象的<code>doAction2</code>方法。</p><p>由此可以看出，Kotlin确实没有直接定义静态方法的关键字，但是提供了一些语法特性来支持类似静态方法调用的写法。</p><p>如果确实需要定义真正的静态方法，Kotlin提供了两种实现方式:</p><ul><li>注解</li><li>顶层方法</li></ul><h4 id=通过注解实现静态方法>通过注解实现静态方法</h4><p>先来看注解，前面使用单例类和<code>companion object</code>都只是在语法上模仿了静态方法的调用方式，实际上他们都不是真正的静态方法。因此如果你在Java中以静态方法的形式调用上面的方法的话，会发现这些方法根本不存在。而如果我们给单例类或者<code>companion object</code>中的方法加上<code>@JvmStatic</code>注解，那么Kotlin编译器就会将这些方法编译成真正的静态方法。如:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Util</span> {
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doAction1</span>() {
+        println(<span style=color:#e6db74>&#34;do action1&#34;</span>)
+    }
 
-    <span class=k>companion</span> <span class=k>object</span> <span class=p>{</span>
-        <span class=nd>@JvmStatic</span>
-        <span class=k>fun</span> <span class=nf>doAction2</span><span class=p>()</span> <span class=p>{</span>
-            <span class=n>println</span><span class=p>(</span><span class=s2>&#34;do action2&#34;</span><span class=p>)</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>注意： <code>@JvmStatic</code>只能加在单例类或者<code>companion object</code>中的方法上，如果你尝试加在一个普通方法上(如上面的<code>doAction1()</code>方法)，会直接报错。</p><p>按照上面的方法添加注解之后，<code>doAction2()</code>方法就变成了真正的静态方法，不管是在Kotlin还是Java中，都可以使用<code>Util.doAction2()</code>的写法来调用。</p><h4 id=通过顶层方法实现静态方法>通过顶层方法实现静态方法</h4><p>顶层方法是指那些没有定义在任何类中的方法。Kotlin编译器会将所有的顶层方法全部编译成静态方法。因此只要你定义了一个顶层方法，那它一定是静态方法。</p><p>如在<code>Helper.kt</code>文件中定义一个方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Kotlin data-lang=Kotlin><span class=k>fun</span> <span class=nf>doSomething</span><span class=p>()</span> <span class=p>{</span>
-	<span class=n>println</span><span class=p>(</span><span class=s2>&#34;do something&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {
+        <span style=color:#a6e22e>@JvmStatic</span>
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doAction2</span>() {
+            println(<span style=color:#e6db74>&#34;do action2&#34;</span>)
+        }
+    }
+}
+</code></pre></td></tr></table></div></div><p>注意： <code>@JvmStatic</code>只能加在单例类或者<code>companion object</code>中的方法上，如果你尝试加在一个普通方法上(如上面的<code>doAction1()</code>方法)，会直接报错。</p><p>按照上面的方法添加注解之后，<code>doAction2()</code>方法就变成了真正的静态方法，不管是在Kotlin还是Java中，都可以使用<code>Util.doAction2()</code>的写法来调用。</p><h4 id=通过顶层方法实现静态方法>通过顶层方法实现静态方法</h4><p>顶层方法是指那些没有定义在任何类中的方法。Kotlin编译器会将所有的顶层方法全部编译成静态方法。因此只要你定义了一个顶层方法，那它一定是静态方法。</p><p>如在<code>Helper.kt</code>文件中定义一个方法</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Kotlin data-lang=Kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doSomething</span>() {
+	println(<span style=color:#e6db74>&#34;do something&#34;</span>)
+}
 </code></pre></td></tr></table></div></div><p>在Kotlin中调用顶层方法比较简单，直接使用方法名就可以调用了，但是在Java中，没有顶层方法这个概念，所有的方法都必须定义在类中，那么在Java中该如何调用这个方法呢？</p><p>由于我们刚刚创建的文件名是<code>Helper.kt</code>,于是Kotlin编译器会自动创建一个叫做<code>HelperKt</code>的Java类，<code>doSomething</code>就是以静态方法的形式定义在<code>HelperKt</code>类中的。
 因此在Java中只需要通过<code>HelperKt.doSomething()</code>的写法来调用。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
@@ -720,4 +720,4 @@
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

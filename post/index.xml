@@ -23,85 +23,85 @@
 &lt;p>当两个元祖有相同的元素类型和个数时，可以直接比较两个元祖。从左到右，直到找到不相等的。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;zebra&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;apple&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true because 1 is less than 2; &amp;#34;zebra&amp;#34; and &amp;#34;apple&amp;#34; are not compared&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;apple&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;bird&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true because 3 is equal to 3, and &amp;#34;apple&amp;#34; is less than &amp;#34;bird&amp;#34;&lt;/span>
-&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;dog&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">==&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;dog&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// true because 4 is equal to 4, and &amp;#34;dog&amp;#34; is equal to &amp;#34;dog”&lt;/span>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-swift" data-lang="swift">(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;zebra&amp;#34;&lt;/span>) &lt;span style="color:#f92672">&amp;lt;&lt;/span> (&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;apple&amp;#34;&lt;/span>) &lt;span style="color:#75715e">// true because 1 is less than 2; &amp;#34;zebra&amp;#34; and &amp;#34;apple&amp;#34; are not compared&lt;/span>
+(&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;apple&amp;#34;&lt;/span>) &lt;span style="color:#f92672">&amp;lt;&lt;/span> (&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bird&amp;#34;&lt;/span>) &lt;span style="color:#75715e">// true because 3 is equal to 3, and &amp;#34;apple&amp;#34; is less than &amp;#34;bird&amp;#34;&lt;/span>
+(&lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;dog&amp;#34;&lt;/span>) == (&lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;dog&amp;#34;&lt;/span>) &lt;span style="color:#75715e">// true because 4 is equal to 4, and &amp;#34;dog&amp;#34; is equal to &amp;#34;dog”&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Swift基本语法</title><link>https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/</link><pubDate>Tue, 30 Oct 2018 11:58:55 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/</guid><description>&lt;h3 id="常量和变量">常量和变量&lt;/h3>
 &lt;p>一次声明多个变量&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="kd">var&lt;/span> &lt;span class="nv">x&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mf">0.0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">z&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mf">0.0&lt;/span>
-&lt;span class="kd">var&lt;/span> &lt;span class="nv">red&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">green&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">blue&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">Double&lt;/span>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-swift" data-lang="swift">&lt;span style="color:#66d9ef">var&lt;/span> x = &lt;span style="color:#ae81ff">0.0&lt;/span>, y = &lt;span style="color:#ae81ff">0.0&lt;/span>, z = &lt;span style="color:#ae81ff">0.0&lt;/span>
+&lt;span style="color:#66d9ef">var&lt;/span> red, green, blue: Double
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Developing iOS 11 Apps with Swift视频下载</title><link>https://crazygit.wiseturtles.com/2018/10/29/developing_ios11_apps_with_swift/</link><pubDate>Mon, 29 Oct 2018 16:15:15 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/29/developing_ios11_apps_with_swift/</guid><description>&lt;p>从Mac版的iTunes里找到课程，通过分享链接，获取下面的地址，
 其实就是一个xml文件&lt;/p>
 &lt;p>&lt;a href="http://podcasts.apple.com/stanford/developing_ios11_apps.xml">iTunes podcasts 视频解析地址&lt;/a>&lt;/p>
 &lt;p>解析出所有的下载地址&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">import&lt;/span> &lt;span class="nn">xml.etree.ElementTree&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">ET&lt;/span>
-&lt;span class="kn">import&lt;/span> &lt;span class="nn">requests&lt;/span>
-&lt;span class="n">root&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ET&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">fromstring&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">requests&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">for&lt;/span> &lt;span class="n">enclosure&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">root&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">findall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;.//enclosure&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">enclosure&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;url&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> xml.etree.ElementTree &lt;span style="color:#66d9ef">as&lt;/span> ET
+&lt;span style="color:#f92672">import&lt;/span> requests
+root &lt;span style="color:#f92672">=&lt;/span> ET&lt;span style="color:#f92672">.&lt;/span>fromstring(requests&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;http://podcasts.apple.com/stanford/developing_ios11_apps.xml&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>text)
+&lt;span style="color:#66d9ef">for&lt;/span> enclosure &lt;span style="color:#f92672">in&lt;/span> root&lt;span style="color:#f92672">.&lt;/span>findall(&lt;span style="color:#e6db74">&amp;#39;.//enclosure&amp;#39;&lt;/span>):
+print(enclosure&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;url&amp;#39;&lt;/span>))
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Swift入门指南二</title><link>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/</link><pubDate>Sat, 27 Oct 2018 22:55:22 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/</guid><description>&lt;h2 id="对象和类">对象和类&lt;/h2>
 &lt;p>创建类&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="kd">class&lt;/span> &lt;span class="nc">Shape&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="kd">var&lt;/span> &lt;span class="nv">numberOfSides&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">0&lt;/span>
-&lt;span class="kd">func&lt;/span> &lt;span class="nf">simpleDescription&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">-&amp;gt;&lt;/span> &lt;span class="nb">String&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;A shape with &lt;/span>&lt;span class="si">\(&lt;/span>&lt;span class="n">numberOfSides&lt;/span>&lt;span class="si">)&lt;/span>&lt;span class="s"> sides.&amp;#34;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="kd">var&lt;/span> &lt;span class="nv">shape&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Shape&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="n">shape&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">numberOfSides&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">7&lt;/span>
-&lt;span class="kd">var&lt;/span> &lt;span class="nv">shapeDescription&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">shape&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">simpleDescription&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-swift" data-lang="swift">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Shape&lt;/span> {
+&lt;span style="color:#66d9ef">var&lt;/span> numberOfSides = &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">simpleDescription&lt;/span>() -&amp;gt; String {
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#34;A shape with &lt;/span>&lt;span style="color:#e6db74">\(&lt;/span>numberOfSides&lt;span style="color:#e6db74">)&lt;/span>&lt;span style="color:#e6db74"> sides.&amp;#34;&lt;/span>
+}
+}
+&lt;span style="color:#66d9ef">var&lt;/span> shape = Shape()
+shape.numberOfSides = &lt;span style="color:#ae81ff">7&lt;/span>
+&lt;span style="color:#66d9ef">var&lt;/span> shapeDescription = shape.simpleDescription()
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Swift入门指南一</title><link>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/</link><pubDate>Sat, 27 Oct 2018 09:34:03 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/27/swift-tour-001/</guid><description>&lt;h2 id="hello-world">Hello World&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="bp">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-swift" data-lang="swift">print(&lt;span style="color:#e6db74">&amp;#34;Hello, world!&amp;#34;&lt;/span>)
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>“Hello world”的写法与&lt;code>python&lt;/code>的语法, 不需要分号结尾&lt;/p></description></item><item><title>iOS学习目标制定及开发环境搭建</title><link>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</link><pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid><description>&lt;p>本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢迎指出。&lt;/p>

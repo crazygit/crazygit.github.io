@@ -1,328 +1,328 @@
-<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Swift基本语法 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Swift基本语法"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Swift基本语法"><meta property="og:description" content="Swift基本语法"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-10-30T11:58:55+08:00"><meta property="article:modified_time" content="2018-10-30T11:58:55+08:00"><meta itemprop=name content="Swift基本语法"><meta itemprop=description content="Swift基本语法"><meta itemprop=datePublished content="2018-10-30T11:58:55+08:00"><meta itemprop=dateModified content="2018-10-30T11:58:55+08:00"><meta itemprop=wordCount content="1701"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Swift基本语法"><meta name=twitter:description content="Swift基本语法"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Swift基本语法 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Swift基本语法"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="Swift基本语法"><meta property="og:description" content="Swift基本语法"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/10/30/swfit-the-basics/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-10-30T11:58:55+08:00"><meta property="article:modified_time" content="2018-10-30T11:58:55+08:00"><meta itemprop=name content="Swift基本语法"><meta itemprop=description content="Swift基本语法"><meta itemprop=datePublished content="2018-10-30T11:58:55+08:00"><meta itemprop=dateModified content="2018-10-30T11:58:55+08:00"><meta itemprop=wordCount content="1701"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Swift基本语法"><meta name=twitter:description content="Swift基本语法"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Swift基本语法</h1><div class=post-meta><time datetime=2018-10-30 class=post-time>2018-10-30</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/>iOS开发入门</a></div><span class=more-meta>约 1701 字</span>
 <span class=more-meta>预计阅读 4 分钟</span>
 <span id=/2018/10/30/swfit-the-basics/ class=leancloud_visitors data-flag-title=Swift基本语法><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#常量和变量>常量和变量</a></li><li><a href=#变量名>变量名</a></li><li><a href=#print函数>print函数</a></li><li><a href=#注释>注释</a></li><li><a href=#分号>分号</a></li><li><a href=#整型>整型</a></li><li><a href=#浮点型>浮点型</a></li><li><a href=#类型别名>类型别名</a></li><li><a href=#布尔类型和if语句>布尔类型和if语句</a></li><li><a href=#元组>元组</a></li><li><a href=#可选值>可选值</a></li><li><a href=#断言assertions和先决条件preconditons>断言(Assertions)和先决条件(Preconditons)</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=常量和变量>常量和变量</h3><p>一次声明多个变量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>x</span> <span class=p>=</span> <span class=mf>0.0</span><span class=p>,</span> <span class=n>y</span> <span class=p>=</span> <span class=mf>0.0</span><span class=p>,</span> <span class=n>z</span> <span class=p>=</span> <span class=mf>0.0</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#常量和变量>常量和变量</a></li><li><a href=#变量名>变量名</a></li><li><a href=#print函数>print函数</a></li><li><a href=#注释>注释</a></li><li><a href=#分号>分号</a></li><li><a href=#整型>整型</a></li><li><a href=#浮点型>浮点型</a></li><li><a href=#类型别名>类型别名</a></li><li><a href=#布尔类型和if语句>布尔类型和if语句</a></li><li><a href=#元组>元组</a></li><li><a href=#可选值>可选值</a></li><li><a href=#断言assertions和先决条件preconditons>断言(Assertions)和先决条件(Preconditons)</a></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=常量和变量>常量和变量</h3><p>一次声明多个变量</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> x = <span style=color:#ae81ff>0.0</span>, y = <span style=color:#ae81ff>0.0</span>, z = <span style=color:#ae81ff>0.0</span>
 
-<span class=kd>var</span> <span class=nv>red</span><span class=p>,</span> <span class=n>green</span><span class=p>,</span> <span class=n>blue</span><span class=p>:</span> <span class=nb>Double</span>
-</code></pre></td></tr></table></div></div><h3 id=变量名>变量名</h3><p>Swift的变量名<strong>可以是</strong>任何的Unicode字符, 如: 中文, Emoji表情等都可以是变量名。</p><p>常量与变量名不能包含空格符,数学符号,箭头,保留的(或者非法的)Unicode 码位,连线与制表符。也不能以数字开头, 但是可以在常量与变量名的其他地方包含数字。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=err>π</span> <span class=p>=</span> <span class=mf>3.14159</span>
-<span class=kd>let</span> <span class=err>你好</span> <span class=p>=</span> <span class=s>&#34;你好世界&#34;</span>
-<span class=kd>let</span> <span class=err>🐶🐮</span> <span class=p>=</span> <span class=s>&#34;dogcow”
-</span></code></pre></td></tr></table></div></div><h3 id=print函数>print函数</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>x</span><span class=p>=</span><span class=mi>1</span> <span class=p>,</span><span class=n>y</span> <span class=p>=</span> <span class=mi>2</span><span class=p>,</span> <span class=n>z</span><span class=p>=</span><span class=mi>3</span>
-<span class=kd>let</span> <span class=nv>name</span> <span class=p>=</span> <span class=s>&#34;John&#34;</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>z</span><span class=p>)</span> <span class=c1>// 可以一次传入多个参数</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>z</span><span class=p>,</span> <span class=n>separator</span><span class=p>:</span> <span class=s>&#34;:&#34;</span><span class=p>)</span>  <span class=c1>// 指定分隔符</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>z</span><span class=p>,</span> <span class=n>separator</span><span class=p>:</span> <span class=s>&#34;:&#34;</span><span class=p>,</span> <span class=n>terminator</span><span class=p>:</span> <span class=s>&#34;;&#34;</span><span class=p>)</span> <span class=c1>//指定行尾截止符号，默认是回车</span>
-<span class=bp>print</span><span class=p>(</span><span class=s>&#34;My name is </span><span class=si>\(</span><span class=n>name</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>  <span class=c1>// 变量替换</span>
-</code></pre></td></tr></table></div></div><h3 id=注释>注释</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 单行注释</span>
+<span style=color:#66d9ef>var</span> red, green, blue: Double
+</code></pre></td></tr></table></div></div><h3 id=变量名>变量名</h3><p>Swift的变量名<strong>可以是</strong>任何的Unicode字符, 如: 中文, Emoji表情等都可以是变量名。</p><p>常量与变量名不能包含空格符,数学符号,箭头,保留的(或者非法的)Unicode 码位,连线与制表符。也不能以数字开头, 但是可以在常量与变量名的其他地方包含数字。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> <span style=color:#960050;background-color:#1e0010>π</span> = <span style=color:#ae81ff>3.14159</span>
+<span style=color:#66d9ef>let</span> <span style=color:#960050;background-color:#1e0010>你好</span> = <span style=color:#e6db74>&#34;你好世界&#34;</span>
+<span style=color:#66d9ef>let</span> <span style=color:#960050;background-color:#1e0010>🐶🐮</span> = <span style=color:#e6db74>&#34;dogcow”
+</span></code></pre></td></tr></table></div></div><h3 id=print函数>print函数</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> x=<span style=color:#ae81ff>1</span> ,y = <span style=color:#ae81ff>2</span>, z=<span style=color:#ae81ff>3</span>
+<span style=color:#66d9ef>let</span> name = <span style=color:#e6db74>&#34;John&#34;</span>
+print(x, y, z) <span style=color:#75715e>// 可以一次传入多个参数</span>
+print(x, y, z, separator: <span style=color:#e6db74>&#34;:&#34;</span>)  <span style=color:#75715e>// 指定分隔符</span>
+print(x, y, z, separator: <span style=color:#e6db74>&#34;:&#34;</span>, terminator: <span style=color:#e6db74>&#34;;&#34;</span>) <span style=color:#75715e>//指定行尾截止符号，默认是回车</span>
+print(<span style=color:#e6db74>&#34;My name is </span><span style=color:#e6db74>\(</span>name<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)  <span style=color:#75715e>// 变量替换</span>
+</code></pre></td></tr></table></div></div><h3 id=注释>注释</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 单行注释</span>
 
-<span class=cm>/*
-</span><span class=cm>多行注释
-</span><span class=cm>*/</span>
-</code></pre></td></tr></table></div></div><h3 id=分号>分号</h3><p>swift语法中，每行代码结尾的分号是可以省略的，但是如果一行包含多个语句时，分号则不能省略</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>cat</span> <span class=p>=</span> <span class=err>&#39;</span><span class=n>cat</span><span class=err>&#39;</span><span class=p>;</span> <span class=bp>print</span><span class=p>(</span><span class=n>cat</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h3 id=整型>整型</h3><p>一些整型常量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 有符号数最大值和最小值</span>
-<span class=nb>Int</span><span class=p>.</span><span class=bp>max</span>
-<span class=nb>Int</span><span class=p>.</span><span class=bp>min</span>
-<span class=c1>// 无符号数最大值和最小值</span>
-<span class=nb>UInt</span><span class=p>.</span><span class=bp>max</span>
-<span class=n>Uint</span><span class=p>.</span><span class=bp>min</span>
+<span style=color:#75715e>/*
+</span><span style=color:#75715e>多行注释
+</span><span style=color:#75715e>*/</span>
+</code></pre></td></tr></table></div></div><h3 id=分号>分号</h3><p>swift语法中，每行代码结尾的分号是可以省略的，但是如果一行包含多个语句时，分号则不能省略</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> cat = <span style=color:#960050;background-color:#1e0010>&#39;</span>cat<span style=color:#960050;background-color:#1e0010>&#39;</span>; print(cat)
+</code></pre></td></tr></table></div></div><h3 id=整型>整型</h3><p>一些整型常量</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 有符号数最大值和最小值</span>
+Int.max
+Int.min
+<span style=color:#75715e>// 无符号数最大值和最小值</span>
+UInt.max
+Uint.min
 
-<span class=c1>// 指定机器位数</span>
-<span class=nb>Int8</span><span class=p>.</span><span class=bp>max</span>
-<span class=nb>Int8</span><span class=p>.</span><span class=bp>min</span>
+<span style=color:#75715e>// 指定机器位数</span>
+Int8.max
+Int8.min
 
-<span class=c1>// 二级制表示17</span>
-<span class=kd>let</span> <span class=nv>binaryInt</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mb>0b10001</span>
-<span class=c1>// 八进制表示17</span>
-<span class=kd>let</span> <span class=nv>octalInt</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mo>0o21</span>
-<span class=c1>// 十六进制表示17</span>
-<span class=kd>let</span> <span class=nv>hexInt</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mh>0x11</span>
+<span style=color:#75715e>// 二级制表示17</span>
+<span style=color:#66d9ef>let</span> binaryInt: Int = <span style=color:#ae81ff>0b10001</span>
+<span style=color:#75715e>// 八进制表示17</span>
+<span style=color:#66d9ef>let</span> octalInt: Int = <span style=color:#ae81ff>0o21</span>
+<span style=color:#75715e>// 十六进制表示17</span>
+<span style=color:#66d9ef>let</span> hexInt: Int = <span style=color:#ae81ff>0x11</span>
 
-<span class=c1>// 小技巧: 整型赋值时的小技巧，可以用下划线分隔，方便阅读</span>
-<span class=kd>let</span> <span class=nv>a</span> <span class=p>=</span> <span class=mi>1_000_1000</span> <span class=c1>// 一百万</span>
+<span style=color:#75715e>// 小技巧: 整型赋值时的小技巧，可以用下划线分隔，方便阅读</span>
+<span style=color:#66d9ef>let</span> a = <span style=color:#ae81ff>1_000_1000</span> <span style=color:#75715e>// 一百万</span>
 
-<span class=kd>let</span> <span class=nv>decimalInteger</span> <span class=p>=</span> <span class=mi>17</span>
+<span style=color:#66d9ef>let</span> decimalInteger = <span style=color:#ae81ff>17</span>
 
-<span class=c1>// 二进制的17 “0b”</span>
-<span class=kd>let</span> <span class=nv>binaryInteger</span> <span class=p>=</span> <span class=mb>0b10001</span>
+<span style=color:#75715e>// 二进制的17 “0b”</span>
+<span style=color:#66d9ef>let</span> binaryInteger = <span style=color:#ae81ff>0b10001</span>
 
-<span class=c1>// 八进制的17  &#34;0o&#34;</span>
-<span class=kd>let</span> <span class=nv>octalInteger</span> <span class=p>=</span> <span class=mo>0o21</span>
+<span style=color:#75715e>// 八进制的17  &#34;0o&#34;</span>
+<span style=color:#66d9ef>let</span> octalInteger = <span style=color:#ae81ff>0o21</span>
 
-<span class=c1>// 十六进制的17 &#34;0x&#34;</span>
-<span class=kd>let</span> <span class=nv>hexadecimalInteger</span> <span class=p>=</span> <span class=mh>0x11</span>
-</code></pre></td></tr></table></div></div><p>一般建议直接使用<code>Int</code>类型，它的位数默认与当前使用的操作平台相关:</p><ul><li>在32位的平台上，等效于<code>Int32</code></li><li>在64位的平台上，等效于<code>Int64</code></li></ul><h3 id=浮点型>浮点型</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// 单精度和双精度浮点数</span>
-<span class=kd>var</span> <span class=nv>a</span><span class=p>:</span> <span class=nb>Float</span> <span class=p>=</span> <span class=mf>3.1415926</span>
-<span class=kd>var</span> <span class=nv>b</span><span class=p>:</span> <span class=nb>Double</span> <span class=p>=</span> <span class=mf>3.1415926</span>
-</code></pre></td></tr></table></div></div><h3 id=类型别名>类型别名</h3><p>可以使用 <code>typealias</code> 关键字来定义类型别名</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>typealias</span> <span class=n>AudioSample</span> <span class=p>=</span> <span class=nb>UInt16</span>
-<span class=c1>//AudioSample.min 实际上是 UInt16.min ,所以会给 maxAmplitudeFound 赋一个初值 0</span>
-<span class=kd>var</span> <span class=nv>maxAmplitudeFound</span> <span class=p>=</span> <span class=n>AudioSample</span><span class=p>.</span><span class=bp>min</span>
-</code></pre></td></tr></table></div></div><h3 id=布尔类型和if语句>布尔类型和if语句</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=c1>// bool值都是小写</span>
-<span class=kd>let</span> <span class=nv>imTrue</span><span class=p>:</span> <span class=nb>Bool</span> <span class=p>=</span> <span class=kc>true</span>
-<span class=kd>let</span> <span class=nv>imFalse</span><span class=p>:</span> <span class=nb>Bool</span> <span class=p>=</span> <span class=kc>false</span>
+<span style=color:#75715e>// 十六进制的17 &#34;0x&#34;</span>
+<span style=color:#66d9ef>let</span> hexadecimalInteger = <span style=color:#ae81ff>0x11</span>
+</code></pre></td></tr></table></div></div><p>一般建议直接使用<code>Int</code>类型，它的位数默认与当前使用的操作平台相关:</p><ul><li>在32位的平台上，等效于<code>Int32</code></li><li>在64位的平台上，等效于<code>Int64</code></li></ul><h3 id=浮点型>浮点型</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// 单精度和双精度浮点数</span>
+<span style=color:#66d9ef>var</span> a: Float = <span style=color:#ae81ff>3.1415926</span>
+<span style=color:#66d9ef>var</span> b: Double = <span style=color:#ae81ff>3.1415926</span>
+</code></pre></td></tr></table></div></div><h3 id=类型别名>类型别名</h3><p>可以使用 <code>typealias</code> 关键字来定义类型别名</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>typealias</span> AudioSample = UInt16
+<span style=color:#75715e>//AudioSample.min 实际上是 UInt16.min ,所以会给 maxAmplitudeFound 赋一个初值 0</span>
+<span style=color:#66d9ef>var</span> maxAmplitudeFound = AudioSample.min
+</code></pre></td></tr></table></div></div><h3 id=布尔类型和if语句>布尔类型和if语句</h3><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#75715e>// bool值都是小写</span>
+<span style=color:#66d9ef>let</span> imTrue: Bool = <span style=color:#66d9ef>true</span>
+<span style=color:#66d9ef>let</span> imFalse: Bool = <span style=color:#66d9ef>false</span>
 
-<span class=k>if</span> <span class=n>imTrue</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I am True&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span> <span class=k>if</span> <span class=mi>3</span><span class=o>+</span><span class=mi>4</span> <span class=p>==</span> <span class=mi>7</span><span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;3+4 == 7&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span><span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I am false&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>if</span> imTrue {
+    print(<span style=color:#e6db74>&#34;I am True&#34;</span>)
+}
+<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>3</span><span style=color:#f92672>+</span><span style=color:#ae81ff>4</span> == <span style=color:#ae81ff>7</span>{
+    print(<span style=color:#e6db74>&#34;3+4 == 7&#34;</span>)
+}
+<span style=color:#66d9ef>else</span>{
+    print(<span style=color:#e6db74>&#34;I am false&#34;</span>)
+}
 
-<span class=c1>// 不能用非0值作为为真的条件，如下面的语句会报语法错误</span>
-<span class=k>if</span> <span class=mi>1</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I am true&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=元组>元组</h3><ul><li>将多个不同的值集合成一个数据</li><li>可以有任意多个值</li><li>不同的值可以是不同的类型</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>point</span> <span class=p>=</span> <span class=p>(</span><span class=mi>5</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
-<span class=kd>var</span> <span class=nv>httpResponse</span> <span class=p>=</span> <span class=p>(</span><span class=mi>404</span><span class=p>,</span> <span class=s>&#34;Not Found&#34;</span><span class=p>)</span>
+<span style=color:#75715e>// 不能用非0值作为为真的条件，如下面的语句会报语法错误</span>
+<span style=color:#66d9ef>if</span> <span style=color:#ae81ff>1</span> {
+    print(<span style=color:#e6db74>&#34;I am true&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><h3 id=元组>元组</h3><ul><li>将多个不同的值集合成一个数据</li><li>可以有任意多个值</li><li>不同的值可以是不同的类型</li></ul><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> point = (<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>2</span>)
+<span style=color:#66d9ef>var</span> httpResponse = (<span style=color:#ae81ff>404</span>, <span style=color:#e6db74>&#34;Not Found&#34;</span>)
 
 
-<span class=kd>var</span> <span class=nv>point2</span><span class=p>:</span> <span class=p>(</span><span class=nb>Int</span><span class=p>,</span> <span class=nb>Int</span><span class=p>,</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+<span style=color:#66d9ef>var</span> point2: (Int, Int, Int) = (<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>)
 
-<span class=c1>// 元组赋值</span>
-<span class=kd>var</span> <span class=nv>point</span> <span class=p>=</span> <span class=p>(</span><span class=mi>5</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+<span style=color:#75715e>// 元组赋值</span>
+<span style=color:#66d9ef>var</span> point = (<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>2</span>)
 
-<span class=c1>// 与pythn中不一样，赋值时等号左右的圆括号不能省略</span>
-<span class=kd>let</span> <span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span> <span class=p>=</span> <span class=n>point</span>
-<span class=kd>let</span> <span class=p>(</span><span class=n>status_code</span><span class=p>,</span> <span class=n>status_message</span><span class=p>)</span> <span class=p>=</span> <span class=n>http404Error</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>y</span><span class=p>)</span>
+<span style=color:#75715e>// 与pythn中不一样，赋值时等号左右的圆括号不能省略</span>
+<span style=color:#66d9ef>let</span> (x, y) = point
+<span style=color:#66d9ef>let</span> (status_code, status_message) = http404Error
+print(x)
+print(y)
 
-<span class=c1>// 通过下标访问元组元素, 与python中使用下标的方式不太一样</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>point</span><span class=p>.</span><span class=mi>0</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>point</span><span class=p>.</span><span class=mi>1</span><span class=p>)</span>
+<span style=color:#75715e>// 通过下标访问元组元素, 与python中使用下标的方式不太一样</span>
+print(point.<span style=color:#ae81ff>0</span>)
+print(point.<span style=color:#ae81ff>1</span>)
 
-<span class=c1>// 通过元素名称访问，有点python字典的感觉</span>
-<span class=kd>var</span> <span class=nv>point3</span> <span class=p>=</span> <span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span> <span class=n>y</span><span class=p>:</span> <span class=mi>2</span><span class=p>)</span>
-<span class=n>point3</span><span class=p>.</span><span class=n>x</span>
-<span class=n>point3</span><span class=p>.</span><span class=n>y</span>
+<span style=color:#75715e>// 通过元素名称访问，有点python字典的感觉</span>
+<span style=color:#66d9ef>var</span> point3 = (x: <span style=color:#ae81ff>1</span>, y: <span style=color:#ae81ff>2</span>)
+point3.x
+point3.y
 
-<span class=c1>// 声明时指定元素名称</span>
-<span class=kd>var</span> <span class=nv>point4</span><span class=p>:</span> <span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=n>y</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>=</span> <span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
-<span class=n>point4</span><span class=p>.</span><span class=n>x</span>
-<span class=n>point4</span><span class=p>.</span><span class=n>y</span>
-<span class=c1>// 使用&#34;_&#34;忽略一些元素</span>
-<span class=kd>var</span> <span class=nv>logingResult</span> <span class=p>=</span> <span class=p>(</span><span class=kc>true</span><span class=p>,</span> <span class=s>&#34;xxxxx&#34;</span><span class=p>)</span>
-<span class=kd>let</span> <span class=p>(</span><span class=n>isLoginSuccess</span><span class=p>,</span> <span class=kc>_</span><span class=p>)</span> <span class=p>=</span> <span class=n>logingResult</span>
-<span class=n>isLoginSuccess</span>
-</code></pre></td></tr></table></div></div><h3 id=可选值>可选值</h3><p>当可以确定一个可选值包含有值时，可以使用<code>!</code>来强制使用值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>possibleNumber</span> <span class=p>=</span> <span class=s>&#34;123&#34;</span>
-<span class=kd>let</span> <span class=nv>convertedNumber</span> <span class=p>=</span> <span class=nb>Int</span><span class=p>(</span><span class=n>possibleNumber</span><span class=p>)</span>
+<span style=color:#75715e>// 声明时指定元素名称</span>
+<span style=color:#66d9ef>var</span> point4: (x: Int, y: Int) = (<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>)
+point4.x
+point4.y
+<span style=color:#75715e>// 使用&#34;_&#34;忽略一些元素</span>
+<span style=color:#66d9ef>var</span> logingResult = (<span style=color:#66d9ef>true</span>, <span style=color:#e6db74>&#34;xxxxx&#34;</span>)
+<span style=color:#66d9ef>let</span> (isLoginSuccess, <span style=color:#66d9ef>_</span>) = logingResult
+isLoginSuccess
+</code></pre></td></tr></table></div></div><h3 id=可选值>可选值</h3><p>当可以确定一个可选值包含有值时，可以使用<code>!</code>来强制使用值</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> possibleNumber = <span style=color:#e6db74>&#34;123&#34;</span>
+<span style=color:#66d9ef>let</span> convertedNumber = Int(possibleNumber)
 
-<span class=k>if</span> <span class=n>convertedNumber</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;convertedNumber contains some integer value.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>if</span> convertedNumber <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    print(<span style=color:#e6db74>&#34;convertedNumber contains some integer value.&#34;</span>)
+}
 
-<span class=k>if</span> <span class=n>convertedNumber</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;convertedNumber has an integer value of </span><span class=si>\(</span><span class=n>convertedNumber</span><span class=p>!</span><span class=si>)</span><span class=s>.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p><code>if</code>语句中可以同时绑定多个可选值（用<code>,</code>分隔）。只有当所有的值都真实有值时，<code>if</code>条件才成立。</p><p>下面两个if语句是等效的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>if</span> <span class=kd>let</span> <span class=nv>firstNumber</span> <span class=p>=</span> <span class=nb>Int</span><span class=p>(</span><span class=s>&#34;4&#34;</span><span class=p>),</span> <span class=kd>let</span> <span class=nv>secondNumber</span> <span class=p>=</span> <span class=nb>Int</span><span class=p>(</span><span class=s>&#34;42&#34;</span><span class=p>),</span>
-    <span class=n>firstNumber</span> <span class=o>&lt;</span> <span class=n>secondNumber</span> <span class=o>&amp;&amp;</span> <span class=n>secondNumber</span> <span class=o>&lt;</span> <span class=mi>100</span> <span class=p>{</span>
-        <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>firstNumber</span><span class=si>)</span><span class=s> &lt; </span><span class=si>\(</span><span class=n>secondNumber</span><span class=si>)</span><span class=s> &lt; 100&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
+<span style=color:#66d9ef>if</span> convertedNumber <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    print(<span style=color:#e6db74>&#34;convertedNumber has an integer value of </span><span style=color:#e6db74>\(</span>convertedNumber!<span style=color:#e6db74>)</span><span style=color:#e6db74>.&#34;</span>)
+}
+</code></pre></td></tr></table></div></div><p><code>if</code>语句中可以同时绑定多个可选值（用<code>,</code>分隔）。只有当所有的值都真实有值时，<code>if</code>条件才成立。</p><p>下面两个if语句是等效的</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> firstNumber = Int(<span style=color:#e6db74>&#34;4&#34;</span>), <span style=color:#66d9ef>let</span> secondNumber = Int(<span style=color:#e6db74>&#34;42&#34;</span>),
+    firstNumber <span style=color:#f92672>&lt;</span> secondNumber <span style=color:#f92672>&amp;&amp;</span> secondNumber <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>100</span> {
+        print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>firstNumber<span style=color:#e6db74>)</span><span style=color:#e6db74> &lt; </span><span style=color:#e6db74>\(</span>secondNumber<span style=color:#e6db74>)</span><span style=color:#e6db74> &lt; 100&#34;</span>)
+    }
 
-<span class=c1>//等效</span>
-<span class=k>if</span> <span class=kd>let</span> <span class=nv>firstNumber</span> <span class=p>=</span> <span class=nb>Int</span><span class=p>(</span><span class=s>&#34;4&#34;</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>if</span> <span class=kd>let</span> <span class=nv>secondNumber</span> <span class=p>=</span> <span class=nb>Int</span><span class=p>(</span><span class=s>&#34;42&#34;</span><span class=p>)</span> <span class=p>{</span>
-        <span class=k>if</span> <span class=n>firstNumber</span> <span class=o>&lt;</span> <span class=n>secondNumber</span> <span class=o>&amp;&amp;</span> <span class=n>secondNumber</span> <span class=o>&lt;</span> <span class=mi>100</span> <span class=p>{</span>
-            <span class=bp>print</span><span class=p>(</span><span class=s>&#34;</span><span class=si>\(</span><span class=n>firstNumber</span><span class=si>)</span><span class=s> &lt; </span><span class=si>\(</span><span class=n>secondNumber</span><span class=si>)</span><span class=s> &lt; 100&#34;</span><span class=p>)</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#75715e>//等效</span>
+<span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> firstNumber = Int(<span style=color:#e6db74>&#34;4&#34;</span>) {
+    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> secondNumber = Int(<span style=color:#e6db74>&#34;42&#34;</span>) {
+        <span style=color:#66d9ef>if</span> firstNumber <span style=color:#f92672>&lt;</span> secondNumber <span style=color:#f92672>&amp;&amp;</span> secondNumber <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>100</span> {
+            print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>\(</span>firstNumber<span style=color:#e6db74>)</span><span style=color:#e6db74> &lt; </span><span style=color:#e6db74>\(</span>secondNumber<span style=color:#e6db74>)</span><span style=color:#e6db74> &lt; 100&#34;</span>)
+        }
+    }
+}
 </code></pre></td></tr></table></div></div><p>if语句绑定的可选值有效范围仅在if语句内部</p><h3 id=断言assertions和先决条件preconditons>断言(Assertions)和先决条件(Preconditons)</h3><p>Assertions和Preconditions的区别在于Assertions只在debug build中生效，
-而Precondtions在debug build和production build中都生效。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift>
-<span class=kd>let</span> <span class=nv>age</span> <span class=p>=</span> <span class=o>-</span><span class=mi>3</span>
-<span class=bp>assert</span><span class=p>(</span><span class=n>age</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>,</span> <span class=s>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span><span class=p>)</span>
+而Precondtions在debug build和production build中都生效。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>
+<span style=color:#66d9ef>let</span> age = <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>
+assert(age <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>, <span style=color:#e6db74>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span>)
 
-<span class=c1>//省略断言消息</span>
-<span class=bp>assert</span><span class=p>(</span><span class=n>age</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>)</span>
+<span style=color:#75715e>//省略断言消息</span>
+assert(age <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>)
 
-<span class=c1>//使用assertionFailure直接抛出断言异常</span>
-<span class=k>if</span> <span class=n>age</span> <span class=o>&gt;</span> <span class=mi>10</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;You can ride the rollercoaster or the ferris wheel.&#34;</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=n>age</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;You can ride the ferris wheel.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span> <span class=p>{</span>
-    <span class=bp>assertionFailure</span><span class=p>(</span><span class=s>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#75715e>//使用assertionFailure直接抛出断言异常</span>
+<span style=color:#66d9ef>if</span> age <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>10</span> {
+    print(<span style=color:#e6db74>&#34;You can ride the rollercoaster or the ferris wheel.&#34;</span>)
+} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> age <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>{
+    print(<span style=color:#e6db74>&#34;You can ride the ferris wheel.&#34;</span>)
+}
+<span style=color:#66d9ef>else</span> {
+    assertionFailure(<span style=color:#e6db74>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span>)
+}
 
-<span class=kd>var</span> <span class=nv>index</span> <span class=p>=</span> <span class=mi>0</span>
-<span class=bp>precondition</span><span class=p>(</span><span class=n>index</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>,</span> <span class=s>&#34;Index must greater than zero.&#34;</span><span class=p>)</span>
+<span style=color:#66d9ef>var</span> index = <span style=color:#ae81ff>0</span>
+precondition(index <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>, <span style=color:#e6db74>&#34;Index must greater than zero.&#34;</span>)
 
-<span class=c1>//使用preconditionFailure直接抛出异常</span>
-<span class=kd>var</span> <span class=nv>age</span> <span class=p>=</span> <span class=mi>0</span>
-<span class=k>if</span> <span class=n>age</span> <span class=o>&gt;</span> <span class=mi>10</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;You can ride the rollercoaster or the ferris wheel.&#34;</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=n>age</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;You can ride the ferris wheel.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=k>else</span> <span class=p>{</span>
-    <span class=bp>preconditionFailure</span><span class=p>(</span><span class=s>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#75715e>//使用preconditionFailure直接抛出异常</span>
+<span style=color:#66d9ef>var</span> age = <span style=color:#ae81ff>0</span>
+<span style=color:#66d9ef>if</span> age <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>10</span> {
+    print(<span style=color:#e6db74>&#34;You can ride the rollercoaster or the ferris wheel.&#34;</span>)
+} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> age <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>{
+    print(<span style=color:#e6db74>&#34;You can ride the ferris wheel.&#34;</span>)
+}
+<span style=color:#66d9ef>else</span> {
+    preconditionFailure(<span style=color:#e6db74>&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span>)
+}
 
 </code></pre></td></tr></table></div></div><p><strong>PS</strong>:</p><p>当在编译的时候用的是<code>unchecked mode</code>(<code>-Ounckecked</code>), precondition是不会被执行的，默认它们的条件都是成立的，返回<code>true</code>。但是，使<code>fatalError(_:file:line:)</code>是会生效的，无论编译参数是什么。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
@@ -340,4 +340,4 @@
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>

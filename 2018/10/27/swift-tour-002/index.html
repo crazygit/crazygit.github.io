@@ -1,631 +1,631 @@
-<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Swift入门指南二 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Swift入门指南二"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/monokai-syntax.css><meta property="og:title" content="Swift入门指南二"><meta property="og:description" content="Swift入门指南二"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-10-27T22:55:22+08:00"><meta property="article:modified_time" content="2018-10-27T22:55:22+08:00"><meta itemprop=name content="Swift入门指南二"><meta itemprop=description content="Swift入门指南二"><meta itemprop=datePublished content="2018-10-27T22:55:22+08:00"><meta itemprop=dateModified content="2018-10-27T22:55:22+08:00"><meta itemprop=wordCount content="2319"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Swift入门指南二"><meta name=twitter:description content="Swift入门指南二"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<!doctype html><html lang=zh-cn itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Swift入门指南二 - Soul Mate</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=MobileOptimized content="width"><meta name=HandheldFriendly content="true"><meta name=applicable-device content="pc,mobile"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=mobile-web-app-capable content="yes"><meta name=author content="crazygit"><meta name=description content="Swift入门指南二"><meta name=keywords content="Hugo,crazygit,blog"><meta name=baidu-site-verification content="mEI3NT6pyx"><meta name=google-site-verification content="AbF6G10N67H-FaerplTnvfAXJrTtXBGHdr4xsSot7z8"><meta name=generator content="Hugo 0.84.2"><link rel=canonical href=https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=stylesheet href=/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css integrity="sha256-s6iBPAbm14W+uiK/gmThdPoss6OWsi+bok4sAMGKr38=" media=screen crossorigin=anonymous><meta property="og:title" content="Swift入门指南二"><meta property="og:description" content="Swift入门指南二"><meta property="og:type" content="article"><meta property="og:url" content="https://crazygit.wiseturtles.com/2018/10/27/swift-tour-002/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-10-27T22:55:22+08:00"><meta property="article:modified_time" content="2018-10-27T22:55:22+08:00"><meta itemprop=name content="Swift入门指南二"><meta itemprop=description content="Swift入门指南二"><meta itemprop=datePublished content="2018-10-27T22:55:22+08:00"><meta itemprop=dateModified content="2018-10-27T22:55:22+08:00"><meta itemprop=wordCount content="2319"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Swift入门指南二"><meta name=twitter:description content="Swift入门指南二"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-112251188-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Soul Mate</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=mobile-menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav><link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css><link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header id=header class="header container"><div class=logo-wrapper><a href=/ class=logo>Soul Mate</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/>主页</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://crazygit.wiseturtles.com/about/>关于</a></li></ul></nav></header><div id=mobile-panel><main id=main class="main bg-llight"><div class=content-wrapper><div id=content class="content container"><article class="post bg-white"><header class=post-header><h1 class=post-title>Swift入门指南二</h1><div class=post-meta><time datetime=2018-10-27 class=post-time>2018-10-27</time><div class=post-category><a href=https://crazygit.wiseturtles.com/categories/ios%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/>ios开发入门</a></div><span class=more-meta>约 2319 字</span>
 <span class=more-meta>预计阅读 5 分钟</span>
 <span id=/2018/10/27/swift-tour-002/ class=leancloud_visitors data-flag-title=Swift入门指南二><span class=post-meta-item-text>| 阅读</span>
-<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#对象和类>对象和类</a></li><li><a href=#枚举enum>枚举<code>enum</code></a></li><li><a href=#结构体struct>结构体<code>struct</code></a></li><li><a href=#protocols和extensions>Protocols和Extensions</a></li><li><a href=#异常处理>异常处理</a></li><li><a href=#泛型>泛型</a></li></ul></nav></div></div><div class=post-content><h2 id=对象和类>对象和类</h2><p>创建类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>class</span> <span class=nc>Shape</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>numberOfSides</span> <span class=p>=</span> <span class=mi>0</span>
-    <span class=kd>func</span> <span class=nf>simpleDescription</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>String</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;A shape with </span><span class=si>\(</span><span class=n>numberOfSides</span><span class=si>)</span><span class=s> sides.&#34;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#对象和类>对象和类</a></li><li><a href=#枚举enum>枚举<code>enum</code></a></li><li><a href=#结构体struct>结构体<code>struct</code></a></li><li><a href=#protocols和extensions>Protocols和Extensions</a></li><li><a href=#异常处理>异常处理</a></li><li><a href=#泛型>泛型</a></li></ul></nav></div></div><div class=post-content><h2 id=对象和类>对象和类</h2><p>创建类</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Shape</span> {
+    <span style=color:#66d9ef>var</span> numberOfSides = <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span>() -&gt; String {
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;A shape with </span><span style=color:#e6db74>\(</span>numberOfSides<span style=color:#e6db74>)</span><span style=color:#e6db74> sides.&#34;</span>
+    }
+}
 
-<span class=kd>var</span> <span class=nv>shape</span> <span class=p>=</span> <span class=n>Shape</span><span class=p>()</span>
-<span class=n>shape</span><span class=p>.</span><span class=n>numberOfSides</span> <span class=p>=</span> <span class=mi>7</span>
-<span class=kd>var</span> <span class=nv>shapeDescription</span> <span class=p>=</span> <span class=n>shape</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>()</span>
-</code></pre></td></tr></table></div></div><p><code>init</code>构造函数，<code>deinit</code>析构函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>class</span> <span class=nc>NamedShape</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>numberOfSides</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mi>0</span>
-    <span class=kd>var</span> <span class=nv>name</span><span class=p>:</span> <span class=nb>String</span>
+<span style=color:#66d9ef>var</span> shape = Shape()
+shape.numberOfSides = <span style=color:#ae81ff>7</span>
+<span style=color:#66d9ef>var</span> shapeDescription = shape.simpleDescription()
+</code></pre></td></tr></table></div></div><p><code>init</code>构造函数，<code>deinit</code>析构函数</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NamedShape</span> {
+    <span style=color:#66d9ef>var</span> numberOfSides: Int = <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>var</span> name: String
 
-    <span class=kd>init</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=nb>String</span><span class=p>)</span> <span class=p>{</span>
-        <span class=kc>self</span><span class=p>.</span><span class=n>name</span> <span class=p>=</span> <span class=n>name</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>init</span>(name: String) {
+        <span style=color:#66d9ef>self</span>.name = name
+    }
 
-    <span class=kd>func</span> <span class=nf>simpleDescription</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>String</span><span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;A shape whit </span><span class=si>\(</span><span class=n>numberOfSides</span><span class=si>)</span><span class=s> sides&#34;</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span>() -&gt; String{
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;A shape whit </span><span style=color:#e6db74>\(</span>numberOfSides<span style=color:#e6db74>)</span><span style=color:#e6db74> sides&#34;</span>
+    }
 
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>类属性必须要设置一个值，要么在声明属性的时候指定，要么在<code>init</code>函数中指定。</p><p>继承类, 使用<code>:</code>， 覆写父类的方法<strong>必须</strong>使用<code>override</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>class</span> <span class=nc>Square</span><span class=p>:</span> <span class=n>NamedShape</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>sideLength</span><span class=p>:</span> <span class=nb>Double</span>
+}
+</code></pre></td></tr></table></div></div><p>类属性必须要设置一个值，要么在声明属性的时候指定，要么在<code>init</code>函数中指定。</p><p>继承类, 使用<code>:</code>， 覆写父类的方法<strong>必须</strong>使用<code>override</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Square</span>: NamedShape {
+    <span style=color:#66d9ef>var</span> sideLength: Double
 
-    <span class=kd>init</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=nb>Double</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>String</span><span class=p>){</span>
-        <span class=kc>self</span><span class=p>.</span><span class=n>sideLength</span> <span class=p>=</span> <span class=n>sideLength</span>
-        <span class=c1>// 调用父类的方法</span>
-        <span class=kc>super</span><span class=p>.</span><span class=kd>init</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>name</span><span class=p>)</span>
-        <span class=n>numberOfSides</span> <span class=p>=</span> <span class=mi>4</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>init</span>(sideLength: Double, name: String){
+        <span style=color:#66d9ef>self</span>.sideLength = sideLength
+        <span style=color:#75715e>// 调用父类的方法</span>
+        <span style=color:#66d9ef>super</span>.<span style=color:#66d9ef>init</span>(name: name)
+        numberOfSides = <span style=color:#ae81ff>4</span>
+    }
 
-    <span class=kd>func</span> <span class=nf>area</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>Double</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=n>sideLength</span> <span class=o>*</span> <span class=n>sideLength</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>area</span>() -&gt; Double {
+        <span style=color:#66d9ef>return</span> sideLength <span style=color:#f92672>*</span> sideLength
+    }
 
-    <span class=c1>// 覆写父类的方法</span>
-    <span class=kr>override</span> <span class=kd>func</span> <span class=nf>simpleDescription</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>String</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;A square with sides of length </span><span class=si>\(</span><span class=n>sideLength</span><span class=si>)</span><span class=s>.&#34;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>属性的<code>getter</code>和<code>setter</code>方法，<code>set</code>没有指定参数名时，默认用<code>newValue</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift>
-<span class=kd>class</span> <span class=nc>EquilateralTriangle</span><span class=p>:</span> <span class=n>NamedShape</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>sideLength</span><span class=p>:</span> <span class=nb>Double</span> <span class=p>=</span> <span class=mf>0.0</span>
+    <span style=color:#75715e>// 覆写父类的方法</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span>() -&gt; String {
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;A square with sides of length </span><span style=color:#e6db74>\(</span>sideLength<span style=color:#e6db74>)</span><span style=color:#e6db74>.&#34;</span>
+    }
+}
+</code></pre></td></tr></table></div></div><p>属性的<code>getter</code>和<code>setter</code>方法，<code>set</code>没有指定参数名时，默认用<code>newValue</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>EquilateralTriangle</span>: NamedShape {
+    <span style=color:#66d9ef>var</span> sideLength: Double = <span style=color:#ae81ff>0.0</span>
 
-    <span class=kd>init</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=nb>Double</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>String</span><span class=p>){</span>
-        <span class=kc>self</span><span class=p>.</span><span class=n>sideLength</span> <span class=p>=</span> <span class=n>sideLength</span>
-        <span class=kc>super</span><span class=p>.</span><span class=kd>init</span><span class=p>(</span><span class=n>name</span><span class=p>:</span> <span class=n>name</span><span class=p>)</span>
-        <span class=n>numberOfSides</span> <span class=p>=</span> <span class=mi>3</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>init</span>(sideLength: Double, name: String){
+        <span style=color:#66d9ef>self</span>.sideLength = sideLength
+        <span style=color:#66d9ef>super</span>.<span style=color:#66d9ef>init</span>(name: name)
+        numberOfSides = <span style=color:#ae81ff>3</span>
+    }
 
-    <span class=kd>var</span> <span class=nv>perimeter</span><span class=p>:</span> <span class=nb>Double</span> <span class=p>{</span>
-        <span class=kr>get</span> <span class=p>{</span>
-            <span class=k>return</span> <span class=mf>3.0</span> <span class=o>*</span> <span class=n>sideLength</span>
-        <span class=p>}</span>
+    <span style=color:#66d9ef>var</span> perimeter: Double {
+        <span style=color:#66d9ef>get</span> {
+            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>3.0</span> <span style=color:#f92672>*</span> sideLength
+        }
 
-        <span class=kr>set</span> <span class=p>{</span>
-            <span class=n>sideLength</span> <span class=p>=</span> <span class=n>newValue</span> <span class=o>/</span> <span class=mf>3.0</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
+        <span style=color:#66d9ef>set</span> {
+            sideLength = newValue <span style=color:#f92672>/</span> <span style=color:#ae81ff>3.0</span>
+        }
+    }
 
-    <span class=c1>//var perimeter: Double {</span>
-    <span class=c1>//    get {</span>
-    <span class=c1>//        return 3.0 * sideLength</span>
-    <span class=c1>//    }</span>
+    <span style=color:#75715e>//var perimeter: Double {</span>
+    <span style=color:#75715e>//    get {</span>
+    <span style=color:#75715e>//        return 3.0 * sideLength</span>
+    <span style=color:#75715e>//    }</span>
 
-    <span class=c1>//    set(newPerimeter) {</span>
-    <span class=c1>//        sideLength = newPerimeter / 3.0</span>
-    <span class=c1>//    }</span>
-    <span class=c1>//}</span>
+    <span style=color:#75715e>//    set(newPerimeter) {</span>
+    <span style=color:#75715e>//        sideLength = newPerimeter / 3.0</span>
+    <span style=color:#75715e>//    }</span>
+    <span style=color:#75715e>//}</span>
 
-    <span class=kr>override</span> <span class=kd>func</span> <span class=nf>simpleDescription</span> <span class=p>()-&gt;</span><span class=nb>String</span><span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;An equilateral triangle with sides of length </span><span class=si>\(</span><span class=n>sideLength</span><span class=si>)</span><span class=s>&#34;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p><code>willSet</code>和<code>didSet</code>实现属性观察</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>class</span> <span class=nc>TriangleAndSquare</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>triangle</span><span class=p>:</span> <span class=n>EquilateralTriangle</span> <span class=p>{</span>
-        <span class=kr>willSet</span> <span class=p>{</span>
-            <span class=n>square</span><span class=p>.</span><span class=n>sideLength</span> <span class=p>=</span> <span class=n>newValue</span><span class=p>.</span><span class=n>sideLength</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span> ()-&gt;String{
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;An equilateral triangle with sides of length </span><span style=color:#e6db74>\(</span>sideLength<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>
+    }
+}
+</code></pre></td></tr></table></div></div><p><code>willSet</code>和<code>didSet</code>实现属性观察</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TriangleAndSquare</span> {
+    <span style=color:#66d9ef>var</span> triangle: EquilateralTriangle {
+        <span style=color:#66d9ef>willSet</span> {
+            square.sideLength = newValue.sideLength
+        }
+    }
 
-    <span class=kd>var</span> <span class=nv>square</span><span class=p>:</span> <span class=n>Square</span> <span class=p>{</span>
-        <span class=kr>willSet</span> <span class=p>{</span>
-            <span class=n>triangle</span><span class=p>.</span><span class=n>sideLength</span> <span class=p>=</span> <span class=n>newValue</span><span class=p>.</span><span class=n>sideLength</span>
+    <span style=color:#66d9ef>var</span> square: Square {
+        <span style=color:#66d9ef>willSet</span> {
+            triangle.sideLength = newValue.sideLength
 
-        <span class=p>}</span>
-    <span class=p>}</span>
+        }
+    }
 
-    <span class=kd>init</span><span class=p>(</span><span class=n>size</span><span class=p>:</span> <span class=nb>Double</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>String</span><span class=p>){</span>
-        <span class=n>square</span> <span class=p>=</span> <span class=n>Square</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=n>size</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=n>name</span><span class=p>)</span>
-        <span class=n>triangle</span> <span class=p>=</span> <span class=n>EquilateralTriangle</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=n>size</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=n>name</span><span class=p>)</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>init</span>(size: Double, name: String){
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
 
-<span class=kd>var</span> <span class=nv>triganleAndSquare</span> <span class=p>=</span> <span class=n>TriangleAndSquare</span><span class=p>(</span><span class=n>size</span><span class=p>:</span> <span class=mi>10</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=s>&#34;another test shape&#34;</span><span class=p>)</span>
+<span style=color:#66d9ef>var</span> triganleAndSquare = TriangleAndSquare(size: <span style=color:#ae81ff>10</span>, name: <span style=color:#e6db74>&#34;another test shape&#34;</span>)
 
-<span class=c1>// 10.0</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>triganleAndSquare</span><span class=p>.</span><span class=n>square</span><span class=p>.</span><span class=n>sideLength</span><span class=p>)</span>
+<span style=color:#75715e>// 10.0</span>
+print(triganleAndSquare.square.sideLength)
 
-<span class=c1>// 10.0</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>triganleAndSquare</span><span class=p>.</span><span class=n>triangle</span><span class=p>.</span><span class=n>sideLength</span><span class=p>)</span>
-<span class=n>triganleAndSquare</span><span class=p>.</span><span class=n>square</span> <span class=p>=</span> <span class=n>Square</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=mi>50</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=s>&#34;Larger square&#34;</span><span class=p>)</span>
+<span style=color:#75715e>// 10.0</span>
+print(triganleAndSquare.triangle.sideLength)
+triganleAndSquare.square = Square(sideLength: <span style=color:#ae81ff>50</span>, name: <span style=color:#e6db74>&#34;Larger square&#34;</span>)
 
-<span class=c1>// 50.0</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>triganleAndSquare</span><span class=p>.</span><span class=n>triangle</span><span class=p>.</span><span class=n>sideLength</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>当使用可选值时，可以写个<code>?</code>在运行符前面，如果<code>?</code>前面的值是<code>nil</code>, 所有在<code>?</code>后面的值都是<code>nil</code>,</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>optionalSquare</span><span class=p>:</span> <span class=n>Square</span><span class=p>?</span> <span class=p>=</span> <span class=n>Square</span><span class=p>(</span><span class=n>sideLength</span><span class=p>:</span> <span class=mf>2.5</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=s>&#34;optional square&#34;</span><span class=p>)</span>
-<span class=kd>let</span> <span class=nv>sideLength</span> <span class=p>=</span> <span class=n>optionalSquare</span><span class=p>?.</span><span class=n>sideLength</span>
-</code></pre></td></tr></table></div></div><h2 id=枚举enum>枚举<code>enum</code></h2><p>枚举<code>enum</code>类型跟类<code>class</code>一样也可以有方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>enum</span> <span class=nc>Rank</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>{</span>
-    <span class=k>case</span> <span class=n>ace</span> <span class=p>=</span> <span class=mi>1</span>
-    <span class=k>case</span> <span class=n>two</span><span class=p>,</span> <span class=n>three</span><span class=p>,</span> <span class=n>four</span><span class=p>,</span> <span class=n>five</span><span class=p>,</span> <span class=n>sixe</span><span class=p>,</span> <span class=n>seven</span><span class=p>,</span> <span class=n>eight</span><span class=p>,</span> <span class=n>nine</span><span class=p>,</span> <span class=n>ten</span>
-    <span class=k>case</span> <span class=n>jack</span><span class=p>,</span> <span class=n>queen</span><span class=p>,</span> <span class=n>king</span>
-    <span class=kd>func</span> <span class=nf>simpleDescription</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>String</span> <span class=p>{</span>
-        <span class=k>switch</span> <span class=kc>self</span> <span class=p>{</span>
-        <span class=k>case</span> <span class=p>.</span><span class=n>ace</span><span class=p>:</span>
-            <span class=k>return</span> <span class=s>&#34;ace&#34;</span>
-        <span class=k>case</span> <span class=p>.</span><span class=n>jack</span><span class=p>:</span>
-            <span class=k>return</span> <span class=s>&#34;jack&#34;</span>
-        <span class=k>case</span> <span class=p>.</span><span class=n>queen</span><span class=p>:</span>
-            <span class=k>return</span> <span class=s>&#34;queen&#34;</span>
-        <span class=k>default</span><span class=p>:</span>
-            <span class=k>return</span> <span class=nb>String</span><span class=p>(</span><span class=kc>self</span><span class=p>.</span><span class=n>rawValue</span><span class=p>)</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#75715e>// 50.0</span>
+print(triganleAndSquare.triangle.sideLength)
+</code></pre></td></tr></table></div></div><p>当使用可选值时，可以写个<code>?</code>在运行符前面，如果<code>?</code>前面的值是<code>nil</code>, 所有在<code>?</code>后面的值都是<code>nil</code>,</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> optionalSquare: Square? = Square(sideLength: <span style=color:#ae81ff>2.5</span>, name: <span style=color:#e6db74>&#34;optional square&#34;</span>)
+<span style=color:#66d9ef>let</span> sideLength = optionalSquare?.sideLength
+</code></pre></td></tr></table></div></div><h2 id=枚举enum>枚举<code>enum</code></h2><p>枚举<code>enum</code>类型跟类<code>class</code>一样也可以有方法</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>Rank</span>: Int {
+    <span style=color:#66d9ef>case</span> ace = <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>case</span> two, three, four, five, sixe, seven, eight, nine, ten
+    <span style=color:#66d9ef>case</span> jack, queen, king
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span>() -&gt; String {
+        <span style=color:#66d9ef>switch</span> <span style=color:#66d9ef>self</span> {
+        <span style=color:#66d9ef>case</span> .ace:
+            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;ace&#34;</span>
+        <span style=color:#66d9ef>case</span> .jack:
+            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;jack&#34;</span>
+        <span style=color:#66d9ef>case</span> .queen:
+            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;queen&#34;</span>
+        <span style=color:#66d9ef>default</span>:
+            <span style=color:#66d9ef>return</span> String(<span style=color:#66d9ef>self</span>.rawValue)
+        }
+    }
+}
 
-<span class=kd>let</span> <span class=nv>ace</span> <span class=p>=</span> <span class=n>Rank</span><span class=p>.</span><span class=n>ace</span>
+<span style=color:#66d9ef>let</span> ace = Rank.ace
 
-<span class=c1>// 1</span>
-<span class=kd>let</span> <span class=nv>aceRawValue</span> <span class=p>=</span> <span class=n>ace</span><span class=p>.</span><span class=n>rawValue</span>
+<span style=color:#75715e>// 1</span>
+<span style=color:#66d9ef>let</span> aceRawValue = ace.rawValue
 
-<span class=c1>// 2</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>Rank</span><span class=p>.</span><span class=n>two</span><span class=p>.</span><span class=n>rawValue</span><span class=p>)</span>
+<span style=color:#75715e>// 2</span>
+print(Rank.two.rawValue)
 
-<span class=bp>print</span><span class=p>(</span><span class=n>ace</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>())</span>
+print(ace.simpleDescription())
 </code></pre></td></tr></table></div></div><p>默认情况下，枚举类型的原始值是从0开始的，然后依次加1，但是可以通过明确赋值，可以改变这个行为。
-比如上面的例子，<code>ace</code>就是从1开始，后面的值也依次加1，同时，也可以给枚举类型赋值为字符串或浮点数。</p><p>使用<code>init?(rawValue:)</code>初始化一个枚举类型，当这个值是enum类型的值时，就返回枚举类型，否则返回<code>nil</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift>
-<span class=c1>// 13刚好对应king</span>
-<span class=k>if</span> <span class=kd>let</span> <span class=nv>convertedRank</span> <span class=p>=</span> <span class=n>Rank</span><span class=p>(</span><span class=n>rawValue</span><span class=p>:</span> <span class=mi>13</span><span class=p>)</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>threeDescription</span> <span class=p>=</span> <span class=n>convertedRank</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>()</span> <span class=c1>// 13</span>
-<span class=p>}</span>
+比如上面的例子，<code>ace</code>就是从1开始，后面的值也依次加1，同时，也可以给枚举类型赋值为字符串或浮点数。</p><p>使用<code>init?(rawValue:)</code>初始化一个枚举类型，当这个值是enum类型的值时，就返回枚举类型，否则返回<code>nil</code></p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift>
+<span style=color:#75715e>// 13刚好对应king</span>
+<span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> convertedRank = Rank(rawValue: <span style=color:#ae81ff>13</span>) {
+    <span style=color:#66d9ef>let</span> threeDescription = convertedRank.simpleDescription() <span style=color:#75715e>// 13</span>
+}
 
 
-<span class=c1>// convertedRank 为nil, if语句不会执行</span>
-<span class=k>if</span> <span class=kd>let</span> <span class=nv>convertedRank</span> <span class=p>=</span> <span class=n>Rank</span><span class=p>(</span><span class=n>rawValue</span><span class=p>:</span> <span class=mi>14</span><span class=p>)</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>threeDescription</span> <span class=p>=</span> <span class=n>convertedRank</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>()</span> <span class=c1>// 1</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>如果结构体有原始值的话，可以在初始化时决定它的类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>enum</span> <span class=nc>ServerResponse</span> <span class=p>{</span>
-    <span class=k>case</span> <span class=n>result</span><span class=p>(</span><span class=nb>String</span><span class=p>,</span> <span class=nb>String</span><span class=p>)</span>
-    <span class=k>case</span> <span class=n>failure</span><span class=p>(</span><span class=nb>String</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#75715e>// convertedRank 为nil, if语句不会执行</span>
+<span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> convertedRank = Rank(rawValue: <span style=color:#ae81ff>14</span>) {
+    <span style=color:#66d9ef>let</span> threeDescription = convertedRank.simpleDescription() <span style=color:#75715e>// 1</span>
+}
+</code></pre></td></tr></table></div></div><p>如果结构体有原始值的话，可以在初始化时决定它的类型</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>ServerResponse</span> {
+    <span style=color:#66d9ef>case</span> result(String, String)
+    <span style=color:#66d9ef>case</span> failure(String)
+}
 
-<span class=kd>let</span> <span class=nv>success</span> <span class=p>=</span> <span class=n>ServerResponse</span><span class=p>.</span><span class=n>result</span><span class=p>(</span><span class=s>&#34;6:00 am&#34;</span><span class=p>,</span> <span class=s>&#34;8:09 pm&#34;</span><span class=p>)</span>
-<span class=kd>let</span> <span class=nv>failure</span> <span class=p>=</span> <span class=n>ServerResponse</span><span class=p>.</span><span class=n>failure</span><span class=p>(</span><span class=s>&#34;Out of cheese.&#34;</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>success</span><span class=p>)</span>
+<span style=color:#66d9ef>let</span> success = ServerResponse.result(<span style=color:#e6db74>&#34;6:00 am&#34;</span>, <span style=color:#e6db74>&#34;8:09 pm&#34;</span>)
+<span style=color:#66d9ef>let</span> failure = ServerResponse.failure(<span style=color:#e6db74>&#34;Out of cheese.&#34;</span>)
+print(success)
 
-<span class=k>switch</span> <span class=n>success</span> <span class=p>{</span>
-<span class=k>case</span> <span class=kd>let</span> <span class=p>.</span><span class=n>result</span><span class=p>(</span><span class=n>sunrise</span><span class=p>,</span> <span class=n>sunset</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Sun rise at </span><span class=si>\(</span><span class=n>sunrise</span><span class=si>)</span><span class=s>, Sun set at </span><span class=si>\(</span><span class=n>sunset</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=k>case</span> <span class=kd>let</span> <span class=p>.</span><span class=n>failure</span><span class=p>(</span><span class=n>message</span><span class=p>):</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Failure </span><span class=si>\(</span><span class=n>message</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>switch</span> success {
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span> .result(sunrise, sunset):
+    print(<span style=color:#e6db74>&#34;Sun rise at </span><span style=color:#e6db74>\(</span>sunrise<span style=color:#e6db74>)</span><span style=color:#e6db74>, Sun set at </span><span style=color:#e6db74>\(</span>sunset<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>let</span> .failure(message):
+    print(<span style=color:#e6db74>&#34;Failure </span><span style=color:#e6db74>\(</span>message<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+}
 
-</code></pre></td></tr></table></div></div><h2 id=结构体struct>结构体<code>struct</code></h2><p><code>struct</code>和类一样，支持初始化和方法，不同之处在于:</p><p>struct在代码里总是复制一份(值传参)，而类是被引用的(引用传参)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>struct</span> <span class=nc>Card</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>rank</span><span class=p>:</span> <span class=n>Rank</span>
-    <span class=kd>var</span> <span class=nv>suit</span><span class=p>:</span> <span class=n>Suit</span>
+</code></pre></td></tr></table></div></div><h2 id=结构体struct>结构体<code>struct</code></h2><p><code>struct</code>和类一样，支持初始化和方法，不同之处在于:</p><p>struct在代码里总是复制一份(值传参)，而类是被引用的(引用传参)</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Card</span> {
+    <span style=color:#66d9ef>var</span> rank: Rank
+    <span style=color:#66d9ef>var</span> suit: Suit
 
-    <span class=kd>func</span> <span class=nf>simpleDescription</span><span class=p>()</span> <span class=p>-&gt;</span> <span class=nb>String</span><span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;The </span><span class=si>\(</span><span class=n>rank</span><span class=p>.</span><span class=n>simpleDescription</span><span class=si>())</span><span class=s> of </span><span class=si>\(</span><span class=n>suit</span><span class=p>.</span><span class=n>simpleDescription</span><span class=si>())</span><span class=s>&#34;</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>simpleDescription</span>() -&gt; String{
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;The </span><span style=color:#e6db74>\(</span>rank.simpleDescription<span style=color:#e6db74>())</span><span style=color:#e6db74> of </span><span style=color:#e6db74>\(</span>suit.simpleDescription<span style=color:#e6db74>())</span><span style=color:#e6db74>&#34;</span>
+    }
 
-<span class=p>}</span>
+}
 
-<span class=c1>//枚举传参数</span>
-<span class=kd>let</span> <span class=nv>threeOfSpades</span> <span class=p>=</span> <span class=n>Card</span><span class=p>(</span><span class=n>rank</span><span class=p>:</span> <span class=p>.</span><span class=n>three</span><span class=p>,</span> <span class=n>suit</span><span class=p>:</span> <span class=p>.</span><span class=n>spades</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>threeOfSpades</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>())</span>
-</code></pre></td></tr></table></div></div><h2 id=protocols和extensions>Protocols和Extensions</h2><p>有点类似<code>java</code>的<code>interface</code>，但是也有<a href=https://stackoverflow.com/questions/30859334/compare-protocol-in-swift-vs-interface-in-java>不同之处</a>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>protocol</span> <span class=nc>ExampleProtocol</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>simpleDescription</span><span class=p>:</span> <span class=nb>String</span> <span class=p>{</span> <span class=kr>get</span> <span class=p>}</span>
-    <span class=c1>// 注意关键字mutating</span>
-    <span class=kr>mutating</span> <span class=kd>func</span> <span class=nf>adjust</span><span class=p>()</span>
-<span class=p>}</span>
+<span style=color:#75715e>//枚举传参数</span>
+<span style=color:#66d9ef>let</span> threeOfSpades = Card(rank: .three, suit: .spades)
+print(threeOfSpades.simpleDescription())
+</code></pre></td></tr></table></div></div><h2 id=protocols和extensions>Protocols和Extensions</h2><p>有点类似<code>java</code>的<code>interface</code>，但是也有<a href=https://stackoverflow.com/questions/30859334/compare-protocol-in-swift-vs-interface-in-java>不同之处</a>.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>protocol</span> <span style=color:#a6e22e>ExampleProtocol</span> {
+    <span style=color:#66d9ef>var</span> simpleDescription: String { <span style=color:#66d9ef>get</span> }
+    <span style=color:#75715e>// 注意关键字mutating</span>
+    <span style=color:#66d9ef>mutating</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>adjust</span>()
+}
 
-</code></pre></td></tr></table></div></div><p>类，枚举和结构体都可以适配协议</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>class</span> <span class=nc>SimpleClass</span><span class=p>:</span> <span class=n>ExampleProtocol</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>simpleDescription</span><span class=p>:</span> <span class=nb>String</span> <span class=p>=</span> <span class=s>&#34;A very simple class.&#34;</span>
+</code></pre></td></tr></table></div></div><p>类，枚举和结构体都可以适配协议</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SimpleClass</span>: ExampleProtocol {
+    <span style=color:#66d9ef>var</span> simpleDescription: String = <span style=color:#e6db74>&#34;A very simple class.&#34;</span>
 
-    <span class=kd>var</span> <span class=nv>anotherProperty</span><span class=p>:</span> <span class=nb>Int</span> <span class=p>=</span> <span class=mi>69105</span>
+    <span style=color:#66d9ef>var</span> anotherProperty: Int = <span style=color:#ae81ff>69105</span>
 
-    <span class=kd>func</span> <span class=nf>adjust</span><span class=p>(){</span>
-        <span class=n>simpleDescription</span> <span class=o>+=</span> <span class=s>&#34; Now 100% adjusted.&#34;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>adjust</span>(){
+        simpleDescription <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; Now 100% adjusted.&#34;</span>
+    }
+}
 
-<span class=kd>var</span> <span class=nv>a</span> <span class=p>=</span> <span class=n>SimpleClass</span><span class=p>()</span>
-<span class=n>a</span><span class=p>.</span><span class=n>adjust</span><span class=p>()</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>)</span>
-
-
-<span class=kd>struct</span> <span class=nc>SimpleStruct</span><span class=p>:</span> <span class=n>ExampleProtocol</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>simpleDescription</span><span class=p>:</span> <span class=nb>String</span> <span class=p>=</span> <span class=s>&#34;A very simple struct.&#34;</span>
-
-    <span class=c1>//注意 mutating 关键字</span>
-    <span class=kr>mutating</span> <span class=kd>func</span> <span class=nf>adjust</span><span class=p>(){</span>
-        <span class=n>simpleDescription</span> <span class=o>+=</span> <span class=s>&#34; (adjusted)&#34;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-
-<span class=kd>var</span> <span class=nv>b</span> <span class=p>=</span> <span class=n>SimpleStruct</span><span class=p>()</span>
-<span class=n>b</span><span class=p>.</span><span class=n>adjust</span><span class=p>()</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>b</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>注意上面在结构体中声明<code>adjust()</code>方法时，使用了关键字<code>mutating</code>,而在类中并没有使用， 是因为在类中，方法是可以直接修改的。</p><p>使用<code>extension</code>可以往已经存在的类型添加方法和计算属性，哪怕是Swift内置的类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>extension</span> <span class=nc>Int</span><span class=p>:</span> <span class=n>ExampleProtocol</span><span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>simpleDescription</span><span class=p>:</span> <span class=nb>String</span> <span class=p>{</span>
-        <span class=k>return</span> <span class=s>&#34;The number </span><span class=si>\(</span><span class=kc>self</span><span class=si>)</span><span class=s>&#34;</span>
-    <span class=p>}</span>
-    <span class=kr>mutating</span> <span class=kd>func</span> <span class=nf>adjust</span><span class=p>(){</span>
-        <span class=kc>self</span> <span class=o>+=</span> <span class=mi>42</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-
-<span class=c1>// 修改内置Int类的行为</span>
-<span class=bp>print</span><span class=p>(</span><span class=mf>7.</span><span class=n>simpleDescription</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>我们也可以使用protocol名字来访问实现了这个<code>protocol</code>的方法，但是不在<code>protocol</code>里定义的就不能访问。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>protocolValue</span><span class=p>:</span> <span class=n>ExampleProtocol</span> <span class=p>=</span> <span class=n>SimpleClass</span><span class=p>()</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>protocolValue</span><span class=p>.</span><span class=n>simpleDescription</span><span class=p>)</span>
-<span class=c1>//anotherProperty属性虽然在SimpleClass里有，但是它不属于ExampleProtocol, protocolValue访问依然会报错</span>
-<span class=c1>//print(protocolValue.anotherProperty)</span>
-</code></pre></td></tr></table></div></div><h2 id=异常处理>异常处理</h2><p>可以通过适配<code>Error</code>的protocol来定义错误， 通过<code>throw</code>抛出异常，通过<code>throws</code>标记可能产生异常的方法。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>enum</span> <span class=nc>PrinterError</span><span class=p>:</span> <span class=n>Error</span> <span class=p>{</span>
-    <span class=k>case</span> <span class=n>outOfPaper</span>
-    <span class=k>case</span> <span class=n>noToner</span>
-    <span class=k>case</span> <span class=n>onFire</span>
-    <span class=k>case</span> <span class=n>unKown</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>var</span> a = SimpleClass()
+a.adjust()
+print(a.simpleDescription)
 
 
-<span class=kd>func</span> <span class=nf>send</span><span class=p>(</span><span class=n>job</span><span class=p>:</span> <span class=nb>Int</span><span class=p>,</span> <span class=n>toPrinter</span> <span class=n>printerName</span><span class=p>:</span> <span class=nb>String</span><span class=p>)</span> <span class=kr>throws</span> <span class=p>-&gt;</span> <span class=nb>String</span> <span class=p>{</span>
-    <span class=k>if</span> <span class=n>printerName</span> <span class=p>==</span> <span class=s>&#34;Never Has Toner&#34;</span> <span class=p>{</span>
-        <span class=k>throw</span> <span class=n>PrinterError</span><span class=p>.</span><span class=n>noToner</span>
-    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=n>printerName</span> <span class=p>==</span> <span class=s>&#34;outOfPaper&#34;</span> <span class=p>{</span>
-        <span class=k>throw</span> <span class=n>PrinterError</span><span class=p>.</span><span class=n>outOfPaper</span>
-    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=n>printerName</span> <span class=p>==</span> <span class=s>&#34;OnFire&#34;</span> <span class=p>{</span>
-        <span class=k>throw</span> <span class=n>PrinterError</span><span class=p>.</span><span class=n>onFire</span>
-    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=n>printerName</span> <span class=p>==</span> <span class=s>&#34;UnKown&#34;</span> <span class=p>{</span>
-        <span class=k>throw</span> <span class=n>PrinterError</span><span class=p>.</span><span class=n>unKown</span>
-    <span class=p>}</span>
+<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>SimpleStruct</span>: ExampleProtocol {
+    <span style=color:#66d9ef>var</span> simpleDescription: String = <span style=color:#e6db74>&#34;A very simple struct.&#34;</span>
 
-    <span class=k>return</span> <span class=s>&#34;job sent&#34;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>有几种方式处理异常，一种是使用<code>do-catch</code>, <code>try</code>写在可能产生异常的代码前面，<code>catch</code>代码块里，如果不指定名字的话，默认用<code>error</code>代表错误。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=k>do</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>printerResponse</span> <span class=p>=</span> <span class=k>try</span> <span class=n>send</span><span class=p>(</span><span class=n>job</span><span class=p>:</span><span class=mi>1040</span><span class=p>,</span> <span class=n>toPrinter</span><span class=p>:</span> <span class=s>&#34;Never Has Toner&#34;</span><span class=p>)</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>printerResponse</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>error</span><span class=p>)</span>
-<span class=p>}</span>
+    <span style=color:#75715e>//注意 mutating 关键字</span>
+    <span style=color:#66d9ef>mutating</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>adjust</span>(){
+        simpleDescription <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; (adjusted)&#34;</span>
+    }
+}
+
+<span style=color:#66d9ef>var</span> b = SimpleStruct()
+b.adjust()
+print(b.simpleDescription)
+</code></pre></td></tr></table></div></div><p>注意上面在结构体中声明<code>adjust()</code>方法时，使用了关键字<code>mutating</code>,而在类中并没有使用， 是因为在类中，方法是可以直接修改的。</p><p>使用<code>extension</code>可以往已经存在的类型添加方法和计算属性，哪怕是Swift内置的类</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>extension</span> <span style=color:#a6e22e>Int</span>: ExampleProtocol{
+    <span style=color:#66d9ef>var</span> simpleDescription: String {
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;The number </span><span style=color:#e6db74>\(</span><span style=color:#66d9ef>self</span><span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>
+    }
+    <span style=color:#66d9ef>mutating</span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>adjust</span>(){
+        <span style=color:#66d9ef>self</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>42</span>
+    }
+}
+
+<span style=color:#75715e>// 修改内置Int类的行为</span>
+print(<span style=color:#ae81ff>7.</span>simpleDescription)
+</code></pre></td></tr></table></div></div><p>我们也可以使用protocol名字来访问实现了这个<code>protocol</code>的方法，但是不在<code>protocol</code>里定义的就不能访问。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> protocolValue: ExampleProtocol = SimpleClass()
+print(protocolValue.simpleDescription)
+<span style=color:#75715e>//anotherProperty属性虽然在SimpleClass里有，但是它不属于ExampleProtocol, protocolValue访问依然会报错</span>
+<span style=color:#75715e>//print(protocolValue.anotherProperty)</span>
+</code></pre></td></tr></table></div></div><h2 id=异常处理>异常处理</h2><p>可以通过适配<code>Error</code>的protocol来定义错误， 通过<code>throw</code>抛出异常，通过<code>throws</code>标记可能产生异常的方法。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>PrinterError</span>: Error {
+    <span style=color:#66d9ef>case</span> outOfPaper
+    <span style=color:#66d9ef>case</span> noToner
+    <span style=color:#66d9ef>case</span> onFire
+    <span style=color:#66d9ef>case</span> unKown
+}
 
 
-<span class=k>do</span> <span class=p>{</span>
-    <span class=kd>let</span> <span class=nv>printerResponse</span> <span class=p>=</span> <span class=k>try</span> <span class=n>send</span><span class=p>(</span><span class=n>job</span><span class=p>:</span><span class=mi>1440</span><span class=p>,</span> <span class=n>toPrinter</span><span class=p>:</span> <span class=s>&#34;UnKown&#34;</span><span class=p>)</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>printerResponse</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>catch</span> <span class=n>PrinterError</span><span class=p>.</span><span class=n>onFire</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;I&#39;ll just put this over here, with the rest of the fire.&#34;</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>catch</span> <span class=kd>let</span> <span class=nv>printerError</span> <span class=k>as</span> <span class=n>PrinterError</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Printer error: </span><span class=si>\(</span><span class=n>printerError</span><span class=si>)</span><span class=s>&#34;</span><span class=p>)</span>
-<span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
-    <span class=bp>print</span><span class=p>(</span><span class=n>error</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>另一种处理异常的方式是使用<code>try?</code>。把结果转变为可选值，当有异常出现的时候，异常会被直接忽略，并把结果赋值为<code>nil</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>printerSuccess</span> <span class=p>=</span> <span class=k>try</span><span class=p>?</span> <span class=n>send</span><span class=p>(</span><span class=n>job</span><span class=p>:</span> <span class=mi>1884</span><span class=p>,</span> <span class=n>toPrinter</span><span class=p>:</span> <span class=s>&#34;Mergenthaler&#34;</span><span class=p>)</span>
-<span class=kd>let</span> <span class=nv>printerFailure</span> <span class=p>=</span> <span class=k>try</span><span class=p>?</span> <span class=n>send</span><span class=p>(</span><span class=n>job</span><span class=p>:</span> <span class=mi>1885</span><span class=p>,</span> <span class=n>toPrinter</span><span class=p>:</span> <span class=s>&#34;Never Has Toner&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>使用<code>defer</code>，可以在函数返回前，执行一段代码，无论函数是正常执行或抛出异常，可以在多个函数之间使用<code>defer</code>写一些初始化或清理工作的代码。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>var</span> <span class=nv>fridgeIsOpen</span> <span class=p>=</span> <span class=kc>false</span>
-<span class=kd>let</span> <span class=nv>fridgeContent</span> <span class=p>=</span> <span class=p>[</span><span class=s>&#34;milk&#34;</span><span class=p>,</span> <span class=s>&#34;eggs&#34;</span><span class=p>,</span> <span class=s>&#34;leftovers&#34;</span><span class=p>]</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>send</span>(job: Int, toPrinter printerName: String) <span style=color:#66d9ef>throws</span> -&gt; String {
+    <span style=color:#66d9ef>if</span> printerName == <span style=color:#e6db74>&#34;Never Has Toner&#34;</span> {
+        <span style=color:#66d9ef>throw</span> PrinterError.noToner
+    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> printerName == <span style=color:#e6db74>&#34;outOfPaper&#34;</span> {
+        <span style=color:#66d9ef>throw</span> PrinterError.outOfPaper
+    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> printerName == <span style=color:#e6db74>&#34;OnFire&#34;</span> {
+        <span style=color:#66d9ef>throw</span> PrinterError.onFire
+    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> printerName == <span style=color:#e6db74>&#34;UnKown&#34;</span> {
+        <span style=color:#66d9ef>throw</span> PrinterError.unKown
+    }
 
-<span class=kd>func</span> <span class=nf>fridgeContains</span><span class=p>(</span><span class=kc>_</span> <span class=n>food</span><span class=p>:</span> <span class=nb>String</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Bool</span> <span class=p>{</span>
-    <span class=n>fridgeIsOpen</span> <span class=p>=</span> <span class=kc>true</span>
-    <span class=k>defer</span> <span class=p>{</span>
-        <span class=bp>print</span><span class=p>(</span><span class=s>&#34;call defer&#34;</span><span class=p>)</span>
-        <span class=n>fridgeIsOpen</span> <span class=p>=</span> <span class=kc>false</span>
-    <span class=p>}</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;job sent&#34;</span>
+}
+</code></pre></td></tr></table></div></div><p>有几种方式处理异常，一种是使用<code>do-catch</code>, <code>try</code>写在可能产生异常的代码前面，<code>catch</code>代码块里，如果不指定名字的话，默认用<code>error</code>代表错误。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>do</span> {
+    <span style=color:#66d9ef>let</span> printerResponse = <span style=color:#66d9ef>try</span> send(job:<span style=color:#ae81ff>1040</span>, toPrinter: <span style=color:#e6db74>&#34;Never Has Toner&#34;</span>)
+    print(printerResponse)
+} <span style=color:#66d9ef>catch</span> {
+    print(error)
+}
 
-    <span class=kd>let</span> <span class=nv>result</span> <span class=p>=</span> <span class=n>fridgeContent</span><span class=p>.</span><span class=bp>contains</span><span class=p>(</span><span class=n>food</span><span class=p>)</span>
-    <span class=k>return</span> <span class=n>result</span>
-<span class=p>}</span>
 
-<span class=n>fridgeContains</span><span class=p>(</span><span class=s>&#34;banana&#34;</span><span class=p>)</span>
-<span class=bp>print</span><span class=p>(</span><span class=n>fridgeIsOpen</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h2 id=泛型>泛型</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>makeArray</span><span class=p>&lt;</span><span class=n>Item</span><span class=p>&gt;(</span><span class=n>repeating</span> <span class=n>item</span><span class=p>:</span> <span class=n>Item</span><span class=p>,</span> <span class=n>numberOfTimes</span><span class=p>:</span> <span class=nb>Int</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=p>[</span><span class=n>Item</span><span class=p>]</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nv>result</span> <span class=p>=</span> <span class=p>[</span><span class=n>Item</span><span class=p>]()</span>
-    <span class=k>for</span> <span class=kc>_</span> <span class=k>in</span> <span class=mf>0.</span><span class=p>.&lt;</span><span class=n>numberOfTimes</span> <span class=p>{</span>
-        <span class=n>result</span><span class=p>.</span><span class=n>append</span><span class=p>(</span><span class=n>item</span><span class=p>)</span>
-    <span class=p>}</span>
-    <span class=k>return</span> <span class=n>result</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>do</span> {
+    <span style=color:#66d9ef>let</span> printerResponse = <span style=color:#66d9ef>try</span> send(job:<span style=color:#ae81ff>1440</span>, toPrinter: <span style=color:#e6db74>&#34;UnKown&#34;</span>)
+    print(printerResponse)
+} <span style=color:#66d9ef>catch</span> PrinterError.onFire {
+    print(<span style=color:#e6db74>&#34;I&#39;ll just put this over here, with the rest of the fire.&#34;</span>)
+} <span style=color:#66d9ef>catch</span> <span style=color:#66d9ef>let</span> printerError <span style=color:#66d9ef>as</span> PrinterError {
+    print(<span style=color:#e6db74>&#34;Printer error: </span><span style=color:#e6db74>\(</span>printerError<span style=color:#e6db74>)</span><span style=color:#e6db74>&#34;</span>)
+} <span style=color:#66d9ef>catch</span> {
+    print(error)
+}
+</code></pre></td></tr></table></div></div><p>另一种处理异常的方式是使用<code>try?</code>。把结果转变为可选值，当有异常出现的时候，异常会被直接忽略，并把结果赋值为<code>nil</code>.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>let</span> printerSuccess = <span style=color:#66d9ef>try</span>? send(job: <span style=color:#ae81ff>1884</span>, toPrinter: <span style=color:#e6db74>&#34;Mergenthaler&#34;</span>)
+<span style=color:#66d9ef>let</span> printerFailure = <span style=color:#66d9ef>try</span>? send(job: <span style=color:#ae81ff>1885</span>, toPrinter: <span style=color:#e6db74>&#34;Never Has Toner&#34;</span>)
+</code></pre></td></tr></table></div></div><p>使用<code>defer</code>，可以在函数返回前，执行一段代码，无论函数是正常执行或抛出异常，可以在多个函数之间使用<code>defer</code>写一些初始化或清理工作的代码。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>var</span> fridgeIsOpen = <span style=color:#66d9ef>false</span>
+<span style=color:#66d9ef>let</span> fridgeContent = [<span style=color:#e6db74>&#34;milk&#34;</span>, <span style=color:#e6db74>&#34;eggs&#34;</span>, <span style=color:#e6db74>&#34;leftovers&#34;</span>]
 
-<span class=bp>print</span><span class=p>(</span><span class=n>makeArray</span><span class=p>(</span><span class=n>repeating</span><span class=p>:</span> <span class=s>&#34;knock&#34;</span><span class=p>,</span> <span class=n>numberOfTimes</span><span class=p>:</span> <span class=mi>4</span><span class=p>))</span>
-</code></pre></td></tr></table></div></div><p>泛型不光可以用于函数和方法，还可以用在类，枚举，结构体上面，下面是利用泛型实现Swift标准库里的可选类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>enum</span> <span class=nc>OptionalValue</span><span class=p>&lt;</span><span class=n>Wrapped</span><span class=p>&gt;{</span>
-    <span class=k>case</span> <span class=kr>none</span>
-    <span class=k>case</span> <span class=n>some</span><span class=p>(</span><span class=n>Wrapped</span><span class=p>)</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>fridgeContains</span>(<span style=color:#66d9ef>_</span> food: String) -&gt; Bool {
+    fridgeIsOpen = <span style=color:#66d9ef>true</span>
+    <span style=color:#66d9ef>defer</span> {
+        print(<span style=color:#e6db74>&#34;call defer&#34;</span>)
+        fridgeIsOpen = <span style=color:#66d9ef>false</span>
+    }
 
-<span class=kd>var</span> <span class=nv>possibleInteger</span><span class=p>:</span> <span class=n>OptionalValue</span><span class=p>&lt;</span><span class=nb>Int</span><span class=p>&gt;</span> <span class=p>=</span> <span class=p>.</span><span class=kr>none</span>
-<span class=n>possibleInteger</span> <span class=p>=</span> <span class=p>.</span><span class=n>some</span><span class=p>(</span><span class=mi>100</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>使用<code>where</code>关键字在语句前可以限定一些条件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>func</span> <span class=nf>anyCommonElements</span><span class=p>&lt;</span><span class=n>T</span><span class=p>:</span> <span class=n>Sequence</span><span class=p>,</span> <span class=n>U</span><span class=p>:</span> <span class=n>Sequence</span><span class=p>&gt;(</span><span class=kc>_</span> <span class=n>lhs</span><span class=p>:</span> <span class=n>T</span><span class=p>,</span> <span class=kc>_</span> <span class=n>rhs</span><span class=p>:</span> <span class=n>U</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Bool</span>
-<span class=k>where</span> <span class=n>T</span><span class=p>.</span><span class=n>Element</span><span class=p>:</span> <span class=nb>Equatable</span><span class=p>,</span> <span class=n>T</span><span class=p>.</span><span class=n>Element</span> <span class=p>==</span> <span class=n>U</span><span class=p>.</span><span class=n>Element</span> <span class=p>{</span>
-    <span class=k>for</span> <span class=n>lhsItem</span> <span class=k>in</span> <span class=n>lhs</span> <span class=p>{</span>
-        <span class=k>for</span> <span class=n>thsItem</span> <span class=k>in</span> <span class=n>rhs</span> <span class=p>{</span>
-            <span class=k>if</span> <span class=n>lhsItem</span> <span class=p>==</span> <span class=n>thsItem</span> <span class=p>{</span>
-                <span class=k>return</span> <span class=kc>true</span>
-            <span class=p>}</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-    <span class=k>return</span> <span class=kc>false</span>
-<span class=p>}</span>
+    <span style=color:#66d9ef>let</span> result = fridgeContent.contains(food)
+    <span style=color:#66d9ef>return</span> result
+}
 
-<span class=n>anyCommonElements</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>],</span> <span class=p>[</span><span class=mi>3</span><span class=p>])</span>
+fridgeContains(<span style=color:#e6db74>&#34;banana&#34;</span>)
+print(fridgeIsOpen)
+</code></pre></td></tr></table></div></div><h2 id=泛型>泛型</h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>makeArray</span>&lt;Item&gt;(repeating item: Item, numberOfTimes: Int) -&gt; [Item] {
+    <span style=color:#66d9ef>var</span> result = [Item]()
+    <span style=color:#66d9ef>for</span> <span style=color:#66d9ef>_</span> <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>0.</span>.&lt;numberOfTimes {
+        result.append(item)
+    }
+    <span style=color:#66d9ef>return</span> result
+}
+
+print(makeArray(repeating: <span style=color:#e6db74>&#34;knock&#34;</span>, numberOfTimes: <span style=color:#ae81ff>4</span>))
+</code></pre></td></tr></table></div></div><p>泛型不光可以用于函数和方法，还可以用在类，枚举，结构体上面，下面是利用泛型实现Swift标准库里的可选类型</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>OptionalValue</span>&lt;Wrapped&gt;{
+    <span style=color:#66d9ef>case</span> <span style=color:#66d9ef>none</span>
+    <span style=color:#66d9ef>case</span> some(Wrapped)
+}
+
+<span style=color:#66d9ef>var</span> possibleInteger: OptionalValue&lt;Int&gt; = .<span style=color:#66d9ef>none</span>
+possibleInteger = .some(<span style=color:#ae81ff>100</span>)
+</code></pre></td></tr></table></div></div><p>使用<code>where</code>关键字在语句前可以限定一些条件</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>anyCommonElements</span>&lt;T: Sequence, U: Sequence&gt;(<span style=color:#66d9ef>_</span> lhs: T, <span style=color:#66d9ef>_</span> rhs: U) -&gt; Bool
+<span style=color:#66d9ef>where</span> T.Element: Equatable, T.Element == U.Element {
+    <span style=color:#66d9ef>for</span> lhsItem <span style=color:#66d9ef>in</span> lhs {
+        <span style=color:#66d9ef>for</span> thsItem <span style=color:#66d9ef>in</span> rhs {
+            <span style=color:#66d9ef>if</span> lhsItem == thsItem {
+                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
+            }
+        }
+    }
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
+}
+
+anyCommonElements([<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>], [<span style=color:#ae81ff>3</span>])
 </code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>crazygit</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-10-27</span></p><p class=copyright-item><span class=item-title>许可协议</span>
@@ -642,4 +642,4 @@
 2017 -
 2021
 <span class=heart><i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg></i></span><span class=author>crazygit</span></span>
-<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script><script src=/js/douban.js></script></body></html>
+<span id=busuanzi_container>访客数/访问量：<span id=busuanzi_value_site_uv></span>/<span id=busuanzi_value_site_pv></span></span></div></footer><div class=back-to-top id=back-to-top><i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script><script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?2b47f91b8532d1a5e950c8e77142d95c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script><script type=text/javascript src=/js/load-photoswipe.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script><script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script type=text/javascript>AV.initialize("bWUs89CHYswTxwt88Jf71tIF-gzGzoHsz","IcudhQhVD2eqKqkOTQQ6agUS")</script><script>function showHitCount(d){var b=new AV.Query(d),a=[],c=$(".leancloud_visitors");c.each(function(){a.push($(this).attr("id").trim())}),b.containedIn('url',a),b.find().done(function(d){var e='.leancloud-visitors-count',b,h,f,j,g,i;if(d.length===0){c.find(e).text(0);return}for(b=0;b<d.length;b++)h=d[b],f=h.get('url'),j=h.get('hits'),g=document.getElementById(f),$(g).find(e).text(j);for(b=0;b<a.length;b++)f=a[b],g=document.getElementById(f),i=$(g).find(e),i.text()==''&&i.text(0)}).fail(function(b,a){console.log("Error: "+a.code+" "+a.message)})}function addCount(b){var c=$(".leancloud_visitors"),a=c.attr('id').trim(),e=c.attr('data-flag-title').trim(),d=new AV.Query(b);d.equalTo("url",a),d.find({success:function(g){var d,c,f;g.length>0?(d=g[0],d.fetchWhenSave(!0),d.increment("hits"),d.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(b,a){console.log('Failed to save Visitor num, with error message: '+a.message)}})):(c=new b,f=new AV.ACL,f.setPublicReadAccess(!0),f.setPublicWriteAccess(!0),c.setACL(f),c.set("title",e),c.set("url",a),c.set("hits",1),c.save(null,{success:function(b){var c=$(document.getElementById(a));c.find('.leancloud-visitors-count').text(b.get('hits'))},error:function(a,b){console.log('Failed to create')}}))},error:function(a){console.log('Error:'+a.code+" "+a.message)}})}$(function(){var a=AV.Object.extend("Counter");$('.leancloud_visitors').length==1?addCount(a):$('.post-link').length>1&&showHitCount(a)})</script></body></html>
