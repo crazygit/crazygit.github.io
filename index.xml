@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 21 Jun 2021 10:11:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本语法05</title><link>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</link><pubDate>Mon, 21 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</guid><description>&lt;h3 id="heading">&lt;/h3>
-&lt;h3 id="类委托和委托属性httpskotlinlangorgdocsreferencedelegated-propertieshtml">&lt;a href="https://kotlinlang.org/docs/reference/delegated-properties.html">类委托和委托属性&lt;/a>&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 21 Jun 2021 10:11:29 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin基本语法05</title><link>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</link><pubDate>Mon, 21 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/21/008-kotlin-basic-synatx-05/</guid><description>&lt;h3 id="类委托和委托属性httpskotlinlangorgdocsreferencedelegated-propertieshtml">&lt;a href="https://kotlinlang.org/docs/reference/delegated-properties.html">类委托和委托属性&lt;/a>&lt;/h3>
 &lt;p>委托是一种设计模式，它的基本理念是:操作对象自己不会去处理某段逻辑，而是会把工作委托给另外一个辅助对象去处理。&lt;/p>
 &lt;h3 id="类委托">类委托&lt;/h3>
 &lt;p>类委托的核心思想在于将一个类的具体实现委托给另外一个类是去完成。Kotlin中委托使用的关键字是&lt;code>by&lt;/code>,我们只需要在接口声明的后面使用&lt;code>by&lt;/code>关键字，再接上接受委托的辅助对象，就可以了。&lt;/p>
@@ -640,7 +639,1072 @@
 &lt;span class="p">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="heading-1">&lt;/h3></description></item><item><title>Kotlin基本语法04</title><link>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</link><pubDate>Tue, 15 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</guid><description>&lt;h3 id="密封类sealed-class">密封类&lt;code>sealed class&lt;/code>&lt;/h3>
+&lt;/div>&lt;h3 id="延迟初始化lateinit">延迟初始化&lt;code>lateinit&lt;/code>&lt;/h3>
+&lt;p>Kotlin 要求在实例构建过程中初始化每个成员属性。有时，类的使用方式使构造函数没有足够的信息来初始化所有属性（例如，在生成构建器类或使用基于属性的依赖注入时）。为了不必使这些属性可为空，可以使用后期初始化的属性：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">lateinit&lt;/span> &lt;span class="k">var&lt;/span> &lt;span class="py">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Kotlin 将允许声明该属性而无需初始化它，并且可以在构造后的某个时候（直接或通过函数）设置属性值。类本身及其用户都有责任注意在设置属性值之前不要读取该属性，并且 Kotlin 允许编写读取&lt;code>name&lt;/code>的代码，就像它是一个普通的，不可为空的属性一样。但是，编译器无法强制正确使用，因此，如果在设置属性之前先读取该属性，将在运行时抛出 &lt;code>UninitializedPropertyAccessException&lt;/code>异常。&lt;/p>
+&lt;p>在声明了&lt;code>lateinit&lt;/code> 属性的类中，可以检查它是否已初始化&lt;code>::name.isInitialized&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">isInitialized&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>lateinit&lt;/code>只能与&lt;code>var&lt;/code>一起使用，而不能与&lt;code>val&lt;/code>一起使用。&lt;/p>
+&lt;h3 id="异常抛出与捕获">异常抛出与捕获&lt;/h3>
+&lt;p>ko tlin中所有的异常类都继承自&lt;code>Throwable&lt;/code>类，每个异常都有一个&lt;code>message&lt;/code>属性，一个&lt;code>stack trace&lt;/code>,以及一个可选的&lt;code>cause&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">divideOrZero&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numerator&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">denominator&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">Int&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">try&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">numerator&lt;/span> &lt;span class="p">/&lt;/span> &lt;span class="n">denominator&lt;/span>
+&lt;span class="p">}&lt;/span> &lt;span class="k">catch&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">ArithmeticException&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>与 Python 不同，try/catch 是一个表达式：try 代码块（如果成功）或所选的 catch 代码块的最后一个表达式将成为结果值（finally 不会影响结果），因此可以将上面的函数体重构为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">fun divideOrZero(numerator: Int, denominator: Int): Int {
+return try {
+numerator / denominator
+} catch (e: ArithmeticException) {
+0
+}
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>基本异常类是&lt;code>Throwable&lt;/code>（但是扩展其子类&lt;code>Exception&lt;/code>更为常见），并且有大量内置的异常类。如果找不到满足需求的异常类，则可以通过从现有异常类继承来创建自己的异常类。&lt;/p>
+&lt;p>请注意，除了与&lt;code>Java&lt;/code> 代码进行交互时，在&lt;code>Kotlin&lt;/code>中不建议使用异常。与其在自己的代码中引发异常，不如考虑使用特殊的返回类型，例如 &lt;a href="https://arrow-kt.io/">Arrow 库&lt;/a>中的 &lt;a href="https://arrow-kt.io/docs/datatypes/option/">Option&lt;/a> 或 &lt;a href="https://arrow-kt.io/docs/datatypes/either/">Either&lt;/a>。&lt;/p></description></item><item><title>Kotlin集合的基本操作01</title><link>https://crazygit.wiseturtles.com/2021/06/21/009-kotlin-collections-01/</link><pubDate>Mon, 21 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/21/009-kotlin-collections-01/</guid><description>&lt;h3 id="标准库中的集合类">标准库中的集合类&lt;/h3>
+&lt;p>kotlin库中的集合关系图(注意&lt;code>Map&lt;/code>并不属于&lt;code>Collection&lt;/code>的子类)&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/20210628100214.png" alt="Kotlin collection">&lt;/p>
+&lt;p>Kotlin集合类中主要有三种类型&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>List&lt;/code>：有序，元素可重复的集合类，默认实现是&lt;code>ArrayList&lt;/code>.&lt;/li>
+&lt;li>&lt;code>Set&lt;/code>: 无序，元素不重复的集合类,默认实现是&lt;code>LinkedHastSet&lt;/code>,它保留了元素的插入顺序信息，因此可以使用&lt;code>first()&lt;/code>,&lt;code>last()&lt;/code>等方法&lt;/li>
+&lt;li>Map: 键值对，键是唯一的，值允许重复，默认实现是&lt;code>LinkedHashSet&lt;/code>,同样保留了元素的插入顺序信息&lt;/li>
+&lt;/ul>
+&lt;h3 id="集合的创建">集合的创建&lt;/h3>
+&lt;h4 id="从元素构建集合">从元素构建集合&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span class="c1">// 创建一个不可变的集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">fruits&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 创建一个可变的集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">mutableFruits&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 创建一个不可变的Set集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">fruitsSet&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 创建一个可变的Set集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">mutableFruitsSet&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableSetOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 创建一个不可变的Map集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">fruitMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mapOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 创建一个可变的Map集合
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">mutableFruitsMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableMapOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Pear&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Grape&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 使用to关键字的方式定义`Map`时一般适用与对性能要求不高的情况下，性能要求高时，可以使用apply()函数
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbersMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableMapOf&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;().&lt;/span>&lt;span class="n">apply&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="创建空的集合">创建空的集合&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">emptyList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">emptyList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">emptySet&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">emptySet&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">emptyMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">emptyMap&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="使用构造函数创建集合">使用构造函数创建集合&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">doubled&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">List&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// or MutableList if you want to change its content later
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">doubled&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [0, 2, 4]
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">linkedList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">LinkedList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">presizedSet&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">HashSet&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="m">32&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="复制已有的集合">复制已有的集合&lt;/h4>
+&lt;p>集合的复制方法&lt;code>toList()&lt;/code>, &lt;code>toMutableList&lt;/code>, &lt;code>toSet()&lt;/code>等方法，都会复制一个新的集合快照，&lt;/p>
+&lt;p>与原来的集合相互独立，修改时互补影响&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">sourceList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">copyList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sourceList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toMutableList&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">readOnlyCopyList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sourceList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toList&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">sourceList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Copy size: &lt;/span>&lt;span class="si">${copyList.size}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">//readOnlyCopyList.add(4) // compilation error
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Read-only copy size: &lt;/span>&lt;span class="si">${readOnlyCopyList.size}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也可以使用两个变量引用同一个集合，修改之间可以相互影响&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">sourceList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">referenceList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sourceList&lt;/span>
+&lt;span class="n">referenceList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Source size: &lt;/span>&lt;span class="si">${sourceList.size}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>另外，可以通过声明类型来限制引用集合的操作，比如声明一个&lt;code>List&lt;/code>类型的变量来指向一个&lt;code>MutableList&lt;/code>类型的变量，当通过&lt;code>List&lt;/code>类型的变量修改集合时，同样会报错。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">sourceList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 与上面的例子基本相同，只是这里限定了referenceList为List类型
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">referenceList&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">List&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sourceList&lt;/span>
+&lt;span class="c1">//referenceList.add(4) //compilation error
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">sourceList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">referenceList&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// shows the current state of sourceList
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="通过其它集合的函数来创建集合">通过其它集合的函数来创建集合&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 使用filter函数创建list
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">longerThan3&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filter&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">longerThan3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 通过map函数创建list
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">map&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapIndexed&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">idx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">idx&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="c1">//通过Association创建map
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">associateWith&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="集合遍历">集合遍历&lt;/h3>
+&lt;h4 id="使用iterator">使用&lt;code>iterator&lt;/code>&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">numbersIterator&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">iterator&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">while&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">numbersIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">hasNext&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbersIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>for&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">item&lt;/span> &lt;span class="k">in&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">item&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>forEach&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">forEach&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="listiterator">&lt;code>ListIterator&lt;/code>&lt;/h4>
+&lt;p>对于List类,还有一个特殊的迭代器&lt;code>ListIterator&lt;/code>，支持向前或向后遍历&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>hasPrevious()&lt;/code>,&lt;code>previous()&lt;/code>,&lt;code>previousIndex()&lt;/code>&lt;/li>
+&lt;li>&lt;code>hasNext()&lt;/code>,&lt;code>next()&lt;/code>,&lt;code>nextIndex()&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">listIterator&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">listIterator&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">while&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">listIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">hasNext&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="n">listIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Iterating backwards:&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">while&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">listIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">hasPrevious&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Index: &lt;/span>&lt;span class="si">${listIterator.previousIndex()}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;, value: &lt;/span>&lt;span class="si">${listIterator.previous()}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="mutableiterator和mutablelistiterator">&lt;code>MutableIterator&lt;/code>和&lt;code>MutableListIterator&lt;/code>&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 支持遍历的同时添加删除(remove)删除
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">mutableIterator&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">iterator&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">mutableIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">mutableIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">remove&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;After removal: &lt;/span>&lt;span class="si">$numbers&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 支持遍历的同时添加（add)或修改(set)元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mutableListOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">mutableListIterator&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">listIterator&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">mutableListIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">mutableListIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">mutableListIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">mutableListIterator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="k">set&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sequences">Sequences&lt;/h3>
+&lt;p>除了集合&lt;code>Collection&lt;/code>之外，Kotlin中还有&lt;code>Sequences&lt;/code>类，它与&lt;code>Iterator&lt;/code>类提供了相同的方法。&lt;/p>
+&lt;h4 id="创建sequences">创建Sequences&lt;/h4>
+&lt;p>使用&lt;code>sequencesOf()&lt;/code>方法&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbersSequence&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sequenceOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>assequeneces()&lt;/code>函数，把&lt;code>Iterable&lt;/code>对象转换成&lt;code>Sequences&lt;/code>对象&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">numbersSequence&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">asSequence&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>genrateSequence()&lt;/code>函数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="c1">// 以2作为初始元素，然后每个元素加2生成下一个元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">oddNumbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">generateSequence&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="c1">// `it` is the previous element
+&lt;/span>&lt;span class="c1">// 取前5个元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">oddNumbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">take&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">toList&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// [2, 4, 6, 8, 10]
+&lt;/span>&lt;span class="c1">// println(oddNumbers.count()) // error: the sequence is infinite
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>genrateSequence()&lt;/code>,会得到一个无穷的序列，为了得到一个有限的序列，可以在方法里返回&lt;code>null&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">oddNumbersLessThan10&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">generateSequence&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span> &lt;span class="p">&amp;lt;&lt;/span> &lt;span class="m">8&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="k">null&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">oddNumbersLessThan10&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// 5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>sequence()&lt;/code>函数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">oddNumbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">sequence&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">yield&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">yieldAll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="n">yieldAll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">generateSequence&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">7&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">oddNumbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">take&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">5&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">toList&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// [1, 3, 5, 7, 9]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="sequence与iterable的区别">&lt;code>sequence&lt;/code>与&lt;code>Iterable&lt;/code>的区别&lt;/h4>
+&lt;p>主要的区别在于多步运算的操作流程(具体区别可以看后面的示例)&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Iterator&lt;/code>在处理多个步骤时，是每步操作都对所有的元素执行完成后，再执行下一个步骤&lt;/li>
+&lt;li>&lt;code>Sequences&lt;/code>则是在对一个元素执行完所有的步骤之后，再处理下一元素&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>Iterator&lt;/code>的例子&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">words&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;The quick brown fox jumps over the lazy dog&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">lengthsList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filter&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;filter: &lt;/span>&lt;span class="si">$it&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">map&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;length: &lt;/span>&lt;span class="si">${it.length}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">take&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Lengths of first 4 words longer than 3 chars:&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lengthsList&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">filter: The
+filter: quick
+filter: brown
+filter: fox
+filter: jumps
+filter: over
+filter: the
+filter: lazy
+filter: dog
+length: 5
+length: 5
+length: 5
+length: 4
+length: 4
+Lengths of first 4 words longer than 3 chars:
+[5, 5, 5, 4]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>Sequence&lt;/code>的例子&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">words&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;The quick brown fox jumps over the lazy dog&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">//convert the List to a Sequence
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">wordsSequence&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">asSequence&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">lengthsSequence&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">wordsSequence&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filter&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;filter: &lt;/span>&lt;span class="si">$it&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">map&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;length: &lt;/span>&lt;span class="si">${it.length}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">take&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Lengths of first 4 words longer than 3 chars&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// terminal operation: obtaining the result as a List
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lengthsSequence&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toList&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出为&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Lengths of first 4 words longer than 3 chars
+filter: The
+filter: quick
+length: 5
+filter: brown
+length: 5
+filter: fox
+filter: jumps
+length: 5
+filter: over
+length: 4
+[5, 5, 5, 4]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="常见的集合操作">常见的集合操作&lt;/h3>
+&lt;p>标准库里面，集成的操作主要定义在两部分，一是作为集合的成员函数，二是集合的扩展函数。&lt;/p>
+&lt;p>定义在成员函数里的集合操作，包含了集合必要的一些操作，如检查集合是否为空，获取元素等。&lt;/p>
+&lt;p>而定义在扩展函数里的集合操作，则包含了一些其它的集合操作，如集合里的元素过滤，排序等。&lt;/p>
+&lt;p>当实现我们自己的集合接口时，可以通过继承&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-collection/index.html">&lt;code>AbstractCollection&lt;/code>&lt;/a>, &lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-list/index.html">&lt;code>AbstractList&lt;/code>&lt;/a>, &lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-set/index.html">&lt;code>AbstractSet&lt;/code>&lt;/a>, &lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-map/index.html">&lt;code>AbstractMap&lt;/code>&lt;/a>来实现。&lt;/p>
+&lt;p>集合场景的操作有如下几类&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-transformations.html">Transformations&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-filtering.html">Filtering&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-plus-minus.html">&lt;code>plus&lt;/code> and &lt;code>minus&lt;/code> operators&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-grouping.html">Grouping&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-parts.html">Retrieving collection parts&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-elements.html">Retrieving single elements&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-ordering.html">Ordering&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/collection-aggregate.html">Aggregate operations&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>**上面这些操作都只会基于原来的集合生成一个新的集合，所做的修改不会对原来的集合产生任何影响。**当然，也有一类操作是直接修改原始集合的操作，比如增加或删除元素等，这个后面再介绍&lt;/p>
+&lt;h3 id="集合转换操作transformationshttpskotlinlangorgdocscollection-transformationshtml">集合转换操作&lt;a href="https://kotlinlang.org/docs/collection-transformations.html">Transformations&lt;/a>&lt;/h3>
+&lt;h4 id="map">Map&lt;/h4>
+&lt;p>&lt;code>map&lt;/code>函数基于原集合的每个元素使用传入的Lambda表达式进行操作后再生成一个新的集合&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [3, 6, 9]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">map&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// [0, 2, 6]
+&lt;/span>&lt;span class="c1">// 需要使用索引信息时，可以使用mapIndexed
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapIndexed&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">idx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">idx&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="c1">// 同时，使用mapNotNull或mapIndexedNotNull还可以过滤掉转换结果为null的元素
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapNotNull&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">null&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// [3, 9]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapIndexedNotNull&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">idx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">idx&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">null&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="p">*&lt;/span> &lt;span class="n">idx&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// [2, 6]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>挡在对一个Map对象做操作时，可以通过&lt;code>mapKeys&lt;/code>或&lt;code>mapValues&lt;/code>来指定转换key还是value&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbersMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mapOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;key1&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key2&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key3&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key11&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">11&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbersMap&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapKeys&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">uppercase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {KEY1=1, KEY2=2, KEY3=3, KEY11=11}
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbersMap&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">mapValues&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">value&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {key1=5, key2=6, key3=7, key11=16}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="zip">Zip&lt;/h4>
+&lt;p>&lt;code>zip&lt;/code>函数用于合并两个集合操作到一个集合的&lt;code>Pair&lt;/code>对，当两个集合的长度不一致时，结果以集合个数小的为准，多出的元素不会包含在结果中，另外&lt;code>zip&lt;/code>函数还可以使用infix的方式来调用&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">colors&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;red&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;brown&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;grey&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">animals&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;fox&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;bear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;wolf&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">colors&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">zip&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">animals&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// [(red, fox), (brown, bear), (grey, wolf)]
+&lt;/span>&lt;span class="c1">// 使用infix形式
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">colors&lt;/span> &lt;span class="n">zip&lt;/span> &lt;span class="n">animals&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [(red, fox), (brown, bear), (grey, wolf)]
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">twoAnimals&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;fox&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;bear&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// colors中多余的元素直接被丢失
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">colors&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">zip&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">twoAnimals&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="c1">// [(red, fox), (brown, bear)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>zip&lt;/code>函数还可以接受两个参数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">colors&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;red&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;brown&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;grey&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">animals&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;fox&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;bear&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;wolf&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">colors&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">zip&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">animals&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">color&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">animal&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="s2">&amp;#34;The &lt;/span>&lt;span class="si">${animal.replaceFirstChar { it.uppercase() }&lt;/span>&lt;span class="s2">} is &lt;/span>&lt;span class="si">$color&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;span class="c1">// 输出
+&lt;/span>&lt;span class="c1">// [The Fox is red, The Bear is brown, The Wolf is grey]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>与&lt;code>zip&lt;/code>函数操作相反的，还有&lt;code>unzip&lt;/code>函数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numberPairs&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numberPairs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">unzip&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="c1">// ([one, two, three, four], [1, 2, 3, 4])
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="associate">Associate&lt;/h4>
+&lt;p>&lt;code>associate&lt;/code>函数用于把一个集合转换成map的形式.&lt;/p>
+&lt;p>这里主要有两种形式：&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;code>associateWith&lt;/code>把原始集合的元素作为key, lambda表达式的返回值作为value返回。当key重复的时候，只会保留最后一个。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">associateWith&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="c1">// {one=3, two=3, three=5, four=4}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>使用&lt;code>associateBy&lt;/code>把原始集合的元素作为value, lambda表达式的返回值作为key返回。当key重复的时候，只会保留最后一个。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">associateBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">uppercaseChar&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {O=one, T=three, F=four}
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="c1">// 也可以传入两个参数同时修改key和value
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">associateBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">keySelector&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">uppercaseChar&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="n">valueTransform&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">}))&lt;/span> &lt;span class="c1">// {O=3, T=5, F=4}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也可以使用&lt;code>associate&lt;/code>函数，在lambda中返回一个&lt;code>Pair&lt;/code>类型&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">charCodes&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">intArrayOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">72&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">69&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">76&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">76&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">79&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">byCharCode&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">charCodes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">associate&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">Char&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="c1">// 76=L only occurs once because only the last pair with the same key gets added
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">byCharCode&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// {72=H, 69=E, 76=L, 79=O}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="flatten">Flatten&lt;/h4>
+&lt;p>&lt;code>flatten&lt;/code>函数主要用于将一个嵌套的集合展开为一个集合&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numberSets&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">6&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">setOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numberSets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">flatten&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// [1, 2, 3, 4, 5, 6, 1, 2]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还有&lt;code>flatMap（）&lt;/code>函数，它类似&lt;code>map（）&lt;/code>和&lt;code>flatten()&lt;/code>函数的组合&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">containers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="n">StringContainer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">)),&lt;/span>
+&lt;span class="n">StringContainer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;five&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;six&amp;#34;&lt;/span>&lt;span class="p">)),&lt;/span>
+&lt;span class="n">StringContainer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;seven&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;eight&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">containers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">flatMap&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">values&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="集合的字符串表达形式">集合的字符串表达形式&lt;/h4>
+&lt;p>使用&lt;code>joinToString()&lt;/code>和&lt;code>joinTo()&lt;/code>可以把集合转出成字符串形式。&lt;/p>
+&lt;p>两者的区别在于: &lt;code>joinToString()&lt;/code>直接返回一个字符串，而&lt;code>joinTo()&lt;/code>是把返回结果添加到给的参数后面&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two, three, four]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// one, two, three, four
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">listString&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">StringBuffer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;The list of numbers: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinTo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listString&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listString&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// The list of numbers: one, two, three, four
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>也可以指定元素直接的分隔符,前缀以及后缀&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">separator&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34; | &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">prefix&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;start: &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">postfix&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;: end&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// start: one | two | three | four: end
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>对于大的集合，还可以通过&lt;code>limit&lt;/code>参数限定元素多个，剩下的元素用&lt;code>truncated&lt;/code>参数来表示&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="m">1.&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">toList&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">limit&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">truncated&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;...&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1">// 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;lt;...&amp;gt;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>另外，还可以指定&lt;code>transform&lt;/code>参数来改变每个元素的表现形式&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">joinToString&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="s2">&amp;#34;Element: &lt;/span>&lt;span class="si">${it.uppercase()}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="集合过滤操作filter">集合过滤操作Filter&lt;/h3>
+&lt;p>&lt;code>filter&lt;/code>函数既可以用于&lt;code>List&lt;/code>,&lt;code>Set&lt;/code>。也可以用于&lt;code>Map&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">longerThan3&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filter&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">longerThan3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [three, four]
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">numbersMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">mapOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;key1&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key2&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key3&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;key11&amp;#34;&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="m">11&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">filteredMap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbersMap&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filter&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">value&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">10&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filteredMap&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// {key11=11}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>filterIndexed()&lt;/code>可以使用索引作为参数，&lt;code>filterNot()&lt;/code>于&lt;code>filter()&lt;/code>条件刚好相反&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">filteredIdx&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filterIndexed&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">index&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">s&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">index&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="m">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;lt;&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">filteredNot&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filterNot&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filteredIdx&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [two, four]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">filteredNot&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [three, four]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>filterIsInstance()&lt;/code>根据类型过滤&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">null&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3.0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;All String elements in upper case:&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filterIsInstance&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;().&lt;/span>&lt;span class="n">forEach&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">uppercase&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// All String elements in upper case:
+&lt;/span>&lt;span class="c1">// TWO
+&lt;/span>&lt;span class="c1">// FOUR
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>filterNotNull()&lt;/code>过滤掉不为空的元素&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">null&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">filterNotNull&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">forEach&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// length is unavailable for nullable Strings
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// 3
+&lt;/span>&lt;span class="c1">// 3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="partition">Partition()&lt;/h4>
+&lt;p>根据条件，将集合分成两个列表&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="err">(&lt;/span>&lt;span class="py">match&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">rest&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">partition&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">length&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">match&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [three, four]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rest&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="条件判断">条件判断&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>any()&lt;/code>当集合中有一个元素满足条件时，返回&lt;code>true&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>none()&lt;/code> 当集合中没有元素满足条件时，返回&lt;code>true&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>all()&lt;/code>当集合中所有元素满足条件时，返回&lt;code>true&lt;/code>,当集合为空时，无论什么条件都返回true&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">any&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;e&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">none&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;a&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;e&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// false
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">emptyList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Int&lt;/span>&lt;span class="p">&amp;gt;().&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">&amp;gt;&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// 空集合直接返回true
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>any()&lt;/code>和&lt;code>none()&lt;/code>函数也可以不接受参数，变成检查集合是否包含元素，当集合包含元素时，&lt;/p>
+&lt;p>&lt;code>any()&lt;/code>返回&lt;code>true&lt;/code>, &lt;code>none()&lt;/code>函数与&lt;code>any()&lt;/code>函数行为相反。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">empty&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">emptyList&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">any&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">empty&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">any&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// false
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">none&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// false
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">empty&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">none&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// true
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="集合的加减操作plusminus">集合的加减操作(plus()/minus())&lt;/h3>
+&lt;p>集合同时支持加减操作，第一个操作数是一个集合，第二操作数可以是一个集合，也可以是单个元素。&lt;/p>
+&lt;p>需要注意的是减法操作，当减数是单个元素时，从被减数里去掉这个首次出现的这个元素，当被减数是集合时，从被减数删掉所有的这个元素&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">plusList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="s2">&amp;#34;five&amp;#34;&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">minusList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span> &lt;span class="p">-&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">minusSingle&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span> &lt;span class="p">-&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">minusSingleList&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span> &lt;span class="p">-&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">plusList&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two, three, four, four, five]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">minusList&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two]
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">minusSingle&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two, three, four],只是减去了第一个出现的&amp;#34;four&amp;#34;
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">minusSingleList&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [one, two, three], 减去了所有出现的&amp;#34;four&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="集合分组grouping">集合分组Grouping&lt;/h3>
+&lt;p>&lt;code>GroupBy()&lt;/code>函数接受一个Lambda表达式作为参数，然后返回一个Map类型，使用Lambda表达式返回的值作为Key，分组结果的值作为Value。&lt;/p>
+&lt;p>&lt;code>GroupBy()&lt;/code>函数也可以接受两个参数，通过&lt;code>keySelector&lt;/code>指定key,通过&lt;code>valueTransform&lt;/code>转换返回的值&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;five&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">uppercase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {O=[one], T=[two, three], F=[four, five]}
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupBy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">keySelector&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="n">valueTransform&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">uppercase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">}))&lt;/span> &lt;span class="c1">// {o=[ONE], t=[TWO, THREE], f=[FOUR, FIVE]}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果想在分组的同时，对每个分组执行操作，可以使用&lt;code>groupingBy()&lt;/code>函数，它返回一个&lt;code>Grouping&lt;/code>类型， &lt;code>Grouping&lt;/code>类型支持以下操作&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>eachCount()&lt;/code>计算每个分组的元素个数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;one&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;two&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;three&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;four&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;five&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;six&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupingBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">}.&lt;/span>&lt;span class="n">eachCount&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="c1">// {o=1, t=2, f=2, s=1}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>fold()&lt;/code>和&lt;code>reduce()&lt;/code>&lt;/p>
+&lt;p>&lt;code>fold()&lt;/code>和&lt;code>reduce()的区别在于&lt;/code>fold()&lt;code>函数接受一个初始值作为开始条件，而&lt;/code>reduce()`函数使用第一个元素作为开始条件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin"> &lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">7&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">8&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">9&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// 根据是模2的结果分组
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">%&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {0=[0, 2, 4, 6, 8], 1=[1, 3, 5, 7, 9]}
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="c1">// 把每个分组的元素相加
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupingBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">%&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">}.&lt;/span>&lt;span class="n">reduce&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">_&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">element&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="n">element&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {0=20, 1=25}
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="c1">// 把每个分组的元素相加，初始值为10
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupingBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">%&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="p">}.&lt;/span>&lt;span class="n">fold&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">sum&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">element&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="p">+&lt;/span> &lt;span class="n">element&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="c1">// {0=30, 1=35}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html">&lt;code>aggregate()&lt;/code>&lt;/a>&lt;/p>
+&lt;p>&lt;code>aggregate()&lt;/code>函数于&lt;code>fold()&lt;/code>和&lt;code>reduce()&lt;/code>函数的行为类型，不过功能上更强大&lt;/p>
+&lt;blockquote>
+&lt;p>Groups elements from the &lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-grouping/index.html">Grouping&lt;/a> source by key and applies [operation](&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html#kotlin.collections$aggregate(kotlin.collections.Grouping((kotlin.collections.aggregate.T,">https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html#kotlin.collections$aggregate(kotlin.collections.Grouping((kotlin.collections.aggregate.T,&lt;/a> kotlin.collections.aggregate.K)), kotlin.Function4((kotlin.collections.aggregate.K, kotlin.collections.aggregate.R?, kotlin.collections.aggregate.T, kotlin.Boolean, kotlin.collections.aggregate.R)))/operation) to the elements of each group sequentially, passing the previously accumulated value and the current element as arguments, and stores the results in a new map.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin"> &lt;span class="k">val&lt;/span> &lt;span class="py">numbers&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">7&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">8&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="m">9&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">aggregated&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">groupingBy&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">it&lt;/span> &lt;span class="p">%&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="p">}.&lt;/span>&lt;span class="n">aggregate&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">accumulator&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">StringBuilder&lt;/span>&lt;span class="p">?,&lt;/span> &lt;span class="n">element&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">first&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">first&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// first element
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">StringBuilder&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;:&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">element&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">else&lt;/span>
+&lt;span class="n">accumulator&lt;/span>&lt;span class="o">!!&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">element&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">aggregated&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// [0:3-6-9, 1:4-7, 2:5-8]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Kotlin基本语法04</title><link>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</link><pubDate>Tue, 15 Jun 2021 10:11:29 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/15/007-kotlin-basic-synatx-04/</guid><description>&lt;h3 id="密封类sealed-class">密封类&lt;code>sealed class&lt;/code>&lt;/h3>
 &lt;p>密封类的具体作用如下:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -12354,72 +13418,4 @@ yellow open bank EnHJEWvLRv2tZLoI7Z_lXw &lt;span class="m">5&lt;/span> &lt;span 
 &lt;/div>&lt;p>关于集成更多elastic stack服务，可以参考:
 &lt;a href="https://github.com/elastic/stack-docker/blob/master/docker-compose.yml">https://github.com/elastic/stack-docker/blob/master/docker-compose.yml&lt;/a>&lt;/p>
 &lt;p>kibana Console运行效果如下：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-04-12-kibana-devtool.png" alt="kibana console">&lt;/p></description></item><item><title>工银亚洲开户攻略</title><link>https://crazygit.wiseturtles.com/2018/03/09/icbcasia/</link><pubDate>Fri, 09 Mar 2018 22:21:02 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/03/09/icbcasia/</guid><description>&lt;h2 id="开户必读">开户必读&lt;/h2>
-&lt;p>申请之前，建议阅读&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.icbc.com.cn/ICBC/%E4%B8%AA%E4%BA%BA%E9%87%91%E8%9E%8D/%E4%B8%AA%E4%BA%BA%E6%9C%8D%E5%8A%A1/%E8%B7%A8%E5%A2%83%E9%87%91%E8%9E%8D/%E5%A2%83%E5%A4%96%E9%87%91%E8%9E%8D%E6%9C%8D%E5%8A%A1/%E5%B7%A5%E9%93%B6%E4%BA%9A%E6%B4%B2/">见证开立工银亚洲账户常见问题&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.icbcasia.com/ICBC/%E6%B5%B7%E5%A4%96%E5%88%86%E8%A1%8C/%E5%B7%A5%E9%93%B6%E4%BA%9A%E6%B4%B2/CN/%E4%B8%AA%E4%BA%BA%E9%87%91%E8%9E%8D/%E4%BA%BA%E6%B0%91%E5%B8%81%E5%8F%8A%E8%B7%A8%E5%A2%83%E7%90%86%E8%B4%A2/%E5%86%85%E5%9C%B0%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1%E4%B8%93%E5%8C%BA/retailfaq.htm">开立工银亚洲账户常见问题&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>工银亚洲账户分综合账户和理财账户的两种，它们之间的区别，以及支持的币种，费用等问题，里面都有答案了。&lt;/p>
-&lt;h2 id="准备工作">准备工作&lt;/h2>
-&lt;p>下面内容摘录自上面的文件&lt;/p>
-&lt;h3 id="国内开户">国内开户&lt;/h3>
-&lt;p>您无须前往香港，即可通过指定的境内工行网点，见证签署相关文件，代理开立工银亚洲的「理财金账户」或「综合账户」。在所有资料齐全有效的情况下，最快将于一周内完成代理开户手续。&lt;/p>
-&lt;p>适用对象：年满18周岁的境内居民&lt;/p>
-&lt;p>办理开户见证所需文件:&lt;/p>
-&lt;ol>
-&lt;li>境内居民本人有效身份证件&lt;/li>
-&lt;li>港澳通行证或护照（有效签注三个月以上）&lt;/li>
-&lt;li>住址证明：最近三个月内由政府机构或公共事务机构发出的列有客户姓名及地址资料的账单或者信函。如有效身份证上地址可显示客户当前的居住地址，则居住住址证明文件可不用提供。&lt;/li>
-&lt;/ol>
-&lt;p>另外，在前往境内工行网点办理正式见证手续之前，您可以预先登录工银亚洲门户网站，通过网上在线填单预先填写申请表格。&lt;/p>
-&lt;p>网上在线开户请点击：&lt;a href="https://myebankasia.icbc.com.cn/icbc/abroadperbank/apply/MHApplyForward.jsp?areaCode=0110&amp;amp;dse_locale=zh-CN">在线申请及查询&lt;/a>&lt;/p>
-&lt;p>有关工银亚洲开户见证服务详情及常见问题请进入&lt;strong>工行网站首页 &amp;gt; 个人业务 &amp;gt; 个人金融 &amp;gt; 个人服务 &amp;gt; 跨境金融 &amp;gt; 代理开户见证业务 &amp;gt; 工银亚洲（香港）开户见证服务&lt;/strong>，即可查询。&lt;/p>
-&lt;p>境内代理工银亚洲开户见证服务网点名单: &lt;a href="http://www.icbc.com.cn/SiteCollectionDocuments/ICBC/Resources/ICBC/grjr/download/2014/khjzslwd20140520.xls?bcsi_scan_DDA438331875F113=0&amp;amp;bcsi_scan_filename=khjzslwd20140520.xls">工银亚洲开户见证业务受理网点&lt;/a>。&lt;/p>
-&lt;h3 id="香港柜面开户">香港柜面开户&lt;/h3>
-&lt;p>您也可以选择亲临工银亚洲位于香港的分行柜面办理开户手续。开户所需文件同开户见证服务。&lt;/p>
-&lt;p>工银亚洲网点地址查询：请登录工银亚洲网站&lt;a href="http://www.icbcasia.com">http://www.icbcasia.com&lt;/a>, 在网页最底部“联系我们”，点击“分行网络”，即可查询到工银亚洲的所有网点信息。&lt;/p>
-&lt;h2 id="我的申请过程">我的申请过程&lt;/h2>
-&lt;h3 id="开户网点选择">开户网点选择&lt;/h3>
-&lt;p>首先需要说明的是: 并不是所有的工商银行网点都可以办理工银亚洲开户业务。可以下载表格&lt;a href="http://www.icbc.com.cn/SiteCollectionDocuments/ICBC/Resources/ICBC/grjr/download/2014/khjzslwd20140520.xls?bcsi_scan_DDA438331875F113=0&amp;amp;bcsi_scan_filename=khjzslwd20140520.xls">工银亚洲开户见证业务受理网点&lt;/a>,
-从中选择一个自己比较方便去的网点办理。&lt;/p>
-&lt;h3 id="线上申请">线上申请&lt;/h3>
-&lt;p>首先&lt;a href="https://myebankasia.icbc.com.cn/icbc/abroadperbank/apply/MHApplyForward.jsp?areaCode=0110&amp;amp;dse_locale=zh-CN">在线申请&lt;/a>, 提交表格后。便可以去开户网点进行办理。&lt;/p>
-&lt;p>&lt;strong>PS&lt;/strong>: 我线上申请后，到了开户网点发现在线申请的表格根本不能用，必须按照网点提供的模板来填写。所以如果可以的话，最好去开户网点先问一下。&lt;/p>
-&lt;h3 id="网点办理">网点办理&lt;/h3>
-&lt;p>准备好如下证件:&lt;/p>
-&lt;ul>
-&lt;li>境内居民本人有效身份证件&lt;/li>
-&lt;li>港澳通行证或护照（有效签注三个月以上）&lt;/li>
-&lt;li>住址证明：最近三个月内由政府机构或公共事务机构发出的列有客户姓名及地址资料的账单或者信函。如有效身份证上地址可显示客户当前的居住地址，则居住住址证明文件可不用提供。(&lt;strong>注意&lt;/strong>: 后面审核通过后，工行亚洲银行卡的银行卡就会邮寄到这个地址，所以最好确保填写的地址可以收到信件)&lt;/li>
-&lt;/ul>
-&lt;p>去网点填写申请表后，会拿到一个密码器和三个密码函，密码函里分别是网上银行，电话理财，借记卡的初始密码。&lt;/p>
-&lt;h3 id="等待资料审核">等待资料审核&lt;/h3>
-&lt;p>审核的过程还是比较严格的，我的申请表格被打回来一次，原因就是因为填写的住址地址和身份证上写的有一点小区别。导致我又重新去网点重新提交了一次申请表。&lt;/p>
-&lt;h3 id="电话确认">电话确认&lt;/h3>
-&lt;p>提交申请表，大概过了一周的样子，就收到工行打来的电话确认，会问一些开户时提交的资料问题: 如证件号，手机号，地址等。电话确认过后，又是等待资料审核。&lt;/p>
-&lt;h3 id="密码器激活">密码器激活&lt;/h3>
-&lt;p>电话确认过后，又过了一周多的时间。手机收到了工银亚洲提示开户成功的短信，并有一个激活码, 这激活码是用于激活之前领到的密码器的。&lt;/p>
-&lt;h3 id="账户激活">账户激活&lt;/h3>
-&lt;p>需要从国内同名的工行卡汇款至工银亚洲账户，才能激活账号。激活主要分两步骤：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>购汇&lt;/p>
-&lt;p>使用工商银行APP，搜索“结售汇”功能。可以根据当前的汇率，选择购买美元或港币。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>境外汇款&lt;/p>
-&lt;p>通过境外转账业务，将购买的美元或港币，转至工银亚洲账户。&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>激活步骤完成。&lt;/p>
-&lt;h3 id="借记卡激活">借记卡激活&lt;/h3>
-&lt;p>借记卡是在收到短信激活码后才寄出的，查询借记卡寄送进度:&lt;/p>
-&lt;p>可拨打95588 转7-7-2-1查询借记卡寄件编号，再按以下任一种方式查询:&lt;/p>
-&lt;ol>
-&lt;li>中国邮政邮件查询网址：&lt;a href="http://yjcx.chinapost.com.cn/">http://yjcx.chinapost.com.cn/&lt;/a>&lt;/li>
-&lt;li>中国邮政查询电话：11185 按8 选2 进入人工查询&lt;/li>
-&lt;li>短信查询：编辑短信内容“YTCX+约投挂号信函邮件号码（含字母‘NE’）”发送到11185，11185会以短信的形式告知客户当前的邮寄状态。&lt;/li>
-&lt;/ol>
-&lt;p>收到借记卡后，根据在网点拿到的密码函里的初始密码，在境内工行ATM机办理一笔查询/取款交易即可启用卡片。&lt;/p>
-&lt;p>最后，祝大家顺利办到工银亚洲卡。&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-04-12-kibana-devtool.png" alt="kibana console">&lt;/p></description></item></channel></rss>
