@@ -968,7 +968,9 @@ println(numbers.none()) &lt;span style="color:#75715e">// false
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>println(empty.none()) &lt;span style="color:#75715e">// true
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="集合的加减操作plusminus">集合的加减操作(plus()/minus())&lt;/h3>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="集合的加减操作plusminus">集合的加减操作(plus()/minus())&lt;/h3>
 &lt;p>集合同时支持加减操作，第一个操作数是一个集合，第二操作数可以是一个集合，也可以是单个元素。&lt;/p>
 &lt;p>需要注意的是减法操作，当减数是单个元素时，从被减数里去掉这个首次出现的这个元素，当被减数是集合时，从被减数删掉所有的这个元素&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -1054,10 +1056,8 @@ println(numbers.groupingBy { &lt;span style="color:#66d9ef">it&lt;/span>.first()
 &lt;p>&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html">&lt;code>aggregate()&lt;/code>&lt;/a>&lt;/p>
 &lt;p>&lt;code>aggregate()&lt;/code>函数于&lt;code>fold()&lt;/code>和&lt;code>reduce()&lt;/code>函数的行为类型，不过功能上更强大&lt;/p>
 &lt;blockquote>
-&lt;p>Groups elements from the &lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-grouping/index.html">Grouping&lt;/a> source by key and applies [operation](&lt;a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html#kotlin.collections$aggregate(kotlin.collections.Grouping((kotlin.collections.aggregate.T,">https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/aggregate.html#kotlin.collections$aggregate(kotlin.collections.Grouping((kotlin.collections.aggregate.T,&lt;/a> kotlin.collections.aggregate.K)), kotlin.Function4((kotlin.collections.aggregate.K, kotlin.collections.aggregate.R?, kotlin.collections.aggregate.T, kotlin.Boolean, kotlin.collections.aggregate.R)))/operation) to the elements of each group sequentially, passing the previously accumulated value and the current element as arguments, and stores the results in a new map.&lt;/p>
+&lt;p>Groups elements from the Grouping source by key and applies operation to the elements of each group sequentially, passing the previously accumulated value and the current element as arguments, and stores the results in a new map.&lt;/p>
 &lt;/blockquote>
-&lt;/li>
-&lt;/ul>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
