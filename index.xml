@@ -1,4 +1,341 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 30 Jun 2021 14:34:52 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Jetpack简介</title><link>https://crazygit.wiseturtles.com/2021/06/30/android-jetpack-overview/</link><pubDate>Wed, 30 Jun 2021 14:34:52 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/30/android-jetpack-overview/</guid><description>&lt;h2 id="概述httpsdeveloperandroidcomjetpack">&lt;a href="https://developer.android.com/jetpack">概述&lt;/a>&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soul Mate</title><link>https://crazygit.wiseturtles.com/</link><description>Recent content on Soul Mate</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 14 Jul 2021 10:10:54 +0800</lastBuildDate><atom:link href="https://crazygit.wiseturtles.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin中的作用域函数</title><link>https://crazygit.wiseturtles.com/2021/07/14/011-kotlin-scope-function/</link><pubDate>Wed, 14 Jul 2021 10:10:54 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/07/14/011-kotlin-scope-function/</guid><description>&lt;h2 id="scope-functions">Scope functions&lt;/h2>
+&lt;h3 id="let">&lt;code>let&lt;/code>&lt;/h3>
+&lt;p>&lt;code>let&lt;/code>既不是操作符,也不是什么关键字,而是一个函数。这个函数提供了函数式API的编程接口，并将原始调用对象作为参数传递到Lambda表达式中。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">obj.let { obj &lt;span style="color:#f92672">-&amp;gt;&lt;/span>
+&lt;span style="color:#75715e">// 编写具体的逻辑
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">fun&lt;/span> &lt;span style="color:#a6e22e">doStudy&lt;/span>(study: Study?) {
+study&lt;span style="color:#f92672">?.&lt;/span>let {
+&lt;span style="color:#66d9ef">it&lt;/span>.readBooks()
+&lt;span style="color:#66d9ef">it&lt;/span>.doHomework()
+}
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="with">&lt;code>with&lt;/code>&lt;/h3>
+&lt;p>&lt;code>with&lt;/code>函数接收两个参数:&lt;/p>
+&lt;p>第一个参数可以是任意类型的对象
+第二个参数是一个Lambda表达式&lt;/p>
+&lt;p>&lt;code>with&lt;/code>函数会在Lambda表达式中提供第一个参数对象的上下文，并使用Lambda表达式的最后一行代码作为返回值返回。&lt;/p>
+&lt;p>注意: &lt;code>with&lt;/code>函数与python中的&lt;code>with&lt;/code>不一样，与python中&lt;code>with&lt;/code>作用类似的是&lt;code>Kotlin&lt;/code>当中的&lt;code>use&lt;/code>函数。&lt;/p>
+&lt;p>如下面的代码&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">val&lt;/span> fruits = listOf(&lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Pear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Grape&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">val&lt;/span> builder = StringBuilder()
+builder.append(&lt;span style="color:#e6db74">&amp;#34;Start eating fruits.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">for&lt;/span> (fruit &lt;span style="color:#66d9ef">in&lt;/span> fruits) {
+builder.append(&lt;span style="color:#e6db74">&amp;#34;eat &lt;/span>&lt;span style="color:#e6db74">$fruit&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+}
+builder.append(&lt;span style="color:#e6db74">&amp;#34;Ate all fruits&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">var&lt;/span> result = builder.toString()
+println(result)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用&lt;code>with&lt;/code>函数可以简化为&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">val&lt;/span> fruits = listOf(&lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Pear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Grape&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">val&lt;/span> result = with(StringBuffer()) {
+append(&lt;span style="color:#e6db74">&amp;#34;Start eating fruits.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">for&lt;/span> (fruit &lt;span style="color:#66d9ef">in&lt;/span> fruits) {
+append(&lt;span style="color:#e6db74">&amp;#34;eat &lt;/span>&lt;span style="color:#e6db74">$fruit&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+}
+append(&lt;span style="color:#e6db74">&amp;#34;Ate all fruits&amp;#34;&lt;/span>)
+toString()
+}
+println(result)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="run">&lt;code>run&lt;/code>&lt;/h3>
+&lt;p>&lt;code>run&lt;/code>函数的用法和使用场景与&lt;code>with&lt;/code>函数非常类似，只是语法上做了一些改动。&lt;/p>
+&lt;p>首先&lt;code>run&lt;/code>函数是不能直接调用的，而是一定要调用某个对象的&lt;code>run&lt;/code>函数才行；其次&lt;code>run&lt;/code>函数只接受一个Lambda参数，并且会在Lambda表达式中提供调用对象的上下文。其它与&lt;code>with&lt;/code>函数是一样的，包括也会使用Lambda表达式中的最后一句代码作为返回值返回。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">val&lt;/span> fruits = listOf(&lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Pear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Grape&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">val&lt;/span> result = StringBuffer().run {
+append(&lt;span style="color:#e6db74">&amp;#34;Start eating fruits.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">for&lt;/span> (fruit &lt;span style="color:#66d9ef">in&lt;/span> fruits) {
+append(&lt;span style="color:#e6db74">&amp;#34;eat &lt;/span>&lt;span style="color:#e6db74">$fruit&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+}
+append(&lt;span style="color:#e6db74">&amp;#34;Ate all fruits&amp;#34;&lt;/span>)
+toString()
+}
+println(result)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="apply">&lt;code>apply&lt;/code>&lt;/h3>
+&lt;p>&lt;code>apply&lt;/code>函数与&lt;code>run&lt;/code>函数非常类似，都要在某个对象上调用，并且只接受一个Lambda参数，也会在Lambda表达式中提供调用对象的上下文，但是&lt;code>apply&lt;/code>函数无法指定返回值，而是自动返回调用对象本身。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">val&lt;/span> fruits = listOf(&lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Pear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Grape&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">val&lt;/span> result = StringBuffer().apply {
+append(&lt;span style="color:#e6db74">&amp;#34;Start eating fruits.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">for&lt;/span> (fruit &lt;span style="color:#66d9ef">in&lt;/span> fruits) {
+append(&lt;span style="color:#e6db74">&amp;#34;eat &lt;/span>&lt;span style="color:#e6db74">$fruit&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+}
+append(&lt;span style="color:#e6db74">&amp;#34;Ate all fruits&amp;#34;&lt;/span>)
+}.toString()
+println(result)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="also函数">&lt;code>also&lt;/code>函数&lt;/h3>
+&lt;p>交换两个变量的值&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">var a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+var b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+a &lt;span style="color:#f92672">=&lt;/span> b.also &lt;span style="color:#f92672">{&lt;/span> b &lt;span style="color:#f92672">=&lt;/span> a &lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/20210526115340.png" alt="几个函数的区别">&lt;/p>
+&lt;h3 id="集合的函数式api">集合的函数式API&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>maxBy&lt;/code>函数: 将集合中的每一个元素按照传入的Lambda表达式进行转换，并返回转换后最大的值。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>map&lt;/code>函数: 将集合中的每一个元素都映射为另外的值，映射规则在Lambda表达式中指定，最终生成一个新的集合。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>filter&lt;/code>函数: 过滤集合当中的元素。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>any&lt;/code>函数: 用于判断集合中至少存在一个元素满足指定的条件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>all&lt;/code>函数: 用于用于判断集合所有的元素都满足指定的条件&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">&lt;span style="color:#66d9ef">val&lt;/span> fruits = listOf(&lt;span style="color:#e6db74">&amp;#34;Apple&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Pear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Grape&amp;#34;&lt;/span>)
+println(fruits.maxBy { &lt;span style="color:#66d9ef">it&lt;/span>.length })
+println(fruits.map { &lt;span style="color:#66d9ef">it&lt;/span>.toUpperCase() })
+println(fruits.filter { &lt;span style="color:#66d9ef">it&lt;/span>.length &amp;lt; &lt;span style="color:#ae81ff">5&lt;/span> }.map { &lt;span style="color:#66d9ef">it&lt;/span>.toUpperCase() })
+println(fruits.any { &lt;span style="color:#66d9ef">it&lt;/span>.length &amp;lt; &lt;span style="color:#ae81ff">5&lt;/span> })
+println(fruits.all { &lt;span style="color:#66d9ef">it&lt;/span>.length &amp;lt; &lt;span style="color:#ae81ff">5&lt;/span> })
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出为&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">Orange
+[APPLE, ORANGE, PEAR, GRAPE]
+[PEAR]
+true
+false
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="java函数式api">Java函数式API&lt;/h3>
+&lt;p>在Kotlin中调用一个Java方法时，并且该方法接收一个Java单抽象方法接口参数,就可以使用函数式API。&lt;/p>
+&lt;p>Java单抽象方法接口指的是接口中只有一个待实现方法，如果有多个待实现方法，则无法使用函数式API。比如: Java中的&lt;code>Runnable&lt;/code>接口,这个接口有且只有一个待实现的&lt;code>run()&lt;/code>方法，定义如下:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">Runnable&lt;/span>&lt;span style="color:#f92672">(){&lt;/span>
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">run&lt;/span>&lt;span style="color:#f92672">();&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>Thread&lt;/code>类的构造函数接受一个&lt;code>Runnable&lt;/code>参数，使用&lt;code>Java&lt;/code>代码如下:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">&lt;span style="color:#66d9ef">new&lt;/span> Thread&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#66d9ef">new&lt;/span> Runnable&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#a6e22e">@override&lt;/span>
+&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">run&lt;/span>&lt;span style="color:#f92672">(){&lt;/span>
+System&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">out&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">println&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Thread is running...&amp;#34;&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}).&lt;/span>&lt;span style="color:#a6e22e">start&lt;/span>&lt;span style="color:#f92672">();&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面使用了匿名类的写法,创建了一个&lt;code>Runnable&lt;/code>接口的匿名类实例，并将它传给了&lt;code>Thread&lt;/code>类的构造方法，最后调用&lt;code>Thread&lt;/code>类的&lt;code>start()&lt;/code>方法执行这个线程。&lt;/p>
+&lt;p>使用Kotlin,可以这样写&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">Thread(&lt;span style="color:#66d9ef">object&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">: &lt;/span>&lt;span style="color:#a6e22e">Runnable&lt;/span> {
+&lt;span style="color:#66d9ef">override&lt;/span> &lt;span style="color:#66d9ef">fun&lt;/span> &lt;span style="color:#a6e22e">run&lt;/span>() {
+println(&lt;span style="color:#e6db74">&amp;#34;Thread is running...&amp;#34;&lt;/span>)
+}
+}).start()
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Kotlin中匿名类的写法和Java有一点区别,由于Kotlin完全舍弃了&lt;code>new&lt;/code>关键字，因此创建匿名类的时候就不能再使用&lt;code>new&lt;/code>了，而是改用了&lt;code>object&lt;/code>关键字。&lt;/p>
+&lt;p>目前&lt;code>Thread&lt;/code>类的构造方法是符合Java函数式API的使用条件的，上面的代码可以简化为&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">Thread(Runnable {
+println(&lt;span style="color:#e6db74">&amp;#34;Thread is running...&amp;#34;&lt;/span>)
+}).start()
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果一个Java方法的参数列表中不存在一个以上的Java单抽象方法接口参数，可以将接口名进行省略。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">Thread({
+println(&lt;span style="color:#e6db74">&amp;#34;Thread is running...&amp;#34;&lt;/span>)
+}).start()
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>和之前Kotlin中函数式API语法类似，当Lambda表达式是参数列表最后一个参数时，可以将Lambda表达式移到括号外面。同时，当Lambda表达式还是方法的唯一一个参数时，可以将方法的括号省略。最终简化为&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">Thread {
+println(&lt;span style="color:#e6db74">&amp;#34;Thread is running...&amp;#34;&lt;/span>)
+}.start()
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>类似的还有按钮点击事件的写法&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">button&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">setOnClickListener&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#66d9ef">new&lt;/span> View&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">OnClickListener&lt;/span>&lt;span style="color:#f92672">(){&lt;/span>
+&lt;span style="color:#a6e22e">@override&lt;/span>
+&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">onClick&lt;/span>&lt;span style="color:#f92672">(&lt;/span>View v&lt;span style="color:#f92672">){&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">});&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用Kotlin可以简化为&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Kotlin" data-lang="Kotlin">button.setOnClickListener {
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Jetpack简介</title><link>https://crazygit.wiseturtles.com/2021/06/30/android-jetpack-overview/</link><pubDate>Wed, 30 Jun 2021 14:34:52 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2021/06/30/android-jetpack-overview/</guid><description>&lt;h2 id="概述httpsdeveloperandroidcomjetpack">&lt;a href="https://developer.android.com/jetpack">概述&lt;/a>&lt;/h2>
 &lt;p>Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优质应用。这些组件可帮助您遵循最佳做法、让您摆脱编写样板代码的工作并简化复杂任务，以便您将精力集中放在所需的代码上。&lt;/p>
 &lt;p>Jetpack 包含与平台 API 解除捆绑的&lt;code> androidx.* &lt;/code>软件包库。这意味着，它可以提供向后兼容性，且比 Android 平台的更新频率更高，以此确保您始终可以获取最新且最好的 Jetpack 组件版本。&lt;/p>
 &lt;p>Android Jetpack库的中组件的命名空间都在&lt;code>androidx&lt;/code>中，它代替了原有的&lt;code>android.support&lt;/code>库(&lt;code>android.support&lt;/code>库目前已经不再维护，最后版本为&lt;code>28.0.0&lt;/code>)&lt;/p>
@@ -1745,7 +2082,7 @@ println(bookNames)
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>lateinit&lt;/code>只能与&lt;code>var&lt;/code>一起使用，而不能与&lt;code>val&lt;/code>一起使用。&lt;/p>
 &lt;h3 id="异常抛出与捕获">异常抛出与捕获&lt;/h3>
-&lt;p>ko tlin中所有的异常类都继承自&lt;code>Throwable&lt;/code>类，每个异常都有一个&lt;code>message&lt;/code>属性，一个&lt;code>stack trace&lt;/code>,以及一个可选的&lt;code>cause&lt;/code>&lt;/p>
+&lt;p>kotlin中所有的异常类都继承自&lt;code>Throwable&lt;/code>类，每个异常都有一个&lt;code>message&lt;/code>属性，一个&lt;code>stack trace&lt;/code>,以及一个可选的&lt;code>cause&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -12140,92 +12477,6 @@ sum &lt;span style="color:#f92672">+=&lt;/span> number
 }
 print(sumOf())
 print(sumOf(numbers: &lt;span style="color:#ae81ff">42&lt;/span>, &lt;span style="color:#ae81ff">597&lt;/span>, &lt;span style="color:#ae81ff">12&lt;/span>))
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>iOS学习目标制定及开发环境搭建</title><link>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</link><pubDate>Fri, 26 Oct 2018 23:13:46 +0800</pubDate><guid>https://crazygit.wiseturtles.com/2018/10/26/ios-learn-001/</guid><description>&lt;p>本系列是从零开始学习iOS开发的学习日记的第一篇，主要用于记录和整理学习笔记和心得，由于也是第一次学习，内容中不免有错误的地方，如有发现，欢迎指出。&lt;/p>
-&lt;h2 id="学习目标">学习目标&lt;/h2>
-&lt;ul>
-&lt;li>经过学习，能开发出一个让自己认可的APP并发布到App Store&lt;/li>
-&lt;li>习惯养成: 保证每天投入至少1个小时学习新知识&lt;/li>
-&lt;/ul>
-&lt;h2 id="学习资源">学习资源&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://swift.org">官网&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://developer.apple.com/swift/resources/">Swift学习官方学习资源(含文档，视频，示例代码等)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese">Swift官方文档中文版&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ipader/SwiftGuide">GitHub上别人整理的Swift语言主流学习资源&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.hackingwithswift.com/">Hacking With Swift&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.imooc.com/learn/635">慕课网视频教程&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="建议学习顺序">建议学习顺序&lt;/h2>
-&lt;ol>
-&lt;li>阅读文档&lt;a href="https://docs.swift.org/swift-book/index.html">the swift programming language&lt;/a>，了解Swift语法&lt;/li>
-&lt;li>斯坦福大学视频教程: Developing iOS 10 Apps with Swift &lt;a href="http://www.swift51.com/video/1057.html">中文字幕版&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.v2ex.com/t/457681">Developing iOS 11 Apps with Swift&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h2 id="swift安装">Swift安装&lt;/h2>
-&lt;p>要学习iOS开发，前提就是要学习&lt;code>Swift&lt;/code>或&lt;code>Object-C&lt;/code>语言。就像如果要学习Android开发的话，必须先掌握 &lt;del>&lt;code>Java&lt;/code>&lt;/del> &lt;code>Kotlin&lt;/code>语言一样。&lt;/p>
-&lt;p>由于现在苹果公司主推&lt;code>Swift&lt;/code>语言，所以我也选择了&lt;code>Swift&lt;/code>语言下手。&lt;code>Object-C&lt;/code>有需要的话，以后再学习了。&lt;/p>
-&lt;p>Swift语言被开源后，单独放了一个&lt;a href="https://swift.org/">网站&lt;/a>上面，现在Swift不仅可以在Mac系统上运行，也可以在Linux上运行。&lt;/p>
-&lt;p>根据自己的操作系统，在&lt;a href="https://swift.org/download/#releases">下载页面&lt;/a>选择合适的安装包安装即可。&lt;/p>
-&lt;p>以&lt;code>macOS 10.14&lt;/code>为例，只需要在App Store商店里安装Xcode即可。&lt;/p>
-&lt;h3 id="检查是否安装成功">检查是否安装成功&lt;/h3>
-&lt;p>安装好以后，在终端下执行如下命令即可检查是否安装成功。&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ swift -version
-Apple Swift version 4.2 &lt;span style="color:#f92672">(&lt;/span>swiftlang-1000.11.37.1 clang-1000.11.45.1&lt;span style="color:#f92672">)&lt;/span>
-Target: x86_64-apple-darwin18.0.0
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>当前学习是Swift 4.1版本，后面所有的例子也会基于这个版本。&lt;/p>
-&lt;h3 id="交互模式">交互模式&lt;/h3>
-&lt;p>在终端直接输入&lt;code>swift&lt;/code>，即可进入交互模式，类似在终端输入&lt;code>python&lt;/code>一样&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ swift
-Welcome to Apple Swift version 4.2 &lt;span style="color:#f92672">(&lt;/span>swiftlang-1000.11.37.1 clang-1000.11.45.1&lt;span style="color:#f92672">)&lt;/span>. Type :help &lt;span style="color:#66d9ef">for&lt;/span> assistance.
-1&amp;gt; print&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Hello World&amp;#34;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
-Hello World
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="swift代码格式化工具">Swift代码格式化工具&lt;/h3>
-&lt;p>&lt;a href="https://github.com/Jintin/Swimat">Swimat&lt;/a>&lt;/p>
-&lt;p>安装&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ brew cask install swimat
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>设置，依次打开&lt;code>系统偏好设置&lt;/code>-&amp;gt;&lt;code>扩展&lt;/code>-&amp;gt;&lt;code>Xcode&lt;/code>里勾选上&lt;code>swimat&lt;/code>,如下图所示&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/1550673424.png" alt="启动swimat">&lt;/p>
-&lt;p>最后在Xcode里设置使用的&lt;code>Swimat&lt;/code>快捷键,打开&lt;code>Xcode&lt;/code>,依次找到&lt;code>Preference&lt;/code> -&amp;gt; &lt;code>Key Bindings&lt;/code> -&amp;gt; &lt;code>搜索“swimat”&lt;/code> 设置快捷键为自己喜欢的快捷键 如: &lt;code>Option + F&lt;/code>, 如下图所示:&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/crazygit/static@main/img/2018-10-24-Swimat-shortcut.png" alt="Swimat-shortcut">&lt;/p>
-&lt;p>&lt;strong>PS&lt;/strong>:&lt;/p>
-&lt;p>设置快捷键时注意当前设置框最下面的文字提示信息，如果存在快捷键冲突，它会有提示&lt;/p>
-&lt;h3 id="xcode包管理工具">Xcode包管理工具&lt;/h3>
-&lt;p>&lt;a href="http://alcatraz.io/">alcatraz&lt;/a>&lt;/p>
-&lt;p>安装&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/install.sh | sh
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item></channel></rss>
